@@ -1,0 +1,392 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/FormidableLabs/react-live
++ reporef=master
++ repopath=./packages/demo
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/FormidableLabs/react-live
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a2e331f72fc3
+++ echo 'github.com/FormidableLabs/react-live;master;./packages/demo'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4b5d5c0977f8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/FormidableLabs/react-live/bWFzdGVyCg/Li9wYWNrYWdlcy9kZW1vCg
++ jq -nc --arg key analysis_key --arg value github.com/FormidableLabs/react-live/bWFzdGVyCg/Li9wYWNrYWdlcy9kZW1vCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 59fe8562ce6752f5
++ jq -nc --arg key analysis_nonce --arg value 59fe8562ce6752f5 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/FormidableLabs/react-live
++ jq -nc --arg key input_repo_name --arg value github.com/FormidableLabs/react-live '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/demo
++ jq -nc --arg key input_repo_path --arg value ./packages/demo '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:50:30Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:50:30Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a2e331f72fc3
++ pushd /tmp/twcr-a2e331f72fc3
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/FormidableLabs/react-live.git .
+/tmp/twcr-a2e331f72fc3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:50:31Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:50:31Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4a21fd4c048e7ea9f180a55b2735e0c1595054fa
++ jq -nc --arg key exec_repo_commit_sha --arg value 4a21fd4c048e7ea9f180a55b2735e0c1595054fa '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-05 11:26:07 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-05T17:26:07Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-05T17:26:07Z '{ key: $key, value: $value }'
++ '[' -z ./packages/demo ']'
++ pushd ./packages/demo
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-a2e331f72fc3/packages/demo /tmp/twcr-a2e331f72fc3 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2e331f72fc3/packages/demo
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/demo '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2e331f72fc3
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:50:31Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:50:31Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "demo",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.7"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/demo '!=' ./ ']'
++ rm -f /tmp/twcr-a2e331f72fc3/package.json /tmp/twcr-a2e331f72fc3/package-lock.json /tmp/twcr-a2e331f72fc3/pnpm-lock.yaml /tmp/twcr-a2e331f72fc3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2e331f72fc3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2e331f72fc3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2e331f72fc3/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../react-live                            |  WARN  deprecated @babel/plugin-proposal-class-properties@7.18.6
+../react-live                            |  WARN  deprecated @babel/plugin-proposal-object-rest-spread@7.20.7
+../..                                    | Progress: resolved 22, reused 0, downloaded 15, added 0
+../..                                    | Progress: resolved 38, reused 0, downloaded 29, added 0
+../..                                    | Progress: resolved 44, reused 0, downloaded 40, added 0
+../..                                    | Progress: resolved 72, reused 0, downloaded 60, added 0
+../..                                    | Progress: resolved 99, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 128, reused 0, downloaded 112, added 0
+../..                                    | Progress: resolved 153, reused 0, downloaded 142, added 0
+../..                                    | Progress: resolved 172, reused 0, downloaded 160, added 0
+../..                                    | Progress: resolved 184, reused 0, downloaded 168, added 0
+../..                                    | Progress: resolved 210, reused 0, downloaded 192, added 0
+../..                                    | Progress: resolved 234, reused 0, downloaded 215, added 0
+../..                                    | Progress: resolved 260, reused 0, downloaded 238, added 0
+../..                                    | Progress: resolved 291, reused 0, downloaded 263, added 0
+../..                                    | Progress: resolved 316, reused 0, downloaded 292, added 0
+../..                                    | Progress: resolved 332, reused 0, downloaded 307, added 0
+../..                                    | Progress: resolved 358, reused 0, downloaded 332, added 0
+../..                                    | Progress: resolved 370, reused 0, downloaded 345, added 0
+../..                                    | Progress: resolved 391, reused 0, downloaded 360, added 0
+../..                                    | Progress: resolved 414, reused 0, downloaded 384, added 0
+../..                                    | Progress: resolved 446, reused 0, downloaded 407, added 0
+../..                                    | Progress: resolved 471, reused 0, downloaded 437, added 0
+../..                                    | Progress: resolved 495, reused 0, downloaded 457, added 0
+../..                                    | Progress: resolved 524, reused 0, downloaded 483, added 0
+../..                                    | Progress: resolved 551, reused 0, downloaded 511, added 0
+../..                                    | Progress: resolved 575, reused 0, downloaded 532, added 0
+../..                                    | Progress: resolved 599, reused 0, downloaded 555, added 0
+../..                                    | Progress: resolved 637, reused 0, downloaded 571, added 0
+../..                                    | Progress: resolved 658, reused 0, downloaded 592, added 0
+../..                                    | Progress: resolved 659, reused 0, downloaded 592, added 0
+../..                                    | Progress: resolved 681, reused 0, downloaded 617, added 0
+../..                                    | Progress: resolved 713, reused 0, downloaded 638, added 0
+../..                                    | Progress: resolved 747, reused 0, downloaded 669, added 0
+../..                                    | Progress: resolved 771, reused 0, downloaded 696, added 0
+../..                                    | Progress: resolved 781, reused 0, downloaded 705, added 0
+../..                                    | Progress: resolved 793, reused 0, downloaded 721, added 0
+../..                                    | Progress: resolved 818, reused 0, downloaded 737, added 0
+../..                                    | Progress: resolved 851, reused 0, downloaded 764, added 0
+../..                                    | Progress: resolved 879, reused 0, downloaded 801, added 0
+../..                                    | Progress: resolved 910, reused 0, downloaded 827, added 0
+../..                                    | Progress: resolved 937, reused 0, downloaded 849, added 0
+../..                                    | Progress: resolved 957, reused 0, downloaded 873, added 0
+../..                                    | Progress: resolved 984, reused 0, downloaded 895, added 0
+../..                                    | Progress: resolved 1009, reused 0, downloaded 921, added 0
+../..                                    | Progress: resolved 1032, reused 0, downloaded 946, added 0
+../..                                    | Progress: resolved 1063, reused 0, downloaded 967, added 0
+../..                                    | Progress: resolved 1091, reused 0, downloaded 996, added 0
+../..                                    | Progress: resolved 1121, reused 0, downloaded 1021, added 0
+../..                                    | Progress: resolved 1147, reused 0, downloaded 1047, added 0
+../..                                    | Progress: resolved 1172, reused 0, downloaded 1074, added 0
+../..                                    | Progress: resolved 1196, reused 0, downloaded 1097, added 0
+../..                                    | Progress: resolved 1229, reused 0, downloaded 1126, added 0
+../..                                    | Progress: resolved 1245, reused 0, downloaded 1138, added 0
+../..                                    | Progress: resolved 1265, reused 0, downloaded 1157, added 0
+../..                                    | Progress: resolved 1285, reused 0, downloaded 1178, added 0
+../..                                    | Progress: resolved 1306, reused 0, downloaded 1194, added 0
+../..                                    | Progress: resolved 1331, reused 0, downloaded 1218, added 0
+../..                                    | Progress: resolved 1356, reused 0, downloaded 1240, added 0
+../..                                    | Progress: resolved 1379, reused 0, downloaded 1265, added 0
+../..                                    | Progress: resolved 1398, reused 0, downloaded 1281, added 0
+../..                                    | Progress: resolved 1420, reused 0, downloaded 1306, added 0
+../..                                    | Progress: resolved 1448, reused 0, downloaded 1332, added 0
+../..                                    | Progress: resolved 1473, reused 0, downloaded 1355, added 0
+../..                                    | Progress: resolved 1494, reused 0, downloaded 1374, added 0
+../..                                    | Progress: resolved 1520, reused 0, downloaded 1397, added 0
+../..                                    | Progress: resolved 1543, reused 0, downloaded 1421, added 0
+../..                                    | Progress: resolved 1575, reused 0, downloaded 1451, added 0
+../..                                    | Progress: resolved 1603, reused 0, downloaded 1477, added 0
+../..                                    | Progress: resolved 1627, reused 0, downloaded 1500, added 0
+../..                                    | Progress: resolved 1653, reused 0, downloaded 1519, added 0
+../..                                    | Progress: resolved 1674, reused 0, downloaded 1541, added 0
+../..                                    | Progress: resolved 1699, reused 0, downloaded 1565, added 0
+../..                                    | Progress: resolved 1727, reused 0, downloaded 1591, added 0
+../..                                    | Progress: resolved 1755, reused 0, downloaded 1616, added 0
+../..                                    | Progress: resolved 1777, reused 0, downloaded 1636, added 0
+../..                                    | Progress: resolved 1801, reused 0, downloaded 1663, added 0
+../..                                    | Progress: resolved 1831, reused 0, downloaded 1686, added 0
+../..                                    | Progress: resolved 1856, reused 0, downloaded 1716, added 0
+ WARN  19 deprecated subdependencies found: @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-object-rest-spread@7.12.1, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/plugin-proposal-private-methods@7.18.6, @babel/plugin-proposal-private-property-in-object@7.21.11, @npmcli/move-file@1.1.2, abab@2.0.6, chokidar@2.1.8, domexception@2.0.1, figgy-pudding@3.5.2, fsevents@1.2.13, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, trim@0.0.1, urix@0.1.0, uuid@3.4.0, w3c-hr-time@1.0.2
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1719, added 0
+../..                                    |    +1844 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1735, added 0
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1735, added 1332
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1763, added 1772
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1798, added 1808
+../..                                    | Progress: resolved 1857, reused 0, downloaded 1834, added 1844, done
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/styled-components postinstall$ node ./scripts/postinstall.js || exit 0
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/styled-components postinstall: Use styled-components at work? Consider supporting our development efforts at https://opencollective.com/styled-components
+.../node_modules/styled-components postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+../../website postinstall$ pnpm run -C ../ build:lib
+../../website postinstall:  ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/tmp/twcr-a2e331f72fc3".
+../../website postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T01:52:06Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T01:52:06Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 4a21fd4 Merge pull request #384 from FormidableLabs/fix/sucrase-changeset
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2e331f72fc3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2e331f72fc3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2e331f72fc3/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-a2e331f72fc3/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1086 -623 ++++++++++++++---------
+../..                                    | Progress: resolved 1086, reused 28, downloaded 0, added 0
+../..                                    | Progress: resolved 1086, reused 225, downloaded 0, added 0
+../..                                    | Progress: resolved 1086, reused 300, downloaded 17, added 163
+../..                                    | Progress: resolved 1086, reused 300, downloaded 54, added 200
+../..                                    | Progress: resolved 1086, reused 300, downloaded 78, added 225
+../..                                    | Progress: resolved 1086, reused 300, downloaded 95, added 242
+../..                                    | Progress: resolved 1086, reused 300, downloaded 135, added 293
+../..                                    | Progress: resolved 1086, reused 300, downloaded 176, added 370
+../..                                    | Progress: resolved 1086, reused 300, downloaded 219, added 416
+../..                                    | Progress: resolved 1086, reused 300, downloaded 258, added 455
+../..                                    | Progress: resolved 1086, reused 300, downloaded 292, added 488
+../..                                    | Progress: resolved 1086, reused 300, downloaded 325, added 522
+../..                                    | Progress: resolved 1086, reused 300, downloaded 363, added 567
+../..                                    | Progress: resolved 1086, reused 300, downloaded 396, added 600
+../..                                    | Progress: resolved 1086, reused 300, downloaded 425, added 628
+../..                                    | Progress: resolved 1086, reused 300, downloaded 459, added 664
+../..                                    | Progress: resolved 1086, reused 300, downloaded 480, added 685
+../..                                    | Progress: resolved 1086, reused 300, downloaded 522, added 727
+../..                                    | Progress: resolved 1086, reused 300, downloaded 568, added 771
+../..                                    | Progress: resolved 1086, reused 300, downloaded 614, added 818
+../..                                    | Progress: resolved 1086, reused 300, downloaded 640, added 844
+../..                                    | Progress: resolved 1086, reused 300, downloaded 668, added 879
+../..                                    | Progress: resolved 1086, reused 300, downloaded 692, added 904
+../..                                    | Progress: resolved 1086, reused 300, downloaded 693, added 905, done
+.../core-js@3.30.1/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/styled-components postinstall$ node ./scripts/postinstall.js || exit 0
+.../core-js@3.30.1/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.30.1/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js:
+.../core-js@3.30.1/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.30.1/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.30.1/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.30.1/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.30.1/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.30.1/node_modules/core-js postinstall: Done
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/styled-components postinstall: Use styled-components at work? Consider supporting our development efforts at opencollective.com/styled-components
+.../node_modules/styled-components postinstall: Done
+.../esbuild@0.17.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.18/node_modules/esbuild postinstall: Done
+
+dependencies:
++ react 18.2.0
++ react-dom 18.2.0
++ react-live 4.1.6 <- ../react-live
+
+devDependencies:
++ @types/react 18.0.31
++ @types/react-dom 18.2.4
++ @typescript-eslint/eslint-plugin 5.57.1
++ @typescript-eslint/parser 5.57.1
++ @vitejs/plugin-react 4.0.0
++ autoprefixer 10.4.14
++ eslint 8.38.0
++ eslint-plugin-react-hooks 4.6.0
++ eslint-plugin-react-refresh 0.3.4
++ postcss 8.4.21
+- tailwindcss
++ tailwindcss 3.2.7
++ typescript 4.9.5
++ vite 4.3.2
+
+../../website postinstall$ pnpm run -C ../ build:lib
+../../website postinstall: > react-live-workspace@ build:lib /tmp/twcr-a2e331f72fc3
+../../website postinstall: > pnpm run --filter react-live build
+../../website postinstall: > react-live@4.1.6 build /tmp/twcr-a2e331f72fc3/packages/react-live
+../../website postinstall: > tsup
+../../website postinstall: CLI Building entry: src/index.ts
+../../website postinstall: CLI Using tsconfig: tsconfig.json
+../../website postinstall: CLI tsup v6.7.0
+../../website postinstall: CLI Using tsup config: /tmp/twcr-a2e331f72fc3/packages/react-live/tsup.config.ts
+../../website postinstall: CLI Target: es6
+../../website postinstall: CLI Cleaning output folder
+../../website postinstall: CJS Build start
+../../website postinstall: ESM Build start
+../../website postinstall: CJS dist/index.js     12.99 KB
+../../website postinstall: CJS dist/index.js.map 18.37 KB
+../../website postinstall: CJS ⚡️ Build success in 86ms
+../../website postinstall: ESM dist/index.mjs     10.64 KB
+../../website postinstall: ESM dist/index.mjs.map 17.71 KB
+../../website postinstall: ESM ⚡️ Build success in 86ms
+../../website postinstall: DTS Build start
+../../website postinstall: DTS ⚡️ Build success in 3052ms
+../../website postinstall: DTS dist/index.d.ts 5.26 KB
+../../website postinstall: Done
+Done in 40.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T01:52:49Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T01:52:49Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T01:52:49Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T01:52:49Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

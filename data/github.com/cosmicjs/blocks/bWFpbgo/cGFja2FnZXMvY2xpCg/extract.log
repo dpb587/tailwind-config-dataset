@@ -1,0 +1,177 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/cosmicjs/blocks
++ reporef=main
++ repopath=./packages/cli
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/cosmicjs/blocks
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e6a712c3360a
+++ echo 'github.com/cosmicjs/blocks;main;./packages/cli'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/344e441e8187
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/cosmicjs/blocks/bWFpbgo/Li9wYWNrYWdlcy9jbGkK
++ jq -nc --arg key analysis_key --arg value github.com/cosmicjs/blocks/bWFpbgo/Li9wYWNrYWdlcy9jbGkK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce cfe0f1e36a32904b
++ jq -nc --arg key analysis_nonce --arg value cfe0f1e36a32904b '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/cosmicjs/blocks
++ jq -nc --arg key input_repo_name --arg value github.com/cosmicjs/blocks '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/cli
++ jq -nc --arg key input_repo_path --arg value ./packages/cli '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:36:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:36:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e6a712c3360a
++ pushd /tmp/twcr-e6a712c3360a
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/cosmicjs/blocks.git .
+/tmp/twcr-e6a712c3360a /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:36:36Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:36:36Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 893aa8cd785f3791f7c89d874998894fe1352069
++ jq -nc --arg key exec_repo_commit_sha --arg value 893aa8cd785f3791f7c89d874998894fe1352069 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 10:29:13 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T18:29:13Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T18:29:13Z '{ key: $key, value: $value }'
+/tmp/twcr-e6a712c3360a/packages/cli /tmp/twcr-e6a712c3360a /twcr
++ '[' -z ./packages/cli ']'
++ pushd ./packages/cli
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e6a712c3360a/packages/cli
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/cli '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e6a712c3360a
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:36:36Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:36:36Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/defaultTheme)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T10:36:36Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T10:36:36Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 893aa8c Merge pull request #123 from cosmicjs/tony/updates
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-e6a712c3360a /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-e6a712c3360a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 147 packages, and audited 148 packages in 14s
+
+80 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-e6a712c3360a/packages/cli/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-e6a712c3360a/packages/cli/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-e6a712c3360a/packages/cli/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

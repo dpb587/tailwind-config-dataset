@@ -1,0 +1,73 @@
+module.exports = {
+  mode: 'jit',
+  content: ['index.html', './src/**/*.html', './src/**/*.jsx'],
+  darkMode: ['class'],
+  theme: {
+    extend: {
+      colors: {
+        'darkish-blue': '#182635',
+        'darkish-black': '#0e141b',
+        'light-grey': '#f1f1f1',
+        'light-black': '#141414',
+        'dark-highlight': '#182635',
+        'light-highlight': '#edf2f7',
+      },
+      width: {
+        '7/10': '70%',
+        '3/10': '30%',
+        '1/2': '50%',
+      },
+      screens: {
+        xs: '362px',
+      },
+    },
+    fontFamily: {
+      sans: [
+        'Source Sans Pro',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        '"Noto Sans"',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        '"Noto Color Emoji"',
+      ],
+      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: [
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
+    },
+  },
+  variants: {
+    backgroundColor: [
+      'dark',
+      'dark-hover',
+      'dark-group-hover',
+      'dark-even',
+      'dark-odd',
+      'hover',
+      'responsive',
+    ],
+    borderColor: [
+      'dark',
+      'dark-focus',
+      'dark-focus-within',
+      'hover',
+      'responsive',
+    ],
+    textColor: ['dark', 'dark-hover', 'dark-active', 'hover', 'responsive'],
+    display: ['group-hover'],
+  },
+  plugins: [require('tailwind-percentage-heights-plugin')()],
+}

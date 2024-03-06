@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/AndronixApp/andronix-website-base
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/AndronixApp/andronix-website-base
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-96cf75fc1310
+++ echo 'github.com/AndronixApp/andronix-website-base;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/cceeeccde0f6
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/AndronixApp/andronix-website-base/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/AndronixApp/andronix-website-base/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c8c4971ac58a2ff9
++ jq -nc --arg key analysis_nonce --arg value c8c4971ac58a2ff9 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/AndronixApp/andronix-website-base
++ jq -nc --arg key input_repo_name --arg value github.com/AndronixApp/andronix-website-base '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:45:32Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:45:32Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-96cf75fc1310
+/tmp/twcr-96cf75fc1310 /twcr
++ pushd /tmp/twcr-96cf75fc1310
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/AndronixApp/andronix-website-base.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:45:33Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:45:33Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 032af4f6270b1e1124df6b734d0b577fc305d183
++ jq -nc --arg key exec_repo_commit_sha --arg value 032af4f6270b1e1124df6b734d0b577fc305d183 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-09 15:02:42 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-09T09:32:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-09T09:32:42Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-96cf75fc1310 /tmp/twcr-96cf75fc1310 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-96cf75fc1310
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:45:33Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:45:33Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "andronix-website-base",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@tailwindcss/line-clamp": "^0.2.0",
+>>>     "@tailwindcss/typography": "^0.4.0",
+>>>     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@nuxtjs/tailwindcss": "^3.4.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-96cf75fc1310 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-96cf75fc1310
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_d013436c3387:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_d013436c3387:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_d013436c3387:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_d013436c3387:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_d013436c3387:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_d013436c3387:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 14.07s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.17
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/line-clamp"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T06:45:49Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T06:45:49Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T06:45:49Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T06:45:49Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

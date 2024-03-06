@@ -1,0 +1,222 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/rubixchain/wallet
++ reporef=main
++ repopath=./
+++ echo github.com/rubixchain/wallet
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-34b8cc6322e1
+++ echo 'github.com/rubixchain/wallet;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0823b6de19d8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/rubixchain/wallet/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/rubixchain/wallet/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 767c3a8b8a3b5710
++ jq -nc --arg key analysis_nonce --arg value 767c3a8b8a3b5710 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/rubixchain/wallet
++ jq -nc --arg key input_repo_name --arg value github.com/rubixchain/wallet '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T23:47:40Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T23:47:40Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-34b8cc6322e1
+/tmp/twcr-34b8cc6322e1 /twcr
++ pushd /tmp/twcr-34b8cc6322e1
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/rubixchain/wallet.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T23:47:49Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T23:47:49Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha dd2008fc3def4bb21e0539f08d56bf2d50a543c9
++ jq -nc --arg key exec_repo_commit_sha --arg value dd2008fc3def4bb21e0539f08d56bf2d50a543c9 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-12-23 14:00:50 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-12-23T08:30:50Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-12-23T08:30:50Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-34b8cc6322e1 /tmp/twcr-34b8cc6322e1 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T23:47:49Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T23:47:49Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "wallet",
+>>>   "version": "2.6.0",
+>>>   "description": "wallet app for rubix users",
+>>>   "author": "Rubix Maintainers <maintainers@rubix.network>",
+>>>   "private": true,
+>>>   "main": "background.js",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^1.2.0"
+>>>   },
+>>>   "eslintConfig": {
+>>>     "root": true,
+>>>     "env": {
+>>>       "node": true
+>>>     },
+>>>     "extends": [
+>>>       "plugin:vue/essential",
+>>>       "eslint:recommended"
+>>>     ],
+>>>     "parserOptions": {
+>>>       "parser": "babel-eslint"
+>>>     },
+>>>     "rules": {
+>>>       "no-unused-vars": "off"
+>>>     }
+>>>   },
+>>>   "browserslist": [
+>>>     "> 1%",
+>>>     "last 2 versions"
+>>>   ],
+>>>   "repository": "https://github.com/rubixchain/wallet.git",
+>>>   "license": "MIT"
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-34b8cc6322e1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-34b8cc6322e1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-34b8cc6322e1/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-34b8cc6322e1/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 22, reused 0, downloaded 22, added 0
+Progress: resolved 44, reused 0, downloaded 44, added 0
+Progress: resolved 82, reused 0, downloaded 82, added 0
+Packages: +84
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 84, reused 0, downloaded 84, added 84, done
+
+devDependencies:
++ tailwindcss 1.9.6
+
+Done in 5.4s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=1.9.6
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/esm/resolve:263
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/twcr-34b8cc6322e1/node_modules/tailwindcss/lib/lib/load-config.js' imported from /tmp/twcr-34b8cc6322e1/tailwind.config.exporter3.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:263:11)
+    at moduleResolve (node:internal/modules/esm/resolve:908:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1131:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:390:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:359:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:234:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:85:39)
+    at link (node:internal/modules/esm/module_job:84:36) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/twcr-34b8cc6322e1/node_modules/tailwindcss/lib/lib/load-config.js'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ tailwind.config.exporter3.mjs == \t\a\i\l\w\i\n\d\.\c\o\n\f\i\g\.\e\x\p\o\r\t\e\r\3\.\m\j\s ]]
++ echo '[worker] WARN: exporter failed; retrying with alternative'
+[worker] WARN: exporter failed; retrying with alternative
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ continue
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T23:47:58Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T23:47:58Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T23:47:58Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T23:47:58Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

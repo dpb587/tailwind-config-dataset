@@ -1,0 +1,940 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/ardatan/graphql-mesh
++ reporef=master
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/ardatan/graphql-mesh
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-99f0337809b3
+++ echo 'github.com/ardatan/graphql-mesh;master;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/ca6ccdd48596
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/ardatan/graphql-mesh/bWFzdGVyCg/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/ardatan/graphql-mesh/bWFzdGVyCg/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9fba9b9f3300b4cd
++ jq -nc --arg key analysis_nonce --arg value 9fba9b9f3300b4cd '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/ardatan/graphql-mesh
++ jq -nc --arg key input_repo_name --arg value github.com/ardatan/graphql-mesh '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T02:11:06Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T02:11:06Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-99f0337809b3
++ pushd /tmp/twcr-99f0337809b3
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/ardatan/graphql-mesh.git .
+/tmp/twcr-99f0337809b3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T02:11:12Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T02:11:12Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 6d6ea289dc0dd5947202d98c091748e51d6e54b2
++ jq -nc --arg key exec_repo_commit_sha --arg value 6d6ea289dc0dd5947202d98c091748e51d6e54b2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 16:11:40 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T21:11:40Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T21:11:40Z '{ key: $key, value: $value }'
+/tmp/twcr-99f0337809b3/website /tmp/twcr-99f0337809b3 /twcr
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-99f0337809b3/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-99f0337809b3
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T02:11:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T02:11:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.8.2",
+>>>   "type": "module",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@theguild/tailwind-config": "0.3.2",
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.2%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-99f0337809b3/package.json /tmp/twcr-99f0337809b3/package-lock.json /tmp/twcr-99f0337809b3/pnpm-lock.yaml /tmp/twcr-99f0337809b3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-99f0337809b3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-99f0337809b3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3c59a12f9ea3:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3c59a12f9ea3:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_3c59a12f9ea3:ok@172.18.0.2:3128'
++ '[' -z http://tid_3c59a12f9ea3:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3c59a12f9ea3:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_3c59a12f9ea3:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.1.0
+➤ YN0000: ┌ Resolution step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0085: │ + @theguild/tailwind-config@npm:0.3.2, tailwindcss@npm:3.4.1, @alloc/quick-lru@npm:5.2.0, @isaacs/cliui@npm:8.0.2, @jridgewell/gen-mapping@npm:0.3.5, and 224 more.
+➤ YN0000: └ Completed in 5s 854ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ 228 packages were added to the project (+ 28.77 MiB).
+➤ YN0000: └ Completed in 5s 473ms
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed in 2s 213ms
+➤ YN0000: · Done with warnings in 13s 622ms
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T02:11:29Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T02:11:29Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing .yarn/
+Removing .yarnrc.yml
+Removing node_modules/
+Removing yarn.lock
++ git reset --hard
+HEAD is now at 6d6ea28 fix(deps): update all non-major dependencies (#6624)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-99f0337809b3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-99f0337809b3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3c59a12f9ea3:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3c59a12f9ea3:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_3c59a12f9ea3:ok@172.18.0.2:3128'
++ '[' -z http://tid_3c59a12f9ea3:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3c59a12f9ea3:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_3c59a12f9ea3:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.1.0
+➤ YN0000: ┌ Project validation
+➤ YN0057: │ neo4j-example: Resolutions field will be ignored
+➤ YN0057: │ postgres-geodb-example: Resolutions field will be ignored
+➤ YN0057: │ chinook: Resolutions field will be ignored
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed in 1s 39ms
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ graphql is listed by your project with version 16.8.1, which doesn't satisfy what @ardatan/graphql-to-config-schema (pc2cd0) and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ typescript is listed by your project with version 5.3.3, which doesn't satisfy what react-scripts (p4778c) and other dependencies request (^3.2.1 || ^4.0.0 || ^3.2.1 || ^4.0.0 || ^3.3.0-dev || ^4.0.0 || ^3.4.0-dev || ^4.0.0 || ^3.5.0-dev || ^4.0.0 || ^3.6.0-dev || ^4.0.0 || ^3.6.0-beta || ^4.0.0 || ^3.7.0-dev || ^4.0.0 || ^3.7.0-beta || ^4.0.0).
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli [959e1] doesn't provide @types/node (p2710e), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli [959e1] doesn't provide graphql-tag (pf9d70), requested by @graphql-codegen/typescript-generic-sdk.
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli [e94ec] doesn't provide @types/node (pa27ee), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli [e94ec] doesn't provide graphql-tag (p5f999), requested by @graphql-codegen/typescript-generic-sdk.
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli doesn't provide @types/node (p15619), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/cli@workspace:packages/legacy/cli doesn't provide graphql-tag (p0e15e), requested by @graphql-codegen/typescript-generic-sdk.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli [7409c] doesn't provide @graphql-mesh/cross-helpers (p5e17f), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli [7409c] doesn't provide @types/node (p1ddd4), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli [7409c] doesn't provide typescript (pb6cd7), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli doesn't provide @graphql-mesh/cross-helpers (p2238c), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli doesn't provide @types/node (p6c840), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli doesn't provide tslib (p019ae), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/compose-cli@workspace:packages/compose-cli doesn't provide typescript (p27f51), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config [00e53] doesn't provide graphql-yoga (pee50e), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config [236c0] doesn't provide graphql-yoga (p273cf), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config [68ca8] doesn't provide graphql-yoga (pd7abd), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config [6ff14] doesn't provide graphql-yoga (pb06a2), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config [e5800] doesn't provide graphql-yoga (pddb2f), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/config@workspace:packages/legacy/config doesn't provide graphql-yoga (p0b5b4), requested by @graphql-yoga/plugin-persisted-operations.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p155f9), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p4ecd1), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p57705), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p5a3dc), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p64afe), requested by @graphql-mesh/transform-extend.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (p6d9fd), requested by @graphql-mesh/graphql.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (pa8077), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (pb3895), requested by @graphql-mesh/odata.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (pe663e), requested by @graphql-mesh/grpc.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/cross-helpers (pfa0ae), requested by @graphql-mesh/config.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p08bad), requested by @graphql-mesh/graphql.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p0d5e6), requested by @graphql-mesh/config.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p36edb), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p3b3a7), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p3c2a3), requested by @graphql-mesh/grpc.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (p543b3), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (pe5238), requested by @graphql-mesh/odata.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/store (peeb00), requested by @graphql-mesh/soap.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p03dd7), requested by @graphql-mesh/transform-filter-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p05ee5), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p0ffc5), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p144de), requested by @graphql-mesh/soap.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p1634f), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p1f6fc), requested by @graphql-mesh/graphql.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p4df47), requested by @graphql-mesh/grpc.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p5dd2d), requested by @graphql-mesh/transform-extend.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p6bf7a), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p811c0), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p8eac7), requested by @graphql-mesh/transform-encapsulate.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (p9fcba), requested by @graphql-mesh/odata.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (pb1b3b), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (pde5a4), requested by @graphql-mesh/transform-resolvers-composition.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (peec6b), requested by @graphql-mesh/config.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (pf63c9), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/types (pfbd68), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p015a5), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p05314), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p0c3d9), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p15ae5), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p1b409), requested by @graphql-mesh/transform-filter-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p3ca99), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p43d31), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p46e0f), requested by @graphql-mesh/transform-resolvers-composition.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p862ff), requested by @graphql-mesh/odata.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (p92948), requested by @graphql-mesh/config.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pa03f4), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pad330), requested by @graphql-mesh/soap.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pb17a8), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pbd102), requested by @graphql-mesh/graphql.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pc6dad), requested by @graphql-mesh/transform-encapsulate.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pea90a), requested by @graphql-mesh/grpc.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-mesh/utils (pea979), requested by @graphql-mesh/transform-extend.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p13a5d), requested by @graphql-mesh/config.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p1a6bc), requested by @graphql-mesh/graphql.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p2ac57), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p2e746), requested by @graphql-mesh/odata.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p3e64f), requested by @graphql-mesh/grpc.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p41597), requested by @graphql-mesh/transform-encapsulate.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p5ce4d), requested by @graphql-mesh/transform-extend.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p6e5e2), requested by @graphql-mesh/soap.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (p74add), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (pbca1f), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (pc0638), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (pddc96), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/container@workspace:packages/legacy/container doesn't provide @graphql-tools/utils (pecba7), requested by @graphql-mesh/transform-filter-schema.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [467fd] doesn't provide @graphql-mesh/cross-helpers (p97727), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [467fd] doesn't provide @graphql-mesh/cross-helpers (pccc1c), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [467fd] doesn't provide @graphql-mesh/types (p0529c), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [467fd] doesn't provide @graphql-mesh/types (p1e6a1), requested by @graphql-mesh/transport-common.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [467fd] doesn't provide @graphql-mesh/types (pbe5d0), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [4f64b] doesn't provide @graphql-mesh/cross-helpers (p0f6cc), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [4f64b] doesn't provide @graphql-mesh/cross-helpers (pe8f65), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [4f64b] doesn't provide @graphql-mesh/types (pa5c09), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [4f64b] doesn't provide @graphql-mesh/types (pa804c), requested by @graphql-mesh/transport-common.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime [4f64b] doesn't provide @graphql-mesh/types (pcdd74), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime doesn't provide @graphql-mesh/cross-helpers (p0469c), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime doesn't provide @graphql-mesh/cross-helpers (pa7a7e), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime doesn't provide @graphql-mesh/types (p4067f), requested by @graphql-mesh/runtime.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime doesn't provide @graphql-mesh/types (p725e3), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/fusion-runtime@workspace:packages/fusion/runtime doesn't provide @graphql-mesh/types (p79fe9), requested by @graphql-mesh/transport-common.
+➤ YN0002: │ @graphql-mesh/json-schema@workspace:packages/legacy/handlers/json-schema [959e1] doesn't provide @graphql-tools/utils (p97dd7), requested by @omnigraph/json-schema.
+➤ YN0002: │ @graphql-mesh/json-schema@workspace:packages/legacy/handlers/json-schema [e94ec] doesn't provide @graphql-tools/utils (pa1c15), requested by @omnigraph/json-schema.
+➤ YN0002: │ @graphql-mesh/json-schema@workspace:packages/legacy/handlers/json-schema doesn't provide @graphql-tools/utils (pf508c), requested by @omnigraph/json-schema.
+➤ YN0002: │ @graphql-mesh/merger-bare@workspace:packages/legacy/mergers/bare [4582a] doesn't provide @graphql-mesh/store (pd1343), requested by @graphql-mesh/merger-stitching.
+➤ YN0002: │ @graphql-mesh/merger-bare@workspace:packages/legacy/mergers/bare [63ab6] doesn't provide @graphql-mesh/store (pce6da), requested by @graphql-mesh/merger-stitching.
+➤ YN0002: │ @graphql-mesh/merger-bare@workspace:packages/legacy/mergers/bare [ac5e3] doesn't provide @graphql-mesh/store (p64e24), requested by @graphql-mesh/merger-stitching.
+➤ YN0002: │ @graphql-mesh/merger-bare@workspace:packages/legacy/mergers/bare [e2e6f] doesn't provide @graphql-mesh/store (pf5fcd), requested by @graphql-mesh/merger-stitching.
+➤ YN0002: │ @graphql-mesh/merger-bare@workspace:packages/legacy/mergers/bare doesn't provide @graphql-mesh/store (p54350), requested by @graphql-mesh/merger-stitching.
+➤ YN0002: │ @graphql-mesh/openapi@workspace:packages/legacy/handlers/openapi [00e53] doesn't provide @graphql-mesh/cross-helpers (p7b80c), requested by @omnigraph/openapi.
+➤ YN0002: │ @graphql-mesh/openapi@workspace:packages/legacy/handlers/openapi [02b85] doesn't provide @graphql-mesh/cross-helpers (p7e81a), requested by @omnigraph/openapi.
+➤ YN0002: │ @graphql-mesh/openapi@workspace:packages/legacy/handlers/openapi doesn't provide @graphql-mesh/cross-helpers (p59dbd), requested by @omnigraph/openapi.
+➤ YN0002: │ @graphql-mesh/plugin-operation-field-permissions@workspace:packages/plugins/operation-field-permissions [e94ec] doesn't provide @envelop/core (pcef09), requested by @envelop/operation-field-permissions.
+➤ YN0002: │ @graphql-mesh/plugin-operation-field-permissions@workspace:packages/plugins/operation-field-permissions doesn't provide @envelop/core (pd29b9), requested by @envelop/operation-field-permissions.
+➤ YN0002: │ @graphql-mesh/plugin-response-cache@workspace:packages/plugins/response-cache [16036] doesn't provide graphql-yoga (pd5651), requested by @graphql-yoga/plugin-response-cache.
+➤ YN0002: │ @graphql-mesh/plugin-response-cache@workspace:packages/plugins/response-cache doesn't provide graphql-yoga (p4c00a), requested by @graphql-yoga/plugin-response-cache.
+➤ YN0002: │ @graphql-mesh/plugin-statsd@workspace:packages/plugins/statsd doesn't provide @envelop/core (p47d0f), requested by @envelop/statsd.
+➤ YN0002: │ @graphql-mesh/raml@workspace:packages/legacy/handlers/raml doesn't provide @graphql-mesh/cross-helpers (pfbc19), requested by @omnigraph/raml.
+➤ YN0002: │ @graphql-mesh/raml@workspace:packages/legacy/handlers/raml doesn't provide @graphql-tools/utils (pb2319), requested by @omnigraph/raml.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide @graphql-mesh/store (p43da6), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide @graphql-tools/utils (p079ee), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide @graphql-tools/utils (pc6efb), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide @types/node (p3e713), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide tslib (p9f76d), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli [7409c] doesn't provide typescript (pa65ef), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide @graphql-mesh/store (p12e28), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide @graphql-tools/utils (p72187), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide @graphql-tools/utils (p7d58a), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide @types/node (p89828), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide tslib (paf433), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-cli@workspace:packages/serve-cli doesn't provide typescript (p82a04), requested by ts-node.
+➤ YN0002: │ @graphql-mesh/serve-runtime@workspace:packages/serve-runtime [142ec] doesn't provide tslib (pce80c), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-runtime@workspace:packages/serve-runtime [8a0c7] doesn't provide tslib (p51a61), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/serve-runtime@workspace:packages/serve-runtime doesn't provide tslib (p7f04a), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transform-federation@workspace:packages/legacy/transforms/federation [b4500] doesn't provide @apollo/federation (p255ed), requested by graphql-transform-federation.
+➤ YN0002: │ @graphql-mesh/transform-federation@workspace:packages/legacy/transforms/federation doesn't provide @apollo/federation (p87920), requested by graphql-transform-federation.
+➤ YN0002: │ @graphql-mesh/transform-hoist-field@workspace:packages/legacy/transforms/hoist-field doesn't provide tslib (p668ad), requested by @graphql-mesh/cache-localforage.
+➤ YN0002: │ @graphql-mesh/transport-mysql@workspace:packages/transports/mysql doesn't provide @graphql-mesh/store (p88436), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/transport-neo4j@workspace:packages/transports/neo4j [35e59] doesn't provide @graphql-mesh/store (p4e4ac), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/transport-neo4j@workspace:packages/transports/neo4j [5c181] doesn't provide @graphql-mesh/store (pe31f1), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/transport-neo4j@workspace:packages/transports/neo4j doesn't provide @graphql-mesh/store (p9869e), requested by @graphql-mesh/types.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift [1e54e] doesn't provide @graphql-mesh/cross-helpers (p24ae3), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift [1e54e] doesn't provide @graphql-mesh/types (pbd86b), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift [47292] doesn't provide @graphql-mesh/cross-helpers (pf5fa7), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift [47292] doesn't provide @graphql-mesh/types (p4fec9), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift doesn't provide @graphql-mesh/cross-helpers (p61f3e), requested by @graphql-mesh/utils.
+➤ YN0002: │ @graphql-mesh/transport-thrift@workspace:packages/transports/thrift doesn't provide @graphql-mesh/types (p820a2), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/mysql@workspace:packages/loaders/mysql [b2127] doesn't provide tslib (peedc0), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/mysql@workspace:packages/loaders/mysql [e8384] doesn't provide tslib (p8e7bb), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/mysql@workspace:packages/loaders/mysql doesn't provide tslib (p3d456), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [7ae66] doesn't provide @graphql-mesh/transport-common (p270d5), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [7ae66] doesn't provide axios (pdb898), requested by soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [7ae66] doesn't provide tslib (pfcf4f), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [cc166] doesn't provide @graphql-mesh/transport-common (p65c04), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [cc166] doesn't provide axios (pfdf8a), requested by soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap [cc166] doesn't provide tslib (p191fd), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap doesn't provide @graphql-mesh/transport-common (pefa3c), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap doesn't provide axios (pc7a34), requested by soap.
+➤ YN0002: │ @omnigraph/soap@workspace:packages/loaders/soap doesn't provide tslib (pad3d6), requested by @graphql-mesh/transport-soap.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite [2cf17] doesn't provide @graphql-mesh/store (p0e288), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite [2cf17] doesn't provide @graphql-tools/utils (p5e050), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite [a46f8] doesn't provide @graphql-mesh/store (p66de2), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite [a46f8] doesn't provide @graphql-tools/utils (p0ea5c), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite doesn't provide @graphql-mesh/store (pf1287), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/sqlite@workspace:packages/loaders/sqlite doesn't provide @graphql-tools/utils (p84343), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [0a320] doesn't provide @graphql-mesh/store (pf4790), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [0a320] doesn't provide tslib (pb9243), requested by @graphql-mesh/transport-thrift.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [0a320] doesn't provide tslib (pcce3d), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [68e29] doesn't provide @graphql-mesh/store (p5df99), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [68e29] doesn't provide tslib (pa2d1e), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift [68e29] doesn't provide tslib (pebd41), requested by @graphql-mesh/transport-thrift.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift doesn't provide @graphql-mesh/store (p152c6), requested by @graphql-mesh/types.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift doesn't provide tslib (p3b235), requested by @graphql-mesh/utils.
+➤ YN0002: │ @omnigraph/thrift@workspace:packages/loaders/thrift doesn't provide tslib (p70f49), requested by @graphql-mesh/transport-thrift.
+➤ YN0002: │ @v1-next/accounts-subgraph@workspace:examples/v1-next/federation-example/services/accounts doesn't provide @types/node (p22765), requested by ts-node.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide @envelop/core (p661b6), requested by @envelop/auth0.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide @graphql-mesh/cross-helpers (pa1533), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide @graphql-mesh/types (p1cf82), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide @graphql-mesh/types (p7dfaf), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide @graphql-tools/utils (pbcb95), requested by @omnigraph/json-schema.
+➤ YN0002: │ @v1-next/auth0-example@workspace:examples/v1-next/auth0 doesn't provide tslib (p7bcfa), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @envelop/core (pe5117), requested by @envelop/depth-limit.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/cross-helpers (p629ab), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/cross-helpers (pe1f63), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/types (p2b0f8), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/types (p76946), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/types (pa46cf), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/utils (pb3ec3), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-mesh/utils (pbf442), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide @graphql-tools/utils (pbe116), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide tslib (p157a1), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide tslib (p79464), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ @v1-next/cfw-spacex@workspace:examples/v1-next/integrations/cfw-spacex doesn't provide tslib (pdb08e), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ @v1-next/country-info-example@workspace:examples/v1-next/soap-country-info doesn't provide @graphql-mesh/types (p28245), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/example-fastify@workspace:examples/v1-next/integrations/fastify doesn't provide @graphql-mesh/cross-helpers (p299df), requested by @omnigraph/openapi.
+➤ YN0002: │ @v1-next/example-fastify@workspace:examples/v1-next/integrations/fastify doesn't provide @graphql-mesh/types (pc42ca), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/example-fastify@workspace:examples/v1-next/integrations/fastify doesn't provide @types/node (p1d052), requested by ts-node.
+➤ YN0002: │ @v1-next/example-gcp@workspace:examples/v1-next/integrations/gcp-functions doesn't provide @graphql-mesh/types (pb2965), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/example-gcp@workspace:examples/v1-next/integrations/gcp-functions doesn't provide @graphql-tools/utils (p347cd), requested by @omnigraph/json-schema.
+➤ YN0002: │ @v1-next/inventory@workspace:examples/v1-next/federation-example/services/inventory doesn't provide @types/node (p23bb6), requested by ts-node.
+➤ YN0002: │ @v1-next/javascript-wiki@workspace:examples/v1-next/openapi-javascript-wiki doesn't provide @graphql-mesh/store (p4c09e), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/javascript-wiki@workspace:examples/v1-next/openapi-javascript-wiki doesn't provide @graphql-mesh/types (p40152), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/javascript-wiki@workspace:examples/v1-next/openapi-javascript-wiki doesn't provide @graphql-mesh/utils (p08a78), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/javascript-wiki@workspace:examples/v1-next/openapi-javascript-wiki doesn't provide tslib (pb0281), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @graphql-mesh/cross-helpers (p5f63c), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @graphql-mesh/types (p617f2), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @graphql-mesh/types (p7019f), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @graphql-mesh/utils (p6a356), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @graphql-tools/utils (pb9665), requested by @omnigraph/json-schema.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide @types/node (p8dd44), requested by ts-node.
+➤ YN0002: │ @v1-next/json-schema-subscriptions@workspace:examples/v1-next/json-schema-subscriptions doesn't provide tslib (pfda89), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ @v1-next/mysql-employees@workspace:examples/v1-next/mysql-employees doesn't provide @graphql-mesh/types (p97cdc), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/mysql-rfam@workspace:examples/v1-next/mysql-rfam doesn't provide @graphql-mesh/types (p9f19a), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/neo4j-example@workspace:examples/v1-next/neo4j-example doesn't provide @graphql-mesh/types (pb998d), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/openapi-subscriptions@workspace:examples/v1-next/openapi-subscriptions doesn't provide @graphql-mesh/store (p54fce), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/openapi-subscriptions@workspace:examples/v1-next/openapi-subscriptions doesn't provide @graphql-mesh/types (p608ee), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/openapi-subscriptions@workspace:examples/v1-next/openapi-subscriptions doesn't provide @graphql-mesh/utils (ped8cb), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/openapi-subscriptions@workspace:examples/v1-next/openapi-subscriptions doesn't provide @types/node (pef244), requested by ts-node.
+➤ YN0002: │ @v1-next/openapi-subscriptions@workspace:examples/v1-next/openapi-subscriptions doesn't provide tslib (p1b3f3), requested by @graphql-mesh/openapi.
+➤ YN0002: │ @v1-next/openapi-youtrack@workspace:examples/v1-next/openapi-youtrack doesn't provide @graphql-mesh/cross-helpers (pf887d), requested by @omnigraph/openapi.
+➤ YN0002: │ @v1-next/openapi-youtrack@workspace:examples/v1-next/openapi-youtrack doesn't provide @graphql-mesh/types (p59915), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/products@workspace:examples/v1-next/federation-example/services/products doesn't provide @types/node (p7dfb1), requested by ts-node.
+➤ YN0002: │ @v1-next/reddit-example@workspace:examples/v1-next/json-schema-reddit doesn't provide @graphql-mesh/types (p7eb6d), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/reddit-example@workspace:examples/v1-next/json-schema-reddit doesn't provide @graphql-tools/utils (p4cab2), requested by @omnigraph/json-schema.
+➤ YN0002: │ @v1-next/reviews@workspace:examples/v1-next/federation-example/services/reviews doesn't provide @types/node (pfbe0e), requested by ts-node.
+➤ YN0002: │ @v1-next/soap-demo@workspace:examples/v1-next/soap-demo doesn't provide @graphql-mesh/types (p05f50), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/thrift-calculator@workspace:examples/v1-next/thrift-calculator doesn't provide @graphql-mesh/types (p490f0), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/thrift-calculator@workspace:examples/v1-next/thrift-calculator doesn't provide @types/express (p6e320), requested by @creditkarma/thrift-server-express.
+➤ YN0002: │ @v1-next/thrift-calculator@workspace:examples/v1-next/thrift-calculator doesn't provide @types/node (p8be60), requested by ts-node.
+➤ YN0002: │ @v1-next/type-merging-batching-example@workspace:examples/v1-next/type-merging-batching-example doesn't provide @graphql-mesh/types (pa0e0a), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ @v1-next/type-merging-batching-example@workspace:examples/v1-next/type-merging-batching-example doesn't provide @types/node (p8ef66), requested by ts-node.
+➤ YN0002: │ accounts-subgraph@workspace:examples/federation-example/services/accounts-subgraph doesn't provide @types/node (pf093c), requested by ts-node.
+➤ YN0002: │ accounts@workspace:examples/federation-example/services/accounts doesn't provide @types/node (p3c0f0), requested by ts-node.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @envelop/core (p7aced), requested by @envelop/auth0.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/cross-helpers (p41d3d), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/cross-helpers (p6a2db), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/store (p11112), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/types (p10b5f), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/types (p17425), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide @graphql-mesh/utils (pc8b19), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide tslib (p1e1b4), requested by @graphql-mesh/plugin-operation-field-permissions.
+➤ YN0002: │ auth0-example@workspace:examples/auth0 doesn't provide tslib (p28f38), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ authors-service@workspace:examples/hive-example/sources/authors doesn't provide @graphql-mesh/store (p8249a), requested by @graphql-mesh/openapi.
+➤ YN0002: │ authors-service@workspace:examples/hive-example/sources/authors doesn't provide @graphql-mesh/types (p4734b), requested by @graphql-mesh/openapi.
+➤ YN0002: │ authors-service@workspace:examples/hive-example/sources/authors doesn't provide @graphql-mesh/utils (p5eebb), requested by @graphql-mesh/openapi.
+➤ YN0002: │ authors-service@workspace:examples/hive-example/sources/authors doesn't provide @types/node (p1e21c), requested by ts-node.
+➤ YN0002: │ authors-service@workspace:examples/hive-example/sources/authors doesn't provide tslib (p8b1b3), requested by @graphql-mesh/openapi.
+➤ YN0002: │ auto-type-merging-example@workspace:examples/v1-next/auto-type-merging doesn't provide @graphql-mesh/types (p67e14), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ auto-type-merging-example@workspace:examples/v1-next/auto-type-merging doesn't provide @types/node (p599ad), requested by ts-node.
+➤ YN0002: │ auto-type-merging-example@workspace:examples/v1-next/auto-type-merging doesn't provide typescript (pd875d), requested by ts-node.
+➤ YN0002: │ batching-resolver-example@workspace:examples/v1-next/batching-resolver doesn't provide @graphql-mesh/cross-helpers (pcabb4), requested by @omnigraph/openapi.
+➤ YN0002: │ batching-resolver-example@workspace:examples/v1-next/batching-resolver doesn't provide @graphql-mesh/types (p17c29), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ batching-resolver-example@workspace:examples/v1-next/batching-resolver doesn't provide @types/node (p25118), requested by ts-node.
+➤ YN0002: │ batching-resolver-example@workspace:examples/v1-next/batching-resolver doesn't provide typescript (pffd47), requested by ts-node.
+➤ YN0002: │ books-service@workspace:examples/hive-example/sources/books doesn't provide @graphql-mesh/store (pcc994), requested by @graphql-mesh/openapi.
+➤ YN0002: │ books-service@workspace:examples/hive-example/sources/books doesn't provide @graphql-mesh/types (p816b7), requested by @graphql-mesh/openapi.
+➤ YN0002: │ books-service@workspace:examples/hive-example/sources/books doesn't provide @graphql-mesh/utils (p3955e), requested by @graphql-mesh/openapi.
+➤ YN0002: │ books-service@workspace:examples/hive-example/sources/books doesn't provide @types/node (p3a641), requested by ts-node.
+➤ YN0002: │ books-service@workspace:examples/hive-example/sources/books doesn't provide tslib (p4fb02), requested by @graphql-mesh/openapi.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/cross-helpers (p3cde4), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/types (p5d547), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/types (pb4663), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/types (pf1f05), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/utils (p40f79), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-mesh/utils (p7573f), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide @graphql-tools/utils (pa79a4), requested by @omnigraph/json-schema.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide tslib (p4075c), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cfw-breweries@workspace:examples/v1-next/integrations/cfw-breweries doesn't provide tslib (p7af8e), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ chinook@workspace:examples/sqlite-chinook doesn't provide @graphql-mesh/types (pb3d82), requested by @graphql-mesh/tuql.
+➤ YN0002: │ chinook@workspace:examples/sqlite-chinook doesn't provide tslib (p48363), requested by @graphql-mesh/tuql.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/cross-helpers (p122e6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/cross-helpers (p6e2d2), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/store (p99eb1), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/types (p421dc), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/types (pa01ac), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/types (pcc58a), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/utils (p4c0e1), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/utils (pec0ac), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide @graphql-mesh/utils (pf9264), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide tslib (p01158), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide tslib (p2419e), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ cloudflare-workers@workspace:examples/cloudflare-workers doesn't provide tslib (pa094a), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/cross-helpers (p1c320), requested by @graphql-mesh/plugin-snapshot.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/store (pb35b6), requested by @graphql-mesh/soap.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/types (pa9c38), requested by @graphql-mesh/soap.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/types (pd43b1), requested by @graphql-mesh/plugin-snapshot.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/utils (p0dc5b), requested by @graphql-mesh/plugin-snapshot.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-mesh/utils (paa4e5), requested by @graphql-mesh/soap.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide @graphql-tools/utils (pe4b09), requested by @graphql-mesh/soap.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide tslib (p01c88), requested by @graphql-mesh/soap.
+➤ YN0002: │ country-info-example@workspace:examples/soap-country-info doesn't provide tslib (p7e1e2), requested by @graphql-mesh/plugin-snapshot.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/cross-helpers (p17540), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/cross-helpers (pb70c8), requested by @graphql-mesh/graphql.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/store (p8b1c4), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/store (pa6f10), requested by @graphql-mesh/graphql.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/types (p62cbe), requested by @graphql-mesh/graphql.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/types (pce2c2), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/utils (p90036), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-mesh/utils (pf8a63), requested by @graphql-mesh/graphql.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide @graphql-tools/utils (p826d0), requested by @graphql-mesh/graphql.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide tslib (p60c89), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ covid-mesh@workspace:examples/json-schema-covid doesn't provide tslib (pbeb8f), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @graphql-mesh/cross-helpers (pc61b6), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @graphql-mesh/store (p51801), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @graphql-mesh/types (p34e6f), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @graphql-mesh/utils (p3f3c1), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @graphql-tools/utils (p145c4), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide @types/node (p9895d), requested by ts-node.
+➤ YN0002: │ example-fastify@workspace:examples/fastify doesn't provide tslib (pa88f4), requested by @graphql-mesh/graphql.
+➤ YN0002: │ example-gcp@workspace:examples/gcp-functions doesn't provide @graphql-mesh/cross-helpers (p0ec9c), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-gcp@workspace:examples/gcp-functions doesn't provide @graphql-mesh/store (pbfad6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-gcp@workspace:examples/gcp-functions doesn't provide @graphql-mesh/types (pb0a01), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-gcp@workspace:examples/gcp-functions doesn't provide @graphql-mesh/utils (p76e10), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-gcp@workspace:examples/gcp-functions doesn't provide tslib (p3b7d6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/cross-helpers (pb3282), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/cross-helpers (pb3f6b), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/store (p0cd37), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/types (p5d360), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/types (pd678a), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/utils (p29d18), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-mesh/utils (pa5c73), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide @graphql-tools/utils (p0ead1), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide graphql-yoga (pd4ff5), requested by @graphql-yoga/plugin-sofa.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide tslib (p77143), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ example-persisted-operations@workspace:examples/persisted-operations doesn't provide tslib (pade2d), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/cross-helpers (p0628d), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/store (pacd60), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/types (p1bcbb), requested by @graphql-mesh/transform-federation.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/types (pbf037), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/utils (p1950e), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-mesh/utils (p58ba2), requested by @graphql-mesh/transform-federation.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-tools/utils (p41aa4), requested by @graphql-mesh/transform-federation.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide @graphql-tools/utils (p83dbd), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide tslib (pa0c9c), requested by @graphql-mesh/graphql.
+➤ YN0002: │ federation-gateway@workspace:examples/federation-example/gateway doesn't provide tslib (pf852b), requested by @graphql-mesh/transform-federation.
+➤ YN0002: │ federation-handler-example@workspace:examples/federation-example doesn't provide @types/node (p8ffab), requested by ts-node.
+➤ YN0002: │ federation-handler-example@workspace:examples/federation-example doesn't provide graphql (pd6551), requested by apollo-server.
+➤ YN0002: │ federation-supergraph-gateway@workspace:examples/federation-example/gateway-supergraph doesn't provide @graphql-mesh/cross-helpers (p14fde), requested by @graphql-mesh/supergraph.
+➤ YN0002: │ federation-supergraph-gateway@workspace:examples/federation-example/gateway-supergraph doesn't provide @graphql-mesh/store (p76df9), requested by @graphql-mesh/supergraph.
+➤ YN0002: │ federation-supergraph-gateway@workspace:examples/federation-example/gateway-supergraph doesn't provide @graphql-mesh/types (p48c3d), requested by @graphql-mesh/supergraph.
+➤ YN0002: │ federation-supergraph-gateway@workspace:examples/federation-example/gateway-supergraph doesn't provide @graphql-mesh/utils (p91f6d), requested by @graphql-mesh/supergraph.
+➤ YN0002: │ federation-supergraph-gateway@workspace:examples/federation-example/gateway-supergraph doesn't provide tslib (p17aee), requested by @graphql-mesh/supergraph.
+➤ YN0002: │ frontend@workspace:examples/graphql-file-upload-example/frontend doesn't provide @testing-library/dom (pbd3df), requested by @testing-library/user-event.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/cross-helpers (p5e3d0), requested by @graphql-mesh/transform-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/cross-helpers (pd67ee), requested by @graphql-mesh/plugin-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/store (pa25be), requested by @graphql-mesh/openapi.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/types (p70e3d), requested by @graphql-mesh/openapi.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/types (p89a02), requested by @graphql-mesh/plugin-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/types (pa156a), requested by @graphql-mesh/transform-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-mesh/utils (pc6caf), requested by @graphql-mesh/openapi.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide @graphql-tools/utils (p59e38), requested by @graphql-mesh/transform-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide tslib (p01e09), requested by @graphql-mesh/transform-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide tslib (p18b4a), requested by @graphql-mesh/plugin-hive.
+➤ YN0002: │ gateway-example@workspace:examples/hive-example/gateway doesn't provide tslib (pc7001), requested by @graphql-mesh/openapi.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @graphql-mesh/cross-helpers (pd40e8), requested by @graphql-mesh/graphql.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @graphql-mesh/store (pde48f), requested by @graphql-mesh/graphql.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @graphql-mesh/types (pd46c8), requested by @graphql-mesh/graphql.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @graphql-mesh/utils (pff539), requested by @graphql-mesh/graphql.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @graphql-tools/utils (p42ea4), requested by @graphql-mesh/graphql.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide @types/node (p657df), requested by ts-node.
+➤ YN0002: │ graphql-file-upload-example@workspace:examples/graphql-file-upload-example doesn't provide tslib (p20685), requested by @graphql-mesh/graphql.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/cross-helpers (p3ba62), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/store (p32f8d), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/types (p7e18f), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/types (pbec00), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/utils (p1cf57), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-mesh/utils (p390d6), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-tools/utils (p51eff), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @graphql-tools/utils (pcae09), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide @types/node (p64872), requested by ts-node.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide tslib (p65578), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-example@workspace:examples/grpc-example doesn't provide tslib (pe2b01), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/cross-helpers (pc8a42), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/store (p364be), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/types (p5f8ed), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/types (p7e736), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/utils (p39853), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-mesh/utils (p9ab46), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-tools/utils (p2332c), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @graphql-tools/utils (pbdcac), requested by @graphql-mesh/grpc.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide @types/node (p4c86b), requested by ts-node.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide tslib (p07972), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ grpc-reflection-example@workspace:examples/grpc-reflection-example doesn't provide tslib (pf2d99), requested by @graphql-mesh/grpc.
+➤ YN0002: │ hasura-openbrewery-geodb@workspace:examples/hasura-openbrewery-geodb doesn't provide @graphql-mesh/cross-helpers (pb1a94), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hasura-openbrewery-geodb@workspace:examples/hasura-openbrewery-geodb doesn't provide @graphql-mesh/store (p7bccb), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hasura-openbrewery-geodb@workspace:examples/hasura-openbrewery-geodb doesn't provide @graphql-mesh/types (p425b0), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hasura-openbrewery-geodb@workspace:examples/hasura-openbrewery-geodb doesn't provide @graphql-mesh/utils (p16efd), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hasura-openbrewery-geodb@workspace:examples/hasura-openbrewery-geodb doesn't provide tslib (pfeaf9), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/cross-helpers (p1730c), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/cross-helpers (pa19e6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/store (p13725), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/types (p2e9f6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/types (p3608a), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/utils (p762c4), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-mesh/utils (pb319c), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @graphql-tools/utils (p0c9d6), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide @types/node (p3f4af), requested by ts-node.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide tslib (p663a6), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ hello-world-esm@workspace:examples/hello-world-esm doesn't provide tslib (pc0b0e), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ inventory@workspace:examples/federation-example/services/inventory doesn't provide @types/node (p5d628), requested by ts-node.
+➤ YN0002: │ javascript-wiki@workspace:examples/openapi-javascript-wiki doesn't provide @graphql-mesh/store (p50f82), requested by @graphql-mesh/openapi.
+➤ YN0002: │ javascript-wiki@workspace:examples/openapi-javascript-wiki doesn't provide @graphql-mesh/types (p09234), requested by @graphql-mesh/openapi.
+➤ YN0002: │ javascript-wiki@workspace:examples/openapi-javascript-wiki doesn't provide @graphql-mesh/utils (pe2105), requested by @graphql-mesh/openapi.
+➤ YN0002: │ javascript-wiki@workspace:examples/openapi-javascript-wiki doesn't provide tslib (p8ec81), requested by @graphql-mesh/openapi.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/cross-helpers (p1bb64), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/cross-helpers (p8a95a), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/store (p5c04a), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/types (pc5118), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/types (pe1b24), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/types (pf3080), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/utils (p50125), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/utils (pc7e7e), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-mesh/utils (pf0a97), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-tools/utils (pc383a), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide @graphql-tools/utils (pf3b22), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide tslib (p15a8d), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide tslib (p80efa), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-example@workspace:examples/json-schema-example doesn't provide tslib (p9bd21), requested by @graphql-mesh/transform-naming-convention.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide @graphql-mesh/cross-helpers (pf6f4e), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide @graphql-mesh/store (p948cd), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide @graphql-mesh/types (p56e70), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide @graphql-mesh/utils (p19796), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide @types/node (p31c0e), requested by ts-node.
+➤ YN0002: │ json-schema-fhir@workspace:examples/json-schema-fhir doesn't provide tslib (p14ea3), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-file-upload@workspace:examples/json-schema-file-upload doesn't provide @graphql-mesh/cross-helpers (pca24e), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-file-upload@workspace:examples/json-schema-file-upload doesn't provide @graphql-mesh/store (pb20f2), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-file-upload@workspace:examples/json-schema-file-upload doesn't provide @graphql-mesh/types (p5d136), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-file-upload@workspace:examples/json-schema-file-upload doesn't provide @graphql-mesh/utils (pb8608), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-file-upload@workspace:examples/json-schema-file-upload doesn't provide tslib (pc31dd), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/cross-helpers (p7157a), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/cross-helpers (pb67de), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/store (p4f215), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/types (p4f72e), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/types (pc3a2b), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/utils (pa4adb), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-mesh/utils (pcb8c5), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide @graphql-tools/utils (p93ad5), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide graphql-yoga (p8984e), requested by @graphql-yoga/plugin-sofa.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide tslib (p83f86), requested by @graphql-mesh/plugin-mock.
+➤ YN0002: │ json-schema-hello-world@workspace:examples/hello-world doesn't provide tslib (pbdcae), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/cross-helpers (p288d3), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/cross-helpers (p845e0), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/store (p203e6), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/types (p86ec8), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/types (pb5661), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/utils (p4715a), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @graphql-mesh/utils (pa64e2), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide @types/node (p30b29), requested by ts-node.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide tslib (p704a1), requested by @graphql-mesh/plugin-live-query.
+➤ YN0002: │ json-schema-subscriptions@workspace:examples/json-schema-subscriptions doesn't provide tslib (p9df0e), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide @graphql-mesh/cross-helpers (p560a5), requested by @omnigraph/openapi.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide @graphql-mesh/cross-helpers (p7d747), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide @graphql-mesh/types (pb6856), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide @graphql-mesh/types (pd2c45), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide @graphql-mesh/utils (p1d7f3), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ location-weather-example@workspace:examples/v1-next/openapi-location-weather doesn't provide tslib (p2f56f), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ mongoose-example@workspace:examples/mongoose-example doesn't provide @graphql-mesh/types (pe14b6), requested by @graphql-mesh/mongoose.
+➤ YN0002: │ mongoose-example@workspace:examples/mongoose-example doesn't provide @graphql-mesh/utils (pf01a3), requested by @graphql-mesh/mongoose.
+➤ YN0002: │ mongoose-example@workspace:examples/mongoose-example doesn't provide tslib (p16055), requested by @graphql-mesh/mongoose.
+➤ YN0002: │ mysql-employees@workspace:examples/mysql-employees doesn't provide @graphql-mesh/store (p8599f), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-employees@workspace:examples/mysql-employees doesn't provide @graphql-mesh/types (p22e95), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-employees@workspace:examples/mysql-employees doesn't provide @graphql-mesh/utils (pc698f), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-employees@workspace:examples/mysql-employees doesn't provide @graphql-tools/utils (pb7d40), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-employees@workspace:examples/mysql-employees doesn't provide tslib (p8b838), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-rfam@workspace:examples/mysql-rfam doesn't provide @graphql-mesh/store (pe849b), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-rfam@workspace:examples/mysql-rfam doesn't provide @graphql-mesh/types (pacbf5), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-rfam@workspace:examples/mysql-rfam doesn't provide @graphql-mesh/utils (p2d943), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-rfam@workspace:examples/mysql-rfam doesn't provide @graphql-tools/utils (p3ba88), requested by @graphql-mesh/mysql.
+➤ YN0002: │ mysql-rfam@workspace:examples/mysql-rfam doesn't provide tslib (p05f93), requested by @graphql-mesh/mysql.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/cross-helpers (p68cbb), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/store (p7291d), requested by @graphql-mesh/neo4j.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/types (p15987), requested by @graphql-mesh/neo4j.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/types (pf88ae), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/utils (pa0f5f), requested by @graphql-mesh/neo4j.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide @graphql-mesh/utils (pc48df), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide tslib (p24d76), requested by @graphql-mesh/neo4j.
+➤ YN0002: │ neo4j-example@workspace:examples/neo4j-example doesn't provide tslib (p7420b), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/cross-helpers (p3fecc), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/cross-helpers (pab2f2), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/store (pe085a), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/store (pfd5b0), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/types (p1c7e1), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/types (pa5d4d), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/types (pa6fb4), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/utils (p7ecdb), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/utils (p8fc81), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-mesh/utils (pb8ff9), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-tools/utils (p20f0a), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide @graphql-tools/utils (p46425), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide micro (pebdba), requested by apollo-server-micro.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide tslib (p224dd), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide tslib (p85571), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-apollo-example@workspace:examples/nextjs-apollo-example doesn't provide tslib (pa2841), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/cross-helpers (p03471), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/cross-helpers (p5dc0b), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/store (p96eb4), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/store (pd47a2), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/types (p0d8ff), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/types (p214df), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/types (p53760), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/utils (p82e72), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/utils (p8d34d), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-mesh/utils (pdeeeb), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-tools/utils (p9a4b5), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide @graphql-tools/utils (pe422c), requested by @graphql-mesh/config.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide micro (p4a68e), requested by apollo-server-micro.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide tslib (p3cea7), requested by @graphql-mesh/runtime.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide tslib (pa5d85), requested by @graphql-mesh/openapi.
+➤ YN0002: │ nextjs-sdk-example@workspace:examples/nextjs-sdk-example doesn't provide tslib (pcbd2f), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide @graphql-mesh/cross-helpers (pa6b0b), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide @graphql-mesh/store (pff8c7), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide @graphql-mesh/types (pc0950), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide @graphql-mesh/utils (p49468), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide @graphql-tools/utils (p5c2b8), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-microsoft-graph-example@workspace:examples/odata-microsoft doesn't provide tslib (p08cff), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/cross-helpers (p5f458), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/cross-helpers (p7045b), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/cross-helpers (pef04f), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/store (p096bd), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/store (pcccff), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/types (p0e366), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/types (p6b5e9), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/types (pa4fd5), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/utils (p65ed4), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/utils (pc534d), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-mesh/utils (pf4fc4), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-tools/utils (p47de2), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-tools/utils (p6a2d2), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @graphql-tools/utils (p7465f), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide @types/node (p63f68), requested by ts-node.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide tslib (p5ac75), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide tslib (pc6931), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide tslib (pda456), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic-ts@workspace:examples/odata-msgraph-programmatic-ts doesn't provide typescript (p0304b), requested by ts-node.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/cross-helpers (p58c55), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/cross-helpers (p7a03b), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/cross-helpers (p87a4d), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/store (p6b14a), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/store (pe0941), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/types (p2e5cc), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/types (p4e898), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/types (p84148), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/utils (p09477), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/utils (p34f5d), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-mesh/utils (pc0b03), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-tools/utils (p082a5), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-tools/utils (pbb157), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide @graphql-tools/utils (pfa67b), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide tslib (p6b3d1), requested by @graphql-mesh/runtime.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide tslib (pb6c5f), requested by @graphql-mesh/config.
+➤ YN0002: │ odata-msgraph-programmatic@workspace:examples/odata-msgraph-programmatic doesn't provide tslib (pfbc45), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide @graphql-mesh/cross-helpers (p63967), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide @graphql-mesh/store (p7b009), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide @graphql-mesh/types (p19ffd), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide @graphql-mesh/utils (pacf61), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide @graphql-tools/utils (p36256), requested by @graphql-mesh/odata.
+➤ YN0002: │ odata-trippin-example@workspace:examples/odata-trippin doesn't provide tslib (p331fc), requested by @graphql-mesh/odata.
+➤ YN0002: │ openapi-meilisearch@workspace:examples/openapi-meilisearch doesn't provide @graphql-mesh/store (p79c9b), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-meilisearch@workspace:examples/openapi-meilisearch doesn't provide @graphql-mesh/types (p4f7dc), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-meilisearch@workspace:examples/openapi-meilisearch doesn't provide @graphql-mesh/utils (p5bd0a), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-meilisearch@workspace:examples/openapi-meilisearch doesn't provide tslib (p89f73), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-orbit@workspace:examples/openapi-orbit doesn't provide @graphql-mesh/store (ped2ca), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-orbit@workspace:examples/openapi-orbit doesn't provide @graphql-mesh/types (p1fe78), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-orbit@workspace:examples/openapi-orbit doesn't provide @graphql-mesh/utils (pd8b1a), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-orbit@workspace:examples/openapi-orbit doesn't provide tslib (pd4dd7), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stackexchange@workspace:examples/openapi-stackexchange doesn't provide @graphql-mesh/store (pdba8b), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stackexchange@workspace:examples/openapi-stackexchange doesn't provide @graphql-mesh/types (pe8563), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stackexchange@workspace:examples/openapi-stackexchange doesn't provide @graphql-mesh/utils (p56e2c), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stackexchange@workspace:examples/openapi-stackexchange doesn't provide tslib (p7c458), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stripe@workspace:examples/openapi-stripe doesn't provide @graphql-mesh/store (p749da), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stripe@workspace:examples/openapi-stripe doesn't provide @graphql-mesh/types (p6f6c9), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stripe@workspace:examples/openapi-stripe doesn't provide @graphql-mesh/utils (p698d9), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-stripe@workspace:examples/openapi-stripe doesn't provide tslib (p1de98), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-subscriptions@workspace:examples/openapi-subscriptions doesn't provide @graphql-mesh/store (p12afe), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-subscriptions@workspace:examples/openapi-subscriptions doesn't provide @graphql-mesh/types (p99772), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-subscriptions@workspace:examples/openapi-subscriptions doesn't provide @graphql-mesh/utils (p749bb), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-subscriptions@workspace:examples/openapi-subscriptions doesn't provide @types/node (p32f6f), requested by ts-node.
+➤ YN0002: │ openapi-subscriptions@workspace:examples/openapi-subscriptions doesn't provide tslib (p76003), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide @graphql-mesh/store (pa8b60), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide @graphql-mesh/types (pdadb5), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide @graphql-mesh/types (pe463d), requested by @graphql-mesh/transform-resolvers-composition.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide @graphql-mesh/utils (p1ec3c), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide @graphql-mesh/utils (p813b8), requested by @graphql-mesh/transform-resolvers-composition.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide tslib (p4a1c4), requested by @graphql-mesh/transform-resolvers-composition.
+➤ YN0002: │ openapi-youtrack@workspace:examples/openapi-youtrack doesn't provide tslib (pe9092), requested by @graphql-mesh/openapi.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide @graphql-mesh/cross-helpers (p953b7), requested by @graphql-mesh/graphql.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide @graphql-mesh/store (p045ba), requested by @graphql-mesh/graphql.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide @graphql-mesh/types (p2e579), requested by @graphql-mesh/graphql.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide @graphql-mesh/utils (pc4f14), requested by @graphql-mesh/graphql.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide @graphql-tools/utils (pd8c10), requested by @graphql-mesh/graphql.
+➤ YN0002: │ openwhisk-example@workspace:examples/openwhisk-example doesn't provide tslib (p55d15), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/cross-helpers (p17010), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/cross-helpers (p32a84), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/cross-helpers (p443f9), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/cross-helpers (p6f317), requested by @graphql-mesh/runtime.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/cross-helpers (pa5bc9), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/store (p45a49), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/store (p7313d), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/store (pdc1d3), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (p0fffd), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (p3e3ea), requested by @graphql-mesh/runtime.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (p4f0ec), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (p50e49), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (p571da), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/types (pc7139), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (p17878), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (p3e269), requested by @graphql-mesh/runtime.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (p717ba), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (pa1e8f), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (pe133b), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-mesh/utils (pe1b6f), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-tools/utils (p12d12), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-tools/utils (p3ca74), requested by @graphql-mesh/runtime.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-tools/utils (p6ecef), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide @graphql-tools/utils (pfebdf), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (p3213d), requested by @graphql-mesh/cache-file.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (p4ab8b), requested by @graphql-mesh/postgraphile.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (p8d975), requested by @graphql-mesh/transform-prefix.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (pda801), requested by @graphql-mesh/graphql.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (pe61cf), requested by @graphql-mesh/config.
+➤ YN0002: │ postgres-geodb-example@workspace:examples/postgres-geodb doesn't provide tslib (pf7d87), requested by @graphql-mesh/runtime.
+➤ YN0002: │ products@workspace:examples/federation-example/services/products doesn't provide @types/node (p1927c), requested by ts-node.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide @graphql-mesh/store (pfa82a), requested by @graphql-mesh/openapi.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide @graphql-mesh/types (p9836f), requested by @graphql-mesh/openapi.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide @graphql-mesh/utils (pd8b02), requested by @graphql-mesh/openapi.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide @types/node (pabf5e), requested by ts-node.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide tslib (p6f211), requested by @graphql-mesh/openapi.
+➤ YN0002: │ programmatic-batching-example@workspace:examples/programmatic-batching doesn't provide typescript (p822bb), requested by ts-node.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide @graphql-mesh/cross-helpers (pc611d), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide @graphql-mesh/store (p5111a), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide @graphql-mesh/types (pdb74b), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide @graphql-mesh/utils (p17588), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide graphql (p04eb6), requested by @graphql-mesh/cli.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide graphql (p4eb59), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reddit-example@workspace:examples/reddit-example doesn't provide tslib (p4811b), requested by @graphql-mesh/json-schema.
+➤ YN0002: │ reviews@workspace:examples/federation-example/services/reviews doesn't provide @types/node (pfd14f), requested by ts-node.
+➤ YN0002: │ soap-demo@workspace:examples/soap-demo doesn't provide @graphql-mesh/store (p1e29d), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-demo@workspace:examples/soap-demo doesn't provide @graphql-mesh/types (pee110), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-demo@workspace:examples/soap-demo doesn't provide @graphql-mesh/utils (p7aa3e), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-demo@workspace:examples/soap-demo doesn't provide @graphql-tools/utils (p23e46), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-demo@workspace:examples/soap-demo doesn't provide tslib (p7a49c), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-netsuite@workspace:examples/soap-netsuite doesn't provide @graphql-mesh/store (pfea0f), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-netsuite@workspace:examples/soap-netsuite doesn't provide @graphql-mesh/types (p2880b), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-netsuite@workspace:examples/soap-netsuite doesn't provide @graphql-mesh/utils (p6f657), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-netsuite@workspace:examples/soap-netsuite doesn't provide @graphql-tools/utils (pf8eff), requested by @graphql-mesh/soap.
+➤ YN0002: │ soap-netsuite@workspace:examples/soap-netsuite doesn't provide tslib (p0545d), requested by @graphql-mesh/soap.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @envelop/core (pe9c55), requested by @envelop/depth-limit.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/cross-helpers (p34343), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/cross-helpers (p45461), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/cross-helpers (pbe93a), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/store (pa929c), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/types (p0da2b), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/types (p0dc98), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/types (pb3496), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/types (pd95ac), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/utils (p67f3c), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/utils (pceed8), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-mesh/utils (ped8b0), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-tools/utils (p72a9d), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide @graphql-tools/utils (p8ff8d), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide tslib (p365a1), requested by @graphql-mesh/cache-cfw-kv.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide tslib (p48027), requested by @graphql-mesh/graphql.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide tslib (pa51c8), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ spacex-cfw@workspace:examples/spacex-cfw doesn't provide tslib (pbfa30), requested by @graphql-mesh/plugin-rate-limit.
+➤ YN0002: │ sqlite-chinook@workspace:examples/v1-next/sqlite-chinook doesn't provide @graphql-mesh/types (p68fa8), requested by @graphql-mesh/compose-cli.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @graphql-mesh/cross-helpers (pe6622), requested by @graphql-mesh/thrift.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @graphql-mesh/store (p42dc4), requested by @graphql-mesh/thrift.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @graphql-mesh/types (p0fbbc), requested by @graphql-mesh/thrift.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @graphql-mesh/utils (p2967b), requested by @graphql-mesh/thrift.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @graphql-tools/utils (pb9383), requested by @graphql-mesh/thrift.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @types/express (p4d2a8), requested by @creditkarma/thrift-server-express.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide @types/node (p4678f), requested by ts-node.
+➤ YN0002: │ thrift-calculator@workspace:examples/thrift-calculator doesn't provide tslib (p650fe), requested by @graphql-mesh/thrift.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/cross-helpers (p54a44), requested by @graphql-mesh/graphql.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/store (pcd492), requested by @graphql-mesh/graphql.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/types (p5f579), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/types (pcb200), requested by @graphql-mesh/graphql.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/types (pef9ff), requested by @graphql-mesh/transform-type-merging.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/utils (p3f431), requested by @graphql-mesh/graphql.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/utils (pb1bd7), requested by @graphql-mesh/transform-type-merging.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-mesh/utils (pb6394), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-tools/utils (p336f8), requested by @graphql-mesh/graphql.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide @graphql-tools/utils (p804b6), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide tslib (p5f94f), requested by @graphql-mesh/transform-type-merging.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide tslib (p669e2), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ type-merging-batching-example@workspace:examples/type-merging-batching-example doesn't provide tslib (p7dca9), requested by @graphql-mesh/graphql.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/cross-helpers (p70b2b), requested by @graphql-mesh/runtime.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/cross-helpers (p9f934), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/cross-helpers (pdff2c), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/store (p4281d), requested by @graphql-mesh/openapi.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/types (p17afa), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/types (p262bc), requested by @graphql-mesh/runtime.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/types (p2a091), requested by @graphql-mesh/openapi.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/types (pc1854), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/types (pf69a1), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/utils (p12d6a), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/utils (p2f03b), requested by @graphql-mesh/runtime.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/utils (p6e70b), requested by @graphql-mesh/openapi.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/utils (p8bd00), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-mesh/utils (pb9f30), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-tools/utils (p06fdf), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-tools/utils (p52f98), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide @graphql-tools/utils (p915ce), requested by @graphql-mesh/runtime.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide tslib (p6b372), requested by @graphql-mesh/plugin-response-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide tslib (p9eaca), requested by @graphql-mesh/openapi.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide tslib (pae889), requested by @graphql-mesh/transform-cache.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide tslib (pc8d8f), requested by @graphql-mesh/transform-rename.
+➤ YN0002: │ typescript-location-weather-example@workspace:examples/openapi-location-weather doesn't provide tslib (pce0a2), requested by @graphql-mesh/runtime.
+➤ YN0002: │ website@workspace:website doesn't provide eslint (pa4fa7), requested by eslint-config-next.
+➤ YN0002: │ website@workspace:website doesn't provide postcss (pacdf2), requested by postcss-import.
+➤ YN0086: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0013: │ 2836 packages were added to the project (+ 1.23 GiB).
+➤ YN0000: └ Completed in 2m 17s
+➤ YN0000: ┌ Link step
+➤ YN0007: │ sharp@npm:0.33.2 must be built because it never has been before or the last one failed
+➤ YN0007: │ protobufjs@npm:6.11.4 must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.20.1 must be built because it never has been before or the last one failed
+➤ YN0007: │ @apollo/rover@npm:0.22.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ node-libcurl@npm:4.0.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ protobufjs@npm:7.2.6 must be built because it never has been before or the last one failed
+➤ YN0007: │ es5-ext@npm:0.10.62 must be built because it never has been before or the last one failed
+➤ YN0007: │ @apollo/protobufjs@npm:1.2.7 must be built because it never has been before or the last one failed
+➤ YN0007: │ sqlite3@npm:4.2.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ @contrast/fn-inspect@npm:3.4.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ @newrelic/native-metrics@npm:9.0.1 must be built because it never has been before or the last one failed
+➤ YN0007: │ unix-dgram@npm:2.0.6 must be built because it never has been before or the last one failed
+➤ YN0007: │ workerd@npm:1.20240223.1 must be built because it never has been before or the last one failed
+➤ YN0007: │ core-js@npm:3.35.1 must be built because it never has been before or the last one failed
+➤ YN0007: │ core-js-pure@npm:3.35.1 must be built because it never has been before or the last one failed
+➤ YN0007: │ @apollo/protobufjs@npm:1.2.6 must be built because it never has been before or the last one failed
+➤ YN0009: │ @apollo/rover@npm:0.22.0 couldn't be built successfully (exit code 1, logs can be found here: /tmp/xfs-ab6da293/build.log)
+➤ YN0009: │ sqlite3@npm:4.2.0 couldn't be built successfully (exit code 1, logs can be found here: /tmp/xfs-8e9647b2/build.log)
+➤ YN0007: │ websocket@npm:1.0.31 must be built because it never has been before or the last one failed
+➤ YN0007: │ grpc-node-server-reflection@npm:1.0.2 must be built because it never has been before or the last one failed
+➤ YN0007: │ graphql-mesh-monorepo@workspace:. must be built because it never has been before or the last one failed
+➤ YN0000: └ Completed in 2m 11s
+➤ YN0000: · Failed with errors in 4m 30s
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,79 @@
+{
+  "name": "twyx",
+  "author": "Evan Jacobs <probablyup@gmail.com> (https://probablyup.com)",
+  "contributors": [],
+  "version": "0.1.4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/probablyup/twyx"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": ".generated/core.js",
+  "types": ".generated/core.d.ts",
+  "files": [
+    ".generated",
+    "react/package.json",
+    "transformer/package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "csstype": "^3.1.2",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/debug": "^4.1.8",
+    "@types/escodegen-jsx": "npm:@types/escodegen",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-test-renderer": "^18.0.2",
+    "ast-types": "^0.14.2",
+    "bun-types": "^1.0.1",
+    "bundlemon": "^2.0.2",
+    "concurrently": "^8.2.1",
+    "debug": "^4.3.4",
+    "escodegen-jsx": "^0.1.0-1.4.2dev",
+    "espree": "^9.6.1",
+    "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "typescript": "^5.2.2",
+    "unquote": "^1.1.1"
+  },
+  "scripts": {
+    "prepare": "bun compile:colors",
+    "prepublishOnly": "bun compile",
+    "check:unit": "bun test",
+    "check:size": "bundlemon",
+    "precompile": "rm -rf .generated",
+    "compile": "bun compile:colors && bun compile:lib && bun compile:transformer && bun compile:types && bun check:size",
+    "compile:colors": "bun scripts/generate-colors.ts",
+    "compile:lib": "bun build ./core.ts ./react/index.tsx --external=* --outdir=.generated --sourcemap=external --minify",
+    "compile:transformer": "bun build ./transformer/index.ts --outdir=.generated/transformer --sourcemap=external --minify",
+    "postcompile:lib": "bun check:size",
+    "compile:demo:css": "tailwindcss -c tailwind.config.ts -i demo/style.css -o demo/public/style.generated.css --minify",
+    "compile:types": "tsc -p tsconfig.build.json",
+    "dev": "concurrently 'bun --watch scripts/generate-colors.ts' 'bun compile:demo:css --watch'",
+    "release": "bun compile && changeset publish"
+  },
+  "bundlemon": {
+    "baseDir": ".generated",
+    "files": [
+      {
+        "path": "./core.js",
+        "maxSize": "3 kB"
+      },
+      {
+        "path": "./react/index.js",
+        "maxSize": "3 kB"
+      }
+    ]
+  }
+}

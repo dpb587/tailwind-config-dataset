@@ -1,0 +1,157 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/heyeshuang/hugo-theme-tokiwa
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/heyeshuang/hugo-theme-tokiwa
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-aa3539b743a7
+++ echo 'github.com/heyeshuang/hugo-theme-tokiwa;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b79d779ff545
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/heyeshuang/hugo-theme-tokiwa/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/heyeshuang/hugo-theme-tokiwa/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce eef76326d03b26f8
++ jq -nc --arg key analysis_nonce --arg value eef76326d03b26f8 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/heyeshuang/hugo-theme-tokiwa
++ jq -nc --arg key input_repo_name --arg value github.com/heyeshuang/hugo-theme-tokiwa '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:49:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:49:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-aa3539b743a7
+/tmp/twcr-aa3539b743a7 /twcr
++ pushd /tmp/twcr-aa3539b743a7
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/heyeshuang/hugo-theme-tokiwa.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:49:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:49:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha dd607ca18911aafed5f551e1cf02561fd4ba26f5
++ jq -nc --arg key exec_repo_commit_sha --arg value dd607ca18911aafed5f551e1cf02561fd4ba26f5 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-08-22 08:25:07 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-08-22T00:25:07Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-08-22T00:25:07Z '{ key: $key, value: $value }'
+/tmp/twcr-aa3539b743a7 /tmp/twcr-aa3539b743a7 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-aa3539b743a7
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:49:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:49:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (@tailwindcss/typography)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T07:49:23Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T07:49:23Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at dd607ca Merge pull request #43 from deining/support-hugo-module
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-aa3539b743a7 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-aa3539b743a7
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: optimize-css-assets-webpack-plugin@5.0.4
+npm ERR! Found: webpack@5.14.0
+npm ERR! node_modules/webpack
+npm ERR!   dev webpack@"^5.14.0" from the root project
+npm ERR!   peer webpack@">=2" from babel-loader@8.2.2
+npm ERR!   node_modules/babel-loader
+npm ERR!     dev babel-loader@"^8.2.2" from the root project
+npm ERR!   7 more (css-loader, mini-css-extract-plugin, postcss-loader, ...)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer webpack@"^4.0.0" from optimize-css-assets-webpack-plugin@5.0.4
+npm ERR! node_modules/optimize-css-assets-webpack-plugin
+npm ERR!   dev optimize-css-assets-webpack-plugin@"^5.0.4" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: webpack@4.47.0
+npm ERR! node_modules/webpack
+npm ERR!   peer webpack@"^4.0.0" from optimize-css-assets-webpack-plugin@5.0.4
+npm ERR!   node_modules/optimize-css-assets-webpack-plugin
+npm ERR!     dev optimize-css-assets-webpack-plugin@"^5.0.4" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /home/node/.npm/_logs/2024-03-04T07_49_24_187Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T07_49_24_187Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

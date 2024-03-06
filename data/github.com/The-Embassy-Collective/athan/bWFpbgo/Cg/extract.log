@@ -1,0 +1,280 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/The-Embassy-Collective/athan
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/The-Embassy-Collective/athan
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4bfa076137e6
+++ echo 'github.com/The-Embassy-Collective/athan;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4c78b8d31de3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/The-Embassy-Collective/athan/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/The-Embassy-Collective/athan/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 313429faaaadf6fe
++ jq -nc --arg key analysis_nonce --arg value 313429faaaadf6fe '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/The-Embassy-Collective/athan
++ jq -nc --arg key input_repo_name --arg value github.com/The-Embassy-Collective/athan '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:14:03Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:14:03Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4bfa076137e6
+/tmp/twcr-4bfa076137e6 /twcr
++ pushd /tmp/twcr-4bfa076137e6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/The-Embassy-Collective/athan.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:14:05Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:14:05Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 48610e66035cd16fd347e1357fb96b732d1ad99b
++ jq -nc --arg key exec_repo_commit_sha --arg value 48610e66035cd16fd347e1357fb96b732d1ad99b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-16 21:57:26 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-16T19:57:26Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-16T19:57:26Z '{ key: $key, value: $value }'
+/tmp/twcr-4bfa076137e6 /tmp/twcr-4bfa076137e6 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4bfa076137e6
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:14:05Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:14:05Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "athan-time",
+>>>   "private": true,
+>>>   "version": "1.0.1",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3",
+>>>     "tailwindcss-animate": "^1.0.6"
+>>>   },
+>>>   "pnpm": {
+>>>     "patchedDependencies": {
+>>>       "react-virtualized@9.22.5": "patches/react-virtualized@9.22.5.patch"
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4bfa076137e6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4bfa076137e6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4bfa076137e6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-4bfa076137e6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 27, reused 0, downloaded 22, added 0
+Progress: resolved 66, reused 0, downloaded 55, added 0
+Progress: resolved 104, reused 0, downloaded 94, added 0
+ ERR_PNPM_PATCH_NOT_APPLIED  The following patches were not applied: react-virtualized@9.22.5
+
+Either remove them from "patchedDependencies" or update them to match packages in your dependencies.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:14:10Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:14:10Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 48610e6 Merge pull request #54 from aL0NEW0LF/main
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4bfa076137e6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4bfa076137e6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4bfa076137e6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-4bfa076137e6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +510
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 510, reused 62, downloaded 37, added 99
+Progress: resolved 510, reused 62, downloaded 93, added 155
+Progress: resolved 510, reused 62, downloaded 155, added 217
+Progress: resolved 510, reused 62, downloaded 211, added 273
+Progress: resolved 510, reused 62, downloaded 269, added 331
+Progress: resolved 510, reused 62, downloaded 336, added 398
+Progress: resolved 510, reused 62, downloaded 395, added 457
+Progress: resolved 510, reused 62, downloaded 448, added 510, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @radix-ui/react-icons 1.3.0
++ @radix-ui/react-label 2.0.2
++ @radix-ui/react-popover 1.0.6
++ @radix-ui/react-radio-group 1.1.3
++ @radix-ui/react-select 1.2.2
++ @radix-ui/react-slider 1.1.2
++ @radix-ui/react-slot 1.0.2
++ @radix-ui/react-switch 1.0.3
++ @radix-ui/react-toast 1.1.4
++ @radix-ui/react-tooltip 1.0.6
++ @tauri-apps/api 1.4.0
++ @tauri-apps/plugin-store 2.0.0-alpha.1
++ adhan 4.4.3
++ class-variance-authority 0.7.0
++ country-state-city 3.2.0
++ date-fns 2.30.0
++ formik 2.4.3
++ fuse.js 6.6.2
++ i18next 23.4.6
++ i18next-browser-languagedetector 7.1.0
++ lodash 4.17.21
++ react 18.2.0
++ react-day-picker 8.8.1
++ react-dom 18.2.0
++ react-i18next 13.2.0
++ react-router-dom 6.15.0
++ react-select-virtualized 5.5.0
++ react-virtualized 9.22.5
++ use-interval 1.4.0
++ yup 1.2.0
++ zustand 4.4.1
+
+devDependencies:
++ @tauri-apps/cli 1.4.0
++ @total-typescript/ts-reset 0.5.1
++ @types/lodash 4.14.197
++ @types/node 20.5.1
++ @types/react 18.2.15
++ @types/react-dom 18.2.7
++ @types/react-virtualized 9.21.22
++ @typescript-eslint/eslint-plugin 6.4.1
++ @typescript-eslint/parser 6.4.1
++ @vitejs/plugin-react 4.0.3
++ autoprefixer 10.4.15
++ clsx 2.0.0
++ eslint 8.47.0
++ eslint-config-prettier 9.0.0
++ eslint-plugin-prettier 5.0.0
++ eslint-plugin-react 7.33.2
++ eslint-plugin-sonarjs 0.20.0
++ postcss 8.4.28
++ prettier 3.0.2
++ tailwind-merge 1.14.0
++ tailwindcss 3.3.3
++ tailwindcss-animate 1.0.6
++ typescript 5.0.2
++ vite 4.4.4
++ vite-plugin-svgr 3.2.0
+
+Done in 9.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T10:14:21Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T10:14:21Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T10:14:21Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T10:14:21Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

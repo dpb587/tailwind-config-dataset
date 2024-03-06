@@ -1,0 +1,508 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/triggerdotdev/trigger.dev
++ reporef=main
++ repopath=./config-packages/tailwind-config
++ grep -q '^././'
+++ echo github.com/triggerdotdev/trigger.dev
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-694e52eb77ee
+++ echo 'github.com/triggerdotdev/trigger.dev;main;./config-packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0048357aae9d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/triggerdotdev/trigger.dev/bWFpbgo/Li9jb25maWctcGFja2FnZXMvdGFpbHdpbmQtY29uZmlnCg
++ jq -nc --arg key analysis_key --arg value github.com/triggerdotdev/trigger.dev/bWFpbgo/Li9jb25maWctcGFja2FnZXMvdGFpbHdpbmQtY29uZmlnCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c6a3a9d0c4fcfa30
++ jq -nc --arg key analysis_nonce --arg value c6a3a9d0c4fcfa30 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/triggerdotdev/trigger.dev
++ jq -nc --arg key input_repo_name --arg value github.com/triggerdotdev/trigger.dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./config-packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./config-packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T16:44:44Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T16:44:44Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-694e52eb77ee
++ pushd /tmp/twcr-694e52eb77ee
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/triggerdotdev/trigger.dev.git .
+/tmp/twcr-694e52eb77ee /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T16:44:47Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T16:44:47Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ca47e6bdcd7f12947cfe613eb32f15d9ef5f3497
++ jq -nc --arg key exec_repo_commit_sha --arg value ca47e6bdcd7f12947cfe613eb32f15d9ef5f3497 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 15:34:00 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T15:34:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T15:34:00Z '{ key: $key, value: $value }'
+/tmp/twcr-694e52eb77ee/config-packages/tailwind-config /tmp/twcr-694e52eb77ee /twcr
++ '[' -z ./config-packages/tailwind-config ']'
++ pushd ./config-packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-694e52eb77ee/config-packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./config-packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-694e52eb77ee
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T16:44:47Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T16:44:47Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T16:44:47Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T16:44:47Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-694e52eb77ee /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-694e52eb77ee
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-694e52eb77ee/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-694e52eb77ee/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 55 workspace projects
+../../apps/webapp                        |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-694e52eb77ee/apps/webapp/@types/@react-aria/datepicker
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 63, reused 0, downloaded 63, added 0
+../..                                    | Progress: resolved 109, reused 0, downloaded 109, added 0
+../..                                    | Progress: resolved 157, reused 0, downloaded 157, added 0
+../..                                    | Progress: resolved 201, reused 0, downloaded 201, added 0
+../../packages/cli-v3                    |  WARN  deprecated @opentelemetry/exporter-collector@0.25.0
+../..                                    | Progress: resolved 247, reused 0, downloaded 247, added 0
+../..                                    | Progress: resolved 286, reused 0, downloaded 286, added 0
+../..                                    | Progress: resolved 322, reused 0, downloaded 322, added 0
+../..                                    | Progress: resolved 348, reused 0, downloaded 348, added 0
+../..                                    | Progress: resolved 384, reused 0, downloaded 384, added 0
+../..                                    | Progress: resolved 391, reused 0, downloaded 391, added 0
+../..                                    | Progress: resolved 394, reused 0, downloaded 394, added 0
+../..                                    | Progress: resolved 443, reused 0, downloaded 427, added 0
+../..                                    | Progress: resolved 508, reused 0, downloaded 492, added 0
+../..                                    | Progress: resolved 572, reused 0, downloaded 556, added 0
+../..                                    | Progress: resolved 640, reused 0, downloaded 624, added 0
+../..                                    | Progress: resolved 702, reused 0, downloaded 686, added 0
+../..                                    | Progress: resolved 761, reused 0, downloaded 745, added 0
+../..                                    | Progress: resolved 821, reused 0, downloaded 805, added 0
+../..                                    | Progress: resolved 858, reused 0, downloaded 842, added 0
+../..                                    | Progress: resolved 913, reused 0, downloaded 897, added 0
+../..                                    | Progress: resolved 968, reused 0, downloaded 952, added 0
+../..                                    | Progress: resolved 1012, reused 0, downloaded 996, added 0
+../..                                    | Progress: resolved 1071, reused 0, downloaded 1055, added 0
+../..                                    | Progress: resolved 1133, reused 0, downloaded 1117, added 0
+../..                                    | Progress: resolved 1200, reused 0, downloaded 1184, added 0
+../..                                    | Progress: resolved 1278, reused 0, downloaded 1262, added 0
+../..                                    | Progress: resolved 1331, reused 0, downloaded 1315, added 0
+../..                                    | Progress: resolved 1387, reused 0, downloaded 1371, added 0
+../..                                    | Progress: resolved 1450, reused 0, downloaded 1434, added 0
+../..                                    | Progress: resolved 1514, reused 0, downloaded 1498, added 0
+../..                                    | Progress: resolved 1566, reused 0, downloaded 1550, added 0
+../..                                    | Progress: resolved 1617, reused 0, downloaded 1601, added 0
+../..                                    | Progress: resolved 1681, reused 0, downloaded 1666, added 0
+../..                                    | Progress: resolved 1749, reused 0, downloaded 1734, added 0
+../..                                    | Progress: resolved 1801, reused 0, downloaded 1786, added 0
+../..                                    | Progress: resolved 1865, reused 0, downloaded 1850, added 0
+../..                                    | Progress: resolved 1879, reused 0, downloaded 1864, added 0
+../..                                    | Progress: resolved 1916, reused 0, downloaded 1901, added 0
+../..                                    | Progress: resolved 1987, reused 0, downloaded 1972, added 0
+../..                                    | Progress: resolved 2045, reused 0, downloaded 2001, added 0
+../..                                    | Progress: resolved 2179, reused 0, downloaded 2009, added 0
+../..                                    | Progress: resolved 2194, reused 0, downloaded 2017, added 0
+../..                                    | Progress: resolved 2211, reused 0, downloaded 2039, added 0
+../..                                    | Progress: resolved 2248, reused 0, downloaded 2076, added 0
+../..                                    | Progress: resolved 2276, reused 0, downloaded 2099, added 0
+../..                                    | Progress: resolved 2282, reused 0, downloaded 2105, added 0
+../..                                    | Progress: resolved 2284, reused 0, downloaded 2107, added 0
+../..                                    | Progress: resolved 2287, reused 0, downloaded 2111, added 0
+../..                                    | Progress: resolved 2290, reused 0, downloaded 2114, added 0
+../..                                    | Progress: resolved 2290, reused 0, downloaded 2115, added 0
+../..                                    | Progress: resolved 2293, reused 0, downloaded 2117, added 0
+../..                                    | Progress: resolved 2293, reused 0, downloaded 2118, added 0
+../..                                    | Progress: resolved 2311, reused 0, downloaded 2136, added 0
+../..                                    | Progress: resolved 2331, reused 0, downloaded 2156, added 0
+../..                                    | Progress: resolved 2343, reused 0, downloaded 2168, added 0
+../..                                    | Progress: resolved 2353, reused 0, downloaded 2178, added 0
+../..                                    | Progress: resolved 2357, reused 0, downloaded 2183, added 0
+../..                                    | Progress: resolved 2378, reused 0, downloaded 2206, added 0
+../..                                    | Progress: resolved 2395, reused 0, downloaded 2223, added 0
+../..                                    | Progress: resolved 2414, reused 0, downloaded 2242, added 0
+../..                                    | Progress: resolved 2448, reused 0, downloaded 2276, added 0
+../..                                    | Progress: resolved 2454, reused 0, downloaded 2282, added 0
+../..                                    | Progress: resolved 2485, reused 0, downloaded 2293, added 0
+../..                                    | Progress: resolved 2499, reused 0, downloaded 2301, added 0
+../..                                    | Progress: resolved 2519, reused 0, downloaded 2319, added 0
+../..                                    | Progress: resolved 2566, reused 0, downloaded 2366, added 0
+../..                                    | Progress: resolved 2626, reused 0, downloaded 2426, added 0
+../..                                    | Progress: resolved 2663, reused 0, downloaded 2463, added 0
+../..                                    | Progress: resolved 2715, reused 0, downloaded 2515, added 0
+../..                                    | Progress: resolved 2773, reused 0, downloaded 2573, added 0
+../..                                    | Progress: resolved 2829, reused 0, downloaded 2629, added 0
+../..                                    | Progress: resolved 2878, reused 0, downloaded 2677, added 0
+../..                                    | Progress: resolved 2941, reused 0, downloaded 2740, added 0
+../..                                    | Progress: resolved 3012, reused 0, downloaded 2812, added 0
+../..                                    | Progress: resolved 3068, reused 0, downloaded 2868, added 0
+../..                                    | Progress: resolved 3137, reused 0, downloaded 2937, added 0
+../..                                    | Progress: resolved 3193, reused 0, downloaded 2993, added 0
+../..                                    | Progress: resolved 3244, reused 0, downloaded 3045, added 0
+../..                                    | Progress: resolved 3303, reused 0, downloaded 3104, added 0
+../..                                    | Progress: resolved 3365, reused 0, downloaded 3166, added 0
+../..                                    | Progress: resolved 3424, reused 0, downloaded 3226, added 0
+../..                                    | Progress: resolved 3484, reused 0, downloaded 3286, added 0
+../..                                    | Progress: resolved 3519, reused 0, downloaded 3321, added 0
+../..                                    | Progress: resolved 3588, reused 0, downloaded 3390, added 0
+../..                                    | Progress: resolved 3652, reused 0, downloaded 3454, added 0
+../..                                    | Progress: resolved 3698, reused 0, downloaded 3500, added 0
+../..                                    | Progress: resolved 3703, reused 0, downloaded 3503, added 0
+../..                                    | Progress: resolved 3712, reused 0, downloaded 3511, added 0
+../..                                    | Progress: resolved 3724, reused 0, downloaded 3520, added 0
+ WARN  26 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-class-static-block@7.21.0, @babel/plugin-proposal-dynamic-import@7.18.6, @babel/plugin-proposal-export-namespace-from@7.18.9, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-logical-assignment-operators@7.20.7, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/plugin-proposal-private-methods@7.18.6, @babel/plugin-proposal-private-property-in-object@7.21.0, @babel/plugin-proposal-unicode-property-regex@7.18.6, @npmcli/move-file@1.1.2, @opentelemetry/api-metrics@0.25.0, @opentelemetry/sdk-metrics-base@0.25.0, @types/generic-pool@3.8.1, loupe@2.3.6, resolve-url@0.2.1, rollup-plugin-inject@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, urix@0.1.0
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3526, added 0
+../..                                    |    +3761 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 0
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 1693
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 2410
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 3151
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 3537
+../..                                    | Progress: resolved 3728, reused 0, downloaded 3530, added 3761, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting of core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/protobufjs postinstall: Done
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../node_modules/bufferutil install: Done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/utf-8-validate install: Done
+.../node_modules/fast-folder-size postinstall$ node get-sysinternals-du.js
+.../node_modules/@prisma/engines postinstall: (node:235) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../node_modules/fast-folder-size postinstall: Done
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../node_modules/@nestjs/core postinstall: (node:270) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../deasync@0.1.28/node_modules/deasync install$ node ./build.js
+.../deasync@0.1.28/node_modules/deasync install: gyp info it worked if it ends with ok
+.../deasync@0.1.28/node_modules/deasync install: gyp info using node-gyp@9.4.1
+.../deasync@0.1.28/node_modules/deasync install: gyp info using node@21.6.2 | linux | x64
+.../deasync@0.1.28/node_modules/deasync install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../deasync@0.1.28/node_modules/deasync install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../deasync@0.1.28/node_modules/deasync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sveltejs/kit postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../deasync@0.1.28/node_modules/deasync install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../deasync@0.1.28/node_modules/deasync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn /usr/bin/python3
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args [
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'binding.gyp',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-f',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'make',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/tmp/twcr-694e52eb77ee/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build/config.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dlibrary=shared_library',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dvisibility=default',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-694e52eb77ee/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_engine=v8',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--depth=.',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--no-parallel',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--generator-output',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'build',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Goutput_dir=.'
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args ]
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn make
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../deasync@0.1.28/node_modules/deasync install: make: Entering directory '/tmp/twcr-694e52eb77ee/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build'
+.../deasync@0.1.28/node_modules/deasync install:   CXX(target) Release/obj.target/deasync/src/deasync.o
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../deasync@0.1.28/node_modules/deasync install:   SOLINK_MODULE(target) Release/obj.target/deasync.node
+.../deasync@0.1.28/node_modules/deasync install:   COPY Release/deasync.node
+.../deasync@0.1.28/node_modules/deasync install: make: Leaving directory '/tmp/twcr-694e52eb77ee/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build'
+.../deasync@0.1.28/node_modules/deasync install: gyp info ok 
+.../deasync@0.1.28/node_modules/deasync install: Installed in `/tmp/twcr-694e52eb77ee/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/bin/linux-x64-node-21/deasync.node`
+.../deasync@0.1.28/node_modules/deasync install: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.11/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.17.6/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.18.11/node_modules/esbuild postinstall: Done
+.../node_modules/workerd postinstall: Done
+.../esbuild@0.17.6/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../prisma@5.4.1/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.4/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.4.1/node_modules/prisma preinstall: Done
+.../esbuild@0.16.4/node_modules/esbuild postinstall: Done
+.../turbo@1.10.3/node_modules/turbo postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../turbo@1.10.3/node_modules/turbo postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../node_modules/ngrok postinstall$ node ./postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/ngrok postinstall: ngrok - downloading binary https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+.../node_modules/@prisma/client postinstall: Done
+.../node_modules/ngrok postinstall: ngrok - downloading progress: 
+.../node_modules/ngrok postinstall: ngrok - error downloading from URL RequestError: getaddrinfo EAI_AGAIN bin.equinox.io
+.../node_modules/ngrok postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/got@11.8.6/node_modules/got/dist/source/core/index.js:970:111)
+.../node_modules/ngrok postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/ngrok postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/ngrok postinstall:     at origin.emit (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/@szmarczak+http-timer@4.0.6/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+.../node_modules/ngrok postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/ngrok postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/ngrok postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/ngrok postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/ngrok postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/ngrok postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+.../node_modules/ngrok postinstall:   code: 'EAI_AGAIN',
+.../node_modules/ngrok postinstall:   timings: {
+.../node_modules/ngrok postinstall:     start: 1709484410322,
+.../node_modules/ngrok postinstall:     socket: 1709484410324,
+.../node_modules/ngrok postinstall:     lookup: 1709484418327,
+.../node_modules/ngrok postinstall:     connect: undefined,
+.../node_modules/ngrok postinstall:     secureConnect: undefined,
+.../node_modules/ngrok postinstall:     upload: undefined,
+.../node_modules/ngrok postinstall:     response: undefined,
+.../node_modules/ngrok postinstall:     end: undefined,
+.../node_modules/ngrok postinstall:     error: 1709484418328,
+.../node_modules/ngrok postinstall:     abort: undefined,
+.../node_modules/ngrok postinstall:     phases: {
+.../node_modules/ngrok postinstall:       wait: 2,
+.../node_modules/ngrok postinstall:       dns: 8003,
+.../node_modules/ngrok postinstall:       tcp: undefined,
+.../node_modules/ngrok postinstall:       tls: undefined,
+.../node_modules/ngrok postinstall:       request: undefined,
+.../node_modules/ngrok postinstall:       firstByte: undefined,
+.../node_modules/ngrok postinstall:       download: undefined,
+.../node_modules/ngrok postinstall:       total: 8006
+.../node_modules/ngrok postinstall:     }
+.../node_modules/ngrok postinstall:   }
+.../node_modules/ngrok postinstall: }
+.../node_modules/ngrok postinstall: ngrok - install failed, retrying
+.../node_modules/ngrok postinstall: ngrok - downloading binary https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+.../node_modules/ngrok postinstall: ngrok - downloading progress: 
+.../node_modules/ngrok postinstall: ngrok - error downloading from URL RequestError: getaddrinfo EAI_AGAIN bin.equinox.io
+.../node_modules/ngrok postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/got@11.8.6/node_modules/got/dist/source/core/index.js:970:111)
+.../node_modules/ngrok postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/ngrok postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/ngrok postinstall:     at origin.emit (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/@szmarczak+http-timer@4.0.6/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+.../node_modules/ngrok postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/ngrok postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/ngrok postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/ngrok postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/ngrok postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/ngrok postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+.../node_modules/ngrok postinstall:   code: 'EAI_AGAIN',
+.../node_modules/ngrok postinstall:   timings: {
+.../node_modules/ngrok postinstall:     start: 1709484418843,
+.../node_modules/ngrok postinstall:     socket: 1709484418843,
+.../node_modules/ngrok postinstall:     lookup: 1709484426848,
+.../node_modules/ngrok postinstall:     connect: undefined,
+.../node_modules/ngrok postinstall:     secureConnect: undefined,
+.../node_modules/ngrok postinstall:     upload: undefined,
+.../node_modules/ngrok postinstall:     response: undefined,
+.../node_modules/ngrok postinstall:     end: undefined,
+.../node_modules/ngrok postinstall:     error: 1709484426848,
+.../node_modules/ngrok postinstall:     abort: undefined,
+.../node_modules/ngrok postinstall:     phases: {
+.../node_modules/ngrok postinstall:       wait: 0,
+.../node_modules/ngrok postinstall:       dns: 8005,
+.../node_modules/ngrok postinstall:       tcp: undefined,
+.../node_modules/ngrok postinstall:       tls: undefined,
+.../node_modules/ngrok postinstall:       request: undefined,
+.../node_modules/ngrok postinstall:       firstByte: undefined,
+.../node_modules/ngrok postinstall:       download: undefined,
+.../node_modules/ngrok postinstall:       total: 8005
+.../node_modules/ngrok postinstall:     }
+.../node_modules/ngrok postinstall:   }
+.../node_modules/ngrok postinstall: }
+.../node_modules/ngrok postinstall: ngrok - install failed, retrying
+.../node_modules/ngrok postinstall: ngrok - downloading binary https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+.../node_modules/ngrok postinstall: ngrok - downloading progress: 
+.../node_modules/ngrok postinstall: ngrok - error downloading from URL RequestError: getaddrinfo EAI_AGAIN bin.equinox.io
+.../node_modules/ngrok postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/got@11.8.6/node_modules/got/dist/source/core/index.js:970:111)
+.../node_modules/ngrok postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/ngrok postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/ngrok postinstall:     at origin.emit (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/@szmarczak+http-timer@4.0.6/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+.../node_modules/ngrok postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/ngrok postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/ngrok postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/ngrok postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/ngrok postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/ngrok postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+.../node_modules/ngrok postinstall:   code: 'EAI_AGAIN',
+.../node_modules/ngrok postinstall:   timings: {
+.../node_modules/ngrok postinstall:     start: 1709484427353,
+.../node_modules/ngrok postinstall:     socket: 1709484427354,
+.../node_modules/ngrok postinstall:     lookup: 1709484435367,
+.../node_modules/ngrok postinstall:     connect: undefined,
+.../node_modules/ngrok postinstall:     secureConnect: undefined,
+.../node_modules/ngrok postinstall:     upload: undefined,
+.../node_modules/ngrok postinstall:     response: undefined,
+.../node_modules/ngrok postinstall:     end: undefined,
+.../node_modules/ngrok postinstall:     error: 1709484435367,
+.../node_modules/ngrok postinstall:     abort: undefined,
+.../node_modules/ngrok postinstall:     phases: {
+.../node_modules/ngrok postinstall:       wait: 1,
+.../node_modules/ngrok postinstall:       dns: 8013,
+.../node_modules/ngrok postinstall:       tcp: undefined,
+.../node_modules/ngrok postinstall:       tls: undefined,
+.../node_modules/ngrok postinstall:       request: undefined,
+.../node_modules/ngrok postinstall:       firstByte: undefined,
+.../node_modules/ngrok postinstall:       download: undefined,
+.../node_modules/ngrok postinstall:       total: 8014
+.../node_modules/ngrok postinstall:     }
+.../node_modules/ngrok postinstall:   }
+.../node_modules/ngrok postinstall: }
+.../node_modules/ngrok postinstall: ngrok - install failed RequestError: getaddrinfo EAI_AGAIN bin.equinox.io
+.../node_modules/ngrok postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/got@11.8.6/node_modules/got/dist/source/core/index.js:970:111)
+.../node_modules/ngrok postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/ngrok postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/ngrok postinstall:     at origin.emit (/tmp/twcr-694e52eb77ee/node_modules/.pnpm/@szmarczak+http-timer@4.0.6/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+.../node_modules/ngrok postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/ngrok postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/ngrok postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/ngrok postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/ngrok postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/ngrok postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26) {
+.../node_modules/ngrok postinstall:   code: 'EAI_AGAIN',
+.../node_modules/ngrok postinstall:   timings: {
+.../node_modules/ngrok postinstall:     start: 1709484427353,
+.../node_modules/ngrok postinstall:     socket: 1709484427354,
+.../node_modules/ngrok postinstall:     lookup: 1709484435367,
+.../node_modules/ngrok postinstall:     connect: undefined,
+.../node_modules/ngrok postinstall:     secureConnect: undefined,
+.../node_modules/ngrok postinstall:     upload: undefined,
+.../node_modules/ngrok postinstall:     response: undefined,
+.../node_modules/ngrok postinstall:     end: undefined,
+.../node_modules/ngrok postinstall:     error: 1709484435367,
+.../node_modules/ngrok postinstall:     abort: undefined,
+.../node_modules/ngrok postinstall:     phases: {
+.../node_modules/ngrok postinstall:       wait: 1,
+.../node_modules/ngrok postinstall:       dns: 8013,
+.../node_modules/ngrok postinstall:       tcp: undefined,
+.../node_modules/ngrok postinstall:       tls: undefined,
+.../node_modules/ngrok postinstall:       request: undefined,
+.../node_modules/ngrok postinstall:       firstByte: undefined,
+.../node_modules/ngrok postinstall:       download: undefined,
+.../node_modules/ngrok postinstall:       total: 8014
+.../node_modules/ngrok postinstall:     }
+.../node_modules/ngrok postinstall:   }
+.../node_modules/ngrok postinstall: }
+.../node_modules/ngrok postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

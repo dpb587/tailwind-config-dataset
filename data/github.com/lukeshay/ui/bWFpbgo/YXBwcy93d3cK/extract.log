@@ -1,0 +1,368 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/lukeshay/ui
++ reporef=main
++ repopath=./apps/www
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/lukeshay/ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a7d58d078de8
+++ echo 'github.com/lukeshay/ui;main;./apps/www'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a669bd44f105
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/lukeshay/ui/bWFpbgo/Li9hcHBzL3d3dwo
++ jq -nc --arg key analysis_key --arg value github.com/lukeshay/ui/bWFpbgo/Li9hcHBzL3d3dwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f7eb16a246dda599
++ jq -nc --arg key analysis_nonce --arg value f7eb16a246dda599 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/lukeshay/ui
++ jq -nc --arg key input_repo_name --arg value github.com/lukeshay/ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/www
++ jq -nc --arg key input_repo_path --arg value ./apps/www '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:12:42Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:12:42Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a7d58d078de8
+/tmp/twcr-a7d58d078de8 /twcr
++ pushd /tmp/twcr-a7d58d078de8
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/lukeshay/ui.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:12:43Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:12:43Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 5be55283f39ed0e900f16c4dc18c70a52cb0ff63
++ jq -nc --arg key exec_repo_commit_sha --arg value 5be55283f39ed0e900f16c4dc18c70a52cb0ff63 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 01:24:42 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T01:24:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T01:24:42Z '{ key: $key, value: $value }'
+/tmp/twcr-a7d58d078de8/apps/www /tmp/twcr-a7d58d078de8 /twcr
++ '[' -z ./apps/www ']'
++ pushd ./apps/www
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a7d58d078de8/apps/www
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/www '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a7d58d078de8
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:12:43Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:12:43Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@lshay/www",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "repository": {
+>>>     "url": "https://github.com/lukeshay/ui",
+>>>     "type": "git"
+>>>   },
+>>>   "type": "module",
+>>>   "files": [
+>>>     "src",
+>>>     "public"
+>>>   ],
+>>>   "keywords": [
+>>>     "shadcn-ui",
+>>>     "@shadcn/ui",
+>>>     "radix",
+>>>     "react",
+>>>     "tailwind",
+>>>     "tailwindcss"
+>>>   ],
+>>>   "author": "Luke Shay <https://github.com/lukeshay>",
+>>>   "license": "MIT",
+>>>   "dependencies": {
+>>>     "@lshay/ui": "workspace:^"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3",
+>>>     "tailwindcss-animate": "^1.0.6"
+>>>   },
+>>>   "prettier": "@lshay/prettier-config"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/www '!=' ./ ']'
++ rm -f /tmp/twcr-a7d58d078de8/package.json /tmp/twcr-a7d58d078de8/package-lock.json /tmp/twcr-a7d58d078de8/pnpm-lock.yaml /tmp/twcr-a7d58d078de8/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a7d58d078de8 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a7d58d078de8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a7d58d078de8/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../../packages/ui                        |  WARN  deprecated tsup@7.3.0
+../..                                    | Progress: resolved 27, reused 0, downloaded 16, added 0
+../..                                    | Progress: resolved 52, reused 0, downloaded 45, added 0
+../../packages/ui                        |  WARN  deprecated undefined@0.1.0
+../..                                    | Progress: resolved 77, reused 0, downloaded 71, added 0
+../..                                    | Progress: resolved 104, reused 0, downloaded 92, added 0
+../..                                    | Progress: resolved 131, reused 0, downloaded 116, added 0
+../..                                    | Progress: resolved 162, reused 0, downloaded 149, added 0
+../..                                    | Progress: resolved 196, reused 0, downloaded 180, added 0
+../..                                    | Progress: resolved 229, reused 0, downloaded 210, added 0
+../..                                    | Progress: resolved 253, reused 0, downloaded 233, added 0
+../..                                    | Progress: resolved 281, reused 0, downloaded 254, added 0
+../..                                    | Progress: resolved 315, reused 0, downloaded 288, added 0
+../..                                    | Progress: resolved 345, reused 0, downloaded 316, added 0
+../..                                    | Progress: resolved 383, reused 0, downloaded 348, added 0
+../..                                    | Progress: resolved 435, reused 0, downloaded 360, added 0
+../..                                    | Progress: resolved 467, reused 0, downloaded 397, added 0
+../..                                    | Progress: resolved 498, reused 0, downloaded 429, added 0
+../..                                    | Progress: resolved 538, reused 0, downloaded 468, added 0
+../..                                    | Progress: resolved 573, reused 0, downloaded 499, added 0
+../..                                    | Progress: resolved 607, reused 0, downloaded 532, added 0
+../..                                    | Progress: resolved 645, reused 0, downloaded 567, added 0
+../..                                    | Progress: resolved 687, reused 0, downloaded 604, added 0
+../..                                    | Progress: resolved 699, reused 0, downloaded 663, added 0
+../..                                    | Progress: resolved 729, reused 0, downloaded 673, added 0
+../..                                    | Progress: resolved 760, reused 0, downloaded 710, added 0
+../..                                    | +723 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 764, reused 0, downloaded 720, added 720
+../..                                    | Progress: resolved 764, reused 0, downloaded 721, added 720
+../..                                    | Progress: resolved 764, reused 0, downloaded 723, added 723, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @lshay/ui 0.1.30 <- ../../packages/ui
+
+devDependencies:
++ tailwindcss 3.4.1
++ tailwindcss-animate 1.0.7
+
+Done in 32.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-a7d58d078de8/apps/www/node_modules/@lshay/ui/dist/cjs/lib/utils.js'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-a7d58d078de8/apps/www/tailwind.config.cjs:1:96
+    at evalModule (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-a7d58d078de8/apps/www/node_modules/@lshay/ui/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T12:13:17Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T12:13:17Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 5be5528 message
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a7d58d078de8 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a7d58d078de8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a7d58d078de8/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-a7d58d078de8/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +718 -343 ++++++++++++++++++---------
+../..                                    | Progress: resolved 718, reused 157, downloaded 17, added 109
+../..                                    | Progress: resolved 718, reused 157, downloaded 63, added 155
+../..                                    | Progress: resolved 718, reused 157, downloaded 106, added 198
+../..                                    | Progress: resolved 718, reused 157, downloaded 162, added 254
+../..                                    | Progress: resolved 718, reused 157, downloaded 217, added 309
+../..                                    | Progress: resolved 718, reused 157, downloaded 264, added 355
+../..                                    | Progress: resolved 718, reused 157, downloaded 318, added 410
+../..                                    | Progress: resolved 718, reused 157, downloaded 363, added 455
+../..                                    | Progress: resolved 718, reused 157, downloaded 411, added 505
+../..                                    | Progress: resolved 718, reused 157, downloaded 474, added 570
+../..                                    | Progress: resolved 718, reused 157, downloaded 518, added 614
+../..                                    | Progress: resolved 718, reused 157, downloaded 552, added 648
+../..                                    | Progress: resolved 718, reused 157, downloaded 554, added 650
+../..                                    | Progress: resolved 718, reused 157, downloaded 555, added 651, done
+.../core-js@2.6.12/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@2.6.12/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@2.6.12/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://www.patreon.com/zloirock 
+.../core-js@2.6.12/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@2.6.12/node_modules/core-js postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.18.16/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.18.16/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @hookform/resolvers 3.1.1
++ @lshay/ui 0.1.30 <- ../../packages/ui
++ @mdx-js/react 2.3.0
++ change-case 4.1.2
++ date-fns 2.30.0
++ highlight.js 11.8.0
++ lucide-react 0.263.1
++ million 2.5.3
++ react 18.2.0
++ react-code-blocks 0.1.3
++ react-dom 18.2.0
++ react-hook-form 7.45.2
++ react-icons 4.10.1
++ sonner 1.3.1
++ zod 3.21.4
+
+devDependencies:
++ @lshay/eslint-config-flat 0.0.4
++ @lshay/prettier-config 0.6.0
++ @mdx-js/rollup 2.3.0
++ @types/react 18.2.18
++ @types/react-dom 18.2.7
++ @vitejs/plugin-react-swc 3.3.2
++ autoprefixer 10.4.14
++ eslint 8.46.0
++ gh-pages 5.0.0
++ globby 13.2.2
++ postcss 8.4.27
++ prettier 3.0.1
+- tailwindcss
++ tailwindcss 3.3.3
+- tailwindcss-animate
++ tailwindcss-animate 1.0.6
++ typescript 5.1.6
++ vite 4.4.8
+
+Done in 16.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-a7d58d078de8/apps/www/node_modules/@lshay/ui/dist/cjs/lib/utils.js'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.18.2/node_modules/jiti/dist/jiti.js:1:241025)
+    at jiti (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.18.2/node_modules/jiti/dist/jiti.js:1:243309)
+    at /tmp/twcr-a7d58d078de8/apps/www/tailwind.config.cjs:1:96
+    at jiti (/tmp/twcr-a7d58d078de8/node_modules/.pnpm/jiti@1.18.2/node_modules/jiti/dist/jiti.js:1:245784) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-a7d58d078de8/apps/www/node_modules/@lshay/ui/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

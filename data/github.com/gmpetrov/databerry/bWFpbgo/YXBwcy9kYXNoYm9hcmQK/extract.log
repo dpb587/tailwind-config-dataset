@@ -1,0 +1,381 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gmpetrov/databerry
++ reporef=main
++ repopath=./apps/dashboard
++ grep -q '^././'
+++ echo github.com/gmpetrov/databerry
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-0bc0e9d8979f
+++ echo 'github.com/gmpetrov/databerry;main;./apps/dashboard'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/5f245023f71d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr /+ _-
+++ tr -d =
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gmpetrov/databerry/bWFpbgo/Li9hcHBzL2Rhc2hib2FyZAo
++ jq -nc --arg key analysis_key --arg value github.com/gmpetrov/databerry/bWFpbgo/Li9hcHBzL2Rhc2hib2FyZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ba4805cb69efdbcf
++ jq -nc --arg key analysis_nonce --arg value ba4805cb69efdbcf '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gmpetrov/databerry
++ jq -nc --arg key input_repo_name --arg value github.com/gmpetrov/databerry '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/dashboard
++ jq -nc --arg key input_repo_path --arg value ./apps/dashboard '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T16:15:04Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T16:15:04Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-0bc0e9d8979f
++ pushd /tmp/twcr-0bc0e9d8979f
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gmpetrov/databerry.git .
+/tmp/twcr-0bc0e9d8979f /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T16:15:07Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T16:15:07Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e1d10f258464544fc6304d523e81a4dab61a5c27
++ jq -nc --arg key exec_repo_commit_sha --arg value e1d10f258464544fc6304d523e81a4dab61a5c27 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 00:06:00 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T23:06:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T23:06:00Z '{ key: $key, value: $value }'
++ '[' -z ./apps/dashboard ']'
++ pushd ./apps/dashboard
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-0bc0e9d8979f/apps/dashboard /tmp/twcr-0bc0e9d8979f /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0bc0e9d8979f/apps/dashboard
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/dashboard '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0bc0e9d8979f
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T16:15:08Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T16:15:08Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "dashboard",
+>>>   "version": "0.1.21",
+>>>   "private": true,
+>>>   "alias": {
+>>>     "@app/components": "./components",
+>>>     "@app/hooks": "./hooks",
+>>>     "buffer": false,
+>>>     "process": false
+>>>   },
+>>>   "dependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "mini-svg-data-uri": "^1.4.4"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.7"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-0bc0e9d8979f /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-0bc0e9d8979f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-0bc0e9d8979f/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-0bc0e9d8979f/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 26, reused 0, downloaded 26, added 0
+../../packages/lib                       |  WARN  deprecated cuid@3.0.0
+../..                                    | Progress: resolved 43, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 69, reused 0, downloaded 69, added 0
+../../packages/prisma                    |  WARN  deprecated @types/faker@6.6.9
+../..                                    | Progress: resolved 75, reused 0, downloaded 75, added 0
+../..                                    | Progress: resolved 81, reused 0, downloaded 81, added 0
+../..                                    | Progress: resolved 87, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 96, reused 0, downloaded 96, added 0
+../..                                    | Progress: resolved 107, reused 0, downloaded 107, added 0
+../..                                    | Progress: resolved 108, reused 0, downloaded 108, added 0
+../..                                    | Progress: resolved 110, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 110, reused 0, downloaded 111, added 0
+../..                                    | Progress: resolved 111, reused 0, downloaded 111, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 112, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 113, added 0
+../..                                    | Progress: resolved 113, reused 0, downloaded 113, added 0
+../..                                    | Progress: resolved 113, reused 0, downloaded 114, added 0
+../..                                    | Progress: resolved 115, reused 0, downloaded 115, added 0
+../..                                    | Progress: resolved 125, reused 0, downloaded 119, added 0
+../..                                    | Progress: resolved 163, reused 0, downloaded 152, added 0
+../..                                    | Progress: resolved 217, reused 0, downloaded 206, added 0
+../..                                    | Progress: resolved 249, reused 0, downloaded 238, added 0
+../..                                    | Progress: resolved 274, reused 0, downloaded 263, added 0
+../..                                    | Progress: resolved 299, reused 0, downloaded 288, added 0
+../..                                    | Progress: resolved 321, reused 0, downloaded 310, added 0
+../..                                    | Progress: resolved 369, reused 0, downloaded 358, added 0
+../..                                    | Progress: resolved 416, reused 0, downloaded 405, added 0
+../..                                    | Progress: resolved 456, reused 0, downloaded 445, added 0
+../..                                    | Progress: resolved 486, reused 0, downloaded 475, added 0
+../..                                    | Progress: resolved 523, reused 0, downloaded 514, added 0
+../..                                    | Progress: resolved 551, reused 0, downloaded 542, added 0
+../..                                    | Progress: resolved 592, reused 0, downloaded 583, added 0
+../..                                    | Progress: resolved 640, reused 0, downloaded 631, added 0
+../..                                    | Progress: resolved 682, reused 0, downloaded 673, added 0
+../..                                    | Progress: resolved 733, reused 0, downloaded 724, added 0
+../..                                    | Progress: resolved 745, reused 0, downloaded 736, added 0
+../..                                    | Progress: resolved 762, reused 0, downloaded 751, added 0
+../..                                    | Progress: resolved 776, reused 0, downloaded 755, added 0
+../..                                    | Progress: resolved 805, reused 0, downloaded 771, added 0
+../..                                    | Progress: resolved 823, reused 0, downloaded 779, added 0
+../..                                    | Progress: resolved 858, reused 0, downloaded 814, added 0
+../..                                    | Progress: resolved 889, reused 0, downloaded 845, added 0
+../..                                    | Progress: resolved 922, reused 0, downloaded 878, added 0
+../..                                    | Progress: resolved 931, reused 0, downloaded 886, added 0
+../..                                    | Progress: resolved 943, reused 0, downloaded 900, added 0
+../..                                    | Progress: resolved 957, reused 0, downloaded 914, added 0
+../..                                    | Progress: resolved 991, reused 0, downloaded 950, added 0
+../..                                    | Progress: resolved 1030, reused 0, downloaded 989, added 0
+../..                                    | Progress: resolved 1075, reused 0, downloaded 1035, added 0
+../..                                    | Progress: resolved 1124, reused 0, downloaded 1084, added 0
+../..                                    | Progress: resolved 1169, reused 0, downloaded 1129, added 0
+../..                                    | Progress: resolved 1240, reused 0, downloaded 1177, added 0
+../..                                    | Progress: resolved 1274, reused 0, downloaded 1193, added 0
+../..                                    | Progress: resolved 1307, reused 0, downloaded 1224, added 0
+../..                                    | Progress: resolved 1353, reused 0, downloaded 1272, added 0
+../..                                    | Progress: resolved 1384, reused 0, downloaded 1303, added 0
+../..                                    | Progress: resolved 1414, reused 0, downloaded 1333, added 0
+../..                                    | Progress: resolved 1446, reused 0, downloaded 1366, added 0
+../..                                    | Progress: resolved 1460, reused 0, downloaded 1380, added 0
+../..                                    | Progress: resolved 1483, reused 0, downloaded 1403, added 0
+../..                                    | Progress: resolved 1545, reused 0, downloaded 1465, added 0
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 0
+ WARN  10 deprecated subdependencies found: core-js@2.6.12, fs-vacuum@1.2.10, gentle-fs@2.3.1, har-validator@5.1.5, libnpmconfig@1.2.1, node-fetch-npm@2.0.4, querystring@0.2.0, request@2.88.2, stringify-package@1.0.1, uuid@3.4.0
+../..                                    |    +1498 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 1
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 438
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 869
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 1261
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 1495
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 1497
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1498, added 1498, done
+.../node_modules/fast-folder-size postinstall$ node get-sysinternals-du.js
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../core-js@2.6.12/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@2.6.12/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@2.6.12/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://www.patreon.com/zloirock 
+.../core-js@2.6.12/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@2.6.12/node_modules/core-js postinstall: Done
+.../node_modules/@prisma/engines postinstall: (node:157) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/fast-folder-size postinstall: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.16.4/node_modules/esbuild postinstall$ node install.js
+.../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.4/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.3.1/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.../node_modules/msgpackr-extract install: Done
+.../prisma@5.3.1/node_modules/prisma preinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../canvas@2.11.2/node_modules/canvas install$ node-pre-gyp install --fallback-to-build --update-binary
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info it worked if it ends with ok
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../canvas@2.11.2/node_modules/canvas install: (node:284) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../canvas@2.11.2/node_modules/canvas install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp http GET https://github.com/Automattic/node-canvas/releases/download/v2.11.2/canvas-v2.11.2-node-v120-linux-glibc-x64.tar.gz
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp http download proxy agent configured using: "http://tid_941f9d7b7b8d:ok@172.18.0.2:3128"
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libgobject-2.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libstdc++.so.6
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libffi.so.7
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libexpat.so.1
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libfreetype.so.6
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libcairo.so.2
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/closure.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/init.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/color.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/CanvasRenderingContext2d.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/CanvasGradient.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/ImageData.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/Image.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/Canvas.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/backend/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/backend/SvgBackend.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/backend/ImageBackend.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/backend/PdfBackend.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/backend/Backend.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/bmp/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/bmp/BMPParser.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/CanvasPattern.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/Backends.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas/src/register_font.o
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/obj.target/canvas.node
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libgdk_pixbuf-2.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpcre.so.1
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libharfbuzz.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libgif.so.7
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libcairo-gobject.so.2
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpng16.so.16
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libfontconfig.so.1
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libz.so.1
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpango-1.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/librsvg-2.so.2
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libjpeg.so.62
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libgmodule-2.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpixman-1.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libfribidi.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libgio-2.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libxml2.so.2
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpangocairo-1.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/canvas.node
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libpangoft2-1.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/libglib-2.0.so.0
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/CanvasRenderingContext2d.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/register_font.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/Image.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/Backends.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/CanvasGradient.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/CanvasPattern.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/init.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/ImageData.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/closure.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/Canvas.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info extracted file count: 64 
+.../canvas@2.11.2/node_modules/canvas install: [canvas] Success: "/tmp/twcr-0bc0e9d8979f/node_modules/.pnpm/canvas@2.11.2/node_modules/canvas/build/Release/canvas.node" is installed via remote
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info ok 
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/color.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/backend/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/backend/Backend.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/backend/SvgBackend.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/backend/PdfBackend.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/backend/ImageBackend.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/bmp/
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas/src/bmp/BMPParser.o.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/obj.target/canvas.node.d
+.../canvas@2.11.2/node_modules/canvas install: node-pre-gyp info install unpacking Release/.deps/Release/canvas.node.d
+.../canvas@2.11.2/node_modules/canvas install: Done
+../.. prepare$ husky install
+../.. prepare: husky - Git hooks installed
+../.. prepare: Done
+
+dependencies:
++ @tailwindcss/typography 0.5.9
++ mini-svg-data-uri 1.4.4
+
+devDependencies:
++ tailwindcss 3.2.7
+
+ WARN  Issues with peer dependencies found
+packages/lib
+├─┬ next-auth 4.24.3
+│ └── ✕ unmet peer next@"^12.2.5 || ^13": found 14.0.4
+└─┬ langchain 0.0.196
+  ├── ✕ unmet peer google-auth-library@^8.9.0: found 8.7.0
+  └── ✕ unmet peer googleapis@^126.0.1: found 118.0.0
+
+packages/ui
+└─┬ tsup 5.12.9
+  └── ✕ unmet peer typescript@^4.1.0: found 5.0.2
+
+Done in 2m 33.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T16:17:47Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T16:17:47Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T16:17:47Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T16:17:47Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

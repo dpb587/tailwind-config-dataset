@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/arifikhsan/batu-gunting-kertas-nuxt
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/arifikhsan/batu-gunting-kertas-nuxt
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-782d02c8a379
+++ echo 'github.com/arifikhsan/batu-gunting-kertas-nuxt;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/51e2f2cc56cd
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/arifikhsan/batu-gunting-kertas-nuxt/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/arifikhsan/batu-gunting-kertas-nuxt/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a53884829ba14360
++ jq -nc --arg key analysis_nonce --arg value a53884829ba14360 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/arifikhsan/batu-gunting-kertas-nuxt
++ jq -nc --arg key input_repo_name --arg value github.com/arifikhsan/batu-gunting-kertas-nuxt '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:48:33Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:48:33Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-782d02c8a379
++ pushd /tmp/twcr-782d02c8a379
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/arifikhsan/batu-gunting-kertas-nuxt.git .
+/tmp/twcr-782d02c8a379 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:48:34Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:48:34Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b9a270b0e7995fa4ccc7666d590e1d19afc8db32
++ jq -nc --arg key exec_repo_commit_sha --arg value b9a270b0e7995fa4ccc7666d590e1d19afc8db32 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-11 00:51:40 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-10T17:51:40Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-10T17:51:40Z '{ key: $key, value: $value }'
+/tmp/twcr-782d02c8a379 /tmp/twcr-782d02c8a379 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-782d02c8a379
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:48:34Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:48:34Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "batu-gunting-kertas-nuxt",
+>>>   "version": "1.0.0",
+>>>   "description": "Permainan Batu Gunting Kertas menggunakan kecerdasan buatan dengan memprediksi nomor yang akan muncul berdasarkan pola.",
+>>>   "author": "Arif Ikhsanudin",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@tailwindcss/typography": "^5.10.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@nuxtjs/tailwindcss": "^5.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-782d02c8a379 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-782d02c8a379
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b8ef7a790723:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b8ef7a790723:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_b8ef7a790723:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b8ef7a790723:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b8ef7a790723:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_b8ef7a790723:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Couldn't find any versions for "@tailwindcss/typography" that matches "^5.10.0"
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T07:48:35Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T07:48:35Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at b9a270b Merge pull request #19 from Salahudin-cloud/master
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-782d02c8a379 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-782d02c8a379
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b8ef7a790723:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b8ef7a790723:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_b8ef7a790723:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b8ef7a790723:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b8ef7a790723:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_b8ef7a790723:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+warning Lockfile has incorrect entry for "@tailwindcss/typography@^5.10.0". Ignoring it.
+(node:199) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error Couldn't find any versions for "@tailwindcss/typography" that matches "^5.10.0"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

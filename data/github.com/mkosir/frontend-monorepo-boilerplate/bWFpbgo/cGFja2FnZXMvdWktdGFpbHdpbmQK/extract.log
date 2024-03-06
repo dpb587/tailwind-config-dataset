@@ -1,0 +1,133 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/mkosir/frontend-monorepo-boilerplate
++ reporef=main
++ repopath=./packages/ui-tailwind
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/mkosir/frontend-monorepo-boilerplate
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-474b86c22046
+++ echo 'github.com/mkosir/frontend-monorepo-boilerplate;main;./packages/ui-tailwind'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/501c8b79b793
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/mkosir/frontend-monorepo-boilerplate/bWFpbgo/Li9wYWNrYWdlcy91aS10YWlsd2luZAo
++ jq -nc --arg key analysis_key --arg value github.com/mkosir/frontend-monorepo-boilerplate/bWFpbgo/Li9wYWNrYWdlcy91aS10YWlsd2luZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c67697350523808d
++ jq -nc --arg key analysis_nonce --arg value c67697350523808d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/mkosir/frontend-monorepo-boilerplate
++ jq -nc --arg key input_repo_name --arg value github.com/mkosir/frontend-monorepo-boilerplate '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/ui-tailwind
++ jq -nc --arg key input_repo_path --arg value ./packages/ui-tailwind '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:38:51Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:38:51Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-474b86c22046
++ pushd /tmp/twcr-474b86c22046
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/mkosir/frontend-monorepo-boilerplate.git .
+/tmp/twcr-474b86c22046 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:38:52Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:38:52Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha af6d435fd1ba99a1ec8b8366cac44ce237c75ea6
++ jq -nc --arg key exec_repo_commit_sha --arg value af6d435fd1ba99a1ec8b8366cac44ce237c75ea6 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 19:58:16 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T18:58:16Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T18:58:16Z '{ key: $key, value: $value }'
++ '[' -z ./packages/ui-tailwind ']'
++ pushd ./packages/ui-tailwind
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-474b86c22046/packages/ui-tailwind /tmp/twcr-474b86c22046 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-474b86c22046/packages/ui-tailwind
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/ui-tailwind '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-474b86c22046
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:38:52Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:38:52Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (config-tailwind/tailwind.config.js)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:38:52Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:38:52Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at af6d435 chore(deps): update dependencies
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-474b86c22046 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-474b86c22046
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+> frontend-monorepo-boilerplate@0.0.0 prepare
+> husky
+
+sh: 1: husky: not found
+npm ERR! code 127
+npm ERR! path /tmp/twcr-474b86c22046
+npm ERR! command failed
+npm ERR! command sh -c husky
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T01_38_53_132Z-debug-0.log
++ exitcode=127
++ set -e
++ [[ 127 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 127

@@ -1,0 +1,421 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/formbricks/formbricks
++ reporef=main
++ repopath=./packages/tailwind-config
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/formbricks/formbricks
+++ awk '{ print $1 }'
+++ sha256sum
+++ cut -c1-12
++ procdir=/tmp/twcr-a02bfd138e20
+++ echo 'github.com/formbricks/formbricks;main;./packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a3a5386b3965
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/formbricks/formbricks/bWFpbgo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK
++ jq -nc --arg key analysis_key --arg value github.com/formbricks/formbricks/bWFpbgo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 933a797601829e5f
++ jq -nc --arg key analysis_nonce --arg value 933a797601829e5f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/formbricks/formbricks
++ jq -nc --arg key input_repo_name --arg value github.com/formbricks/formbricks '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:43:55Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:43:55Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a02bfd138e20
+/tmp/twcr-a02bfd138e20 /twcr
++ pushd /tmp/twcr-a02bfd138e20
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/formbricks/formbricks.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:44:03Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:44:03Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 96bc0e669c0d66d4f568cefb55a35693c764d297
++ jq -nc --arg key exec_repo_commit_sha --arg value 96bc0e669c0d66d4f568cefb55a35693c764d297 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 11:30:07 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T11:30:07Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T11:30:07Z '{ key: $key, value: $value }'
++ '[' -z ./packages/tailwind-config ']'
++ pushd ./packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-a02bfd138e20/packages/tailwind-config /tmp/twcr-a02bfd138e20 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a02bfd138e20/packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a02bfd138e20
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:44:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:44:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@formbricks/tailwind-config",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "main": "index.js",
+>>>   "devDependencies": {
+>>>     "@tailwindcss/forms": "^0.5.7",
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/tailwind-config '!=' ./ ']'
++ rm -f /tmp/twcr-a02bfd138e20/package.json /tmp/twcr-a02bfd138e20/package-lock.json /tmp/twcr-a02bfd138e20/pnpm-lock.yaml /tmp/twcr-a02bfd138e20/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a02bfd138e20 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a02bfd138e20
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a02bfd138e20/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 16 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 23, reused 0, downloaded 15, added 0
+../..                                    | Progress: resolved 41, reused 0, downloaded 31, added 0
+../..                                    | Progress: resolved 55, reused 0, downloaded 45, added 0
+../..                                    | Progress: resolved 65, reused 0, downloaded 56, added 0
+../..                                    | Progress: resolved 80, reused 0, downloaded 68, added 0
+../..                                    | Progress: resolved 94, reused 0, downloaded 75, added 0
+../..                                    | Progress: resolved 105, reused 0, downloaded 88, added 0
+../..                                    | Progress: resolved 122, reused 0, downloaded 104, added 0
+../..                                    | Progress: resolved 143, reused 0, downloaded 126, added 0
+../..                                    | Progress: resolved 157, reused 0, downloaded 142, added 0
+../..                                    | Progress: resolved 180, reused 0, downloaded 161, added 0
+../..                                    | Progress: resolved 184, reused 0, downloaded 182, added 0
+../..                                    | Progress: resolved 214, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 237, reused 0, downloaded 219, added 0
+../..                                    | Progress: resolved 274, reused 0, downloaded 239, added 0
+../..                                    | Progress: resolved 294, reused 0, downloaded 262, added 0
+../..                                    | Progress: resolved 325, reused 0, downloaded 275, added 0
+../..                                    | Progress: resolved 344, reused 0, downloaded 299, added 0
+../..                                    | Progress: resolved 355, reused 0, downloaded 307, added 0
+../..                                    | Progress: resolved 367, reused 0, downloaded 320, added 0
+../..                                    | Progress: resolved 377, reused 0, downloaded 330, added 0
+../..                                    | Progress: resolved 395, reused 0, downloaded 343, added 0
+../..                                    | Progress: resolved 404, reused 0, downloaded 360, added 0
+../..                                    | Progress: resolved 427, reused 0, downloaded 369, added 0
+../..                                    | Progress: resolved 457, reused 0, downloaded 383, added 0
+../..                                    | Progress: resolved 486, reused 0, downloaded 407, added 0
+../..                                    | Progress: resolved 516, reused 0, downloaded 433, added 0
+../..                                    | Progress: resolved 542, reused 0, downloaded 462, added 0
+../..                                    | Progress: resolved 568, reused 0, downloaded 488, added 0
+../..                                    | Progress: resolved 583, reused 0, downloaded 503, added 0
+../..                                    | Progress: resolved 603, reused 0, downloaded 523, added 0
+../..                                    | Progress: resolved 623, reused 0, downloaded 540, added 0
+../..                                    | Progress: resolved 646, reused 0, downloaded 557, added 0
+../..                                    | Progress: resolved 670, reused 0, downloaded 581, added 0
+../..                                    | Progress: resolved 695, reused 0, downloaded 609, added 0
+../..                                    | Progress: resolved 725, reused 0, downloaded 631, added 0
+../..                                    | Progress: resolved 753, reused 0, downloaded 664, added 0
+../..                                    | Progress: resolved 782, reused 0, downloaded 688, added 0
+../..                                    | Progress: resolved 804, reused 0, downloaded 712, added 0
+../..                                    | Progress: resolved 836, reused 0, downloaded 732, added 0
+../..                                    | Progress: resolved 862, reused 0, downloaded 762, added 0
+../..                                    | Progress: resolved 884, reused 0, downloaded 783, added 0
+../..                                    | Progress: resolved 908, reused 0, downloaded 808, added 0
+../..                                    | Progress: resolved 940, reused 0, downloaded 836, added 0
+../..                                    | Progress: resolved 970, reused 0, downloaded 863, added 0
+../..                                    | Progress: resolved 990, reused 0, downloaded 880, added 0
+../..                                    | Progress: resolved 1014, reused 0, downloaded 905, added 0
+../..                                    | Progress: resolved 1034, reused 0, downloaded 927, added 0
+../..                                    | Progress: resolved 1066, reused 0, downloaded 955, added 0
+../..                                    | Progress: resolved 1096, reused 0, downloaded 982, added 0
+../..                                    | Progress: resolved 1127, reused 0, downloaded 1008, added 0
+../..                                    | Progress: resolved 1157, reused 0, downloaded 1029, added 0
+../..                                    | Progress: resolved 1212, reused 0, downloaded 1062, added 0
+../..                                    | Progress: resolved 1249, reused 0, downloaded 1079, added 0
+../..                                    | Progress: resolved 1277, reused 0, downloaded 1102, added 0
+../..                                    | Progress: resolved 1288, reused 0, downloaded 1116, added 0
+../..                                    | Progress: resolved 1301, reused 0, downloaded 1132, added 0
+../..                                    | Progress: resolved 1318, reused 0, downloaded 1145, added 0
+../..                                    | Progress: resolved 1330, reused 0, downloaded 1157, added 0
+../..                                    | Progress: resolved 1340, reused 0, downloaded 1165, added 0
+../..                                    | Progress: resolved 1342, reused 0, downloaded 1166, added 0
+../..                                    | Progress: resolved 1345, reused 0, downloaded 1167, added 0
+../..                                    | Progress: resolved 1346, reused 0, downloaded 1172, added 0
+../..                                    | Progress: resolved 1373, reused 0, downloaded 1191, added 0
+../..                                    | Progress: resolved 1399, reused 0, downloaded 1215, added 0
+../..                                    | Progress: resolved 1420, reused 0, downloaded 1243, added 0
+../..                                    | Progress: resolved 1452, reused 0, downloaded 1272, added 0
+../..                                    | Progress: resolved 1483, reused 0, downloaded 1299, added 0
+../..                                    | Progress: resolved 1511, reused 0, downloaded 1330, added 0
+../..                                    | Progress: resolved 1533, reused 0, downloaded 1349, added 0
+../..                                    | Progress: resolved 1556, reused 0, downloaded 1370, added 0
+../..                                    | Progress: resolved 1589, reused 0, downloaded 1401, added 0
+../..                                    | Progress: resolved 1612, reused 0, downloaded 1424, added 0
+../..                                    | Progress: resolved 1637, reused 0, downloaded 1446, added 0
+../..                                    | Progress: resolved 1687, reused 0, downloaded 1467, added 0
+../..                                    | Progress: resolved 1708, reused 0, downloaded 1491, added 0
+../..                                    | Progress: resolved 1736, reused 0, downloaded 1515, added 0
+../..                                    | Progress: resolved 1763, reused 0, downloaded 1541, added 0
+../..                                    | Progress: resolved 1789, reused 0, downloaded 1570, added 0
+../..                                    | Progress: resolved 1815, reused 0, downloaded 1593, added 0
+../..                                    | Progress: resolved 1837, reused 0, downloaded 1611, added 0
+../..                                    | Progress: resolved 1860, reused 0, downloaded 1633, added 0
+../..                                    | Progress: resolved 1882, reused 0, downloaded 1653, added 0
+../..                                    | Progress: resolved 1907, reused 0, downloaded 1678, added 0
+../..                                    | Progress: resolved 1929, reused 0, downloaded 1695, added 0
+../..                                    | Progress: resolved 1961, reused 0, downloaded 1725, added 0
+../..                                    | Progress: resolved 1975, reused 0, downloaded 1746, added 0
+../..                                    | Progress: resolved 2006, reused 0, downloaded 1770, added 0
+../..                                    | Progress: resolved 2034, reused 0, downloaded 1794, added 0
+../..                                    | Progress: resolved 2060, reused 0, downloaded 1820, added 0
+../..                                    | Progress: resolved 2076, reused 0, downloaded 1838, added 0
+../..                                    | Progress: resolved 2108, reused 0, downloaded 1867, added 0
+../..                                    | Progress: resolved 2135, reused 0, downloaded 1895, added 0
+ WARN  1 deprecated subdependencies found: uuid@3.4.0
+../..                                    | Progress: resolved 2139, reused 0, downloaded 1943, added 0
+../..                                    | Progress: resolved 2139, reused 0, downloaded 1995, added 0
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 0
+
+ WARN  Issues with peer dependencies found
+apps/storybook
+└─┬ @storybook/react-vite 7.6.17
+  └─┬ @vitejs/plugin-react 3.1.0
+    └── ✕ unmet peer vite@^4.1.0-beta.0: found 5.1.4
+
+packages/database
+└─┬ zod-prisma 0.5.4
+  └── ✕ unmet peer prisma@^3.0.0: found 5.10.2
+
+../..                                    |    +2214 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 496
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 1885
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 1989
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 2214
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2018, added 2214, done
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/aws-crt install$ node ./scripts/install.js
+../../node_modules/@sentry/cli install$ node ./scripts/install.js
+../../node_modules/aws-crt install: The binding already exists, skip rebuilding. To rebuild the native addon, please run install.js with `--rebuild`
+../../node_modules/aws-crt install: Done
+.../node_modules/@prisma/engines postinstall: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@prisma/engines postinstall: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.77.3/sentry-cli-Linux-x86_64
+../../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_c02a0056dec1:ok@172.18.0.2:3128
+../../node_modules/@sentry/cli install: (node:154) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+../../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+../../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+../../node_modules/@sentry/cli install: Done
+.../node_modules/@prisma/engines postinstall: Done
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/@swc/core postinstall$ node postinstall.js
+../../node_modules/prisma preinstall: Done
+.../core-common/node_modules/esbuild postinstall$ node install.js
+.../react-email/node_modules/esbuild postinstall$ node install.js
+../../node_modules/@swc/core postinstall: Done
+../../node_modules/esbuild postinstall: Done
+.../core-common/node_modules/esbuild postinstall: Done
+.../react-email/node_modules/esbuild postinstall: Done
+../../node_modules/sharp install$ node install/check
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@vercel/speed-insights postinstall$ node scripts/postinstall.mjs
+../../node_modules/sharp install: Done
+.../node_modules/@vercel/speed-insights postinstall: Done
+../../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+Done in 1m 50.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T01:45:56Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T01:45:56Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T01:45:56Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T01:45:56Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

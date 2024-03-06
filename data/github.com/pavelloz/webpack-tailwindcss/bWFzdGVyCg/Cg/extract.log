@@ -1,0 +1,278 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/pavelloz/webpack-tailwindcss
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/pavelloz/webpack-tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-9be8ff0e6afb
+++ echo 'github.com/pavelloz/webpack-tailwindcss;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a846c6f383d5
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/pavelloz/webpack-tailwindcss/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/pavelloz/webpack-tailwindcss/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 82c043cd2a77970b
++ jq -nc --arg key analysis_nonce --arg value 82c043cd2a77970b '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/pavelloz/webpack-tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/pavelloz/webpack-tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:27:11Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:27:11Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-9be8ff0e6afb
++ pushd /tmp/twcr-9be8ff0e6afb
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/pavelloz/webpack-tailwindcss.git .
+/tmp/twcr-9be8ff0e6afb /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:27:12Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:27:12Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fe95d64a394f5584785e5e7dd71c19cf5f6fe046
++ jq -nc --arg key exec_repo_commit_sha --arg value fe95d64a394f5584785e5e7dd71c19cf5f6fe046 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-12 18:21:56 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-12T17:21:56Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-12T17:21:56Z '{ key: $key, value: $value }'
+/tmp/twcr-9be8ff0e6afb /tmp/twcr-9be8ff0e6afb /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9be8ff0e6afb
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:27:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:27:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "browserslist": "last 1 year and >1%",
+>>>   "name": "webpack-tailwindcss",
+>>>   "version": "1.3.0",
+>>>   "description": "Webpack + TailwindCSS + esbuild",
+>>>   "author": "Paweł Kowalski <pavelloz@gmail.com>",
+>>>   "license": "ISC"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9be8ff0e6afb /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9be8ff0e6afb
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9be8ff0e6afb/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-9be8ff0e6afb/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 28, reused 0, downloaded 22, added 0
+Progress: resolved 64, reused 0, downloaded 53, added 0
+Progress: resolved 96, reused 0, downloaded 86, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 4.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@tailwindcss/forms'
+Require stack:
+- /tmp/twcr-9be8ff0e6afb/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-9be8ff0e6afb/tailwind.config.js:18:13
+    at evalModule (/tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-9be8ff0e6afb/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-9be8ff0e6afb/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-9be8ff0e6afb/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:27:18Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:27:18Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at fe95d64 Merge pull request #21 from pavelloz/dependabot/npm_and_yarn/follow-redirects-1.15.4
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9be8ff0e6afb /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9be8ff0e6afb
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9be8ff0e6afb/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-9be8ff0e6afb/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +408
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 408, reused 62, downloaded 33, added 95
+Progress: resolved 408, reused 62, downloaded 84, added 146
+Progress: resolved 408, reused 62, downloaded 148, added 209
+Progress: resolved 408, reused 62, downloaded 205, added 267
+Progress: resolved 408, reused 62, downloaded 266, added 328
+Progress: resolved 408, reused 62, downloaded 320, added 382
+Progress: resolved 408, reused 62, downloaded 346, added 408, done
+.../esbuild@0.19.5/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.5/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ @tailwindcss/forms 0.5.7
++ autoprefixer 10.4.16
++ cross-env 7.0.3
++ css-loader 6.9.0
++ esbuild-loader 4.0.2
++ html-bundler-webpack-plugin 3.4.7
++ postcss 8.4.33
++ postcss-import 16.0.0
++ postcss-loader 7.3.4
++ tailwindcss 3.4.1
++ webpack 5.89.0
++ webpack-cli 5.1.4
++ webpack-dev-server 4.15.1
+
+Done in 7.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T03:27:29Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T03:27:29Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T03:27:29Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T03:27:29Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

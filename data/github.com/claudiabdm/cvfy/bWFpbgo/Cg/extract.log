@@ -1,0 +1,197 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/claudiabdm/cvfy
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/claudiabdm/cvfy
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-b9985a0ee1dd
+++ echo 'github.com/claudiabdm/cvfy;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0507cb28a278
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/claudiabdm/cvfy/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/claudiabdm/cvfy/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 14adebd03cc7cf83
++ jq -nc --arg key analysis_nonce --arg value 14adebd03cc7cf83 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/claudiabdm/cvfy
++ jq -nc --arg key input_repo_name --arg value github.com/claudiabdm/cvfy '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:13:28Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:13:28Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-b9985a0ee1dd
++ pushd /tmp/twcr-b9985a0ee1dd
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/claudiabdm/cvfy.git .
+/tmp/twcr-b9985a0ee1dd /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:13:29Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:13:29Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 0ac5f1ee95d442eb2baf1d6b508f1bdf32454fc1
++ jq -nc --arg key exec_repo_commit_sha --arg value 0ac5f1ee95d442eb2baf1d6b508f1bdf32454fc1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 18:55:40 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T17:55:40Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T17:55:40Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-b9985a0ee1dd /tmp/twcr-b9985a0ee1dd /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-b9985a0ee1dd
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:13:29Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:13:29Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/defaultTheme)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:13:29Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:13:29Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 0ac5f1e Fix style rendering being block (#47)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-b9985a0ee1dd /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-b9985a0ee1dd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3e5a03289921:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3e5a03289921:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3e5a03289921:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_3e5a03289921:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3e5a03289921:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3e5a03289921:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning vscode-languageclient@7.0.0: The engine "vscode" appears to be invalid.
+warning @antfu/eslint-define-config@1.23.0-2: The engine "pnpm" appears to be invalid.
+[3/4] Linking dependencies...
+warning " > @tiptap/vue-3@2.2.4" has unmet peer dependency "@tiptap/core@^2.0.0".
+warning " > @tiptap/vue-3@2.2.4" has unmet peer dependency "vue@^3.0.0".
+warning "@tiptap/vue-3 > @tiptap/extension-bubble-menu@2.2.4" has unmet peer dependency "@tiptap/core@^2.0.0".
+warning "@tiptap/vue-3 > @tiptap/extension-floating-menu@2.2.4" has unmet peer dependency "@tiptap/core@^2.0.0".
+warning "nuxt > @nuxt/devtools@1.0.8" has unmet peer dependency "vite@*".
+warning "@nuxtjs/sitemap > @nuxt/devtools-kit@1.0.8" has unmet peer dependency "vite@*".
+warning "nuxt > @nuxt/devtools > vite-plugin-inspect@0.8.3" has unmet peer dependency "vite@^3.1.0 || ^4.0.0 || ^5.0.0-0".
+warning "nuxt > @nuxt/devtools > vite-plugin-vue-inspector@4.0.2" has unmet peer dependency "vite@^3.0.0-0 || ^4.0.0-0 || ^5.0.0-0".
+warning "@antfu/eslint-config > eslint-processor-vue-blocks@0.1.1" has unmet peer dependency "@vue/compiler-sfc@^3.3.0".
+warning "@nuxtjs/i18n > @miyaneee/rollup-plugin-json5@1.2.0" has unmet peer dependency "rollup@^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0".
+warning "@nuxtjs/i18n > vue-i18n@9.9.1" has unmet peer dependency "vue@^3.0.0".
+warning "@nuxtjs/sitemap > @nuxt/devtools-ui-kit@1.0.8" has unmet peer dependency "@nuxt/devtools@1.0.8".
+warning "@nuxtjs/sitemap > floating-vue@5.2.2" has unmet peer dependency "vue@^3.2.0".
+warning "@nuxtjs/sitemap > h3-compression@0.3.2" has unmet peer dependency "h3@^1.6.0".
+warning "@nuxtjs/sitemap > site-config-stack@2.2.9" has unmet peer dependency "vue@^3".
+warning "@nuxtjs/sitemap > @nuxt/devtools-ui-kit > v-lazy-show@0.2.4" has unmet peer dependency "@vue/compiler-core@^3.3".
+warning "@nuxtjs/sitemap > @vueuse/core > vue-demi@0.14.7" has unmet peer dependency "vue@^3.0.0-0 || ^2.6.0".
+warning "@nuxtjs/sitemap > floating-vue > vue-resize@2.0.0-alpha.1" has unmet peer dependency "vue@^3.0.0".
+warning "@nuxtjs/sitemap > @nuxt/devtools-ui-kit > @unocss/nuxt > @unocss/vite@0.58.5" has unmet peer dependency "vite@^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0".
+warning "@nuxtjs/sitemap > @nuxt/devtools-ui-kit > @unocss/nuxt > @unocss/webpack@0.58.5" has unmet peer dependency "webpack@^4 || ^5".
+warning "@vite-pwa/nuxt > vite-plugin-pwa@0.19.2" has unmet peer dependency "vite@^3.1.0 || ^4.0.0 || ^5.0.0".
+warning "@vite-pwa/nuxt > vite-plugin-pwa@0.19.2" has unmet peer dependency "workbox-build@^7.0.0".
+warning "@vite-pwa/nuxt > vite-plugin-pwa@0.19.2" has unmet peer dependency "workbox-window@^7.0.0".
+warning "nuxt-module-eslint-config > eslint-plugin-unimport > eslint-factory@0.0.2" has unmet peer dependency "@types/eslint@^8.44.0".
+[4/4] Building fresh packages...
+Done in 84.97s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T01:14:56Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T01:14:56Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:14:56Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:14:56Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

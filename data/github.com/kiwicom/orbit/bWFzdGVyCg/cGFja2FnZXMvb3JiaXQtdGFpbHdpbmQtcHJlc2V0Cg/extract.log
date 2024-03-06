@@ -1,0 +1,313 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/kiwicom/orbit
++ reporef=master
++ repopath=./packages/orbit-tailwind-preset
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/kiwicom/orbit
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1ee6f1c3ae3a
+++ echo 'github.com/kiwicom/orbit;master;./packages/orbit-tailwind-preset'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/66187f729f4d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/kiwicom/orbit/bWFzdGVyCg/Li9wYWNrYWdlcy9vcmJpdC10YWlsd2luZC1wcmVzZXQK
++ jq -nc --arg key analysis_key --arg value github.com/kiwicom/orbit/bWFzdGVyCg/Li9wYWNrYWdlcy9vcmJpdC10YWlsd2luZC1wcmVzZXQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 52b775d254beb866
++ jq -nc --arg key analysis_nonce --arg value 52b775d254beb866 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/kiwicom/orbit
++ jq -nc --arg key input_repo_name --arg value github.com/kiwicom/orbit '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/orbit-tailwind-preset
++ jq -nc --arg key input_repo_path --arg value ./packages/orbit-tailwind-preset '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T23:07:55Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T23:07:55Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1ee6f1c3ae3a
+/tmp/twcr-1ee6f1c3ae3a /twcr
++ pushd /tmp/twcr-1ee6f1c3ae3a
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/kiwicom/orbit.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T23:08:17Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T23:08:17Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e676cc0f7f4ede7083edfcafc8fcb5e8f77b6566
++ jq -nc --arg key exec_repo_commit_sha --arg value e676cc0f7f4ede7083edfcafc8fcb5e8f77b6566 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 14:40:10 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T13:40:10Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T13:40:10Z '{ key: $key, value: $value }'
++ '[' -z ./packages/orbit-tailwind-preset ']'
++ pushd ./packages/orbit-tailwind-preset
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset /tmp/twcr-1ee6f1c3ae3a /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T23:08:17Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T23:08:17Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@kiwicom/orbit-tailwind-preset",
+>>>   "version": "4.2.0",
+>>>   "description": "Orbit tailwind preset which is based on orbit-design-tokens",
+>>>   "author": "Kiwi.com",
+>>>   "license": "MIT",
+>>>   "main": "./dist/index.cjs",
+>>>   "module": "./dist/index.js",
+>>>   "types": "./dist/index.d.ts",
+>>>   "type": "module",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/kiwicom/orbit",
+>>>     "directory": "packages/orbit-tailwind-preset"
+>>>   },
+>>>   "files": [
+>>>     "README.md",
+>>>     "dist/*"
+>>>   ],
+>>>   "keywords": [
+>>>     "orbit",
+>>>     "tailwind",
+>>>     "preset",
+>>>     "design-system",
+>>>     "tokens"
+>>>   ],
+>>>   "peerDependencies": {
+>>>     "tailwindcss": ">=3.4.0"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/orbit-tailwind-preset '!=' ./ ']'
++ rm -f /tmp/twcr-1ee6f1c3ae3a/package.json /tmp/twcr-1ee6f1c3ae3a/package-lock.json /tmp/twcr-1ee6f1c3ae3a/pnpm-lock.yaml /tmp/twcr-1ee6f1c3ae3a/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-1ee6f1c3ae3a /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-1ee6f1c3ae3a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b72fafce97ac:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b72fafce97ac:ok@172.18.0.2:3128
+yarn config v1.22.17
+success Set "httpProxy" to "http://tid_b72fafce97ac:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b72fafce97ac:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b72fafce97ac:ok@172.18.0.2:3128
+yarn config v1.22.17
+success Set "httpsProxy" to "http://tid_b72fafce97ac:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.17
+info No lockfile found.
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 0.08s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T23:08:20Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T23:08:20Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
+Removing yarn.lock
++ git reset --hard
+HEAD is now at e676cc0 feat(StopoverArrow): migrate to tailwind
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-1ee6f1c3ae3a /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-1ee6f1c3ae3a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b72fafce97ac:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b72fafce97ac:ok@172.18.0.2:3128
+yarn config v1.22.17
+success Set "httpProxy" to "http://tid_b72fafce97ac:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b72fafce97ac:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b72fafce97ac:ok@172.18.0.2:3128
+yarn config v1.22.17
+success Set "httpsProxy" to "http://tid_b72fafce97ac:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.17
+[1/6] Validating package.json...
+[2/6] Resolving packages...
+[3/6] Fetching packages...
+(node:295) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[4/6] Linking dependencies...
+warning " > ts-node@10.9.1" has unmet peer dependency "@types/node@*".
+warning " > @testing-library/cypress@10.0.1" has unmet peer dependency "cypress@^12.0.0 || ^13.0.0".
+warning " > @testing-library/react-hooks@8.0.1" has incorrect peer dependency "react@^16.9.0 || ^17.0.0".
+warning " > @testing-library/user-event@14.5.1" has unmet peer dependency "@testing-library/dom@>=7.21.4".
+warning " > styled-components@5.3.11" has unmet peer dependency "react-is@>= 16.8.0".
+warning " > @kiwicom/orbit-tracking@1.1.0" has unmet peer dependency "@types/readable-stream@2.3.13".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/eslint-plugin-orbit-components > @typescript-eslint/rule-tester@6.7.5" has unmet peer dependency "@eslint/eslintrc@>=2".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > @storybook/addon-knobs@7.0.2" has unmet peer dependency "@storybook/api@^7.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > @storybook/addon-knobs@7.0.2" has unmet peer dependency "@storybook/components@^7.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > @storybook/addon-knobs@7.0.2" has unmet peer dependency "@storybook/core-events@^7.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > react-element-to-jsx-string@14.3.4" has incorrect peer dependency "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > react-element-to-jsx-string@14.3.4" has incorrect peer dependency "react-dom@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > storybook-addon-pseudo-states@2.1.2" has unmet peer dependency "@storybook/components@^7.4.6".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > storybook-addon-pseudo-states@2.1.2" has unmet peer dependency "@storybook/core-events@^7.4.6".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > storybook-addon-pseudo-states@2.1.2" has unmet peer dependency "@storybook/manager-api@^7.4.6".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > storybook-addon-pseudo-states@2.1.2" has unmet peer dependency "@storybook/preview-api@^7.4.6".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > storybook-addon-pseudo-states@2.1.2" has incorrect peer dependency "@storybook/theming@^7.4.6".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-themer > babel-loader@8.3.0" has unmet peer dependency "webpack@>=2".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > @mdx-js/react@1.6.22" has incorrect peer dependency "react@^16.13.1 || ^17.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > @reach/router@1.3.4" has incorrect peer dependency "react@15.x || 16.x || 16.4.0-alpha.0911da3".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > @reach/router@1.3.4" has incorrect peer dependency "react-dom@15.x || 16.x || 16.4.0-alpha.0911da3".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > babel-preset-gatsby@2.25.0" has unmet peer dependency "core-js@^3.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > gatsby-plugin-loadable-components-ssr@4.3.2" has incorrect peer dependency "react-dom@^16.12.0 || ^17.0.1".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > gatsby-plugin-postcss@6.12.0" has incorrect peer dependency "gatsby@^5.0.0-next".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > gatsby-plugin-ts-config@2.1.3" has incorrect peer dependency "gatsby@~2.x.x || ~3.x.x".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > react-google-login@5.2.2" has incorrect peer dependency "react@^16 || ^17".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > react-google-login@5.2.2" has incorrect peer dependency "react-dom@^16 || ^17".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > recharts@2.7.2" has unmet peer dependency "prop-types@^15.6.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > react-hot-toast > goober@2.1.13" has unmet peer dependency "csstype@^3.0.10".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit-components > @storybook/addon-styling > less-loader@11.1.3" has unmet peer dependency "less@^3.5.0 || ^4.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > @reach/router > create-react-context@0.3.0" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > gatsby > eslint-config-react-app@6.0.0" has unmet peer dependency "babel-eslint@^10.0.0".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > gatsby > react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825" has incorrect peer dependency "react@0.0.0-experimental-c8b778b7f-20220825".
+warning "workspace-aggregator-236c824c-e25e-479c-99fb-5d07325ec53b > @kiwicom/orbit.kiwi > recharts > react-smooth@2.0.3" has unmet peer dependency "prop-types@^15.6.0".
+[5/6] Building fresh packages...
+[6/6] Cleaning modules...
+Done in 349.60s.
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
++ yarn list --depth=0 --json --non-interactive --no-progress
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset/tailwind.config.ts:1
+import orbitComponentsPreset from "./dist";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-1ee6f1c3ae3a/packages/orbit-tailwind-preset/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

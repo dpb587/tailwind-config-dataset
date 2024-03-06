@@ -1,0 +1,205 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Winter22SOFE2720/online-shopping-system
++ reporef=main
++ repopath=./Code
+++ echo github.com/Winter22SOFE2720/online-shopping-system
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3e909d554035
+++ echo 'github.com/Winter22SOFE2720/online-shopping-system;main;./Code'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/8b73a3f973bd
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Winter22SOFE2720/online-shopping-system/bWFpbgo/Li9Db2RlCg
++ jq -nc --arg key analysis_key --arg value github.com/Winter22SOFE2720/online-shopping-system/bWFpbgo/Li9Db2RlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 119e57b3691de83d
++ jq -nc --arg key analysis_nonce --arg value 119e57b3691de83d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Winter22SOFE2720/online-shopping-system
++ jq -nc --arg key input_repo_name --arg value github.com/Winter22SOFE2720/online-shopping-system '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./Code
++ jq -nc --arg key input_repo_path --arg value ./Code '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T00:10:31Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T00:10:31Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3e909d554035
++ pushd /tmp/twcr-3e909d554035
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Winter22SOFE2720/online-shopping-system.git .
+/tmp/twcr-3e909d554035 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T00:10:32Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T00:10:32Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 6e9d1174a47355bd6650f5cf8a41c8bbe3c289d6
++ jq -nc --arg key exec_repo_commit_sha --arg value 6e9d1174a47355bd6650f5cf8a41c8bbe3c289d6 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-04-13 23:26:11 -0400' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-04-14T03:26:11Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-04-14T03:26:11Z '{ key: $key, value: $value }'
+/tmp/twcr-3e909d554035/Code /tmp/twcr-3e909d554035 /twcr
++ '[' -z ./Code ']'
++ pushd ./Code
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T00:10:32Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T00:10:32Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "code",
+>>>   "version": "0.0.1",
+>>>   "private": true,
+>>>   "packageManager": "pnpm@6.32.4",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.0.23"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3e909d554035 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3e909d554035
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3e909d554035/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3e909d554035/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 22, reused 0, downloaded 21, added 0
+..                                       | Progress: resolved 81, reused 0, downloaded 79, added 0
+..                                       | Progress: resolved 117, reused 0, downloaded 97, added 0
+..                                       | Progress: resolved 131, reused 0, downloaded 111, added 0
+..                                       | +115 ++++++++++++
+..                                       | Progress: resolved 135, reused 0, downloaded 115, added 115, done
+.../esbuild@0.14.34/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.34/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ tailwindcss 3.0.23
+
+Done in 6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.0.23
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/esm/resolve:263
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/twcr-3e909d554035/Code/node_modules/tailwindcss/lib/lib/load-config.js' imported from /tmp/twcr-3e909d554035/Code/tailwind.config.exporter3.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:263:11)
+    at moduleResolve (node:internal/modules/esm/resolve:908:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1131:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:390:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:359:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:234:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:85:39)
+    at link (node:internal/modules/esm/module_job:84:36) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/twcr-3e909d554035/Code/node_modules/tailwindcss/lib/lib/load-config.js'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ tailwind.config.exporter3.mjs == \t\a\i\l\w\i\n\d\.\c\o\n\f\i\g\.\e\x\p\o\r\t\e\r\3\.\m\j\s ]]
++ echo '[worker] WARN: exporter failed; retrying with alternative'
+[worker] WARN: exporter failed; retrying with alternative
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ continue
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+
+warn - The `content` option in your Tailwind CSS configuration is missing or empty.
+warn - Configure your content sources or your generated CSS will be missing styles.
+warn - https://tailwindcss.com/docs/content-configuration
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T00:10:39Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T00:10:39Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T00:10:40Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T00:10:40Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

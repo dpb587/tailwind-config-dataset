@@ -1,0 +1,182 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/washingtonpost/wpds-ui-kit
++ reporef=main
++ repopath=./build.washingtonpost.com
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/washingtonpost/wpds-ui-kit
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f695d4914697
+++ echo 'github.com/washingtonpost/wpds-ui-kit;main;./build.washingtonpost.com'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1325d6b80c6a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/washingtonpost/wpds-ui-kit/bWFpbgo/Li9idWlsZC53YXNoaW5ndG9ucG9zdC5jb20K
++ jq -nc --arg key analysis_key --arg value github.com/washingtonpost/wpds-ui-kit/bWFpbgo/Li9idWlsZC53YXNoaW5ndG9ucG9zdC5jb20K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1e719a0fa1ae7618
++ jq -nc --arg key analysis_nonce --arg value 1e719a0fa1ae7618 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/washingtonpost/wpds-ui-kit
++ jq -nc --arg key input_repo_name --arg value github.com/washingtonpost/wpds-ui-kit '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./build.washingtonpost.com
++ jq -nc --arg key input_repo_path --arg value ./build.washingtonpost.com '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:23:06Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:23:06Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f695d4914697
+/tmp/twcr-f695d4914697 /twcr
++ pushd /tmp/twcr-f695d4914697
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/washingtonpost/wpds-ui-kit.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:23:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:23:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 5cc7845b3bfbe8cdfaa2f95c72d3b444f14e7a35
++ jq -nc --arg key exec_repo_commit_sha --arg value 5cc7845b3bfbe8cdfaa2f95c72d3b444f14e7a35 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-26 16:42:03 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-26T21:42:03Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-26T21:42:03Z '{ key: $key, value: $value }'
++ '[' -z ./build.washingtonpost.com ']'
++ pushd ./build.washingtonpost.com
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-f695d4914697/build.washingtonpost.com /tmp/twcr-f695d4914697 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f695d4914697/build.washingtonpost.com
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./build.washingtonpost.com '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f695d4914697
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:23:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:23:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@washingtonpost/wpds-docs",
+>>>   "version": "1.22.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@washingtonpost/wpds-tailwind-theme": "1.22.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/washingtonpost/wpds-docs.git"
+>>>   },
+>>>   "overrides": {
+>>>     "react": "^17.0.2",
+>>>     "react-dom": "^17.0.2",
+>>>     "@washingtonpost/wpds-assets": ">=1.24.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./build.washingtonpost.com '!=' ./ ']'
++ rm -f /tmp/twcr-f695d4914697/package.json /tmp/twcr-f695d4914697/package-lock.json /tmp/twcr-f695d4914697/pnpm-lock.yaml /tmp/twcr-f695d4914697/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f695d4914697 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f695d4914697
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 118 packages, and audited 119 packages in 8s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T03:23:21Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T03:23:21Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T03:23:21Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T03:23:21Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

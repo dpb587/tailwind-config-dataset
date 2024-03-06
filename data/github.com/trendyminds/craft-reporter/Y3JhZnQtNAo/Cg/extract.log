@@ -1,0 +1,182 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/trendyminds/craft-reporter
++ reporef=craft-4
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/trendyminds/craft-reporter
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-df8b60d1353e
+++ echo 'github.com/trendyminds/craft-reporter;craft-4;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0a9d48fb3f21
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/trendyminds/craft-reporter/Y3JhZnQtNAo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/trendyminds/craft-reporter/Y3JhZnQtNAo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9ba53b4bd8588fa7
++ jq -nc --arg key analysis_nonce --arg value 9ba53b4bd8588fa7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/trendyminds/craft-reporter
++ jq -nc --arg key input_repo_name --arg value github.com/trendyminds/craft-reporter '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref craft-4
++ jq -nc --arg key input_repo_ref --arg value craft-4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T13:18:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T13:18:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-df8b60d1353e
++ pushd /tmp/twcr-df8b60d1353e
++ '[' -d .git ']'
++ git clone --depth=1 -b craft-4 https://github.com/trendyminds/craft-reporter.git .
+/tmp/twcr-df8b60d1353e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T13:18:35Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T13:18:35Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c1115daefd2d3e166e6fca7942068ca057a08a68
++ jq -nc --arg key exec_repo_commit_sha --arg value c1115daefd2d3e166e6fca7942068ca057a08a68 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-29 10:52:28 -0400' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-29T14:52:28Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-29T14:52:28Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-df8b60d1353e /tmp/twcr-df8b60d1353e /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-df8b60d1353e
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T13:18:35Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T13:18:35Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "craft-reporter",
+>>>   "version": "1.0.0",
+>>>   "description": "",
+>>>   "config": {
+>>>     "css_in": "styles/reporter.pcss",
+>>>     "css_out": "src/assetbundles/resources/reporter.css"
+>>>   },
+>>>   "keywords": [],
+>>>   "author": "",
+>>>   "license": "ISC",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.0.0"
+>>>   },
+>>>   "prettier": {
+>>>     "semi": false,
+>>>     "singleQuote": true,
+>>>     "tabWidth": 2,
+>>>     "trailingComma": "es5",
+>>>     "useTabs": true,
+>>>     "htmlWhitespaceSensitivity": "ignore"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-df8b60d1353e /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-df8b60d1353e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 6s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T13:18:43Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T13:18:43Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T13:18:43Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T13:18:43Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

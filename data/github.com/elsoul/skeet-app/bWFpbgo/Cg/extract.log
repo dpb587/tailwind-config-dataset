@@ -1,0 +1,232 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/elsoul/skeet-app
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/elsoul/skeet-app
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3de370bf8043
+++ echo 'github.com/elsoul/skeet-app;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/6a84b67fec36
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/elsoul/skeet-app/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/elsoul/skeet-app/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c2aa3eef78804c3c
++ jq -nc --arg key analysis_nonce --arg value c2aa3eef78804c3c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/elsoul/skeet-app
++ jq -nc --arg key input_repo_name --arg value github.com/elsoul/skeet-app '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:30:26Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:30:26Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3de370bf8043
++ pushd /tmp/twcr-3de370bf8043
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/elsoul/skeet-app.git .
+/tmp/twcr-3de370bf8043 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:30:28Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:30:28Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1859290bff2332eb3557b112e6768536a3180662
++ jq -nc --arg key exec_repo_commit_sha --arg value 1859290bff2332eb3557b112e6768536a3180662 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-20 11:44:20 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-20T10:44:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-20T10:44:20Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-3de370bf8043 /tmp/twcr-3de370bf8043 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3de370bf8043
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:30:28Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:30:28Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "skeet-app",
+>>>   "version": "1.9.9",
+>>>   "description": "Skeet Framework Boilerplate",
+>>>   "author": "ELSOUL LABO B.V.",
+>>>   "license": "Apache-2.0",
+>>>   "private": false,
+>>>   "engines": {
+>>>     "pnpm": ">=8",
+>>>     "npm": "please_use_pnpm_instead",
+>>>     "node": "20",
+>>>     "version": "0.0.1"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.3.1"
+>>>   },
+>>>   "resolutions": {
+>>>     "@types/react": "~17.0.21"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3de370bf8043 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3de370bf8043
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3de370bf8043/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3de370bf8043/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  Unsupported engine: wanted: {"node":"20"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+functions/skeet                          |  WARN  Unsupported engine: wanted: {"node":"20"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 2 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 19, reused 0, downloaded 13, added 0
+Progress: resolved 37, reused 0, downloaded 29, added 0
+Progress: resolved 59, reused 0, downloaded 53, added 0
+Progress: resolved 97, reused 0, downloaded 65, added 0
+Progress: resolved 130, reused 0, downloaded 96, added 0
+Progress: resolved 141, reused 0, downloaded 108, added 0
+Progress: resolved 156, reused 0, downloaded 117, added 0
+Progress: resolved 180, reused 0, downloaded 143, added 0
+Progress: resolved 211, reused 0, downloaded 171, added 0
+Progress: resolved 237, reused 0, downloaded 192, added 0
+Progress: resolved 272, reused 0, downloaded 225, added 0
+Progress: resolved 305, reused 0, downloaded 258, added 0
+Progress: resolved 320, reused 0, downloaded 274, added 0
+Progress: resolved 337, reused 0, downloaded 290, added 0
+Progress: resolved 361, reused 0, downloaded 310, added 0
+Progress: resolved 391, reused 0, downloaded 341, added 0
+Progress: resolved 432, reused 0, downloaded 362, added 0
+Progress: resolved 435, reused 0, downloaded 384, added 0
+Progress: resolved 459, reused 0, downloaded 401, added 0
+Progress: resolved 495, reused 0, downloaded 435, added 0
+Progress: resolved 523, reused 0, downloaded 466, added 0
+Progress: resolved 560, reused 0, downloaded 501, added 0
+Progress: resolved 583, reused 0, downloaded 521, added 0
+Progress: resolved 586, reused 0, downloaded 522, added 0
+Progress: resolved 616, reused 0, downloaded 551, added 0
+Progress: resolved 651, reused 0, downloaded 580, added 0
+Progress: resolved 685, reused 0, downloaded 616, added 0
+Progress: resolved 727, reused 0, downloaded 646, added 0
+Progress: resolved 755, reused 0, downloaded 685, added 0
+Progress: resolved 788, reused 0, downloaded 715, added 0
+Progress: resolved 817, reused 0, downloaded 738, added 0
+Progress: resolved 844, reused 0, downloaded 765, added 0
+Progress: resolved 878, reused 0, downloaded 797, added 0
+Progress: resolved 917, reused 0, downloaded 830, added 0
+Progress: resolved 953, reused 0, downloaded 863, added 0
+Progress: resolved 989, reused 0, downloaded 898, added 0
+Progress: resolved 1020, reused 0, downloaded 928, added 0
+Progress: resolved 1040, reused 0, downloaded 974, added 0
+ WARN  1 deprecated subdependencies found: @npmcli/move-file@2.0.1
+Packages: +1028
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1042, reused 0, downloaded 1001, added 55
+Progress: resolved 1042, reused 0, downloaded 1020, added 1027
+Progress: resolved 1042, reused 0, downloaded 1020, added 1028, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../esbuild@0.19.9/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.9/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ tailwindcss 3.3.1 (3.4.1 is available)
+
+Done in 44.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T10:31:14Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T10:31:14Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T10:31:14Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T10:31:14Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

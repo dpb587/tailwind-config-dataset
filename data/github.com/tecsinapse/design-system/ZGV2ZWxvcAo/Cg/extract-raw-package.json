@@ -1,0 +1,92 @@
+{
+  "name": "@tecsinapse/design-system",
+  "private": true,
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "@emotion/native": "~11.11.0",
+    "@emotion/react": "~11.11.0",
+    "@emotion/styled": "~11.11.0",
+    "autoprefixer": "^10.4.16",
+    "date-fns": "~2.30.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "react-native-vector-icons": "^9.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.0.0",
+    "@storybook/addon-actions": "^7.4.4",
+    "@storybook/addon-backgrounds": "^7.4.4",
+    "@storybook/addon-controls": "^7.4.4",
+    "@storybook/addon-docs": "^7.4.4",
+    "@storybook/addon-storysource": "^7.4.4",
+    "@storybook/addon-viewport": "^7.4.4",
+    "@storybook/addons": "^7.4.4",
+    "@storybook/builder-vite": "^7.4.4",
+    "@storybook/client-api": "^7.4.4",
+    "@storybook/react": "^7.4.4",
+    "@storybook/react-vite": "^7.4.4",
+    "@types/react": "~18.0.38",
+    "@types/react-native-vector-icons": "^6.4.16",
+    "@types/react-transition-group": "^4.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.19.3",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8",
+    "lerna": "^7",
+    "lint-staged": "^13.2.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.6",
+    "react-native-web": "^0.19.9",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.2",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "storybook": "^7.4.4",
+    "typescript": "^5",
+    "vite": "^4.4.9"
+  },
+  "scripts": {
+    "dev": "lerna run dev --stream --parallel",
+    "build": "lerna run --stream 'build:es'",
+    "build:watch": "yarn dev",
+    "storybook": "cross-env STORYBOOK_FONT_URL='' storybook dev -p 7007",
+    "build:storybook": "rimraf -rf sbdocs/ && cross-env STORYBOOK_FONT_URL='/design-system' storybook build -o sbdocs/",
+    "postbuild": "yarn build:declarations",
+    "build:declarations": "lerna run 'build:declaration'",
+    "build:declarations:watch": "rimraf -rf packages/*/dist/*.d.ts && lerna run 'build:declaration:watch' --stream",
+    "yalc:push": "lerna run 'yalc:push'",
+    "yalc:show": "yalc installations show",
+    "prebuild": "rimraf -rf packages/*/dist/",
+    "lint:ts": "eslint 'packages/**/*.ts{,x}'",
+    "lint": "yarn lint:fix:quiet",
+    "lint:fix": "yarn lint:ts --fix-dry-run",
+    "lint:fix:quiet": "yarn lint:ts --fix --quiet",
+    "prettify": "prettier --write ./**/*.{ts,tsx,json} && prettier --write *.{ts,tsx,json}",
+    "bootstrap": "yarn build",
+    "tsc": "tsc",
+    "prepare": "husky install && yarn bootstrap"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "lint-staged": {
+    ".{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

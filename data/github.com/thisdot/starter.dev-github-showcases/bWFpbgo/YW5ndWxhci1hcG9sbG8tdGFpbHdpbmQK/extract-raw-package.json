@@ -1,0 +1,120 @@
+{
+  "name": "starter-dev-angular",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "lint:styles": "npx stylelint \"{src,projects}/**/*.{css,less,sass,scss,sss}\"",
+    "prestart": "yarn run config && yarn build:libs",
+    "config": "node ./tools/set-env.js",
+    "config:prod": "node ./tools/set-env.prod.js",
+    "prepare": "cd .. && husky install angular-apollo-tailwind/.husky",
+    "prebuild": "yarn run config:prod && yarn build:libs",
+    "prebuild:prod": "yarn build:libs:prod",
+    "build:prod": "NODE_ENV=production ng build --prod",
+    "build:libs": "ng build shared && ng build prism",
+    "build:libs:watch": "ng build shared --watch",
+    "build:libs:prod": "NODE_ENV=production ng build shared --prod",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments}/**/*{.ts,.html,.css}\"",
+    "format:libs:check": "prettier --config ./.prettierrc --list-different \"projects/**/*{.ts,.html,.css}\"",
+    "format": "prettier --config ./.prettierrc --write \"src/{app,environments}/**/*{.ts,.html,.css}\"",
+    "format:libs": "prettier --config ./.prettierrc --write \"projects/**/*{.ts,.html,.css}\"",
+    "generate-cert": "./tools/generate-cert.sh",
+    "generate": "graphql-codegen"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~13.0.0",
+    "@angular/common": "~13.0.0",
+    "@angular/compiler": "~13.0.0",
+    "@angular/core": "~13.0.0",
+    "@angular/forms": "~13.0.0",
+    "@angular/platform-browser": "~13.0.0",
+    "@angular/platform-browser-dynamic": "~13.0.0",
+    "@angular/router": "~13.0.0",
+    "@apollo/client": "^3.0.0",
+    "@ngneat/content-loader": "^7.0.0",
+    "@ngneat/tailwind": "^7.0.3",
+    "@ngrx/component-store": "^13.0.2",
+    "@octokit/graphql-schema": "^10.73.0",
+    "@this-dot/route-config": "^1.2.1",
+    "apollo-angular": "2.6.0",
+    "concurrently": "^6.4.0",
+    "date-fns": "^2.27.0",
+    "graphql": "15.7.2",
+    "marked": "^4.0.8",
+    "ng-animate": "^1.0.0",
+    "ng-heroicon": "^0.4.5",
+    "prismjs": "^1.25.0",
+    "rxjs": "~7.4.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.0.2",
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
+    "@angular/cli": "~13.0.2",
+    "@angular/compiler-cli": "~13.0.0",
+    "@graphql-codegen/cli": "2.3.0",
+    "@graphql-codegen/introspection": "2.1.0",
+    "@graphql-codegen/typescript": "2.4.1",
+    "@graphql-codegen/typescript-apollo-angular": "^3.4.10",
+    "@graphql-codegen/typescript-operations": "2.2.1",
+    "@types/jasmine": "~3.10.0",
+    "@types/marked": "^4.0.1",
+    "@types/node": "^12.11.1",
+    "@types/prismjs": "^1.16.6",
+    "@typescript-eslint/eslint-plugin": "5.3.0",
+    "@typescript-eslint/parser": "5.3.0",
+    "autoprefixer": "^9",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jasmine-core": "~3.10.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "lint-prepush": "^2.2.0",
+    "lint-staged": "^12.1.2",
+    "ng-packagr": "^13.0.0",
+    "postcss": "^7",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^26.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "typescript": "~4.4.3"
+  },
+  "lint-staged": {
+    "src/**/*{.js,.ts,.html,.css}": [
+      "prettier --write"
+    ],
+    "projects/**/*{.js,.ts,.html,.css}": [
+      "prettier --write"
+    ]
+  },
+  "lint-prepush": {
+    "base": "main",
+    "tasks": {
+      "src/**/*{.js,.ts,.html}": [
+        "eslint"
+      ],
+      "projects/**/*{.js,.ts,.html}": [
+        "eslint"
+      ]
+    }
+  }
+}

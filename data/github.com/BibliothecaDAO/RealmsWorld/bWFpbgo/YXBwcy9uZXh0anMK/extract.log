@@ -1,0 +1,194 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/BibliothecaDAO/RealmsWorld
++ reporef=main
++ repopath=./apps/nextjs
+++ echo github.com/BibliothecaDAO/RealmsWorld
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ba2f1a62e56b
+++ echo 'github.com/BibliothecaDAO/RealmsWorld;main;./apps/nextjs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/19720265f803
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/BibliothecaDAO/RealmsWorld/bWFpbgo/Li9hcHBzL25leHRqcwo
++ jq -nc --arg key analysis_key --arg value github.com/BibliothecaDAO/RealmsWorld/bWFpbgo/Li9hcHBzL25leHRqcwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9e7dbdadf5cbe8f7
++ jq -nc --arg key analysis_nonce --arg value 9e7dbdadf5cbe8f7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/BibliothecaDAO/RealmsWorld
++ jq -nc --arg key input_repo_name --arg value github.com/BibliothecaDAO/RealmsWorld '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/nextjs
++ jq -nc --arg key input_repo_path --arg value ./apps/nextjs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T00:18:08Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T00:18:08Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ba2f1a62e56b
+/tmp/twcr-ba2f1a62e56b /twcr
++ pushd /tmp/twcr-ba2f1a62e56b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/BibliothecaDAO/RealmsWorld.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T00:18:17Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T00:18:17Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d9ea1d04d349a8b46c92a68593c958c24ee67775
++ jq -nc --arg key exec_repo_commit_sha --arg value d9ea1d04d349a8b46c92a68593c958c24ee67775 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 15:34:42 +1100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T04:34:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T04:34:42Z '{ key: $key, value: $value }'
++ '[' -z ./apps/nextjs ']'
++ pushd ./apps/nextjs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-ba2f1a62e56b/apps/nextjs /tmp/twcr-ba2f1a62e56b /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-ba2f1a62e56b/pnpm-workspace.yaml ']'
++ cat 'README*'
++ grep -q 'pnpm install'
++ grep -q '"packageManager":[^"]+"yarn@"' package.json
++ '[' -f yarn.lock ']'
++ grep -q '":[^"]+"workspace:' package.json
++ cat 'README*'
++ grep -q 'yarn install'
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T00:18:17Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T00:18:17Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@realms-world/nextjs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@realms-world/tailwind-config": "*",
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "eslintConfig": {
+>>>     "root": true,
+>>>     "extends": [
+>>>       "@realms-world/eslint-config/base",
+>>>       "@realms-world/eslint-config/nextjs",
+>>>       "@realms-world/eslint-config/react"
+>>>     ]
+>>>   },
+>>>   "prettier": "@realms-world/prettier-config"
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-ba2f1a62e56b /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-ba2f1a62e56b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: @vitejs/plugin-react@3.1.0
+npm WARN Found: vite@5.1.4
+npm WARN node_modules/vite
+npm WARN   peer vite@"^3.0.0 || ^4.0.0 || ^5.0.0" from @storybook/react-vite@7.6.17
+npm WARN   node_modules/@storybook/react-vite
+npm WARN     dev @storybook/react-vite@"^7.6.17" from @realms-world/ui@0.1.0
+npm WARN     apps/ui
+npm WARN   6 more (@realms-world/ui, @vitejs/plugin-react, vitest, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer vite@"^4.1.0-beta.0" from @vitejs/plugin-react@3.1.0
+npm WARN node_modules/@storybook/react-vite/node_modules/@vitejs/plugin-react
+npm WARN   @vitejs/plugin-react@"^3.0.1" from @storybook/react-vite@7.6.17
+npm WARN   node_modules/@storybook/react-vite
+
+added 440 packages, and audited 446 packages in 2m
+
+131 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T00:20:26Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T00:20:26Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T00:20:26Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T00:20:26Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

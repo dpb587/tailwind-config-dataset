@@ -1,0 +1,178 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/udecode/plate
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/udecode/plate
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ac2b013fa748
+++ echo 'github.com/udecode/plate;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/31af770dec7a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/udecode/plate/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/udecode/plate/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3e6a7188f8ba16dc
++ jq -nc --arg key analysis_nonce --arg value 3e6a7188f8ba16dc '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/udecode/plate
++ jq -nc --arg key input_repo_name --arg value github.com/udecode/plate '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:52:19Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:52:19Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ac2b013fa748
+/tmp/twcr-ac2b013fa748 /twcr
++ pushd /tmp/twcr-ac2b013fa748
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/udecode/plate.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:52:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:52:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 79f5a497f763ddbd8e57af492481f8767f025b85
++ jq -nc --arg key exec_repo_commit_sha --arg value 79f5a497f763ddbd8e57af492481f8767f025b85 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 16:42:12 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T15:42:12Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T15:42:12Z '{ key: $key, value: $value }'
+/tmp/twcr-ac2b013fa748 /tmp/twcr-ac2b013fa748 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ac2b013fa748
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:52:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:52:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
+[squash-package] ERROR: failed to find any match for import path (tailwindcss-animate)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:52:21Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:52:21Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 79f5a49 Merge pull request #3012 from udecode/changeset-release/main
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-ac2b013fa748 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-ac2b013fa748
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_bf8bac88010a:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_bf8bac88010a:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_bf8bac88010a:ok@172.18.0.2:3128'
++ '[' -z http://tid_bf8bac88010a:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_bf8bac88010a:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_bf8bac88010a:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.1.0
+➤ YN0000: ┌ Project validation
+➤ YN0057: │ www: Resolutions field will be ignored
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed in 0s 517ms
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ @testing-library/react is listed by your project with version 14.1.2, which doesn't satisfy what slate-test-utils (p9f039) requests (^12.1.2).
+➤ YN0060: │ @types/react is listed by your project with version 18.2.14, which doesn't satisfy what @testing-library/react-hooks (p4d72c) and other dependencies request (^16.9.0 || ^17.0.0).
+➤ YN0060: │ next is listed by your project with version 14.0.4, which doesn't satisfy what next-contentlayer (padf02) requests (^12.0.0 || ^13.0.0).
+➤ YN0060: │ prettier is listed by your project with version 3.1.1, which doesn't satisfy what @ianvs/prettier-plugin-sort-imports (p072c3) requests (^2.0.0).
+➤ YN0060: │ react is listed by your project with version 18.2.0, which doesn't satisfy what @testing-library/react-hooks (p1eae0) and other dependencies request (^17.0.2).
+➤ YN0060: │ react-dom is listed by your project with version 18.2.0, which doesn't satisfy what @testing-library/react-hooks (pb1243) requests (^16.9.0 || ^17.0.0).
+➤ YN0060: │ react-dom is listed by your project with version 18.2.0, which doesn't satisfy what @udecode/plate-excalidraw (p84d62) and other dependencies request (^17.0.2).
+➤ YN0060: │ react-test-renderer is listed by your project with version 18.2.0, which doesn't satisfy what @testing-library/react-hooks (p553b3) requests (^16.9.0 || ^17.0.0).
+➤ YN0002: │ @udecode/plate-table@workspace:packages/table [e2df0] doesn't provide slate-hyperscript (p6fc2a), requested by @udecode/plate-resizable.
+➤ YN0002: │ @udecode/plate-yjs@workspace:packages/yjs doesn't provide y-protocols (p79035), requested by @hocuspocus/provider.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide react (p8d841), requested by react-router-dom.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide react (pe1f01), requested by @udecode/plate.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide react-dom (p2ec6b), requested by @udecode/plate.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide react-dom (p361e2), requested by react-router-dom.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide slate (p4fbdf), requested by @udecode/plate.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide slate-history (p2a894), requested by @udecode/plate.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide slate-hyperscript (p497ff), requested by @udecode/plate.
+➤ YN0002: │ e2e-examples@workspace:apps/e2e-examples doesn't provide slate-react (p693a4), requested by @udecode/plate.
+➤ YN0002: │ root-workspace-0b6124@workspace:. doesn't provide @testing-library/dom (p59b22), requested by @testing-library/user-event.
+➤ YN0002: │ root-workspace-0b6124@workspace:. doesn't provide postcss (p263e0), requested by autoprefixer.
+➤ YN0002: │ www@workspace:apps/www doesn't provide @testing-library/jest-dom (p366eb), requested by slate-test-utils.
+➤ YN0002: │ www@workspace:apps/www doesn't provide @testing-library/react (pe7646), requested by slate-test-utils.
+➤ YN0002: │ www@workspace:apps/www doesn't provide @types/node (p994df), requested by ts-node.
+➤ YN0002: │ www@workspace:apps/www doesn't provide embla-carousel (p34ce5), requested by embla-carousel-autoplay.
+➤ YN0086: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0013: │ 1851 packages were added to the project (+ 891.73 MiB).
+➤ YN0000: └ Completed in 1m 1s
+➤ YN0000: ┌ Link step
+➤ YN0007: │ @swc/core@npm:1.3.90 [dc3fc] must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.18.20 must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.17.19 must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.18.12 must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.18.11 must be built because it never has been before or the last one failed
+➤ YN0007: │ protobufjs@npm:7.2.3 must be built because it never has been before or the last one failed
+➤ YN0007: │ root-workspace-0b6124@workspace:. must be built because it never has been before or the last one failed
+➤ YN0007: │ contentlayer@npm:0.3.4 must be built because it never has been before or the last one failed
+➤ YN0000: └ Completed in 41s 428ms
+➤ YN0000: · Done with warnings in 1m 43s
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ yarn list --depth=0 --json --non-interactive --no-progress
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 5

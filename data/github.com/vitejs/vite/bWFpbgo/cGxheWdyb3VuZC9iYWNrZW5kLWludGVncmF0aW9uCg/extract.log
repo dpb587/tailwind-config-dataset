@@ -1,0 +1,288 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/vitejs/vite
++ reporef=main
++ repopath=./playground/backend-integration
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/vitejs/vite
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-0895319c0995
+++ echo 'github.com/vitejs/vite;main;./playground/backend-integration'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4c80ed9f479e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/vitejs/vite/bWFpbgo/Li9wbGF5Z3JvdW5kL2JhY2tlbmQtaW50ZWdyYXRpb24K
++ jq -nc --arg key analysis_key --arg value github.com/vitejs/vite/bWFpbgo/Li9wbGF5Z3JvdW5kL2JhY2tlbmQtaW50ZWdyYXRpb24K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f93889ffb94e1172
++ jq -nc --arg key analysis_nonce --arg value f93889ffb94e1172 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/vitejs/vite
++ jq -nc --arg key input_repo_name --arg value github.com/vitejs/vite '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./playground/backend-integration
++ jq -nc --arg key input_repo_path --arg value ./playground/backend-integration '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T19:51:15Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T19:51:15Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-0895319c0995
+/tmp/twcr-0895319c0995 /twcr
++ pushd /tmp/twcr-0895319c0995
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/vitejs/vite.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T19:51:18Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T19:51:18Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2af1ae807d2eb1149ad0a8105aec5a01fb28640b
++ jq -nc --arg key exec_repo_commit_sha --arg value 2af1ae807d2eb1149ad0a8105aec5a01fb28640b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 20:40:23 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T19:40:23Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T19:40:23Z '{ key: $key, value: $value }'
+/tmp/twcr-0895319c0995/playground/backend-integration /tmp/twcr-0895319c0995 /twcr
++ '[' -z ./playground/backend-integration ']'
++ pushd ./playground/backend-integration
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0895319c0995/playground/backend-integration
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./playground/backend-integration '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0895319c0995
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T19:51:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T19:51:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@vitejs/test-backend-integration",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "type": "module",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./playground/backend-integration '!=' ./ ']'
++ rm -f /tmp/twcr-0895319c0995/package.json /tmp/twcr-0895319c0995/package-lock.json /tmp/twcr-0895319c0995/pnpm-lock.yaml /tmp/twcr-0895319c0995/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-0895319c0995 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-0895319c0995
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-0895319c0995/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 204 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 13, added 0
+../..                                    | Progress: resolved 50, reused 0, downloaded 39, added 0
+../..                                    | Progress: resolved 73, reused 1, downloaded 60, added 0
+../..                                    | Progress: resolved 115, reused 21, downloaded 77, added 0
+../..                                    | Progress: resolved 179, reused 67, downloaded 98, added 0
+../..                                    | Progress: resolved 199, reused 72, downloaded 119, added 0
+../..                                    | Progress: resolved 231, reused 72, downloaded 150, added 0
+../..                                    | Progress: resolved 259, reused 72, downloaded 170, added 0
+../..                                    | Progress: resolved 286, reused 72, downloaded 198, added 0
+../..                                    | Progress: resolved 313, reused 72, downloaded 223, added 0
+../..                                    | Progress: resolved 341, reused 72, downloaded 249, added 0
+../..                                    | Progress: resolved 374, reused 72, downloaded 273, added 0
+../..                                    | Progress: resolved 408, reused 72, downloaded 284, added 0
+../..                                    | Progress: resolved 444, reused 72, downloaded 304, added 0
+../..                                    | Progress: resolved 479, reused 72, downloaded 333, added 0
+../..                                    | Progress: resolved 505, reused 72, downloaded 364, added 0
+../..                                    | Progress: resolved 532, reused 72, downloaded 392, added 0
+../..                                    | Progress: resolved 564, reused 72, downloaded 418, added 0
+../..                                    | Progress: resolved 592, reused 72, downloaded 449, added 0
+../..                                    | Progress: resolved 626, reused 72, downloaded 479, added 0
+../..                                    | Progress: resolved 653, reused 72, downloaded 507, added 0
+../..                                    | Progress: resolved 686, reused 72, downloaded 529, added 0
+../..                                    | Progress: resolved 715, reused 72, downloaded 552, added 0
+../..                                    | Progress: resolved 736, reused 72, downloaded 580, added 0
+../..                                    | Progress: resolved 765, reused 72, downloaded 604, added 0
+../..                                    | Progress: resolved 794, reused 72, downloaded 633, added 0
+../..                                    | Progress: resolved 825, reused 72, downloaded 664, added 0
+ WARN  1 deprecated subdependencies found: sourcemap-codec@1.4.8
+../..                                    | +795 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 834, reused 72, downloaded 696, added 0
+../..                                    | Progress: resolved 834, reused 72, downloaded 716, added 793
+../..                                    | Progress: resolved 834, reused 72, downloaded 716, added 794
+../..                                    | Progress: resolved 834, reused 72, downloaded 717, added 794
+../..                                    | Progress: resolved 834, reused 72, downloaded 717, added 795, done
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-0895319c0995/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_a85b6bb44326:ok@172.18.0.2:3128"
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-0895319c0995/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../node_modules/workerd postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../es5-ext@0.10.63/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}"
+.../es5-ext@0.10.63/node_modules/es5-ext postinstall: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/create-vite
+└─┬ unbuild 2.0.0
+  ├── ✕ missing peer typescript@^5.1.6
+  ├─┬ mkdist 1.4.0
+  │ └── ✕ missing peer typescript@>=5.3.2
+  └─┬ rollup-plugin-dts 6.1.0
+    └── ✕ missing peer typescript@"^4.5 || ^5.0"
+Peer dependencies that should be installed:
+  typescript@">=5.3.2 <6.0.0-0"
+
+packages/vite
+├─┬ @rollup/plugin-typescript 11.1.6
+│ └── ✕ missing peer typescript@>=3.7.0
+├─┬ rollup-plugin-dts 6.1.0
+│ └── ✕ missing peer typescript@"^4.5 || ^5.0"
+└─┬ tsconfck 3.0.2
+  └── ✕ missing peer typescript@^5.0.0
+Peer dependencies that should be installed:
+  typescript@">=5.0.0 <6.0.0-0"
+
+playground/css
+├─┬ postcss-nested 6.0.1
+│ └── ✕ missing peer postcss@^8.2.14
+└─┬ sugarss 4.0.1
+  └── ✕ missing peer postcss@^8.3.3
+Peer dependencies that should be installed:
+  postcss@">=8.3.3 <9.0.0-0"
+
+playground/css-sourcemap
+└─┬ sugarss 4.0.1
+  └── ✕ missing peer postcss@^8.3.3
+Peer dependencies that should be installed:
+  postcss@^8.3.3
+
+playground/external
+└─┬ vue 3.2.47
+  └─┬ @vue/server-renderer 3.2.47
+    └── ✕ unmet peer vue@3.2.47: found 3.4.21
+
+playground/tailwind
+├─┬ ts-node 10.9.2
+│ ├── ✕ missing peer @types/node@"*"
+│ └── ✕ missing peer typescript@>=2.7
+├─┬ vue 3.4.21
+│ └── ✕ missing peer typescript@"*"
+└─┬ autoprefixer 10.4.18
+  └── ✕ missing peer postcss@^8.1.0
+Peer dependencies that should be installed:
+  @types/node@"*"
+  postcss@^8.1.0
+  typescript@>=2.7.0
+
+Done in 45.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T19:52:05Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T19:52:05Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T19:52:05Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T19:52:05Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

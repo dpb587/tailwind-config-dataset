@@ -1,0 +1,181 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/tkssharma/blogs
++ reporef=master
++ repopath=./sveltekit-with-tailwind
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/tkssharma/blogs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-eeefb680b706
+++ echo 'github.com/tkssharma/blogs;master;./sveltekit-with-tailwind'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/6d3917b4948c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/tkssharma/blogs/bWFzdGVyCg/Li9zdmVsdGVraXQtd2l0aC10YWlsd2luZAo
++ jq -nc --arg key analysis_key --arg value github.com/tkssharma/blogs/bWFzdGVyCg/Li9zdmVsdGVraXQtd2l0aC10YWlsd2luZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f17b8deacfa8d266
++ jq -nc --arg key analysis_nonce --arg value f17b8deacfa8d266 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/tkssharma/blogs
++ jq -nc --arg key input_repo_name --arg value github.com/tkssharma/blogs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./sveltekit-with-tailwind
++ jq -nc --arg key input_repo_path --arg value ./sveltekit-with-tailwind '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T04:27:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T04:27:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-eeefb680b706
++ pushd /tmp/twcr-eeefb680b706
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/tkssharma/blogs.git .
+/tmp/twcr-eeefb680b706 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T04:27:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T04:27:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 079cdd955008335cc16ada690f95ca5f29ad00b0
++ jq -nc --arg key exec_repo_commit_sha --arg value 079cdd955008335cc16ada690f95ca5f29ad00b0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-07-16 19:28:05 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-07-16T13:58:05Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-07-16T13:58:05Z '{ key: $key, value: $value }'
+/tmp/twcr-eeefb680b706/sveltekit-with-tailwind /tmp/twcr-eeefb680b706 /twcr
++ '[' -z ./sveltekit-with-tailwind ']'
++ pushd ./sveltekit-with-tailwind
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-eeefb680b706/sveltekit-with-tailwind
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T04:27:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T04:27:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "sveltekit-with-tailwind-jit",
+>>>   "version": "0.0.1",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^2.2.2"
+>>>   },
+>>>   "type": "module"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./sveltekit-with-tailwind '!=' ./ ']'
++ rm -f /tmp/twcr-eeefb680b706/package.json /tmp/twcr-eeefb680b706/package-lock.json /tmp/twcr-eeefb680b706/pnpm-lock.yaml /tmp/twcr-eeefb680b706/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-eeefb680b706 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-eeefb680b706
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_67e4bf30b9a3:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_67e4bf30b9a3:ok@172.18.0.2:3128
+yarn config v1.22.19
+warning package.json: No license field
+success Set "httpProxy" to "http://tid_67e4bf30b9a3:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_67e4bf30b9a3:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_67e4bf30b9a3:ok@172.18.0.2:3128
+yarn config v1.22.19
+warning package.json: No license field
+success Set "httpsProxy" to "http://tid_67e4bf30b9a3:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+warning package.json: No license field
+info No lockfile found.
+warning sveltekit-with-tailwind-jit@0.0.1: No license field
+[1/4] Resolving packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > tailwindcss@2.2.19" has unmet peer dependency "autoprefixer@^10.0.2".
+warning " > tailwindcss@2.2.19" has unmet peer dependency "postcss@^8.0.9".
+warning "tailwindcss > postcss-nested@5.0.6" has unmet peer dependency "postcss@^8.2.14".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.74s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+{"type":"warning","data":"package.json: No license field"}
+{"type":"warning","data":"sveltekit-with-tailwind-jit@0.0.1: No license field"}
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T04:27:33Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T04:27:33Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T04:27:33Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T04:27:33Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

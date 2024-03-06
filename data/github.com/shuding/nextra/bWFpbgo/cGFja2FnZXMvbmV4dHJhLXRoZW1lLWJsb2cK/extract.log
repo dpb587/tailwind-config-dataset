@@ -1,0 +1,559 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/shuding/nextra
++ reporef=main
++ repopath=./packages/nextra-theme-blog
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/shuding/nextra
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-402992229054
+++ echo 'github.com/shuding/nextra;main;./packages/nextra-theme-blog'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/26243c5db8ae
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/shuding/nextra/bWFpbgo/Li9wYWNrYWdlcy9uZXh0cmEtdGhlbWUtYmxvZwo
++ jq -nc --arg key analysis_key --arg value github.com/shuding/nextra/bWFpbgo/Li9wYWNrYWdlcy9uZXh0cmEtdGhlbWUtYmxvZwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 779e6713fd55e741
++ jq -nc --arg key analysis_nonce --arg value 779e6713fd55e741 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/shuding/nextra
++ jq -nc --arg key input_repo_name --arg value github.com/shuding/nextra '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/nextra-theme-blog
++ jq -nc --arg key input_repo_path --arg value ./packages/nextra-theme-blog '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:33:32Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:33:32Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-402992229054
++ pushd /tmp/twcr-402992229054
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/shuding/nextra.git .
+/tmp/twcr-402992229054 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:33:34Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:33:34Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 909467600f062525c43ff08ca32375d20d26f26f
++ jq -nc --arg key exec_repo_commit_sha --arg value 909467600f062525c43ff08ca32375d20d26f26f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 19:49:29 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T18:49:29Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T18:49:29Z '{ key: $key, value: $value }'
+/tmp/twcr-402992229054/packages/nextra-theme-blog /tmp/twcr-402992229054 /twcr
++ '[' -z ./packages/nextra-theme-blog ']'
++ pushd ./packages/nextra-theme-blog
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-402992229054/packages/nextra-theme-blog
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/nextra-theme-blog '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-402992229054
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:33:34Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:33:34Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "nextra-theme-blog",
+>>>   "version": "2.13.4",
+>>>   "description": "A Nextra theme for blogs.",
+>>>   "repository": "https://github.com/shuding/nextra",
+>>>   "author": "Shu Ding <g@shud.in>",
+>>>   "license": "MIT",
+>>>   "exports": {
+>>>     "./style.css": "./style.css",
+>>>     ".": {
+>>>       "import": "./dist/index.js",
+>>>       "types": "./dist/index.d.mts"
+>>>     },
+>>>     "./cusdis": {
+>>>       "import": "./dist/cusdis.js",
+>>>       "types": "./dist/cusdis.d.mts"
+>>>     },
+>>>     "./tags": {
+>>>       "import": "./dist/tags.js",
+>>>       "types": "./dist/tags.d.mts"
+>>>     }
+>>>   },
+>>>   "types": "./dist/index.d.mts",
+>>>   "typesVersions": {
+>>>     "*": {
+>>>       "cusdis": [
+>>>         "./dist/cusdis.d.mts"
+>>>       ],
+>>>       "tags": [
+>>>         "./dist/tags.d.mts"
+>>>       ]
+>>>     }
+>>>   },
+>>>   "files": [
+>>>     "dist",
+>>>     "style.css"
+>>>   ],
+>>>   "peerDependencies": {},
+>>>   "peerDependenciesMeta": {
+>>>     "react-cusdis": {
+>>>       "optional": true
+>>>     }
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwindcss": "^3.3.3"
+>>>   },
+>>>   "sideEffects": false
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/nextra-theme-blog '!=' ./ ']'
++ rm -f /tmp/twcr-402992229054/package.json /tmp/twcr-402992229054/package-lock.json /tmp/twcr-402992229054/pnpm-lock.yaml /tmp/twcr-402992229054/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-402992229054 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-402992229054
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-402992229054/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 18, reused 3, downloaded 8, added 0
+../..                                    | Progress: resolved 31, reused 3, downloaded 23, added 0
+../..                                    | Progress: resolved 65, reused 3, downloaded 49, added 0
+../..                                    | Progress: resolved 93, reused 3, downloaded 83, added 0
+../..                                    | Progress: resolved 131, reused 3, downloaded 117, added 0
+../..                                    | Progress: resolved 157, reused 3, downloaded 146, added 0
+../..                                    | Progress: resolved 190, reused 3, downloaded 163, added 0
+../..                                    | Progress: resolved 214, reused 3, downloaded 189, added 0
+../..                                    | Progress: resolved 249, reused 3, downloaded 222, added 0
+../..                                    | Progress: resolved 294, reused 3, downloaded 250, added 0
+../..                                    | Progress: resolved 322, reused 3, downloaded 280, added 0
+../..                                    | Progress: resolved 353, reused 3, downloaded 309, added 0
+../..                                    | Progress: resolved 384, reused 3, downloaded 338, added 0
+../..                                    | Progress: resolved 409, reused 3, downloaded 361, added 0
+../..                                    | Progress: resolved 436, reused 3, downloaded 390, added 0
+../..                                    | Progress: resolved 465, reused 3, downloaded 414, added 0
+../..                                    | Progress: resolved 500, reused 3, downloaded 443, added 0
+../..                                    | Progress: resolved 527, reused 3, downloaded 467, added 0
+../..                                    | Progress: resolved 553, reused 3, downloaded 496, added 0
+../..                                    | Progress: resolved 592, reused 3, downloaded 533, added 0
+../..                                    | Progress: resolved 625, reused 3, downloaded 562, added 0
+../..                                    | Progress: resolved 658, reused 3, downloaded 590, added 0
+../..                                    | Progress: resolved 692, reused 3, downloaded 625, added 0
+../..                                    | Progress: resolved 724, reused 3, downloaded 652, added 0
+../..                                    | Progress: resolved 759, reused 3, downloaded 681, added 0
+../..                                    | Progress: resolved 792, reused 3, downloaded 715, added 0
+../..                                    | Progress: resolved 831, reused 3, downloaded 742, added 0
+../..                                    | Progress: resolved 878, reused 3, downloaded 763, added 0
+../..                                    | Progress: resolved 918, reused 3, downloaded 800, added 0
+../..                                    | Progress: resolved 955, reused 3, downloaded 834, added 0
+../..                                    | Progress: resolved 992, reused 3, downloaded 872, added 0
+../..                                    | Progress: resolved 1033, reused 3, downloaded 905, added 0
+../..                                    | Progress: resolved 1069, reused 3, downloaded 945, added 0
+../..                                    | Progress: resolved 1130, reused 3, downloaded 981, added 0
+../..                                    |    +1052 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1130, reused 3, downloaded 1009, added 1010
+../..                                    | Progress: resolved 1130, reused 3, downloaded 1049, added 1052, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+../nextra prepublishOnly$ pnpm build
+../nextra prepublishOnly: > nextra@2.13.4 build /tmp/twcr-402992229054/packages/nextra
+../nextra prepublishOnly: > tsup
+../nextra prepublishOnly: command not found: tsup
+../nextra prepublishOnly:  ELIFECYCLE  Command failed with exit code 127.
+../nextra prepublishOnly: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:34:17Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:34:17Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 9094676 Version Packages (#2752)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-402992229054 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-402992229054
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-402992229054/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-402992229054/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +839 -463 +++++++++++++++++----------
+../..                                    | Progress: resolved 839, reused 154, downloaded 21, added 63
+../..                                    | Progress: resolved 839, reused 154, downloaded 86, added 129
+../..                                    | Progress: resolved 839, reused 154, downloaded 154, added 197
+../..                                    | Progress: resolved 839, reused 154, downloaded 219, added 263
+../..                                    | Progress: resolved 839, reused 154, downloaded 281, added 324
+../..                                    | Progress: resolved 839, reused 154, downloaded 345, added 387
+../..                                    | Progress: resolved 839, reused 154, downloaded 405, added 449
+../..                                    | Progress: resolved 839, reused 154, downloaded 465, added 508
+../..                                    | Progress: resolved 839, reused 154, downloaded 532, added 576
+../..                                    | Progress: resolved 839, reused 154, downloaded 587, added 631
+../..                                    | Progress: resolved 839, reused 154, downloaded 653, added 697
+../..                                    | Progress: resolved 839, reused 154, downloaded 684, added 728, done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Using existing vendored libvips v8.14.5
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../esbuild@0.18.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+
+dependencies:
++ next-themes 0.2.1
+
+devDependencies:
++ @tailwindcss/nesting 0.0.0-insiders.565cd3e
+- @tailwindcss/typography
++ @tailwindcss/typography 0.5.9
++ @types/react 18.2.21
++ @types/react-dom 18.2.7
++ concurrently 8.0.0
++ next 13.5.6
++ nextra 2.13.4 <- ../nextra
++ postcss 8.4.31
++ postcss-cli 10.1.0
++ postcss-import 15.1.0
++ postcss-lightningcss 1.0.0
++ react 18.2.0
++ react-cusdis 2.1.3
++ react-dom 18.2.0
+- tailwindcss
++ tailwindcss 3.3.3
++ vitest 0.29.8
+
+../nextra prepublishOnly$ pnpm build
+../nextra prepublishOnly: > nextra@2.13.4 build /tmp/twcr-402992229054/packages/nextra
+../nextra prepublishOnly: > tsup
+../nextra prepublishOnly: [NEXTRA] CLI Building entry: src/index.js, src/__temp__.js, src/catch-all.ts
+../nextra prepublishOnly: [NEXTRA] CLI Using tsconfig: tsconfig.json
+../nextra prepublishOnly: [NEXTRA] CLI tsup v7.2.0
+../nextra prepublishOnly: [NEXTRA] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra/tsup.config.ts
+../nextra prepublishOnly: [NEXTRA-TYPES] CLI Building entry: src/types.ts
+../nextra prepublishOnly: [NEXTRA-TYPES] CLI Using tsconfig: tsconfig.json
+../nextra prepublishOnly: [NEXTRA-TYPES] CLI tsup v7.2.0
+../nextra prepublishOnly: [NEXTRA-TYPES] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra/tsup.config.ts
+../nextra prepublishOnly: [NEXTRA-ESM] CLI Building entry: src/compile.ts, src/constants.ts, src/context.ts, src/file-system.ts, src/filter-route-locale.ts, src/loader.ts, src/locales.ts, src/page-map.ts, src/plugin.ts, src/remote.ts, src/types.ts, src/utils.ts, src/mdx-plugins/index.ts, src/mdx-plugins/rehype.ts, src/mdx-plugins/remark-custom-heading-id.ts, src/mdx-plugins/remark-headings.ts, src/mdx-plugins/remark-link-rewrite.ts, src/mdx-plugins/remark-mdx-disable-explicit-jsx.ts, src/mdx-plugins/remark-remove-imports.ts, src/mdx-plugins/remark-replace-imports.ts, src/mdx-plugins/remark-static-image.ts, src/mdx-plugins/remark-structurize.ts, src/webpack-plugins/index.ts, src/webpack-plugins/nextra-search.ts, src/webpack-plugins/nextra.ts
+../nextra prepublishOnly: [NEXTRA-ESM] CLI Using tsconfig: tsconfig.json
+../nextra prepublishOnly: [NEXTRA-ESM] CLI tsup v7.2.0
+../nextra prepublishOnly: [NEXTRA-ESM] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra/tsup.config.ts
+../nextra prepublishOnly: [NEXTRA-CLIENT] CLI Building entry: src/mdx.ts, src/normalize-pages.ts, src/setup-page.ts, src/use-internals.ts, src/layout.tsx, src/ssg.tsx, src/components/button.tsx, src/components/callout.tsx, src/components/cards.tsx, src/components/code.tsx, src/components/copy-to-clipboard.tsx, src/components/file-tree.tsx, src/components/index.ts, src/components/pre.tsx, src/components/steps.tsx, src/components/table.tsx, src/components/tabs.tsx, src/components/td.tsx, src/components/th.tsx, src/components/tr.tsx, src/hooks/index.ts, src/hooks/use-fs-route.ts, src/hooks/use-mounted.ts, src/icons/arrow-right.tsx, src/icons/check.tsx, src/icons/copy.tsx, src/icons/discord.tsx, src/icons/expand.tsx, src/icons/github.tsx, src/icons/globe.tsx, src/icons/index.ts, src/icons/information-circle.tsx, src/icons/menu.tsx, src/icons/moon.tsx, src/icons/spinner.tsx, src/icons/sun.tsx, src/icons/word-wrap.tsx, src/icons/x.tsx
+../nextra prepublishOnly: [NEXTRA-CLIENT] CLI Using tsconfig: tsconfig.json
+../nextra prepublishOnly: [NEXTRA-CLIENT] CLI tsup v7.2.0
+../nextra prepublishOnly: [NEXTRA-CLIENT] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra/tsup.config.ts
+../nextra prepublishOnly: [NEXTRA] CLI Target: es2016
+../nextra prepublishOnly: [NEXTRA] CJS Build start
+../nextra prepublishOnly: [NEXTRA-CLIENT] CLI Target: es2020
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM Build start
+../nextra prepublishOnly: [NEXTRA-ESM] CLI Target: es2020
+../nextra prepublishOnly: [NEXTRA-ESM] ESM Build start
+../nextra prepublishOnly: [NEXTRA] CJS dist/__temp__.js  1.34 KB
+../nextra prepublishOnly: [NEXTRA] CJS dist/index.js     18.74 KB
+../nextra prepublishOnly: [NEXTRA] CJS dist/catch-all.js 3.27 KB
+../nextra prepublishOnly: [NEXTRA] CJS ⚡️ Build success in 74ms
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/index.mjs                           843.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/webpack-plugins/index.mjs                       184.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/compile.mjs                                     11.00 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/constants.mjs                                   1.21 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/context.mjs                                     2.13 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/filter-route-locale.mjs                         1.04 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/loader.mjs                                      8.49 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/locales.mjs                                     2.45 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/page-map.mjs                                    2.10 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/remote.mjs                                      1.04 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/plugin.mjs                                      6.15 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/types.mjs                                       114.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/utils.mjs                                       2.00 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/file-system.mjs                                 535.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/rehype.mjs                          1.14 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-headings.mjs                 4.28 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-mdx-disable-explicit-jsx.mjs 334.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-custom-heading-id.mjs        689.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-replace-imports.mjs          531.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-remove-imports.mjs           240.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-link-rewrite.mjs             486.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/webpack-plugins/nextra-search.mjs               1.75 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-static-image.mjs             2.52 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/mdx-plugins/remark-structurize.mjs              1.73 KB
+../nextra prepublishOnly: [NEXTRA-ESM] ESM dist/webpack-plugins/nextra.mjs                      673.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] ESM ⚡️ Build success in 115ms
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/button.js            613.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/hooks/index.js                  85.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/arrow-right.js            472.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/mdx.js                          513.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/normalize-pages.js              8.74 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/setup-page.js                   4.45 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/use-internals.js                1018.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/cards.js             2.91 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/callout.js           1.77 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/file-tree.js         3.50 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/code.js              650.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/copy-to-clipboard.js 1.11 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/index.js             693.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/pre.js               2.40 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/table.js             281.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/tabs.js              3.00 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/tr.js                379.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/td.js                329.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/th.js                346.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/hooks/use-mounted.js            243.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/hooks/use-fs-route.js           717.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/components/steps.js             448.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/layout.js                       907.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/expand.js                 1.00 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/copy.js                   970.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/discord.js                1.63 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/globe.js                  1.11 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/menu.js                   1.03 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/information-circle.js     654.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/index.js                  392.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/check.js                  562.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/github.js                 1.55 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/sun.js                    678.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/moon.js                   617.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/spinner.js                899.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/ssg.js                          824.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/word-wrap.js              449.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM dist/icons/x.js                      671.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] ESM ⚡️ Build success in 127ms
+../nextra prepublishOnly: [NEXTRA-TYPES] DTS Build start
+../nextra prepublishOnly: [NEXTRA-ESM] DTS Build start
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS Build start
+../nextra prepublishOnly: [NEXTRA-TYPES] DTS ⚡️ Build success in 2214ms
+../nextra prepublishOnly: [NEXTRA-TYPES] DTS dist/types.d.ts 5.29 KB
+../nextra prepublishOnly: [NEXTRA-ESM] DTS ⚡️ Build success in 7617ms
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/compile.d.mts                                     1.18 KB
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/context.d.mts                                     386.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/file-system.d.mts                                 214.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/filter-route-locale.d.mts                         333.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/loader.d.mts                                      409.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/locales.d.mts                                     247.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/plugin.d.mts                                      595.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/remote.d.mts                                      543.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/utils.d.mts                                       1.40 KB
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/index.d.mts                           786.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/rehype.d.mts                          198.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-custom-heading-id.d.mts        209.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-headings.d.mts                 218.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-replace-imports.d.mts          365.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-remove-imports.d.mts           151.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-link-rewrite.d.mts             312.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-mdx-disable-explicit-jsx.d.mts 209.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-static-image.d.mts             147.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/mdx-plugins/remark-structurize.d.mts              317.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/webpack-plugins/index.d.mts                       272.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/webpack-plugins/nextra.d.mts                      405.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/webpack-plugins/nextra-search.d.mts               143.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/constants.d.mts                                   548.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/page-map.d.mts                                    238.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/types.d.mts                                       667.00 B
+../nextra prepublishOnly: [NEXTRA-ESM] DTS dist/types-c8e621b7.d.ts                               6.93 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS ⚡️ Build success in 10426ms
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/mdx.d.mts                          255.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/normalize-pages.d.mts              8.81 KB
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/setup-page.d.mts                   829.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/layout.d.mts                       169.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/use-internals.d.mts                487.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/ssg.d.mts                          522.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/button.d.mts            176.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/callout.d.mts           493.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/cards.d.mts             614.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/code.d.mts              170.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/copy-to-clipboard.d.mts 297.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/file-tree.d.mts         602.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/index.d.mts             633.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/pre.d.mts               341.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/steps.d.mts             170.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/tabs.d.mts              741.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/td.d.mts                213.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/table.d.mts             222.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/th.d.mts                213.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/components/tr.d.mts                213.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/hooks/index.d.mts                  97.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/hooks/use-mounted.d.mts            64.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/hooks/use-fs-route.d.mts           64.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/arrow-right.d.mts            216.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/check.d.mts                  150.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/copy.d.mts                   148.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/discord.d.mts                154.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/expand.d.mts                 195.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/github.d.mts                 152.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/globe.d.mts                  150.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/index.d.mts                  627.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/information-circle.d.mts     174.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/menu.d.mts                   148.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/moon.d.mts                   148.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/spinner.d.mts                154.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/sun.d.mts                    146.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/word-wrap.d.mts              156.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/icons/x.d.mts                      142.00 B
+../nextra prepublishOnly: [NEXTRA-CLIENT] DTS dist/types-2e9b0ab5.d.ts                2.20 KB
+../nextra prepublishOnly: Done
+../nextra-theme-docs prepublishOnly$ pnpm build:all
+. prepublishOnly$ pnpm build:all
+. prepublishOnly: > nextra-theme-blog@2.13.4 build:all /tmp/twcr-402992229054/packages/nextra-theme-blog
+. prepublishOnly: > pnpm build && pnpm build:tailwind
+../nextra-theme-docs prepublishOnly: > nextra-theme-docs@2.13.4 build:all /tmp/twcr-402992229054/packages/nextra-theme-docs
+../nextra-theme-docs prepublishOnly: > pnpm build && pnpm build:tailwind
+. prepublishOnly: > nextra-theme-blog@2.13.4 build /tmp/twcr-402992229054/packages/nextra-theme-blog
+. prepublishOnly: > tsup
+../nextra-theme-docs prepublishOnly: > nextra-theme-docs@2.13.4 build /tmp/twcr-402992229054/packages/nextra-theme-docs
+../nextra-theme-docs prepublishOnly: > tsup
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] CLI Building entry: src/index.tsx
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] CLI Using tsconfig: tsconfig.json
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] CLI tsup v7.2.0
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra-theme-docs/tsup.config.ts
+. prepublishOnly: [NEXTRA-THEME-BLOG] CLI Building entry: src/index.tsx, src/cusdis.tsx, src/tags.tsx
+. prepublishOnly: [NEXTRA-THEME-BLOG] CLI Using tsconfig: tsconfig.json
+. prepublishOnly: [NEXTRA-THEME-BLOG] CLI tsup v7.2.0
+. prepublishOnly: [NEXTRA-THEME-BLOG] CLI Using tsup config: /tmp/twcr-402992229054/packages/nextra-theme-blog/tsup.config.ts
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] CLI Target: es2016
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] ESM Build start
+. prepublishOnly: [NEXTRA-THEME-BLOG] CLI Target: es2016
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM Build start
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/index.js          15.12 KB
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/cusdis.js         1.22 KB
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/tags.js           972.00 B
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/chunk-6NNV3MWG.js 1.32 KB
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/chunk-MORU2T4I.js 764.00 B
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM dist/chunk-G2ADBYYC.js 1.30 KB
+. prepublishOnly: [NEXTRA-THEME-BLOG] ESM ⚡️ Build success in 42ms
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] ESM dist/index.js 105.79 KB
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] ESM ⚡️ Build success in 66ms
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] DTS Build start
+. prepublishOnly: [NEXTRA-THEME-BLOG] DTS Build start
+. prepublishOnly: [NEXTRA-THEME-BLOG] DTS ⚡️ Build success in 3493ms
+. prepublishOnly: [NEXTRA-THEME-BLOG] DTS dist/index.d.mts  1.41 KB
+. prepublishOnly: [NEXTRA-THEME-BLOG] DTS dist/cusdis.d.mts 122.00 B
+. prepublishOnly: [NEXTRA-THEME-BLOG] DTS dist/tags.d.mts   410.00 B
+. prepublishOnly: > nextra-theme-blog@2.13.4 build:tailwind /tmp/twcr-402992229054/packages/nextra-theme-blog
+. prepublishOnly: > pnpm postcss src/styles.css -o style.css --verbose
+. prepublishOnly: Processing src/styles.css...
+. prepublishOnly: Browserslist: caniuse-lite is outdated. Please run:
+. prepublishOnly:   npx update-browserslist-db@latest
+. prepublishOnly:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] DTS ⚡️ Build success in 5094ms
+../nextra-theme-docs prepublishOnly: [NEXTRA-THEME-DOCS] DTS dist/index.d.mts 42.63 KB
+../nextra-theme-docs prepublishOnly: > nextra-theme-docs@2.13.4 build:tailwind /tmp/twcr-402992229054/packages/nextra-theme-docs
+../nextra-theme-docs prepublishOnly: > pnpm postcss css/styles.css -o style.css --verbose
+. prepublishOnly: Finished src/styles.css in 1.04 s
+. prepublishOnly: Done
+../nextra-theme-docs prepublishOnly: Processing css/styles.css...
+../nextra-theme-docs prepublishOnly: Browserslist: caniuse-lite is outdated. Please run:
+../nextra-theme-docs prepublishOnly:   npx update-browserslist-db@latest
+../nextra-theme-docs prepublishOnly:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+../nextra-theme-docs prepublishOnly: Finished css/styles.css in 713 ms
+../nextra-theme-docs prepublishOnly: Done
+Done in 36.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/nesting"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T20:34:55Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T20:34:55Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:34:55Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:34:55Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

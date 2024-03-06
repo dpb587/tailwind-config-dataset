@@ -1,0 +1,402 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/raulfdm/raulmelo-studio
++ reporef=main
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/raulfdm/raulmelo-studio
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-9c17b299d316
+++ echo 'github.com/raulfdm/raulmelo-studio;main;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/339b1bb04dd2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/raulfdm/raulmelo-studio/bWFpbgo/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/raulfdm/raulmelo-studio/bWFpbgo/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 89151222177e6093
++ jq -nc --arg key analysis_nonce --arg value 89151222177e6093 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/raulfdm/raulmelo-studio
++ jq -nc --arg key input_repo_name --arg value github.com/raulfdm/raulmelo-studio '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T09:46:56Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T09:46:56Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-9c17b299d316
+/tmp/twcr-9c17b299d316 /twcr
++ pushd /tmp/twcr-9c17b299d316
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/raulfdm/raulmelo-studio.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T09:46:57Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T09:46:57Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c91773165b98ae8212709a88e641f6c16c7d9ace
++ jq -nc --arg key exec_repo_commit_sha --arg value c91773165b98ae8212709a88e641f6c16c7d9ace '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 07:20:34 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T06:20:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T06:20:34Z '{ key: $key, value: $value }'
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-9c17b299d316/website /tmp/twcr-9c17b299d316 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9c17b299d316/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9c17b299d316
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T09:46:57Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T09:46:57Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "type": "module",
+>>>   "version": "1.0.0-development",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@astrojs/tailwind": "5.1.0",
+>>>     "@tailwindcss/aspect-ratio": "0.4.2",
+>>>     "@tailwindcss/forms": "0.5.7",
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "engines": {
+>>>     "node": "18",
+>>>     "pnpm": "8"
+>>>   },
+>>>   "packageManager": "pnpm@8.15.4",
+>>>   "volta": {
+>>>     "extends": "../../package.json"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "0.5.10"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-9c17b299d316/package.json /tmp/twcr-9c17b299d316/package-lock.json /tmp/twcr-9c17b299d316/pnpm-lock.yaml /tmp/twcr-9c17b299d316/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9c17b299d316 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9c17b299d316
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9c17b299d316/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../packages/code-highlight               |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../packages/eslint-config                |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../packages/tsconfig                     |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+ WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 29, reused 0, downloaded 15, added 0
+..                                       | Progress: resolved 58, reused 0, downloaded 44, added 0
+..                                       | Progress: resolved 91, reused 0, downloaded 79, added 0
+..                                       | Progress: resolved 122, reused 0, downloaded 106, added 0
+..                                       | Progress: resolved 158, reused 0, downloaded 142, added 0
+..                                       | Progress: resolved 196, reused 0, downloaded 174, added 0
+..                                       | Progress: resolved 229, reused 0, downloaded 202, added 0
+..                                       | Progress: resolved 265, reused 0, downloaded 240, added 0
+..                                       | Progress: resolved 303, reused 0, downloaded 274, added 0
+..                                       | Progress: resolved 340, reused 0, downloaded 313, added 0
+..                                       | Progress: resolved 365, reused 0, downloaded 363, added 0
+..                                       | Progress: resolved 395, reused 0, downloaded 381, added 0
+..                                       | Progress: resolved 418, reused 0, downloaded 409, added 0
+..                                       | Progress: resolved 451, reused 0, downloaded 435, added 0
+..                                       | Progress: resolved 503, reused 0, downloaded 464, added 0
+..                                       | Progress: resolved 537, reused 0, downloaded 498, added 0
+..                                       | Progress: resolved 578, reused 0, downloaded 531, added 0
+..                                       | Progress: resolved 628, reused 0, downloaded 571, added 0
+..                                       | Progress: resolved 665, reused 0, downloaded 610, added 0
+..                                       | +638 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 672, reused 0, downloaded 638, added 638, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+../packages/eslint-config prepare$ turbo --filter eslint-config build --output-logs errors-only
+../packages/eslint-config prepare: sh: 1: turbo: not found
+ ELIFECYCLE  Command failed.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T09:47:23Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T09:47:23Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at c917731 update pnpm
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9c17b299d316 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9c17b299d316
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9c17b299d316/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-9c17b299d316/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+..                                       |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../packages/code-highlight               |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../packages/eslint-config                |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../packages/tsconfig                     |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+ WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 5 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | +901  -60 +++++++++++++++++++++++++--
+..                                       | Progress: resolved 901, reused 57, downloaded 33, added 42
+..                                       | Progress: resolved 901, reused 57, downloaded 90, added 99
+..                                       | Progress: resolved 901, reused 57, downloaded 147, added 157
+..                                       | Progress: resolved 901, reused 57, downloaded 205, added 215
+..                                       | Progress: resolved 901, reused 57, downloaded 261, added 270
+..                                       | Progress: resolved 901, reused 57, downloaded 313, added 323
+..                                       | Progress: resolved 901, reused 57, downloaded 374, added 384
+..                                       | Progress: resolved 901, reused 57, downloaded 423, added 433
+..                                       | Progress: resolved 901, reused 57, downloaded 477, added 487
+..                                       | Progress: resolved 901, reused 57, downloaded 530, added 540
+..                                       | Progress: resolved 901, reused 57, downloaded 586, added 596
+..                                       | Progress: resolved 901, reused 57, downloaded 630, added 640
+..                                       | Progress: resolved 901, reused 57, downloaded 675, added 685
+..                                       | Progress: resolved 901, reused 57, downloaded 710, added 720
+..                                       | Progress: resolved 901, reused 57, downloaded 733, added 743
+..                                       | Progress: resolved 901, reused 57, downloaded 779, added 789
+..                                       | Progress: resolved 901, reused 57, downloaded 813, added 823
+..                                       | Progress: resolved 901, reused 57, downloaded 836, added 846
+..                                       | Progress: resolved 901, reused 57, downloaded 842, added 850
+..                                       | Progress: resolved 901, reused 57, downloaded 842, added 852, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../sharp@0.33.2/node_modules/sharp install: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Using existing vendored libvips v8.14.5
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @astrojs/check 0.5.6
++ @astrojs/partytown 2.0.4
++ @astrojs/react 3.0.10
++ @astrojs/rss 4.0.5
++ @astrojs/svelte 5.2.0
+- @astrojs/tailwind
++ @astrojs/tailwind 5.1.0
++ @astrojs/ts-plugin 1.5.3
++ @astrojs/vercel 7.3.4
++ @fontsource/fira-code 5.0.16
++ @fontsource/inter 5.0.16
++ @formatjs/intl 2.10.0
++ @formatjs/intl-localematcher 0.5.4
++ @popperjs/core 2.11.8
++ @portabletext/types 2.0.8
++ @raulmelo/code-highlight 1.0.0-development <- ../packages/code-highlight
++ @raulmelo/eslint-config 1.0.0-development <- ../packages/eslint-config
++ @rgossiaux/svelte-headlessui 2.0.0
++ @sanity/block-content-to-markdown 0.0.5
++ @sanity/client 6.15.1
++ @sanity/document-internationalization 2.1.0
++ @sanity/image-url 1.0.2
++ @sanity/vision 3.30.1
++ @tabler/icons-react 2.47.0
++ @tabler/icons-svelte 2.47.0
++ @tailwindcss/aspect-ratio 0.4.2
++ @tailwindcss/forms 0.5.7
++ @types/flat 5.0.5
++ @types/lodash.defaultsdeep 4.6.9
++ @types/negotiator 0.6.3
++ @types/node 18.18.13
++ @types/ramda 0.29.10
++ @types/react 18.2.60
++ @types/react-dom 18.2.19
++ @xstate/cli 0.5.17
++ @xstate/svelte 3.0.2
++ algoliasearch 4.22.1
++ astro 4.4.6
++ astro-portabletext 0.9.6
++ astro-robots-txt 1.0.0
++ astro-seo 0.8.2
++ clsx 2.1.0
++ eslint 8.57.0
++ eslint-plugin-astro 0.31.4
++ flat 6.0.1
++ groq 3.30.1
++ humanize-string 3.0.0
++ import-meta-resolve 4.0.0
++ lodash.defaultsdeep 4.6.1
++ motion 10.17.0
++ negotiator 0.6.3
++ npm-run-all 4.1.5
++ postcss-load-config 5.0.3
++ prettier 3.2.5
++ prettier-plugin-astro 0.13.0
++ prettier-plugin-svelte 3.2.2
++ query-string 9.0.0
++ ramda 0.29.1
++ react 18.2.0
++ react-dom 18.2.0
++ react-instantsearch 7.7.0
++ react-popper 2.3.0
++ sanity 3.30.1
++ sanity-plugin-iframe-pane 3.1.3
++ sanity-plugin-media 2.2.5
++ sharp 0.33.2
++ slugify 1.6.6
++ svelte 4.2.12
++ svelte-popperjs 1.3.2
++ sveltekit-embed 0.0.12
++ tailwind-merge 2.2.1
++ tailwindcss 3.4.1
++ tiny-invariant 1.3.3
++ type-fest 4.10.3
++ typescript 5.3.3
++ vite 5.1.4
++ vitest 1.3.1
++ vscode-oniguruma 2.0.1
++ web-vitals 3.5.2
++ xstate 5.8.2
++ zod 3.22.4
++ zod-validation-error 3.0.3
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ @typescript-eslint/eslint-plugin 7.1.0
++ @typescript-eslint/parser 7.1.0
+
+../packages/eslint-config prepare$ turbo --filter eslint-config build --output-logs errors-only
+../packages/eslint-config prepare: Attention:
+../packages/eslint-config prepare: Turborepo now collects completely anonymous telemetry regarding usage.
+../packages/eslint-config prepare: This information is used to shape the Turborepo roadmap and prioritize features.
+../packages/eslint-config prepare: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+../packages/eslint-config prepare: https://turbo.build/repo/docs/telemetry
+../packages/eslint-config prepare: • Packages in scope: @raulmelo/eslint-config
+../packages/eslint-config prepare: • Running build in 1 packages
+../packages/eslint-config prepare: • Remote caching disabled
+../packages/eslint-config prepare:  Tasks:    1 successful, 1 total
+../packages/eslint-config prepare: Cached:    0 cached, 1 total
+../packages/eslint-config prepare:   Time:    2.953s 
+../packages/eslint-config prepare: Done
+../packages/code-highlight prepare$ turbo --filter code-highlight build --output-logs errors-only
+../packages/code-highlight prepare: • Packages in scope: @raulmelo/code-highlight
+../packages/code-highlight prepare: • Running build in 1 packages
+../packages/code-highlight prepare: • Remote caching disabled
+../packages/code-highlight prepare:  Tasks:    1 successful, 1 total
+../packages/code-highlight prepare: Cached:    0 cached, 1 total
+../packages/code-highlight prepare:   Time:    2.198s 
+../packages/code-highlight prepare: Done
+. prepare$ turbo run typegen --filter website --output-logs errors-only
+. prepare: • Packages in scope: website
+. prepare: • Running typegen in 1 packages
+. prepare: • Remote caching disabled
+. prepare:  Tasks:    1 successful, 1 total
+. prepare: Cached:    0 cached, 1 total
+. prepare:   Time:    1.627s 
+. prepare: Done
+Done in 33.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T09:47:59Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T09:47:59Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T09:47:59Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T09:47:59Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

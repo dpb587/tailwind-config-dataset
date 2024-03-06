@@ -1,0 +1,96 @@
+{
+  "name": "@wener/wode-root",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Wener Node Monorepo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wenerme/wode.git"
+  },
+  "homepage": "https://github.com/wenerme/wode#readme",
+  "bugs": {
+    "url": "https://github.com/wenerme/wode/issues"
+  },
+  "author": "wener",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "components/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@8.5.0+",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "keywords": [],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@plugin-web-update-notification/vite": "^1.7.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@swc/cli": "^0.3.9",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^1.3.0",
+    "@wener/wode": "workspace:*",
+    "@wener/wode-root": "workspace:*",
+    "better-sqlite3": "^9.4.1",
+    "cssnano": "^6.0.3",
+    "daisyui": "^4.7.2",
+    "esbuild": "^0.20.0",
+    "globby": "^14.0.1",
+    "jsdom": "^24.0.0",
+    "million": "^3.0.3",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-plugin-pkg": "^0.18.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-license": "^3.2.0",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "ts-add-js-extension": "^1.6.3",
+    "ts-node": "11.0.0-beta.1",
+    "tsx": "^4.7.1",
+    "turbo": "^1.12.4",
+    "typedoc": "^0.25.8",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.3",
+    "vite-tsconfig-paths": "^4.3.1",
+    "vitest": "^1.3.0",
+    "xo": "^0.57.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "ts-node@11.0.0-beta.1": "patches/ts-node@11.0.0-beta.1.patch"
+    }
+  }
+}

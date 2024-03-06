@@ -1,0 +1,145 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/idorenyinudoh/adura-portfolio
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/idorenyinudoh/adura-portfolio
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7fa9d2f6d272
+++ echo 'github.com/idorenyinudoh/adura-portfolio;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/bfd5c04ea6e0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/idorenyinudoh/adura-portfolio/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/idorenyinudoh/adura-portfolio/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 370b43d3be6adfe3
++ jq -nc --arg key analysis_nonce --arg value 370b43d3be6adfe3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/idorenyinudoh/adura-portfolio
++ jq -nc --arg key input_repo_name --arg value github.com/idorenyinudoh/adura-portfolio '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:11:54Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:11:54Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7fa9d2f6d272
++ pushd /tmp/twcr-7fa9d2f6d272
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/idorenyinudoh/adura-portfolio.git .
+/tmp/twcr-7fa9d2f6d272 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:11:55Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:11:55Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 52f8043df5ca1ed6f96cf2de15d54c57a03b4aec
++ jq -nc --arg key exec_repo_commit_sha --arg value 52f8043df5ca1ed6f96cf2de15d54c57a03b4aec '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 10:05:22 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T09:05:22Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T09:05:22Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-7fa9d2f6d272 /tmp/twcr-7fa9d2f6d272 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7fa9d2f6d272
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:11:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:11:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:11:55Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:11:55Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 52f8043 Merge pull request #50 from idorenyinudoh/fixes
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-7fa9d2f6d272 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-7fa9d2f6d272
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-7fa9d2f6d272/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-7fa9d2f6d272/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated nuxt-simple-sitemap@4.4.1: Package has been migrated to @nuxtjs/sitemap.
+Progress: resolved 25, reused 0, downloaded 17, added 0
+Progress: resolved 50, reused 0, downloaded 40, added 0
+Progress: resolved 68, reused 0, downloaded 57, added 0
+Progress: resolved 81, reused 0, downloaded 70, added 0
+Progress: resolved 105, reused 0, downloaded 87, added 0
+Progress: resolved 135, reused 0, downloaded 120, added 0
+Progress: resolved 162, reused 0, downloaded 141, added 0
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @unhead/shared@1.8.11
+
+This error happened while installing the dependencies of nuxt@3.10.3
+ at @unhead/ssr@1.8.11
+
+The latest release of @unhead/shared is "1.8.10".
+
+Other releases are:
+  * beta: 1.8.0-beta.15
+
+If you need the full list of all 89 published versions run "$ pnpm view @unhead/shared versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

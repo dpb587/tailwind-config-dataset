@@ -1,0 +1,202 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/lucasmerlin/hurlurl
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/lucasmerlin/hurlurl
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c13375141527
+++ echo 'github.com/lucasmerlin/hurlurl;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/f050e0db9bcb
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/lucasmerlin/hurlurl/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/lucasmerlin/hurlurl/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce cc4fe67838e58d80
++ jq -nc --arg key analysis_nonce --arg value cc4fe67838e58d80 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/lucasmerlin/hurlurl
++ jq -nc --arg key input_repo_name --arg value github.com/lucasmerlin/hurlurl '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T05:00:56Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T05:00:56Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c13375141527
+/tmp/twcr-c13375141527 /twcr
++ pushd /tmp/twcr-c13375141527
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/lucasmerlin/hurlurl.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T05:00:58Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T05:00:58Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c7d05b47f324e4cdd0e43e7a1ef45c2e78582e4f
++ jq -nc --arg key exec_repo_commit_sha --arg value c7d05b47f324e4cdd0e43e7a1ef45c2e78582e4f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-20 02:30:41 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-20T00:30:41Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-20T00:30:41Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-c13375141527 /tmp/twcr-c13375141527 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c13375141527
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T05:00:58Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T05:00:58Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "hurlurl",
+>>>   "version": "0.1.0",
+>>>   "description": "Hurlurl can take a list of urls and create one url that randomly redirects to one of them.",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/lucasmerlin/hurlurl.git"
+>>>   },
+>>>   "author": "Lucas Meurer",
+>>>   "license": "MIT",
+>>>   "bugs": {
+>>>     "url": "https://github.com/lucasmerlin/hurlurl/issues"
+>>>   },
+>>>   "homepage": "https://github.com/lucasmerlin/hurlurl#readme",
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "daisyui": "^2.51.5",
+>>>     "tailwindcss": "^3.3.1"
+>>>   },
+>>>   "dependencies": {},
+>>>   "packageManager": "yarn@3.2.4"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-c13375141527 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-c13375141527
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_5560bc497c8e:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_5560bc497c8e:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_5560bc497c8e:ok@172.18.0.2:3128'
++ '[' -z http://tid_5560bc497c8e:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_5560bc497c8e:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_5560bc497c8e:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-c13375141527/.yarn/releases/yarn-3.2.4.cjs:258:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-c13375141527/.yarn/releases/yarn-3.2.4.cjs:253:90235)
+    at ClientRequest.c (/tmp/twcr-c13375141527/.yarn/releases/yarn-3.2.4.cjs:258:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-c13375141527/.yarn/releases/yarn-3.2.4.cjs:258:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 7s 315ms
+➤ YN0000: Failed with errors in 7s 318ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T05:01:07Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T05:01:07Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing .yarn/cache/.gitignore
++ git reset --hard
+HEAD is now at c7d05b4 Fix static paths not working
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-c13375141527 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-c13375141527
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_5560bc497c8e:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_5560bc497c8e:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_5560bc497c8e:ok@172.18.0.2:3128'
++ '[' -z http://tid_5560bc497c8e:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_5560bc497c8e:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_5560bc497c8e:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Link step
+➤ YN0000: │ ESM support for PnP uses the experimental loader API and is therefore experimental
+➤ YN0000: └ Completed in 0s 321ms
+➤ YN0000: Done with warnings in 0s 502ms
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 5

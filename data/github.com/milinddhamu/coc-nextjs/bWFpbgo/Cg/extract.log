@@ -1,0 +1,271 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/milinddhamu/coc-nextjs
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/milinddhamu/coc-nextjs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2e9ddaf06a6f
+++ echo 'github.com/milinddhamu/coc-nextjs;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/08472aa64e86
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/milinddhamu/coc-nextjs/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/milinddhamu/coc-nextjs/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 647fc53db406416c
++ jq -nc --arg key analysis_nonce --arg value 647fc53db406416c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/milinddhamu/coc-nextjs
++ jq -nc --arg key input_repo_name --arg value github.com/milinddhamu/coc-nextjs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T08:42:16Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T08:42:16Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2e9ddaf06a6f
++ pushd /tmp/twcr-2e9ddaf06a6f
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/milinddhamu/coc-nextjs.git .
+/tmp/twcr-2e9ddaf06a6f /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T08:42:22Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T08:42:22Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 5da9f943da4879c9c15223db743cdf5cd125c429
++ jq -nc --arg key exec_repo_commit_sha --arg value 5da9f943da4879c9c15223db743cdf5cd125c429 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-19 18:55:51 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-19T13:25:51Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-19T13:25:51Z '{ key: $key, value: $value }'
+/tmp/twcr-2e9ddaf06a6f /tmp/twcr-2e9ddaf06a6f /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2e9ddaf06a6f
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T08:42:22Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T08:42:22Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "clash-of-clans-api",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwindcss": "3.3.2"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2e9ddaf06a6f /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2e9ddaf06a6f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 5s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwind-scrollbar'
+Require stack:
+- /tmp/twcr-2e9ddaf06a6f/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-2e9ddaf06a6f/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-2e9ddaf06a6f/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-2e9ddaf06a6f/tailwind.config.js:81:13
+    at evalModule (/tmp/twcr-2e9ddaf06a6f/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-2e9ddaf06a6f/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-2e9ddaf06a6f/node_modules/tailwindcss/lib/lib/load-config.js:37:30
+    at Object.loadConfig (/tmp/twcr-2e9ddaf06a6f/node_modules/tailwindcss/lib/lib/load-config.js:39:6)
+    at file:///tmp/twcr-2e9ddaf06a6f/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-2e9ddaf06a6f/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T08:42:27Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T08:42:27Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 5da9f94 Update README.md
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2e9ddaf06a6f /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2e9ddaf06a6f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: react-reconciler@0.20.4
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   react@"^18.2.0" from the root project
+npm WARN   162 more (@nextui-org/react, @react-aria/button, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@"^16.0.0" from react-reconciler@0.20.4
+npm WARN node_modules/react-zdog/node_modules/react-reconciler
+npm WARN   react-reconciler@"^0.20.4" from react-zdog@1.0.11
+npm WARN   node_modules/react-zdog
+npm WARN 
+npm WARN Conflicting peer dependency: react@16.14.0
+npm WARN node_modules/react
+npm WARN   peer react@"^16.0.0" from react-reconciler@0.20.4
+npm WARN   node_modules/react-zdog/node_modules/react-reconciler
+npm WARN     react-reconciler@"^0.20.4" from react-zdog@1.0.11
+npm WARN     node_modules/react-zdog
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated uglify-es@3.3.9: support for ECMAScript is superseded by `uglify-js` as of v3.13.0
+
+added 1400 packages, and audited 1401 packages in 1m
+
+87 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (2 low, 4 moderate, 1 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/line-clamp"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T08:43:36Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T08:43:36Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T08:43:36Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T08:43:36Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

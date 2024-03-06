@@ -1,0 +1,365 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/octolane-org/cap.octolane.com
++ reporef=dev
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/octolane-org/cap.octolane.com
+++ sha256sum
+++ cut -c1-12
+++ awk '{ print $1 }'
++ procdir=/tmp/twcr-8e3791812507
+++ echo 'github.com/octolane-org/cap.octolane.com;dev;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/d8e076a1b3fe
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/octolane-org/cap.octolane.com/ZGV2Cg/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/octolane-org/cap.octolane.com/ZGV2Cg/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 05add09609dc56a4
++ jq -nc --arg key analysis_nonce --arg value 05add09609dc56a4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/octolane-org/cap.octolane.com
++ jq -nc --arg key input_repo_name --arg value github.com/octolane-org/cap.octolane.com '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:32:15Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:32:15Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-8e3791812507
++ pushd /tmp/twcr-8e3791812507
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/octolane-org/cap.octolane.com.git .
+/tmp/twcr-8e3791812507 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:32:18Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:32:18Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 93cbcbe787ae2c9c47ece4d843d905becdec4b53
++ jq -nc --arg key exec_repo_commit_sha --arg value 93cbcbe787ae2c9c47ece4d843d905becdec4b53 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-14 13:47:52 +0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-14T07:47:52Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-14T07:47:52Z '{ key: $key, value: $value }'
+/tmp/twcr-8e3791812507/apps/web /tmp/twcr-8e3791812507 /twcr
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8e3791812507/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8e3791812507
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:32:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:32:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "cap.octolane.com",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "overrides": {
+>>>     "next-contentlayer": {
+>>>       "next": "$next"
+>>>     }
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.6"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-8e3791812507/package.json /tmp/twcr-8e3791812507/package-lock.json /tmp/twcr-8e3791812507/pnpm-lock.yaml /tmp/twcr-8e3791812507/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-8e3791812507 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-8e3791812507
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-8e3791812507/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 36, reused 0, downloaded 24, added 0
+../..                                    | Progress: resolved 72, reused 0, downloaded 59, added 0
+../..                                    | Progress: resolved 105, reused 0, downloaded 103, added 0
+../..                                    | +105 +++++++++++
+../..                                    | Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 4.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwindcss-animate'
+Require stack:
+- /tmp/twcr-8e3791812507/apps/web/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-8e3791812507/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-8e3791812507/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-8e3791812507/apps/web/tailwind.config.js:81:13
+    at evalModule (/tmp/twcr-8e3791812507/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-8e3791812507/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-8e3791812507/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-8e3791812507/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-8e3791812507/apps/web/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-8e3791812507/apps/web/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:32:23Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:32:23Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 93cbcbe Merge pull request #15 from octolane-org/main
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-8e3791812507 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-8e3791812507
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-8e3791812507/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-8e3791812507/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +531  -15 ++++++++++++++++++++++++++-
+../..                                    | Progress: resolved 531, reused 9, downloaded 47, added 51
+../..                                    | Progress: resolved 531, reused 9, downloaded 96, added 99
+../..                                    | Progress: resolved 531, reused 9, downloaded 138, added 141
+../..                                    | Progress: resolved 531, reused 9, downloaded 199, added 203
+../..                                    | Progress: resolved 531, reused 9, downloaded 243, added 243
+../..                                    | Progress: resolved 531, reused 9, downloaded 304, added 308
+../..                                    | Progress: resolved 531, reused 9, downloaded 342, added 346
+../..                                    | Progress: resolved 531, reused 9, downloaded 399, added 403
+../..                                    | Progress: resolved 531, reused 9, downloaded 447, added 451
+../..                                    | Progress: resolved 531, reused 9, downloaded 495, added 499
+../..                                    | Progress: resolved 531, reused 9, downloaded 520, added 524
+../..                                    | Progress: resolved 531, reused 9, downloaded 522, added 526, done
+.../fontawesome-common-types postinstall$ node attribution.js
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../fontawesome-common-types postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../fontawesome-common-types postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../fontawesome-common-types postinstall: Copyright 2023 Fonticons, Inc.
+.../fontawesome-common-types postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@prisma/engines postinstall: (node:201) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../@fortawesome/fontawesome-svg-core postinstall$ node attribution.js
+.../@fortawesome/free-solid-svg-icons postinstall$ node attribution.js
+.../@fortawesome/free-brands-svg-icons postinstall$ node attribution.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../@fortawesome/fontawesome-svg-core postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../@fortawesome/fontawesome-svg-core postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/fontawesome-svg-core postinstall: Copyright 2023 Fonticons, Inc.
+.../prisma@5.8.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../@fortawesome/fontawesome-svg-core postinstall: Done
+.../@fortawesome/free-solid-svg-icons postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-solid-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-solid-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-solid-svg-icons postinstall: Done
+.../@fortawesome/free-brands-svg-icons postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-brands-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-brands-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-brands-svg-icons postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../prisma@5.8.0/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+
+dependencies:
++ @fortawesome/fontawesome-svg-core 6.5.1
++ @fortawesome/free-brands-svg-icons 6.5.1
++ @fortawesome/free-solid-svg-icons 6.5.1
++ @fortawesome/react-fontawesome 0.2.0
++ @headlessui/react 1.7.18
++ @heroicons/react 2.1.1
++ @hookform/resolvers 3.3.4
++ @next-auth/prisma-adapter 1.0.7
++ @prisma/client 5.8.0
++ @radix-ui/react-icons 1.3.0
++ @radix-ui/react-label 2.0.2
++ @radix-ui/react-popover 1.0.7
++ @radix-ui/react-radio-group 1.1.3
++ @radix-ui/react-select 2.0.0
++ @radix-ui/react-slot 1.0.2
++ @radix-ui/react-switch 1.0.3
++ @types/node 20.11.0
++ @types/react 18.2.47
++ @types/react-dom 18.2.18
++ @vercel/analytics 1.1.1
++ aos 3.0.0-beta.6
++ axios 1.6.5
++ class-variance-authority 0.7.0
++ clsx 2.1.0
++ concurrently 8.2.2
++ contentlayer 0.3.4
++ date-fns 2.30.0
++ next 14.0.4
++ next-auth 4.24.5
++ next-contentlayer 0.3.4
++ prisma 5.8.0
++ react 18.2.0
++ react-day-picker 8.10.0
++ react-dom 18.2.0
++ react-hook-form 7.49.3
++ rehype-slug 6.0.0
++ solid 0.0.0 <- @heroicons/react/20/solid
++ sonner 1.3.1
++ tailwind-merge 2.2.0
++ tailwindcss-animate 1.0.7
++ typescript 5.3.3
++ yup 1.3.3
++ zod 3.22.4
+
+devDependencies:
++ @tailwindcss/forms 0.5.7
++ @tailwindcss/typography 0.5.10
++ @trivago/prettier-plugin-sort-imports 4.3.0
++ @types/aos 3.0.7
++ autoprefixer 10.4.16
++ postcss 8.4.33
++ tailwindcss 3.4.1
+
+../.. prepare$ husky install && chmod +x .husky/pre-push && chmod +x .husky/pre-commit
+../.. prepare: husky - Git hooks installed
+../.. prepare: Done
+Done in 17.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T01:32:43Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T01:32:43Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:32:43Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:32:43Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

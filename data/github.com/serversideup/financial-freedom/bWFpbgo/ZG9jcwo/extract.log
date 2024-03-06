@@ -1,0 +1,188 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/serversideup/financial-freedom
++ reporef=main
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/serversideup/financial-freedom
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f44ce5b48b13
+++ echo 'github.com/serversideup/financial-freedom;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/f9b3c79c6114
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/serversideup/financial-freedom/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/serversideup/financial-freedom/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce e4dab3210366bd47
++ jq -nc --arg key analysis_nonce --arg value e4dab3210366bd47 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/serversideup/financial-freedom
++ jq -nc --arg key input_repo_name --arg value github.com/serversideup/financial-freedom '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T22:56:41Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T22:56:41Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f44ce5b48b13
++ pushd /tmp/twcr-f44ce5b48b13
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/serversideup/financial-freedom.git .
+/tmp/twcr-f44ce5b48b13 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T22:56:43Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T22:56:43Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b528f0853765a1f75d2154ecee823bb56ee82d7a
++ jq -nc --arg key exec_repo_commit_sha --arg value b528f0853765a1f75d2154ecee823bb56ee82d7a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-09 12:15:02 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-09T18:15:02Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-09T18:15:02Z '{ key: $key, value: $value }'
+/tmp/twcr-f44ce5b48b13/docs /tmp/twcr-f44ce5b48b13 /twcr
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f44ce5b48b13/docs
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T22:56:43Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T22:56:43Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/defaultTheme)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T22:56:43Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T22:56:43Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at b528f08 Update .gitpod.yml to ignore notification on port 5173
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f44ce5b48b13 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f44ce5b48b13
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b06a48a57908:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b06a48a57908:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_b06a48a57908:ok@172.18.0.2:3128".
+Done in 0.07s.
++ '[' -z http://tid_b06a48a57908:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b06a48a57908:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_b06a48a57908:ok@172.18.0.2:3128".
+Done in 0.07s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning vscode-languageclient@7.0.0: The engine "vscode" appears to be invalid.
+[3/4] Linking dependencies...
+warning "@docsearch/js > @docsearch/react > @algolia/autocomplete-preset-algolia@1.8.2" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+warning "@nuxtjs/algolia > vue-instantsearch@4.9.0" has unmet peer dependency "vue@^2.6.0 || >=3.0.0-rc.0".
+warning " > @headlessui/vue@1.7.13" has unmet peer dependency "vue@^3.2.0".
+warning "@nuxt/content > @vueuse/head@2.0.0" has unmet peer dependency "vue@>=2.7 || >=3".
+warning "@nuxt/content > @vueuse/core > vue-demi@0.14.6" has unmet peer dependency "vue@^3.0.0-0 || ^2.6.0".
+warning "@nuxt/content > @vueuse/head > @unhead/vue@1.8.3" has unmet peer dependency "vue@>=2.7 || >=3".
+warning "@nuxt/content > @vueuse/nuxt > nuxt > @nuxt/devtools@1.0.2" has unmet peer dependency "vite@*".
+warning "@nuxt/content > @vueuse/nuxt > nuxt > @nuxt/devtools > @nuxt/devtools-kit@1.0.2" has unmet peer dependency "vite@*".
+warning "@nuxt/content > @vueuse/nuxt > nuxt > @nuxt/devtools > vite-plugin-inspect@0.7.42" has unmet peer dependency "vite@^3.1.0 || ^4.0.0 || ^5.0.0-0".
+warning "@nuxt/content > @vueuse/nuxt > nuxt > @nuxt/devtools > vite-plugin-vue-inspector@4.0.0" has unmet peer dependency "vite@^3.0.0-0 || ^4.0.0-0".
+warning "@nuxtjs/tailwindcss > @nuxt/postcss8 > css-loader@5.2.7" has unmet peer dependency "webpack@^4.27.0 || ^5.0.0".
+warning "@nuxtjs/tailwindcss > @nuxt/postcss8 > postcss-loader@4.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning " > @tailwindcss/typography@0.5.9" has unmet peer dependency "tailwindcss@>=3.0.0 || insiders".
+[4/4] Building fresh packages...
+$ nuxt prepare
+[nuxt:tailwindcss] ℹ Using Tailwind CSS from ~/assets/css/tailwind.css
+✔ Types generated in .nuxt
+Done in 121.07s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.5
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T22:58:47Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T22:58:47Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T22:58:47Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T22:58:47Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

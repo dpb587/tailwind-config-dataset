@@ -1,0 +1,229 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/nvh95/jest-preview
++ reporef=main
++ repopath=./
+++ echo github.com/nvh95/jest-preview
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2b2adf485b64
+++ sha256sum
+++ echo 'github.com/nvh95/jest-preview;main;./'
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/7852c1f68745
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/nvh95/jest-preview/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/nvh95/jest-preview/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ cut -c1-16
+++ awk '{ print $1 }'
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce b4d687294f70be91
++ jq -nc --arg key analysis_nonce --arg value b4d687294f70be91 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/nvh95/jest-preview
++ jq -nc --arg key input_repo_name --arg value github.com/nvh95/jest-preview '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T22:55:52Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T22:55:52Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2b2adf485b64
++ pushd /tmp/twcr-2b2adf485b64
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/nvh95/jest-preview.git .
+/tmp/twcr-2b2adf485b64 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T22:55:53Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T22:55:53Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 880630f4165a55a7e2cced981b1275e32416e5ee
++ jq -nc --arg key exec_repo_commit_sha --arg value 880630f4165a55a7e2cced981b1275e32416e5ee '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-20 06:21:00 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-19T23:21:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-19T23:21:00Z '{ key: $key, value: $value }'
+/tmp/twcr-2b2adf485b64 /tmp/twcr-2b2adf485b64 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T22:55:53Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T22:55:53Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "jest-preview",
+>>>   "version": "0.3.2-alpha.1",
+>>>   "description": "Preview your Jest tests in a browser",
+>>>   "keywords": [
+>>>     "testing",
+>>>     "jest",
+>>>     "frontend",
+>>>     "productivity",
+>>>     "debug",
+>>>     "preview jest"
+>>>   ],
+>>>   "homepage": "https://www.jest-preview.com",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/nvh95/jest-preview.git"
+>>>   },
+>>>   "funding": {
+>>>     "type": "opencollective",
+>>>     "url": "https://opencollective.com/jest-preview"
+>>>   },
+>>>   "license": "MIT",
+>>>   "author": {
+>>>     "name": "Hung Viet Nguyen",
+>>>     "url": "https://github.com/nvh95"
+>>>   },
+>>>   "main": "dist/index.js",
+>>>   "bin": {
+>>>     "jest-preview": "dist/cli/index.js"
+>>>   },
+>>>   "files": [
+>>>     "dist",
+>>>     "transforms",
+>>>     "cli"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.1.2"
+>>>   },
+>>>   "bug": {
+>>>     "url": "https://github.com/nvh95/jest-preview/issues"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-2b2adf485b64 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-2b2adf485b64
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-2b2adf485b64/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-2b2adf485b64/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 46, reused 0, downloaded 45, added 0
+Packages: +62
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 63, reused 0, downloaded 62, added 62, done
+
+devDependencies:
++ tailwindcss 3.1.7
+
+Done in 2.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.7
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/esm/resolve:263
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/twcr-2b2adf485b64/node_modules/tailwindcss/lib/lib/load-config.js' imported from /tmp/twcr-2b2adf485b64/tailwind.config.exporter3.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:263:11)
+    at moduleResolve (node:internal/modules/esm/resolve:908:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1131:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:390:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:359:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:234:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:85:39)
+    at link (node:internal/modules/esm/module_job:84:36) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/twcr-2b2adf485b64/node_modules/tailwindcss/lib/lib/load-config.js'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ tailwind.config.exporter3.mjs == \t\a\i\l\w\i\n\d\.\c\o\n\f\i\g\.\e\x\p\o\r\t\e\r\3\.\m\j\s ]]
++ echo '[worker] WARN: exporter failed; retrying with alternative'
+[worker] WARN: exporter failed; retrying with alternative
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ continue
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T22:55:58Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T22:55:58Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T22:55:58Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T22:55:58Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,464 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/dopex-io/elvarg
++ reporef=develop
++ repopath=./packages/ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/dopex-io/elvarg
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bfbe59ca7c8c
+++ echo 'github.com/dopex-io/elvarg;develop;./packages/ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/063af27798e8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/dopex-io/elvarg/ZGV2ZWxvcAo/Li9wYWNrYWdlcy91aQo
++ jq -nc --arg key analysis_key --arg value github.com/dopex-io/elvarg/ZGV2ZWxvcAo/Li9wYWNrYWdlcy91aQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 96b7d9c996d8cd6d
++ jq -nc --arg key analysis_nonce --arg value 96b7d9c996d8cd6d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/dopex-io/elvarg
++ jq -nc --arg key input_repo_name --arg value github.com/dopex-io/elvarg '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref develop
++ jq -nc --arg key input_repo_ref --arg value develop '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/ui
++ jq -nc --arg key input_repo_path --arg value ./packages/ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:34:49Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:34:49Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bfbe59ca7c8c
++ pushd /tmp/twcr-bfbe59ca7c8c
++ '[' -d .git ']'
++ git clone --depth=1 -b develop https://github.com/dopex-io/elvarg.git .
+/tmp/twcr-bfbe59ca7c8c /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:34:51Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:34:51Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f07949bfb48d9eb88219fbfdbb52c27af9a93385
++ jq -nc --arg key exec_repo_commit_sha --arg value f07949bfb48d9eb88219fbfdbb52c27af9a93385 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 01:14:37 +0400' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T21:14:37Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T21:14:37Z '{ key: $key, value: $value }'
++ '[' -z ./packages/ui ']'
++ pushd ./packages/ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-bfbe59ca7c8c/packages/ui /tmp/twcr-bfbe59ca7c8c /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bfbe59ca7c8c/packages/ui
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/ui '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bfbe59ca7c8c
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:34:51Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:34:51Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@dopex-io/ui",
+>>>   "author": "dopex",
+>>>   "types": "./dist/index.d.mts",
+>>>   "exports": {
+>>>     ".": "./dist"
+>>>   },
+>>>   "version": "0.1.0",
+>>>   "description": "Dopex UI",
+>>>   "license": "MIT",
+>>>   "peerDependencies": {},
+>>>   "peerDependenciesMeta": {
+>>>     "react-dom": {
+>>>       "optional": true
+>>>     }
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwind-config": "workspace:*",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/ui '!=' ./ ']'
++ rm -f /tmp/twcr-bfbe59ca7c8c/package.json /tmp/twcr-bfbe59ca7c8c/package-lock.json /tmp/twcr-bfbe59ca7c8c/pnpm-lock.yaml /tmp/twcr-bfbe59ca7c8c/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-bfbe59ca7c8c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-bfbe59ca7c8c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-bfbe59ca7c8c/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 15, added 0
+../..                                    | Progress: resolved 42, reused 0, downloaded 30, added 0
+../..                                    | Progress: resolved 57, reused 0, downloaded 48, added 0
+../..                                    | Progress: resolved 70, reused 0, downloaded 65, added 0
+../..                                    | Progress: resolved 92, reused 0, downloaded 81, added 0
+../..                                    | Progress: resolved 111, reused 0, downloaded 105, added 0
+../..                                    | Progress: resolved 128, reused 0, downloaded 121, added 0
+../..                                    | Progress: resolved 154, reused 0, downloaded 142, added 0
+../..                                    | Progress: resolved 187, reused 0, downloaded 167, added 0
+../..                                    | Progress: resolved 217, reused 0, downloaded 200, added 0
+../..                                    | Progress: resolved 250, reused 0, downloaded 228, added 0
+/tmp/twcr-bfbe59ca7c8c/apps/dapp:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @sentry/core@7.105.0
+
+This error happened while installing the dependencies of @sentry/nextjs@7.105.0
+
+The latest release of @sentry/core is "7.104.0".
+
+Other releases are:
+  * next: 7.80.2-alpha.1
+
+If you need the full list of all 442 published versions run "$ pnpm view @sentry/core versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:35:04Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:35:04Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at f07949b fix: labelling and sorting (#909)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-bfbe59ca7c8c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-bfbe59ca7c8c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-bfbe59ca7c8c/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-bfbe59ca7c8c/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1932 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1932, reused 182, downloaded 0, added 26
+../..                                    | Progress: resolved 1932, reused 182, downloaded 67, added 249
+../..                                    | Progress: resolved 1932, reused 182, downloaded 131, added 313
+../..                                    | Progress: resolved 1932, reused 182, downloaded 172, added 354
+../..                                    | Progress: resolved 1932, reused 182, downloaded 212, added 392
+../..                                    | Progress: resolved 1932, reused 182, downloaded 269, added 451
+../..                                    | Progress: resolved 1932, reused 182, downloaded 323, added 505
+../..                                    | Progress: resolved 1932, reused 182, downloaded 369, added 550
+../..                                    | Progress: resolved 1932, reused 182, downloaded 422, added 604
+../..                                    | Progress: resolved 1932, reused 182, downloaded 474, added 655
+../..                                    | Progress: resolved 1932, reused 182, downloaded 524, added 704
+../..                                    | Progress: resolved 1932, reused 182, downloaded 575, added 756
+../..                                    | Progress: resolved 1932, reused 182, downloaded 629, added 811
+../..                                    | Progress: resolved 1932, reused 182, downloaded 687, added 868
+../..                                    | Progress: resolved 1932, reused 182, downloaded 749, added 931
+../..                                    | Progress: resolved 1932, reused 182, downloaded 812, added 994
+../..                                    | Progress: resolved 1932, reused 182, downloaded 873, added 1055
+../..                                    | Progress: resolved 1932, reused 182, downloaded 906, added 1088
+../..                                    | Progress: resolved 1932, reused 182, downloaded 954, added 1137
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1024, added 1207
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1085, added 1268
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1161, added 1344
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1185, added 1368
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1247, added 1429
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1309, added 1492
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1364, added 1547
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1418, added 1601
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1486, added 1669
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1543, added 1726
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1589, added 1772
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1655, added 1838
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1715, added 1898
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1748, added 1930
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1748, added 1931
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1749, added 1931
+../..                                    | Progress: resolved 1932, reused 182, downloaded 1749, added 1932, done
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.77.3/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_5e43b70b6eae:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:191) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install: Done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-bfbe59ca7c8c/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/bigint-buffer install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+.../node_modules/@sentry/cli install: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.20.0/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.20.0/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @headlessui/react 1.7.18
+
+devDependencies:
++ @babel/preset-env 7.23.9
++ @babel/preset-react 7.23.3
++ @babel/preset-typescript 7.23.3
++ @heroicons/react 2.1.1
++ @storybook/addon-actions 7.6.10
++ @storybook/addon-essentials 7.6.10
++ @storybook/addon-interactions 7.6.17
++ @storybook/addon-links 7.6.12
++ @storybook/react 7.6.10
++ @storybook/react-webpack5 7.6.10
++ @storybook/testing-library 0.2.2
++ @types/node 18.19.10
++ @types/react 18.2.55
++ @types/react-dom 18.2.19
++ concurrently 8.2.2
++ react 18.2.0
++ react-dom 18.2.0
++ rimraf 5.0.5
++ storybook 7.6.14
++ storybook-dark-mode 3.0.3
++ tailwind-config 0.0.0 <- ../tailwind-config
++ tailwindcss 3.4.1
++ tsconfig 0.0.0 <- ../tsconfig
++ tslib 2.6.2
++ tsup 8.0.1
++ typescript 5.3.3
+
+../.. postinstall$ husky install
+../.. postinstall: install command is deprecated
+../.. postinstall: Done
+Done in 42.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T10:35:49Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T10:35:49Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T10:35:49Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T10:35:49Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

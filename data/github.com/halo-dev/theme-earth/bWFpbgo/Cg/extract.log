@@ -1,0 +1,208 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/halo-dev/theme-earth
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/halo-dev/theme-earth
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-b38f06cee6ec
+++ echo 'github.com/halo-dev/theme-earth;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a1622357d622
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/halo-dev/theme-earth/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/halo-dev/theme-earth/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1d7c5c8e93c21b14
++ jq -nc --arg key analysis_nonce --arg value 1d7c5c8e93c21b14 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/halo-dev/theme-earth
++ jq -nc --arg key input_repo_name --arg value github.com/halo-dev/theme-earth '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T09:27:06Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T09:27:06Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-b38f06cee6ec
++ pushd /tmp/twcr-b38f06cee6ec
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/halo-dev/theme-earth.git .
+/tmp/twcr-b38f06cee6ec /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T09:27:07Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T09:27:07Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3008666addcf7822d897f06813dbe6d135f9efd7
++ jq -nc --arg key exec_repo_commit_sha --arg value 3008666addcf7822d897f06813dbe6d135f9efd7 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-02 09:38:13 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-02T09:38:13Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-02T09:38:13Z '{ key: $key, value: $value }'
+/tmp/twcr-b38f06cee6ec /tmp/twcr-b38f06cee6ec /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-b38f06cee6ec
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T09:27:07Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T09:27:07Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@halo-dev/theme-earth",
+>>>   "private": true,
+>>>   "version": "1.2.1",
+>>>   "description": "Default theme for Halo 2.0",
+>>>   "keywords": [
+>>>     "halo",
+>>>     "halo-theme",
+>>>     "halo-template"
+>>>   ],
+>>>   "homepage": "https://github.com/halo-dev/theme-earth#readme",
+>>>   "bugs": {
+>>>     "url": "https://github.com/halo-dev/theme-earth/issues"
+>>>   },
+>>>   "author": {
+>>>     "name": "Halo OSS Organization",
+>>>     "url": "https://github.com/halo-dev",
+>>>     "email": "hi@halo.run"
+>>>   },
+>>>   "maintainers": [
+>>>     {
+>>>       "name": "Ryan Wang",
+>>>       "url": "https://github.com/ruibaby",
+>>>       "email": "i@ryanc.cc"
+>>>     }
+>>>   ],
+>>>   "license": "GPL-3.0",
+>>>   "repository": {
+>>>     "url": "https://github.com/halo-dev/theme-earth",
+>>>     "type": "git"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/aspect-ratio": "^0.4.2",
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwindcss": "^3.3.2",
+>>>     "tailwindcss-plugin-icons": "^2.2.0"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-b38f06cee6ec /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-b38f06cee6ec
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-b38f06cee6ec/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-b38f06cee6ec/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 23, reused 0, downloaded 20, added 0
+Progress: resolved 65, reused 0, downloaded 49, added 0
+Progress: resolved 101, reused 0, downloaded 91, added 0
+Packages: +112
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 113, reused 0, downloaded 112, added 112, done
+
+devDependencies:
++ @tailwindcss/aspect-ratio 0.4.2
++ @tailwindcss/typography 0.5.10
++ tailwindcss 3.4.1
++ tailwindcss-plugin-icons 2.2.2
+
+Done in 4.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T09:27:13Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T09:27:13Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T09:27:13Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T09:27:13Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,267 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/washingtonpost/wpds-ui-kit
++ reporef=main
++ repopath=./ui/tailwind-theme
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/washingtonpost/wpds-ui-kit
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f695d4914697
+++ echo 'github.com/washingtonpost/wpds-ui-kit;main;./ui/tailwind-theme'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a04bd9599857
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/washingtonpost/wpds-ui-kit/bWFpbgo/Li91aS90YWlsd2luZC10aGVtZQo
++ jq -nc --arg key analysis_key --arg value github.com/washingtonpost/wpds-ui-kit/bWFpbgo/Li91aS90YWlsd2luZC10aGVtZQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 556d44f889efffa6
++ jq -nc --arg key analysis_nonce --arg value 556d44f889efffa6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/washingtonpost/wpds-ui-kit
++ jq -nc --arg key input_repo_name --arg value github.com/washingtonpost/wpds-ui-kit '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./ui/tailwind-theme
++ jq -nc --arg key input_repo_path --arg value ./ui/tailwind-theme '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:23:26Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:23:26Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f695d4914697
+/tmp/twcr-f695d4914697 /twcr
++ pushd /tmp/twcr-f695d4914697
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/washingtonpost/wpds-ui-kit.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:23:31Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:23:31Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 5cc7845b3bfbe8cdfaa2f95c72d3b444f14e7a35
++ jq -nc --arg key exec_repo_commit_sha --arg value 5cc7845b3bfbe8cdfaa2f95c72d3b444f14e7a35 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-26 16:42:03 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-26T21:42:03Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-26T21:42:03Z '{ key: $key, value: $value }'
+/tmp/twcr-f695d4914697/ui/tailwind-theme /tmp/twcr-f695d4914697 /twcr
++ '[' -z ./ui/tailwind-theme ']'
++ pushd ./ui/tailwind-theme
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f695d4914697/ui/tailwind-theme
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ui/tailwind-theme '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f695d4914697
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:23:31Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:23:31Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@washingtonpost/wpds-tailwind-theme",
+>>>   "version": "1.22.0",
+>>>   "description": "WPDS Tailwind Theme",
+>>>   "author": "WPDS Support <wpds@washpost.com>",
+>>>   "license": "MIT",
+>>>   "main": "dist/wpds-theme.js",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/washingtonpost/wpds-ui-kit.git"
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "peerDependencies": {},
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   },
+>>>   "gitHead": "dddd34ee2494be2d91fe5671db3291060097b02a"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ui/tailwind-theme '!=' ./ ']'
++ rm -f /tmp/twcr-f695d4914697/package.json /tmp/twcr-f695d4914697/package-lock.json /tmp/twcr-f695d4914697/pnpm-lock.yaml /tmp/twcr-f695d4914697/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f695d4914697 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f695d4914697
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 4s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module './dist/wpds-theme'
+Require stack:
+- /tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js:4:19
+    at evalModule (/tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-f695d4914697/ui/tailwind-theme/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:23:36Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:23:36Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 5cc7845 Merge pull request #581 from washingtonpost/STRY-70-examples-look-good
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f695d4914697 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f695d4914697
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 140 packages, and audited 143 packages in 18s
+
+27 packages are looking for funding
+  run `npm fund` for details
+
+2 vulnerabilities (1 moderate, 1 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module './dist/wpds-theme'
+Require stack:
+- /tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js
+- /tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.js',
+    '/tmp/twcr-f695d4914697/ui/tailwind-theme/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

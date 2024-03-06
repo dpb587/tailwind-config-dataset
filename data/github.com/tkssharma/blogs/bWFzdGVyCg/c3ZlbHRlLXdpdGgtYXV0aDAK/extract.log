@@ -1,0 +1,178 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/tkssharma/blogs
++ reporef=master
++ repopath=./svelte-with-auth0
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/tkssharma/blogs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-eeefb680b706
+++ echo 'github.com/tkssharma/blogs;master;./svelte-with-auth0'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/84732c48717a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/tkssharma/blogs/bWFzdGVyCg/Li9zdmVsdGUtd2l0aC1hdXRoMAo
++ jq -nc --arg key analysis_key --arg value github.com/tkssharma/blogs/bWFzdGVyCg/Li9zdmVsdGUtd2l0aC1hdXRoMAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d7ebc3a952ce865a
++ jq -nc --arg key analysis_nonce --arg value d7ebc3a952ce865a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/tkssharma/blogs
++ jq -nc --arg key input_repo_name --arg value github.com/tkssharma/blogs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./svelte-with-auth0
++ jq -nc --arg key input_repo_path --arg value ./svelte-with-auth0 '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T04:26:52Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T04:26:52Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-eeefb680b706
++ pushd /tmp/twcr-eeefb680b706
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/tkssharma/blogs.git .
+/tmp/twcr-eeefb680b706 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T04:26:53Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T04:26:53Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 079cdd955008335cc16ada690f95ca5f29ad00b0
++ jq -nc --arg key exec_repo_commit_sha --arg value 079cdd955008335cc16ada690f95ca5f29ad00b0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-07-16 19:28:05 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-07-16T13:58:05Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-07-16T13:58:05Z '{ key: $key, value: $value }'
+/tmp/twcr-eeefb680b706/svelte-with-auth0 /tmp/twcr-eeefb680b706 /twcr
++ '[' -z ./svelte-with-auth0 ']'
++ pushd ./svelte-with-auth0
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-eeefb680b706/svelte-with-auth0
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T04:26:53Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T04:26:53Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "~TODO~",
+>>>   "version": "0.0.1",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^2.2.4"
+>>>   },
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "@tailwindcss/aspect-ratio": "^0.2.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./svelte-with-auth0 '!=' ./ ']'
++ rm -f /tmp/twcr-eeefb680b706/package.json /tmp/twcr-eeefb680b706/package-lock.json /tmp/twcr-eeefb680b706/pnpm-lock.yaml /tmp/twcr-eeefb680b706/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-eeefb680b706 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-eeefb680b706
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-eeefb680b706/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 25, reused 0, downloaded 16, added 0
+Progress: resolved 53, reused 0, downloaded 47, added 0
+Progress: resolved 91, reused 0, downloaded 77, added 0
+Progress: resolved 128, reused 0, downloaded 119, added 0
+Packages: +136
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 137, reused 0, downloaded 136, added 136, done
+
+dependencies:
++ @tailwindcss/aspect-ratio 0.2.2 (0.4.2 is available)
+
+devDependencies:
++ tailwindcss 2.2.19 (3.4.1 is available)
+
+Done in 5.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T04:27:01Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T04:27:01Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T04:27:01Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T04:27:01Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

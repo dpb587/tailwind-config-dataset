@@ -1,0 +1,69 @@
+{
+  "name": "ideoxan",
+  "version": "4.0.0-alpha.1",
+  "description": "Ideoxan is a free to use online tool to learn programming.",
+  "main": "launcher.js",
+  "scripts": {
+    "dev": "nodemon --ext js index.js",
+    "start": "node .",
+    "test": "./node_modules/.bin/jest --testTimeout=10000 --detectOpenHandles --forceExit",
+    "server": "pm2 start ./launcher.sh --name ideoxan --restart-delay 5000 --max-memory-restart 500M --watch --cron \"0 2 * * *\"",
+    "git-sync:repo": "git pull",
+    "git-sync:subm": "git submodule update --remote --init --recursive",
+    "snyk-protect": "snyk protect",
+    "build:css": "npx tailwindcss build ./static/css/tailwind.css -o ./static/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideoxan/ideoxan.git"
+  },
+  "author": "Skyclo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ideoxan/ideoxan/issues"
+  },
+  "homepage": "https://github.com/ideoxan/ideoxan#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "chalk": "^4.1.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-flash": "0.0.2",
+    "express-rate-limit": "^6.3.0",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.2",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^6.2.7",
+    "morgan": "^1.10.0",
+    "os": "^0.1.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "postcss": "^8.4.12",
+    "random-number-csprng": "^1.0.2",
+    "rate-limit-mongo": "^2.3.2",
+    "tailwindcss": "^3.0.23"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.15",
+    "pm2": "^5.2.0",
+    "postcss-cli": "^9.1.0",
+    "supertest": "^6.2.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

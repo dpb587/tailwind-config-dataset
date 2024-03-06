@@ -1,0 +1,191 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/mazipan/pramuka.online
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/mazipan/pramuka.online
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-cf206ef17b0f
+++ echo 'github.com/mazipan/pramuka.online;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/995d724cfe16
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/mazipan/pramuka.online/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/mazipan/pramuka.online/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3a025fcd21c72f31
++ jq -nc --arg key analysis_nonce --arg value 3a025fcd21c72f31 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/mazipan/pramuka.online
++ jq -nc --arg key input_repo_name --arg value github.com/mazipan/pramuka.online '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:21:11Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:21:11Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-cf206ef17b0f
++ pushd /tmp/twcr-cf206ef17b0f
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/mazipan/pramuka.online.git .
+/tmp/twcr-cf206ef17b0f /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:21:14Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:21:14Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 9c3a827f318d4d8f703ca2b0883a49550d1d31cc
++ jq -nc --arg key exec_repo_commit_sha --arg value 9c3a827f318d4d8f703ca2b0883a49550d1d31cc '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-31 23:27:52 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-31T16:27:52Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-31T16:27:52Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-cf206ef17b0f /tmp/twcr-cf206ef17b0f /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-cf206ef17b0f
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:21:14Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:21:14Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "buku-saku-pramuka",
+>>>   "version": "1.1.0",
+>>>   "description": "Buku saku pramuka digital",
+>>>   "homepage": "https://github.com/mazipan/buku-saku-pramuka#readme",
+>>>   "bugs": {
+>>>     "url": "https://github.com/mazipan/buku-saku-pramuka/issues"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/mazipan/buku-saku-pramuka.git"
+>>>   },
+>>>   "license": "MIT",
+>>>   "author": "Irfan Maulana <https://mazipan.space/>",
+>>>   "main": "index.js",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.1.6"
+>>>   },
+>>>   "pnpm": {
+>>>     "overrides": {
+>>>       "minimist@<1.2.6": "^1.2.6"
+>>>     }
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=14"
+>>>   },
+>>>   "packageManager": "pnpm@7.5.1"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-cf206ef17b0f /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-cf206ef17b0f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-cf206ef17b0f/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-cf206ef17b0f/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 40, reused 0, downloaded 26, added 0
+Packages: +62
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 63, reused 0, downloaded 60, added 56
+Progress: resolved 63, reused 0, downloaded 62, added 62, done
+
+devDependencies:
++ tailwindcss 3.1.6 (3.4.1 is available)
+
+Done in 2.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T07:21:18Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T07:21:18Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T07:21:18Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T07:21:18Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,391 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/whopio/frosted-ui-legacy
++ reporef=main
++ repopath=./packages/frosted-ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/whopio/frosted-ui-legacy
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-29513569456c
+++ echo 'github.com/whopio/frosted-ui-legacy;main;./packages/frosted-ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4398c0d49237
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/whopio/frosted-ui-legacy/bWFpbgo/Li9wYWNrYWdlcy9mcm9zdGVkLXVpCg
++ jq -nc --arg key analysis_key --arg value github.com/whopio/frosted-ui-legacy/bWFpbgo/Li9wYWNrYWdlcy9mcm9zdGVkLXVpCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3454fb9a7d93e255
++ jq -nc --arg key analysis_nonce --arg value 3454fb9a7d93e255 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/whopio/frosted-ui-legacy
++ jq -nc --arg key input_repo_name --arg value github.com/whopio/frosted-ui-legacy '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/frosted-ui
++ jq -nc --arg key input_repo_path --arg value ./packages/frosted-ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T11:38:28Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T11:38:28Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-29513569456c
+/tmp/twcr-29513569456c /twcr
++ pushd /tmp/twcr-29513569456c
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/whopio/frosted-ui-legacy.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T11:38:29Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T11:38:29Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 78f9df47c35f3bb25b2b30d310dba1a366947167
++ jq -nc --arg key exec_repo_commit_sha --arg value 78f9df47c35f3bb25b2b30d310dba1a366947167 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-07 16:22:26 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-07T15:22:26Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-07T15:22:26Z '{ key: $key, value: $value }'
+/tmp/twcr-29513569456c/packages/frosted-ui /tmp/twcr-29513569456c /twcr
++ '[' -z ./packages/frosted-ui ']'
++ pushd ./packages/frosted-ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-29513569456c/packages/frosted-ui
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/frosted-ui '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-29513569456c
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T11:38:29Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T11:38:29Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@whop/frosted-ui",
+>>>   "version": "0.0.0",
+>>>   "description": "",
+>>>   "private": false,
+>>>   "main": "./dist/index.js",
+>>>   "types": "./dist/index.d.ts",
+>>>   "files": [
+>>>     "/dist"
+>>>   ],
+>>>   "keywords": [],
+>>>   "author": "",
+>>>   "license": "ISC",
+>>>   "devDependencies": {},
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   },
+>>>   "peerDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/frosted-ui '!=' ./ ']'
++ rm -f /tmp/twcr-29513569456c/package.json /tmp/twcr-29513569456c/package-lock.json /tmp/twcr-29513569456c/pnpm-lock.yaml /tmp/twcr-29513569456c/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-29513569456c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-29513569456c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-29513569456c/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 14, reused 0, downloaded 5, added 0
+../..                                    | Progress: resolved 44, reused 0, downloaded 29, added 0
+../..                                    | Progress: resolved 79, reused 0, downloaded 64, added 0
+../..                                    | Progress: resolved 116, reused 0, downloaded 99, added 0
+../..                                    | Progress: resolved 152, reused 0, downloaded 133, added 0
+../..                                    | Progress: resolved 196, reused 0, downloaded 167, added 0
+../..                                    | +229 +++++++++++++++++++++++
+../..                                    | Progress: resolved 230, reused 0, downloaded 219, added 0
+../..                                    | Progress: resolved 230, reused 0, downloaded 229, added 229, done
+
+dependencies:
++ tailwindcss 3.4.1
+
+Done in 8.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwindcss-themer'
+Require stack:
+- /tmp/twcr-29513569456c/packages/frosted-ui/src/preset/index.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-29513569456c/packages/frosted-ui/src/preset/index.ts:4:26
+    at evalModule (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-29513569456c/packages/frosted-ui/tailwind.config.js:1:245
+    at evalModule (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-29513569456c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-29513569456c/packages/frosted-ui/src/preset/index.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T11:38:38Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T11:38:38Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 78f9df4 update storybook link (#111)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-29513569456c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-29513569456c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-29513569456c/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-29513569456c/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1182  -54 ++++++++++++++++++++++-
+../..                                    | Progress: resolved 1182, reused 14, downloaded 26, added 28
+../..                                    | Progress: resolved 1182, reused 14, downloaded 87, added 93
+../..                                    | Progress: resolved 1182, reused 14, downloaded 135, added 141
+../..                                    | Progress: resolved 1182, reused 14, downloaded 192, added 198
+../..                                    | Progress: resolved 1182, reused 14, downloaded 248, added 254
+../..                                    | Progress: resolved 1182, reused 14, downloaded 312, added 319
+../..                                    | Progress: resolved 1182, reused 14, downloaded 374, added 381
+../..                                    | Progress: resolved 1182, reused 14, downloaded 438, added 445
+../..                                    | Progress: resolved 1182, reused 14, downloaded 501, added 508
+../..                                    | Progress: resolved 1182, reused 14, downloaded 546, added 553
+../..                                    | Progress: resolved 1182, reused 14, downloaded 587, added 593
+../..                                    | Progress: resolved 1182, reused 14, downloaded 647, added 654
+../..                                    | Progress: resolved 1182, reused 14, downloaded 697, added 704
+../..                                    | Progress: resolved 1182, reused 14, downloaded 765, added 772
+../..                                    | Progress: resolved 1182, reused 14, downloaded 824, added 827
+../..                                    | Progress: resolved 1182, reused 14, downloaded 886, added 890
+../..                                    | Progress: resolved 1182, reused 14, downloaded 946, added 953
+../..                                    | Progress: resolved 1182, reused 14, downloaded 1009, added 1016
+../..                                    | Progress: resolved 1182, reused 14, downloaded 1081, added 1088
+../..                                    | Progress: resolved 1182, reused 14, downloaded 1137, added 1144
+../..                                    | Progress: resolved 1182, reused 14, downloaded 1165, added 1172, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../fontawesome-common-types postinstall$ node attribution.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../fontawesome-common-types postinstall: Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+.../fontawesome-common-types postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../fontawesome-common-types postinstall: Copyright 2023 Fonticons, Inc.
+.../fontawesome-common-types postinstall: Done
+.../@fortawesome/free-regular-svg-icons postinstall$ node attribution.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../@fortawesome/free-solid-svg-icons postinstall$ node attribution.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.13/node_modules/esbuild postinstall$ node install.js
+.../@fortawesome/free-regular-svg-icons postinstall: Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-regular-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-regular-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-regular-svg-icons postinstall: Done
+.../@fortawesome/free-solid-svg-icons postinstall: Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-solid-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-solid-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-solid-svg-icons postinstall: Done
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../@fortawesome/fontawesome-svg-core postinstall$ node attribution.js
+.../esbuild@0.18.13/node_modules/esbuild postinstall: Done
+.../@fortawesome/fontawesome-svg-core postinstall: Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+.../@fortawesome/fontawesome-svg-core postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/fontawesome-svg-core postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/fontawesome-svg-core postinstall: Done
+
+dependencies:
++ @fortawesome/free-solid-svg-icons 6.4.0
++ @fortawesome/react-fontawesome 0.2.0
++ @headlessui/react 1.7.15
++ @radix-ui/react-accordion 1.1.2
++ @radix-ui/react-checkbox 1.0.4
++ @radix-ui/react-dropdown-menu 2.0.5
++ @radix-ui/react-label 2.0.2
++ @radix-ui/react-primitive 1.0.3
++ @radix-ui/react-progress 1.0.3
++ @radix-ui/react-radio-group 1.1.3
++ @radix-ui/react-select 1.2.2
++ @radix-ui/react-slider 1.1.2
++ @radix-ui/react-tooltip 1.0.6
++ @tanstack/react-table 8.9.3
++ @tanstack/table-core 8.9.3
++ autoprefixer 10.4.14
++ clsx 2.0.0
++ framer-motion 10.12.22
++ postcss 8.4.26
++ react-dropzone 14.2.3
++ react-hot-toast 2.4.1
++ react-virtual 2.10.4
++ tailwind-merge 1.14.0
+- tailwindcss
++ tailwindcss 3.3.3
++ tailwindcss-animate 1.0.6
++ tailwindcss-radix 2.8.0
++ tailwindcss-themer 3.1.0
+
+devDependencies:
++ @fortawesome/free-regular-svg-icons 6.4.0
++ @storybook/addon-essentials 7.4.5
++ @storybook/addon-interactions 7.4.5
++ @storybook/addon-links 7.4.5
++ @storybook/addon-mdx-gfm 7.4.5
++ @storybook/addon-styling 1.3.4
++ @storybook/addon-themes 7.4.6
++ @storybook/addon-viewport 7.4.5
++ @storybook/blocks 7.4.5
++ @storybook/manager-api 7.4.5
++ @storybook/react 7.4.5
++ @storybook/react-vite 7.4.5
++ @storybook/testing-library 0.2.0
++ @storybook/theming 7.4.5
++ @swc/cli 0.1.62
++ @swc/core 1.3.68
++ @turbo/gen 1.10.8
++ @types/node 20.4.2
++ @types/react 18.2.15
++ @types/react-dom 18.2.7
++ @vitejs/plugin-react-swc 3.3.2
++ @whop-sdk/turbo-module 0.0.5
++ chokidar 3.5.3
++ concurrently 7.6.0
++ copyfiles 2.4.1
++ eslint-plugin-react-hooks 4.6.0
++ eslint-plugin-react-refresh 0.4.3
++ eslint-plugin-storybook 0.6.12
++ postcss-nesting 12.0.0
++ prop-types 15.8.1
++ react 18.2.0
++ react-dom 18.2.0
++ storybook 7.4.5
++ tsconfig 0.0.0 <- ../tsconfig
++ typescript 5.1.6
++ vite 4.4.1
+
+Done in 24.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T11:39:04Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T11:39:04Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T11:39:05Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T11:39:05Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

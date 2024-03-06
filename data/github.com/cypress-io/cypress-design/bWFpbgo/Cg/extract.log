@@ -1,0 +1,608 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/cypress-io/cypress-design
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/cypress-io/cypress-design
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f272651b9c46
+++ echo 'github.com/cypress-io/cypress-design;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/80e5969632e3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/cypress-io/cypress-design/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/cypress-io/cypress-design/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a3621c1516ddd183
++ jq -nc --arg key analysis_nonce --arg value a3621c1516ddd183 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/cypress-io/cypress-design
++ jq -nc --arg key input_repo_name --arg value github.com/cypress-io/cypress-design '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:32:02Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:32:02Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f272651b9c46
+/tmp/twcr-f272651b9c46 /twcr
++ pushd /tmp/twcr-f272651b9c46
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/cypress-io/cypress-design.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:32:03Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:32:03Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 22c35793dcbe79ca77d8ddf1124b0ba40039a1c2
++ jq -nc --arg key exec_repo_commit_sha --arg value 22c35793dcbe79ca77d8ddf1124b0ba40039a1c2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 16:29:36 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T15:29:36Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T15:29:36Z '{ key: $key, value: $value }'
+/tmp/twcr-f272651b9c46 /tmp/twcr-f272651b9c46 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ tailwind_config_file_name=tailwind.config.mjs
++ writetaskstat exec_tailwind_config_file tailwind.config.mjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.mjs '{ key: $key, value: $value }'
++ cp tailwind.config.mjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f272651b9c46
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:32:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:32:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.mjs
+[squash-package] ERROR: failed to find any match for import path (lodash)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T10:32:03Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T10:32:03Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 22c3579 chore: update readme of icons
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f272651b9c46 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f272651b9c46
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_ac56b782eda5:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_ac56b782eda5:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_ac56b782eda5:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_ac56b782eda5:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_ac56b782eda5:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_ac56b782eda5:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning " > eslint-import-resolver-typescript@3.6.1" has unmet peer dependency "eslint-plugin-import@*".
+warning "rollup-plugin-sourcemaps > @rollup/pluginutils@3.1.0" has incorrect peer dependency "rollup@^1.20.0||^2.0.0".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-preset-algolia@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-plugin-algolia-insights@1.9.3" has unmet peer dependency "search-insights@>= 1 < 3".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-shared@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+[4/4] Building fresh packages...
+$ yarn husky install && node scripts/capitalize-icon.mjs && yarn build:components
+yarn run v1.22.19
+$ /tmp/twcr-f272651b9c46/node_modules/.bin/husky install
+install command is deprecated
+Done in 0.18s.
+Directory already renamed
+yarn run v1.22.19
+$ turbo run --no-daemon build --filter="@cypress-design/vue-*" --filter="@cypress-design/react-*" --filter="@cypress-design/constants-*"
+
+Attention:
+Turborepo now collects completely anonymous telemetry regarding usage.
+This information is used to shape the Turborepo roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://turbo.build/repo/docs/telemetry
+
+• Packages in scope: @cypress-design/constants-accordion, @cypress-design/constants-alert, @cypress-design/constants-button, @cypress-design/constants-checkbox, @cypress-design/constants-docmenu, @cypress-design/constants-icon, @cypress-design/constants-menu, @cypress-design/constants-modal, @cypress-design/constants-spinner, @cypress-design/constants-statusicon, @cypress-design/constants-tabs, @cypress-design/constants-tag, @cypress-design/constants-testresult, @cypress-design/react-accordion, @cypress-design/react-alert, @cypress-design/react-button, @cypress-design/react-checkbox, @cypress-design/react-docmenu, @cypress-design/react-icon, @cypress-design/react-menu, @cypress-design/react-modal, @cypress-design/react-spinner, @cypress-design/react-statusicon, @cypress-design/react-tabs, @cypress-design/react-tag, @cypress-design/react-testresult, @cypress-design/react-tooltip, @cypress-design/vue-accordion, @cypress-design/vue-alert, @cypress-design/vue-button, @cypress-design/vue-checkbox, @cypress-design/vue-docmenu, @cypress-design/vue-icon, @cypress-design/vue-menu, @cypress-design/vue-modal, @cypress-design/vue-spinner, @cypress-design/vue-statusicon, @cypress-design/vue-tabs, @cypress-design/vue-tag, @cypress-design/vue-testresult, @cypress-design/vue-tooltip
+• Running build in 41 packages
+• Remote caching disabled
+@cypress-design/constants-checkbox:build: cache miss, executing 21ae23f6e82643c1
+@cypress-design/constants-docmenu:build: cache miss, executing a5299373d57e0c9e
+@cypress-design/details-animation:build: cache miss, executing 5742b58ed3b8aebc
+@cypress-design/constants-icon:build: cache miss, executing 95bc3b78134dd0bd
+@cypress-design/constants-menu:build: cache miss, executing 2306cb094c66bbbb
+@cypress-design/css:build: cache miss, executing 374c2e5590f9de10
+@cypress-design/constants-tag:build: cache miss, executing aa880548eee96110
+@cypress-design/constants-accordion:build: cache miss, executing acbad0f577f4fa2b
+@cypress-design/constants-spinner:build: cache miss, executing fc83789f3886ebda
+@cypress-design/constants-button:build: cache miss, executing 78bf34873caa4f23
+@cypress-design/constants-docmenu:build: $ tsc --project ./tsconfig.json
+@cypress-design/details-animation:build: $ yarn build:module && yarn build:types
+@cypress-design/constants-checkbox:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-tag:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-icon:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-accordion:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-spinner:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-menu:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-button:build: $ tsc --project ./tsconfig.json
+@cypress-design/css:build: $ yarn build:types && yarn build:lib
+@cypress-design/css:build: $ tsc -p ./tsconfig.build.json --noEmit false --emitDeclarationOnly
+@cypress-design/details-animation:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/details-animation:build: [36m
+@cypress-design/details-animation:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/css:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/details-animation:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m2.3s[22m[39m
+@cypress-design/css:build: (node:624) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time
+@cypress-design/css:build: (Use `node --trace-warnings ...` to show where the warning was created)
+@cypress-design/details-animation:build: $ tsc --project ./tsconfig.json
+@cypress-design/css:build: [36m
+@cypress-design/css:build: [1m./src/index.ts[22m → [1m./dist/index.cjs.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/css:build: [32mcreated [1m./dist/index.cjs.js, ./dist/index.es.mjs[22m in [1m2s[22m[39m
+@cypress-design/css:build: [36m
+@cypress-design/css:build: [1m./src/colors.ts[22m → [1m./dist/colors.cjs.js, ./dist/colors.es.mjs[22m...[39m
+@cypress-design/css:build: [32mcreated [1m./dist/colors.cjs.js, ./dist/colors.es.mjs[22m in [1m1.1s[22m[39m
+@cypress-design/css:build: [36m
+@cypress-design/css:build: [1m./src/color-constants.ts[22m → [1m./dist/color-constants.cjs.js, ./dist/color-constants.es.mjs[22m...[39m
+@cypress-design/css:build: [32mcreated [1m./dist/color-constants.cjs.js, ./dist/color-constants.es.mjs[22m in [1m985ms[22m[39m
+@cypress-design/rollup-plugin-tailwind-keep:build: cache miss, executing 49c7dd09636cd2b9
+@cypress-design/constants-modal:build: cache miss, executing d0a13304770bbf4c
+@cypress-design/icon-registry:build: cache miss, executing 96e5e50d5130073c
+@cypress-design/constants-modal:build: $ tsc --project ./tsconfig.json
+@cypress-design/rollup-plugin-tailwind-keep:build: $ tsc
+@cypress-design/icon-registry:build: $ ./build.sh
+@cypress-design/icon-registry:build: ==========================================================
+@cypress-design/icon-registry:build: 👷 Hi I am svg-to-ts - let's build an awesome icon library
+@cypress-design/icon-registry:build: ==========================================================
+@cypress-design/icon-registry:build: svg-to-ts: ℹ️ Converting to constants
+@cypress-design/icon-registry:build: - Processing SVG files
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Processing SVG files
+@cypress-design/icon-registry:build: - Generate SVG constants
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Generate SVG constants
+@cypress-design/icon-registry:build: - Generate type definitions
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Generate type definitions
+@cypress-design/icon-registry:build: - Generate Interface Definition
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Generate Interface Definition
+@cypress-design/icon-registry:build: - Exporting all constants
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Exporting all constants
+@cypress-design/icon-registry:build: - Generate Type Helper
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Generate Type Helper
+@cypress-design/icon-registry:build: - Writing files to ./src
+@cypress-design/vue-tag:build: cache miss, executing 85dda2e505eab0c7
+@cypress-design/react-tag:build: cache miss, executing 361c7b82cc0e32df
+@cypress-design/vue-spinner:build: cache miss, executing 47c04eac87202623
+@cypress-design/vue-button:build: cache miss, executing 6f7b896def3885e4
+@cypress-design/react-spinner:build: cache miss, executing 8b1b310005b3b2c9
+@cypress-design/react-button:build: cache miss, executing e6f241bd94353d69
+@cypress-design/react-tooltip:build: cache miss, executing 4f41ab5108184dde
+@cypress-design/vue-tooltip:build: cache miss, executing 4ee12e5fdb0fda1e
+@cypress-design/icon-registry:build: svg-to-ts: ✔ Writing files to ./src
+@cypress-design/icon-registry:build: svg-to-ts: 🏁 Everything is perfect: Icons succesfully generated under ./src
+@cypress-design/react-tag:build: $ yarn build:module && yarn build:types
+@cypress-design/react-button:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-tag:build: $ yarn build:module && yarn build:types
+@cypress-design/react-spinner:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-button:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-spinner:build: $ yarn build:module && yarn build:types
+@cypress-design/react-tooltip:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-tooltip:build: $ yarn build:module && yarn build:types
+@cypress-design/icon-registry:build: Icons generated
+@cypress-design/icon-registry:build: (node:877) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time
+@cypress-design/icon-registry:build: (Use `node --trace-warnings ...` to show where the warning was created)
+@cypress-design/react-spinner:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-tooltip:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/vue-spinner:build: $ yarn vite build
+@cypress-design/vue-tag:build: $ yarn vite build
+@cypress-design/react-button:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-tag:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/vue-tooltip:build: $ yarn vite build
+@cypress-design/vue-button:build: $ yarn vite build
+@cypress-design/icon-registry:build: [36m
+@cypress-design/icon-registry:build: [1m./src/index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-button:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-spinner:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-tag:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-tooltip:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/react-tooltip:build: [36m
+@cypress-design/react-tooltip:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-tag:build: [36m
+@cypress-design/react-tag:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-button:build: [36m
+@cypress-design/react-button:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-tooltip:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-tag:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/react-spinner:build: [36m
+@cypress-design/react-spinner:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-button:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-spinner:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-tag:build: vite v5.1.4 building for production...
+@cypress-design/vue-tooltip:build: vite v5.1.4 building for production...
+@cypress-design/vue-spinner:build: vite v5.1.4 building for production...
+@cypress-design/vue-button:build: vite v5.1.4 building for production...
+@cypress-design/vue-spinner:build: transforming...
+@cypress-design/vue-tag:build: transforming...
+@cypress-design/vue-button:build: transforming...
+@cypress-design/vue-tooltip:build: transforming...
+@cypress-design/vue-tag:build: ✓ 4 modules transformed.
+@cypress-design/vue-tag:build: rendering chunks...
+@cypress-design/vue-tag:build: computing gzip size...
+@cypress-design/vue-tag:build: dist/index.es.mjs  2.69 kB │ gzip: 0.82 kB │ map: 2.35 kB
+@cypress-design/vue-tag:build: dist/index.umd.js  2.54 kB │ gzip: 0.85 kB │ map: 2.17 kB
+@cypress-design/vue-tag:build: ✓ built in 4.47s
+@cypress-design/vue-button:build: ✓ 5 modules transformed.
+@cypress-design/vue-button:build: rendering chunks...
+@cypress-design/vue-button:build: computing gzip size...
+@cypress-design/vue-button:build: dist/index.es.mjs  7.35 kB │ gzip: 1.72 kB │ map: 8.39 kB
+@cypress-design/vue-button:build: Entry module "index.ts" is using named and default exports together. Consumers of your bundle will have to use `Button.default` to access the default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
+@cypress-design/vue-button:build: dist/index.umd.js  7.04 kB │ gzip: 1.71 kB │ map: 8.05 kB
+@cypress-design/vue-button:build: ✓ built in 4.67s
+@cypress-design/vue-spinner:build: ✓ 6 modules transformed.
+@cypress-design/vue-spinner:build: rendering chunks...
+@cypress-design/vue-spinner:build: computing gzip size...
+@cypress-design/vue-spinner:build: dist/style.css     0.27 kB │ gzip: 0.17 kB
+@cypress-design/vue-spinner:build: dist/index.es.mjs  3.31 kB │ gzip: 1.63 kB │ map: 3.82 kB
+@cypress-design/vue-spinner:build: dist/style.css     0.27 kB │ gzip: 0.17 kB
+@cypress-design/vue-spinner:build: dist/index.umd.js  3.04 kB │ gzip: 1.58 kB │ map: 3.74 kB
+@cypress-design/vue-spinner:build: ✓ built in 5.18s
+@cypress-design/vue-tag:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-button:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-tooltip:build: ✓ 7 modules transformed.
+@cypress-design/vue-spinner:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-tooltip:build: rendering chunks...
+@cypress-design/vue-tooltip:build: computing gzip size...
+@cypress-design/vue-tooltip:build: dist/index.es.mjs  26.66 kB │ gzip: 8.45 kB │ map: 108.63 kB
+@cypress-design/vue-tag:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-tooltip:build: dist/index.umd.js  18.43 kB │ gzip: 7.28 kB │ map: 105.93 kB
+@cypress-design/vue-tooltip:build: ✓ built in 6.41s
+@cypress-design/vue-button:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-spinner:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-tooltip:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-tag:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m8.2s[22m[39m
+@cypress-design/react-spinner:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m8.3s[22m[39m
+@cypress-design/vue-tooltip:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-button:build: [1m[33m(!) Mixing named and default exports[39m[22m
+@cypress-design/react-button:build: [90mhttps://rollupjs.org/configuration-options/#output-exports[39m
+@cypress-design/react-button:build: [1mThe following entry modules are using named and default exports together:[22m
+@cypress-design/react-button:build: index.ts
+@cypress-design/react-button:build: 
+@cypress-design/react-button:build: Consumers of your bundle will have to use chunk.default to access their default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
+@cypress-design/react-button:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m8.7s[22m[39m
+@cypress-design/react-tag:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-spinner:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-button:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/icon-registry:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m11.3s[22m[39m
+@cypress-design/react-tooltip:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m14.1s[22m[39m
+@cypress-design/react-tooltip:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-icon:build: cache miss, executing 0a07b1b9e0474c78
+@cypress-design/vue-icon:build: cache miss, executing d5010c7fe6722b34
+@cypress-design/constants-alert:build: cache miss, executing 990b547714338371
+@cypress-design/constants-tabs:build: cache miss, executing e1b16b91ec62907d
+@cypress-design/constants-statusicon:build: cache miss, executing d38ce06b1b62209c
+@cypress-design/vue-icon:build: $ yarn build:codegen && yarn build:module && yarn build:types
+@cypress-design/react-icon:build: $ yarn build:codegen && yarn build:module && yarn build:types
+@cypress-design/constants-alert:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-tabs:build: $ tsc --project ./tsconfig.json
+@cypress-design/constants-statusicon:build: $ tsc --project ./tsconfig.json
+@cypress-design/react-icon:build: $ node ./generate-icons.js
+@cypress-design/vue-icon:build: $ node ./generate-icons.js
+@cypress-design/react-icon:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/vue-icon:build: $ yarn vite build
+@cypress-design/vue-tabs:build: cache miss, executing 4f5ec5077d39cca3
+@cypress-design/react-tabs:build: cache miss, executing bd07cfb46e6b153f
+@cypress-design/constants-testresult:build: cache miss, executing 9a3f42346a72bdd8
+@cypress-design/vue-icon:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-tabs:build: $ yarn build:module && yarn build:types
+@cypress-design/react-tabs:build: $ yarn build:module && yarn build:types
+@cypress-design/constants-testresult:build: $ tsc --project ./tsconfig.json
+@cypress-design/react-icon:build: [36m
+@cypress-design/react-icon:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-icon:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-icon:build: vite v5.1.4 building for production...
+@cypress-design/react-tabs:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/vue-tabs:build: $ yarn vite build
+@cypress-design/vue-icon:build: transforming...
+@cypress-design/vue-tabs:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/react-tabs:build: [36m
+@cypress-design/react-tabs:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-tabs:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-tabs:build: vite v5.1.4 building for production...
+@cypress-design/vue-tabs:build: transforming...
+@cypress-design/vue-tabs:build: ✓ 5 modules transformed.
+@cypress-design/vue-icon:build: ✓ 18 modules transformed.
+@cypress-design/vue-tabs:build: rendering chunks...
+@cypress-design/vue-tabs:build: computing gzip size...
+@cypress-design/vue-tabs:build: dist/index.es.mjs  12.13 kB │ gzip: 2.75 kB │ map: 16.65 kB
+@cypress-design/vue-tabs:build: dist/index.umd.js  9.92 kB │ gzip: 2.44 kB │ map: 15.89 kB
+@cypress-design/vue-tabs:build: ✓ built in 1.62s
+@cypress-design/vue-icon:build: rendering chunks...
+@cypress-design/vue-icon:build: computing gzip size...
+@cypress-design/vue-icon:build: dist/index.es.mjs  276.07 kB │ gzip: 55.63 kB │ map: 492.86 kB
+@cypress-design/vue-icon:build: Entry module "index.ts" is using named and default exports together. Consumers of your bundle will have to use `Icon.default` to access the default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
+@cypress-design/vue-tabs:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-icon:build: dist/index.umd.js  250.01 kB │ gzip: 55.01 kB │ map: 480.85 kB
+@cypress-design/vue-icon:build: ✓ built in 4.13s
+@cypress-design/vue-tabs:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-icon:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-icon:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-tabs:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m4.1s[22m[39m
+@cypress-design/react-tabs:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-icon:build: [1m[33m(!) Mixing named and default exports[39m[22m
+@cypress-design/react-icon:build: [90mhttps://rollupjs.org/configuration-options/#output-exports[39m
+@cypress-design/react-icon:build: [1mThe following entry modules are using named and default exports together:[22m
+@cypress-design/react-icon:build: index.ts
+@cypress-design/react-icon:build: 
+@cypress-design/react-icon:build: Consumers of your bundle will have to use chunk.default to access their default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
+@cypress-design/react-icon:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m7.5s[22m[39m
+@cypress-design/react-icon:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/vue-alert:build: cache miss, executing 4dc29bca45c8f9bd
+@cypress-design/vue-checkbox:build: cache miss, executing ab92cf8f0ec4e151
+@cypress-design/vue-accordion:build: cache miss, executing df79ecda35ab86d5
+@cypress-design/vue-menu:build: cache miss, executing c7620fe4342eb820
+@cypress-design/vue-docmenu:build: cache miss, executing f441d1ab1498291a
+@cypress-design/vue-modal:build: cache miss, executing 8a1bb9fb953877ce
+@cypress-design/vue-statusicon:build: cache miss, executing 3043b88d4e8a1e06
+@cypress-design/vue-checkbox:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-alert:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-accordion:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-modal:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-menu:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-docmenu:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-statusicon:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-checkbox:build: $ yarn vite build
+@cypress-design/vue-alert:build: $ yarn vite build
+@cypress-design/vue-menu:build: $ yarn vite build
+@cypress-design/vue-docmenu:build: $ yarn vite build
+@cypress-design/vue-accordion:build: $ yarn vite build
+@cypress-design/vue-modal:build: $ yarn vite build
+@cypress-design/vue-statusicon:build: $ yarn vite build
+@cypress-design/vue-docmenu:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-alert:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-menu:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-checkbox:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-modal:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-accordion:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-statusicon:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/vue-docmenu:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-alert:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-menu:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-checkbox:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-modal:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/react-accordion:build: cache miss, executing 2864078d9a61d5fa
+@cypress-design/react-docmenu:build: cache miss, executing f20b2a9873cf4503
+@cypress-design/react-checkbox:build: cache miss, executing 426d3374195db8f5
+@cypress-design/vue-statusicon:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-accordion:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-docmenu:build: vite v5.1.4 building for production...
+@cypress-design/vue-menu:build: vite v5.1.4 building for production...
+@cypress-design/vue-alert:build: vite v5.1.4 building for production...
+@cypress-design/vue-checkbox:build: vite v5.1.4 building for production...
+@cypress-design/vue-modal:build: vite v5.1.4 building for production...
+@cypress-design/vue-statusicon:build: vite v5.1.4 building for production...
+@cypress-design/vue-accordion:build: vite v5.1.4 building for production...
+@cypress-design/react-checkbox:build: $ yarn build:module && yarn build:types
+@cypress-design/react-accordion:build: $ yarn build:module && yarn build:types
+@cypress-design/react-docmenu:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-docmenu:build: transforming...
+@cypress-design/vue-checkbox:build: transforming...
+@cypress-design/vue-alert:build: transforming...
+@cypress-design/vue-menu:build: transforming...
+@cypress-design/vue-statusicon:build: transforming...
+@cypress-design/vue-modal:build: transforming...
+@cypress-design/vue-accordion:build: transforming...
+@cypress-design/react-checkbox:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-accordion:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-docmenu:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/vue-checkbox:build: ✓ 4 modules transformed.
+@cypress-design/vue-checkbox:build: rendering chunks...
+@cypress-design/vue-checkbox:build: computing gzip size...
+@cypress-design/vue-checkbox:build: dist/index.es.mjs  3.37 kB │ gzip: 1.38 kB │ map: 5.24 kB
+@cypress-design/vue-checkbox:build: dist/index.umd.js  2.94 kB │ gzip: 1.28 kB │ map: 5.10 kB
+@cypress-design/vue-checkbox:build: ✓ built in 1.37s
+@cypress-design/vue-modal:build: ✓ 5 modules transformed.
+@cypress-design/vue-modal:build: rendering chunks...
+@cypress-design/vue-modal:build: computing gzip size...
+@cypress-design/vue-modal:build: dist/index.es.mjs  5.24 kB │ gzip: 1.92 kB │ map: 7.16 kB
+@cypress-design/vue-modal:build: dist/index.umd.js  4.65 kB │ gzip: 1.78 kB │ map: 7.02 kB
+@cypress-design/vue-modal:build: ✓ built in 1.50s
+@cypress-design/vue-menu:build: ✓ 5 modules transformed.
+@cypress-design/vue-statusicon:build: ✓ 12 modules transformed.
+@cypress-design/vue-statusicon:build: rendering chunks...
+@cypress-design/vue-alert:build: ✓ 4 modules transformed.
+@cypress-design/vue-statusicon:build: computing gzip size...
+@cypress-design/react-docmenu:build: [36m
+@cypress-design/react-docmenu:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-statusicon:build: dist/index.es.mjs  11.22 kB │ gzip: 1.94 kB │ map: 30.05 kB
+@cypress-design/react-accordion:build: [36m
+@cypress-design/react-accordion:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-checkbox:build: [36m
+@cypress-design/react-checkbox:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-alert:build: rendering chunks...
+@cypress-design/vue-alert:build: computing gzip size...
+@cypress-design/vue-statusicon:build: dist/index.umd.js  11.56 kB │ gzip: 1.68 kB │ map: 29.64 kB
+@cypress-design/vue-statusicon:build: ✓ built in 2.11s
+@cypress-design/vue-alert:build: dist/index.es.mjs  7.83 kB │ gzip: 2.13 kB │ map: 11.38 kB
+@cypress-design/vue-checkbox:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-alert:build: dist/index.umd.js  6.23 kB │ gzip: 1.92 kB │ map: 10.94 kB
+@cypress-design/vue-alert:build: ✓ built in 2.19s
+@cypress-design/vue-accordion:build: ✓ 4 modules transformed.
+@cypress-design/vue-menu:build: rendering chunks...
+@cypress-design/vue-menu:build: computing gzip size...
+@cypress-design/vue-accordion:build: rendering chunks...
+@cypress-design/vue-menu:build: dist/index.es.mjs  3.15 kB │ gzip: 1.20 kB │ map: 1.95 kB
+@cypress-design/vue-accordion:build: computing gzip size...
+@cypress-design/vue-accordion:build: dist/index.es.mjs  3.88 kB │ gzip: 1.35 kB │ map: 4.73 kB
+@cypress-design/vue-menu:build: dist/index.umd.js  2.60 kB │ gzip: 1.10 kB │ map: 1.86 kB
+@cypress-design/vue-menu:build: ✓ built in 2.45s
+@cypress-design/vue-accordion:build: dist/index.umd.js  3.62 kB │ gzip: 1.28 kB │ map: 4.61 kB
+@cypress-design/vue-accordion:build: ✓ built in 2.43s
+@cypress-design/vue-modal:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-docmenu:build: ✓ 10 modules transformed.
+@cypress-design/vue-docmenu:build: rendering chunks...
+@cypress-design/vue-docmenu:build: computing gzip size...
+@cypress-design/vue-docmenu:build: dist/index.es.mjs  11.90 kB │ gzip: 3.47 kB │ map: 17.14 kB
+@cypress-design/vue-docmenu:build: dist/index.umd.js  9.22 kB │ gzip: 2.98 kB │ map: 16.67 kB
+@cypress-design/vue-docmenu:build: ✓ built in 2.94s
+@cypress-design/vue-statusicon:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-checkbox:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-alert:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-menu:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-modal:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-accordion:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-statusicon:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-alert:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-docmenu:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-accordion:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-menu:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/vue-docmenu:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-checkbox:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m10.9s[22m[39m
+@cypress-design/react-accordion:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m11.3s[22m[39m
+@cypress-design/react-menu:build: cache miss, executing 6924d65bf49e4461
+@cypress-design/react-checkbox:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-accordion:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-menu:build: $ yarn build:module && yarn build:types
+@cypress-design/react-statusicon:build: cache miss, executing a481f7d549159457
+@cypress-design/react-modal:build: cache miss, executing 52855570be2df8cc
+@cypress-design/react-menu:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-statusicon:build: $ yarn build:module && yarn build:types
+@cypress-design/react-alert:build: cache miss, executing 2953eb1be8b0bb1a
+@cypress-design/vue-testresult:build: cache miss, executing 606a099c09d140df
+@cypress-design/react-modal:build: $ yarn build:module && yarn build:types
+@cypress-design/react-docmenu:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m14.8s[22m[39m
+@cypress-design/react-statusicon:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-alert:build: $ yarn build:module && yarn build:types
+@cypress-design/vue-testresult:build: $ yarn build:module && yarn build:types
+@cypress-design/react-modal:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-menu:build: [36m
+@cypress-design/react-menu:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-alert:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-docmenu:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/vue-testresult:build: $ yarn vite build
+@cypress-design/react-statusicon:build: [36m
+@cypress-design/react-statusicon:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-modal:build: [36m
+@cypress-design/react-modal:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-testresult:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vite build
+@cypress-design/react-alert:build: [36m
+@cypress-design/react-alert:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/vue-testresult:build: [33mThe CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+@cypress-design/vue-testresult:build: vite v5.1.4 building for production...
+@cypress-design/vue-testresult:build: transforming...
+@cypress-design/vue-testresult:build: ✓ 5 modules transformed.
+@cypress-design/vue-testresult:build: rendering chunks...
+@cypress-design/vue-testresult:build: computing gzip size...
+@cypress-design/vue-testresult:build: dist/index.es.mjs  18.85 kB │ gzip: 3.66 kB │ map: 31.53 kB
+@cypress-design/vue-testresult:build: dist/index.umd.js  17.75 kB │ gzip: 3.07 kB │ map: 30.28 kB
+@cypress-design/vue-testresult:build: ✓ built in 2.49s
+@cypress-design/react-menu:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m5.3s[22m[39m
+@cypress-design/vue-testresult:build: $ yarn vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-menu:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/vue-testresult:build: $ /tmp/twcr-f272651b9c46/node_modules/.bin/vue-tsc --project ./tsconfig.build.json
+@cypress-design/react-statusicon:build: [1m[33m(!) Mixing named and default exports[39m[22m
+@cypress-design/react-statusicon:build: [90mhttps://rollupjs.org/configuration-options/#output-exports[39m
+@cypress-design/react-statusicon:build: [1mThe following entry modules are using named and default exports together:[22m
+@cypress-design/react-statusicon:build: index.ts
+@cypress-design/react-statusicon:build: 
+@cypress-design/react-statusicon:build: Consumers of your bundle will have to use chunk.default to access their default export, which may not be what you want. Use `output.exports: "named"` to disable this warning.
+@cypress-design/react-statusicon:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m5.5s[22m[39m
+@cypress-design/react-statusicon:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-alert:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m5.2s[22m[39m
+@cypress-design/react-alert:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-modal:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m8.7s[22m[39m
+@cypress-design/react-testresult:build: cache miss, executing 55e6e101035a9aa8
+@cypress-design/react-modal:build: $ tsc --project ./tsconfig.build.json
+@cypress-design/react-testresult:build: $ yarn build:module && yarn build:types
+@cypress-design/react-testresult:build: $ rollup -c ./rollup.config.mjs
+@cypress-design/react-testresult:build: [36m
+@cypress-design/react-testresult:build: [1m./index.ts[22m → [1m./dist/index.umd.js, ./dist/index.es.mjs[22m...[39m
+@cypress-design/react-testresult:build: [32mcreated [1m./dist/index.umd.js, ./dist/index.es.mjs[22m in [1m2.1s[22m[39m
+@cypress-design/react-testresult:build: $ tsc --project ./tsconfig.build.json
+
+ Tasks:    45 successful, 45 total
+Cached:    0 cached, 45 total
+  Time:    1m25.432s 
+
+Done in 85.98s.
+Done in 196.63s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.mjs
+/tmp/twcr-f272651b9c46/tailwind.config.mjs:12
+const __dirname = _path.dirname.call(void 0, _url.fileURLToPath.call(void 0, import.meta.url))
+      ^
+
+SyntaxError: Identifier '__dirname' has already been declared
+    at new Script (node:vm:99:7)
+    at createScript (node:vm:255:10)
+    at Object.runInThisContext (node:vm:303:10)
+    at evalModule (/tmp/twcr-f272651b9c46/node_modules/jiti/dist/jiti.js:1:256254)
+    at jiti (/tmp/twcr-f272651b9c46/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-f272651b9c46/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-f272651b9c46/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-f272651b9c46/tailwind.config.exporter3.mjs:5:28
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

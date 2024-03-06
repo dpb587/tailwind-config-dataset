@@ -1,0 +1,341 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/juliusmarminge/t3-twin-turbo
++ reporef=main
++ repopath=./apps/expo
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/juliusmarminge/t3-twin-turbo
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5733019c6b58
+++ echo 'github.com/juliusmarminge/t3-twin-turbo;main;./apps/expo'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b19e788a9add
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/juliusmarminge/t3-twin-turbo/bWFpbgo/Li9hcHBzL2V4cG8K
++ jq -nc --arg key analysis_key --arg value github.com/juliusmarminge/t3-twin-turbo/bWFpbgo/Li9hcHBzL2V4cG8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 74f64728a55ccb06
++ jq -nc --arg key analysis_nonce --arg value 74f64728a55ccb06 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/juliusmarminge/t3-twin-turbo
++ jq -nc --arg key input_repo_name --arg value github.com/juliusmarminge/t3-twin-turbo '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/expo
++ jq -nc --arg key input_repo_path --arg value ./apps/expo '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:57:46Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:57:46Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5733019c6b58
++ pushd /tmp/twcr-5733019c6b58
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/juliusmarminge/t3-twin-turbo.git .
+/tmp/twcr-5733019c6b58 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:57:48Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:57:48Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 64ee6ef91b1216c6a85c72dd31d417ea68ce31be
++ jq -nc --arg key exec_repo_commit_sha --arg value 64ee6ef91b1216c6a85c72dd31d417ea68ce31be '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-29 19:40:01 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-29T17:40:01Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-29T17:40:01Z '{ key: $key, value: $value }'
+/tmp/twcr-5733019c6b58/apps/expo /tmp/twcr-5733019c6b58 /twcr
++ '[' -z ./apps/expo ']'
++ pushd ./apps/expo
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5733019c6b58/apps/expo
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/expo '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5733019c6b58
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:57:48Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:57:48Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@t3-tt/expo",
+>>>   "version": "0.1.0",
+>>>   "main": "index.ts",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@t3-tt/tailwind-config": "*",
+>>>     "tailwindcss": "^3.2.7"
+>>>   },
+>>>   "private": true
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/expo '!=' ./ ']'
++ rm -f /tmp/twcr-5733019c6b58/package.json /tmp/twcr-5733019c6b58/package-lock.json /tmp/twcr-5733019c6b58/pnpm-lock.yaml /tmp/twcr-5733019c6b58/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5733019c6b58 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5733019c6b58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5733019c6b58/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 20, reused 0, downloaded 14, added 0
+../..                                    | Progress: resolved 32, reused 0, downloaded 25, added 0
+../..                                    | Progress: resolved 47, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 52, reused 0, downloaded 49, added 0
+../..                                    | Progress: resolved 64, reused 0, downloaded 58, added 0
+../..                                    | Progress: resolved 90, reused 0, downloaded 79, added 0
+../..                                    | Progress: resolved 115, reused 0, downloaded 103, added 0
+../..                                    | Progress: resolved 142, reused 0, downloaded 127, added 0
+../..                                    | Progress: resolved 171, reused 0, downloaded 155, added 0
+../..                                    | Progress: resolved 200, reused 0, downloaded 174, added 0
+../..                                    | Progress: resolved 221, reused 0, downloaded 185, added 0
+../..                                    | Progress: resolved 241, reused 0, downloaded 209, added 0
+../..                                    | Progress: resolved 267, reused 0, downloaded 229, added 0
+../..                                    | Progress: resolved 289, reused 0, downloaded 255, added 0
+../..                                    | Progress: resolved 308, reused 0, downloaded 265, added 0
+../..                                    | Progress: resolved 321, reused 0, downloaded 281, added 0
+../..                                    | Progress: resolved 347, reused 0, downloaded 301, added 0
+../..                                    | Progress: resolved 373, reused 0, downloaded 329, added 0
+../..                                    | Progress: resolved 383, reused 0, downloaded 338, added 0
+../..                                    | Progress: resolved 391, reused 0, downloaded 350, added 0
+../..                                    | Progress: resolved 403, reused 0, downloaded 353, added 0
+../..                                    | Progress: resolved 417, reused 0, downloaded 363, added 0
+../..                                    | Progress: resolved 449, reused 0, downloaded 377, added 0
+../..                                    | Progress: resolved 476, reused 0, downloaded 403, added 0
+../..                                    | Progress: resolved 485, reused 0, downloaded 415, added 0
+../..                                    | Progress: resolved 501, reused 0, downloaded 429, added 0
+../..                                    | Progress: resolved 529, reused 0, downloaded 455, added 0
+../..                                    | Progress: resolved 580, reused 0, downloaded 483, added 0
+../..                                    | Progress: resolved 615, reused 0, downloaded 519, added 0
+../..                                    | Progress: resolved 649, reused 0, downloaded 546, added 0
+../..                                    | Progress: resolved 677, reused 0, downloaded 575, added 0
+../..                                    | Progress: resolved 690, reused 0, downloaded 584, added 0
+../..                                    | Progress: resolved 711, reused 0, downloaded 605, added 0
+../..                                    | Progress: resolved 744, reused 0, downloaded 636, added 0
+../..                                    | Progress: resolved 776, reused 0, downloaded 669, added 0
+../..                                    | Progress: resolved 800, reused 0, downloaded 693, added 0
+../..                                    | Progress: resolved 833, reused 0, downloaded 725, added 0
+../..                                    | Progress: resolved 849, reused 0, downloaded 733, added 0
+../..                                    | Progress: resolved 863, reused 0, downloaded 742, added 0
+../..                                    | Progress: resolved 903, reused 0, downloaded 761, added 0
+../..                                    | Progress: resolved 942, reused 0, downloaded 780, added 0
+../..                                    | Progress: resolved 967, reused 0, downloaded 804, added 0
+../..                                    | Progress: resolved 994, reused 0, downloaded 828, added 0
+../..                                    | Progress: resolved 1023, reused 0, downloaded 856, added 0
+../..                                    | Progress: resolved 1059, reused 0, downloaded 875, added 0
+ WARN  2 deprecated subdependencies found: sourcemap-codec@1.4.8, stable@0.1.8
+../..                                    | Progress: resolved 1070, reused 0, downloaded 909, added 0
+../..                                    | Progress: resolved 1070, reused 0, downloaded 946, added 0
+../..                                    | Progress: resolved 1070, reused 0, downloaded 947, added 0
+
+ WARN  Issues with peer dependencies found
+apps/chrome
+└─┬ plasmo 0.65.3
+  └─┬ @plasmohq/parcel-config 0.31.5
+    └─┬ @parcel/config-default 2.8.3
+      └─┬ @parcel/optimizer-htmlnano 2.8.3
+        └─┬ htmlnano 2.1.0
+          ├── ✕ unmet peer svgo@^3.0.2: found 2.8.0 in @parcel/optimizer-htmlnano
+          └─┬ cosmiconfig 8.3.6
+            └── ✕ unmet peer typescript@>=4.9.5: found 4.9.4
+
+../..                                    | +992 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1070, reused 0, downloaded 947, added 288
+../..                                    | Progress: resolved 1070, reused 0, downloaded 947, added 990
+../..                                    | Progress: resolved 1070, reused 0, downloaded 947, added 992, done
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/@parcel/watcher install$ node-gyp-build
+../../node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+../../node_modules/@parcel/watcher install: Done
+../../node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.13.2/libvips-8.13.2-linux-x64.tar.br
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/sharp install: sharp: Integrity check passed for linux-x64
+../../node_modules/sharp install: Done
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+../../node_modules/prisma preinstall: Done
+.../node_modules/esbuild postinstall$ node install.js
+.../node_modules/esbuild postinstall: Done
+.../node_modules/esbuild postinstall: Done
+.../tsup/node_modules/esbuild postinstall$ node install.js
+../../node_modules/msgpackr-extract install: Done
+.../tsup/node_modules/esbuild postinstall: Done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+../../node_modules/lmdb install$ node-gyp-build-optional-packages
+../../node_modules/lmdb install: Done
+../../node_modules/electron postinstall$ node install.js
+../../node_modules/electron postinstall: RequestError: getaddrinfo EAI_AGAIN github.com
+../../node_modules/electron postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-5733019c6b58/node_modules/@electron/get/node_modules/got/dist/source/core/index.js:970:111)
+../../node_modules/electron postinstall:     at Object.onceWrapper (node:events:634:26)
+../../node_modules/electron postinstall:     at ClientRequest.emit (node:events:531:35)
+../../node_modules/electron postinstall:     at origin.emit (/tmp/twcr-5733019c6b58/node_modules/@electron/get/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+../../node_modules/electron postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+../../node_modules/electron postinstall:     at TLSSocket.emit (node:events:519:28)
+../../node_modules/electron postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+../../node_modules/electron postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+../../node_modules/electron postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+../../node_modules/electron postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)
+../../node_modules/electron postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:59:01Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:59:01Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 64ee6ef add basic tauri app (#19)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5733019c6b58 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5733019c6b58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5733019c6b58/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-5733019c6b58/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 30, reused 13, downloaded 17, added 0
+../..                                    | Progress: resolved 56, reused 13, downloaded 43, added 0
+../..                                    | Progress: resolved 71, reused 13, downloaded 58, added 0
+../..                                    | Progress: resolved 147, reused 77, downloaded 60, added 0
+../..                                    | Progress: resolved 426, reused 313, downloaded 98, added 0
+../..                                    | Progress: resolved 478, reused 313, downloaded 150, added 0
+../..                                    | Progress: resolved 552, reused 342, downloaded 195, added 0
+../..                                    | Progress: resolved 594, reused 344, downloaded 235, added 0
+../..                                    | Progress: resolved 636, reused 345, downloaded 276, added 0
+../..                                    | Progress: resolved 709, reused 378, downloaded 316, added 0
+../..                                    | Progress: resolved 825, reused 453, downloaded 357, added 0
+../..                                    | Progress: resolved 886, reused 469, downloaded 402, added 0
+../..                                    | Progress: resolved 953, reused 493, downloaded 445, added 0
+../..                                    | Progress: resolved 1012, reused 505, downloaded 484, added 0
+../..                                    | Progress: resolved 1153, reused 540, downloaded 497, added 0
+../..                                    | Progress: resolved 1221, reused 570, downloaded 541, added 0
+../..                                    | Progress: resolved 1272, reused 570, downloaded 593, added 0
+../..                                    | Progress: resolved 1322, reused 570, downloaded 643, added 0
+../..                                    | Progress: resolved 1403, reused 572, downloaded 701, added 0
+../..                                    | Progress: resolved 1479, reused 591, downloaded 758, added 0
+../..                                    | Progress: resolved 1545, reused 591, downloaded 824, added 0
+../..                                    | Progress: resolved 1610, reused 591, downloaded 889, added 0
+../..                                    | Progress: resolved 1668, reused 591, downloaded 947, added 0
+../..                                    | Progress: resolved 1725, reused 591, downloaded 1004, added 0
+../..                                    | Progress: resolved 1779, reused 591, downloaded 1058, added 0
+ WARN  10 deprecated subdependencies found: @npmcli/move-file@1.1.2, querystring@0.2.0, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, stable@0.1.8, uglify-es@3.3.9, urix@0.1.0, uuid@3.4.0
+../..                                    | Progress: resolved 1784, reused 591, downloaded 1063, added 0
+
+../..                                    |    +1832 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1784, reused 591, downloaded 1063, added 529
+../..                                    | Progress: resolved 1784, reused 591, downloaded 1063, added 1830
+../..                                    | Progress: resolved 1784, reused 591, downloaded 1063, added 1832, done
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/@parcel/watcher install$ node-gyp-build
+../../node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+../../node_modules/@parcel/watcher install: Done
+../../node_modules/@prisma/engines postinstall: (node:402) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/sharp install: sharp: Using cached /home/node/.npm/_libvips/libvips-8.13.2-linux-x64.tar.br
+../../node_modules/sharp install: sharp: Integrity check passed for linux-x64
+../../node_modules/sharp install: Done
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/turbo postinstall$ node install.js
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../vite/node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+../../node_modules/turbo postinstall: Done
+../../node_modules/prisma preinstall: Done
+../../node_modules/prisma install$ node scripts/install-entry.js
+.../vite/node_modules/esbuild postinstall: Done
+../../node_modules/prisma install: Done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/client postinstall: prisma:warn The postinstall script automatically ran `prisma generate` and did not find your `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+../../node_modules/lmdb install$ node-gyp-build-optional-packages
+../../node_modules/lmdb install: Done
+../../node_modules/electron postinstall$ node install.js
+../../node_modules/electron postinstall: RequestError: getaddrinfo EAI_AGAIN github.com
+../../node_modules/electron postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-5733019c6b58/node_modules/@electron/get/node_modules/got/dist/source/core/index.js:970:111)
+../../node_modules/electron postinstall:     at Object.onceWrapper (node:events:634:26)
+../../node_modules/electron postinstall:     at ClientRequest.emit (node:events:531:35)
+../../node_modules/electron postinstall:     at origin.emit (/tmp/twcr-5733019c6b58/node_modules/@electron/get/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+../../node_modules/electron postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+../../node_modules/electron postinstall:     at TLSSocket.emit (node:events:519:28)
+../../node_modules/electron postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+../../node_modules/electron postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+../../node_modules/electron postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+../../node_modules/electron postinstall:     at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)
+../../node_modules/electron postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

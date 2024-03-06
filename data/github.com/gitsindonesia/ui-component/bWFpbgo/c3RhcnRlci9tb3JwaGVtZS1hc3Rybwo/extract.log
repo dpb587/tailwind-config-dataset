@@ -1,0 +1,213 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gitsindonesia/ui-component
++ reporef=main
++ repopath=./starter/morpheme-astro
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/gitsindonesia/ui-component
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-88bc26222e11
+++ echo 'github.com/gitsindonesia/ui-component;main;./starter/morpheme-astro'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1f62980d70d7
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gitsindonesia/ui-component/bWFpbgo/Li9zdGFydGVyL21vcnBoZW1lLWFzdHJvCg
++ jq -nc --arg key analysis_key --arg value github.com/gitsindonesia/ui-component/bWFpbgo/Li9zdGFydGVyL21vcnBoZW1lLWFzdHJvCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 38e92a3a19d4c917
++ jq -nc --arg key analysis_nonce --arg value 38e92a3a19d4c917 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gitsindonesia/ui-component
++ jq -nc --arg key input_repo_name --arg value github.com/gitsindonesia/ui-component '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./starter/morpheme-astro
++ jq -nc --arg key input_repo_path --arg value ./starter/morpheme-astro '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T04:53:56Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T04:53:56Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-88bc26222e11
+/tmp/twcr-88bc26222e11 /twcr
++ pushd /tmp/twcr-88bc26222e11
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gitsindonesia/ui-component.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T04:53:57Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T04:53:57Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 19eecbd1d984891c45ffbaa989cd88106f657b51
++ jq -nc --arg key exec_repo_commit_sha --arg value 19eecbd1d984891c45ffbaa989cd88106f657b51 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-16 16:41:20 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-16T09:41:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-16T09:41:20Z '{ key: $key, value: $value }'
++ '[' -z ./starter/morpheme-astro ']'
++ pushd ./starter/morpheme-astro
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
+/tmp/twcr-88bc26222e11/starter/morpheme-astro /tmp/twcr-88bc26222e11 /twcr
++ '[' -f tailwind.config.mjs ']'
++ tailwind_config_file_name=tailwind.config.mjs
++ writetaskstat exec_tailwind_config_file tailwind.config.mjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.mjs '{ key: $key, value: $value }'
++ cp tailwind.config.mjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-88bc26222e11/starter/morpheme-astro
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T04:53:57Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T04:53:57Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.mjs
+[squash-package] ERROR: failed to find any match for import path (@morpheme/tailwind-config/preset)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T04:53:57Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T04:53:57Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 19eecbd v1.0.0-rc.9
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-88bc26222e11 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-88bc26222e11
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-88bc26222e11/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-88bc26222e11/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +653
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 653, reused 0, downloaded 41, added 41
+Progress: resolved 653, reused 0, downloaded 104, added 104
+Progress: resolved 653, reused 0, downloaded 167, added 167
+Progress: resolved 653, reused 0, downloaded 222, added 222
+Progress: resolved 653, reused 0, downloaded 286, added 286
+Progress: resolved 653, reused 0, downloaded 344, added 344
+Progress: resolved 653, reused 0, downloaded 409, added 408
+Progress: resolved 653, reused 0, downloaded 476, added 474
+Progress: resolved 653, reused 0, downloaded 529, added 528
+Progress: resolved 653, reused 0, downloaded 596, added 596
+Progress: resolved 653, reused 0, downloaded 652, added 652
+Progress: resolved 653, reused 0, downloaded 653, added 652
+Progress: resolved 653, reused 0, downloaded 653, added 653, done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.4/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.4/node_modules/esbuild postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @astrojs/tailwind 5.0.2
++ @astrojs/vue 3.0.1
++ @morpheme/themes 1.0.0-rc.4
++ @morpheme/ui 1.0.0-rc.6
++ astro 3.2.4
++ tailwindcss 3.3.3
++ vue 3.3.4
+
+devDependencies:
++ autoprefixer 10.4.16
++ sass 1.69.3
+
+Done in 16.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.mjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@morpheme/tailwind-config/preset'
+Require stack:
+- /tmp/twcr-88bc26222e11/starter/morpheme-astro/tailwind.config.mjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:250334)
+    at jiti (/tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:252917)
+    at /tmp/twcr-88bc26222e11/starter/morpheme-astro/tailwind.config.mjs:11:13
+    at evalModule (/tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:255614)
+    at jiti (/tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:253542)
+    at /tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/tailwindcss@3.3.3/node_modules/tailwindcss/lib/lib/load-config.js:37:30
+    at Object.loadConfig (/tmp/twcr-88bc26222e11/starter/morpheme-astro/node_modules/.pnpm/tailwindcss@3.3.3/node_modules/tailwindcss/lib/lib/load-config.js:39:6)
+    at file:///tmp/twcr-88bc26222e11/starter/morpheme-astro/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-88bc26222e11/starter/morpheme-astro/tailwind.config.mjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

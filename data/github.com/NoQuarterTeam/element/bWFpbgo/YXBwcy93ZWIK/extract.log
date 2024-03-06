@@ -1,0 +1,419 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/NoQuarterTeam/element
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/NoQuarterTeam/element
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-28b19e055c5d
+++ echo 'github.com/NoQuarterTeam/element;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/64994e4326d6
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/NoQuarterTeam/element/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/NoQuarterTeam/element/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 428bbfb83a94c921
++ jq -nc --arg key analysis_nonce --arg value 428bbfb83a94c921 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/NoQuarterTeam/element
++ jq -nc --arg key input_repo_name --arg value github.com/NoQuarterTeam/element '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:34:47Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:34:47Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-28b19e055c5d
++ pushd /tmp/twcr-28b19e055c5d
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/NoQuarterTeam/element.git .
+/tmp/twcr-28b19e055c5d /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:34:48Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:34:48Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4237009d3c2c0affc0621767ee6d4d67ffc9b4c2
++ jq -nc --arg key exec_repo_commit_sha --arg value 4237009d3c2c0affc0621767ee6d4d67ffc9b4c2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 14:10:37 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T13:10:37Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T13:10:37Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-28b19e055c5d/apps/web /tmp/twcr-28b19e055c5d /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-28b19e055c5d/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-28b19e055c5d
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:34:48Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:34:48Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@element/web",
+>>>   "description": "",
+>>>   "private": true,
+>>>   "license": "",
+>>>   "dependencies": {
+>>>     "@tailwindcss/container-queries": "^0.1.1",
+>>>     "tailwind-scrollbar-hide": "^1.1.7",
+>>>     "tailwindcss-radix": "2.8.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@element/tailwind-config": "workspace:*",
+>>>     "@tailwindcss/forms": "0.5.7",
+>>>     "tailwindcss": "3.3.2"
+>>>   },
+>>>   "sideEffects": false
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-28b19e055c5d/package.json /tmp/twcr-28b19e055c5d/package-lock.json /tmp/twcr-28b19e055c5d/pnpm-lock.yaml /tmp/twcr-28b19e055c5d/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-28b19e055c5d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-28b19e055c5d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-28b19e055c5d/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 20, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 43, reused 0, downloaded 29, added 0
+../app                                   |  WARN  deprecated uuid@3.4.0
+../..                                    | Progress: resolved 62, reused 0, downloaded 46, added 0
+../..                                    | Progress: resolved 79, reused 0, downloaded 64, added 0
+../..                                    | Progress: resolved 100, reused 0, downloaded 88, added 0
+../..                                    | Progress: resolved 103, reused 0, downloaded 101, added 0
+../..                                    | Progress: resolved 136, reused 0, downloaded 125, added 0
+../..                                    | Progress: resolved 167, reused 0, downloaded 154, added 0
+../..                                    | Progress: resolved 198, reused 0, downloaded 187, added 0
+../..                                    | Progress: resolved 223, reused 0, downloaded 212, added 0
+../..                                    | Progress: resolved 256, reused 0, downloaded 239, added 0
+../..                                    | Progress: resolved 287, reused 0, downloaded 269, added 0
+../..                                    | Progress: resolved 314, reused 0, downloaded 291, added 0
+../..                                    | Progress: resolved 334, reused 0, downloaded 309, added 0
+../..                                    | Progress: resolved 359, reused 0, downloaded 330, added 0
+../..                                    | Progress: resolved 384, reused 0, downloaded 358, added 0
+../..                                    | Progress: resolved 415, reused 0, downloaded 384, added 0
+../..                                    | Progress: resolved 445, reused 0, downloaded 412, added 0
+../..                                    | Progress: resolved 472, reused 0, downloaded 441, added 0
+../..                                    | Progress: resolved 503, reused 0, downloaded 470, added 0
+../..                                    | Progress: resolved 529, reused 0, downloaded 497, added 0
+../..                                    | Progress: resolved 563, reused 0, downloaded 524, added 0
+../..                                    | Progress: resolved 594, reused 0, downloaded 550, added 0
+../..                                    | Progress: resolved 618, reused 0, downloaded 580, added 0
+../..                                    | Progress: resolved 656, reused 0, downloaded 610, added 0
+../..                                    | Progress: resolved 681, reused 0, downloaded 629, added 0
+../..                                    | Progress: resolved 709, reused 0, downloaded 655, added 0
+../..                                    | Progress: resolved 743, reused 0, downloaded 686, added 0
+../..                                    | Progress: resolved 776, reused 0, downloaded 718, added 0
+../..                                    | Progress: resolved 802, reused 0, downloaded 741, added 0
+../..                                    | Progress: resolved 834, reused 0, downloaded 775, added 0
+../..                                    | Progress: resolved 861, reused 0, downloaded 801, added 0
+../..                                    | Progress: resolved 885, reused 0, downloaded 821, added 0
+../..                                    | Progress: resolved 920, reused 0, downloaded 852, added 0
+../..                                    | Progress: resolved 959, reused 0, downloaded 887, added 0
+../..                                    | Progress: resolved 992, reused 0, downloaded 922, added 0
+../..                                    | Progress: resolved 1029, reused 0, downloaded 954, added 0
+../..                                    | Progress: resolved 1063, reused 0, downloaded 986, added 0
+../..                                    | Progress: resolved 1098, reused 0, downloaded 1013, added 0
+../..                                    | Progress: resolved 1132, reused 0, downloaded 1042, added 0
+../..                                    | Progress: resolved 1163, reused 0, downloaded 1076, added 0
+../..                                    | Progress: resolved 1199, reused 0, downloaded 1109, added 0
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1142, added 0
+../..                                    | Progress: resolved 1277, reused 0, downloaded 1184, added 0
+../..                                    | Progress: resolved 1312, reused 0, downloaded 1212, added 0
+../..                                    | Progress: resolved 1338, reused 0, downloaded 1239, added 0
+../..                                    | Progress: resolved 1377, reused 0, downloaded 1272, added 0
+../..                                    | Progress: resolved 1419, reused 0, downloaded 1315, added 0
+ WARN  8 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @npmcli/move-file@1.1.2
+../..                                    | Progress: resolved 1461, reused 0, downloaded 1353, added 0
+../..                                    | Progress: resolved 1461, reused 0, downloaded 1417, added 0
+
+ WARN  Issues with peer dependencies found
+packages/config/eslint
+└─┬ eslint-plugin-tailwindcss 3.14.2
+  └── ✕ unmet peer tailwindcss@^3.4.0: found 3.3.2
+
+../..                                    |    +1578 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1461, reused 0, downloaded 1448, added 0
+../..                                    | Progress: resolved 1461, reused 0, downloaded 1448, added 1578
+../..                                    | Progress: resolved 1461, reused 0, downloaded 1448, added 1578, done
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+../../node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+../../node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+../../node_modules/@prisma/engines postinstall: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/sharp install: sharp: Integrity check passed for linux-x64
+../../node_modules/sharp install: Done
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/prisma preinstall: Done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+../../packages/database postinstall$ pnpm generate
+../../packages/database postinstall: > @element/database@1.0.0 generate /tmp/twcr-28b19e055c5d/packages/database
+../../packages/database postinstall: > pnpm with-env prisma generate
+../../packages/database postinstall: > @element/database@1.0.0 with-env /tmp/twcr-28b19e055c5d/packages/database
+../../packages/database postinstall: > dotenv -e ../../.env -- "prisma" "generate"
+../../packages/database postinstall: Prisma schema loaded from schema.prisma
+../../packages/database postinstall: ✔ Generated Prisma Client (v5.9.1) to ./../../node_modules/@prisma/client in 242ms
+../../packages/database postinstall: Start using Prisma Client
+../../packages/database postinstall: ```
+../../packages/database postinstall: import { PrismaClient } from @prisma/client
+../../packages/database postinstall: const prisma = new PrismaClient()
+../../packages/database postinstall: ```
+../../packages/database postinstall: More information: https://pris.ly/d/client
+../../packages/database postinstall: ┌─────────────────────────────────────────────────────────────┐
+../../packages/database postinstall: │  Deploying your app to serverless or edge functions?        │
+../../packages/database postinstall: │  Try Prisma Accelerate for connection pooling and caching.  │
+../../packages/database postinstall: │  https://pris.ly/cli/accelerate                             │
+../../packages/database postinstall: └─────────────────────────────────────────────────────────────┘
+../../packages/database postinstall: Done
+Done in 1m 0.4s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-28b19e055c5d/apps/web/tailwind.config.ts:1
+import type { Config } from "tailwindcss"
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-28b19e055c5d/apps/web/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:35:50Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:35:50Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 4237009 use better ordering of elements
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-28b19e055c5d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-28b19e055c5d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-28b19e055c5d/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-28b19e055c5d/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 55, downloaded 0, added 0
+../..                                    | +808  -84 ++++++++++++++++++++++++---
+../..                                    | Progress: resolved 0, reused 91, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 113, downloaded 12, added 82
+../..                                    | Progress: resolved 0, reused 113, downloaded 49, added 115
+../..                                    | Progress: resolved 0, reused 113, downloaded 88, added 156
+../..                                    | Progress: resolved 0, reused 113, downloaded 145, added 229
+../..                                    | Progress: resolved 0, reused 113, downloaded 203, added 292
+../..                                    | Progress: resolved 0, reused 113, downloaded 263, added 365
+../..                                    | Progress: resolved 0, reused 113, downloaded 323, added 432
+../..                                    | Progress: resolved 0, reused 113, downloaded 365, added 477
+../..                                    | Progress: resolved 0, reused 113, downloaded 412, added 526
+../..                                    | Progress: resolved 0, reused 113, downloaded 460, added 570
+../..                                    | Progress: resolved 0, reused 113, downloaded 524, added 637
+../..                                    | Progress: resolved 0, reused 113, downloaded 586, added 704
+../..                                    | Progress: resolved 0, reused 113, downloaded 640, added 761
+../..                                    | Progress: resolved 0, reused 113, downloaded 678, added 808, done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/prisma preinstall: Done
+../../node_modules/sharp install: sharp: Using existing vendored libvips v8.14.5
+../../node_modules/@prisma/engines postinstall: (node:353) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/@prisma/client postinstall: Prisma schema loaded from packages/database/schema.prisma
+../../node_modules/sharp install: Done
+../../node_modules/@prisma/client postinstall: ✔ Generated Prisma Client (v5.9.1) to ./node_modules/@prisma/client in 142ms
+../../node_modules/@prisma/client postinstall: Start using Prisma Client
+../../node_modules/@prisma/client postinstall: ```
+../../node_modules/@prisma/client postinstall: import { PrismaClient } from @prisma/client
+../../node_modules/@prisma/client postinstall: const prisma = new PrismaClient()
+../../node_modules/@prisma/client postinstall: ```
+../../node_modules/@prisma/client postinstall: More information: https://pris.ly/d/client
+../../node_modules/@prisma/client postinstall: ┌─────────────────────────────────────────────────────────────┐
+../../node_modules/@prisma/client postinstall: │  Deploying your app to serverless or edge functions?        │
+../../node_modules/@prisma/client postinstall: │  Try Prisma Accelerate for connection pooling and caching.  │
+../../node_modules/@prisma/client postinstall: │  https://pris.ly/cli/accelerate                             │
+../../node_modules/@prisma/client postinstall: └─────────────────────────────────────────────────────────────┘
+../../node_modules/@prisma/client postinstall: Done
+../../node_modules/esbuild postinstall$ node install.js
+.../vite/node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+.../vite/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @element/api 1.0.0 <- ../../packages/api
++ @element/database 1.0.0 <- ../../packages/database
++ @element/emails 1.0.0 <- ../../packages/emails
++ @element/server-env 1.0.0 <- ../../packages/server/env
++ @element/server-schemas 1.0.0 <- ../../packages/server/schemas
++ @element/server-services 1.0.0 <- ../../packages/server/services
++ @element/shared 1.0.0 <- ../../packages/shared
+
+devDependencies:
++ @element/eslint-config 1.0.0 <- ../../packages/config/eslint
++ @element/tailwind-config 1.0.0 <- ../../packages/config/tailwind
+
+../../packages/database postinstall$ pnpm generate
+../../packages/database postinstall: > @element/database@1.0.0 generate /tmp/twcr-28b19e055c5d/packages/database
+../../packages/database postinstall: > pnpm with-env prisma generate
+../../packages/database postinstall: > @element/database@1.0.0 with-env /tmp/twcr-28b19e055c5d/packages/database
+../../packages/database postinstall: > dotenv -e ../../.env -- "prisma" "generate"
+../../packages/database postinstall: Prisma schema loaded from schema.prisma
+../../packages/database postinstall: ✔ Generated Prisma Client (v5.9.1) to ./../../node_modules/@prisma/client in 162ms
+../../packages/database postinstall: Start using Prisma Client
+../../packages/database postinstall: ```
+../../packages/database postinstall: import { PrismaClient } from @prisma/client
+../../packages/database postinstall: const prisma = new PrismaClient()
+../../packages/database postinstall: ```
+../../packages/database postinstall: More information: https://pris.ly/d/client
+../../packages/database postinstall: ┌─────────────────────────────────────────────────────────────┐
+../../packages/database postinstall: │  Deploying your app to serverless or edge functions?        │
+../../packages/database postinstall: │  Try Prisma Accelerate for connection pooling and caching.  │
+../../packages/database postinstall: │  https://pris.ly/cli/accelerate                             │
+../../packages/database postinstall: └─────────────────────────────────────────────────────────────┘
+../../packages/database postinstall: Done
+Done in 21.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-28b19e055c5d/apps/web/tailwind.config.ts:1
+import type { Config } from "tailwindcss"
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-28b19e055c5d/apps/web/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,453 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/palladians/pallad
++ reporef=main
++ repopath=./apps/extension
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/palladians/pallad
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1580bc5bde46
+++ echo 'github.com/palladians/pallad;main;./apps/extension'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/865e09de8eb4
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/palladians/pallad/bWFpbgo/Li9hcHBzL2V4dGVuc2lvbgo
++ jq -nc --arg key analysis_key --arg value github.com/palladians/pallad/bWFpbgo/Li9hcHBzL2V4dGVuc2lvbgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce fe79e052f41cf7ea
++ jq -nc --arg key analysis_nonce --arg value fe79e052f41cf7ea '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/palladians/pallad
++ jq -nc --arg key input_repo_name --arg value github.com/palladians/pallad '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/extension
++ jq -nc --arg key input_repo_path --arg value ./apps/extension '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T11:08:59Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T11:08:59Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1580bc5bde46
++ pushd /tmp/twcr-1580bc5bde46
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/palladians/pallad.git .
+/tmp/twcr-1580bc5bde46 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T11:09:00Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T11:09:00Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 13d7f0e3630acb33e6723b335512d5e677cef34a
++ jq -nc --arg key exec_repo_commit_sha --arg value 13d7f0e3630acb33e6723b335512d5e677cef34a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-15 10:41:58 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-15T10:41:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-15T10:41:58Z '{ key: $key, value: $value }'
+/tmp/twcr-1580bc5bde46/apps/extension /tmp/twcr-1580bc5bde46 /twcr
++ '[' -z ./apps/extension ']'
++ pushd ./apps/extension
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ tailwind_config_file_name=tailwind.config.mjs
++ writetaskstat exec_tailwind_config_file tailwind.config.mjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.mjs '{ key: $key, value: $value }'
++ cp tailwind.config.mjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1580bc5bde46/apps/extension
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/extension '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1580bc5bde46
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T11:09:00Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T11:09:00Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.mjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@palladxyz/extension",
+>>>   "version": "0.1.0",
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "@palladxyz/features": "^0.1.0"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/extension '!=' ./ ']'
++ rm -f /tmp/twcr-1580bc5bde46/package.json /tmp/twcr-1580bc5bde46/package-lock.json /tmp/twcr-1580bc5bde46/pnpm-lock.yaml /tmp/twcr-1580bc5bde46/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1580bc5bde46 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1580bc5bde46
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1580bc5bde46/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 15 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 16, added 0
+../..                                    | Progress: resolved 52, reused 0, downloaded 40, added 0
+../..                                    | Progress: resolved 79, reused 0, downloaded 66, added 0
+../../packages/mina-graphql              |  WARN  deprecated subscriptions-transport-ws@0.11.0
+../..                                    | Progress: resolved 104, reused 0, downloaded 89, added 0
+../../packages/persistence               |  WARN  deprecated @capacitor/storage@1.2.5
+../..                                    | Progress: resolved 117, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 148, reused 0, downloaded 137, added 0
+../..                                    | Progress: resolved 178, reused 0, downloaded 163, added 0
+../..                                    | Progress: resolved 206, reused 0, downloaded 194, added 0
+../..                                    | Progress: resolved 234, reused 0, downloaded 215, added 0
+../..                                    | Progress: resolved 268, reused 0, downloaded 253, added 0
+../..                                    | Progress: resolved 310, reused 0, downloaded 281, added 0
+../..                                    | Progress: resolved 350, reused 0, downloaded 323, added 0
+../..                                    | Progress: resolved 385, reused 0, downloaded 360, added 0
+../..                                    | Progress: resolved 424, reused 0, downloaded 397, added 0
+../..                                    | Progress: resolved 461, reused 0, downloaded 431, added 0
+../..                                    | Progress: resolved 497, reused 0, downloaded 465, added 0
+../..                                    | Progress: resolved 538, reused 0, downloaded 502, added 0
+../..                                    | Progress: resolved 579, reused 0, downloaded 527, added 0
+../..                                    | Progress: resolved 614, reused 0, downloaded 552, added 0
+../..                                    | Progress: resolved 677, reused 0, downloaded 588, added 0
+../..                                    | Progress: resolved 719, reused 0, downloaded 613, added 0
+../..                                    | Progress: resolved 758, reused 0, downloaded 652, added 0
+../..                                    | Progress: resolved 794, reused 0, downloaded 679, added 0
+../..                                    | Progress: resolved 823, reused 0, downloaded 711, added 0
+../..                                    | Progress: resolved 864, reused 0, downloaded 748, added 0
+../..                                    | Progress: resolved 904, reused 0, downloaded 784, added 0
+../..                                    | Progress: resolved 940, reused 0, downloaded 823, added 0
+../..                                    | Progress: resolved 981, reused 0, downloaded 861, added 0
+../..                                    | Progress: resolved 1020, reused 0, downloaded 893, added 0
+../..                                    | Progress: resolved 1048, reused 0, downloaded 925, added 0
+../..                                    | Progress: resolved 1090, reused 0, downloaded 961, added 0
+../..                                    | Progress: resolved 1118, reused 0, downloaded 991, added 0
+../..                                    | Progress: resolved 1154, reused 0, downloaded 1023, added 0
+../..                                    | Progress: resolved 1188, reused 0, downloaded 1053, added 0
+../..                                    | Progress: resolved 1222, reused 0, downloaded 1091, added 0
+../..                                    | Progress: resolved 1237, reused 0, downloaded 1130, added 0
+../..                                    |    +1146 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1143, added 686
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1143, added 1143
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1146, added 1145
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1146, added 1146, done
+.../.pnpm/msw@2.2.2/node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../.pnpm/msw@2.2.2/node_modules/msw postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../.pnpm/msw@1.3.2/node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../.pnpm/msw@1.3.2/node_modules/msw postinstall: Done
+
+dependencies:
++ @palladxyz/features 0.1.0 <- ../../packages/features
+
+ WARN  Issues with peer dependencies found
+packages/features
+└─┬ tailwindcss-animate 1.0.7
+  └── ✕ missing peer tailwindcss@">=3.0.0 || insiders"
+Peer dependencies that should be installed:
+  tailwindcss@">=3.0.0 || insiders"
+
+packages/persistence
+└─┬ @capacitor/storage 1.2.5
+  └── ✕ unmet peer @capacitor/core@^3.0.0: found 5.7.1
+
+Done in 43.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.mjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T11:09:45Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T11:09:45Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 13d7f0e Merge pull request #140 from palladians/feat/web-provider-fun
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1580bc5bde46 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1580bc5bde46
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1580bc5bde46/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-1580bc5bde46/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 16 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1087 -355 +++++++++++++++++------
+../..                                    | Progress: resolved 1087, reused 295, downloaded 25, added 200
+../..                                    | Progress: resolved 1087, reused 295, downloaded 88, added 262
+../..                                    | Progress: resolved 1087, reused 295, downloaded 153, added 328
+../..                                    | Progress: resolved 1087, reused 295, downloaded 210, added 386
+../..                                    | Progress: resolved 1087, reused 295, downloaded 267, added 443
+../..                                    | Progress: resolved 1087, reused 295, downloaded 322, added 498
+../..                                    | Progress: resolved 1087, reused 295, downloaded 369, added 545
+../..                                    | Progress: resolved 1087, reused 295, downloaded 401, added 577
+../..                                    | Progress: resolved 1087, reused 295, downloaded 430, added 606
+../..                                    | Progress: resolved 1087, reused 295, downloaded 451, added 627
+../..                                    | Progress: resolved 1087, reused 295, downloaded 493, added 670
+../..                                    | Progress: resolved 1087, reused 295, downloaded 543, added 720
+../..                                    | Progress: resolved 1087, reused 295, downloaded 548, added 725
+../..                                    | Progress: resolved 1087, reused 295, downloaded 572, added 749
+../..                                    | Progress: resolved 1087, reused 295, downloaded 633, added 810
+../..                                    | Progress: resolved 1087, reused 295, downloaded 679, added 855
+../..                                    | Progress: resolved 1087, reused 295, downloaded 727, added 904
+../..                                    | Progress: resolved 1087, reused 295, downloaded 771, added 948
+../..                                    | Progress: resolved 1087, reused 295, downloaded 785, added 962
+../..                                    | Progress: resolved 1087, reused 295, downloaded 786, added 963
+../..                                    | Progress: resolved 1087, reused 295, downloaded 789, added 965
+../..                                    | Progress: resolved 1087, reused 295, downloaded 789, added 966
+../..                                    | Progress: resolved 1087, reused 295, downloaded 790, added 966
+../..                                    | Progress: resolved 1087, reused 295, downloaded 790, added 967, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/spawn-sync postinstall$ node postinstall
+.../core-js@3.29.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/spawn-sync postinstall: Done
+.../core-js@3.29.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.29.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js:
+.../core-js@3.29.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.29.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.29.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.29.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.29.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.29.0/node_modules/core-js postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../node_modules/msw postinstall: Done
+.../node_modules/msw postinstall: Done
+.../node_modules/dtrace-provider install$ node-gyp rebuild || node suppress-error.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../node_modules/dtrace-provider install: gyp info it worked if it ends with ok
+.../node_modules/dtrace-provider install: gyp info using node-gyp@9.4.1
+.../node_modules/dtrace-provider install: gyp info using node@21.6.2 | linux | x64
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.../node_modules/dtrace-provider install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp info spawn /usr/bin/python3
+.../node_modules/dtrace-provider install: gyp info spawn args [
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/dtrace-provider install: gyp info spawn args   'binding.gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-f',
+.../node_modules/dtrace-provider install: gyp info spawn args   'make',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/tmp/twcr-1580bc5bde46/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build/config.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-1580bc5bde46/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--depth=.',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--no-parallel',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--generator-output',
+.../node_modules/dtrace-provider install: gyp info spawn args   'build',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/dtrace-provider install: gyp info spawn args ]
+.../node_modules/dtrace-provider install: gyp info spawn make
+.../node_modules/dtrace-provider install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/dtrace-provider install: make: Entering directory '/tmp/twcr-1580bc5bde46/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install:   TOUCH Release/obj.target/DTraceProviderStub.stamp
+.../node_modules/dtrace-provider install: make: Leaving directory '/tmp/twcr-1580bc5bde46/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install: gyp info ok 
+.../node_modules/dtrace-provider install: Done
+
+dependencies:
++ @palladxyz/common 1.0.0 <- ../../packages/common
++ @palladxyz/features 0.1.0 <- ../../packages/features
++ @palladxyz/key-management 0.0.1 <- ../../packages/key-management
++ @palladxyz/persistence 1.0.0 <- ../../packages/persistence
++ @palladxyz/web-provider 0.0.1 <- ../../packages/web-provider
++ @plasmohq/messaging 0.6.1
++ buffer 6.0.3
++ dotenv 16.3.1
++ next-themes 0.2.1
++ react 18.2.0
++ react-dom 18.2.0
++ tailwindcss-animate 1.0.7
++ vite-plugin-node-stdlib-browser 0.2.1
++ webext-bridge 6.0.1
++ webextension-polyfill 0.10.0
++ zod 3.22.4
+
+devDependencies:
++ @crxjs/vite-plugin 2.0.0-beta.21
++ @esbuild-plugins/node-globals-polyfill 0.2.3
++ @esbuild-plugins/node-modules-polyfill 0.2.2
++ @originjs/vite-plugin-commonjs 1.0.3
++ @playwright/test 1.40.1
++ @testing-library/react 14.1.2
++ @total-typescript/ts-reset 0.5.1
++ @types/mocha 10.0.6
++ @types/node 20.10.6
++ @types/react 18.2.46
++ @types/react-dom 18.2.18
++ @types/webextension-polyfill 0.10.7
++ @typescript-eslint/eslint-plugin 6.17.0
++ @typescript-eslint/parser 6.17.0
++ @vitejs/plugin-react-swc 3.5.0
++ path 0.12.7
++ rollup-plugin-node-polyfills 0.2.1
++ rollup-plugin-polyfill-node 0.12.0
++ vite 4.5.1
++ vite-plugin-commonjs 0.10.1
++ vite-plugin-node-polyfills 0.17.0
++ vite-plugin-require-transform 1.0.21
++ vite-plugin-svgr 3.3.0
++ vite-plugin-top-level-await 1.4.1
++ vite-plugin-wasm 3.3.0
++ web-ext 7.9.0
+
+../.. prepare$ husky install
+../.. prepare: husky - Git hooks installed
+../.. prepare: Done
+Done in 35.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.mjs
+node:internal/modules/cjs/loader:1209
+    throw new ERR_REQUIRE_ESM(filename, true);
+    ^
+
+Error [ERR_REQUIRE_ESM]: require() of ES Module /tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.mjs not supported.
+Instead change the require of /tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.mjs to a dynamic import() which is available in all CommonJS modules.
+    at Object.<anonymous> (/tmp/twcr-1580bc5bde46/apps/extension/tailwind.config.exporter2.cjs:3:16) {
+  code: 'ERR_REQUIRE_ESM'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

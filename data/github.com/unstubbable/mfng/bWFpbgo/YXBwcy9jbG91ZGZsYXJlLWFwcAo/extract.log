@@ -1,0 +1,220 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/unstubbable/mfng
++ reporef=main
++ repopath=./apps/cloudflare-app
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/unstubbable/mfng
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bff88096ae58
+++ echo 'github.com/unstubbable/mfng;main;./apps/cloudflare-app'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/3b0e949423a8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/unstubbable/mfng/bWFpbgo/Li9hcHBzL2Nsb3VkZmxhcmUtYXBwCg
++ jq -nc --arg key analysis_key --arg value github.com/unstubbable/mfng/bWFpbgo/Li9hcHBzL2Nsb3VkZmxhcmUtYXBwCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d514aa3dda732376
++ jq -nc --arg key analysis_nonce --arg value d514aa3dda732376 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/unstubbable/mfng
++ jq -nc --arg key input_repo_name --arg value github.com/unstubbable/mfng '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/cloudflare-app
++ jq -nc --arg key input_repo_path --arg value ./apps/cloudflare-app '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:02:12Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:02:12Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bff88096ae58
++ pushd /tmp/twcr-bff88096ae58
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/unstubbable/mfng.git .
+/tmp/twcr-bff88096ae58 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:02:13Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:02:13Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 562d785263df821cb731814188ab4640a97ee8c0
++ jq -nc --arg key exec_repo_commit_sha --arg value 562d785263df821cb731814188ab4640a97ee8c0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 12:07:57 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T11:07:57Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T11:07:57Z '{ key: $key, value: $value }'
+/tmp/twcr-bff88096ae58/apps/cloudflare-app /tmp/twcr-bff88096ae58 /twcr
++ '[' -z ./apps/cloudflare-app ']'
++ pushd ./apps/cloudflare-app
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bff88096ae58/apps/cloudflare-app
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/cloudflare-app '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bff88096ae58
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:02:13Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:02:13Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@mfng/cloudflare-app",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "license": "MIT",
+>>>   "author": "Hendrik Liebau <mail@hendrik-liebau.de>",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.7"
+>>>   },
+>>>   "wallaby": {
+>>>     "env": {
+>>>       "params": {
+>>>         "runner": "--experimental-vm-modules"
+>>>       }
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/cloudflare-app '!=' ./ ']'
++ rm -f /tmp/twcr-bff88096ae58/package.json /tmp/twcr-bff88096ae58/package-lock.json /tmp/twcr-bff88096ae58/pnpm-lock.yaml /tmp/twcr-bff88096ae58/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bff88096ae58 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bff88096ae58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 5s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@mfng/shared-app/tailwind.config.cjs'
+Require stack:
+- /tmp/twcr-bff88096ae58/apps/cloudflare-app/tailwind.config.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-bff88096ae58/apps/cloudflare-app/tailwind.config.cjs:1:91
+    at evalModule (/tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-bff88096ae58/apps/cloudflare-app/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-bff88096ae58/apps/cloudflare-app/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-bff88096ae58/apps/cloudflare-app/tailwind.config.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:02:19Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:02:19Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 562d785 Merge pull request #43 from unstubbable/fix-client-id
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bff88096ae58 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bff88096ae58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+npm WARN deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+npm WARN deprecated @types/babel__parser@7.1.1: Deprecated
+npm ERR! code E400
+npm ERR! 400 Bad Request - GET https://registry.npmjs.org/resolve-typescript-plugin/-/resolve-typescript-plugin-2.0.0.tgz
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T01_02_19_565Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

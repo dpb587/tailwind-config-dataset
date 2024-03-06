@@ -1,0 +1,734 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gitcoinco/grants-stack
++ reporef=main
++ repopath=./packages/grant-explorer
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/gitcoinco/grants-stack
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-19d3f7cf8d43
+++ echo 'github.com/gitcoinco/grants-stack;main;./packages/grant-explorer'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0df2069f6ef5
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gitcoinco/grants-stack/bWFpbgo/Li9wYWNrYWdlcy9ncmFudC1leHBsb3Jlcgo
++ jq -nc --arg key analysis_key --arg value github.com/gitcoinco/grants-stack/bWFpbgo/Li9wYWNrYWdlcy9ncmFudC1leHBsb3Jlcgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 191c663377dd70eb
++ jq -nc --arg key analysis_nonce --arg value 191c663377dd70eb '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gitcoinco/grants-stack
++ jq -nc --arg key input_repo_name --arg value github.com/gitcoinco/grants-stack '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/grant-explorer
++ jq -nc --arg key input_repo_path --arg value ./packages/grant-explorer '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T18:48:19Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T18:48:19Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-19d3f7cf8d43
++ pushd /tmp/twcr-19d3f7cf8d43
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gitcoinco/grants-stack.git .
+/tmp/twcr-19d3f7cf8d43 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T18:48:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T18:48:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ee37fc44006f7bae5c6cb7b360ad02f489c903c8
++ jq -nc --arg key exec_repo_commit_sha --arg value ee37fc44006f7bae5c6cb7b360ad02f489c903c8 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 13:31:01 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T12:31:01Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T12:31:01Z '{ key: $key, value: $value }'
+/tmp/twcr-19d3f7cf8d43/packages/grant-explorer /tmp/twcr-19d3f7cf8d43 /twcr
++ '[' -z ./packages/grant-explorer ']'
++ pushd ./packages/grant-explorer
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-19d3f7cf8d43/packages/grant-explorer
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/grant-explorer '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-19d3f7cf8d43
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T18:48:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T18:48:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "grant-explorer",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "license": "AGPL-3.0-only",
+>>>   "browserslist": {
+>>>     "production": [
+>>>       "chrome >= 67",
+>>>       "edge >= 79",
+>>>       "firefox >= 68",
+>>>       "opera >= 54",
+>>>       "safari >= 14"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "dependencies": {
+>>>     "@tailwindcss/forms": "^0.5.3",
+>>>     "@tailwindcss/line-clamp": "^0.4.2",
+>>>     "@tailwindcss/typography": "^0.5.9"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.0.24"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18",
+>>>     "npm": ">=8.5.5"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/grant-explorer '!=' ./ ']'
++ rm -f /tmp/twcr-19d3f7cf8d43/package.json /tmp/twcr-19d3f7cf8d43/package-lock.json /tmp/twcr-19d3f7cf8d43/pnpm-lock.yaml /tmp/twcr-19d3f7cf8d43/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-19d3f7cf8d43 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-19d3f7cf8d43
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-19d3f7cf8d43/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 29, reused 0, downloaded 21, added 0
+../..                                    | Progress: resolved 52, reused 0, downloaded 42, added 0
+../..                                    | Progress: resolved 83, reused 0, downloaded 69, added 0
+../..                                    | Progress: resolved 108, reused 0, downloaded 91, added 0
+../..                                    | Progress: resolved 132, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 159, reused 0, downloaded 140, added 0
+../..                                    | Progress: resolved 186, reused 0, downloaded 164, added 0
+../..                                    | Progress: resolved 189, reused 0, downloaded 187, added 0
+../..                                    | Progress: resolved 189, reused 0, downloaded 189, added 0
+../..                                    | Progress: resolved 189, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 190, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 191, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 222, reused 0, downloaded 212, added 0
+../..                                    | Progress: resolved 249, reused 0, downloaded 236, added 0
+../..                                    | Progress: resolved 281, reused 0, downloaded 267, added 0
+../..                                    | Progress: resolved 315, reused 0, downloaded 296, added 0
+../..                                    | Progress: resolved 336, reused 0, downloaded 324, added 0
+../..                                    | Progress: resolved 365, reused 0, downloaded 346, added 0
+../..                                    | Progress: resolved 389, reused 0, downloaded 370, added 0
+../..                                    | Progress: resolved 420, reused 0, downloaded 398, added 0
+../..                                    | Progress: resolved 445, reused 0, downloaded 417, added 0
+../..                                    | Progress: resolved 477, reused 0, downloaded 448, added 0
+../..                                    | Progress: resolved 509, reused 0, downloaded 477, added 0
+../..                                    | Progress: resolved 533, reused 0, downloaded 505, added 0
+../..                                    | Progress: resolved 566, reused 0, downloaded 534, added 0
+../..                                    | Progress: resolved 597, reused 0, downloaded 558, added 0
+../..                                    | Progress: resolved 625, reused 0, downloaded 587, added 0
+../..                                    | Progress: resolved 652, reused 0, downloaded 614, added 0
+../..                                    | Progress: resolved 681, reused 0, downloaded 638, added 0
+../..                                    | Progress: resolved 717, reused 0, downloaded 675, added 0
+../..                                    | Progress: resolved 747, reused 0, downloaded 697, added 0
+../..                                    | Progress: resolved 780, reused 0, downloaded 725, added 0
+../..                                    | Progress: resolved 814, reused 0, downloaded 760, added 0
+../..                                    | Progress: resolved 851, reused 0, downloaded 795, added 0
+../..                                    | Progress: resolved 883, reused 0, downloaded 822, added 0
+../..                                    | Progress: resolved 924, reused 0, downloaded 856, added 0
+../..                                    | Progress: resolved 953, reused 0, downloaded 895, added 0
+../..                                    | Progress: resolved 985, reused 0, downloaded 925, added 0
+../..                                    | Progress: resolved 1024, reused 0, downloaded 953, added 0
+../..                                    | Progress: resolved 1068, reused 0, downloaded 990, added 0
+../..                                    | Progress: resolved 1098, reused 0, downloaded 1023, added 0
+../..                                    | Progress: resolved 1139, reused 0, downloaded 1056, added 0
+../..                                    | Progress: resolved 1170, reused 0, downloaded 1091, added 0
+../..                                    | Progress: resolved 1208, reused 0, downloaded 1126, added 0
+../..                                    | Progress: resolved 1235, reused 0, downloaded 1152, added 0
+../..                                    | Progress: resolved 1275, reused 0, downloaded 1191, added 0
+../..                                    | Progress: resolved 1314, reused 0, downloaded 1223, added 0
+../..                                    | Progress: resolved 1351, reused 0, downloaded 1258, added 0
+../..                                    | Progress: resolved 1383, reused 0, downloaded 1291, added 0
+../..                                    | Progress: resolved 1421, reused 0, downloaded 1326, added 0
+../..                                    | Progress: resolved 1452, reused 0, downloaded 1360, added 0
+../..                                    | Progress: resolved 1488, reused 0, downloaded 1386, added 0
+../..                                    | Progress: resolved 1516, reused 0, downloaded 1412, added 0
+../..                                    | Progress: resolved 1555, reused 0, downloaded 1433, added 0
+../..                                    | Progress: resolved 1590, reused 0, downloaded 1466, added 0
+../..                                    | Progress: resolved 1632, reused 0, downloaded 1503, added 0
+../..                                    | Progress: resolved 1674, reused 0, downloaded 1543, added 0
+../..                                    | Progress: resolved 1716, reused 0, downloaded 1581, added 0
+../..                                    | Progress: resolved 1760, reused 0, downloaded 1610, added 0
+../..                                    | Progress: resolved 1802, reused 0, downloaded 1645, added 0
+../..                                    | Progress: resolved 1840, reused 0, downloaded 1684, added 0
+../..                                    | Progress: resolved 1875, reused 0, downloaded 1717, added 0
+../..                                    | Progress: resolved 1901, reused 0, downloaded 1742, added 0
+../..                                    | Progress: resolved 1910, reused 0, downloaded 1749, added 0
+../..                                    | Progress: resolved 1935, reused 0, downloaded 1776, added 0
+../..                                    | Progress: resolved 1995, reused 0, downloaded 1810, added 0
+../..                                    | Progress: resolved 2025, reused 0, downloaded 1842, added 0
+../..                                    | Progress: resolved 2055, reused 0, downloaded 1873, added 0
+../..                                    | Progress: resolved 2084, reused 0, downloaded 1900, added 0
+../..                                    | Progress: resolved 2130, reused 0, downloaded 1938, added 0
+../..                                    | Progress: resolved 2165, reused 0, downloaded 1971, added 0
+../..                                    | Progress: resolved 2188, reused 0, downloaded 1994, added 0
+../..                                    | Progress: resolved 2244, reused 0, downloaded 2027, added 0
+../..                                    | Progress: resolved 2273, reused 0, downloaded 2034, added 0
+../..                                    | Progress: resolved 2293, reused 0, downloaded 2053, added 0
+../..                                    | Progress: resolved 2342, reused 0, downloaded 2093, added 0
+../..                                    | Progress: resolved 2377, reused 0, downloaded 2128, added 0
+../..                                    | Progress: resolved 2401, reused 0, downloaded 2147, added 0
+../..                                    | Progress: resolved 2428, reused 0, downloaded 2171, added 0
+../..                                    | Progress: resolved 2474, reused 0, downloaded 2208, added 0
+../..                                    | Progress: resolved 2505, reused 0, downloaded 2249, added 0
+../..                                    | Progress: resolved 2545, reused 0, downloaded 2277, added 0
+../..                                    | Progress: resolved 2589, reused 0, downloaded 2326, added 0
+../..                                    | Progress: resolved 2618, reused 0, downloaded 2348, added 0
+../..                                    | Progress: resolved 2663, reused 0, downloaded 2391, added 0
+../..                                    | Progress: resolved 2698, reused 0, downloaded 2423, added 0
+../..                                    | Progress: resolved 2739, reused 0, downloaded 2462, added 0
+../..                                    | Progress: resolved 2781, reused 0, downloaded 2493, added 0
+../..                                    | Progress: resolved 2819, reused 0, downloaded 2534, added 0
+../..                                    | Progress: resolved 2857, reused 0, downloaded 2562, added 0
+../..                                    | Progress: resolved 2888, reused 0, downloaded 2595, added 0
+ WARN  41 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/plugin-proposal-private-methods@7.18.6, @babel/plugin-proposal-private-property-in-object@7.21.11, @json-rpc-tools/provider@1.7.6, @json-rpc-tools/types@1.7.6, @json-rpc-tools/utils@1.7.6, @motionone/vue@10.16.4, @walletconnect/client@1.8.0, @walletconnect/ethereum-provider@1.7.8, @walletconnect/ethereum-provider@1.8.0, @walletconnect/mobile-registry@1.4.0, @walletconnect/qrcode-modal@1.8.0, @walletconnect/types@1.8.0, abab@2.0.6, cids@0.7.5, cids@0.8.3, core-js@2.6.12, domexception@2.0.1, eip1193-provider@1.0.1, multiaddr@7.5.0, multibase@0.6.1, multibase@0.7.0, multibase@1.0.1, multicodec@1.0.4, querystring@0.2.1, resolve-url@0.2.1, rollup-plugin-terser@7.0.2, sane@4.1.0, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, stable@0.1.8, svgo@1.3.2, urix@0.1.0, w3c-hr-time@1.0.2, workbox-cacheable-response@6.6.0, workbox-google-analytics@6.6.0, zksync-web3@0.14.4
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2625, added 0
+../..                                    |    +2784 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2650, added 0
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2652, added 761
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2652, added 1765
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2652, added 2386
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2676, added 2681
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2721, added 2727
+../..                                    | Progress: resolved 2923, reused 0, downloaded 2778, added 2784, done
+ WARN  Failed to create bin at /tmp/twcr-19d3f7cf8d43/node_modules/.pnpm/node_modules/.bin/allo-indexer-client. ENOENT: no such file or directory, open '/tmp/twcr-19d3f7cf8d43/node_modules/.pnpm/node_modules/allo-indexer-client/dist/cli/index.js'
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/bufferutil install$ node-gyp-build
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../node_modules/utf-8-validate install: Done
+.../node_modules/bufferutil install: Done
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../core-js@3.32.2/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.32.2/node_modules/core-js postinstall: Done
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../core-js@2.6.12/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+ WARN  Failed to create bin at /tmp/twcr-19d3f7cf8d43/node_modules/.pnpm/github.com+gitcoinco+allo-indexer-client@2f8dcdf1f1611e0efd0f48aa8aa426b78d9e8508/node_modules/allo-indexer-client/node_modules/.bin/allo-indexer-client. ENOENT: no such file or directory, open '/tmp/twcr-19d3f7cf8d43/node_modules/.pnpm/github.com+gitcoinco+allo-indexer-client@2f8dcdf1f1611e0efd0f48aa8aa426b78d9e8508/node_modules/allo-indexer-client/dist/cli/index.js'
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../node_modules/allo-indexer-client postinstall$ npm run build
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../core-js@2.6.12/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@2.6.12/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://www.patreon.com/zloirock 
+.../core-js@2.6.12/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@2.6.12/node_modules/core-js postinstall: Done
+.../node_modules/secp256k1 install$ node-gyp-build || exit 0
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/secp256k1 install: Done
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-19d3f7cf8d43/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/bigint-buffer install: Done
+.../node_modules/allo-indexer-client postinstall: > allo-indexer-client@0.1.0 build
+.../node_modules/allo-indexer-client postinstall: > tsc
+.../node_modules/@nestjs/core postinstall: (node:327) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.77.3/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_82a67e417374:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:334) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+.../node_modules/@sentry/cli install: Done
+.../node_modules/allo-indexer-client postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../lefthook@1.6.4/node_modules/lefthook postinstall$ node postinstall.js
+.../@openapitools/openapi-generator-cli postinstall$ opencollective || exit 0
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../lefthook@1.6.4/node_modules/lefthook postinstall: sync hooks: ✔️ (pre-push, pre-commit)
+.../lefthook@1.6.4/node_modules/lefthook postinstall: Done
+.../@openapitools/openapi-generator-cli postinstall: (node:394) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../@openapitools/openapi-generator-cli postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../@openapitools/openapi-generator-cli postinstall:                      Thanks for installing openapi_generator 
+.../@openapitools/openapi-generator-cli postinstall:                  Please consider donating to our open collective
+.../@openapitools/openapi-generator-cli postinstall:                         to help us maintain this package.
+.../@openapitools/openapi-generator-cli postinstall:                                          
+.../@openapitools/openapi-generator-cli postinstall:                                          
+.../@openapitools/openapi-generator-cli postinstall:   Please sponsor OpenAPI Generator. https://opencollective.com/openapi_generator/donate
+.../@openapitools/openapi-generator-cli postinstall:                                          
+.../@openapitools/openapi-generator-cli postinstall: Done
+.../cypress@12.17.3/node_modules/cypress postinstall$ node index.js --exec install
+.../cypress@12.17.3/node_modules/cypress postinstall: (node:462) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@12.17.3/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@12.17.3/node_modules/cypress postinstall: Installing Cypress (version: 12.17.3)
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      2% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      4% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      12% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      15% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      17% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      20% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      21% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      25% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      29% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      30% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      32% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      34% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      36% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      40% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      41% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      44% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      45% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      47% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      49% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      51% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      52% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      53% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      54% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      57% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      60% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      61% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      63% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      64% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      65% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      67% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      68% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      70% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      72% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      75% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      76% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      77% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      79% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      83% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      86% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      89% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      92% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      95% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      97% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      99% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 26s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 27s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 28s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 29s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 30s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 31s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 15s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 16s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 17s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 18s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 19s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 12s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 13s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 14s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 11s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 12s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 11s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/12.17.3
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/12.17.3
+.../cypress@12.17.3/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@12.17.3/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@12.17.3/node_modules/cypress postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+../data-layer prepare$ tsc
+../verify-env preinstall$ pkgroll
+../verify-env preinstall: Done
+../data-layer prepare: Done
+../common prepare$ tsc
+../common prepare: Done
+../round-manager postinstall$ pnpm typechain
+../round-manager postinstall: > round-manager@0.1.0 typechain /tmp/twcr-19d3f7cf8d43/packages/round-manager
+../round-manager postinstall: > typechain --target=ethers-v5 ./src/features/**/*.json --out-dir ./src/types/generated/typechain/
+../round-manager postinstall: Successfully generated 13 typings!
+../round-manager postinstall: Done
+
+dependencies:
++ @tailwindcss/forms 0.5.7
++ @tailwindcss/line-clamp 0.4.4
++ @tailwindcss/typography 0.5.10
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/builder
+├─┬ msw 0.47.4
+│ └── ✕ unmet peer typescript@">= 4.2.x <= 4.8.x": found 5.3.3
+├─┬ react-scripts 5.0.1
+│ └── ✕ unmet peer typescript@"^3.2.1 || ^4": found 5.3.3
+├─┬ ts-jest 27.1.5
+│ └── ✕ unmet peer typescript@">=3.8 <5.0": found 5.3.3
+├─┬ @rsbuild/plugin-react 0.3.11
+│ └── ✕ unmet peer @rsbuild/core@^0.3.11: found 0.4.9
+└─┬ @rsbuild/plugin-svgr 0.3.11
+  └── ✕ unmet peer @rsbuild/core@^0.3.11: found 0.4.9
+
+packages/common
+├─┬ @allo-team/allo-v2-sdk 1.0.53
+│ └─┬ @typechain/hardhat 9.1.0
+│   └── ✕ unmet peer ethers@^6.1.0: found 5.7.2
+└─┬ @typechain/ethers-v6 0.5.1
+  └── ✕ unmet peer ethers@6.x: found 5.7.2
+
+packages/round-manager
+├─┬ @rsbuild/plugin-react 0.3.11
+│ └── ✕ unmet peer @rsbuild/core@^0.3.11: found 0.4.9
+├─┬ @rsbuild/plugin-svgr 0.3.11
+│ └── ✕ unmet peer @rsbuild/core@^0.3.11: found 0.4.9
+├─┬ @rainbow-me/rainbowkit 0.12.18
+│ └── ✕ unmet peer wagmi@">=0.12.19 <1.0.0": found 0.12.18
+└─┬ react-scripts 5.0.1
+  └── ✕ unmet peer typescript@"^3.2.1 || ^4": found 5.3.3
+
+Done in 2m 50.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/line-clamp"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T18:51:14Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T18:51:14Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T18:51:14Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T18:51:14Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

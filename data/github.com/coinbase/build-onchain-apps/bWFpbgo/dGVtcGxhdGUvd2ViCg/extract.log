@@ -1,0 +1,205 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/coinbase/build-onchain-apps
++ reporef=main
++ repopath=./template/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/coinbase/build-onchain-apps
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1addb773940e
+++ echo 'github.com/coinbase/build-onchain-apps;main;./template/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/5a08325c4a42
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/coinbase/build-onchain-apps/bWFpbgo/Li90ZW1wbGF0ZS93ZWIK
++ jq -nc --arg key analysis_key --arg value github.com/coinbase/build-onchain-apps/bWFpbgo/Li90ZW1wbGF0ZS93ZWIK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d92d075c97c82bb0
++ jq -nc --arg key analysis_nonce --arg value d92d075c97c82bb0 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/coinbase/build-onchain-apps
++ jq -nc --arg key input_repo_name --arg value github.com/coinbase/build-onchain-apps '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./template/web
++ jq -nc --arg key input_repo_path --arg value ./template/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T04:56:04Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T04:56:04Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1addb773940e
+/tmp/twcr-1addb773940e /twcr
++ pushd /tmp/twcr-1addb773940e
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/coinbase/build-onchain-apps.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T04:56:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T04:56:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c8589a4cebb3b3a3a6e64a7db3373cf0c79b13a6
++ jq -nc --arg key exec_repo_commit_sha --arg value c8589a4cebb3b3a3a6e64a7db3373cf0c79b13a6 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 13:24:53 -0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T20:24:53Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T20:24:53Z '{ key: $key, value: $value }'
++ '[' -z ./template/web ']'
++ pushd ./template/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-1addb773940e/template/web /tmp/twcr-1addb773940e /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1addb773940e/template/web
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T04:56:07Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T04:56:07Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@build-onchain-apps/docs",
+>>>   "version": "0.0.1",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.0"
+>>>   },
+>>>   "packageManager": "yarn@4.1.0"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./template/web '!=' ./ ']'
++ rm -f /tmp/twcr-1addb773940e/package.json /tmp/twcr-1addb773940e/package-lock.json /tmp/twcr-1addb773940e/pnpm-lock.yaml /tmp/twcr-1addb773940e/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-1addb773940e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-1addb773940e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_61a2ab15fe1c:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_61a2ab15fe1c:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_61a2ab15fe1c:ok@172.18.0.2:3128'
++ '[' -z http://tid_61a2ab15fe1c:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_61a2ab15fe1c:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_61a2ab15fe1c:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.1.0
+➤ YN0000: ┌ Resolution step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0085: │ + tailwindcss@npm:3.4.1, @alloc/quick-lru@npm:5.2.0, @isaacs/cliui@npm:8.0.2, @jridgewell/gen-mapping@npm:0.3.5, @jridgewell/resolve-uri@npm:3.1.2, and 160 more.
+➤ YN0000: └ Completed in 2s 986ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ 164 packages were added to the project (+ 18.61 MiB).
+➤ YN0000: └ Completed in 2s 594ms
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed in 0s 676ms
+➤ YN0000: · Done with warnings in 6s 294ms
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T04:56:15Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T04:56:15Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing .yarn/install-state.gz
+Removing node_modules/
++ git reset --hard
+HEAD is now at c8589a4 chore: add copy for envars (#457)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-1addb773940e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-1addb773940e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_61a2ab15fe1c:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_61a2ab15fe1c:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_61a2ab15fe1c:ok@172.18.0.2:3128'
++ '[' -z http://tid_61a2ab15fe1c:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_61a2ab15fe1c:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_61a2ab15fe1c:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.1.0
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed in 0s 260ms
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @babel/core (p0ec1c), requested by @babel/preset-react.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @babel/core (p9bfb6), requested by babel-jest.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @babel/core (pc3ce3), requested by @babel/preset-env.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @babel/core (pdd0cc), requested by @babel/preset-typescript.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @testing-library/dom (pb00d1), requested by @testing-library/user-event.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide @xmtp/frames-validator (p8e2e7), requested by @coinbase/onchainkit.
+➤ YN0002: │ @build-onchain-apps/docs@workspace:. doesn't provide webpack (pfc7f8), requested by workbox-webpack-plugin.
+➤ YN0086: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0013: │ 1479 packages were added to the project (+ 663.32 MiB).
+➤ YN0000: └ Completed in 57s 882ms
+➤ YN0000: ┌ Link step
+➤ YN0007: │ keccak@npm:3.0.4 must be built because it never has been before or the last one failed
+➤ YN0007: │ ref-napi@npm:3.0.3 must be built because it never has been before or the last one failed
+➤ YN0007: │ protobufjs@npm:7.2.6 must be built because it never has been before or the last one failed
+➤ YN0007: │ utf-8-validate@npm:6.0.3 must be built because it never has been before or the last one failed
+➤ YN0007: │ bufferutil@npm:4.0.8 must be built because it never has been before or the last one failed
+➤ YN0007: │ secp256k1@npm:5.0.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ es5-ext@npm:0.10.62 must be built because it never has been before or the last one failed
+➤ YN0007: │ utf-8-validate@npm:5.0.10 must be built because it never has been before or the last one failed
+➤ YN0007: │ ffi-napi@npm:4.0.3 must be built because it never has been before or the last one failed
+➤ YN0009: │ ffi-napi@npm:4.0.3 couldn't be built successfully (exit code 1, logs can be found here: /tmp/xfs-4eefdfac/build.log)
+➤ YN0000: └ Completed in 41s 903ms
+➤ YN0000: · Failed with errors in 1m 41s
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

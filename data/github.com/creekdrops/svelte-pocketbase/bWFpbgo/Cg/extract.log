@@ -1,0 +1,183 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/creekdrops/svelte-pocketbase
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/creekdrops/svelte-pocketbase
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-fb9a242f157b
+++ echo 'github.com/creekdrops/svelte-pocketbase;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2d8d817afdbc
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/creekdrops/svelte-pocketbase/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/creekdrops/svelte-pocketbase/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 0fd7cc184b43022c
++ jq -nc --arg key analysis_nonce --arg value 0fd7cc184b43022c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/creekdrops/svelte-pocketbase
++ jq -nc --arg key input_repo_name --arg value github.com/creekdrops/svelte-pocketbase '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:27:53Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:27:53Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-fb9a242f157b
++ pushd /tmp/twcr-fb9a242f157b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/creekdrops/svelte-pocketbase.git .
+/tmp/twcr-fb9a242f157b /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:27:53Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:27:53Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3f309a960d17609f059e32fcb2b1ebb6874692e1
++ jq -nc --arg key exec_repo_commit_sha --arg value 3f309a960d17609f059e32fcb2b1ebb6874692e1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-01-08 12:26:24 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-01-08T18:26:24Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-01-08T18:26:24Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-fb9a242f157b /tmp/twcr-fb9a242f157b /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-fb9a242f157b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:27:53Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:27:53Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "svelte-pocketbase",
+>>>   "version": "0.0.4",
+>>>   "author": "CREEK",
+>>>   "license": "MIT",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/creekdrops/svelte-pocketbase"
+>>>   },
+>>>   "devDependencies": {
+>>>     "daisyui": "^2.46.1",
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "type": "module",
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-fb9a242f157b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-fb9a242f157b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-fb9a242f157b/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-fb9a242f157b/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 28, reused 0, downloaded 18, added 0
+Progress: resolved 61, reused 0, downloaded 49, added 0
+Progress: resolved 92, reused 0, downloaded 83, added 0
+Progress: resolved 118, reused 0, downloaded 114, added 0
+Packages: +121
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 122, reused 0, downloaded 121, added 121, done
+
+devDependencies:
++ daisyui 2.52.0 (4.7.2 is available)
++ tailwindcss 3.4.1
+
+Done in 5.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T03:28:01Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T03:28:01Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T03:28:01Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T03:28:01Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

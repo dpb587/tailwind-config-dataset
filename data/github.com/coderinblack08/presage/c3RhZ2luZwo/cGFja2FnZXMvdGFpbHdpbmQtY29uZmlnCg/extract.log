@@ -1,0 +1,138 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/coderinblack08/presage
++ reporef=staging
++ repopath=./packages/tailwind-config
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/coderinblack08/presage
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-9354d81463b1
+++ echo 'github.com/coderinblack08/presage;staging;./packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c2f44dc14bc4
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/coderinblack08/presage/c3RhZ2luZwo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK
++ jq -nc --arg key analysis_key --arg value github.com/coderinblack08/presage/c3RhZ2luZwo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 44df5ca9e7bdc4c7
++ jq -nc --arg key analysis_nonce --arg value 44df5ca9e7bdc4c7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/coderinblack08/presage
++ jq -nc --arg key input_repo_name --arg value github.com/coderinblack08/presage '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref staging
++ jq -nc --arg key input_repo_ref --arg value staging '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:17:08Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:17:08Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-9354d81463b1
+/tmp/twcr-9354d81463b1 /twcr
++ pushd /tmp/twcr-9354d81463b1
++ '[' -d .git ']'
++ git clone --depth=1 -b staging https://github.com/coderinblack08/presage.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:17:10Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:17:10Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a3f6d7fcd58b9707708b1e483a659b0fad89b4a0
++ jq -nc --arg key exec_repo_commit_sha --arg value a3f6d7fcd58b9707708b1e483a659b0fad89b4a0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-08-03 00:32:42 -0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-08-03T07:32:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-08-03T07:32:42Z '{ key: $key, value: $value }'
++ '[' -z ./packages/tailwind-config ']'
++ pushd ./packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-9354d81463b1/packages/tailwind-config /tmp/twcr-9354d81463b1 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9354d81463b1/packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9354d81463b1
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:17:10Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:17:10Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:17:10Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:17:10Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at a3f6d7f feat: reactions
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-9354d81463b1 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-9354d81463b1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_8ae35a9f1d69:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_8ae35a9f1d69:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_8ae35a9f1d69:ok@172.18.0.2:3128".
+Done in 0.07s.
++ '[' -z http://tid_8ae35a9f1d69:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_8ae35a9f1d69:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_8ae35a9f1d69:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error next-auth@4.10.2: The engine "node" is incompatible with this module. Expected version "^12.19.0 || ^14.15.0 || ^16.13.0". Got "21.6.2"
+error Found incompatible module.
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

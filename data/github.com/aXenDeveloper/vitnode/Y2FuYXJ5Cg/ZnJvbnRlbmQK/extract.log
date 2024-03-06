@@ -1,0 +1,253 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/aXenDeveloper/vitnode
++ reporef=canary
++ repopath=./frontend
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/aXenDeveloper/vitnode
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c57d0e1bb8eb
+++ echo 'github.com/aXenDeveloper/vitnode;canary;./frontend'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/8b66075aabf0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/aXenDeveloper/vitnode/Y2FuYXJ5Cg/Li9mcm9udGVuZAo
++ jq -nc --arg key analysis_key --arg value github.com/aXenDeveloper/vitnode/Y2FuYXJ5Cg/Li9mcm9udGVuZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 027a08da4984041f
++ jq -nc --arg key analysis_nonce --arg value 027a08da4984041f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/aXenDeveloper/vitnode
++ jq -nc --arg key input_repo_name --arg value github.com/aXenDeveloper/vitnode '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref canary
++ jq -nc --arg key input_repo_ref --arg value canary '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./frontend
++ jq -nc --arg key input_repo_path --arg value ./frontend '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:40:44Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:40:44Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c57d0e1bb8eb
++ pushd /tmp/twcr-c57d0e1bb8eb
++ '[' -d .git ']'
++ git clone --depth=1 -b canary https://github.com/aXenDeveloper/vitnode.git .
+/tmp/twcr-c57d0e1bb8eb /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:40:46Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:40:46Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b7de4089b618277d1498d30f03de41b1c0d58a5a
++ jq -nc --arg key exec_repo_commit_sha --arg value b7de4089b618277d1498d30f03de41b1c0d58a5a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 22:22:25 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T21:22:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T21:22:25Z '{ key: $key, value: $value }'
+/tmp/twcr-c57d0e1bb8eb/frontend /tmp/twcr-c57d0e1bb8eb /twcr
++ '[' -z ./frontend ']'
++ pushd ./frontend
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c57d0e1bb8eb/frontend
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./frontend '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c57d0e1bb8eb
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:40:46Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:40:46Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "vitnode_frontend",
+>>>   "version": "0.0.2",
+>>>   "version_code": "10001",
+>>>   "description": "",
+>>>   "author": "Maciej Piotr (aXenDev) Balcerzak",
+>>>   "license": "GPL-3.0 license",
+>>>   "dependencies": {
+>>>     "tailwindcss-animate": "^1.0.7"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./frontend '!=' ./ ']'
++ rm -f /tmp/twcr-c57d0e1bb8eb/package.json /tmp/twcr-c57d0e1bb8eb/package-lock.json /tmp/twcr-c57d0e1bb8eb/pnpm-lock.yaml /tmp/twcr-c57d0e1bb8eb/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-c57d0e1bb8eb /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-c57d0e1bb8eb
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-c57d0e1bb8eb/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 28, reused 0, downloaded 17, added 0
+..                                       | Progress: resolved 49, reused 0, downloaded 42, added 0
+..                                       | Progress: resolved 65, reused 0, downloaded 62, added 0
+..                                       | Progress: resolved 91, reused 0, downloaded 84, added 0
+..                                       | Progress: resolved 125, reused 0, downloaded 113, added 0
+..                                       | Progress: resolved 154, reused 0, downloaded 140, added 0
+..                                       | Progress: resolved 183, reused 0, downloaded 161, added 0
+..                                       | Progress: resolved 205, reused 0, downloaded 182, added 0
+..                                       | Progress: resolved 240, reused 0, downloaded 212, added 0
+..                                       | Progress: resolved 275, reused 0, downloaded 246, added 0
+..                                       | Progress: resolved 303, reused 0, downloaded 273, added 0
+..                                       | Progress: resolved 335, reused 0, downloaded 305, added 0
+..                                       | Progress: resolved 373, reused 0, downloaded 338, added 0
+..                                       | Progress: resolved 406, reused 0, downloaded 371, added 0
+..                                       | Progress: resolved 437, reused 0, downloaded 398, added 0
+..                                       | Progress: resolved 475, reused 0, downloaded 431, added 0
+..                                       | Progress: resolved 509, reused 0, downloaded 463, added 0
+..                                       | Progress: resolved 551, reused 0, downloaded 484, added 0
+..                                       | Progress: resolved 580, reused 0, downloaded 512, added 0
+..                                       | Progress: resolved 621, reused 0, downloaded 544, added 0
+..                                       | Progress: resolved 651, reused 0, downloaded 576, added 0
+..                                       | Progress: resolved 690, reused 0, downloaded 615, added 0
+..                                       | Progress: resolved 725, reused 0, downloaded 646, added 0
+..                                       | Progress: resolved 753, reused 0, downloaded 676, added 0
+..                                       | Progress: resolved 788, reused 0, downloaded 708, added 0
+..                                       | Progress: resolved 822, reused 0, downloaded 741, added 0
+..                                       | Progress: resolved 854, reused 0, downloaded 765, added 0
+..                                       | Progress: resolved 890, reused 0, downloaded 801, added 0
+..                                       | Progress: resolved 924, reused 0, downloaded 832, added 0
+..                                       | Progress: resolved 984, reused 0, downloaded 866, added 0
+..                                       | Progress: resolved 1020, reused 0, downloaded 905, added 0
+..                                       | Progress: resolved 1053, reused 0, downloaded 934, added 0
+..                                       | Progress: resolved 1097, reused 0, downloaded 973, added 0
+..                                       | Progress: resolved 1124, reused 0, downloaded 1021, added 0
+ WARN  2 deprecated subdependencies found: @apollo/server-plugin-landing-page-graphql-playground@4.0.0, subscriptions-transport-ws@0.11.0
+..                                       | Progress: resolved 1125, reused 0, downloaded 1057, added 0
+..                                       |    +1074 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1125, reused 0, downloaded 1073, added 1074, done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/@nestjs/core postinstall: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:146) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-c57d0e1bb8eb/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_d0710cc7b909:ok@172.18.0.2:3128"
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-c57d0e1bb8eb/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/nice-napi install$ node-gyp-build
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/nice-napi install: Done
+
+dependencies:
++ tailwindcss-animate 1.0.7
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 48.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T07:41:35Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T07:41:35Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T07:41:35Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T07:41:35Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

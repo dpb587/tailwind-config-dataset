@@ -1,0 +1,301 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/neo-hack/webext-template
++ reporef=v3
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/neo-hack/webext-template
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-02608008c117
+++ echo 'github.com/neo-hack/webext-template;v3;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/cbd5705d0915
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/neo-hack/webext-template/djMK/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/neo-hack/webext-template/djMK/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 60e16131979c5062
++ jq -nc --arg key analysis_nonce --arg value 60e16131979c5062 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/neo-hack/webext-template
++ jq -nc --arg key input_repo_name --arg value github.com/neo-hack/webext-template '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref v3
++ jq -nc --arg key input_repo_ref --arg value v3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T08:51:07Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T08:51:07Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-02608008c117
++ pushd /tmp/twcr-02608008c117
++ '[' -d .git ']'
++ git clone --depth=1 -b v3 https://github.com/neo-hack/webext-template.git .
+/tmp/twcr-02608008c117 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T08:51:08Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T08:51:08Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ff9bec69223e6e274cef4981e128025520fede68
++ jq -nc --arg key exec_repo_commit_sha --arg value ff9bec69223e6e274cef4981e128025520fede68 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-14 20:27:23 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-14T12:27:23Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-14T12:27:23Z '{ key: $key, value: $value }'
+/tmp/twcr-02608008c117 /tmp/twcr-02608008c117 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-02608008c117
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T08:51:08Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T08:51:08Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwind-cssgg)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T08:51:08Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T08:51:08Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at ff9bec6 chore: update versions (#18)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-02608008c117 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-02608008c117
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-02608008c117/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-02608008c117/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 34, reused 0, downloaded 34, added 0
+Progress: resolved 48, reused 0, downloaded 47, added 0
+Progress: resolved 100, reused 0, downloaded 99, added 0
+Progress: resolved 163, reused 0, downloaded 162, added 0
+Progress: resolved 220, reused 0, downloaded 219, added 0
+Progress: resolved 277, reused 0, downloaded 276, added 0
+Progress: resolved 340, reused 0, downloaded 338, added 0
+Progress: resolved 398, reused 0, downloaded 375, added 0
+Progress: resolved 453, reused 0, downloaded 431, added 0
+Progress: resolved 521, reused 0, downloaded 499, added 0
+Progress: resolved 570, reused 0, downloaded 548, added 0
+Progress: resolved 623, reused 0, downloaded 601, added 0
+Progress: resolved 678, reused 0, downloaded 656, added 0
+Progress: resolved 740, reused 0, downloaded 717, added 0
+Progress: resolved 807, reused 0, downloaded 761, added 0
+Progress: resolved 863, reused 0, downloaded 820, added 0
+Progress: resolved 928, reused 0, downloaded 885, added 0
+Progress: resolved 989, reused 0, downloaded 946, added 0
+Progress: resolved 1057, reused 0, downloaded 1014, added 0
+Progress: resolved 1079, reused 0, downloaded 1034, added 0
+Progress: resolved 1110, reused 0, downloaded 1054, added 0
+Progress: resolved 1141, reused 0, downloaded 1087, added 0
+Progress: resolved 1166, reused 0, downloaded 1113, added 0
+ WARN  5 deprecated subdependencies found: event-to-promise@0.8.0, har-validator@5.1.5, request@2.88.2, smartwrap@1.2.5, uuid@3.4.0
+Progress: resolved 1185, reused 0, downloaded 1136, added 0
+Packages: +1144
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1185, reused 0, downloaded 1142, added 1144, done
+.../node_modules/dtrace-provider install$ node-gyp rebuild || node suppress-error.js
+.../node_modules/spawn-sync postinstall$ node postinstall
+.../esbuild@0.12.24/node_modules/esbuild postinstall$ node install.js
+.../core-js@3.16.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/spawn-sync postinstall: Done
+.../core-js@3.16.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.16.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js:
+.../core-js@3.16.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.16.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.16.0/node_modules/core-js postinstall: > https://paypal.me/zloirock 
+.../core-js@3.16.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.16.0/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@3.16.0/node_modules/core-js postinstall: Done
+.../node_modules/dtrace-provider install: gyp info it worked if it ends with ok
+.../node_modules/dtrace-provider install: gyp info using node-gyp@9.4.1
+.../node_modules/dtrace-provider install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/dtrace-provider install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../esbuild@0.12.24/node_modules/esbuild postinstall: Done
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp info spawn /usr/bin/python3
+.../node_modules/dtrace-provider install: gyp info spawn args [
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/dtrace-provider install: gyp info spawn args   'binding.gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-f',
+.../node_modules/dtrace-provider install: gyp info spawn args   'make',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/tmp/twcr-02608008c117/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build/config.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-02608008c117/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--depth=.',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--no-parallel',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--generator-output',
+.../node_modules/dtrace-provider install: gyp info spawn args   'build',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/dtrace-provider install: gyp info spawn args ]
+.../node_modules/dtrace-provider install: gyp info spawn make
+.../node_modules/dtrace-provider install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/dtrace-provider install: make: Entering directory '/tmp/twcr-02608008c117/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install:   TOUCH Release/obj.target/DTraceProviderStub.stamp
+.../node_modules/dtrace-provider install: make: Leaving directory '/tmp/twcr-02608008c117/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install: gyp info ok 
+.../node_modules/dtrace-provider install: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.11/node_modules/esbuild postinstall: Done
+
+> @aiou/webext-template@0.2.3 prepare /tmp/twcr-02608008c117
+> husky install
+
+husky - Git hooks installed
+
+dependencies:
++ document-ready 2.0.2
++ react 18.2.0
++ react-dom 18.2.0
+
+devDependencies:
++ @aiou/eslint-config 0.7.8
++ @changesets/cli 2.17.0
++ @ffflorian/jszip-cli 3.1.5
++ @rollup/plugin-replace 5.0.2
++ @types/document-ready 2.0.0
++ @types/fs-extra 9.0.12
++ @types/node 16.7.13
++ @types/react 18.0.28
++ @types/react-dom 18.0.11
++ @types/webextension-polyfill 0.10.0
++ @vitejs/plugin-react 2.2.0
++ autoprefixer 10.4.14
++ chokidar 3.5.2
++ cross-env 7.0.3
++ crx 5.0.1
++ cz-emoji 1.3.1
++ eslint 8.36.0
++ esno 0.9.1
++ fs-extra 10.0.0
++ husky 7.0.2
++ kolorist 1.5.0
++ lint-staged 11.1.2
++ npm-run-all 4.1.5
++ rimraf 3.0.2
++ tailwindcss 3.2.7
++ terser 5.16.6
++ tsup 6.6.3
++ typescript 4.4.2
++ unplugin-auto-import 0.4.5
++ vite 3.2.5
++ web-ext 6.3.0
++ webext-bridge 4.1.1
++ webextension-polyfill 0.8.0
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ unplugin-auto-import 0.4.5
+  └─┬ unplugin 0.2.7
+    └── ✕ unmet peer vite@^2.3.0: found 3.2.5
+
+Done in 31.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T08:51:42Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T08:51:42Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T08:51:42Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T08:51:42Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

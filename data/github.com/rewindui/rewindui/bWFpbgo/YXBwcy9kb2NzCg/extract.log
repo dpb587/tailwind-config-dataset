@@ -1,0 +1,231 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/rewindui/rewindui
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/rewindui/rewindui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4ecd0d1deb79
+++ echo 'github.com/rewindui/rewindui;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/758077784e84
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/rewindui/rewindui/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/rewindui/rewindui/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 83ece7cd930e7b45
++ jq -nc --arg key analysis_nonce --arg value 83ece7cd930e7b45 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/rewindui/rewindui
++ jq -nc --arg key input_repo_name --arg value github.com/rewindui/rewindui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T00:26:10Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T00:26:10Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4ecd0d1deb79
++ pushd /tmp/twcr-4ecd0d1deb79
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/rewindui/rewindui.git .
+/tmp/twcr-4ecd0d1deb79 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T00:26:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T00:26:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7d9675ff92f29d60ab35ff29909908d9ac8bb591
++ jq -nc --arg key exec_repo_commit_sha --arg value 7d9675ff92f29d60ab35ff29909908d9ac8bb591 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-16 11:56:25 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-16T09:56:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-16T09:56:25Z '{ key: $key, value: $value }'
+/tmp/twcr-4ecd0d1deb79/apps/docs /tmp/twcr-4ecd0d1deb79 /twcr
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4ecd0d1deb79/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4ecd0d1deb79
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T00:26:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T00:26:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@rewind-ui/docs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@tailwindcss/forms": "^0.5.5"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwind-scrollbar": "^2.1.0",
+>>>     "tailwindcss": "^3.3.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-4ecd0d1deb79/package.json /tmp/twcr-4ecd0d1deb79/package-lock.json /tmp/twcr-4ecd0d1deb79/pnpm-lock.yaml /tmp/twcr-4ecd0d1deb79/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4ecd0d1deb79 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4ecd0d1deb79
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4ecd0d1deb79/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 15, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 27, reused 0, downloaded 22, added 0
+../..                                    | Progress: resolved 41, reused 0, downloaded 35, added 0
+../..                                    | Progress: resolved 58, reused 0, downloaded 49, added 0
+../..                                    | Progress: resolved 89, reused 0, downloaded 78, added 0
+../..                                    | Progress: resolved 124, reused 0, downloaded 108, added 0
+../..                                    | Progress: resolved 151, reused 0, downloaded 129, added 0
+../..                                    | Progress: resolved 170, reused 0, downloaded 151, added 0
+../..                                    | Progress: resolved 184, reused 0, downloaded 162, added 0
+../..                                    | Progress: resolved 203, reused 0, downloaded 181, added 0
+../..                                    | Progress: resolved 226, reused 0, downloaded 201, added 0
+../..                                    | Progress: resolved 266, reused 0, downloaded 237, added 0
+../..                                    | Progress: resolved 302, reused 0, downloaded 272, added 0
+../..                                    | Progress: resolved 341, reused 0, downloaded 305, added 0
+../..                                    | Progress: resolved 379, reused 0, downloaded 340, added 0
+../..                                    | Progress: resolved 411, reused 0, downloaded 379, added 0
+../..                                    | Progress: resolved 449, reused 0, downloaded 391, added 0
+../..                                    | Progress: resolved 477, reused 0, downloaded 417, added 0
+../..                                    | Progress: resolved 512, reused 0, downloaded 446, added 0
+../..                                    | Progress: resolved 550, reused 0, downloaded 485, added 0
+../..                                    | Progress: resolved 578, reused 0, downloaded 510, added 0
+../..                                    | Progress: resolved 616, reused 0, downloaded 547, added 0
+../..                                    | Progress: resolved 654, reused 0, downloaded 583, added 0
+../..                                    | Progress: resolved 691, reused 0, downloaded 619, added 0
+../..                                    | Progress: resolved 730, reused 0, downloaded 652, added 0
+../..                                    | Progress: resolved 764, reused 0, downloaded 684, added 0
+../..                                    | Progress: resolved 793, reused 0, downloaded 715, added 0
+../..                                    | Progress: resolved 836, reused 0, downloaded 756, added 0
+../..                                    | Progress: resolved 874, reused 0, downloaded 790, added 0
+../..                                    | Progress: resolved 911, reused 0, downloaded 823, added 0
+../..                                    | Progress: resolved 947, reused 0, downloaded 858, added 0
+../..                                    | Progress: resolved 987, reused 0, downloaded 895, added 0
+../..                                    | Progress: resolved 1025, reused 0, downloaded 932, added 0
+../..                                    | Progress: resolved 1067, reused 0, downloaded 969, added 0
+../..                                    | Progress: resolved 1106, reused 0, downloaded 1009, added 0
+../..                                    | Progress: resolved 1148, reused 0, downloaded 1046, added 0
+../..                                    | Progress: resolved 1190, reused 0, downloaded 1084, added 0
+../..                                    | Progress: resolved 1234, reused 0, downloaded 1124, added 0
+../..                                    | Progress: resolved 1273, reused 0, downloaded 1166, added 0
+ WARN  2 deprecated subdependencies found: abab@2.0.6, domexception@4.0.0
+../..                                    | Progress: resolved 1275, reused 0, downloaded 1213, added 0
+
+ WARN  Issues with peer dependencies found
+apps/dashboard
+└─┬ class-variance-authority 0.4.0
+  └── ✕ unmet peer typescript@">= 4.5.5 < 5": found 5.2.2
+
+apps/dashboard-vite
+└─┬ class-variance-authority 0.4.0
+  └── ✕ unmet peer typescript@">= 4.5.5 < 5": found 5.2.2
+
+packages/core
+└─┬ vite-tsconfig-paths 4.3.1
+  └─┬ tsconfck 3.0.2
+    └── ✕ unmet peer typescript@^5.0.0: found 4.9.5
+
+../..                                    |    +1340 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1275, reused 0, downloaded 1246, added 611
+../..                                    | Progress: resolved 1275, reused 0, downloaded 1246, added 1340, done
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+Done in 43.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T00:26:56Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T00:26:56Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T00:26:56Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T00:26:56Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

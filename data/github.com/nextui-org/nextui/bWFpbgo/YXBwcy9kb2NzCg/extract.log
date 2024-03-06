@@ -1,0 +1,548 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/nextui-org/nextui
++ reporef=main
++ repopath=./apps/docs
+++ echo github.com/nextui-org/nextui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2f6f8b493e8a
+++ echo 'github.com/nextui-org/nextui;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/6b1f63b81eb4
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/nextui-org/nextui/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/nextui-org/nextui/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 294ce7b588f6381f
++ jq -nc --arg key analysis_nonce --arg value 294ce7b588f6381f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/nextui-org/nextui
++ jq -nc --arg key input_repo_name --arg value github.com/nextui-org/nextui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T22:39:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T22:39:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2f6f8b493e8a
++ pushd /tmp/twcr-2f6f8b493e8a
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/nextui-org/nextui.git .
+/tmp/twcr-2f6f8b493e8a /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T22:39:37Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T22:39:37Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fa27bccb37060cbf6a13a89f9e7b02f713c3cd43
++ jq -nc --arg key exec_repo_commit_sha --arg value fa27bccb37060cbf6a13a89f9e7b02f713c3cd43 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 18:46:05 -0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T21:46:05Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T21:46:05Z '{ key: $key, value: $value }'
+/tmp/twcr-2f6f8b493e8a/apps/docs /tmp/twcr-2f6f8b493e8a /twcr
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-2f6f8b493e8a/pnpm-workspace.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T22:39:37Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T22:39:37Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@nextui-org/docs",
+>>>   "version": "2.0.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@nextui-org/theme": "workspace:*",
+>>>     "mini-svg-data-uri": "^1.4.3"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwindcss": "^3.2.7"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-2f6f8b493e8a /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-2f6f8b493e8a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-2f6f8b493e8a/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-2f6f8b493e8a/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 76 workspace projects
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 72, reused 0, downloaded 72, added 0
+../..                                    |  WARN  deprecated @babel/plugin-proposal-object-rest-spread@7.20.7
+../..                                    |  WARN  deprecated eslint-loader@4.0.2
+../..                                    | Progress: resolved 133, reused 0, downloaded 133, added 0
+../..                                    | Progress: resolved 183, reused 0, downloaded 183, added 0
+../..                                    | Progress: resolved 184, reused 0, downloaded 184, added 0
+../..                                    | Progress: resolved 236, reused 0, downloaded 234, added 0
+../..                                    | Progress: resolved 281, reused 0, downloaded 279, added 0
+../..                                    | Progress: resolved 340, reused 0, downloaded 338, added 0
+../..                                    | Progress: resolved 413, reused 0, downloaded 411, added 0
+../..                                    | Progress: resolved 459, reused 0, downloaded 457, added 0
+../..                                    | Progress: resolved 515, reused 0, downloaded 513, added 0
+../..                                    | Progress: resolved 569, reused 0, downloaded 567, added 0
+../..                                    | Progress: resolved 625, reused 0, downloaded 623, added 0
+../..                                    | Progress: resolved 672, reused 0, downloaded 670, added 0
+../..                                    | Progress: resolved 732, reused 0, downloaded 730, added 0
+../..                                    | Progress: resolved 789, reused 0, downloaded 788, added 0
+../..                                    | Progress: resolved 846, reused 0, downloaded 845, added 0
+../..                                    | Progress: resolved 902, reused 0, downloaded 901, added 0
+../..                                    | Progress: resolved 972, reused 0, downloaded 971, added 0
+../..                                    | Progress: resolved 1026, reused 0, downloaded 1003, added 0
+../..                                    | Progress: resolved 1065, reused 0, downloaded 1015, added 0
+../..                                    | Progress: resolved 1123, reused 0, downloaded 1074, added 0
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1128, added 0
+../..                                    | Progress: resolved 1234, reused 0, downloaded 1187, added 0
+../..                                    | Progress: resolved 1309, reused 0, downloaded 1260, added 0
+../..                                    | Progress: resolved 1363, reused 0, downloaded 1294, added 0
+../..                                    | Progress: resolved 1426, reused 0, downloaded 1357, added 0
+../..                                    | Progress: resolved 1488, reused 0, downloaded 1420, added 0
+../..                                    | Progress: resolved 1549, reused 0, downloaded 1481, added 0
+../..                                    | Progress: resolved 1607, reused 0, downloaded 1539, added 0
+../..                                    | Progress: resolved 1672, reused 0, downloaded 1603, added 0
+../..                                    | Progress: resolved 1729, reused 0, downloaded 1661, added 0
+../..                                    | Progress: resolved 1785, reused 0, downloaded 1717, added 0
+../..                                    | Progress: resolved 1847, reused 0, downloaded 1779, added 0
+../..                                    | Progress: resolved 1907, reused 0, downloaded 1837, added 0
+../..                                    | Progress: resolved 1961, reused 0, downloaded 1893, added 0
+../..                                    | Progress: resolved 2018, reused 0, downloaded 1950, added 0
+../..                                    | Progress: resolved 2079, reused 0, downloaded 2008, added 0
+../..                                    | Progress: resolved 2136, reused 0, downloaded 2059, added 0
+../..                                    | Progress: resolved 2179, reused 0, downloaded 2102, added 0
+../..                                    | Progress: resolved 2218, reused 0, downloaded 2143, added 0
+../..                                    | Progress: resolved 2269, reused 0, downloaded 2194, added 0
+../..                                    | Progress: resolved 2269, reused 0, downloaded 2195, added 0
+../..                                    | Progress: resolved 2269, reused 0, downloaded 2196, added 0
+../..                                    | Progress: resolved 2306, reused 0, downloaded 2211, added 0
+../..                                    |  WARN  deprecated babel-eslint@10.1.0
+ WARN  12 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-export-namespace-from@7.18.9, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @npmcli/move-file@2.0.1, messageformat@2.3.0, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, urix@0.1.0, w3c-hr-time@1.0.2
+../..                                    | Progress: resolved 2310, reused 0, downloaded 2216, added 0
+../..                                    |    +2218 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2310, reused 0, downloaded 2216, added 1052
+../..                                    | Progress: resolved 2310, reused 0, downloaded 2216, added 2218, done
+.../core-js@3.33.2/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.33.2/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.33.2/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.33.2/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.33.2/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.33.2/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.33.2/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.33.2/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.33.2/node_modules/core-js postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../.pnpm/turbo@1.6.3/node_modules/turbo postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../.pnpm/turbo@1.6.3/node_modules/turbo postinstall: Done
+.../node_modules/msgpackr-extract install: Done
+.../.pnpm/lmdb@2.8.5/node_modules/lmdb install$ node-gyp-build-optional-packages
+.../.pnpm/lmdb@2.8.5/node_modules/lmdb install: Done
+../.. postinstall$ husky install && pnpm --filter @nextui-org/theme build
+../.. postinstall: husky - Git hooks installed
+../.. postinstall: > @nextui-org/theme@2.1.17 build /tmp/twcr-2f6f8b493e8a/packages/core/theme
+../.. postinstall: > tsup src --dts
+../.. postinstall: CLI Building entry: src/colors.ts, src/default-layout.ts, src/index.ts, src/plugin.ts, src/types.ts, src/animations/index.ts, src/colors/blue.ts, src/colors/common.ts, src/colors/cyan.ts, src/colors/green.ts, src/colors/index.ts, src/colors/pink.ts, src/colors/purple.ts, src/colors/red.ts, src/colors/semantic.ts, src/colors/types.ts, src/colors/yellow.ts, src/colors/zinc.ts, src/components/accordion.ts, src/components/autocomplete.ts, src/components/avatar.ts, src/components/badge.ts, src/components/breadcrumbs.ts, src/components/button.ts, src/components/card.ts, src/components/checkbox.ts, src/components/chip.ts, src/components/circular-progress.ts, src/components/code.ts, src/components/divider.ts, src/components/drip.ts, src/components/dropdown.ts, src/components/image.ts, src/components/index.ts, src/components/input.ts, src/components/kbd.ts, src/components/link.ts, src/components/listbox.ts, src/components/menu.ts, src/components/modal.ts, src/components/navbar.ts, src/components/pagination.ts, src/components/popover.ts, src/components/progress.ts, src/components/radio.ts, src/components/scroll-shadow.ts, src/components/select.ts, src/components/skeleton.ts, src/components/slider.ts, src/components/snippet.ts, src/components/spacer.ts, src/components/spinner.ts, src/components/table.ts, src/components/tabs.ts, src/components/toggle.ts, src/components/user.ts, src/utilities/custom.ts, src/utilities/index.ts, src/utilities/scrollbar-hide.ts, src/utilities/transition.ts, src/utils/classes.ts, src/utils/index.ts, src/utils/object.ts, src/utils/theme.ts, src/utils/tv.ts, src/utils/types.ts, src/utils/variants.ts
+../.. postinstall: CLI Using tsconfig: tsconfig.json
+../.. postinstall: CLI tsup v6.4.0
+../.. postinstall: CLI Using tsup config: /tmp/twcr-2f6f8b493e8a/packages/core/theme/package.json
+../.. postinstall: CLI Target: es2019
+../.. postinstall: CLI Cleaning output folder
+../.. postinstall: CJS Build start
+../.. postinstall: ESM Build start
+../.. postinstall: ESM dist/chunk-T6HAGWX5.mjs               0 B
+../.. postinstall: ESM dist/chunk-YJLQTC7L.mjs               0 B
+../.. postinstall: ESM dist/chunk-CMYR6AOY.mjs               0 B
+../.. postinstall: ESM dist/chunk-K7LK7NCE.mjs               0 B
+../.. postinstall: ESM dist/chunk-WQEDQHKX.mjs               0 B
+../.. postinstall: ESM dist/chunk-M63AFAHO.mjs               0 B
+../.. postinstall: ESM dist/utils/types.mjs                  32.00 B
+../.. postinstall: ESM dist/utilities/index.mjs              173.00 B
+../.. postinstall: ESM dist/utils/tv.mjs                     95.00 B
+../.. postinstall: ESM dist/utils/variants.mjs               85.00 B
+../.. postinstall: ESM dist/utilities/custom.mjs             98.00 B
+../.. postinstall: ESM dist/utils/index.mjs                  577.00 B
+../.. postinstall: ESM dist/utilities/scrollbar-hide.mjs     114.00 B
+../.. postinstall: ESM dist/utils/object.mjs                 175.00 B
+../.. postinstall: ESM dist/utilities/transition.mjs         106.00 B
+../.. postinstall: ESM dist/utils/theme.mjs                  205.00 B
+../.. postinstall: ESM dist/utils/classes.mjs                439.00 B
+../.. postinstall: ESM dist/components/slider.mjs            263.00 B
+../.. postinstall: ESM dist/components/spacer.mjs            135.00 B
+../.. postinstall: ESM dist/components/spinner.mjs           137.00 B
+../.. postinstall: ESM dist/components/snippet.mjs           265.00 B
+../.. postinstall: ESM dist/components/table.mjs             261.00 B
+../.. postinstall: ESM dist/components/toggle.mjs            263.00 B
+../.. postinstall: ESM dist/components/user.mjs              259.00 B
+../.. postinstall: ESM dist/components/tabs.mjs              259.00 B
+../.. postinstall: ESM dist/components/pagination.mjs        271.00 B
+../.. postinstall: ESM dist/components/navbar.mjs            263.00 B
+../.. postinstall: ESM dist/components/progress.mjs          139.00 B
+../.. postinstall: ESM dist/components/radio.mjs             289.00 B
+../.. postinstall: ESM dist/components/scroll-shadow.mjs     147.00 B
+../.. postinstall: ESM dist/components/popover.mjs           265.00 B
+../.. postinstall: ESM dist/components/select.mjs            263.00 B
+../.. postinstall: ESM dist/components/index.mjs             2.87 KB
+../.. postinstall: ESM dist/components/image.mjs             133.00 B
+../.. postinstall: ESM dist/components/skeleton.mjs          139.00 B
+../.. postinstall: ESM dist/components/kbd.mjs               129.00 B
+../.. postinstall: ESM dist/components/input.mjs             261.00 B
+../.. postinstall: ESM dist/components/link.mjs              301.00 B
+../.. postinstall: ESM dist/components/menu.mjs              313.00 B
+../.. postinstall: ESM dist/components/circular-progress.mjs 155.00 B
+../.. postinstall: ESM dist/components/code.mjs              259.00 B
+../.. postinstall: ESM dist/components/card.mjs              259.00 B
+../.. postinstall: ESM dist/components/chip.mjs              259.00 B
+../.. postinstall: ESM dist/components/listbox.mjs           389.00 B
+../.. postinstall: ESM dist/components/modal.mjs             261.00 B
+../.. postinstall: ESM dist/components/checkbox.mjs          301.00 B
+../.. postinstall: ESM dist/components/divider.mjs           137.00 B
+../.. postinstall: ESM dist/colors/yellow.mjs                71.00 B
+../.. postinstall: ESM dist/components/drip.mjs              131.00 B
+../.. postinstall: ESM dist/components/dropdown.mjs          369.00 B
+../.. postinstall: ESM dist/components/accordion.mjs         303.00 B
+../.. postinstall: ESM dist/components/autocomplete.mjs      147.00 B
+../.. postinstall: ESM dist/colors/zinc.mjs                  67.00 B
+../.. postinstall: ESM dist/components/badge.mjs             261.00 B
+../.. postinstall: ESM dist/components/avatar.mjs            293.00 B
+../.. postinstall: ESM dist/components/button.mjs            293.00 B
+../.. postinstall: ESM dist/components/breadcrumbs.mjs       309.00 B
+../.. postinstall: ESM dist/colors/index.mjs                 539.00 B
+../.. postinstall: ESM dist/colors/cyan.mjs                  67.00 B
+../.. postinstall: ESM dist/colors/pink.mjs                  67.00 B
+../.. postinstall: ESM dist/colors/green.mjs                 69.00 B
+../.. postinstall: ESM dist/colors/purple.mjs                71.00 B
+../.. postinstall: ESM dist/colors/red.mjs                   65.00 B
+../.. postinstall: ESM dist/colors/types.mjs                 32.00 B
+../.. postinstall: ESM dist/default-layout.mjs               142.00 B
+../.. postinstall: ESM dist/colors/semantic.mjs              485.00 B
+../.. postinstall: ESM dist/index.mjs                        4.17 KB
+../.. postinstall: ESM dist/chunk-B55QBA5E.mjs               5.93 KB
+../.. postinstall: ESM dist/colors.mjs                       557.00 B
+../.. postinstall: ESM dist/chunk-Y5VJSYKV.mjs               8.58 KB
+../.. postinstall: ESM dist/chunk-EC4F6RJF.mjs               287.00 B
+../.. postinstall: ESM dist/chunk-ZWJMJMVY.mjs               4.75 KB
+../.. postinstall: ESM dist/chunk-NAY2XKLY.mjs               2.50 KB
+../.. postinstall: ESM dist/chunk-WODEC7EF.mjs               4.35 KB
+../.. postinstall: ESM dist/chunk-777XXWYS.mjs               8.67 KB
+../.. postinstall: ESM dist/chunk-FHNC7F3W.mjs               4.78 KB
+../.. postinstall: ESM dist/chunk-LENRVMCD.mjs               4.18 KB
+../.. postinstall: ESM dist/chunk-LQGOKGQV.mjs               2.55 KB
+../.. postinstall: ESM dist/chunk-SPRRISBY.mjs               9.13 KB
+../.. postinstall: ESM dist/chunk-PXVLYT7W.mjs               4.12 KB
+../.. postinstall: ESM dist/chunk-4JBYJQSP.mjs               1.33 KB
+../.. postinstall: ESM dist/chunk-2SNOAR5H.mjs               462.00 B
+../.. postinstall: ESM dist/chunk-5EJVI4V3.mjs               16.58 KB
+../.. postinstall: ESM dist/chunk-Q3TEEYQJ.mjs               2.30 KB
+../.. postinstall: ESM dist/chunk-U4EMZ2CQ.mjs               1.40 KB
+../.. postinstall: ESM dist/chunk-XY766PDD.mjs               498.00 B
+../.. postinstall: ESM dist/chunk-GOHT67J3.mjs               19.27 KB
+../.. postinstall: ESM dist/chunk-WBNF66V7.mjs               2.89 KB
+../.. postinstall: ESM dist/chunk-TDMF44G6.mjs               3.01 KB
+../.. postinstall: ESM dist/chunk-DXTDUHS5.mjs               12.48 KB
+../.. postinstall: ESM dist/chunk-QYW2VWAB.mjs               5.88 KB
+../.. postinstall: ESM dist/chunk-G2RPAV6S.mjs               8.26 KB
+../.. postinstall: ESM dist/chunk-EGP3AT4R.mjs               3.53 KB
+../.. postinstall: ESM dist/chunk-77O7KLUI.mjs               894.00 B
+../.. postinstall: ESM dist/chunk-YSXRNNDV.mjs               336.00 B
+../.. postinstall: ESM dist/chunk-JBHEJMGV.mjs               2.16 KB
+../.. postinstall: ESM dist/chunk-CVU6I4IJ.mjs               8.06 KB
+../.. postinstall: ESM dist/chunk-GNLIYZAQ.mjs               211.00 B
+../.. postinstall: ESM dist/chunk-L37EV5TN.mjs               6.95 KB
+../.. postinstall: ESM dist/chunk-3BNHFA72.mjs               1.34 KB
+../.. postinstall: ESM dist/chunk-XPLXQDB3.mjs               1.76 KB
+../.. postinstall: ESM dist/chunk-RJKUWMDJ.mjs               4.27 KB
+../.. postinstall: ESM dist/chunk-MUPUMXL7.mjs               3.37 KB
+../.. postinstall: ESM dist/chunk-33DU6C7I.mjs               9.31 KB
+../.. postinstall: ESM dist/chunk-2PIR7DFM.mjs               3.19 KB
+../.. postinstall: ESM dist/plugin.mjs                       783.00 B
+../.. postinstall: ESM dist/chunk-5QVKTCUZ.mjs               9.46 KB
+../.. postinstall: ESM dist/chunk-S7W5DQP2.mjs               330.00 B
+../.. postinstall: ESM dist/chunk-6AEINX52.mjs               1.22 KB
+../.. postinstall: ESM dist/chunk-DI2L75XK.mjs               424.00 B
+../.. postinstall: ESM dist/chunk-4Z22WXZX.mjs               412.00 B
+../.. postinstall: ESM dist/chunk-XHQUSKIE.mjs               1.86 KB
+../.. postinstall: ESM dist/chunk-DGMET46Q.mjs               1.61 KB
+../.. postinstall: ESM dist/chunk-G4RCK475.mjs               3.49 KB
+../.. postinstall: ESM dist/chunk-QZTWGJ72.mjs               215.00 B
+../.. postinstall: ESM dist/chunk-G3PB7L4N.mjs               3.26 KB
+../.. postinstall: ESM dist/chunk-KUNVFLXJ.mjs               960.00 B
+../.. postinstall: ESM dist/chunk-VZI6SR6H.mjs               1.38 KB
+../.. postinstall: ESM dist/types.mjs                        142.00 B
+../.. postinstall: ESM dist/colors/common.mjs                339.00 B
+../.. postinstall: ESM dist/chunk-WA5F6AED.mjs               559.00 B
+../.. postinstall: ESM dist/colors/blue.mjs                  67.00 B
+../.. postinstall: ESM dist/chunk-IAS3SFA4.mjs               564.00 B
+../.. postinstall: ESM dist/chunk-JUEOCLA3.mjs               242.00 B
+../.. postinstall: ESM dist/animations/index.mjs             79.00 B
+../.. postinstall: ESM dist/chunk-3LKKH4AR.mjs               256.00 B
+../.. postinstall: ESM dist/chunk-OR5PUD24.mjs               239.00 B
+../.. postinstall: ESM dist/chunk-L2OL7R23.mjs               242.00 B
+../.. postinstall: ESM dist/chunk-DCEG5LGX.mjs               236.00 B
+../.. postinstall: ESM dist/chunk-GHZ36ATJ.mjs               236.00 B
+../.. postinstall: ESM dist/chunk-DMASP6FA.mjs               1.66 KB
+../.. postinstall: ESM dist/chunk-YZYGFPNK.mjs               233.00 B
+../.. postinstall: ESM dist/chunk-T3GWIVAM.mjs               236.00 B
+../.. postinstall: ESM ⚡️ Build success in 210ms
+../.. postinstall: CJS dist/colors.js                       7.46 KB
+../.. postinstall: CJS dist/animations/index.js             2.66 KB
+../.. postinstall: CJS dist/colors/blue.js                  1.20 KB
+../.. postinstall: CJS dist/components/accordion.js         5.04 KB
+../.. postinstall: CJS dist/utilities/custom.js             1.39 KB
+../.. postinstall: CJS dist/utils/classes.js                3.23 KB
+../.. postinstall: CJS dist/default-layout.js               2.46 KB
+../.. postinstall: CJS dist/types.js                        1.60 KB
+../.. postinstall: CJS dist/plugin.js                       26.35 KB
+../.. postinstall: CJS dist/colors/common.js                2.92 KB
+../.. postinstall: CJS dist/colors/green.js                 1.21 KB
+../.. postinstall: CJS dist/colors/index.js                 7.46 KB
+../.. postinstall: CJS dist/colors/pink.js                  1.20 KB
+../.. postinstall: CJS dist/colors/purple.js                1.22 KB
+../.. postinstall: CJS dist/colors/red.js                   1.19 KB
+../.. postinstall: CJS dist/colors/types.js                 765.00 B
+../.. postinstall: CJS dist/colors/semantic.js              7.40 KB
+../.. postinstall: CJS dist/colors/zinc.js                  1.22 KB
+../.. postinstall: CJS dist/colors/yellow.js                1.22 KB
+../.. postinstall: CJS dist/colors/cyan.js                  1.20 KB
+../.. postinstall: CJS dist/components/autocomplete.js      4.03 KB
+../.. postinstall: CJS dist/components/avatar.js            9.43 KB
+../.. postinstall: CJS dist/components/breadcrumbs.js       7.17 KB
+../.. postinstall: CJS dist/components/checkbox.js          8.83 KB
+../.. postinstall: CJS dist/components/button.js            15.82 KB
+../.. postinstall: CJS dist/components/card.js              5.82 KB
+../.. postinstall: CJS dist/components/code.js              6.62 KB
+../.. postinstall: CJS dist/components/chip.js              14.10 KB
+../.. postinstall: CJS dist/components/badge.js             12.70 KB
+../.. postinstall: CJS dist/components/circular-progress.js 4.47 KB
+../.. postinstall: CJS dist/components/divider.js           2.98 KB
+../.. postinstall: CJS dist/components/dropdown.js          11.01 KB
+../.. postinstall: CJS dist/components/image.js             5.53 KB
+../.. postinstall: CJS dist/components/kbd.js               3.12 KB
+../.. postinstall: CJS dist/components/drip.js              2.84 KB
+../.. postinstall: CJS dist/components/listbox.js           15.39 KB
+../.. postinstall: CJS dist/components/index.js             180.97 KB
+../.. postinstall: CJS dist/components/modal.js             6.35 KB
+../.. postinstall: CJS dist/components/input.js             22.36 KB
+../.. postinstall: CJS dist/components/link.js              5.16 KB
+../.. postinstall: CJS dist/components/popover.js           10.72 KB
+../.. postinstall: CJS dist/components/navbar.js            7.00 KB
+../.. postinstall: CJS dist/components/pagination.js        15.10 KB
+../.. postinstall: CJS dist/components/menu.js              15.36 KB
+../.. postinstall: CJS dist/components/select.js            19.41 KB
+../.. postinstall: CJS dist/components/skeleton.js          4.06 KB
+../.. postinstall: CJS dist/components/progress.js          5.21 KB
+../.. postinstall: CJS dist/components/scroll-shadow.js     4.02 KB
+../.. postinstall: CJS dist/components/radio.js             7.04 KB
+../.. postinstall: CJS dist/components/slider.js            11.41 KB
+../.. postinstall: CJS dist/components/snippet.js           11.69 KB
+../.. postinstall: CJS dist/components/spinner.js           5.16 KB
+../.. postinstall: CJS dist/components/spacer.js            2.93 KB
+../.. postinstall: CJS dist/components/table.js             7.58 KB
+../.. postinstall: CJS dist/components/user.js              3.27 KB
+../.. postinstall: CJS dist/utilities/index.js              5.14 KB
+../.. postinstall: CJS dist/utilities/scrollbar-hide.js     1.40 KB
+../.. postinstall: CJS dist/utilities/transition.js         4.24 KB
+../.. postinstall: CJS dist/utils/index.js                  6.47 KB
+../.. postinstall: CJS dist/utils/object.js                 2.36 KB
+../.. postinstall: CJS dist/components/toggle.js            7.25 KB
+../.. postinstall: CJS dist/utils/types.js                  764.00 B
+../.. postinstall: CJS dist/utils/variants.js               4.19 KB
+../.. postinstall: CJS dist/utils/tv.js                     2.66 KB
+../.. postinstall: CJS dist/utils/theme.js                  3.15 KB
+../.. postinstall: CJS dist/components/tabs.js              14.60 KB
+../.. postinstall: CJS dist/index.js                        206.97 KB
+../.. postinstall: CJS ⚡️ Build success in 213ms
+../.. postinstall: DTS Build start
+../.. postinstall: DTS ⚡️ Build success in 4241ms
+../.. postinstall: DTS dist/index.d.ts                        4.62 KB
+../.. postinstall: DTS dist/components/index.d.ts             3.35 KB
+../.. postinstall: DTS dist/utils/index.d.ts                  329.00 B
+../.. postinstall: DTS dist/default-layout.d.ts               244.00 B
+../.. postinstall: DTS dist/plugin.d.ts                       313.00 B
+../.. postinstall: DTS dist/types.d.ts                        3.78 KB
+../.. postinstall: DTS dist/animations/index.d.ts             1.67 KB
+../.. postinstall: DTS dist/colors/blue.d.ts                  212.00 B
+../.. postinstall: DTS dist/colors/cyan.d.ts                  212.00 B
+../.. postinstall: DTS dist/colors/green.d.ts                 214.00 B
+../.. postinstall: DTS dist/colors/common.d.ts                1.95 KB
+../.. postinstall: DTS dist/colors/pink.d.ts                  212.00 B
+../.. postinstall: DTS dist/colors/purple.d.ts                216.00 B
+../.. postinstall: DTS dist/colors/red.d.ts                   210.00 B
+../.. postinstall: DTS dist/colors/semantic.d.ts              277.00 B
+../.. postinstall: DTS dist/colors/types.d.ts                 844.00 B
+../.. postinstall: DTS dist/colors/yellow.d.ts                216.00 B
+../.. postinstall: DTS dist/colors/zinc.d.ts                  232.00 B
+../.. postinstall: DTS dist/components/avatar.d.ts            10.21 KB
+../.. postinstall: DTS dist/components/card.d.ts              9.80 KB
+../.. postinstall: DTS dist/components/link.d.ts              6.34 KB
+../.. postinstall: DTS dist/components/user.d.ts              2.58 KB
+../.. postinstall: DTS dist/components/button.d.ts            11.09 KB
+../.. postinstall: DTS dist/components/drip.d.ts              1.33 KB
+../.. postinstall: DTS dist/components/spinner.d.ts           11.64 KB
+../.. postinstall: DTS dist/components/code.d.ts              3.72 KB
+../.. postinstall: DTS dist/components/popover.d.ts           12.50 KB
+../.. postinstall: DTS dist/components/snippet.d.ts           7.51 KB
+../.. postinstall: DTS dist/components/chip.d.ts              13.37 KB
+../.. postinstall: DTS dist/components/badge.d.ts             8.31 KB
+../.. postinstall: DTS dist/components/checkbox.d.ts          14.64 KB
+../.. postinstall: DTS dist/components/radio.d.ts             15.00 KB
+../.. postinstall: DTS dist/components/pagination.d.ts        11.01 KB
+../.. postinstall: DTS dist/components/toggle.d.ts            10.50 KB
+../.. postinstall: DTS dist/components/accordion.d.ts         9.14 KB
+../.. postinstall: DTS dist/components/progress.d.ts          5.86 KB
+../.. postinstall: DTS dist/components/circular-progress.d.ts 8.16 KB
+../.. postinstall: DTS dist/components/input.d.ts             19.42 KB
+../.. postinstall: DTS dist/components/dropdown.d.ts          11.36 KB
+../.. postinstall: DTS dist/components/image.d.ts             6.62 KB
+../.. postinstall: DTS dist/components/modal.d.ts             13.60 KB
+../.. postinstall: DTS dist/components/navbar.d.ts            8.60 KB
+../.. postinstall: DTS dist/components/table.d.ts             13.61 KB
+../.. postinstall: DTS dist/components/spacer.d.ts            1.24 KB
+../.. postinstall: DTS dist/components/divider.d.ts           1.45 KB
+../.. postinstall: DTS dist/components/kbd.d.ts               1.95 KB
+../.. postinstall: DTS dist/components/tabs.d.ts              13.06 KB
+../.. postinstall: DTS dist/components/skeleton.d.ts          2.25 KB
+../.. postinstall: DTS dist/components/select.d.ts            17.23 KB
+../.. postinstall: DTS dist/components/scroll-shadow.d.ts     1.93 KB
+../.. postinstall: DTS dist/components/slider.d.ts            19.90 KB
+../.. postinstall: DTS dist/components/breadcrumbs.d.ts       14.74 KB
+../.. postinstall: DTS dist/components/autocomplete.d.ts      3.82 KB
+../.. postinstall: DTS dist/utils/classes.d.ts                1.17 KB
+../.. postinstall: DTS dist/utils/types.d.ts                  243.00 B
+../.. postinstall: DTS dist/utils/variants.d.ts               1.42 KB
+../.. postinstall: DTS dist/utils/tv.d.ts                     79.00 B
+../.. postinstall: DTS dist/utilities/custom.d.ts             470.00 B
+../.. postinstall: DTS dist/utilities/index.d.ts              3.30 KB
+../.. postinstall: DTS dist/utilities/scrollbar-hide.d.ts     542.00 B
+../.. postinstall: DTS dist/utilities/transition.d.ts         2.64 KB
+../.. postinstall: DTS dist/utils/object.d.ts                 394.00 B
+../.. postinstall: DTS dist/utils/theme.d.ts                  398.00 B
+../.. postinstall: DTS dist/colors/index.d.ts                 2.15 KB
+../.. postinstall: DTS dist/components/menu.d.ts              11.55 KB
+../.. postinstall: DTS dist/colors.d.ts                       243.00 B
+../.. postinstall: DTS dist/components/listbox.d.ts           417.00 B
+../.. postinstall: Done
+
+dependencies:
++ @nextui-org/theme 2.1.17 <- ../../packages/core/theme
++ mini-svg-data-uri 1.4.4
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ tailwindcss 3.3.5 (3.4.1 is available)
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ @testing-library/react-hooks 8.0.1
+│ └── ✕ unmet peer @types/react@"^16.9.0 || ^17.0.0": found 18.2.8
+├─┬ eslint-config-react-app 6.0.0
+│ ├── ✕ unmet peer @typescript-eslint/eslint-plugin@^4.0.0: found 5.62.0
+│ └── ✕ unmet peer @typescript-eslint/parser@^4.0.0: found 5.62.0
+├─┬ eslint-plugin-unused-imports 2.0.0
+│ └── ✕ unmet peer eslint@^8.0.0: found 7.32.0
+├─┬ parcel 2.10.2
+│ └─┬ @parcel/config-default 2.10.2
+│   └─┬ @parcel/optimizer-htmlnano 2.10.2
+│     └─┬ htmlnano 2.1.0
+│       └── ✕ unmet peer svgo@^3.0.2: found 2.8.0 in @parcel/optimizer-htmlnano
+└─┬ webpack-cli 3.3.12
+  └── ✕ unmet peer webpack@4.x.x: found 5.89.0
+
+Done in 1m 5.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.5
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T22:40:45Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T22:40:45Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T22:40:45Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T22:40:45Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

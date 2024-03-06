@@ -1,0 +1,825 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sushiswap/sushiswap
++ reporef=master
++ repopath=./apps/academy
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/sushiswap/sushiswap
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-eaa3fe1cc7ff
+++ echo 'github.com/sushiswap/sushiswap;master;./apps/academy'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4d7f503577b2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sushiswap/sushiswap/bWFzdGVyCg/Li9hcHBzL2FjYWRlbXkK
++ jq -nc --arg key analysis_key --arg value github.com/sushiswap/sushiswap/bWFzdGVyCg/Li9hcHBzL2FjYWRlbXkK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 198609ad420d2ff3
++ jq -nc --arg key analysis_nonce --arg value 198609ad420d2ff3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sushiswap/sushiswap
++ jq -nc --arg key input_repo_name --arg value github.com/sushiswap/sushiswap '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/academy
++ jq -nc --arg key input_repo_path --arg value ./apps/academy '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T22:28:36Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T22:28:36Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-eaa3fe1cc7ff
++ pushd /tmp/twcr-eaa3fe1cc7ff
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/sushiswap/sushiswap.git .
+/tmp/twcr-eaa3fe1cc7ff /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T22:28:38Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T22:28:38Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b97e99f36fd6c5c9a67d3dc98c357421b1498d43
++ jq -nc --arg key exec_repo_commit_sha --arg value b97e99f36fd6c5c9a67d3dc98c357421b1498d43 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 17:03:46 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T17:03:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T17:03:46Z '{ key: $key, value: $value }'
+/tmp/twcr-eaa3fe1cc7ff/apps/academy /tmp/twcr-eaa3fe1cc7ff /twcr
++ '[' -z ./apps/academy ']'
++ pushd ./apps/academy
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-eaa3fe1cc7ff/apps/academy
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/academy '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-eaa3fe1cc7ff
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T22:28:38Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T22:28:38Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "academy",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@sushiswap/tailwindcss-config": "workspace:*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/academy '!=' ./ ']'
++ rm -f /tmp/twcr-eaa3fe1cc7ff/package.json /tmp/twcr-eaa3fe1cc7ff/package-lock.json /tmp/twcr-eaa3fe1cc7ff/pnpm-lock.yaml /tmp/twcr-eaa3fe1cc7ff/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-eaa3fe1cc7ff /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-eaa3fe1cc7ff
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-eaa3fe1cc7ff/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 30 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../../apis/extractor                     |  WARN  deprecated @tsconfig/esm@1.0.4
+../..                                    | Progress: resolved 19, reused 0, downloaded 15, added 0
+../..                                    | Progress: resolved 34, reused 0, downloaded 23, added 0
+../..                                    | Progress: resolved 41, reused 0, downloaded 30, added 0
+../..                                    | Progress: resolved 51, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 66, reused 0, downloaded 56, added 0
+../..                                    | Progress: resolved 87, reused 0, downloaded 74, added 0
+../..                                    | Progress: resolved 102, reused 0, downloaded 88, added 0
+../../config/hardhat                     |  WARN  deprecated @nomiclabs/hardhat-etherscan@3.1.3
+../..                                    | Progress: resolved 122, reused 0, downloaded 104, added 0
+../..                                    | Progress: resolved 138, reused 0, downloaded 125, added 0
+../..                                    | Progress: resolved 150, reused 0, downloaded 134, added 0
+../..                                    | Progress: resolved 162, reused 0, downloaded 147, added 0
+../..                                    | Progress: resolved 174, reused 0, downloaded 153, added 0
+../..                                    | Progress: resolved 185, reused 0, downloaded 162, added 0
+../..                                    | Progress: resolved 206, reused 0, downloaded 185, added 0
+../..                                    | Progress: resolved 234, reused 0, downloaded 213, added 0
+../..                                    | Progress: resolved 255, reused 0, downloaded 241, added 0
+../..                                    | Progress: resolved 291, reused 0, downloaded 277, added 0
+../..                                    | Progress: resolved 325, reused 0, downloaded 311, added 0
+../..                                    | Progress: resolved 342, reused 0, downloaded 330, added 0
+../..                                    | Progress: resolved 371, reused 0, downloaded 352, added 0
+../..                                    | Progress: resolved 392, reused 0, downloaded 369, added 0
+../..                                    | Progress: resolved 421, reused 0, downloaded 399, added 0
+../..                                    | Progress: resolved 431, reused 0, downloaded 413, added 0
+../..                                    | Progress: resolved 444, reused 0, downloaded 422, added 0
+../..                                    | Progress: resolved 457, reused 0, downloaded 434, added 0
+../..                                    | Progress: resolved 466, reused 0, downloaded 443, added 0
+../..                                    | Progress: resolved 479, reused 0, downloaded 453, added 0
+../..                                    | Progress: resolved 494, reused 0, downloaded 468, added 0
+../..                                    | Progress: resolved 511, reused 0, downloaded 475, added 0
+../..                                    | Progress: resolved 531, reused 0, downloaded 496, added 0
+../..                                    | Progress: resolved 548, reused 0, downloaded 510, added 0
+../..                                    | Progress: resolved 563, reused 0, downloaded 519, added 0
+../..                                    | Progress: resolved 578, reused 0, downloaded 537, added 0
+../..                                    | Progress: resolved 599, reused 0, downloaded 555, added 0
+../..                                    | Progress: resolved 618, reused 0, downloaded 577, added 0
+../..                                    | Progress: resolved 649, reused 0, downloaded 607, added 0
+../..                                    | Progress: resolved 674, reused 0, downloaded 630, added 0
+../..                                    | Progress: resolved 697, reused 0, downloaded 653, added 0
+../..                                    | Progress: resolved 723, reused 0, downloaded 673, added 0
+../..                                    | Progress: resolved 747, reused 0, downloaded 697, added 0
+../..                                    | Progress: resolved 772, reused 0, downloaded 720, added 0
+../..                                    | Progress: resolved 799, reused 0, downloaded 747, added 0
+../..                                    | Progress: resolved 827, reused 0, downloaded 773, added 0
+../..                                    | Progress: resolved 852, reused 0, downloaded 792, added 0
+../..                                    | Progress: resolved 883, reused 0, downloaded 823, added 0
+../..                                    | Progress: resolved 920, reused 0, downloaded 850, added 0
+../..                                    | Progress: resolved 949, reused 0, downloaded 879, added 0
+../..                                    | Progress: resolved 973, reused 0, downloaded 903, added 0
+../..                                    | Progress: resolved 983, reused 0, downloaded 911, added 0
+../..                                    | Progress: resolved 989, reused 0, downloaded 916, added 0
+../..                                    | Progress: resolved 1004, reused 0, downloaded 928, added 0
+../..                                    | Progress: resolved 1026, reused 0, downloaded 952, added 0
+../..                                    | Progress: resolved 1050, reused 0, downloaded 973, added 0
+../..                                    | Progress: resolved 1076, reused 0, downloaded 997, added 0
+../..                                    | Progress: resolved 1105, reused 0, downloaded 1026, added 0
+../..                                    | Progress: resolved 1133, reused 0, downloaded 1047, added 0
+../..                                    | Progress: resolved 1158, reused 0, downloaded 1077, added 0
+../..                                    | Progress: resolved 1183, reused 0, downloaded 1100, added 0
+../..                                    | Progress: resolved 1207, reused 0, downloaded 1123, added 0
+../..                                    | Progress: resolved 1227, reused 0, downloaded 1141, added 0
+../..                                    | Progress: resolved 1248, reused 0, downloaded 1161, added 0
+../..                                    | Progress: resolved 1278, reused 0, downloaded 1184, added 0
+../..                                    | Progress: resolved 1297, reused 0, downloaded 1203, added 0
+../..                                    | Progress: resolved 1320, reused 0, downloaded 1225, added 0
+../..                                    | Progress: resolved 1326, reused 0, downloaded 1233, added 0
+../..                                    | Progress: resolved 1351, reused 0, downloaded 1239, added 0
+../..                                    | Progress: resolved 1373, reused 0, downloaded 1262, added 0
+../..                                    | Progress: resolved 1379, reused 0, downloaded 1270, added 0
+../..                                    | Progress: resolved 1385, reused 0, downloaded 1272, added 0
+../..                                    | Progress: resolved 1388, reused 0, downloaded 1276, added 0
+../..                                    | Progress: resolved 1394, reused 0, downloaded 1281, added 0
+../..                                    | Progress: resolved 1412, reused 0, downloaded 1292, added 0
+../..                                    | Progress: resolved 1431, reused 0, downloaded 1308, added 0
+../..                                    | Progress: resolved 1442, reused 0, downloaded 1322, added 0
+../..                                    | Progress: resolved 1470, reused 0, downloaded 1351, added 0
+../..                                    | Progress: resolved 1496, reused 0, downloaded 1373, added 0
+../..                                    | Progress: resolved 1521, reused 0, downloaded 1395, added 0
+../..                                    | Progress: resolved 1547, reused 0, downloaded 1421, added 0
+../..                                    | Progress: resolved 1578, reused 0, downloaded 1447, added 0
+../..                                    | Progress: resolved 1606, reused 0, downloaded 1474, added 0
+../..                                    | Progress: resolved 1628, reused 0, downloaded 1496, added 0
+../..                                    | Progress: resolved 1658, reused 0, downloaded 1524, added 0
+../..                                    | Progress: resolved 1681, reused 0, downloaded 1548, added 0
+../..                                    | Progress: resolved 1699, reused 0, downloaded 1565, added 0
+../..                                    | Progress: resolved 1717, reused 0, downloaded 1584, added 0
+../..                                    | Progress: resolved 1745, reused 0, downloaded 1604, added 0
+../..                                    | Progress: resolved 1773, reused 0, downloaded 1629, added 0
+../..                                    | Progress: resolved 1801, reused 0, downloaded 1656, added 0
+../..                                    | Progress: resolved 1841, reused 0, downloaded 1677, added 0
+../..                                    | Progress: resolved 1868, reused 0, downloaded 1698, added 0
+../..                                    | Progress: resolved 1888, reused 0, downloaded 1721, added 0
+../..                                    | Progress: resolved 1934, reused 0, downloaded 1752, added 0
+../..                                    | Progress: resolved 1960, reused 0, downloaded 1780, added 0
+../..                                    | Progress: resolved 1990, reused 0, downloaded 1806, added 0
+../..                                    | Progress: resolved 2047, reused 0, downloaded 1825, added 0
+../..                                    | Progress: resolved 2061, reused 0, downloaded 1859, added 0
+../..                                    | Progress: resolved 2084, reused 0, downloaded 1875, added 0
+../..                                    | Progress: resolved 2109, reused 0, downloaded 1909, added 0
+../..                                    | Progress: resolved 2140, reused 0, downloaded 1926, added 0
+../..                                    | Progress: resolved 2163, reused 0, downloaded 1954, added 0
+../..                                    | Progress: resolved 2186, reused 0, downloaded 1974, added 0
+../..                                    | Progress: resolved 2200, reused 0, downloaded 1984, added 0
+../..                                    | Progress: resolved 2218, reused 0, downloaded 2006, added 0
+../..                                    | Progress: resolved 2246, reused 0, downloaded 2026, added 0
+../..                                    | Progress: resolved 2267, reused 0, downloaded 2048, added 0
+../..                                    | Progress: resolved 2292, reused 0, downloaded 2076, added 0
+../..                                    | Progress: resolved 2331, reused 0, downloaded 2101, added 0
+../..                                    | Progress: resolved 2351, reused 0, downloaded 2126, added 0
+../..                                    | Progress: resolved 2388, reused 0, downloaded 2160, added 0
+../..                                    | Progress: resolved 2415, reused 0, downloaded 2190, added 0
+../..                                    | Progress: resolved 2451, reused 0, downloaded 2218, added 0
+../..                                    | Progress: resolved 2475, reused 0, downloaded 2242, added 0
+../..                                    | Progress: resolved 2505, reused 0, downloaded 2273, added 0
+../..                                    | Progress: resolved 2538, reused 0, downloaded 2301, added 0
+../..                                    | Progress: resolved 2571, reused 0, downloaded 2336, added 0
+../..                                    | Progress: resolved 2607, reused 0, downloaded 2368, added 0
+../..                                    | Progress: resolved 2642, reused 0, downloaded 2399, added 0
+../..                                    | Progress: resolved 2673, reused 0, downloaded 2429, added 0
+../..                                    | Progress: resolved 2708, reused 0, downloaded 2459, added 0
+../..                                    | Progress: resolved 2738, reused 0, downloaded 2493, added 0
+../..                                    | Progress: resolved 2771, reused 0, downloaded 2517, added 0
+../..                                    | Progress: resolved 2791, reused 0, downloaded 2541, added 0
+../..                                    | Progress: resolved 2831, reused 0, downloaded 2573, added 0
+../..                                    | Progress: resolved 2860, reused 0, downloaded 2605, added 0
+../..                                    | Progress: resolved 2890, reused 0, downloaded 2636, added 0
+../..                                    | Progress: resolved 2930, reused 0, downloaded 2667, added 0
+../..                                    | Progress: resolved 2964, reused 0, downloaded 2705, added 0
+../..                                    | Progress: resolved 2995, reused 0, downloaded 2730, added 0
+../..                                    | Progress: resolved 3032, reused 0, downloaded 2764, added 0
+../..                                    | Progress: resolved 3061, reused 0, downloaded 2795, added 0
+../..                                    | Progress: resolved 3075, reused 0, downloaded 2804, added 0
+../..                                    | Progress: resolved 3105, reused 0, downloaded 2829, added 0
+../..                                    | Progress: resolved 3123, reused 0, downloaded 2848, added 0
+../..                                    | Progress: resolved 3150, reused 0, downloaded 2879, added 0
+../..                                    | Progress: resolved 3188, reused 0, downloaded 2911, added 0
+../..                                    | Progress: resolved 3221, reused 0, downloaded 2941, added 0
+../..                                    | Progress: resolved 3251, reused 0, downloaded 2970, added 0
+../..                                    | Progress: resolved 3287, reused 0, downloaded 3004, added 0
+../..                                    | Progress: resolved 3314, reused 0, downloaded 3034, added 0
+../..                                    | Progress: resolved 3347, reused 0, downloaded 3059, added 0
+../..                                    | Progress: resolved 3365, reused 0, downloaded 3083, added 0
+../..                                    | Progress: resolved 3403, reused 0, downloaded 3114, added 0
+../..                                    | Progress: resolved 3430, reused 0, downloaded 3142, added 0
+../..                                    | Progress: resolved 3462, reused 0, downloaded 3166, added 0
+../..                                    | Progress: resolved 3483, reused 0, downloaded 3190, added 0
+../../config/hardhat                     |  WARN  deprecated zksync-web3@0.13.4
+../..                                    | Progress: resolved 3494, reused 0, downloaded 3207, added 0
+../..                                    | Progress: resolved 3509, reused 0, downloaded 3219, added 0
+../..                                    | Progress: resolved 3530, reused 0, downloaded 3232, added 0
+../..                                    | Progress: resolved 3553, reused 0, downloaded 3261, added 0
+../..                                    | Progress: resolved 3572, reused 0, downloaded 3271, added 0
+../..                                    | Progress: resolved 3587, reused 0, downloaded 3295, added 0
+../..                                    | Progress: resolved 3618, reused 0, downloaded 3322, added 0
+../..                                    | Progress: resolved 3649, reused 0, downloaded 3350, added 0
+../..                                    | Progress: resolved 3676, reused 0, downloaded 3378, added 0
+../..                                    | Progress: resolved 3714, reused 0, downloaded 3404, added 0
+../..                                    | Progress: resolved 3746, reused 0, downloaded 3433, added 0
+../..                                    | Progress: resolved 3768, reused 0, downloaded 3464, added 0
+../..                                    | Progress: resolved 3800, reused 0, downloaded 3494, added 0
+../..                                    | Progress: resolved 3836, reused 0, downloaded 3523, added 0
+../..                                    | Progress: resolved 3868, reused 0, downloaded 3563, added 0
+../..                                    | Progress: resolved 3907, reused 0, downloaded 3586, added 0
+../..                                    | Progress: resolved 3935, reused 0, downloaded 3617, added 0
+../..                                    | Progress: resolved 3968, reused 0, downloaded 3653, added 0
+../..                                    | Progress: resolved 3997, reused 0, downloaded 3680, added 0
+../..                                    | Progress: resolved 4030, reused 0, downloaded 3705, added 0
+../..                                    | Progress: resolved 4057, reused 0, downloaded 3739, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3792, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3847, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3907, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3953, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3961, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3962, added 0
+../..                                    | Progress: resolved 4058, reused 0, downloaded 3963, added 0
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 0
+ WARN  49 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @ensdomains/ens@0.4.5, @ensdomains/resolver@0.2.4, @motionone/vue@10.16.4, @uniswap/v3-staker@1.0.0, abab@2.0.6, cids@0.7.5, core-js@2.6.12, debug@3.2.6, debug@4.1.1, domexception@4.0.0, eth-json-rpc-infura@3.2.1, eth-sig-util@1.4.2, eth-sig-util@3.0.0, ethashjs@0.0.8, ethereumjs-account@3.0.0, ethereumjs-block@1.7.1, ethereumjs-block@2.2.2, ethereumjs-blockchain@4.0.4, ethereumjs-common@1.5.0, ethereumjs-tx@1.3.7, ethereumjs-tx@2.1.2, ethereumjs-vm@2.6.0, ethereumjs-vm@4.2.0, fsevents@2.1.3, ganache-core@2.13.2, har-validator@5.1.5, mkdirp-promise@5.0.1, multibase@0.6.1, multibase@0.7.0, multicodec@0.5.7, multicodec@1.0.4, querystring@0.2.0, request@2.88.2, resolve-url@0.2.1, safe-event-emitter@1.0.1, source-map-resolve@0.5.3, source-map-url@0.4.1, testrpc@0.0.1, urix@0.1.0, uuid@3.3.2, uuid@3.4.0, zksync-web3@0.8.1
+../..                                    |    +3991 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 1
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 1522
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 3113
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 3930
+../..                                    | Progress: resolved 4059, reused 0, downloaded 3963, added 3991, done
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/protobufjs postinstall: Done
+.../@playwright/browser-chromium install$ node install.js
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../node_modules/utf-8-validate install: Done
+.../node_modules/bufferutil install: Done
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../node_modules/secp256k1 install$ node-gyp-build || exit 0
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.77.3/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_d54987b9826f:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:260) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/secp256k1 install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../@playwright/browser-chromium install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../@playwright/browser-chromium install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../core-js@2.6.12/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/postinstall-postinstall postinstall$ node ./run.js
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../core-js@2.6.12/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@2.6.12/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://www.patreon.com/zloirock 
+.../core-js@2.6.12/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../core-js@2.6.12/node_modules/core-js postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/postinstall-postinstall postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@prisma/engines postinstall: (node:348) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/web3-bzz postinstall$ echo "WARNING: the web3-bzz api will be deprecated in the next version"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/web3-bzz postinstall: WARNING: the web3-bzz api will be deprecated in the next version
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/web3-bzz postinstall: Done
+.../node_modules/bigint-buffer install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/web3-shh postinstall$ echo "WARNING: the web3-shh api will be deprecated in the next version"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/web3-shh postinstall: WARNING: the web3-shh api will be deprecated in the next version
+.../node_modules/web3-shh postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+.../node_modules/@sentry/cli install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/unix-dgram install$ node-gyp rebuild
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.47/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/cpu-features install$ node buildcheck.js > buildcheck.gypi && node-gyp rebuild
+.../node_modules/unix-dgram install: gyp info it worked if it ends with ok
+.../node_modules/unix-dgram install: gyp info using node-gyp@9.4.1
+.../node_modules/unix-dgram install: gyp info using node@21.6.2 | linux | x64
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.47/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../.pnpm/web3@1.10.4/node_modules/web3 postinstall$ echo "Web3.js 4.x alpha has been released for early testing and feedback. Checkout doc at https://docs.web3js.org/ "
+.../node_modules/unix-dgram install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/web3@1.10.4/node_modules/web3 postinstall: Web3.js 4.x alpha has been released for early testing and feedback. Checkout doc at https://docs.web3js.org/ 
+.../.pnpm/web3@1.10.4/node_modules/web3 postinstall: Done
+.../prisma@5.6.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../prisma@5.6.0/node_modules/prisma preinstall: Done
+.../node_modules/unix-dgram install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/unix-dgram install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/cpu-features install: gyp info it worked if it ends with ok
+.../node_modules/cpu-features install: gyp info using node-gyp@9.4.1
+.../node_modules/cpu-features install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/cpu-features install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/cpu-features install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/cpu-features install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/unix-dgram install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/unix-dgram install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/unix-dgram install: gyp info spawn /usr/bin/python3
+.../node_modules/unix-dgram install: gyp info spawn args [
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/unix-dgram install: gyp info spawn args   'binding.gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-f',
+.../node_modules/unix-dgram install: gyp info spawn args   'make',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build/config.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/unix-dgram install: gyp info spawn args   '--depth=.',
+.../node_modules/unix-dgram install: gyp info spawn args   '--no-parallel',
+.../node_modules/unix-dgram install: gyp info spawn args   '--generator-output',
+.../node_modules/unix-dgram install: gyp info spawn args   'build',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/unix-dgram install: gyp info spawn args ]
+.../node_modules/unix-dgram install: gyp info spawn make
+.../node_modules/unix-dgram install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/unix-dgram install: make: Entering directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install:   CXX(target) Release/obj.target/unix_dgram/src/unix_dgram.o
+.../node_modules/cpu-features install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/cpu-features install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/cpu-features install: gyp info spawn /usr/bin/python3
+.../node_modules/cpu-features install: gyp info spawn args [
+.../node_modules/cpu-features install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/cpu-features install: gyp info spawn args   'binding.gyp',
+.../node_modules/cpu-features install: gyp info spawn args   '-f',
+.../node_modules/cpu-features install: gyp info spawn args   'make',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build/config.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/cpu-features install: gyp info spawn args   '--depth=.',
+.../node_modules/cpu-features install: gyp info spawn args   '--no-parallel',
+.../node_modules/cpu-features install: gyp info spawn args   '--generator-output',
+.../node_modules/cpu-features install: gyp info spawn args   'build',
+.../node_modules/cpu-features install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/cpu-features install: gyp info spawn args ]
+.../node_modules/cpu-features install: gyp info spawn make
+.../node_modules/cpu-features install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/cpu-features install: make: Entering directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build'
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_aarch64_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_aarch64_macos_or_iphone.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_arm_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_mips_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_ppc_linux.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_freebsd.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_macos.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_windows.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/filesystem.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/stack_line_reader.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/string_view.o
+.../node_modules/cpu-features install: rm -f Release/obj.target/deps/cpu_features/cpu_features.a Release/obj.target/deps/cpu_features/cpu_features.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/cpu_features/cpu_features.a`
+.../node_modules/cpu-features install: ar crs Release/obj.target/deps/cpu_features/cpu_features.a @Release/obj.target/deps/cpu_features/cpu_features.a.ar-file-list
+.../node_modules/cpu-features install:   COPY Release/cpu_features.a
+.../node_modules/cpu-features install:   CXX(target) Release/obj.target/cpufeatures/src/binding.o
+.../node_modules/unix-dgram install: In file included from ../../../../nan@2.18.0/node_modules/nan/nan.h:62,
+.../node_modules/unix-dgram install:                  from ../src/unix_dgram.cc:5:
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/unix-dgram install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/unix-dgram install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/unix-dgram install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/unix-dgram install:       |   ^~~~~~~~~~~~~
+.../node_modules/unix-dgram install: ../src/unix_dgram.cc:404:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/unix-dgram install:   404 | NODE_MODULE(unix_dgram, Initialize)
+.../node_modules/unix-dgram install:       | ^~~~~~~~~~~
+.../node_modules/unix-dgram install:   SOLINK_MODULE(target) Release/obj.target/unix_dgram.node
+.../node_modules/unix-dgram install:   COPY Release/unix_dgram.node
+.../node_modules/unix-dgram install: make: Leaving directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install: gyp info ok 
+.../node_modules/unix-dgram install: Done
+.../node_modules/cpu-features install: In file included from ../src/binding.cc:1:
+.../node_modules/cpu-features install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)' {aka 'void (*)(v8::Local<v8::Object>)'} to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/cpu-features install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/cpu-features install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/cpu-features install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/cpu-features install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/cpu-features install:       |   ^~~~~~~~~~~~~
+.../node_modules/cpu-features install: ../src/binding.cc:151:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/cpu-features install:   151 | NODE_MODULE(cpufeatures, init)
+.../node_modules/cpu-features install:       | ^~~~~~~~~~~
+.../node_modules/cpu-features install:   SOLINK_MODULE(target) Release/obj.target/cpufeatures.node
+.../node_modules/cpu-features install:   COPY Release/cpufeatures.node
+.../node_modules/cpu-features install: make: Leaving directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build'
+.../node_modules/cpu-features install: gyp info ok 
+.../node_modules/cpu-features install: Done
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install$ node install.js
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info it worked if it ends with ok
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info using node-gyp@9.4.1
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info using node@21.6.2 | linux | x64
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn /usr/bin/python3
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args [
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'binding.gyp',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-f',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'make',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build/config.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dvisibility=default',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_engine=v8',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--depth=.',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--no-parallel',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--generator-output',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'build',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Goutput_dir=.'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args ]
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn make
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: make: Entering directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   CXX(target) Release/obj.target/sshcrypto/src/binding.o
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   SOLINK_MODULE(target) Release/obj.target/sshcrypto.node
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   COPY Release/sshcrypto.node
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: make: Leaving directory '/tmp/twcr-eaa3fe1cc7ff/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info ok 
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: Succeeded in building optional crypto binding
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../.pnpm/web3@1.2.11/node_modules/web3 postinstall$ node angular-patch.js
+.../.pnpm/web3@1.2.11/node_modules/web3 postinstall: Done
+
+dependencies:
++ @sushiswap/tailwindcss-config 0.0.0 <- ../../config/tailwindcss
+
+devDependencies:
++ tailwindcss 3.3.2 (3.4.1 is available)
+
+ WARN  Issues with peer dependencies found
+apis/router
+└─┬ artillery 2.0.5
+  └─┬ artillery-plugin-publish-metrics 2.11.0
+    ├─┬ @opentelemetry/exporter-metrics-otlp-grpc 0.41.2
+    │ ├─┬ @opentelemetry/core 1.15.2
+    │ │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+    │ └─┬ @opentelemetry/exporter-metrics-otlp-http 0.41.2
+    │   └─┬ @opentelemetry/otlp-transformer 0.41.2
+    │     ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+    │     ├─┬ @opentelemetry/resources 1.15.2
+    │     │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+    │     ├─┬ @opentelemetry/sdk-logs 0.41.2
+    │     │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0
+    │     ├─┬ @opentelemetry/sdk-metrics 1.15.2
+    │     │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+    │     └─┬ @opentelemetry/sdk-trace-base 1.15.2
+    │       └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+    └─┬ @opentelemetry/exporter-trace-otlp-grpc 0.43.0
+      ├─┬ @opentelemetry/core 1.17.0
+      │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.7.0": found 1.8.0
+      └─┬ @opentelemetry/otlp-transformer 0.43.0
+        ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.7.0": found 1.8.0
+        ├─┬ @opentelemetry/resources 1.17.0
+        │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.7.0": found 1.8.0
+        ├─┬ @opentelemetry/sdk-logs 0.43.0
+        │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.7.0": found 1.8.0
+        ├─┬ @opentelemetry/sdk-metrics 1.17.0
+        │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.7.0": found 1.8.0
+        └─┬ @opentelemetry/sdk-trace-base 1.17.0
+          └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.7.0": found 1.8.0
+
+apis/tokens
+└─┬ @wagmi/core 1.4.13
+  └─┬ @wagmi/connectors 3.1.11
+    └─┬ @walletconnect/ethereum-provider 2.11.0
+      └─┬ @walletconnect/sign-client 2.11.0
+        └─┬ @walletconnect/core 2.11.0
+          └─┬ @walletconnect/keyvaluestorage 1.1.1
+            └─┬ unstorage 1.10.1
+              └── ✕ unmet peer @upstash/redis@^1.23.4: found 1.22.1
+
+apps/blog
+└─┬ @graphql-mesh/cli 0.82.3
+  └─┬ @graphql-mesh/http 0.3.3
+    └─┬ @whatwg-node/server 0.4.17
+      └── ✕ unmet peer @types/node@^18.0.6: found 20.11.24
+
+apps/evm
+└─┬ @wagmi/core 1.4.13
+  └─┬ @wagmi/connectors 3.1.11
+    └─┬ @walletconnect/ethereum-provider 2.11.0
+      └─┬ @walletconnect/sign-client 2.11.0
+        └─┬ @walletconnect/core 2.11.0
+          └─┬ @walletconnect/keyvaluestorage 1.1.1
+            └─┬ unstorage 1.10.1
+              └── ✕ unmet peer @upstash/redis@^1.23.4: found 1.22.1
+
+config/hardhat
+└─┬ @nomiclabs/hardhat-waffle 2.0.3
+  └── ✕ unmet peer @nomiclabs/hardhat-ethers@^2.0.0: found 0.3.0-beta.13
+
+packages/graph-client
+├─┬ @graphprotocol/client-cli 3.0.0
+│ └─┬ @graphql-mesh/cli 0.82.35
+│   └─┬ @graphql-mesh/http 0.93.2
+│     └─┬ fets 0.1.5
+│       └─┬ zod-to-json-schema 3.22.4
+│         └── ✕ unmet peer zod@^3.22.4: found 3.21.4
+├─┬ @graphql-mesh/transform-filter-schema 0.96.6
+│ ├── ✕ unmet peer @graphql-mesh/types@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+│ └── ✕ unmet peer @graphql-mesh/utils@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+├─┬ @graphql-mesh/transform-prefix 0.96.6
+│ ├── ✕ unmet peer @graphql-mesh/types@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+│ └── ✕ unmet peer @graphql-mesh/utils@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+├─┬ @graphql-mesh/transform-prune 0.96.6
+│ └── ✕ unmet peer @graphql-mesh/types@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+├─┬ @graphql-mesh/transform-rename 0.96.7
+│ ├── ✕ unmet peer @graphql-mesh/types@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+│ └── ✕ unmet peer @graphql-mesh/utils@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+└─┬ @graphql-mesh/transform-type-merging 0.96.6
+  ├── ✕ unmet peer @graphql-mesh/types@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+  └── ✕ unmet peer @graphql-mesh/utils@^0.96.6: found 0.93.2 in @graphql-mesh/cli
+
+packages/ui
+└─┬ react-konva 16.8.6
+  ├── ✕ unmet peer react@16.8.x: found 18.2.0
+  ├── ✕ unmet peer react-dom@16.8.x: found 18.2.0
+  ├── ✕ unmet peer konva@^3.2.3: found 9.3.5
+  └─┬ react-reconciler 0.20.4
+    └── ✕ unmet peer react@^16.0.0: found 18.2.0
+
+protocols/route-processor
+└─┬ @nomiclabs/hardhat-waffle 2.0.3
+  └── ✕ unmet peer @nomiclabs/hardhat-ethers@^2.0.0: found 0.3.0-beta.13
+
+protocols/tines-sandbox
+└─┬ @nomiclabs/hardhat-waffle 2.0.3
+  └── ✕ unmet peer @nomiclabs/hardhat-ethers@^2.0.0: found 0.3.0-beta.13
+
+Done in 4m 2.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T22:32:45Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T22:32:45Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T22:32:45Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T22:32:45Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

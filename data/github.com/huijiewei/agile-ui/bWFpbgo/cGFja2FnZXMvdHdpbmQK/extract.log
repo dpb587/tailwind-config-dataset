@@ -1,0 +1,240 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/huijiewei/agile-ui
++ reporef=main
++ repopath=./packages/twind
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/huijiewei/agile-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-39e33d061039
+++ echo 'github.com/huijiewei/agile-ui;main;./packages/twind'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a4284ec72380
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/huijiewei/agile-ui/bWFpbgo/Li9wYWNrYWdlcy90d2luZAo
++ jq -nc --arg key analysis_key --arg value github.com/huijiewei/agile-ui/bWFpbgo/Li9wYWNrYWdlcy90d2luZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6b77d19657697aeb
++ jq -nc --arg key analysis_nonce --arg value 6b77d19657697aeb '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/huijiewei/agile-ui
++ jq -nc --arg key input_repo_name --arg value github.com/huijiewei/agile-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/twind
++ jq -nc --arg key input_repo_path --arg value ./packages/twind '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T05:41:27Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T05:41:27Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-39e33d061039
++ pushd /tmp/twcr-39e33d061039
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/huijiewei/agile-ui.git .
+/tmp/twcr-39e33d061039 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T05:41:28Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T05:41:28Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a8c888b16c88dccf074c95dcd57ca97659951a65
++ jq -nc --arg key exec_repo_commit_sha --arg value a8c888b16c88dccf074c95dcd57ca97659951a65 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-19 21:59:42 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-19T13:59:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-19T13:59:42Z '{ key: $key, value: $value }'
+/tmp/twcr-39e33d061039/packages/twind /tmp/twcr-39e33d061039 /twcr
++ '[' -z ./packages/twind ']'
++ pushd ./packages/twind
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-39e33d061039/packages/twind
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/twind '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-39e33d061039
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T05:41:28Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T05:41:28Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@agile-ui/twind",
+>>>   "version": "1.0.2",
+>>>   "license": "MIT",
+>>>   "sideEffects": false,
+>>>   "type": "module",
+>>>   "author": "Huijie Wei",
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "files": [
+>>>     "dist"
+>>>   ],
+>>>   "main": "./dist/index.js",
+>>>   "types": "./dist/index.d.ts",
+>>>   "exports": {
+>>>     ".": {
+>>>       "require": "./dist/index.cjs",
+>>>       "import": "./dist/index.js",
+>>>       "types": "./dist/index.d.ts"
+>>>     }
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/huijiewei/agile-ui.git",
+>>>     "directory": "packages/twind"
+>>>   },
+>>>   "peerDependencies": {
+>>>     "@twind/preset-tailwind": ">=1"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@twind/preset-tailwind": "^1.1.4"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/twind '!=' ./ ']'
++ rm -f /tmp/twcr-39e33d061039/package.json /tmp/twcr-39e33d061039/package-lock.json /tmp/twcr-39e33d061039/pnpm-lock.yaml /tmp/twcr-39e33d061039/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-39e33d061039 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-39e33d061039
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 3 packages, and audited 4 packages in 2s
+
+2 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-39e33d061039/packages/twind/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-39e33d061039/packages/twind/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-39e33d061039/packages/twind/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T05:41:30Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T05:41:30Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at a8c888b chore: dependencies update
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-39e33d061039 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-39e33d061039
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+> @agile-ui/monorepo@1.0.0 prepare
+> husky install
+
+sh: 1: husky: not found
+npm ERR! code 127
+npm ERR! path /tmp/twcr-39e33d061039
+npm ERR! command failed
+npm ERR! command sh -c husky install
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T05_41_31_062Z-debug-0.log
++ exitcode=127
++ set -e
++ [[ 127 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 127

@@ -1,0 +1,178 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sonofmagic/icebreaker.top
++ reporef=dev
++ repopath=./apps/supabase-vue-3
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/sonofmagic/icebreaker.top
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ba873c535b8e
+++ echo 'github.com/sonofmagic/icebreaker.top;dev;./apps/supabase-vue-3'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0fd8b37834c9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sonofmagic/icebreaker.top/ZGV2Cg/Li9hcHBzL3N1cGFiYXNlLXZ1ZS0zCg
++ jq -nc --arg key analysis_key --arg value github.com/sonofmagic/icebreaker.top/ZGV2Cg/Li9hcHBzL3N1cGFiYXNlLXZ1ZS0zCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 93eb57f866414b9c
++ jq -nc --arg key analysis_nonce --arg value 93eb57f866414b9c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sonofmagic/icebreaker.top
++ jq -nc --arg key input_repo_name --arg value github.com/sonofmagic/icebreaker.top '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/supabase-vue-3
++ jq -nc --arg key input_repo_path --arg value ./apps/supabase-vue-3 '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:24:22Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:24:22Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ba873c535b8e
++ pushd /tmp/twcr-ba873c535b8e
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/sonofmagic/icebreaker.top.git .
+/tmp/twcr-ba873c535b8e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:24:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:24:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e918aa85143214b386729173d065964f180a6a08
++ jq -nc --arg key exec_repo_commit_sha --arg value e918aa85143214b386729173d065964f180a6a08 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 22:23:30 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T14:23:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T14:23:30Z '{ key: $key, value: $value }'
++ '[' -z ./apps/supabase-vue-3 ']'
++ pushd ./apps/supabase-vue-3
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-ba873c535b8e/apps/supabase-vue-3 /tmp/twcr-ba873c535b8e /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ba873c535b8e/apps/supabase-vue-3
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:24:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:24:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "supabase-vue-3",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "version": "0.0.0",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/supabase-vue-3 '!=' ./ ']'
++ rm -f /tmp/twcr-ba873c535b8e/package.json /tmp/twcr-ba873c535b8e/package-lock.json /tmp/twcr-ba873c535b8e/pnpm-lock.yaml /tmp/twcr-ba873c535b8e/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-ba873c535b8e /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-ba873c535b8e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-ba873c535b8e/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 20, reused 0, downloaded 5, added 0
+Progress: resolved 36, reused 0, downloaded 22, added 0
+Progress: resolved 51, reused 0, downloaded 38, added 0
+Progress: resolved 64, reused 0, downloaded 54, added 0
+Progress: resolved 80, reused 0, downloaded 63, added 0
+Progress: resolved 96, reused 0, downloaded 76, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 96, added 93
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 8.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T10:24:33Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T10:24:33Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T10:24:33Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T10:24:33Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

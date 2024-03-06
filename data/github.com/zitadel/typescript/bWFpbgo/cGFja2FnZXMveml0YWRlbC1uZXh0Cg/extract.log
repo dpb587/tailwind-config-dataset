@@ -1,0 +1,276 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/zitadel/typescript
++ reporef=main
++ repopath=./packages/zitadel-next
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/zitadel/typescript
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e0b38c928cb7
+++ echo 'github.com/zitadel/typescript;main;./packages/zitadel-next'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a99c38723c83
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/zitadel/typescript/bWFpbgo/Li9wYWNrYWdlcy96aXRhZGVsLW5leHQK
++ jq -nc --arg key analysis_key --arg value github.com/zitadel/typescript/bWFpbgo/Li9wYWNrYWdlcy96aXRhZGVsLW5leHQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 88f1e59bc0ba97c7
++ jq -nc --arg key analysis_nonce --arg value 88f1e59bc0ba97c7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/zitadel/typescript
++ jq -nc --arg key input_repo_name --arg value github.com/zitadel/typescript '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/zitadel-next
++ jq -nc --arg key input_repo_path --arg value ./packages/zitadel-next '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:06:50Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:06:50Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e0b38c928cb7
++ pushd /tmp/twcr-e0b38c928cb7
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/zitadel/typescript.git .
+/tmp/twcr-e0b38c928cb7 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:06:51Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:06:51Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 29a8cf52a1591e3bc3d129bca0f7a42029207715
++ jq -nc --arg key exec_repo_commit_sha --arg value 29a8cf52a1591e3bc3d129bca0f7a42029207715 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 13:11:03 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T12:11:03Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T12:11:03Z '{ key: $key, value: $value }'
+/tmp/twcr-e0b38c928cb7/packages/zitadel-next /tmp/twcr-e0b38c928cb7 /twcr
++ '[' -z ./packages/zitadel-next ']'
++ pushd ./packages/zitadel-next
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e0b38c928cb7/packages/zitadel-next
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/zitadel-next '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e0b38c928cb7
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:06:51Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:06:51Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@zitadel/next",
+>>>   "version": "0.0.0",
+>>>   "main": "./dist/index.js",
+>>>   "module": "./dist/index.mjs",
+>>>   "types": "./dist/index.d.ts",
+>>>   "sideEffects": false,
+>>>   "license": "MIT",
+>>>   "files": [
+>>>     "dist/**"
+>>>   ],
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.2.4",
+>>>     "zitadel-tailwind-config": "workspace:*"
+>>>   },
+>>>   "peerDependencies": {},
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/zitadel-next '!=' ./ ']'
++ rm -f /tmp/twcr-e0b38c928cb7/package.json /tmp/twcr-e0b38c928cb7/package-lock.json /tmp/twcr-e0b38c928cb7/pnpm-lock.yaml /tmp/twcr-e0b38c928cb7/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-e0b38c928cb7 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-e0b38c928cb7
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-e0b38c928cb7/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 30, reused 0, downloaded 20, added 0
+../zitadel-react                         |  WARN  deprecated tsup@7.3.0
+../..                                    | Progress: resolved 54, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 63, reused 0, downloaded 59, added 0
+../..                                    | Progress: resolved 81, reused 0, downloaded 64, added 0
+../..                                    | Progress: resolved 100, reused 0, downloaded 85, added 0
+../..                                    | Progress: resolved 115, reused 0, downloaded 98, added 0
+../..                                    | Progress: resolved 145, reused 0, downloaded 123, added 0
+../..                                    | Progress: resolved 174, reused 0, downloaded 155, added 0
+../..                                    | Progress: resolved 211, reused 0, downloaded 187, added 0
+../..                                    | Progress: resolved 246, reused 0, downloaded 215, added 0
+../..                                    | Progress: resolved 278, reused 0, downloaded 245, added 0
+../..                                    | Progress: resolved 312, reused 0, downloaded 277, added 0
+../..                                    | Progress: resolved 349, reused 0, downloaded 310, added 0
+../..                                    | Progress: resolved 382, reused 0, downloaded 345, added 0
+../..                                    | Progress: resolved 421, reused 0, downloaded 379, added 0
+../..                                    | Progress: resolved 456, reused 0, downloaded 411, added 0
+../..                                    | Progress: resolved 501, reused 0, downloaded 450, added 0
+../..                                    | Progress: resolved 535, reused 0, downloaded 485, added 0
+../..                                    | Progress: resolved 566, reused 0, downloaded 517, added 0
+../..                                    | Progress: resolved 599, reused 0, downloaded 547, added 0
+../..                                    | Progress: resolved 652, reused 0, downloaded 561, added 0
+../..                                    | Progress: resolved 697, reused 0, downloaded 587, added 0
+../..                                    | Progress: resolved 735, reused 0, downloaded 622, added 0
+../..                                    | Progress: resolved 778, reused 0, downloaded 659, added 0
+../..                                    | Progress: resolved 816, reused 0, downloaded 694, added 0
+../..                                    | Progress: resolved 854, reused 0, downloaded 732, added 0
+../..                                    | Progress: resolved 893, reused 0, downloaded 768, added 0
+../..                                    | Progress: resolved 930, reused 0, downloaded 802, added 0
+../..                                    | Progress: resolved 965, reused 0, downloaded 839, added 0
+../..                                    | Progress: resolved 1004, reused 0, downloaded 873, added 0
+../..                                    | Progress: resolved 1032, reused 0, downloaded 913, added 0
+ WARN  2 deprecated subdependencies found: abab@2.0.6, domexception@4.0.0
+../..                                    | +975 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1035, reused 0, downloaded 951, added 0
+../..                                    | Progress: resolved 1035, reused 0, downloaded 967, added 973
+../..                                    | Progress: resolved 1035, reused 0, downloaded 969, added 975, done
+.../node_modules/@vercel/git-hooks install$ node ./install.js
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/grpc-tools install$ node-pre-gyp install
+.../node_modules/@vercel/git-hooks install: △  @vercel/git-hooks: installing base hook to /tmp/twcr-e0b38c928cb7/.git/hooks
+.../node_modules/@vercel/git-hooks install: △  @vercel/git-hooks: hooks installed successfully
+.../node_modules/@vercel/git-hooks install: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/grpc-tools install: node-pre-gyp info it worked if it ends with ok
+.../node_modules/grpc-tools install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../node_modules/grpc-tools install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/grpc-tools install: (node:140) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/grpc-tools install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/grpc-tools install: node-pre-gyp info check checked for "/tmp/twcr-e0b38c928cb7/node_modules/.pnpm/grpc-tools@1.11.3/node_modules/grpc-tools/bin/grpc_tools.node" (not found)
+.../node_modules/grpc-tools install: node-pre-gyp http GET https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: node-pre-gyp http download proxy agent configured using: "http://tid_17a4f7d999df:ok@172.18.0.2:3128"
+.../node_modules/grpc-tools install: node-pre-gyp ERR! install response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz 
+.../node_modules/grpc-tools install: node-pre-gyp ERR! install error 
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack Error: response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack     at /tmp/twcr-e0b38c928cb7/node_modules/.pnpm/@mapbox+node-pre-gyp@1.0.11/node_modules/@mapbox/node-pre-gyp/lib/install.js:67:15
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/grpc-tools install: node-pre-gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/grpc-tools install: node-pre-gyp ERR! command "/usr/local/bin/node" "/tmp/twcr-e0b38c928cb7/node_modules/.pnpm/@mapbox+node-pre-gyp@1.0.11/node_modules/@mapbox/node-pre-gyp/bin/node-pre-gyp" "install"
+.../node_modules/grpc-tools install: node-pre-gyp ERR! cwd /tmp/twcr-e0b38c928cb7/node_modules/.pnpm/grpc-tools@1.11.3/node_modules/grpc-tools
+.../node_modules/grpc-tools install: node-pre-gyp ERR! node -v v21.6.2
+.../node_modules/grpc-tools install: node-pre-gyp ERR! node-pre-gyp -v v1.0.11
+.../node_modules/grpc-tools install: node-pre-gyp ERR! not ok 
+.../node_modules/grpc-tools install: response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:07:27Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:07:27Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 29a8cf5 Merge pull request #57 from zitadel/hifabienne-patch-1
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-e0b38c928cb7 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-e0b38c928cb7
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-e0b38c928cb7/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-e0b38c928cb7/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 9 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1071 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1071, reused 639, downloaded 15, added 40
+../..                                    | Progress: resolved 1071, reused 639, downloaded 56, added 82
+../..                                    | Progress: resolved 1071, reused 639, downloaded 110, added 136
+../..                                    | Progress: resolved 1071, reused 639, downloaded 160, added 186
+../..                                    | Progress: resolved 1071, reused 639, downloaded 227, added 255
+../..                                    | Progress: resolved 1071, reused 639, downloaded 263, added 291
+../..                                    | Progress: resolved 1071, reused 639, downloaded 309, added 337
+../..                                    | Progress: resolved 1071, reused 639, downloaded 343, added 371
+../..                                    | Progress: resolved 1071, reused 639, downloaded 374, added 402
+../..                                    | Progress: resolved 1071, reused 639, downloaded 413, added 441
+../..                                    | Progress: resolved 1071, reused 639, downloaded 423, added 451
+../..                                    | Progress: resolved 1071, reused 639, downloaded 424, added 452
+../..                                    | Progress: resolved 1071, reused 639, downloaded 425, added 453, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/grpc-tools install$ node-pre-gyp install
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/grpc-tools install: node-pre-gyp info it worked if it ends with ok
+.../node_modules/grpc-tools install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../node_modules/grpc-tools install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/grpc-tools install: (node:209) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/grpc-tools install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/grpc-tools install: node-pre-gyp info check checked for "/tmp/twcr-e0b38c928cb7/node_modules/.pnpm/grpc-tools@1.11.3/node_modules/grpc-tools/bin/grpc_tools.node" (not found)
+.../node_modules/grpc-tools install: node-pre-gyp http GET https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: node-pre-gyp http download proxy agent configured using: "http://tid_17a4f7d999df:ok@172.18.0.2:3128"
+.../node_modules/grpc-tools install: node-pre-gyp ERR! install response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz 
+.../node_modules/grpc-tools install: node-pre-gyp ERR! install error 
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack Error: response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack     at /tmp/twcr-e0b38c928cb7/node_modules/.pnpm/@mapbox+node-pre-gyp@1.0.10/node_modules/@mapbox/node-pre-gyp/lib/install.js:67:15
+.../node_modules/grpc-tools install: node-pre-gyp ERR! stack     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/grpc-tools install: node-pre-gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/grpc-tools install: node-pre-gyp ERR! command "/usr/local/bin/node" "/tmp/twcr-e0b38c928cb7/node_modules/.pnpm/@mapbox+node-pre-gyp@1.0.10/node_modules/@mapbox/node-pre-gyp/bin/node-pre-gyp" "install"
+.../node_modules/grpc-tools install: node-pre-gyp ERR! cwd /tmp/twcr-e0b38c928cb7/node_modules/.pnpm/grpc-tools@1.11.3/node_modules/grpc-tools
+.../node_modules/grpc-tools install: node-pre-gyp ERR! node -v v21.6.2
+.../node_modules/grpc-tools install: node-pre-gyp ERR! node-pre-gyp -v v1.0.10
+.../node_modules/grpc-tools install: node-pre-gyp ERR! not ok 
+.../node_modules/grpc-tools install: response status 403 Forbidden on https://node-precompiled-binaries.grpc.io/grpc-tools/v1.11.3/linux-x64.tar.gz
+.../node_modules/grpc-tools install: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

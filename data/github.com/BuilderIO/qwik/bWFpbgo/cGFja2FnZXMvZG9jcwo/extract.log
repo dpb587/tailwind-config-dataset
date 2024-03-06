@@ -1,0 +1,210 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/BuilderIO/qwik
++ reporef=main
++ repopath=./packages/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/BuilderIO/qwik
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a2a2b1ee53bf
+++ echo 'github.com/BuilderIO/qwik;main;./packages/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c98c13a22008
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/BuilderIO/qwik/bWFpbgo/Li9wYWNrYWdlcy9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/BuilderIO/qwik/bWFpbgo/Li9wYWNrYWdlcy9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 507afcfb4124c88f
++ jq -nc --arg key analysis_nonce --arg value 507afcfb4124c88f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/BuilderIO/qwik
++ jq -nc --arg key input_repo_name --arg value github.com/BuilderIO/qwik '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/docs
++ jq -nc --arg key input_repo_path --arg value ./packages/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:16:23Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:16:23Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a2a2b1ee53bf
+/tmp/twcr-a2a2b1ee53bf /twcr
++ pushd /tmp/twcr-a2a2b1ee53bf
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/BuilderIO/qwik.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:16:25Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:16:25Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3ba872ebcca9a695144445811309c9fa264f5a27
++ jq -nc --arg key exec_repo_commit_sha --arg value 3ba872ebcca9a695144445811309c9fa264f5a27 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 18:39:10 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T18:39:10Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T18:39:10Z '{ key: $key, value: $value }'
++ '[' -z ./packages/docs ']'
++ pushd ./packages/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-a2a2b1ee53bf/packages/docs /tmp/twcr-a2a2b1ee53bf /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2a2b1ee53bf/packages/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2a2b1ee53bf
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:16:25Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:16:25Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "qwik-docs",
+>>>   "description": "Qwik Docs Site",
+>>>   "version": "0.0.1",
+>>>   "author": "Builder.io Team",
+>>>   "bugs": "https://github.com/BuilderIO/qwik",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18.11",
+>>>     "npm": "please-use-pnpm",
+>>>     "yarn": "please-use-pnpm",
+>>>     "pnpm": ">=8.6.12"
+>>>   },
+>>>   "homepage": "https://qwik.builder.io/",
+>>>   "license": "MIT",
+>>>   "packageManager": "pnpm@8.14.0",
+>>>   "private": true
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/docs '!=' ./ ']'
++ rm -f /tmp/twcr-a2a2b1ee53bf/package.json /tmp/twcr-a2a2b1ee53bf/package-lock.json /tmp/twcr-a2a2b1ee53bf/pnpm-lock.yaml /tmp/twcr-a2a2b1ee53bf/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2a2b1ee53bf /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2a2b1ee53bf
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2a2b1ee53bf/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 15, reused 0, downloaded 5, added 0
+../..                                    | Progress: resolved 28, reused 0, downloaded 17, added 0
+../..                                    | Progress: resolved 43, reused 0, downloaded 32, added 0
+../..                                    | Progress: resolved 52, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 54, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 55, reused 0, downloaded 47, added 0
+../..                                    | Progress: resolved 61, reused 0, downloaded 50, added 0
+../..                                    | Progress: resolved 64, reused 0, downloaded 56, added 0
+../..                                    | Progress: resolved 73, reused 0, downloaded 61, added 0
+/tmp/twcr-a2a2b1ee53bf/packages/eslint-plugin-qwik:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @typescript-eslint/utils@7.1.1
+
+This error happened while installing the dependencies of @typescript-eslint/rule-tester@7.1.1
+
+The latest release of @typescript-eslint/utils is "7.1.0".
+
+Other releases are:
+  * canary: 7.1.1-alpha.2
+  * rc-v: 6.0.0-alpha.58
+  * rc-v6: 7.0.0-alpha.0
+
+If you need the full list of all 1628 published versions run "$ pnpm view @typescript-eslint/utils versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:16:39Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:16:39Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 3ba872e chore: 1.5.0 (#5946)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2a2b1ee53bf /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2a2b1ee53bf
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2a2b1ee53bf/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-a2a2b1ee53bf/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 13 workspace projects
+../..                                    |  WARN  A pnpm-lock.yaml file exists. The current configuration prohibits to read or write a lockfile
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 36, reused 35, downloaded 0, added 0
+../..                                    | Progress: resolved 57, reused 54, downloaded 1, added 0
+../..                                    | Progress: resolved 73, reused 57, downloaded 13, added 0
+../..                                    | Progress: resolved 95, reused 59, downloaded 27, added 0
+../..                                    | Progress: resolved 116, reused 61, downloaded 45, added 0
+../..                                    | Progress: resolved 132, reused 64, downloaded 56, added 0
+../..                                    | Progress: resolved 143, reused 72, downloaded 67, added 0
+/tmp/twcr-a2a2b1ee53bf/packages/eslint-plugin-qwik:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @typescript-eslint/utils@7.1.1
+
+This error happened while installing the dependencies of @typescript-eslint/rule-tester@7.1.1
+
+The latest release of @typescript-eslint/utils is "7.1.0".
+
+Other releases are:
+  * canary: 7.1.1-alpha.2
+  * rc-v: 6.0.0-alpha.58
+  * rc-v6: 7.0.0-alpha.0
+
+If you need the full list of all 1628 published versions run "$ pnpm view @typescript-eslint/utils versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

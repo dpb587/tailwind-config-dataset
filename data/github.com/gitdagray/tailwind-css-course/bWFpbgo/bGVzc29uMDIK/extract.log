@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gitdagray/tailwind-css-course
++ reporef=main
++ repopath=./lesson02
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/gitdagray/tailwind-css-course
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-842a7b2d60cd
+++ echo 'github.com/gitdagray/tailwind-css-course;main;./lesson02'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/095726681ca9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gitdagray/tailwind-css-course/bWFpbgo/Li9sZXNzb24wMgo
++ jq -nc --arg key analysis_key --arg value github.com/gitdagray/tailwind-css-course/bWFpbgo/Li9sZXNzb24wMgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9f8a4af45a41b62c
++ jq -nc --arg key analysis_nonce --arg value 9f8a4af45a41b62c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gitdagray/tailwind-css-course
++ jq -nc --arg key input_repo_name --arg value github.com/gitdagray/tailwind-css-course '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./lesson02
++ jq -nc --arg key input_repo_path --arg value ./lesson02 '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:36:39Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:36:39Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-842a7b2d60cd
+/tmp/twcr-842a7b2d60cd /twcr
++ pushd /tmp/twcr-842a7b2d60cd
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gitdagray/tailwind-css-course.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:36:40Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:36:40Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c735a48fc61f7ad893467406b6c0704b04a85484
++ jq -nc --arg key exec_repo_commit_sha --arg value c735a48fc61f7ad893467406b6c0704b04a85484 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-18 11:20:27 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-18T16:20:27Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-18T16:20:27Z '{ key: $key, value: $value }'
++ '[' -z ./lesson02 ']'
++ pushd ./lesson02
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-842a7b2d60cd/lesson02 /tmp/twcr-842a7b2d60cd /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-842a7b2d60cd/lesson02
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./lesson02 '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-842a7b2d60cd
+grep: /tmp/twcr-842a7b2d60cd/package.json: No such file or directory
+grep: /tmp/twcr-842a7b2d60cd/package.json: No such file or directory
+grep: /tmp/twcr-842a7b2d60cd/package.json: No such file or directory
+/twcr/worker/../worker/pm-detect.sh: line 17: /tmp/twcr-842a7b2d60cd/package.json: No such file or directory
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:36:40Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:36:40Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:36:40Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:36:40Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at c735a48 correct class name: justify-center
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-842a7b2d60cd /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-842a7b2d60cd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+
+added 2 packages, and audited 3 packages in 757ms
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-842a7b2d60cd/lesson02/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-842a7b2d60cd/lesson02/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-842a7b2d60cd/lesson02/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

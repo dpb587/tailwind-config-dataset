@@ -1,0 +1,868 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/themesberg/flowbite-svelte
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/themesberg/flowbite-svelte
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4ee98216838d
+++ echo 'github.com/themesberg/flowbite-svelte;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4dd3fb490f3f
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/themesberg/flowbite-svelte/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/themesberg/flowbite-svelte/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d559ac7d90e2884a
++ jq -nc --arg key analysis_nonce --arg value d559ac7d90e2884a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/themesberg/flowbite-svelte
++ jq -nc --arg key input_repo_name --arg value github.com/themesberg/flowbite-svelte '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T02:46:52Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T02:46:52Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4ee98216838d
+/tmp/twcr-4ee98216838d /twcr
++ pushd /tmp/twcr-4ee98216838d
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/themesberg/flowbite-svelte.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T02:46:55Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T02:46:55Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f2960aed057078a92e89524d2a49285ac044acba
++ jq -nc --arg key exec_repo_commit_sha --arg value f2960aed057078a92e89524d2a49285ac044acba '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 18:08:27 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T17:08:27Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T17:08:27Z '{ key: $key, value: $value }'
+/tmp/twcr-4ee98216838d /tmp/twcr-4ee98216838d /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4ee98216838d
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T02:46:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T02:46:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "flowbite-svelte",
+>>>   "version": "0.44.24",
+>>>   "description": "Flowbite components for Svelte",
+>>>   "main": "dist/index.js",
+>>>   "packageManager": "pnpm@8.15.4",
+>>>   "author": {
+>>>     "name": "Shinichi Okada",
+>>>     "email": "connect@codewithshin.com",
+>>>     "url": "https://blog.codewithshin.com"
+>>>   },
+>>>   "bugs": "https://github.com/themesberg/flowbite-svelte/issues",
+>>>   "homepage": "https://flowbite-svelte.com/",
+>>>   "license": "MIT",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "peerDependencies": {},
+>>>   "type": "module",
+>>>   "keywords": [
+>>>     "svelte",
+>>>     "sveltekit",
+>>>     "tailwindcss",
+>>>     "flowbite",
+>>>     "ui",
+>>>     "accordion",
+>>>     "alert",
+>>>     "avatar",
+>>>     "badge",
+>>>     "breadcrumb",
+>>>     "button-group",
+>>>     "button",
+>>>     "card",
+>>>     "carousel",
+>>>     "darkmode",
+>>>     "dropdown",
+>>>     "footer",
+>>>     "forms",
+>>>     "kbd",
+>>>     "list group",
+>>>     "mega menu",
+>>>     "modal",
+>>>     "navbar",
+>>>     "pagination",
+>>>     "progressbar",
+>>>     "rating",
+>>>     "sidebar",
+>>>     "skeleton",
+>>>     "spinner",
+>>>     "table",
+>>>     "tab",
+>>>     "timeline",
+>>>     "toast",
+>>>     "tooltip",
+>>>     "typography",
+>>>     "video"
+>>>   ],
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/themesberg/flowbite-svelte"
+>>>   },
+>>>   "dependencies": {
+>>>     "flowbite": "^2.3.0"
+>>>   },
+>>>   "engines": {
+>>>     "pnpm": ">=8.0.0",
+>>>     "node": ">=18.0.0"
+>>>   },
+>>>   "files": [
+>>>     "dist",
+>>>     "!dist/**/*.test.*",
+>>>     "!dist/**/*.spec.*"
+>>>   ],
+>>>   "svelte": "./dist/index.js",
+>>>   "types": "./dist/index.d.ts",
+>>>   "exports": {
+>>>     ".": {
+>>>       "types": "./dist/index.d.ts",
+>>>       "svelte": "./dist/index.js"
+>>>     },
+>>>     "./Accordion.svelte": {
+>>>       "types": "./dist/accordion/Accordion.svelte.d.ts",
+>>>       "svelte": "./dist/accordion/Accordion.svelte"
+>>>     },
+>>>     "./AccordionItem.svelte": {
+>>>       "types": "./dist/accordion/AccordionItem.svelte.d.ts",
+>>>       "svelte": "./dist/accordion/AccordionItem.svelte"
+>>>     },
+>>>     "./Alert.svelte": {
+>>>       "types": "./dist/alert/Alert.svelte.d.ts",
+>>>       "svelte": "./dist/alert/Alert.svelte"
+>>>     },
+>>>     "./Avatar.svelte": {
+>>>       "types": "./dist/avatar/Avatar.svelte.d.ts",
+>>>       "svelte": "./dist/avatar/Avatar.svelte"
+>>>     },
+>>>     "./Badge.svelte": {
+>>>       "types": "./dist/badge/Badge.svelte.d.ts",
+>>>       "svelte": "./dist/badge/Badge.svelte"
+>>>     },
+>>>     "./Banner.svelte": {
+>>>       "types": "./dist/banner/Banner.svelte.d.ts",
+>>>       "svelte": "./dist/banner/Banner.svelte"
+>>>     },
+>>>     "./BottomNav.svelte": {
+>>>       "types": "./dist/bottom-navigation/BottomNav.svelte.d.ts",
+>>>       "svelte": "./dist/bottom-navigation/BottomNav.svelte"
+>>>     },
+>>>     "./BottomNavHeader.svelte": {
+>>>       "types": "./dist/bottom-navigation/BottomNavHeader.svelte.d.ts",
+>>>       "svelte": "./dist/bottom-navigation/BottomNavHeader.svelte"
+>>>     },
+>>>     "./BottomNavHeaderItem.svelte": {
+>>>       "types": "./dist/bottom-navigation/BottomNavHeaderItem.svelte.d.ts",
+>>>       "svelte": "./dist/bottom-navigation/BottomNavHeaderItem.svelte"
+>>>     },
+>>>     "./BottomNavItem.svelte": {
+>>>       "types": "./dist/bottom-navigation/BottomNavItem.svelte.d.ts",
+>>>       "svelte": "./dist/bottom-navigation/BottomNavItem.svelte"
+>>>     },
+>>>     "./Breadcrumb.svelte": {
+>>>       "types": "./dist/breadcrumb/Breadcrumb.svelte.d.ts",
+>>>       "svelte": "./dist/breadcrumb/Breadcrumb.svelte"
+>>>     },
+>>>     "./BreadcrumbItem.svelte": {
+>>>       "types": "./dist/breadcrumb/BreadcrumbItem.svelte.d.ts",
+>>>       "svelte": "./dist/breadcrumb/BreadcrumbItem.svelte"
+>>>     },
+>>>     "./ButtonGroup.svelte": {
+>>>       "types": "./dist/button-group/ButtonGroup.svelte.d.ts",
+>>>       "svelte": "./dist/button-group/ButtonGroup.svelte"
+>>>     },
+>>>     "./Button.svelte": {
+>>>       "types": "./dist/buttons/Button.svelte.d.ts",
+>>>       "svelte": "./dist/buttons/Button.svelte"
+>>>     },
+>>>     "./GradientButton.svelte": {
+>>>       "types": "./dist/buttons/GradientButton.svelte.d.ts",
+>>>       "svelte": "./dist/buttons/GradientButton.svelte"
+>>>     },
+>>>     "./Card.svelte": {
+>>>       "types": "./dist/cards/Card.svelte.d.ts",
+>>>       "svelte": "./dist/cards/Card.svelte"
+>>>     },
+>>>     "./Carousel.svelte": {
+>>>       "types": "./dist/carousel/Carousel.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Carousel.svelte"
+>>>     },
+>>>     "./ControlButton.svelte": {
+>>>       "types": "./dist/carousel/ControlButton.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/ControlButton.svelte"
+>>>     },
+>>>     "./Controls.svelte": {
+>>>       "types": "./dist/carousel/Controls.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Controls.svelte"
+>>>     },
+>>>     "./Indicators.svelte": {
+>>>       "types": "./dist/carousel/Indicators.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Indicators.svelte"
+>>>     },
+>>>     "./Slide.svelte": {
+>>>       "types": "./dist/carousel/Slide.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Slide.svelte"
+>>>     },
+>>>     "./Thumbnail.svelte": {
+>>>       "types": "./dist/carousel/Thumbnail.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Thumbnail.svelte"
+>>>     },
+>>>     "./Thumbnails.svelte": {
+>>>       "types": "./dist/carousel/Thumbnails.svelte.d.ts",
+>>>       "svelte": "./dist/carousel/Thumbnails.svelte"
+>>>     },
+>>>     "./Chart.svelte": {
+>>>       "types": "./dist/charts/Chart.svelte.d.ts",
+>>>       "svelte": "./dist/charts/Chart.svelte"
+>>>     },
+>>>     "./DarkMode.svelte": {
+>>>       "types": "./dist/darkmode/DarkMode.svelte.d.ts",
+>>>       "svelte": "./dist/darkmode/DarkMode.svelte"
+>>>     },
+>>>     "./Calender.svelte": {
+>>>       "types": "./dist/datepicker/Calender.svelte.d.ts",
+>>>       "svelte": "./dist/datepicker/Calender.svelte"
+>>>     },
+>>>     "./Datepicker.svelte": {
+>>>       "types": "./dist/datepicker/Datepicker.svelte.d.ts",
+>>>       "svelte": "./dist/datepicker/Datepicker.svelte"
+>>>     },
+>>>     "./Android.svelte": {
+>>>       "types": "./dist/device-mockups/Android.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Android.svelte"
+>>>     },
+>>>     "./DefaultMockup.svelte": {
+>>>       "types": "./dist/device-mockups/DefaultMockup.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/DefaultMockup.svelte"
+>>>     },
+>>>     "./Desktop.svelte": {
+>>>       "types": "./dist/device-mockups/Desktop.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Desktop.svelte"
+>>>     },
+>>>     "./DeviceMockup.svelte": {
+>>>       "types": "./dist/device-mockups/DeviceMockup.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/DeviceMockup.svelte"
+>>>     },
+>>>     "./Ios.svelte": {
+>>>       "types": "./dist/device-mockups/Ios.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Ios.svelte"
+>>>     },
+>>>     "./Laptop.svelte": {
+>>>       "types": "./dist/device-mockups/Laptop.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Laptop.svelte"
+>>>     },
+>>>     "./Smartwatch.svelte": {
+>>>       "types": "./dist/device-mockups/Smartwatch.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Smartwatch.svelte"
+>>>     },
+>>>     "./Tablet.svelte": {
+>>>       "types": "./dist/device-mockups/Tablet.svelte.d.ts",
+>>>       "svelte": "./dist/device-mockups/Tablet.svelte"
+>>>     },
+>>>     "./Drawer.svelte": {
+>>>       "types": "./dist/drawer/Drawer.svelte.d.ts",
+>>>       "svelte": "./dist/drawer/Drawer.svelte"
+>>>     },
+>>>     "./Dropdown.svelte": {
+>>>       "types": "./dist/dropdown/Dropdown.svelte.d.ts",
+>>>       "svelte": "./dist/dropdown/Dropdown.svelte"
+>>>     },
+>>>     "./DropdownDivider.svelte": {
+>>>       "types": "./dist/dropdown/DropdownDivider.svelte.d.ts",
+>>>       "svelte": "./dist/dropdown/DropdownDivider.svelte"
+>>>     },
+>>>     "./DropdownHeader.svelte": {
+>>>       "types": "./dist/dropdown/DropdownHeader.svelte.d.ts",
+>>>       "svelte": "./dist/dropdown/DropdownHeader.svelte"
+>>>     },
+>>>     "./DropdownItem.svelte": {
+>>>       "types": "./dist/dropdown/DropdownItem.svelte.d.ts",
+>>>       "svelte": "./dist/dropdown/DropdownItem.svelte"
+>>>     },
+>>>     "./Footer.svelte": {
+>>>       "types": "./dist/footer/Footer.svelte.d.ts",
+>>>       "svelte": "./dist/footer/Footer.svelte"
+>>>     },
+>>>     "./FooterBrand.svelte": {
+>>>       "types": "./dist/footer/FooterBrand.svelte.d.ts",
+>>>       "svelte": "./dist/footer/FooterBrand.svelte"
+>>>     },
+>>>     "./FooterCopyright.svelte": {
+>>>       "types": "./dist/footer/FooterCopyright.svelte.d.ts",
+>>>       "svelte": "./dist/footer/FooterCopyright.svelte"
+>>>     },
+>>>     "./FooterIcon.svelte": {
+>>>       "types": "./dist/footer/FooterIcon.svelte.d.ts",
+>>>       "svelte": "./dist/footer/FooterIcon.svelte"
+>>>     },
+>>>     "./FooterLink.svelte": {
+>>>       "types": "./dist/footer/FooterLink.svelte.d.ts",
+>>>       "svelte": "./dist/footer/FooterLink.svelte"
+>>>     },
+>>>     "./FooterLinkGroup.svelte": {
+>>>       "types": "./dist/footer/FooterLinkGroup.svelte.d.ts",
+>>>       "svelte": "./dist/footer/FooterLinkGroup.svelte"
+>>>     },
+>>>     "./Checkbox.svelte": {
+>>>       "types": "./dist/forms/Checkbox.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Checkbox.svelte"
+>>>     },
+>>>     "./CheckboxButton.svelte": {
+>>>       "types": "./dist/forms/CheckboxButton.svelte.d.ts",
+>>>       "svelte": "./dist/forms/CheckboxButton.svelte"
+>>>     },
+>>>     "./Dropzone.svelte": {
+>>>       "types": "./dist/forms/Dropzone.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Dropzone.svelte"
+>>>     },
+>>>     "./Fileupload.svelte": {
+>>>       "types": "./dist/forms/Fileupload.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Fileupload.svelte"
+>>>     },
+>>>     "./FloatingLabelInput.svelte": {
+>>>       "types": "./dist/forms/FloatingLabelInput.svelte.d.ts",
+>>>       "svelte": "./dist/forms/FloatingLabelInput.svelte"
+>>>     },
+>>>     "./Helper.svelte": {
+>>>       "types": "./dist/forms/Helper.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Helper.svelte"
+>>>     },
+>>>     "./Input.svelte": {
+>>>       "types": "./dist/forms/Input.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Input.svelte"
+>>>     },
+>>>     "./InputAddon.svelte": {
+>>>       "types": "./dist/forms/InputAddon.svelte.d.ts",
+>>>       "svelte": "./dist/forms/InputAddon.svelte"
+>>>     },
+>>>     "./Label.svelte": {
+>>>       "types": "./dist/forms/Label.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Label.svelte"
+>>>     },
+>>>     "./MultiSelect.svelte": {
+>>>       "types": "./dist/forms/MultiSelect.svelte.d.ts",
+>>>       "svelte": "./dist/forms/MultiSelect.svelte"
+>>>     },
+>>>     "./NumberInput.svelte": {
+>>>       "types": "./dist/forms/NumberInput.svelte.d.ts",
+>>>       "svelte": "./dist/forms/NumberInput.svelte"
+>>>     },
+>>>     "./Radio.svelte": {
+>>>       "types": "./dist/forms/Radio.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Radio.svelte"
+>>>     },
+>>>     "./RadioButton.svelte": {
+>>>       "types": "./dist/forms/RadioButton.svelte.d.ts",
+>>>       "svelte": "./dist/forms/RadioButton.svelte"
+>>>     },
+>>>     "./Range.svelte": {
+>>>       "types": "./dist/forms/Range.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Range.svelte"
+>>>     },
+>>>     "./Search.svelte": {
+>>>       "types": "./dist/forms/Search.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Search.svelte"
+>>>     },
+>>>     "./Select.svelte": {
+>>>       "types": "./dist/forms/Select.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Select.svelte"
+>>>     },
+>>>     "./Textarea.svelte": {
+>>>       "types": "./dist/forms/Textarea.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Textarea.svelte"
+>>>     },
+>>>     "./Toggle.svelte": {
+>>>       "types": "./dist/forms/Toggle.svelte.d.ts",
+>>>       "svelte": "./dist/forms/Toggle.svelte"
+>>>     },
+>>>     "./Gallery.svelte": {
+>>>       "types": "./dist/gallery/Gallery.svelte.d.ts",
+>>>       "svelte": "./dist/gallery/Gallery.svelte"
+>>>     },
+>>>     "./Indicator.svelte": {
+>>>       "types": "./dist/indicators/Indicator.svelte.d.ts",
+>>>       "svelte": "./dist/indicators/Indicator.svelte"
+>>>     },
+>>>     "./ArrowKeyDown.svelte": {
+>>>       "types": "./dist/kbd/ArrowKeyDown.svelte.d.ts",
+>>>       "svelte": "./dist/kbd/ArrowKeyDown.svelte"
+>>>     },
+>>>     "./ArrowKeyLeft.svelte": {
+>>>       "types": "./dist/kbd/ArrowKeyLeft.svelte.d.ts",
+>>>       "svelte": "./dist/kbd/ArrowKeyLeft.svelte"
+>>>     },
+>>>     "./ArrowKeyRight.svelte": {
+>>>       "types": "./dist/kbd/ArrowKeyRight.svelte.d.ts",
+>>>       "svelte": "./dist/kbd/ArrowKeyRight.svelte"
+>>>     },
+>>>     "./ArrowKeyUp.svelte": {
+>>>       "types": "./dist/kbd/ArrowKeyUp.svelte.d.ts",
+>>>       "svelte": "./dist/kbd/ArrowKeyUp.svelte"
+>>>     },
+>>>     "./Kbd.svelte": {
+>>>       "types": "./dist/kbd/Kbd.svelte.d.ts",
+>>>       "svelte": "./dist/kbd/Kbd.svelte"
+>>>     },
+>>>     "./Listgroup.svelte": {
+>>>       "types": "./dist/list-group/Listgroup.svelte.d.ts",
+>>>       "svelte": "./dist/list-group/Listgroup.svelte"
+>>>     },
+>>>     "./ListgroupItem.svelte": {
+>>>       "types": "./dist/list-group/ListgroupItem.svelte.d.ts",
+>>>       "svelte": "./dist/list-group/ListgroupItem.svelte"
+>>>     },
+>>>     "./Marquee.svelte": {
+>>>       "types": "./dist/marquee/Marquee.svelte.d.ts",
+>>>       "svelte": "./dist/marquee/Marquee.svelte"
+>>>     },
+>>>     "./MegaMenu.svelte": {
+>>>       "types": "./dist/mega-menu/MegaMenu.svelte.d.ts",
+>>>       "svelte": "./dist/mega-menu/MegaMenu.svelte"
+>>>     },
+>>>     "./Modal.svelte": {
+>>>       "types": "./dist/modal/Modal.svelte.d.ts",
+>>>       "svelte": "./dist/modal/Modal.svelte"
+>>>     },
+>>>     "./Menu.svelte": {
+>>>       "types": "./dist/navbar/Menu.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/Menu.svelte"
+>>>     },
+>>>     "./NavBrand.svelte": {
+>>>       "types": "./dist/navbar/NavBrand.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/NavBrand.svelte"
+>>>     },
+>>>     "./NavContainer.svelte": {
+>>>       "types": "./dist/navbar/NavContainer.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/NavContainer.svelte"
+>>>     },
+>>>     "./NavHamburger.svelte": {
+>>>       "types": "./dist/navbar/NavHamburger.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/NavHamburger.svelte"
+>>>     },
+>>>     "./NavLi.svelte": {
+>>>       "types": "./dist/navbar/NavLi.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/NavLi.svelte"
+>>>     },
+>>>     "./NavUl.svelte": {
+>>>       "types": "./dist/navbar/NavUl.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/NavUl.svelte"
+>>>     },
+>>>     "./Navbar.svelte": {
+>>>       "types": "./dist/navbar/Navbar.svelte.d.ts",
+>>>       "svelte": "./dist/navbar/Navbar.svelte"
+>>>     },
+>>>     "./Pagination.svelte": {
+>>>       "types": "./dist/pagination/Pagination.svelte.d.ts",
+>>>       "svelte": "./dist/pagination/Pagination.svelte"
+>>>     },
+>>>     "./PaginationItem.svelte": {
+>>>       "types": "./dist/pagination/PaginationItem.svelte.d.ts",
+>>>       "svelte": "./dist/pagination/PaginationItem.svelte"
+>>>     },
+>>>     "./Popover.svelte": {
+>>>       "types": "./dist/popover/Popover.svelte.d.ts",
+>>>       "svelte": "./dist/popover/Popover.svelte"
+>>>     },
+>>>     "./Progressbar.svelte": {
+>>>       "types": "./dist/progress/Progressbar.svelte.d.ts",
+>>>       "svelte": "./dist/progress/Progressbar.svelte"
+>>>     },
+>>>     "./AdvancedRating.svelte": {
+>>>       "types": "./dist/rating/AdvancedRating.svelte.d.ts",
+>>>       "svelte": "./dist/rating/AdvancedRating.svelte"
+>>>     },
+>>>     "./Heart.svelte": {
+>>>       "types": "./dist/rating/Heart.svelte.d.ts",
+>>>       "svelte": "./dist/rating/Heart.svelte"
+>>>     },
+>>>     "./Rating.svelte": {
+>>>       "types": "./dist/rating/Rating.svelte.d.ts",
+>>>       "svelte": "./dist/rating/Rating.svelte"
+>>>     },
+>>>     "./RatingComment.svelte": {
+>>>       "types": "./dist/rating/RatingComment.svelte.d.ts",
+>>>       "svelte": "./dist/rating/RatingComment.svelte"
+>>>     },
+>>>     "./Review.svelte": {
+>>>       "types": "./dist/rating/Review.svelte.d.ts",
+>>>       "svelte": "./dist/rating/Review.svelte"
+>>>     },
+>>>     "./ScoreRating.svelte": {
+>>>       "types": "./dist/rating/ScoreRating.svelte.d.ts",
+>>>       "svelte": "./dist/rating/ScoreRating.svelte"
+>>>     },
+>>>     "./Star.svelte": {
+>>>       "types": "./dist/rating/Star.svelte.d.ts",
+>>>       "svelte": "./dist/rating/Star.svelte"
+>>>     },
+>>>     "./Thumbup.svelte": {
+>>>       "types": "./dist/rating/Thumbup.svelte.d.ts",
+>>>       "svelte": "./dist/rating/Thumbup.svelte"
+>>>     },
+>>>     "./Sidebar.svelte": {
+>>>       "types": "./dist/sidebar/Sidebar.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/Sidebar.svelte"
+>>>     },
+>>>     "./SidebarBrand.svelte": {
+>>>       "types": "./dist/sidebar/SidebarBrand.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarBrand.svelte"
+>>>     },
+>>>     "./SidebarCta.svelte": {
+>>>       "types": "./dist/sidebar/SidebarCta.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarCta.svelte"
+>>>     },
+>>>     "./SidebarDropdownItem.svelte": {
+>>>       "types": "./dist/sidebar/SidebarDropdownItem.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarDropdownItem.svelte"
+>>>     },
+>>>     "./SidebarDropdownWrapper.svelte": {
+>>>       "types": "./dist/sidebar/SidebarDropdownWrapper.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarDropdownWrapper.svelte"
+>>>     },
+>>>     "./SidebarGroup.svelte": {
+>>>       "types": "./dist/sidebar/SidebarGroup.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarGroup.svelte"
+>>>     },
+>>>     "./SidebarItem.svelte": {
+>>>       "types": "./dist/sidebar/SidebarItem.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarItem.svelte"
+>>>     },
+>>>     "./SidebarWrapper.svelte": {
+>>>       "types": "./dist/sidebar/SidebarWrapper.svelte.d.ts",
+>>>       "svelte": "./dist/sidebar/SidebarWrapper.svelte"
+>>>     },
+>>>     "./CardPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/CardPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/CardPlaceholder.svelte"
+>>>     },
+>>>     "./ImagePlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/ImagePlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/ImagePlaceholder.svelte"
+>>>     },
+>>>     "./ListPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/ListPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/ListPlaceholder.svelte"
+>>>     },
+>>>     "./Skeleton.svelte": {
+>>>       "types": "./dist/skeleton/Skeleton.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/Skeleton.svelte"
+>>>     },
+>>>     "./TestimonialPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/TestimonialPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/TestimonialPlaceholder.svelte"
+>>>     },
+>>>     "./TextPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/TextPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/TextPlaceholder.svelte"
+>>>     },
+>>>     "./VideoPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/VideoPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/VideoPlaceholder.svelte"
+>>>     },
+>>>     "./WidgetPlaceholder.svelte": {
+>>>       "types": "./dist/skeleton/WidgetPlaceholder.svelte.d.ts",
+>>>       "svelte": "./dist/skeleton/WidgetPlaceholder.svelte"
+>>>     },
+>>>     "./SpeedDial.svelte": {
+>>>       "types": "./dist/speed-dial/SpeedDial.svelte.d.ts",
+>>>       "svelte": "./dist/speed-dial/SpeedDial.svelte"
+>>>     },
+>>>     "./SpeedDialButton.svelte": {
+>>>       "types": "./dist/speed-dial/SpeedDialButton.svelte.d.ts",
+>>>       "svelte": "./dist/speed-dial/SpeedDialButton.svelte"
+>>>     },
+>>>     "./Spinner.svelte": {
+>>>       "types": "./dist/spinner/Spinner.svelte.d.ts",
+>>>       "svelte": "./dist/spinner/Spinner.svelte"
+>>>     },
+>>>     "./StepIndicator.svelte": {
+>>>       "types": "./dist/steps/StepIndicator.svelte.d.ts",
+>>>       "svelte": "./dist/steps/StepIndicator.svelte"
+>>>     },
+>>>     "./Table.svelte": {
+>>>       "types": "./dist/table/Table.svelte.d.ts",
+>>>       "svelte": "./dist/table/Table.svelte"
+>>>     },
+>>>     "./TableBody.svelte": {
+>>>       "types": "./dist/table/TableBody.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableBody.svelte"
+>>>     },
+>>>     "./TableBodyCell.svelte": {
+>>>       "types": "./dist/table/TableBodyCell.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableBodyCell.svelte"
+>>>     },
+>>>     "./TableBodyRow.svelte": {
+>>>       "types": "./dist/table/TableBodyRow.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableBodyRow.svelte"
+>>>     },
+>>>     "./TableHead.svelte": {
+>>>       "types": "./dist/table/TableHead.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableHead.svelte"
+>>>     },
+>>>     "./TableHeadCell.svelte": {
+>>>       "types": "./dist/table/TableHeadCell.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableHeadCell.svelte"
+>>>     },
+>>>     "./TableSearch.svelte": {
+>>>       "types": "./dist/table/TableSearch.svelte.d.ts",
+>>>       "svelte": "./dist/table/TableSearch.svelte"
+>>>     },
+>>>     "./TabItem.svelte": {
+>>>       "types": "./dist/tabs/TabItem.svelte.d.ts",
+>>>       "svelte": "./dist/tabs/TabItem.svelte"
+>>>     },
+>>>     "./Tabs.svelte": {
+>>>       "types": "./dist/tabs/Tabs.svelte.d.ts",
+>>>       "svelte": "./dist/tabs/Tabs.svelte"
+>>>     },
+>>>     "./Activity.svelte": {
+>>>       "types": "./dist/timeline/Activity.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/Activity.svelte"
+>>>     },
+>>>     "./ActivityItem.svelte": {
+>>>       "types": "./dist/timeline/ActivityItem.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/ActivityItem.svelte"
+>>>     },
+>>>     "./Group.svelte": {
+>>>       "types": "./dist/timeline/Group.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/Group.svelte"
+>>>     },
+>>>     "./GroupItem.svelte": {
+>>>       "types": "./dist/timeline/GroupItem.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/GroupItem.svelte"
+>>>     },
+>>>     "./Timeline.svelte": {
+>>>       "types": "./dist/timeline/Timeline.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/Timeline.svelte"
+>>>     },
+>>>     "./TimelineItem.svelte": {
+>>>       "types": "./dist/timeline/TimelineItem.svelte.d.ts",
+>>>       "svelte": "./dist/timeline/TimelineItem.svelte"
+>>>     },
+>>>     "./Toast.svelte": {
+>>>       "types": "./dist/toast/Toast.svelte.d.ts",
+>>>       "svelte": "./dist/toast/Toast.svelte"
+>>>     },
+>>>     "./Toolbar.svelte": {
+>>>       "types": "./dist/toolbar/Toolbar.svelte.d.ts",
+>>>       "svelte": "./dist/toolbar/Toolbar.svelte"
+>>>     },
+>>>     "./ToolbarButton.svelte": {
+>>>       "types": "./dist/toolbar/ToolbarButton.svelte.d.ts",
+>>>       "svelte": "./dist/toolbar/ToolbarButton.svelte"
+>>>     },
+>>>     "./ToolbarGroup.svelte": {
+>>>       "types": "./dist/toolbar/ToolbarGroup.svelte.d.ts",
+>>>       "svelte": "./dist/toolbar/ToolbarGroup.svelte"
+>>>     },
+>>>     "./Tooltip.svelte": {
+>>>       "types": "./dist/tooltip/Tooltip.svelte.d.ts",
+>>>       "svelte": "./dist/tooltip/Tooltip.svelte"
+>>>     },
+>>>     "./A.svelte": {
+>>>       "types": "./dist/typography/A.svelte.d.ts",
+>>>       "svelte": "./dist/typography/A.svelte"
+>>>     },
+>>>     "./Blockquote.svelte": {
+>>>       "types": "./dist/typography/Blockquote.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Blockquote.svelte"
+>>>     },
+>>>     "./DescriptionList.svelte": {
+>>>       "types": "./dist/typography/DescriptionList.svelte.d.ts",
+>>>       "svelte": "./dist/typography/DescriptionList.svelte"
+>>>     },
+>>>     "./Heading.svelte": {
+>>>       "types": "./dist/typography/Heading.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Heading.svelte"
+>>>     },
+>>>     "./Hr.svelte": {
+>>>       "types": "./dist/typography/Hr.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Hr.svelte"
+>>>     },
+>>>     "./Img.svelte": {
+>>>       "types": "./dist/typography/Img.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Img.svelte"
+>>>     },
+>>>     "./Layout.svelte": {
+>>>       "types": "./dist/typography/Layout.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Layout.svelte"
+>>>     },
+>>>     "./Li.svelte": {
+>>>       "types": "./dist/typography/Li.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Li.svelte"
+>>>     },
+>>>     "./List.svelte": {
+>>>       "types": "./dist/typography/List.svelte.d.ts",
+>>>       "svelte": "./dist/typography/List.svelte"
+>>>     },
+>>>     "./Mark.svelte": {
+>>>       "types": "./dist/typography/Mark.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Mark.svelte"
+>>>     },
+>>>     "./P.svelte": {
+>>>       "types": "./dist/typography/P.svelte.d.ts",
+>>>       "svelte": "./dist/typography/P.svelte"
+>>>     },
+>>>     "./Secondary.svelte": {
+>>>       "types": "./dist/typography/Secondary.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Secondary.svelte"
+>>>     },
+>>>     "./Span.svelte": {
+>>>       "types": "./dist/typography/Span.svelte.d.ts",
+>>>       "svelte": "./dist/typography/Span.svelte"
+>>>     },
+>>>     "./CloseButton.svelte": {
+>>>       "types": "./dist/utils/CloseButton.svelte.d.ts",
+>>>       "svelte": "./dist/utils/CloseButton.svelte"
+>>>     },
+>>>     "./Frame.svelte": {
+>>>       "types": "./dist/utils/Frame.svelte.d.ts",
+>>>       "svelte": "./dist/utils/Frame.svelte"
+>>>     },
+>>>     "./Popper.svelte": {
+>>>       "types": "./dist/utils/Popper.svelte.d.ts",
+>>>       "svelte": "./dist/utils/Popper.svelte"
+>>>     },
+>>>     "./TransitionFrame.svelte": {
+>>>       "types": "./dist/utils/TransitionFrame.svelte.d.ts",
+>>>       "svelte": "./dist/utils/TransitionFrame.svelte"
+>>>     },
+>>>     "./Wrapper.svelte": {
+>>>       "types": "./dist/utils/Wrapper.svelte.d.ts",
+>>>       "svelte": "./dist/utils/Wrapper.svelte"
+>>>     },
+>>>     "./Video.svelte": {
+>>>       "types": "./dist/video/Video.svelte.d.ts",
+>>>       "svelte": "./dist/video/Video.svelte"
+>>>     },
+>>>     "./package.json": "./package.json"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4ee98216838d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4ee98216838d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4ee98216838d/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-4ee98216838d/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 17, reused 0, downloaded 1, added 0
+Progress: resolved 41, reused 0, downloaded 29, added 0
+Progress: resolved 65, reused 0, downloaded 61, added 0
+Progress: resolved 96, reused 0, downloaded 83, added 0
+Packages: +108
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 109, reused 0, downloaded 108, added 108, done
+
+dependencies:
++ flowbite 2.3.0
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T02:47:03Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T02:47:03Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T02:47:03Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T02:47:03Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

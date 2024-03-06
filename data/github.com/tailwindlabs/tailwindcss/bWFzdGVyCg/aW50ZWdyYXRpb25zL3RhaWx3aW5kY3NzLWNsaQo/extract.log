@@ -1,0 +1,275 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/tailwindlabs/tailwindcss
++ reporef=master
++ repopath=./integrations/tailwindcss-cli
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/tailwindlabs/tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-fb52b3b3af29
+++ echo 'github.com/tailwindlabs/tailwindcss;master;./integrations/tailwindcss-cli'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4f6e93076e73
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/tailwindlabs/tailwindcss/bWFzdGVyCg/Li9pbnRlZ3JhdGlvbnMvdGFpbHdpbmRjc3MtY2xpCg
++ jq -nc --arg key analysis_key --arg value github.com/tailwindlabs/tailwindcss/bWFzdGVyCg/Li9pbnRlZ3JhdGlvbnMvdGFpbHdpbmRjc3MtY2xpCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d63ffca7071edecb
++ jq -nc --arg key analysis_nonce --arg value d63ffca7071edecb '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/tailwindlabs/tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/tailwindlabs/tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./integrations/tailwindcss-cli
++ jq -nc --arg key input_repo_path --arg value ./integrations/tailwindcss-cli '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T23:54:03Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T23:54:03Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-fb52b3b3af29
++ pushd /tmp/twcr-fb52b3b3af29
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/tailwindlabs/tailwindcss.git .
+/tmp/twcr-fb52b3b3af29 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T23:54:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T23:54:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4429ab80101bdebcb3e84e817201beb69f05fc3b
++ jq -nc --arg key exec_repo_commit_sha --arg value 4429ab80101bdebcb3e84e817201beb69f05fc3b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-26 07:38:32 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-26T12:38:32Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-26T12:38:32Z '{ key: $key, value: $value }'
++ '[' -z ./integrations/tailwindcss-cli ']'
++ pushd ./integrations/tailwindcss-cli
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli /tmp/twcr-fb52b3b3af29 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./integrations/tailwindcss-cli '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-fb52b3b3af29
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T23:54:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T23:54:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@tailwindcss/integrations-tailwindcss-cli",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "dependencies": {
+>>>     "tailwindcss": "file:../../"
+>>>   },
+>>>   "jest": {
+>>>     "testTimeout": 10000,
+>>>     "displayName": "Tailwind CSS CLI",
+>>>     "setupFilesAfterEnv": [
+>>>       "<rootDir>/../../jest/customMatchers.js"
+>>>     ],
+>>>     "transform": {
+>>>       "\\.js$": "@swc/jest",
+>>>       "\\.ts$": "@swc/jest"
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./integrations/tailwindcss-cli '!=' ./ ']'
++ rm -f /tmp/twcr-fb52b3b3af29/package.json /tmp/twcr-fb52b3b3af29/package-lock.json /tmp/twcr-fb52b3b3af29/pnpm-lock.yaml /tmp/twcr-fb52b3b3af29/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-fb52b3b3af29 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-fb52b3b3af29
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 1 package, and audited 3 packages in 268ms
+
+found 0 vulnerabilities
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module './lib/public/resolve-config'
+Require stack:
+- /tmp/twcr-fb52b3b3af29/resolveConfig.js
+- /tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-fb52b3b3af29/resolveConfig.js:1:21)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-fb52b3b3af29/resolveConfig.js',
+    '/tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T23:54:07Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T23:54:07Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 4429ab8 Update CHANGELOG.md 3.4.1 release date (#13024)
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-fb52b3b3af29 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-fb52b3b3af29
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+
+added 1242 packages, and audited 1253 packages in 50s
+
+184 packages are looking for funding
+  run `npm fund` for details
+
+11 vulnerabilities (3 moderate, 8 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module './lib/public/resolve-config'
+Require stack:
+- /tmp/twcr-fb52b3b3af29/resolveConfig.js
+- /tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-fb52b3b3af29/resolveConfig.js:1:21)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-fb52b3b3af29/resolveConfig.js',
+    '/tmp/twcr-fb52b3b3af29/integrations/tailwindcss-cli/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

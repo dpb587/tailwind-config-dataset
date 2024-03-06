@@ -1,0 +1,471 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/FuelLabs/fuel-explorer
++ reporef=main
++ repopath=./packages/app-explorer
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/FuelLabs/fuel-explorer
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-d951ebff7b35
+++ echo 'github.com/FuelLabs/fuel-explorer;main;./packages/app-explorer'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/d51351a1ed3f
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/FuelLabs/fuel-explorer/bWFpbgo/Li9wYWNrYWdlcy9hcHAtZXhwbG9yZXIK
++ jq -nc --arg key analysis_key --arg value github.com/FuelLabs/fuel-explorer/bWFpbgo/Li9wYWNrYWdlcy9hcHAtZXhwbG9yZXIK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce fceaf7e307f255e4
++ jq -nc --arg key analysis_nonce --arg value fceaf7e307f255e4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/FuelLabs/fuel-explorer
++ jq -nc --arg key input_repo_name --arg value github.com/FuelLabs/fuel-explorer '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/app-explorer
++ jq -nc --arg key input_repo_path --arg value ./packages/app-explorer '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T08:46:23Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T08:46:23Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d951ebff7b35
++ pushd /tmp/twcr-d951ebff7b35
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/FuelLabs/fuel-explorer.git .
+/tmp/twcr-d951ebff7b35 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T08:46:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T08:46:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d5fb2d79a9da50ca61b6a9e7be62bea34f951182
++ jq -nc --arg key exec_repo_commit_sha --arg value d5fb2d79a9da50ca61b6a9e7be62bea34f951182 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-28 09:42:34 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-28T17:42:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-28T17:42:34Z '{ key: $key, value: $value }'
++ '[' -z ./packages/app-explorer ']'
++ pushd ./packages/app-explorer
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-d951ebff7b35/packages/app-explorer /tmp/twcr-d951ebff7b35 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d951ebff7b35/packages/app-explorer
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/app-explorer '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d951ebff7b35
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T08:46:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T08:46:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "app-explorer",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@fuels/ui": "workspace:*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "browser": {
+>>>     "fs": false,
+>>>     "path": false,
+>>>     "module": false
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/app-explorer '!=' ./ ']'
++ rm -f /tmp/twcr-d951ebff7b35/package.json /tmp/twcr-d951ebff7b35/package-lock.json /tmp/twcr-d951ebff7b35/pnpm-lock.yaml /tmp/twcr-d951ebff7b35/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-d951ebff7b35 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-d951ebff7b35
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-d951ebff7b35/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 13, reused 0, downloaded 9, added 0
+../..                                    | Progress: resolved 30, reused 0, downloaded 23, added 0
+../..                                    | Progress: resolved 46, reused 0, downloaded 35, added 0
+../..                                    | Progress: resolved 58, reused 0, downloaded 49, added 0
+../..                                    | Progress: resolved 72, reused 0, downloaded 59, added 0
+../..                                    | Progress: resolved 89, reused 0, downloaded 72, added 0
+../..                                    | Progress: resolved 98, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 109, reused 0, downloaded 94, added 0
+../..                                    | Progress: resolved 123, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 139, reused 0, downloaded 125, added 0
+../..                                    | Progress: resolved 160, reused 0, downloaded 151, added 0
+../..                                    | Progress: resolved 169, reused 0, downloaded 157, added 0
+../..                                    | Progress: resolved 187, reused 0, downloaded 172, added 0
+../..                                    | Progress: resolved 209, reused 0, downloaded 199, added 0
+../..                                    | Progress: resolved 226, reused 0, downloaded 216, added 0
+../..                                    | Progress: resolved 247, reused 0, downloaded 219, added 0
+../..                                    | Progress: resolved 258, reused 0, downloaded 239, added 0
+../..                                    | Progress: resolved 267, reused 0, downloaded 248, added 0
+../..                                    | Progress: resolved 285, reused 0, downloaded 266, added 0
+../..                                    | Progress: resolved 302, reused 0, downloaded 282, added 0
+../..                                    | Progress: resolved 327, reused 0, downloaded 304, added 0
+../..                                    | Progress: resolved 352, reused 0, downloaded 331, added 0
+../..                                    | Progress: resolved 382, reused 0, downloaded 358, added 0
+../..                                    | Progress: resolved 407, reused 0, downloaded 381, added 0
+../..                                    | Progress: resolved 433, reused 0, downloaded 410, added 0
+../..                                    | Progress: resolved 444, reused 0, downloaded 416, added 0
+../..                                    | Progress: resolved 460, reused 0, downloaded 435, added 0
+../..                                    | Progress: resolved 487, reused 0, downloaded 446, added 0
+../..                                    | Progress: resolved 503, reused 0, downloaded 458, added 0
+../..                                    | Progress: resolved 525, reused 0, downloaded 482, added 0
+../..                                    | Progress: resolved 565, reused 0, downloaded 501, added 0
+../..                                    | Progress: resolved 594, reused 0, downloaded 524, added 0
+../..                                    | Progress: resolved 627, reused 0, downloaded 542, added 0
+../..                                    | Progress: resolved 641, reused 0, downloaded 568, added 0
+../..                                    | Progress: resolved 655, reused 0, downloaded 585, added 0
+../..                                    | Progress: resolved 672, reused 0, downloaded 597, added 0
+../..                                    | Progress: resolved 692, reused 0, downloaded 619, added 0
+../..                                    | Progress: resolved 725, reused 0, downloaded 649, added 0
+../..                                    | Progress: resolved 747, reused 0, downloaded 669, added 0
+../..                                    | Progress: resolved 757, reused 0, downloaded 677, added 0
+../..                                    | Progress: resolved 761, reused 0, downloaded 678, added 0
+../..                                    | Progress: resolved 768, reused 0, downloaded 684, added 0
+../..                                    | Progress: resolved 771, reused 0, downloaded 686, added 0
+../..                                    | Progress: resolved 775, reused 0, downloaded 691, added 0
+../..                                    | Progress: resolved 780, reused 0, downloaded 693, added 0
+../..                                    | Progress: resolved 787, reused 0, downloaded 699, added 0
+../..                                    | Progress: resolved 792, reused 0, downloaded 707, added 0
+../..                                    | Progress: resolved 801, reused 0, downloaded 714, added 0
+../..                                    | Progress: resolved 805, reused 0, downloaded 717, added 0
+../..                                    | Progress: resolved 824, reused 0, downloaded 732, added 0
+../..                                    | Progress: resolved 875, reused 0, downloaded 759, added 0
+../..                                    | Progress: resolved 878, reused 0, downloaded 766, added 0
+../..                                    | Progress: resolved 895, reused 0, downloaded 778, added 0
+../..                                    | Progress: resolved 911, reused 0, downloaded 797, added 0
+../..                                    | Progress: resolved 926, reused 0, downloaded 811, added 0
+../..                                    | Progress: resolved 959, reused 0, downloaded 827, added 0
+../..                                    | Progress: resolved 985, reused 0, downloaded 857, added 0
+../..                                    | Progress: resolved 1025, reused 0, downloaded 893, added 0
+../..                                    | Progress: resolved 1060, reused 0, downloaded 926, added 0
+../..                                    | Progress: resolved 1089, reused 0, downloaded 952, added 0
+../..                                    | Progress: resolved 1100, reused 0, downloaded 971, added 0
+../..                                    | Progress: resolved 1124, reused 0, downloaded 983, added 0
+../..                                    | Progress: resolved 1151, reused 0, downloaded 1011, added 0
+../..                                    | Progress: resolved 1188, reused 0, downloaded 1039, added 0
+../..                                    | Progress: resolved 1215, reused 0, downloaded 1078, added 0
+../..                                    | Progress: resolved 1258, reused 0, downloaded 1102, added 0
+../..                                    | Progress: resolved 1283, reused 0, downloaded 1127, added 0
+../..                                    | Progress: resolved 1305, reused 0, downloaded 1151, added 0
+../..                                    | Progress: resolved 1324, reused 0, downloaded 1168, added 0
+../..                                    | Progress: resolved 1350, reused 0, downloaded 1194, added 0
+../..                                    | Progress: resolved 1366, reused 0, downloaded 1209, added 0
+../..                                    | Progress: resolved 1385, reused 0, downloaded 1225, added 0
+../..                                    | Progress: resolved 1421, reused 0, downloaded 1258, added 0
+../..                                    | Progress: resolved 1458, reused 0, downloaded 1291, added 0
+../..                                    | Progress: resolved 1496, reused 0, downloaded 1327, added 0
+../..                                    | Progress: resolved 1528, reused 0, downloaded 1360, added 0
+../..                                    | Progress: resolved 1562, reused 0, downloaded 1387, added 0
+../..                                    | Progress: resolved 1600, reused 0, downloaded 1426, added 0
+../..                                    | Progress: resolved 1629, reused 0, downloaded 1453, added 0
+../..                                    | Progress: resolved 1688, reused 0, downloaded 1485, added 0
+../..                                    | Progress: resolved 1720, reused 0, downloaded 1516, added 0
+../..                                    | Progress: resolved 1758, reused 0, downloaded 1547, added 0
+../..                                    | Progress: resolved 1792, reused 0, downloaded 1582, added 0
+../..                                    | Progress: resolved 1810, reused 0, downloaded 1605, added 0
+../..                                    | Progress: resolved 1836, reused 0, downloaded 1625, added 0
+../..                                    | Progress: resolved 1861, reused 0, downloaded 1649, added 0
+../..                                    | Progress: resolved 1890, reused 0, downloaded 1674, added 0
+../..                                    | Progress: resolved 1922, reused 0, downloaded 1706, added 0
+../..                                    | Progress: resolved 1958, reused 0, downloaded 1736, added 0
+../..                                    | Progress: resolved 1984, reused 0, downloaded 1764, added 0
+../..                                    | Progress: resolved 2022, reused 0, downloaded 1800, added 0
+../..                                    | Progress: resolved 2050, reused 0, downloaded 1826, added 0
+../..                                    | Progress: resolved 2080, reused 0, downloaded 1852, added 0
+../..                                    | Progress: resolved 2115, reused 0, downloaded 1888, added 0
+../..                                    | Progress: resolved 2150, reused 0, downloaded 1919, added 0
+../..                                    | Progress: resolved 2179, reused 0, downloaded 1945, added 0
+../..                                    | Progress: resolved 2205, reused 0, downloaded 1974, added 0
+../..                                    | Progress: resolved 2239, reused 0, downloaded 2002, added 0
+../..                                    | Progress: resolved 2280, reused 0, downloaded 2040, added 0
+ WARN  17 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @json-rpc-tools/provider@1.7.6, @json-rpc-tools/types@1.7.6, @json-rpc-tools/utils@1.7.6, @motionone/vue@10.16.4, @nomiclabs/hardhat-etherscan@3.1.8, @openzeppelin/platform-deploy-client@0.8.0, @web3modal/standalone@2.4.3, eip1193-provider@1.0.1, ganache-cli@6.12.2, graphql-import@0.7.1, graphql-toolkit@0.2.0, graphql-tools@4.0.4, har-validator@5.1.5, request@2.88.0, uuid@3.4.0
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2057, added 0
+../..                                    |    +2176 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2075, added 826
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2075, added 1777
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2075, added 1939
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2088, added 2087
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2099, added 2098
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2135, added 2137
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2171, added 2174
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2172, added 2175
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2173, added 2175
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2173, added 2176
+../..                                    | Progress: resolved 2285, reused 0, downloaded 2173, added 2176, done
+.../node_modules/@fuel-ts/fuel-core install$ node ./lib/install.js
+.../node_modules/@fuel-ts/forc install$ node ./lib/install.js
+.../node_modules/@fuel-ts/forc install$ node ./lib/install.js
+.../node_modules/@fuel-ts/fuel-core install$ node ./lib/install.js
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../node_modules/@fuel-ts/forc install: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/forc install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@fuel-ts/forc install: (node:134) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/forc install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@fuel-ts/fuel-core install: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/fuel-core install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@fuel-ts/fuel-core install: (node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/fuel-core install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../node_modules/secp256k1 install$ node-gyp-build || exit 0
+.../node_modules/secp256k1 install: Done
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-d951ebff7b35/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/bigint-buffer install: Done
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/utf-8-validate install: Done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/engines postinstall: (node:309) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@fuel-ts/fuel-core install$ node ./lib/install.js
+.../node_modules/@fuel-ts/fuel-core install: (node:321) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/fuel-core install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@fuel-ts/forc install: FetchError: request to https://github.com/FuelLabs/sway/releases/download/v0.50.0/forc-binaries-linux_amd64.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/forc install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/forc install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/forc install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/forc install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/forc install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/forc install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/forc install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/forc install:   type: 'system',
+.../node_modules/@fuel-ts/forc install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/forc install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/forc install: }
+.../node_modules/@fuel-ts/forc install: FetchError: request to https://github.com/FuelLabs/sway/releases/download/v0.49.2/forc-binaries-linux_amd64.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/forc install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/forc install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/forc install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/forc install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/forc install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/forc install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/forc install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/forc install:   type: 'system',
+.../node_modules/@fuel-ts/forc install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/forc install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/forc install: }
+.../node_modules/@fuel-ts/fuel-core install: FetchError: request to https://github.com/FuelLabs/fuel-core/releases/download/v0.22.1/fuel-core-0.22.1-x86_64-unknown-linux-gnu.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/fuel-core install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/fuel-core install:   type: 'system',
+.../node_modules/@fuel-ts/fuel-core install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/fuel-core install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/fuel-core install: }
+.../node_modules/@fuel-ts/fuel-core install: FetchError: request to https://github.com/FuelLabs/fuel-core/releases/download/v0.22.0/fuel-core-0.22.0-x86_64-unknown-linux-gnu.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/fuel-core install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/fuel-core install:   type: 'system',
+.../node_modules/@fuel-ts/fuel-core install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/fuel-core install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/fuel-core install: }
+.../node_modules/@fuel-ts/forc install: Done
+.../node_modules/@fuel-ts/forc install: Done
+.../node_modules/@fuel-ts/fuel-core install: Done
+.../node_modules/@fuel-ts/fuel-core install: Done
+.../node_modules/@fuel-ts/fuel-core install: /tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501
+.../node_modules/@fuel-ts/fuel-core install: 			reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, 'system', err));
+.../node_modules/@fuel-ts/fuel-core install: 			       ^
+.../node_modules/@fuel-ts/fuel-core install: FetchError: request to https://github.com/FuelLabs/fuel-core/releases/download/v0.20.4/fuel-core-0.20.4-x86_64-unknown-linux-gnu.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/fuel-core install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/fuel-core install:   type: 'system',
+.../node_modules/@fuel-ts/fuel-core install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/fuel-core install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/fuel-core install: }
+.../node_modules/@fuel-ts/fuel-core install: Node.js v21.6.2
+.../node_modules/@fuel-ts/fuel-core install: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T08:48:36Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T08:48:36Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at d5fb2d7 fix: nextjs error logs (#202)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-d951ebff7b35 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-d951ebff7b35
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-d951ebff7b35/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-d951ebff7b35/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +2628 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2628, reused 247, downloaded 0, added 0
+../..                                    | Progress: resolved 2628, reused 706, downloaded 0, added 0
+../..                                    | Progress: resolved 2628, reused 1844, downloaded 1, added 13
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 14, added 207
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 63, added 258
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 107, added 302
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 148, added 343
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 197, added 391
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 260, added 455
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 329, added 521
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 388, added 583
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 443, added 638
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 486, added 681
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 513, added 708
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 556, added 751
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 594, added 789
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 643, added 837
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 700, added 895
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 741, added 936
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 774, added 969
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 775, added 969
+../..                                    | Progress: resolved 2628, reused 1846, downloaded 775, added 970, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../node_modules/classic-level install$ node-gyp-build
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@fuel-ts/fuel-core install$ node ./lib/install.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/classic-level install: Done
+.../node_modules/@fuel-ts/fuel-core install: (node:397) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@fuel-ts/fuel-core install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: (node:394) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../node_modules/@prisma/engines postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../node_modules/@fuel-ts/fuel-core install: /tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501
+.../node_modules/@fuel-ts/fuel-core install: 			reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, 'system', err));
+.../node_modules/@fuel-ts/fuel-core install: 			       ^
+.../node_modules/@fuel-ts/fuel-core install: FetchError: request to https://github.com/FuelLabs/fuel-core/releases/download/v0.20.4/fuel-core-0.20.4-x86_64-unknown-linux-gnu.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.<anonymous> (/tmp/twcr-d951ebff7b35/node_modules/.pnpm/node-fetch@2.7.0/node_modules/node-fetch/lib/index.js:1501:11)
+.../node_modules/@fuel-ts/fuel-core install:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@fuel-ts/fuel-core install:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@fuel-ts/fuel-core install:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@fuel-ts/fuel-core install:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@fuel-ts/fuel-core install:   type: 'system',
+.../node_modules/@fuel-ts/fuel-core install:   errno: 'EAI_AGAIN',
+.../node_modules/@fuel-ts/fuel-core install:   code: 'EAI_AGAIN'
+.../node_modules/@fuel-ts/fuel-core install: }
+.../node_modules/@fuel-ts/fuel-core install: Node.js v21.6.2
+.../node_modules/@fuel-ts/fuel-core install: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

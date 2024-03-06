@@ -1,0 +1,284 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Frontify/fondue
++ reporef=main
++ repopath=./packages/fondue
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Frontify/fondue
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7b4586d23509
+++ echo 'github.com/Frontify/fondue;main;./packages/fondue'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/50bbbd694749
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Frontify/fondue/bWFpbgo/Li9wYWNrYWdlcy9mb25kdWUK
++ jq -nc --arg key analysis_key --arg value github.com/Frontify/fondue/bWFpbgo/Li9wYWNrYWdlcy9mb25kdWUK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 7237bc99bde903be
++ jq -nc --arg key analysis_nonce --arg value 7237bc99bde903be '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Frontify/fondue
++ jq -nc --arg key input_repo_name --arg value github.com/Frontify/fondue '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/fondue
++ jq -nc --arg key input_repo_path --arg value ./packages/fondue '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T08:39:01Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T08:39:01Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7b4586d23509
++ pushd /tmp/twcr-7b4586d23509
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Frontify/fondue.git .
+/tmp/twcr-7b4586d23509 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T08:39:03Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T08:39:03Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ed65ad5212ea94dbfd78de8b597d1d97e3036b17
++ jq -nc --arg key exec_repo_commit_sha --arg value ed65ad5212ea94dbfd78de8b597d1d97e3036b17 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 10:58:43 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T09:58:43Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T09:58:43Z '{ key: $key, value: $value }'
++ '[' -z ./packages/fondue ']'
++ pushd ./packages/fondue
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
+/tmp/twcr-7b4586d23509/packages/fondue /tmp/twcr-7b4586d23509 /twcr
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7b4586d23509/packages/fondue
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/fondue '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7b4586d23509
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T08:39:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T08:39:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@frontify/fondue",
+>>>   "author": "Frontify Developers <developers@frontify.com>",
+>>>   "version": "12.0.0-beta.410",
+>>>   "description": "Design system of Frontify",
+>>>   "type": "module",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/Frontify/fondue",
+>>>     "directory": "packages/fondue"
+>>>   },
+>>>   "bugs": {
+>>>     "url": "https://github.com/frontify/fondue/issues"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18"
+>>>   },
+>>>   "homepage": "https://github.com/Frontify/fondue",
+>>>   "packageManager": "pnpm@8.6.0",
+>>>   "main": "dist/index.umd.js",
+>>>   "unpkg": "dist/index.umd.js",
+>>>   "jsdelivr": "dist/index.umd.js",
+>>>   "module": "dist/index.es.js",
+>>>   "types": "dist/index.d.ts",
+>>>   "sideEffects": false,
+>>>   "files": [
+>>>     "dist",
+>>>     "tailwind.config.js"
+>>>   ],
+>>>   "exports": {
+>>>     ".": {
+>>>       "types": "./dist/index.d.ts",
+>>>       "import": "./dist/index.es.js",
+>>>       "require": "./dist/index.umd.js"
+>>>     },
+>>>     "./tailwind": "./tailwind.config.js",
+>>>     "./style": "./dist/style.css",
+>>>     "./styles": "./dist/style.css",
+>>>     "./extractedThirdPartyStyles": "./dist/extractedThirdPartyStyles.css",
+>>>     "./dist/*": "./dist/*"
+>>>   },
+>>>   "keywords": [
+>>>     "frontify",
+>>>     "react",
+>>>     "components",
+>>>     "design system"
+>>>   ],
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "dependencies": {
+>>>     "@frontify/fondue-tokens": "3.3.0-next.8",
+>>>     "@tailwindcss/forms": "^0.5.7"
+>>>   },
+>>>   "peerDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/fondue '!=' ./ ']'
++ rm -f /tmp/twcr-7b4586d23509/package.json /tmp/twcr-7b4586d23509/package-lock.json /tmp/twcr-7b4586d23509/pnpm-lock.yaml /tmp/twcr-7b4586d23509/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-7b4586d23509 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-7b4586d23509
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-7b4586d23509/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 20, added 0
+../..                                    | Progress: resolved 40, reused 0, downloaded 35, added 0
+../..                                    | Progress: resolved 65, reused 0, downloaded 53, added 0
+../..                                    | Progress: resolved 85, reused 0, downloaded 76, added 0
+../..                                    | Progress: resolved 117, reused 0, downloaded 106, added 0
+../..                                    | Progress: resolved 156, reused 0, downloaded 139, added 0
+../..                                    | Progress: resolved 181, reused 0, downloaded 164, added 0
+../..                                    | Progress: resolved 213, reused 0, downloaded 196, added 0
+../..                                    | Progress: resolved 246, reused 0, downloaded 224, added 0
+../..                                    | Progress: resolved 271, reused 0, downloaded 248, added 0
+../..                                    | Progress: resolved 307, reused 0, downloaded 280, added 0
+../..                                    | Progress: resolved 338, reused 0, downloaded 311, added 0
+../..                                    | Progress: resolved 370, reused 0, downloaded 343, added 0
+../..                                    | Progress: resolved 409, reused 0, downloaded 377, added 0
+../..                                    | Progress: resolved 462, reused 0, downloaded 398, added 0
+../..                                    | Progress: resolved 495, reused 0, downloaded 426, added 0
+../..                                    | Progress: resolved 533, reused 0, downloaded 462, added 0
+../..                                    | Progress: resolved 564, reused 0, downloaded 491, added 0
+../..                                    | Progress: resolved 594, reused 0, downloaded 519, added 0
+../..                                    | Progress: resolved 633, reused 0, downloaded 555, added 0
+../..                                    | Progress: resolved 669, reused 0, downloaded 589, added 0
+../..                                    | Progress: resolved 704, reused 0, downloaded 617, added 0
+../..                                    | Progress: resolved 743, reused 0, downloaded 657, added 0
+../..                                    | Progress: resolved 784, reused 0, downloaded 692, added 0
+../..                                    | Progress: resolved 816, reused 0, downloaded 727, added 0
+../..                                    | Progress: resolved 856, reused 0, downloaded 767, added 0
+../..                                    | Progress: resolved 907, reused 0, downloaded 809, added 0
+../..                                    | Progress: resolved 929, reused 0, downloaded 834, added 0
+../..                                    | Progress: resolved 954, reused 0, downloaded 852, added 0
+../..                                    | Progress: resolved 984, reused 0, downloaded 886, added 0
+../..                                    | Progress: resolved 1044, reused 0, downloaded 926, added 0
+../..                                    | +988 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1044, reused 0, downloaded 968, added 968
+../..                                    | Progress: resolved 1044, reused 0, downloaded 988, added 988, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+
+dependencies:
++ @frontify/fondue-tokens 3.3.0-next.8 (3.4.0 is available)
++ @tailwindcss/forms 0.5.7
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+docs
+└─┬ contentlayer 0.3.4
+  └─┬ @contentlayer/cli 0.3.4
+    └─┬ @contentlayer/core 0.3.4
+      ├── ✕ unmet peer esbuild@"0.17.x || 0.18.x": found 0.20.1
+      └─┬ @contentlayer/utils 0.3.4
+        └─┬ @opentelemetry/exporter-trace-otlp-grpc 0.39.1
+          ├─┬ @opentelemetry/core 1.13.0
+          │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+          └─┬ @opentelemetry/otlp-transformer 0.39.1
+            ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+            ├─┬ @opentelemetry/resources 1.13.0
+            │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+            ├─┬ @opentelemetry/sdk-logs 0.39.1
+            │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+            ├─┬ @opentelemetry/sdk-metrics 1.13.0
+            │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+            └─┬ @opentelemetry/sdk-trace-base 1.13.0
+              └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+
+Done in 37.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T08:39:42Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T08:39:42Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T08:39:42Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T08:39:42Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

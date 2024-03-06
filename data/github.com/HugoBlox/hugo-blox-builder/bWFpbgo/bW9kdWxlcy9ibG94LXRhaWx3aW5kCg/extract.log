@@ -1,0 +1,293 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/HugoBlox/hugo-blox-builder
++ reporef=main
++ repopath=./modules/blox-tailwind
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/HugoBlox/hugo-blox-builder
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-22bb9619cdb2
+++ echo 'github.com/HugoBlox/hugo-blox-builder;main;./modules/blox-tailwind'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/39da036afd5b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/HugoBlox/hugo-blox-builder/bWFpbgo/Li9tb2R1bGVzL2Jsb3gtdGFpbHdpbmQK
++ jq -nc --arg key analysis_key --arg value github.com/HugoBlox/hugo-blox-builder/bWFpbgo/Li9tb2R1bGVzL2Jsb3gtdGFpbHdpbmQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c538da9170823fd8
++ jq -nc --arg key analysis_nonce --arg value c538da9170823fd8 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/HugoBlox/hugo-blox-builder
++ jq -nc --arg key input_repo_name --arg value github.com/HugoBlox/hugo-blox-builder '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./modules/blox-tailwind
++ jq -nc --arg key input_repo_path --arg value ./modules/blox-tailwind '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:19:01Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:19:01Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-22bb9619cdb2
++ pushd /tmp/twcr-22bb9619cdb2
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/HugoBlox/hugo-blox-builder.git .
+/tmp/twcr-22bb9619cdb2 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:19:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:19:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 76c545771e953aa02c80dd09071ded61aa339069
++ jq -nc --arg key exec_repo_commit_sha --arg value 76c545771e953aa02c80dd09071ded61aa339069 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 17:05:35 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T17:05:35Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T17:05:35Z '{ key: $key, value: $value }'
+/tmp/twcr-22bb9619cdb2/modules/blox-tailwind /tmp/twcr-22bb9619cdb2 /twcr
++ '[' -z ./modules/blox-tailwind ']'
++ pushd ./modules/blox-tailwind
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-22bb9619cdb2/modules/blox-tailwind
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:19:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:19:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "tailwindcss": "^3.3.5"
+>>>   },
+>>>   "license": "MIT",
+>>>   "name": "blox-tailwind",
+>>>   "description": "Tailwind UI for Hugo",
+>>>   "homepage": "https://hugoblox.com",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/HugoBlox/hugo-blox-builder.git"
+>>>   },
+>>>   "browserslist": "last 2 versions",
+>>>   "version": "0.1.0"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./modules/blox-tailwind '!=' ./ ']'
++ rm -f /tmp/twcr-22bb9619cdb2/package.json /tmp/twcr-22bb9619cdb2/package-lock.json /tmp/twcr-22bb9619cdb2/pnpm-lock.yaml /tmp/twcr-22bb9619cdb2/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-22bb9619cdb2 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-22bb9619cdb2
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-22bb9619cdb2/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 21, reused 0, downloaded 4, added 0
+Progress: resolved 34, reused 0, downloaded 28, added 0
+Progress: resolved 64, reused 0, downloaded 56, added 0
+Progress: resolved 92, reused 0, downloaded 82, added 0
+Packages: +110
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 111, reused 0, downloaded 110, added 110, done
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ tailwindcss 3.4.1
+
+Done in 5.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'dotenv/config'
+Require stack:
+- /tmp/twcr-22bb9619cdb2/modules/blox-tailwind/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-22bb9619cdb2/modules/blox-tailwind/tailwind.config.js:1:76
+    at evalModule (/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-22bb9619cdb2/modules/blox-tailwind/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-22bb9619cdb2/modules/blox-tailwind/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T01:19:13Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T01:19:13Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 76c5457 starters(tailwind): migrate from `post` to `blog` as default blog post folder
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-22bb9619cdb2 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-22bb9619cdb2
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-22bb9619cdb2/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-22bb9619cdb2/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +474
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 474, reused 69, downloaded 20, added 89
+Progress: resolved 474, reused 69, downloaded 66, added 135
+Progress: resolved 474, reused 69, downloaded 112, added 181
+Progress: resolved 474, reused 69, downloaded 146, added 215
+Progress: resolved 474, reused 69, downloaded 206, added 275
+Progress: resolved 474, reused 69, downloaded 256, added 325
+Progress: resolved 474, reused 69, downloaded 314, added 383
+Progress: resolved 474, reused 69, downloaded 370, added 439
+Progress: resolved 474, reused 69, downloaded 405, added 474, done
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @tailwindcss/nesting 0.0.0-insiders.565cd3e
++ dotenv 16.3.1
++ katex 0.16.9
++ markmap-autoloader 0.15.4
++ mermaid 10.6.0
++ plotly.js 2.27.0
++ vite 4.5.0
++ vite-plugin-static-copy 0.17.0
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ autoprefixer 10.4.16
++ postcss 8.4.31
++ postcss-cli 10.1.0
++ postcss-import 14.1.0
++ tailwindcss 3.3.5
+
+Done in 9.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.5
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/nesting"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T01:19:24Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T01:19:24Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T01:19:24Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T01:19:24Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

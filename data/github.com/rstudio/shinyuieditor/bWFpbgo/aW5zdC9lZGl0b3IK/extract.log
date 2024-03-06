@@ -1,0 +1,168 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/rstudio/shinyuieditor
++ reporef=main
++ repopath=./inst/editor
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/rstudio/shinyuieditor
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2b69062652a4
+++ echo 'github.com/rstudio/shinyuieditor;main;./inst/editor'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0bb7c180b6f0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/rstudio/shinyuieditor/bWFpbgo/Li9pbnN0L2VkaXRvcgo
++ jq -nc --arg key analysis_key --arg value github.com/rstudio/shinyuieditor/bWFpbgo/Li9pbnN0L2VkaXRvcgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1de80a6ea0402ac9
++ jq -nc --arg key analysis_nonce --arg value 1de80a6ea0402ac9 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/rstudio/shinyuieditor
++ jq -nc --arg key input_repo_name --arg value github.com/rstudio/shinyuieditor '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./inst/editor
++ jq -nc --arg key input_repo_path --arg value ./inst/editor '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T17:39:45Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T17:39:45Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2b69062652a4
+/tmp/twcr-2b69062652a4 /twcr
++ pushd /tmp/twcr-2b69062652a4
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/rstudio/shinyuieditor.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T17:39:48Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T17:39:48Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 16bc1c1762570f5e868b87d88667d4a27f58c961
++ jq -nc --arg key exec_repo_commit_sha --arg value 16bc1c1762570f5e868b87d88667d4a27f58c961 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-15 11:22:31 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-15T16:22:31Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-15T16:22:31Z '{ key: $key, value: $value }'
+/tmp/twcr-2b69062652a4/inst/editor /tmp/twcr-2b69062652a4 /twcr
++ '[' -z ./inst/editor ']'
++ pushd ./inst/editor
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2b69062652a4/inst/editor
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./inst/editor '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2b69062652a4
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T17:39:48Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T17:39:48Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (../shared-configs/tailwind.config)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T17:39:48Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T17:39:48Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-2b69062652a4 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-2b69062652a4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_29c69d1c96b4:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_29c69d1c96b4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_29c69d1c96b4:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_29c69d1c96b4:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_29c69d1c96b4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_29c69d1c96b4:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning shinyuieditor@0.5.1: The engine "vscode" appears to be invalid.
+[3/4] Linking dependencies...
+warning "workspace-aggregator-66dea1e6-ae6c-471d-83a1-4fc2baeb380a > editor-component-lib > autoprefixer@10.4.15" has unmet peer dependency "postcss@^8.1.0".
+warning "workspace-aggregator-66dea1e6-ae6c-471d-83a1-4fc2baeb380a > editor > bootstrap@5.2.3" has unmet peer dependency "@popperjs/core@^2.11.6".
+warning "workspace-aggregator-66dea1e6-ae6c-471d-83a1-4fc2baeb380a > editor > @testing-library/user-event@14.4.3" has unmet peer dependency "@testing-library/dom@>=7.21.4".
+warning "workspace-aggregator-66dea1e6-ae6c-471d-83a1-4fc2baeb380a > editor > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-syntax-flow@^7.14.5".
+warning "workspace-aggregator-66dea1e6-ae6c-471d-83a1-4fc2baeb380a > editor > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-transform-react-jsx@^7.14.9".
+[4/4] Building fresh packages...
+error /tmp/twcr-2b69062652a4/node_modules/tree-sitter-cli: Command failed.
+Exit code: 1
+Command: node install.js
+Arguments: 
+Directory: /tmp/twcr-2b69062652a4/node_modules/tree-sitter-cli
+Output:
+Downloading https://github.com/tree-sitter/tree-sitter/releases/download/v0.20.8/tree-sitter-linux-x64.gz
+Download failed
+
+url: https://github.com/tree-sitter/tree-sitter/releases/download/v0.20.8/tree-sitter-linux-x64.gz
+status: 407
+headers: {
+  "server": "squid/5.7",
+  "mime-version": "1.0",
+  "date": "Sun, 03 Mar 2024 17:42:08 GMT",
+  "content-type": "text/html;charset=utf-8",
+  "content-length": "3760",
+  "x-squid-error": "ERR_CACHE_ACCESS_DENIED 0",
+  "vary": "Accept-Language",
+  "content-language": "en",
+  "proxy-authenticate": "Basic realm=\"Squid proxy-caching web server\"",
+  "x-cache": "MISS from 6795af06780c",
+  "x-cache-lookup": "NONE from 6795af06780c:3128",
+  "connection": "keep-alive"
+}
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

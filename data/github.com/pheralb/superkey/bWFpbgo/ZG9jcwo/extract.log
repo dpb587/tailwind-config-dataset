@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/pheralb/superkey
++ reporef=main
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/pheralb/superkey
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-8175cdb04714
+++ echo 'github.com/pheralb/superkey;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1c30e71369f8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/pheralb/superkey/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/pheralb/superkey/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d332be0f7af103be
++ jq -nc --arg key analysis_nonce --arg value d332be0f7af103be '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/pheralb/superkey
++ jq -nc --arg key input_repo_name --arg value github.com/pheralb/superkey '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T02:37:20Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T02:37:20Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-8175cdb04714
++ pushd /tmp/twcr-8175cdb04714
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/pheralb/superkey.git .
+/tmp/twcr-8175cdb04714 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T02:37:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T02:37:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e7183fa73da5dd7720d59b91b8d0cb15570d4ece
++ jq -nc --arg key exec_repo_commit_sha --arg value e7183fa73da5dd7720d59b91b8d0cb15570d4ece '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-02-02 12:50:25 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-02-02T12:50:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-02-02T12:50:25Z '{ key: $key, value: $value }'
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-8175cdb04714/docs /tmp/twcr-8175cdb04714 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8175cdb04714/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8175cdb04714
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T02:37:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T02:37:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "superkey-website",
+>>>   "version": "1.1.0",
+>>>   "author": "@pheralb_",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "0.5.9",
+>>>     "tailwindcss": "3.2.4"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-8175cdb04714/package.json /tmp/twcr-8175cdb04714/package-lock.json /tmp/twcr-8175cdb04714/pnpm-lock.yaml /tmp/twcr-8175cdb04714/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-8175cdb04714 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-8175cdb04714
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-8175cdb04714/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 31, reused 0, downloaded 24, added 0
+Progress: resolved 61, reused 0, downloaded 55, added 0
+Packages: +67
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 68, reused 0, downloaded 67, added 67, done
+
+devDependencies:
++ @tailwindcss/typography 0.5.9 (0.5.10 is available)
++ tailwindcss 3.2.4 (3.4.1 is available)
+
+Done in 3.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T02:37:26Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T02:37:26Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T02:37:26Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T02:37:26Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

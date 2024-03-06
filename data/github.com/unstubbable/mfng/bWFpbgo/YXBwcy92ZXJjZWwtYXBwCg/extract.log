@@ -1,0 +1,261 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/unstubbable/mfng
++ reporef=main
++ repopath=./apps/vercel-app
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/unstubbable/mfng
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bff88096ae58
+++ echo 'github.com/unstubbable/mfng;main;./apps/vercel-app'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/78a750122747
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/unstubbable/mfng/bWFpbgo/Li9hcHBzL3ZlcmNlbC1hcHAK
++ jq -nc --arg key analysis_key --arg value github.com/unstubbable/mfng/bWFpbgo/Li9hcHBzL3ZlcmNlbC1hcHAK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6bfd3c42d4a9a62b
++ jq -nc --arg key analysis_nonce --arg value 6bfd3c42d4a9a62b '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/unstubbable/mfng
++ jq -nc --arg key input_repo_name --arg value github.com/unstubbable/mfng '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/vercel-app
++ jq -nc --arg key input_repo_path --arg value ./apps/vercel-app '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:02:51Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:02:51Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bff88096ae58
++ pushd /tmp/twcr-bff88096ae58
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/unstubbable/mfng.git .
+/tmp/twcr-bff88096ae58 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:02:52Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:02:52Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 562d785263df821cb731814188ab4640a97ee8c0
++ jq -nc --arg key exec_repo_commit_sha --arg value 562d785263df821cb731814188ab4640a97ee8c0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 12:07:57 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T11:07:57Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T11:07:57Z '{ key: $key, value: $value }'
++ '[' -z ./apps/vercel-app ']'
++ pushd ./apps/vercel-app
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
+/tmp/twcr-bff88096ae58/apps/vercel-app /tmp/twcr-bff88096ae58 /twcr
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bff88096ae58/apps/vercel-app
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/vercel-app '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bff88096ae58
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:02:52Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:02:52Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@mfng/vercel-app",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "license": "MIT",
+>>>   "author": "Hendrik Liebau <mail@hendrik-liebau.de>",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.7"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/vercel-app '!=' ./ ']'
++ rm -f /tmp/twcr-bff88096ae58/package.json /tmp/twcr-bff88096ae58/package-lock.json /tmp/twcr-bff88096ae58/pnpm-lock.yaml /tmp/twcr-bff88096ae58/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bff88096ae58 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bff88096ae58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 3s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@mfng/shared-app/tailwind.config.cjs'
+Require stack:
+- /tmp/twcr-bff88096ae58/apps/vercel-app/tailwind.config.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-bff88096ae58/apps/vercel-app/tailwind.config.cjs:1:91
+    at evalModule (/tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-bff88096ae58/apps/vercel-app/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-bff88096ae58/apps/vercel-app/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-bff88096ae58/apps/vercel-app/tailwind.config.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:02:56Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:02:56Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 562d785 Merge pull request #43 from unstubbable/fix-client-id
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bff88096ae58 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bff88096ae58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+npm WARN deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+npm WARN deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+npm WARN deprecated @types/babel__parser@7.1.1: Deprecated
+
+added 1204 packages, and audited 1209 packages in 35s
+
+208 packages are looking for funding
+  run `npm fund` for details
+
+10 vulnerabilities (1 low, 6 moderate, 1 high, 2 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:603
+      throw e;
+      ^
+
+Error: Cannot find module '/tmp/twcr-bff88096ae58/node_modules/@mfng/shared-app/lib/tailwind.config.cjs'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-bff88096ae58/apps/vercel-app/tailwind.config.cjs:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-bff88096ae58/node_modules/@mfng/shared-app/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

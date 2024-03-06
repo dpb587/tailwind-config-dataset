@@ -1,0 +1,361 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/vuejs/devtools
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/vuejs/devtools
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3481b87e97dd
+++ echo 'github.com/vuejs/devtools;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/6c15c9e6a6d3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/vuejs/devtools/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/vuejs/devtools/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce b9597ad4af43daa5
++ jq -nc --arg key analysis_nonce --arg value b9597ad4af43daa5 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/vuejs/devtools
++ jq -nc --arg key input_repo_name --arg value github.com/vuejs/devtools '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:29:33Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:29:33Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3481b87e97dd
+/tmp/twcr-3481b87e97dd /twcr
++ pushd /tmp/twcr-3481b87e97dd
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/vuejs/devtools.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:29:34Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:29:34Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 963ff7fe1470aa5b2a93a8a8afadc57fa3c38676
++ jq -nc --arg key exec_repo_commit_sha --arg value 963ff7fe1470aa5b2a93a8a8afadc57fa3c38676 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 23:14:44 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T22:14:44Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T22:14:44Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-3481b87e97dd /tmp/twcr-3481b87e97dd /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3481b87e97dd
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:29:34Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:29:34Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "vue-devtools",
+>>>   "version": "6.6.1",
+>>>   "private": true,
+>>>   "description": "devtools for Vue.js!",
+>>>   "workspaces": [
+>>>     "packages/*"
+>>>   ],
+>>>   "author": "Evan You",
+>>>   "license": "MIT",
+>>>   "homepage": "https://github.com/vuejs/vue-devtools#readme",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/vuejs/vue-devtools.git"
+>>>   },
+>>>   "bugs": {
+>>>     "url": "https://github.com/vuejs/vue-devtools/issues"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=8.10"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+>>>   },
+>>>   "resolutions": {
+>>>     "cypress": "=3.4.1",
+>>>     "webpack-dev-server": "^4.15.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-3481b87e97dd /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-3481b87e97dd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_9a6f960060b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_9a6f960060b6:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_9a6f960060b6:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_9a6f960060b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_9a6f960060b6:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_9a6f960060b6:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning cypress > debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+warning cypress > request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142
+warning cypress > extract-zip > mkdirp@0.5.1: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+warning cypress > request > har-validator@5.1.5: this library is no longer supported
+warning cypress > request > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning cypress > url > querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+warning webpack-dev-server > webpack-dev-middleware > memfs@3.6.0: this will be v4
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-backend-vue2 > vue@2.7.16: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/shell-dev-vue2 > vue@2.7.16: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-backend-vue2 > vue-loader > @vue/component-compiler-utils > consolidate@0.15.1: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > stylus > css-parse > css > source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > stylus > css-parse > css > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > stylus > css-parse > css > source-map-resolve > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > stylus > css-parse > css > source-map-resolve > resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+warning workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > stylus > css-parse > css > source-map-resolve > source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+[3/5] Fetching packages...
+[4/5] Linking dependencies...
+warning "webpack-dev-server > webpack-dev-middleware@5.3.3" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-backend-vue2 > vue-loader@15.11.1" has unmet peer dependency "css-loader@*".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-backend-vue2 > vue-loader@15.11.1" has unmet peer dependency "webpack@^3.0.0 || ^4.1.0 || ^5.0.0-0".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @pixi/events@6.5.10" has unmet peer dependency "@pixi/display@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @pixi/events@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @pixi/events@6.5.10" has unmet peer dependency "@pixi/utils@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @pixi/unsafe-eval@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @vue/ui@0.12.5" has incorrect peer dependency "vue@^2.5.13".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @vue/ui > vue-resize@1.0.1" has incorrect peer dependency "vue@^2.6.0".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/build-tools > friendly-errors-webpack-plugin@1.7.0" has incorrect peer dependency "webpack@^2.0.0 || ^3.0.0 || ^4.0.0".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/build-tools > monaco-editor-webpack-plugin@3.1.0" has unmet peer dependency "monaco-editor@0.22.x || 0.23.x || 0.24.x".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/build-tools > postcss-loader@5.3.0" has unmet peer dependency "postcss@^7.0.0 || ^8.0.1".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.10" has unmet peer dependency "@pixi/prepare@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.10" has unmet peer dependency "@pixi/settings@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-display@6.5.10" has unmet peer dependency "@pixi/display@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.10" has unmet peer dependency "@pixi/constants@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.10" has unmet peer dependency "@pixi/graphics@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.10" has unmet peer dependency "@pixi/constants@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.10" has unmet peer dependency "@pixi/mesh@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.10" has unmet peer dependency "@pixi/mesh-extras@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.10" has unmet peer dependency "@pixi/settings@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-particle-container@6.5.10" has unmet peer dependency "@pixi/particle-container@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.10" has unmet peer dependency "@pixi/constants@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.10" has unmet peer dependency "@pixi/settings@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.10" has unmet peer dependency "@pixi/utils@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.10" has unmet peer dependency "@pixi/display@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.10" has unmet peer dependency "@pixi/utils@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.10" has unmet peer dependency "@pixi/constants@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.10" has unmet peer dependency "@pixi/core@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.10" has unmet peer dependency "@pixi/sprite@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.10" has unmet peer dependency "@pixi/utils@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-text@6.5.10" has unmet peer dependency "@pixi/sprite@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-text@6.5.10" has unmet peer dependency "@pixi/text@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.10" has unmet peer dependency "@pixi/math@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.10" has unmet peer dependency "@pixi/sprite-tiling@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.10" has unmet peer dependency "@pixi/utils@6.5.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/app-frontend > @vue/ui > v-tooltip@3.0.0-beta.20" has incorrect peer dependency "vue@^2.6.10".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/docs > vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-preset-algolia@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/docs > vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-shared@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+warning "workspace-aggregator-da330e10-b8f3-42ca-8bf2-d5f6a104e4a3 > @vue-devtools/docs > vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-plugin-algolia-insights@1.9.3" has unmet peer dependency "search-insights@>= 1 < 3".
+[5/5] Building fresh packages...
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error /tmp/twcr-3481b87e97dd/node_modules/electron: Command failed.
+Exit code: 1
+Command: node install.js
+Arguments: 
+Directory: /tmp/twcr-3481b87e97dd/node_modules/electron
+Output:
+RequestError: getaddrinfo EAI_AGAIN github.com
+    at ClientRequest.<anonymous> (/tmp/twcr-3481b87e97dd/node_modules/got/source/request-as-event-emitter.js:178:14)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at origin.emit (/tmp/twcr-3481b87e97dd/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+    at TLSSocket.socketErrorListener (node:_http_client:492:9)
+    at TLSSocket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:31:26Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:31:26Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing packages/api/node_modules/
+Removing packages/app-backend-api/node_modules/
+Removing packages/app-backend-core/node_modules/
+Removing packages/app-backend-vue1/node_modules/
+Removing packages/app-backend-vue2/node_modules/
+Removing packages/app-backend-vue3/node_modules/
+Removing packages/app-frontend/node_modules/
+Removing packages/build-tools/node_modules/
+Removing packages/docs/node_modules/
+Removing packages/shared-utils/node_modules/
+Removing packages/shell-chrome/node_modules/
+Removing packages/shell-dev-vue2/node_modules/
+Removing packages/shell-dev-vue3/node_modules/
+Removing packages/shell-electron/node_modules/
+Removing packages/shell-firefox/node_modules/
+Removing packages/shell-host/node_modules/
++ git reset --hard
+HEAD is now at 963ff7f docs: use dev:firefox script
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-3481b87e97dd /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-3481b87e97dd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_9a6f960060b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_9a6f960060b6:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_9a6f960060b6:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_9a6f960060b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_9a6f960060b6:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_9a6f960060b6:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+(node:309) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning @antfu/eslint-define-config@1.23.0-2: The engine "pnpm" appears to be invalid.
+[4/5] Linking dependencies...
+warning "webpack-dev-server > webpack-dev-middleware@5.3.3" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "@antfu/eslint-config > eslint-processor-vue-blocks@0.1.1" has unmet peer dependency "@vue/compiler-sfc@^3.3.0".
+warning "@antfu/eslint-config > @typescript-eslint/eslint-plugin > ts-api-utils@1.0.3" has unmet peer dependency "typescript@>=4.2.0".
+warning " > vue-loader@17.2.2" has unmet peer dependency "webpack@^4.1.0 || ^5.0.0-0".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-backend-vue2 > vue-loader@15.10.0" has unmet peer dependency "css-loader@*".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-backend-vue2 > vue-loader@15.10.0" has unmet peer dependency "webpack@^3.0.0 || ^4.1.0 || ^5.0.0-0".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @pixi/events@6.5.4" has unmet peer dependency "@pixi/display@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @pixi/events@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @pixi/events@6.5.4" has unmet peer dependency "@pixi/utils@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @pixi/unsafe-eval@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @vue/ui@0.12.5" has incorrect peer dependency "vue@^2.5.13".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/build-tools > friendly-errors-webpack-plugin@1.7.0" has incorrect peer dependency "webpack@^2.0.0 || ^3.0.0 || ^4.0.0".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/build-tools > monaco-editor-webpack-plugin@3.1.0" has unmet peer dependency "monaco-editor@0.22.x || 0.23.x || 0.24.x".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/build-tools > postcss-loader@5.3.0" has unmet peer dependency "postcss@^7.0.0 || ^8.0.1".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @vue/ui > v-tooltip@3.0.0-beta.20" has incorrect peer dependency "vue@^2.6.10".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > @vue/ui > vue-resize@1.0.1" has incorrect peer dependency "vue@^2.6.0".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-display@6.5.4" has unmet peer dependency "@pixi/display@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.4" has unmet peer dependency "@pixi/display@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-extract@6.5.4" has unmet peer dependency "@pixi/utils@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.4" has unmet peer dependency "@pixi/constants@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.4" has unmet peer dependency "@pixi/graphics@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-graphics@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.4" has unmet peer dependency "@pixi/constants@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.4" has unmet peer dependency "@pixi/mesh@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.4" has unmet peer dependency "@pixi/mesh-extras@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-mesh@6.5.4" has unmet peer dependency "@pixi/settings@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-particle-container@6.5.4" has unmet peer dependency "@pixi/particle-container@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.4" has unmet peer dependency "@pixi/prepare@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-prepare@6.5.4" has unmet peer dependency "@pixi/settings@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.4" has unmet peer dependency "@pixi/constants@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.4" has unmet peer dependency "@pixi/settings@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-renderer@6.5.4" has unmet peer dependency "@pixi/utils@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.4" has unmet peer dependency "@pixi/constants@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.4" has unmet peer dependency "@pixi/core@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.4" has unmet peer dependency "@pixi/sprite@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite@6.5.4" has unmet peer dependency "@pixi/utils@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.4" has unmet peer dependency "@pixi/math@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.4" has unmet peer dependency "@pixi/sprite-tiling@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-sprite-tiling@6.5.4" has unmet peer dependency "@pixi/utils@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-text@6.5.4" has unmet peer dependency "@pixi/sprite@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/app-frontend > pixi.js-legacy > @pixi/canvas-text@6.5.4" has unmet peer dependency "@pixi/text@6.5.4".
+warning "workspace-aggregator-2430110a-5de0-4652-9c5e-90d2a4fb6114 > @vue-devtools/docs > vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-preset-algolia@1.7.1" has unmet peer dependency "@algolia/client-search@^4.9.1".
+[5/5] Building fresh packages...
+error /tmp/twcr-3481b87e97dd/node_modules/electron: Command failed.
+Exit code: 1
+Command: node install.js
+Arguments: 
+Directory: /tmp/twcr-3481b87e97dd/node_modules/electron
+Output:
+RequestError: getaddrinfo EAI_AGAIN github.com
+    at ClientRequest.<anonymous> (/tmp/twcr-3481b87e97dd/node_modules/got/source/request-as-event-emitter.js:178:14)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at origin.emit (/tmp/twcr-3481b87e97dd/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+    at TLSSocket.socketErrorListener (node:_http_client:492:9)
+    at TLSSocket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

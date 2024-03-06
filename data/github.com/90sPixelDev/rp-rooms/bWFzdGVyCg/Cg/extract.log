@@ -1,0 +1,223 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/90sPixelDev/rp-rooms
++ reporef=master
++ repopath=./
+++ echo github.com/90sPixelDev/rp-rooms
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2a931ecbd4a7
+++ echo 'github.com/90sPixelDev/rp-rooms;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/170351873092
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/90sPixelDev/rp-rooms/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/90sPixelDev/rp-rooms/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 5283c4ee759b63fb
++ jq -nc --arg key analysis_nonce --arg value 5283c4ee759b63fb '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/90sPixelDev/rp-rooms
++ jq -nc --arg key input_repo_name --arg value github.com/90sPixelDev/rp-rooms '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T00:26:02Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T00:26:02Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2a931ecbd4a7
+/tmp/twcr-2a931ecbd4a7 /twcr
++ pushd /tmp/twcr-2a931ecbd4a7
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/90sPixelDev/rp-rooms.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T00:26:03Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T00:26:03Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4892858f08d074733f616a9a633b8d547a28971b
++ jq -nc --arg key exec_repo_commit_sha --arg value 4892858f08d074733f616a9a633b8d547a28971b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-22 02:22:22 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-22T07:22:22Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-22T07:22:22Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-2a931ecbd4a7 /tmp/twcr-2a931ecbd4a7 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-2a931ecbd4a7/pnpm-workspace.yaml ']'
++ cat README.md
++ grep -q 'pnpm install'
++ grep -q '"packageManager":[^"]+"yarn@"' package.json
++ '[' -f yarn.lock ']'
++ grep -q '":[^"]+"workspace:' package.json
++ cat README.md
++ grep -q 'yarn install'
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T00:26:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T00:26:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "rp-rooms",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwind-scrollbar": "^2.0.1"
+>>>   },
+>>>   "eslintConfig": {
+>>>     "extends": [
+>>>       "react-app",
+>>>       "react-app/jest"
+>>>     ]
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.2%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.1.6"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2a931ecbd4a7 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2a931ecbd4a7
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+
+added 64 packages, and audited 65 packages in 3s
+
+14 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/esm/resolve:263
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/twcr-2a931ecbd4a7/node_modules/tailwindcss/lib/lib/load-config.js' imported from /tmp/twcr-2a931ecbd4a7/tailwind.config.exporter3.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:263:11)
+    at moduleResolve (node:internal/modules/esm/resolve:908:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1131:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:390:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:359:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:234:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:85:39)
+    at link (node:internal/modules/esm/module_job:84:36) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/twcr-2a931ecbd4a7/node_modules/tailwindcss/lib/lib/load-config.js'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ tailwind.config.exporter3.mjs == \t\a\i\l\w\i\n\d\.\c\o\n\f\i\g\.\e\x\p\o\r\t\e\r\3\.\m\j\s ]]
++ echo '[worker] WARN: exporter failed; retrying with alternative'
+[worker] WARN: exporter failed; retrying with alternative
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ continue
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T00:26:07Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T00:26:07Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T00:26:07Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T00:26:07Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

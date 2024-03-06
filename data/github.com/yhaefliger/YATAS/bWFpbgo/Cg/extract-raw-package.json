@@ -1,0 +1,35 @@
+{
+  "name": "yatas",
+  "version": "1.1.0",
+  "description": "Yet Another Tailwind Apline Starter",
+  "scripts": {
+    "clean": "del _site",
+    "watch-css": "npx tailwindcss -i ./assets/css/styles.css -o ./_site/css/styles.css -w",
+    "watch-js": "npx esbuild ./assets/js/scripts.js --outfile=./_site/js/scripts.js --bundle --target=es2018 --watch",
+    "start": "NODE_ENV=development concurrently \"node hash\"  \"ELEVENTY_ENV=development eleventy --serve\"  \"npm:watch-*\"",
+    "build-css": "npx tailwindcss -i ./assets/css/styles.css -o ./_site/css/styles.css --minify",
+    "build-js": "npx esbuild ./assets/js/scripts.js --outfile=./_site/js/scripts.js  --bundle --target=es2018 --minify",
+    "build": "NODE_ENV=production concurrently \"npm:build-*\" && node hash && ELEVENTY_ENV=production eleventy"
+  },
+  "keywords": [
+    "eleventy",
+    "starter",
+    "TailwindCSS",
+    "Alpine.js"
+  ],
+  "author": "Yann Haefliger<hello@needbrainz.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-upgrade-help": "^2.0.5",
+    "alpinejs": "^3.13.3",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "del-cli": "^5.1.0",
+    "esbuild": "^0.19.7",
+    "html-minifier": "^4.0.0",
+    "md5": "^2.3.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  }
+}

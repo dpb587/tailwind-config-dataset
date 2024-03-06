@@ -1,0 +1,277 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/panoratech/Panora
++ reporef=main
++ repopath=./apps/magic-link
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/panoratech/Panora
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-78730beee282
+++ echo 'github.com/panoratech/Panora;main;./apps/magic-link'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/f0fbd8704516
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/panoratech/Panora/bWFpbgo/Li9hcHBzL21hZ2ljLWxpbmsK
++ jq -nc --arg key analysis_key --arg value github.com/panoratech/Panora/bWFpbgo/Li9hcHBzL21hZ2ljLWxpbmsK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a8d9f50628136692
++ jq -nc --arg key analysis_nonce --arg value a8d9f50628136692 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/panoratech/Panora
++ jq -nc --arg key input_repo_name --arg value github.com/panoratech/Panora '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/magic-link
++ jq -nc --arg key input_repo_path --arg value ./apps/magic-link '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:29:12Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:29:12Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-78730beee282
++ pushd /tmp/twcr-78730beee282
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/panoratech/Panora.git .
+/tmp/twcr-78730beee282 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:29:14Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:29:14Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 841cd2c9689a4e98c9d638aa8c18713c391a5df4
++ jq -nc --arg key exec_repo_commit_sha --arg value 841cd2c9689a4e98c9d638aa8c18713c391a5df4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 07:32:46 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T06:32:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T06:32:46Z '{ key: $key, value: $value }'
++ '[' -z ./apps/magic-link ']'
++ pushd ./apps/magic-link
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-78730beee282/apps/magic-link /tmp/twcr-78730beee282 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78730beee282/apps/magic-link
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/magic-link '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78730beee282
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:29:14Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:29:14Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "magic-link",
+>>>   "private": true,
+>>>   "version": "0.0.6",
+>>>   "type": "module",
+>>>   "engines": {
+>>>     "node": ">=20.9.0"
+>>>   },
+>>>   "dependencies": {
+>>>     "tailwind-scrollbar-hide": "^1.1.7"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.5"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/magic-link '!=' ./ ']'
++ rm -f /tmp/twcr-78730beee282/package.json /tmp/twcr-78730beee282/package-lock.json /tmp/twcr-78730beee282/pnpm-lock.yaml /tmp/twcr-78730beee282/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-78730beee282 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-78730beee282
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-78730beee282/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../embedded-catalog/react                |  WARN  deprecated react-loader-spinner@5.5.0
+../..                                    | Progress: resolved 22, reused 0, downloaded 14, added 0
+../..                                    | Progress: resolved 43, reused 0, downloaded 31, added 0
+../..                                    | Progress: resolved 69, reused 0, downloaded 54, added 0
+../..                                    | Progress: resolved 91, reused 0, downloaded 81, added 0
+../../packages/api                       |  WARN  deprecated crypto@1.0.1
+../..                                    | Progress: resolved 114, reused 0, downloaded 101, added 0
+../..                                    | Progress: resolved 125, reused 0, downloaded 114, added 0
+../..                                    | Progress: resolved 158, reused 0, downloaded 148, added 0
+../..                                    | Progress: resolved 181, reused 0, downloaded 167, added 0
+../..                                    | Progress: resolved 212, reused 0, downloaded 195, added 0
+../..                                    | Progress: resolved 238, reused 0, downloaded 222, added 0
+../..                                    | Progress: resolved 268, reused 0, downloaded 250, added 0
+../..                                    | Progress: resolved 300, reused 0, downloaded 280, added 0
+../..                                    | Progress: resolved 325, reused 0, downloaded 306, added 0
+../..                                    | Progress: resolved 359, reused 0, downloaded 333, added 0
+../..                                    | Progress: resolved 386, reused 0, downloaded 364, added 0
+../..                                    | Progress: resolved 419, reused 0, downloaded 388, added 0
+../..                                    | Progress: resolved 449, reused 0, downloaded 423, added 0
+../..                                    | Progress: resolved 495, reused 0, downloaded 439, added 0
+../..                                    | Progress: resolved 524, reused 0, downloaded 456, added 0
+../..                                    | Progress: resolved 559, reused 0, downloaded 490, added 0
+../..                                    | Progress: resolved 600, reused 0, downloaded 530, added 0
+../..                                    | Progress: resolved 637, reused 0, downloaded 566, added 0
+../..                                    | Progress: resolved 675, reused 0, downloaded 596, added 0
+../..                                    | Progress: resolved 710, reused 0, downloaded 632, added 0
+../..                                    | Progress: resolved 740, reused 0, downloaded 660, added 0
+../..                                    | Progress: resolved 769, reused 0, downloaded 689, added 0
+../..                                    | Progress: resolved 797, reused 0, downloaded 713, added 0
+../..                                    | Progress: resolved 826, reused 0, downloaded 743, added 0
+../..                                    | Progress: resolved 854, reused 0, downloaded 772, added 0
+../..                                    | Progress: resolved 892, reused 0, downloaded 796, added 0
+../..                                    | Progress: resolved 928, reused 0, downloaded 839, added 0
+../..                                    | Progress: resolved 962, reused 0, downloaded 872, added 0
+../..                                    | Progress: resolved 999, reused 0, downloaded 907, added 0
+../..                                    | Progress: resolved 1045, reused 0, downloaded 939, added 0
+../..                                    | Progress: resolved 1086, reused 0, downloaded 982, added 0
+../..                                    | Progress: resolved 1128, reused 0, downloaded 1020, added 0
+../..                                    | Progress: resolved 1150, reused 0, downloaded 1059, added 0
+../..                                    | Progress: resolved 1156, reused 0, downloaded 1105, added 0
+../..                                    | Progress: resolved 1175, reused 0, downloaded 1125, added 0
+ WARN  1 deprecated subdependencies found: subscriptions-transport-ws@0.11.0
+../..                                    |    +1131 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1127, added 362
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1127, added 1128
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1128, added 1128
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1129, added 1130
+../..                                    | Progress: resolved 1176, reused 0, downloaded 1130, added 1131, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/nestjs-pino postinstall$ node postinstall.js
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/nestjs-pino postinstall: 		Thanks for using nestjs-pino!
+.../node_modules/nestjs-pino postinstall: 		As you may know there is a war against Ukraine:
+.../node_modules/nestjs-pino postinstall: 		bombed cities (including schools, hospitals, etc), hundreds of killed children, millions of refugees.
+.../node_modules/nestjs-pino postinstall: 		So if you enjoy this library you can thank the author by donating to one of this funds:
+.../node_modules/nestjs-pino postinstall: 		• https://war.ukraine.ua/donate/ – Armed Forces of Ukraine
+.../node_modules/nestjs-pino postinstall: 		• https://www.comebackalive.in.ua/ – Ukrainian volunteers
+.../node_modules/nestjs-pino postinstall: 		Thanks for your support! 🇺🇦
+.../node_modules/@nestjs/core postinstall: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:153) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-78730beee282/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_ee86d9c46c5c:ok@172.18.0.2:3128"
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-78730beee282/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/nestjs-pino postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../node_modules/msgpackr-extract install: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+dependencies:
++ tailwind-scrollbar-hide 1.1.7
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 56.5s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
++ pnpm ls --json
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T01:30:12Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T01:30:12Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:30:12Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:30:12Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

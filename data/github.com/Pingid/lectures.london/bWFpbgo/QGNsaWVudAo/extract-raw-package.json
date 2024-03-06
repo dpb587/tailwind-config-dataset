@@ -1,0 +1,36 @@
+{
+  "name": "@lectures.london/client",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "pnpm tsc --noEmit && pnpm worker && env-cmd --silent -- astro build && mkdir build/functions || true",
+    "preview": "astro preview",
+    "astro": "astro",
+    "worker": "esbuild --bundle --platform=browser --target=esnext --minify ./src/worker/search.worker.ts --outfile='./public/search.worker.js'",
+    "collect": "pnpm script-collect -l lectures.json --hosts hosts.json"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/solid-js": "^3.0.2",
+    "@astrojs/tailwind": "^5.0.2",
+    "@solidjs/meta": "^0.29.1",
+    "astro": "^3.6.0",
+    "dayjs": "^1.11.10",
+    "fuse.js": "^7.0.0",
+    "ical-generator": "^6.0.0",
+    "mcn": "^0.0.4",
+    "solid-js": "^1.8.6",
+    "tailwindcss": "^3.3.5",
+    "urlpattern-polyfill": "^9.0.0"
+  },
+  "devDependencies": {
+    "@package/scripts": "workspace:^",
+    "@tailwindcss/typography": "^0.5.10",
+    "env-cmd": "^10.1.0",
+    "esbuild": "^0.19.8",
+    "typescript": "5.3.2"
+  }
+}

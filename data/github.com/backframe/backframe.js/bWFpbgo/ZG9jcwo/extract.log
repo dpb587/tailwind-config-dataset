@@ -1,0 +1,375 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/backframe/backframe.js
++ reporef=main
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/backframe/backframe.js
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3f89779991d4
+++ echo 'github.com/backframe/backframe.js;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/777fc3e7d65c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/backframe/backframe.js/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/backframe/backframe.js/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 328e9473a8dc1902
++ jq -nc --arg key analysis_nonce --arg value 328e9473a8dc1902 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/backframe/backframe.js
++ jq -nc --arg key input_repo_name --arg value github.com/backframe/backframe.js '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:35:58Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:35:58Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3f89779991d4
++ pushd /tmp/twcr-3f89779991d4
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/backframe/backframe.js.git .
+/tmp/twcr-3f89779991d4 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:36:00Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:36:00Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 01d60581073c348ffbbf2dcc98419dc8d7d03f2e
++ jq -nc --arg key exec_repo_commit_sha --arg value 01d60581073c348ffbbf2dcc98419dc8d7d03f2e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-11 02:12:30 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-10T23:12:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-10T23:12:30Z '{ key: $key, value: $value }'
+/tmp/twcr-3f89779991d4/docs /tmp/twcr-3f89779991d4 /twcr
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3f89779991d4/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3f89779991d4
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:36:00Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:36:00Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "description": "backframe.js documentation",
+>>>   "main": "index.js",
+>>>   "keywords": [],
+>>>   "author": "Victor Ndaba",
+>>>   "license": "ISC",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.1.8"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-3f89779991d4/package.json /tmp/twcr-3f89779991d4/package-lock.json /tmp/twcr-3f89779991d4/pnpm-lock.yaml /tmp/twcr-3f89779991d4/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3f89779991d4 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3f89779991d4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3f89779991d4/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 20 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 23, reused 0, downloaded 11, added 0
+..                                       | Progress: resolved 36, reused 0, downloaded 25, added 0
+..                                       | Progress: resolved 46, reused 0, downloaded 38, added 0
+..                                       | Progress: resolved 76, reused 0, downloaded 62, added 0
+../packages/backframe-graphql            |  WARN  deprecated express-graphql@0.12.0
+../packages/backframe-graphql            |  WARN  deprecated @types/express-graphql@0.9.0
+../packages/backframe-graphql            |  WARN  deprecated @types/graphql@14.5.0
+..                                       | Progress: resolved 101, reused 0, downloaded 82, added 0
+..                                       | Progress: resolved 120, reused 0, downloaded 105, added 0
+..                                       | Progress: resolved 130, reused 0, downloaded 127, added 0
+..                                       | Progress: resolved 145, reused 0, downloaded 129, added 0
+..                                       | Progress: resolved 162, reused 0, downloaded 152, added 0
+..                                       | Progress: resolved 181, reused 0, downloaded 170, added 0
+..                                       | Progress: resolved 210, reused 0, downloaded 195, added 0
+..                                       | Progress: resolved 233, reused 0, downloaded 217, added 0
+..                                       | Progress: resolved 261, reused 0, downloaded 245, added 0
+..                                       | Progress: resolved 293, reused 0, downloaded 273, added 0
+..                                       | Progress: resolved 329, reused 0, downloaded 304, added 0
+..                                       | Progress: resolved 366, reused 0, downloaded 328, added 0
+..                                       | Progress: resolved 397, reused 0, downloaded 350, added 0
+..                                       | Progress: resolved 426, reused 0, downloaded 379, added 0
+..                                       | Progress: resolved 453, reused 0, downloaded 406, added 0
+..                                       | Progress: resolved 473, reused 0, downloaded 425, added 0
+..                                       | Progress: resolved 503, reused 0, downloaded 446, added 0
+..                                       | Progress: resolved 527, reused 0, downloaded 475, added 0
+..                                       | Progress: resolved 588, reused 0, downloaded 506, added 0
+..                                       | Progress: resolved 617, reused 0, downloaded 537, added 0
+..                                       | Progress: resolved 672, reused 0, downloaded 566, added 0
+..                                       | Progress: resolved 706, reused 0, downloaded 600, added 0
+..                                       | Progress: resolved 731, reused 0, downloaded 622, added 0
+..                                       | Progress: resolved 764, reused 0, downloaded 653, added 0
+..                                       | Progress: resolved 798, reused 0, downloaded 688, added 0
+..                                       | Progress: resolved 826, reused 0, downloaded 715, added 0
+..                                       | Progress: resolved 866, reused 0, downloaded 753, added 0
+..                                       | Progress: resolved 925, reused 0, downloaded 787, added 0
+..                                       | Progress: resolved 964, reused 0, downloaded 816, added 0
+..                                       | Progress: resolved 1000, reused 0, downloaded 856, added 0
+..                                       | Progress: resolved 1030, reused 0, downloaded 888, added 0
+..                                       | Progress: resolved 1066, reused 0, downloaded 918, added 0
+..                                       | Progress: resolved 1087, reused 0, downloaded 936, added 0
+..                                       | Progress: resolved 1113, reused 0, downloaded 967, added 0
+..                                       | Progress: resolved 1143, reused 0, downloaded 995, added 0
+ WARN  14 deprecated subdependencies found: @hapi/address@2.1.4, @hapi/formula@1.2.0, @hapi/hoek@8.5.1, @hapi/joi@16.1.8, @hapi/pinpoint@1.0.2, @hapi/topo@3.1.6, apollo-datasource@3.3.2, apollo-reporting-protobuf@3.4.0, apollo-server-env@4.2.1, apollo-server-errors@3.3.1, apollo-server-plugin-base@3.7.2, apollo-server-types@3.8.0, core-js@1.2.7, querystring@0.2.1
+..                                       | Progress: resolved 1152, reused 0, downloaded 1026, added 0
+..                                       |    +1066 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1152, reused 0, downloaded 1054, added 1053
+..                                       | Progress: resolved 1152, reused 0, downloaded 1066, added 1066, done
+.../fontawesome-common-types postinstall$ node attribution.js
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../fontawesome-common-types postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../fontawesome-common-types postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../fontawesome-common-types postinstall: Copyright 2023 Fonticons, Inc.
+.../fontawesome-common-types postinstall: Done
+.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:139) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-3f89779991d4/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_d6b1852cb0f9:ok@172.18.0.2:3128"
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+.../node_modules/better-sqlite3 install: gyp info using node-gyp@9.4.1
+.../node_modules/better-sqlite3 install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-3f89779991d4/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/better-sqlite3 install: gyp info spawn /usr/bin/python3
+.../node_modules/better-sqlite3 install: gyp info spawn args [
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'binding.gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-f',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'make',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build/config.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--depth=.',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--no-parallel',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--generator-output',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'build',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/better-sqlite3 install: gyp info spawn args ]
+.../node_modules/better-sqlite3 install: gyp info spawn make
+.../node_modules/better-sqlite3 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/better-sqlite3 install: make: Entering directory '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install:   TOUCH ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   ACTION deps_sqlite3_gyp_locate_sqlite3_target_copy_builtin_sqlite3 ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   TOUCH Release/obj.target/deps/locate_sqlite3.stamp
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/sqlite3/gen/sqlite3/sqlite3.o
+.../node_modules/better-sqlite3 install: rm -f Release/obj.target/deps/sqlite3.a Release/obj.target/deps/sqlite3.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/sqlite3.a`
+.../node_modules/better-sqlite3 install: ar crs Release/obj.target/deps/sqlite3.a @Release/obj.target/deps/sqlite3.a.ar-file-list
+.../node_modules/better-sqlite3 install:   COPY Release/sqlite3.a
+.../node_modules/better-sqlite3 install:   CXX(target) Release/obj.target/better_sqlite3/src/better_sqlite3.o
+.../node_modules/better-sqlite3 install: In file included from ./src/better_sqlite3.lzz:11,
+.../node_modules/better-sqlite3 install:                  from ../src/better_sqlite3.cpp:4:
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1222:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>)' to 'node::addon_context_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>, void*)'} [-Wcast-function-type]
+.../node_modules/better-sqlite3 install:  1222 |       (node::addon_context_register_func) (regfunc),                  \
+.../node_modules/better-sqlite3 install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1240:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE_X'
+.../node_modules/better-sqlite3 install:  1240 |   NODE_MODULE_CONTEXT_AWARE_X(modname, regfunc, NULL, 0)
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1271:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE'
+.../node_modules/better-sqlite3 install:  1271 |   NODE_MODULE_CONTEXT_AWARE(NODE_GYP_MODULE_NAME,                     \
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: ./src/better_sqlite3.lzz:67:1: note: in expansion of macro 'NODE_MODULE_INIT'
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz: In static member function 'static void Database::JS_new(const v8::FunctionCallbackInfo<v8::Value>&)':
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz:180:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_stmt*, int, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:92: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:197: note: here
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_value*, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:81: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:175: note: here
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   COPY Release/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/test_extension/deps/test_extension.o
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/test_extension.node
+.../node_modules/better-sqlite3 install:   COPY Release/test_extension.node
+.../node_modules/better-sqlite3 install: rm ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install: make: Leaving directory '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install: gyp info ok 
+.../node_modules/better-sqlite3 install: Done
+.../@fortawesome/fontawesome-svg-core postinstall$ node attribution.js
+.../@fortawesome/free-solid-svg-icons postinstall$ node attribution.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../@fortawesome/fontawesome-svg-core postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../@fortawesome/fontawesome-svg-core postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/fontawesome-svg-core postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/fontawesome-svg-core postinstall: Done
+.../@fortawesome/free-solid-svg-icons postinstall: Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-solid-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-solid-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-solid-svg-icons postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../prisma@4.16.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../prisma@4.16.2/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/config/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/handlers/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/routing/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/prisma/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/drizzle/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+../tests/database postinstall$ prisma generate
+../tests/database postinstall: Prisma schema loaded from prisma/schema.prisma
+../tests/database postinstall: ✔ Generated Prisma Client (4.16.2 | library) to ./../../node_modules/.pnpm/@prisma+client@4.16.2_prisma@4.16.2/node_modules/@prisma/client in 81ms
+../tests/database postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+../tests/database postinstall: ```
+../tests/database postinstall: import { PrismaClient } from '@prisma/client'
+../tests/database postinstall: const prisma = new PrismaClient()
+../tests/database postinstall: ```
+../tests/database postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/config/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/config/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/handlers/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/handlers/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/routing/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/routing/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/prisma/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/prisma/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/drizzle/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/drizzle/node_modules/@backframe/cli/dist/index.mjs'
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/backframe-graphql
+└─┬ @types/express-graphql 0.9.0
+  └─┬ express-graphql 0.12.0
+    └── ✕ unmet peer graphql@"^14.7.0 || ^15.3.0": found 16.8.1
+
+Done in 2m 7.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T09:38:09Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T09:38:09Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:38:09Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:38:09Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

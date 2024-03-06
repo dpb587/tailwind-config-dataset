@@ -1,0 +1,274 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/afetcan/afetcan
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/afetcan/afetcan
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5cb842ee8c2a
+++ echo 'github.com/afetcan/afetcan;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/57a12efefd97
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/afetcan/afetcan/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/afetcan/afetcan/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6b9c02e98e0dcf27
++ jq -nc --arg key analysis_nonce --arg value 6b9c02e98e0dcf27 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/afetcan/afetcan
++ jq -nc --arg key input_repo_name --arg value github.com/afetcan/afetcan '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:20:08Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:20:08Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5cb842ee8c2a
+/tmp/twcr-5cb842ee8c2a /twcr
++ pushd /tmp/twcr-5cb842ee8c2a
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/afetcan/afetcan.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:20:09Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:20:09Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d8625c59bde5054f2998ca96b5985f0b6f9863b1
++ jq -nc --arg key exec_repo_commit_sha --arg value d8625c59bde5054f2998ca96b5985f0b6f9863b1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-17 14:51:20 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-17T11:51:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-17T11:51:20Z '{ key: $key, value: $value }'
+/tmp/twcr-5cb842ee8c2a /tmp/twcr-5cb842ee8c2a /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5cb842ee8c2a
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:20:09Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:20:09Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:20:09Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:20:09Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at d8625c5 Russian translation for the web site (#18)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5cb842ee8c2a /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5cb842ee8c2a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5cb842ee8c2a/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-5cb842ee8c2a/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 26, reused 0, downloaded 26, added 0
+Progress: resolved 42, reused 0, downloaded 42, added 0
+Progress: resolved 93, reused 0, downloaded 93, added 0
+Progress: resolved 147, reused 0, downloaded 147, added 0
+Progress: resolved 205, reused 0, downloaded 205, added 0
+Progress: resolved 256, reused 0, downloaded 256, added 0
+Progress: resolved 297, reused 0, downloaded 297, added 0
+Progress: resolved 343, reused 0, downloaded 343, added 0
+Progress: resolved 395, reused 0, downloaded 395, added 0
+Progress: resolved 443, reused 0, downloaded 443, added 0
+Progress: resolved 499, reused 0, downloaded 499, added 0
+Progress: resolved 559, reused 0, downloaded 559, added 0
+Progress: resolved 614, reused 0, downloaded 614, added 0
+Progress: resolved 669, reused 0, downloaded 669, added 0
+Progress: resolved 730, reused 0, downloaded 730, added 0
+Progress: resolved 791, reused 0, downloaded 791, added 0
+Progress: resolved 847, reused 0, downloaded 844, added 0
+Progress: resolved 897, reused 0, downloaded 894, added 0
+Progress: resolved 952, reused 0, downloaded 951, added 0
+Progress: resolved 999, reused 0, downloaded 998, added 0
+Progress: resolved 1064, reused 0, downloaded 1062, added 0
+Progress: resolved 1133, reused 0, downloaded 1132, added 0
+Progress: resolved 1194, reused 0, downloaded 1176, added 0
+Progress: resolved 1260, reused 0, downloaded 1237, added 0
+Progress: resolved 1339, reused 0, downloaded 1295, added 0
+Progress: resolved 1400, reused 0, downloaded 1357, added 0
+Progress: resolved 1408, reused 0, downloaded 1364, added 0
+Progress: resolved 1438, reused 0, downloaded 1383, added 0
+ WARN  5 deprecated subdependencies found: @npmcli/move-file@2.0.1, formidable@1.2.6, sourcemap-codec@1.4.8, stable@0.1.8, superagent@5.3.1
+Packages: +1407
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1449, reused 0, downloaded 1406, added 0
+Progress: resolved 1449, reused 0, downloaded 1406, added 1407, done
+.../@intlify/vue-i18n-bridge postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../sharp@0.31.3/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../@intlify/vue-i18n-bridge postinstall: [vue-i18n-bridge]  start vue-i18n-bridge postinstall script
+.../node_modules/vue-demi postinstall: Done
+.../@intlify/vue-i18n-bridge postinstall: Done
+.../sharp@0.31.3/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.13.3/libvips-8.13.3-linux-x64.tar.br
+.../sharp@0.31.3/node_modules/sharp install: sharp: Via proxy http:://172.18.0.2:3128 with credentials
+.../sharp@0.31.3/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.31.3/node_modules/sharp install: Done
+.../esbuild@0.17.10/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../@intlify/vue-router-bridge postinstall$ node ./scripts/postinstall.js
+.../esbuild@0.17.10/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../@intlify/vue-router-bridge postinstall: Done
+
+> @afetcan/website@0.1.2 postinstall /tmp/twcr-5cb842ee8c2a
+> nuxt prepare
+
+Nuxi 3.2.3
+
+ WARN  Current version of Node.js (21.6.2) is unsupported and might cause issues.
+       Please upgrade to a compatible version (^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0).
+
+ℹ Using default Tailwind CSS file from runtime/tailwind.css
+resolved.resolvedDir /tmp/twcr-5cb842ee8c2a/.i18n
+
+ WARN  [PWA] Icon not found at /tmp/twcr-5cb842ee8c2a/public/icon.png
+
+✔ Types generated in .nuxt
+
+dependencies:
++ @capacitor/android 4.7.0
++ @capacitor/core 4.7.0
++ @capacitor/ios 4.7.0
++ @directus/sdk 10.3.1
++ @huntersofbook/chatwoot-nuxt 1.1.0
++ @huntersofbook/plausible-nuxt 1.0.1
++ @iconify-json/ph 1.1.4
++ @iconify-json/twemoji 1.1.11
++ @iconify-json/wi 1.1.4
++ @iconify/tailwind 0.1.2
++ @nuxtjs/color-mode 3.2.0
++ @pinia/nuxt 0.4.7
++ @sindresorhus/slugify 2.2.0
++ @vee-validate/zod 4.7.4
++ fast-fuzzy 1.12.0
++ lodash 4.17.21
++ muninn 0.15.0
++ pinia 2.0.32
++ uuid 9.0.0
++ vee-validate 4.7.4
++ zod 3.20.6
+
+devDependencies:
++ @antfu/eslint-config 0.35.3
++ @capacitor/cli 4.7.0
++ @huntersofbook/i18n 0.5.1
++ @nuxt/content 2.4.3
++ @nuxt/devtools 0.2.5
++ @nuxtjs/i18n 8.0.0-beta.10
++ @nuxtjs/ionic 0.8.1
++ @nuxtjs/partytown 1.3.0
++ @nuxtjs/tailwindcss 6.4.1
++ @types/lodash 4.14.191
++ @types/uuid 9.0.1
++ @vue-macros/nuxt 1.2.1
++ @vueuse/core 9.13.0
++ @vueuse/nuxt 9.13.0
++ bumpp 8.2.1
++ cross-env 7.0.3
++ dotenv 16.0.3
++ eslint 8.35.0
++ nuxt 3.2.3
++ nuxt-time 0.0.3
++ typescript 4.9.5
+
+Done in 40.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T10:20:52Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T10:20:52Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T10:20:52Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T10:20:52Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

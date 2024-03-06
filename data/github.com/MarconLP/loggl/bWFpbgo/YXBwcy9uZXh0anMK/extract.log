@@ -1,0 +1,224 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/MarconLP/loggl
++ reporef=main
++ repopath=./apps/nextjs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/MarconLP/loggl
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f10570ac09ed
+++ echo 'github.com/MarconLP/loggl;main;./apps/nextjs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/68f84dcd9c7b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/MarconLP/loggl/bWFpbgo/Li9hcHBzL25leHRqcwo
++ jq -nc --arg key analysis_key --arg value github.com/MarconLP/loggl/bWFpbgo/Li9hcHBzL25leHRqcwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2712aafdeb195ce9
++ jq -nc --arg key analysis_nonce --arg value 2712aafdeb195ce9 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/MarconLP/loggl
++ jq -nc --arg key input_repo_name --arg value github.com/MarconLP/loggl '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/nextjs
++ jq -nc --arg key input_repo_path --arg value ./apps/nextjs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T02:50:29Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T02:50:29Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f10570ac09ed
++ pushd /tmp/twcr-f10570ac09ed
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/MarconLP/loggl.git .
+/tmp/twcr-f10570ac09ed /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T02:50:30Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T02:50:30Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1749ab6fcf2f34fc84dcfe26b6f9dce9df6de3f9
++ jq -nc --arg key exec_repo_commit_sha --arg value 1749ab6fcf2f34fc84dcfe26b6f9dce9df6de3f9 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-02 14:09:04 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-02T12:09:04Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-02T12:09:04Z '{ key: $key, value: $value }'
+/tmp/twcr-f10570ac09ed/apps/nextjs /tmp/twcr-f10570ac09ed /twcr
++ '[' -z ./apps/nextjs ']'
++ pushd ./apps/nextjs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f10570ac09ed/apps/nextjs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/nextjs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f10570ac09ed
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T02:50:30Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T02:50:30Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@acme/nextjs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@acme/tailwind-config": "^0.1.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/nextjs '!=' ./ ']'
++ rm -f /tmp/twcr-f10570ac09ed/package.json /tmp/twcr-f10570ac09ed/package-lock.json /tmp/twcr-f10570ac09ed/pnpm-lock.yaml /tmp/twcr-f10570ac09ed/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f10570ac09ed /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f10570ac09ed
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code E404
+npm ERR! 404 Not Found - GET https://registry.npmjs.org/@acme%2ftailwind-config - Not found
+npm ERR! 404 
+npm ERR! 404  '@acme/tailwind-config@^0.1.0' is not in this registry.
+npm ERR! 404 
+npm ERR! 404 Note that you can also install from a
+npm ERR! 404 tarball, folder, http url, or git url.
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T02_50_31_042Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T02:50:35Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T02:50:35Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 1749ab6 remove posthog key from .env.example
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f10570ac09ed /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f10570ac09ed
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated mkdirp-promise@1.1.0: This package is broken and no longer maintained. 'mkdirp' itself supports promises now, please switch to that.
+npm WARN deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+npm WARN deprecated uglify-es@3.3.9: support for ECMAScript is superseded by `uglify-js` as of v3.13.0
+(node:128) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+(node:128) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+npm WARN deprecated core-js@3.6.5: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 1846 packages, and audited 1853 packages in 6m
+
+327 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (1 low, 11 moderate, 1 high, 3 critical)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-f10570ac09ed/apps/nextjs/tailwind.config.ts:1
+import type { Config } from "tailwindcss";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-f10570ac09ed/apps/nextjs/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

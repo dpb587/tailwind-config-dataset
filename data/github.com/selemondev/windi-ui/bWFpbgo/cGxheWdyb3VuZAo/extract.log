@@ -1,0 +1,282 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/selemondev/windi-ui
++ reporef=main
++ repopath=./playground
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/selemondev/windi-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-473938b69403
+++ echo 'github.com/selemondev/windi-ui;main;./playground'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/6bf27e41c4e4
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/selemondev/windi-ui/bWFpbgo/Li9wbGF5Z3JvdW5kCg
++ jq -nc --arg key analysis_key --arg value github.com/selemondev/windi-ui/bWFpbgo/Li9wbGF5Z3JvdW5kCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9dc589bbf3ff11a4
++ jq -nc --arg key analysis_nonce --arg value 9dc589bbf3ff11a4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/selemondev/windi-ui
++ jq -nc --arg key input_repo_name --arg value github.com/selemondev/windi-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./playground
++ jq -nc --arg key input_repo_path --arg value ./playground '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T09:26:37Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T09:26:37Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-473938b69403
++ pushd /tmp/twcr-473938b69403
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/selemondev/windi-ui.git .
+/tmp/twcr-473938b69403 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T09:26:38Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T09:26:38Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a3ca7b17f2a56bbe86a25650328bbed2a3287447
++ jq -nc --arg key exec_repo_commit_sha --arg value a3ca7b17f2a56bbe86a25650328bbed2a3287447 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-11 11:37:30 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-11T19:37:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-11T19:37:30Z '{ key: $key, value: $value }'
++ '[' -z ./playground ']'
++ pushd ./playground
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-473938b69403/playground /tmp/twcr-473938b69403 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-473938b69403/playground
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T09:26:38Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T09:26:38Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@windi-ui/playground",
+>>>   "version": "0.0.0",
+>>>   "description": "Windi UI playground",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/selemondev/windi-ui.git"
+>>>   },
+>>>   "keywords": [
+>>>     "tailwindcss",
+>>>     "windi-ui",
+>>>     "playground",
+>>>     "repl"
+>>>   ],
+>>>   "author": "Selemondev",
+>>>   "license": "MIT",
+>>>   "bugs": {
+>>>     "url": "https://github.com/selemondev/windi-ui/issues"
+>>>   },
+>>>   "homepage": "https://github.com/selemondev/windi-ui#readme",
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./playground '!=' ./ ']'
++ rm -f /tmp/twcr-473938b69403/package.json /tmp/twcr-473938b69403/package-lock.json /tmp/twcr-473938b69403/pnpm-lock.yaml /tmp/twcr-473938b69403/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-473938b69403 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-473938b69403
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-473938b69403/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 22, reused 0, downloaded 20, added 0
+..                                       | Progress: resolved 54, reused 0, downloaded 44, added 0
+..                                       | Progress: resolved 87, reused 0, downloaded 73, added 0
+..                                       | Progress: resolved 116, reused 0, downloaded 106, added 0
+..                                       | Progress: resolved 163, reused 0, downloaded 125, added 0
+..                                       | Progress: resolved 201, reused 0, downloaded 164, added 0
+..                                       | Progress: resolved 235, reused 0, downloaded 192, added 0
+..                                       | Progress: resolved 261, reused 0, downloaded 217, added 0
+..                                       | Progress: resolved 303, reused 0, downloaded 256, added 0
+..                                       | Progress: resolved 343, reused 0, downloaded 289, added 0
+..                                       | Progress: resolved 384, reused 0, downloaded 328, added 0
+..                                       | Progress: resolved 422, reused 0, downloaded 362, added 0
+..                                       | Progress: resolved 453, reused 0, downloaded 398, added 0
+..                                       | Progress: resolved 500, reused 0, downloaded 438, added 0
+..                                       | +493 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 515, reused 0, downloaded 477, added 472
+..                                       | Progress: resolved 515, reused 0, downloaded 493, added 493, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/windi
+├─┬ @antfu/eslint-config 0.39.8
+│ ├── ✕ missing peer eslint@>=7.4.0
+│ ├─┬ @typescript-eslint/eslint-plugin 6.21.0
+│ │ ├── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ │ └─┬ @typescript-eslint/type-utils 6.21.0
+│ │   ├── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ │   └─┬ @typescript-eslint/utils 6.21.0
+│ │     ├── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ │     └─┬ @eslint-community/eslint-utils 4.4.0
+│ │       └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0"
+│ ├─┬ @typescript-eslint/parser 6.21.0
+│ │ └── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ ├─┬ eslint-plugin-eslint-comments 3.2.0
+│ │ └── ✕ missing peer eslint@>=4.19.1
+│ ├─┬ eslint-plugin-i 2.27.5-4
+│ │ ├── ✕ missing peer eslint@"^7.2.0 || ^8"
+│ │ └─┬ eslint-module-utils 2.8.1
+│ │   └── ✕ missing peer eslint@"*"
+│ ├─┬ eslint-plugin-jsonc 2.13.0
+│ │ ├── ✕ missing peer eslint@>=6.0.0
+│ │ └─┬ eslint-compat-utils 0.4.1
+│ │   └── ✕ missing peer eslint@>=6.0.0
+│ ├─┬ eslint-plugin-n 16.6.2
+│ │ ├── ✕ missing peer eslint@>=7.0.0
+│ │ └─┬ eslint-plugin-es-x 7.5.0
+│ │   ├── ✕ missing peer eslint@>=8
+│ │   └─┬ eslint-compat-utils 0.1.2
+│ │     └── ✕ missing peer eslint@>=6.0.0
+│ ├─┬ eslint-plugin-promise 6.1.1
+│ │ └── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ ├─┬ eslint-plugin-unicorn 48.0.1
+│ │ └── ✕ missing peer eslint@>=8.44.0
+│ ├─┬ eslint-plugin-vue 9.22.0
+│ │ ├── ✕ missing peer eslint@"^6.2.0 || ^7.0.0 || ^8.0.0"
+│ │ └─┬ vue-eslint-parser 9.4.2
+│ │   └── ✕ missing peer eslint@>=6.0.0
+│ ├─┬ eslint-plugin-yml 1.12.2
+│ │ └── ✕ missing peer eslint@>=6.0.0
+│ └─┬ @antfu/eslint-config-vue 0.39.8
+│   ├── ✕ missing peer eslint@>=7.4.0
+│   ├─┬ @antfu/eslint-config-basic 0.39.8
+│   │ ├── ✕ missing peer eslint@>=7.4.0
+│   │ ├─┬ eslint-plugin-markdown 3.0.1
+│   │ │ └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│   │ └─┬ eslint-plugin-unused-imports 3.1.0
+│   │   └── ✕ missing peer eslint@8
+│   └─┬ @antfu/eslint-config-ts 0.39.8
+│     ├── ✕ missing peer eslint@>=7.4.0
+│     ├─┬ @typescript-eslint/eslint-plugin 6.21.0
+│     │ └── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│     └─┬ eslint-plugin-jest 27.9.0
+│       ├── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│       └─┬ @typescript-eslint/utils 5.62.0
+│         └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+├─┬ @vitejs/plugin-vue 4.6.2
+│ └── ✕ missing peer vue@^3.2.25
+├─┬ @headlessui/vue 1.7.19
+│ ├── ✕ missing peer vue@^3.2.0
+│ └─┬ @tanstack/vue-virtual 3.1.3
+│   └── ✕ missing peer vue@"^2.7.0 || ^3.0.0"
+├─┬ @heroicons/vue 2.1.1
+│ └── ✕ missing peer vue@">= 3"
+├─┬ vue-router 4.3.0
+│ └── ✕ missing peer vue@^3.2.0
+├─┬ ts-node 10.9.2
+│ └── ✕ missing peer @types/node@"*"
+├─┬ vite 4.5.2
+│ └── ✕ missing peer @types/node@">= 14"
+└─┬ vite-plugin-dts 3.7.3
+  └─┬ @microsoft/api-extractor 7.39.0
+    └─┬ @rushstack/node-core-library 3.62.0
+      └── ✕ missing peer @types/node@"*"
+Peer dependencies that should be installed:
+  @types/node@>=14.0.0
+  eslint@">=8.44.0 <9.0.0"
+  vue@">=3.2.25 <4.0.0-0"
+
+Done in 17s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T09:26:57Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T09:26:57Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T09:26:57Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T09:26:57Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

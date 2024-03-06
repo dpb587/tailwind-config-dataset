@@ -1,0 +1,210 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/inje-megabrain/megabrain-apps
++ reporef=main
++ repopath=./apps/dashboard
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/inje-megabrain/megabrain-apps
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-48dc38ec563e
+++ echo 'github.com/inje-megabrain/megabrain-apps;main;./apps/dashboard'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0b1f4e8feaa2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/inje-megabrain/megabrain-apps/bWFpbgo/Li9hcHBzL2Rhc2hib2FyZAo
++ jq -nc --arg key analysis_key --arg value github.com/inje-megabrain/megabrain-apps/bWFpbgo/Li9hcHBzL2Rhc2hib2FyZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce b52dfc543a55b888
++ jq -nc --arg key analysis_nonce --arg value b52dfc543a55b888 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/inje-megabrain/megabrain-apps
++ jq -nc --arg key input_repo_name --arg value github.com/inje-megabrain/megabrain-apps '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/dashboard
++ jq -nc --arg key input_repo_path --arg value ./apps/dashboard '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T11:57:54Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T11:57:54Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-48dc38ec563e
++ pushd /tmp/twcr-48dc38ec563e
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/inje-megabrain/megabrain-apps.git .
+/tmp/twcr-48dc38ec563e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T11:58:08Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T11:58:08Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 81c74eac06706f2f587a6b32eb522352ebc4925b
++ jq -nc --arg key exec_repo_commit_sha --arg value 81c74eac06706f2f587a6b32eb522352ebc4925b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-08-05 02:50:36 +0900' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-08-04T17:50:36Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-08-04T17:50:36Z '{ key: $key, value: $value }'
++ '[' -z ./apps/dashboard ']'
++ pushd ./apps/dashboard
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-48dc38ec563e/apps/dashboard /tmp/twcr-48dc38ec563e /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-48dc38ec563e/apps/dashboard
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/dashboard '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-48dc38ec563e
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T11:58:08Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T11:58:08Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@megabrain/dashboard",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwindcss": "3.3.2"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/dashboard '!=' ./ ']'
++ rm -f /tmp/twcr-48dc38ec563e/package.json /tmp/twcr-48dc38ec563e/package-lock.json /tmp/twcr-48dc38ec563e/pnpm-lock.yaml /tmp/twcr-48dc38ec563e/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-48dc38ec563e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-48dc38ec563e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_208c58b717b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_208c58b717b6:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_208c58b717b6:ok@172.18.0.2:3128'
++ '[' -z http://tid_208c58b717b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_208c58b717b6:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_208c58b717b6:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:190:90286)
+    at ClientRequest.c (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 7s 336ms
+➤ YN0000: Failed with errors in 7s 337ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T11:58:17Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T11:58:17Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing .yarn/
+Removing .yarnrc.yml
++ git reset --hard
+HEAD is now at 81c74ea Merge pull request #12 from inje-megabrain/develop
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-48dc38ec563e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-48dc38ec563e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_208c58b717b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_208c58b717b6:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_208c58b717b6:ok@172.18.0.2:3128'
++ '[' -z http://tid_208c58b717b6:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_208c58b717b6:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_208c58b717b6:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0060: │ @megabrain/club@workspace:apps/club provides react (p451d5) with version 18.2.0, which doesn't satisfy what @testboxlab/react-bubble-chart-d3 requests
+➤ YN0060: │ @megabrain/club@workspace:apps/club provides react-dom (pdba3c) with version 18.2.0, which doesn't satisfy what @testboxlab/react-bubble-chart-d3 requests
+➤ YN0002: │ megabrain-apps@workspace:. doesn't provide react (p6ef44), requested by react-svg
+➤ YN0002: │ megabrain-apps@workspace:. doesn't provide react-dom (p8dfd2), requested by react-svg
+➤ YN0000: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code
+➤ YN0000: └ Completed in 0s 279ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ @next/swc-linux-x64-gnu@npm:13.4.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:190:90286)
+    at ClientRequest.c (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-48dc38ec563e/.yarn/releases/yarn-3.5.1.cjs:195:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 14s 488ms
+➤ YN0000: Failed with errors in 14s 769ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

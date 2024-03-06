@@ -1,0 +1,213 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Pitayan/gatsby-theme-pitayan
++ reporef=master
++ repopath=./packages/www
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Pitayan/gatsby-theme-pitayan
+++ sha256sum
+++ cut -c1-12
+++ awk '{ print $1 }'
++ procdir=/tmp/twcr-f2b6da7becea
+++ echo 'github.com/Pitayan/gatsby-theme-pitayan;master;./packages/www'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b64f6d60c78e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Pitayan/gatsby-theme-pitayan/bWFzdGVyCg/Li9wYWNrYWdlcy93d3cK
++ jq -nc --arg key analysis_key --arg value github.com/Pitayan/gatsby-theme-pitayan/bWFzdGVyCg/Li9wYWNrYWdlcy93d3cK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2230f078d2950455
++ jq -nc --arg key analysis_nonce --arg value 2230f078d2950455 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Pitayan/gatsby-theme-pitayan
++ jq -nc --arg key input_repo_name --arg value github.com/Pitayan/gatsby-theme-pitayan '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/www
++ jq -nc --arg key input_repo_path --arg value ./packages/www '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T06:30:17Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T06:30:17Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f2b6da7becea
++ pushd /tmp/twcr-f2b6da7becea
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Pitayan/gatsby-theme-pitayan.git .
+/tmp/twcr-f2b6da7becea /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T06:30:18Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T06:30:18Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 92a4bc568281f65ea607c509632e52505dee73c1
++ jq -nc --arg key exec_repo_commit_sha --arg value 92a4bc568281f65ea607c509632e52505dee73c1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-02-23 21:49:18 +0900' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-02-23T12:49:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-02-23T12:49:18Z '{ key: $key, value: $value }'
+/tmp/twcr-f2b6da7becea/packages/www /tmp/twcr-f2b6da7becea /twcr
++ '[' -z ./packages/www ']'
++ pushd ./packages/www
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f2b6da7becea/packages/www
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/www '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f2b6da7becea
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T06:30:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T06:30:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "private": true,
+>>>   "name": "www",
+>>>   "version": "0.1.0",
+>>>   "license": "MIT",
+>>>   "dependencies": {
+>>>     "@pitayan/gatsby-theme-pitayan": "^0.5.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.4"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/www '!=' ./ ']'
++ rm -f /tmp/twcr-f2b6da7becea/package.json /tmp/twcr-f2b6da7becea/package-lock.json /tmp/twcr-f2b6da7becea/pnpm-lock.yaml /tmp/twcr-f2b6da7becea/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f2b6da7becea /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f2b6da7becea
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN ERESOLVE overriding peer dependency
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   peer react@"^0.14 || ^15.0.0 || ^16.0.0-alpha" from airbnb-prop-types@2.16.0
+npm WARN   node_modules/react-outside-click-handler/node_modules/airbnb-prop-types
+npm WARN     airbnb-prop-types@"^2.15.0" from react-outside-click-handler@1.3.0
+npm WARN     node_modules/react-outside-click-handler
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@"0.0.0-experimental-c8b778b7f-20220825" from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/react-server-dom-webpack
+npm WARN   react-server-dom-webpack@"0.0.0-experimental-c8b778b7f-20220825" from gatsby@5.13.3
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: react@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/react
+npm WARN   peer react@"0.0.0-experimental-c8b778b7f-20220825" from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN   node_modules/react-server-dom-webpack
+npm WARN     react-server-dom-webpack@"0.0.0-experimental-c8b778b7f-20220825" from gatsby@5.13.3
+npm WARN     node_modules/gatsby
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+npm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+npm WARN deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+npm WARN deprecated string-similarity@1.2.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+npm WARN deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 1765 packages, and audited 1766 packages in 2m
+
+419 packages are looking for funding
+  run `npm fund` for details
+
+21 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ sed 's/^/>>> /'
++ cat tailwind.config.js
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T06:31:58Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T06:31:58Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T06:31:58Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T06:31:58Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,195 @@
+{
+  "name": "reactirator",
+  "productName": "reactirator",
+  "version": "1.2.0-beta",
+  "description": "A React application manager tool",
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make:msi": "node build_msi.ts",
+    "publish": "electron-forge publish",
+    "test": "npm run test:e2e && jest ./src/__test__/integration/",
+    "test:e2e": "npx playwright test ./src/__test__/e2e/",
+    "test:integration": "jest ./src/__test__/integration/",
+    "test:coverage": "jest ./src/__test__/integration/ --coverage",
+    "lint": "eslint --ext .ts .",
+    "format": "prettier --write \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
+    "format:check": "prettier -c \"src/**/*.(js|jsx|ts|tsx|css|scss)\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Leopold-V",
+    "email": "leopoldV79@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leopold-V/Reactirator.git"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "executableName": "reactirator",
+        "icon": "src/assets/icons/win/icon.ico"
+      },
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "platforms": [
+            "darwin",
+            "linux",
+            "win32"
+          ],
+          "config": {
+            "repository": {
+              "owner": "Leopold-V",
+              "name": "Reactirator"
+            },
+            "draft": true
+          }
+        }
+      ],
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "Reactirator"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-webpack",
+          "config": {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.ts",
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./src/preload.ts"
+                  }
+                },
+                {
+                  "html": "./src/splash.html",
+                  "js": "./src/splash.ts",
+                  "name": "splash_window"
+                }
+              ]
+            },
+            "port": 3030
+          }
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.3",
+    "@electron-forge/maker-deb": "^6.0.3",
+    "@electron-forge/maker-rpm": "^6.0.3",
+    "@electron-forge/maker-squirrel": "^6.0.3",
+    "@electron-forge/maker-zip": "^6.0.3",
+    "@electron-forge/plugin-webpack": "^6.0.3",
+    "@electron-forge/publisher-github": "^6.0.3",
+    "@playwright/test": "^1.20.1",
+    "@tailwindcss/forms": "^0.5.0",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@types/d3": "^6.7.0",
+    "@types/detect-port": "^1.3.2",
+    "@types/jest": "^26.0.23",
+    "@types/mixpanel-browser": "^2.38.0",
+    "@types/ps-tree": "^1.1.2",
+    "@types/react": "^17.0.3",
+    "@types/react-beautiful-dnd": "^13.0.0",
+    "@types/react-chartjs-2": "^2.5.7",
+    "@types/react-dev-utils": "^9.0.10",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/react-syntax-highlighter": "^13.5.1",
+    "@types/testing-library__dom": "^7.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
+    "autoprefixer": "^10.4.4",
+    "babel-jest": "^27.0.5",
+    "copy-webpack-plugin": "^9.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^4.3.0",
+    "dotenv-webpack": "^7.0.3",
+    "electron": "13.1.2",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-forge": "^5.2.4",
+    "electron-icon-maker": "^0.0.5",
+    "electron-playwright-helpers": "^1.1.1",
+    "electron-wix-msi": "^3.2.0",
+    "eslint": "^7.24.0",
+    "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^5.2.1",
+    "jest": "^27.5.1",
+    "jest-playwright-preset": "^1.7.0",
+    "node-loader": "^1.0.3",
+    "playwright": "^1.20.1",
+    "postcss": "^8.4.12",
+    "prettier": "^2.3.1",
+    "style-loader": "^1.3.0",
+    "tailwindcss": "^3.0.23",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.6",
+    "@reduxjs/toolkit": "^1.8.0",
+    "@testing-library/react": "^12.1.4",
+    "@types/lodash.throttle": "^4.1.6",
+    "chart.js": "^3.2.1",
+    "console-feed": "^3.2.2",
+    "d3": "^6.7.0",
+    "detect-port": "^1.3.0",
+    "electron-log": "^4.4.6",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "lodash.throttle": "^4.1.1",
+    "mixpanel-browser": "^2.45.0",
+    "nanoid": "^3.1.25",
+    "node-fetch": "^2.0.0",
+    "postcss-loader": "4.0",
+    "ps-tree": "^1.2.0",
+    "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-chartjs-2": "^3.0.3",
+    "react-dev-utils": "^12.0.0",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^1.0.2",
+    "react-markdown": "^6.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.10.6",
+    "react-syntax-highlighter": "^15.4.3",
+    "remark-gfm": "^1.0.0",
+    "ts-jest": "^27.0.3",
+    "update-electron-app": "^2.0.1",
+    "xterm-addon-fit": "^0.5.0",
+    "xterm-for-react": "^1.0.4"
+  }
+}

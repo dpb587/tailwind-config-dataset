@@ -1,0 +1,252 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/brainstormforce/custom-fonts
++ reporef=master
++ repopath=./admin/dashboard
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/brainstormforce/custom-fonts
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-578a176f6ea2
+++ echo 'github.com/brainstormforce/custom-fonts;master;./admin/dashboard'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/fc8a9d61bc02
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/brainstormforce/custom-fonts/bWFzdGVyCg/Li9hZG1pbi9kYXNoYm9hcmQK
++ jq -nc --arg key analysis_key --arg value github.com/brainstormforce/custom-fonts/bWFzdGVyCg/Li9hZG1pbi9kYXNoYm9hcmQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1ecf3dfcce53af8f
++ jq -nc --arg key analysis_nonce --arg value 1ecf3dfcce53af8f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/brainstormforce/custom-fonts
++ jq -nc --arg key input_repo_name --arg value github.com/brainstormforce/custom-fonts '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./admin/dashboard
++ jq -nc --arg key input_repo_path --arg value ./admin/dashboard '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:17:42Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:17:42Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-578a176f6ea2
++ pushd /tmp/twcr-578a176f6ea2
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/brainstormforce/custom-fonts.git .
+/tmp/twcr-578a176f6ea2 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:17:44Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:17:44Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ae4bbc7f67cdf376017bc6e8a365000928d83eee
++ jq -nc --arg key exec_repo_commit_sha --arg value ae4bbc7f67cdf376017bc6e8a365000928d83eee '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-16 12:43:51 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-16T07:13:51Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-16T07:13:51Z '{ key: $key, value: $value }'
++ '[' -z ./admin/dashboard ']'
++ pushd ./admin/dashboard
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-578a176f6ea2/admin/dashboard /tmp/twcr-578a176f6ea2 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-578a176f6ea2/admin/dashboard
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./admin/dashboard '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-578a176f6ea2
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:17:44Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:17:44Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "custom_font_admin",
+>>>   "version": "1.0.0",
+>>>   "description": "Custom Font Admin",
+>>>   "main": "",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.0.16"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/brainstormforce/custom-fonts.git"
+>>>   },
+>>>   "author": "Brainstorm Force",
+>>>   "license": "ISC"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./admin/dashboard '!=' ./ ']'
++ rm -f /tmp/twcr-578a176f6ea2/package.json /tmp/twcr-578a176f6ea2/package-lock.json /tmp/twcr-578a176f6ea2/pnpm-lock.yaml /tmp/twcr-578a176f6ea2/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-578a176f6ea2 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-578a176f6ea2
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 5s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@tailwindcss/forms'
+Require stack:
+- /tmp/twcr-578a176f6ea2/admin/dashboard/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-578a176f6ea2/admin/dashboard/tailwind.config.js:6:3
+    at evalModule (/tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-578a176f6ea2/admin/dashboard/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-578a176f6ea2/admin/dashboard/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-578a176f6ea2/admin/dashboard/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T10:17:50Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T10:17:50Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at ae4bbc7 Merge pull request #114 from brainstormforce/hotfix-2.1.3
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-578a176f6ea2 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-578a176f6ea2
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN old lockfile 
+npm WARN old lockfile The package-lock.json file was created with an old version of npm,
+npm WARN old lockfile so supplemental metadata must be fetched from the registry.
+npm WARN old lockfile 
+npm WARN old lockfile This is a one-time fix-up, please be patient...
+npm WARN old lockfile 
+npm WARN old lockfile Error: Integrity checksum failed when using sha512: wanted sha512-AV33EzqiFJ3fj+mPlKABN59YFPReLkDxQnj067Z3uEOeRQf3g05WprL0RDuqM7UBhSRo9W1rMSC2KvZmjE5UOA== but got sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==.
+npm WARN old lockfile     at RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:146:35)
+npm WARN old lockfile     at async Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:727:24)
+npm WARN old lockfile  Could not fetch metadata for prettier@2.6.2 Error: Integrity checksum failed when using sha512: wanted sha512-AV33EzqiFJ3fj+mPlKABN59YFPReLkDxQnj067Z3uEOeRQf3g05WprL0RDuqM7UBhSRo9W1rMSC2KvZmjE5UOA== but got sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==.
+npm WARN old lockfile     at RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:146:35)
+npm WARN old lockfile     at async Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:727:24) {
+npm WARN old lockfile   code: 'EINTEGRITY'
+npm WARN old lockfile }
+npm WARN workspaces custom_font_admin in filter set, but no workspace folder present
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR! 
+npm ERR! While resolving: custom_font_admin@1.0.0
+npm ERR! Found: react@17.0.2
+npm ERR! node_modules/react
+npm ERR!   react@"^17.0.2" from custom_font_admin@1.0.0
+npm ERR!   admin/dashboard
+npm ERR!     custom_font_admin@1.0.0
+npm ERR!     node_modules/custom_font_admin
+npm ERR!       workspace admin/dashboard from the root project
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@"^0.14.0 || ^15.0.0 || ^16.0.0-0" from react-html-parser@2.0.2
+npm ERR! node_modules/react-html-parser
+npm ERR!   react-html-parser@"^2.0.2" from custom_font_admin@1.0.0
+npm ERR!   admin/dashboard
+npm ERR!     custom_font_admin@1.0.0
+npm ERR!     node_modules/custom_font_admin
+npm ERR!       workspace admin/dashboard from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /home/node/.npm/_logs/2024-03-05T10_17_50_507Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T10_17_50_507Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

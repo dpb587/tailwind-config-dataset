@@ -1,0 +1,204 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gitsindonesia/ui-component
++ reporef=main
++ repopath=./packages/banner
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/gitsindonesia/ui-component
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-88bc26222e11
+++ echo 'github.com/gitsindonesia/ui-component;main;./packages/banner'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b5b4f90a6d9e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gitsindonesia/ui-component/bWFpbgo/Li9wYWNrYWdlcy9iYW5uZXIK
++ jq -nc --arg key analysis_key --arg value github.com/gitsindonesia/ui-component/bWFpbgo/Li9wYWNrYWdlcy9iYW5uZXIK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2b256cd599036e11
++ jq -nc --arg key analysis_nonce --arg value 2b256cd599036e11 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gitsindonesia/ui-component
++ jq -nc --arg key input_repo_name --arg value github.com/gitsindonesia/ui-component '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/banner
++ jq -nc --arg key input_repo_path --arg value ./packages/banner '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T04:32:09Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T04:32:09Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-88bc26222e11
++ pushd /tmp/twcr-88bc26222e11
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gitsindonesia/ui-component.git .
+/tmp/twcr-88bc26222e11 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T04:32:10Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T04:32:10Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 19eecbd1d984891c45ffbaa989cd88106f657b51
++ jq -nc --arg key exec_repo_commit_sha --arg value 19eecbd1d984891c45ffbaa989cd88106f657b51 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-16 16:41:20 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-16T09:41:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-16T09:41:20Z '{ key: $key, value: $value }'
++ '[' -z ./packages/banner ']'
++ pushd ./packages/banner
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-88bc26222e11/packages/banner /tmp/twcr-88bc26222e11 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-88bc26222e11/packages/banner
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/banner '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-88bc26222e11
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T04:32:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T04:32:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@morpheme/banner",
+>>>   "version": "1.0.0-rc.9",
+>>>   "description": "Morpheme Banner Component",
+>>>   "keywords": [
+>>>     "banner",
+>>>     "morpheme",
+>>>     "ui-component"
+>>>   ],
+>>>   "author": "Warsono <warsono16694@gmail.com>",
+>>>   "license": "MIT",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@morpheme/tailwind-config": "^1.0.0-rc.4",
+>>>     "tailwindcss": "^3.3.1"
+>>>   },
+>>>   "main": "dist/banner.umd.js",
+>>>   "unpkg": "dist/banner.iife.js",
+>>>   "jsdelivr": "dist/banner.iife.js",
+>>>   "module": "./dist/banner.mjs",
+>>>   "types": "./dist/types/index.d.ts",
+>>>   "exports": {
+>>>     ".": {
+>>>       "import": "./dist/banner.mjs",
+>>>       "require": "./dist/banner.js"
+>>>     },
+>>>     "./package.json": "./package.json",
+>>>     "./src/*": "./src/*",
+>>>     "./*": "./*"
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "gitHead": "95edc430940e02006a6f7ccc5065333389c50ccd"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/banner '!=' ./ ']'
++ rm -f /tmp/twcr-88bc26222e11/package.json /tmp/twcr-88bc26222e11/package-lock.json /tmp/twcr-88bc26222e11/pnpm-lock.yaml /tmp/twcr-88bc26222e11/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-88bc26222e11 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-88bc26222e11
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_da34869b80c4:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_da34869b80c4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_da34869b80c4:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_da34869b80c4:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_da34869b80c4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_da34869b80c4:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.49s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T04:32:20Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T04:32:20Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T04:32:20Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T04:32:20Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,345 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/upscayl/upscayl
++ reporef=main
++ repopath=./
+++ echo github.com/upscayl/upscayl
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-8662753be007
+++ echo 'github.com/upscayl/upscayl;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/314b2135e152
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/upscayl/upscayl/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/upscayl/upscayl/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 15f6e64f66d26a6c
++ jq -nc --arg key analysis_nonce --arg value 15f6e64f66d26a6c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/upscayl/upscayl
++ jq -nc --arg key input_repo_name --arg value github.com/upscayl/upscayl '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T23:11:01Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T23:11:01Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-8662753be007
+/tmp/twcr-8662753be007 /twcr
++ pushd /tmp/twcr-8662753be007
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/upscayl/upscayl.git .
+Cloning into '.'...
+Updating files:  92% (165/178)Updating files:  93% (166/178)Updating files:  94% (168/178)Updating files:  95% (170/178)Updating files:  96% (171/178)Updating files:  97% (173/178)Updating files:  98% (175/178)Updating files:  99% (177/178)Updating files: 100% (178/178)Updating files: 100% (178/178), done.
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T23:11:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T23:11:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha af5444890dc5dcb80c49d8576b070c7390c1aab6
++ jq -nc --arg key exec_repo_commit_sha --arg value af5444890dc5dcb80c49d8576b070c7390c1aab6 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 12:22:29 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T17:22:29Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T17:22:29Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-8662753be007 /tmp/twcr-8662753be007 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-8662753be007/pnpm-workspace.yaml ']'
++ cat README.md
++ grep -q 'pnpm install'
++ grep -q '"packageManager":[^"]+"yarn@"' package.json
++ '[' -f yarn.lock ']'
++ grep -q '":[^"]+"workspace:' package.json
++ cat README.md
++ grep -q 'yarn install'
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T23:11:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T23:11:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "upscayl",
+>>>   "private": true,
+>>>   "version": "2.10.0",
+>>>   "productName": "Upscayl",
+>>>   "author": {
+>>>     "name": "Nayam Amarshe",
+>>>     "email": "nayam.emikx@aleeas.com",
+>>>     "url": "https://github.com/NayamAmarshe"
+>>>   },
+>>>   "homepage": "https://github.com/TGS963/upscayl",
+>>>   "contributors": [
+>>>     {
+>>>       "name": "Nayam Amarshe",
+>>>       "email": "nayam.emikx@aleeas.com",
+>>>       "url": "https://github.com/NayamAmarshe"
+>>>     },
+>>>     {
+>>>       "name": "TGS963",
+>>>       "email": "tgs@963.com",
+>>>       "url": "https://github.com/TGS963"
+>>>     }
+>>>   ],
+>>>   "email": "nayam.emikx@aleeas.com",
+>>>   "license": "AGPL-3.0",
+>>>   "description": "Upscayl - Free and Open Source AI Image Upscaler",
+>>>   "keywords": [
+>>>     "AI",
+>>>     "Upscaler",
+>>>     "Image Upscale",
+>>>     "Linux image upscale",
+>>>     "Topaz Gigapixel",
+>>>     "Linux",
+>>>     "KDE",
+>>>     "Gnome"
+>>>   ],
+>>>   "main": "export/electron/index.js",
+>>>   "build": {
+>>>     "productName": "Upscayl",
+>>>     "appId": "org.upscayl.Upscayl",
+>>>     "artifactName": "${name}-${version}-${os}.${ext}",
+>>>     "afterSign": "./notarize.js",
+>>>     "asar": true,
+>>>     "buildVersion": "23.11.4",
+>>>     "asarUnpack": [
+>>>       "**/node_modules/sharp/**/*"
+>>>     ],
+>>>     "extraFiles": [
+>>>       {
+>>>         "from": "resources/${os}/bin",
+>>>         "to": "resources/bin",
+>>>         "filter": [
+>>>           "**/*"
+>>>         ]
+>>>       },
+>>>       {
+>>>         "from": "resources/models",
+>>>         "to": "resources/models",
+>>>         "filter": [
+>>>           "**/*"
+>>>         ]
+>>>       },
+>>>       {
+>>>         "from": "org.upscayl.Upscayl.desktop",
+>>>         "to": "resources/org.upscayl.Upscayl.desktop"
+>>>       },
+>>>       {
+>>>         "from": "resources/icons/128x128.png",
+>>>         "to": "resources/128x128.png"
+>>>       },
+>>>       {
+>>>         "from": "resources/icons/512x512.png",
+>>>         "to": "resources/512x512.png"
+>>>       }
+>>>     ],
+>>>     "mas": {
+>>>       "hardenedRuntime": false,
+>>>       "electronLanguages": [
+>>>         "en"
+>>>       ],
+>>>       "category": "public.app-category.photography",
+>>>       "entitlements": "resources/entitlements.mas.plist",
+>>>       "entitlementsInherit": "resources/entitlements.mas.inherit.plist",
+>>>       "provisioningProfile": "embedded.provisionprofile",
+>>>       "mergeASARs": false,
+>>>       "gatekeeperAssess": false,
+>>>       "icon": "build/icon.icns",
+>>>       "x64ArchFiles": "*",
+>>>       "target": [
+>>>         {
+>>>           "target": "mas",
+>>>           "arch": [
+>>>             "universal"
+>>>           ]
+>>>         }
+>>>       ]
+>>>     },
+>>>     "mac": {
+>>>       "hardenedRuntime": true,
+>>>       "gatekeeperAssess": false,
+>>>       "mergeASARs": false,
+>>>       "x64ArchFiles": "*",
+>>>       "minimumSystemVersion": "12.0.0",
+>>>       "category": "public.app-category.photography",
+>>>       "entitlements": "resources/entitlements.mac.plist",
+>>>       "entitlementsInherit": "resources/entitlements.mac.plist",
+>>>       "provisioningProfile": "embedded.provisionprofile",
+>>>       "target": [
+>>>         {
+>>>           "target": "dmg",
+>>>           "arch": [
+>>>             "universal"
+>>>           ]
+>>>         },
+>>>         {
+>>>           "target": "zip",
+>>>           "arch": [
+>>>             "universal"
+>>>           ]
+>>>         }
+>>>       ]
+>>>     },
+>>>     "dmg": {
+>>>       "sign": "false",
+>>>       "contents": [
+>>>         {
+>>>           "x": 130,
+>>>           "y": 220
+>>>         },
+>>>         {
+>>>           "x": 410,
+>>>           "y": 220,
+>>>           "type": "link",
+>>>           "path": "/Applications"
+>>>         }
+>>>       ]
+>>>     },
+>>>     "linux": {
+>>>       "target": [
+>>>         "AppImage",
+>>>         "zip",
+>>>         "deb",
+>>>         "rpm"
+>>>       ],
+>>>       "maintainer": "Nayam Amarshe <simplelogin-newsletter.j1zez@aleeas.com>",
+>>>       "category": "Graphics;2DGraphics;RasterGraphics;ImageProcessing;",
+>>>       "synopsis": "AI Image Upscaler",
+>>>       "description": "Free and Open Source AI Image Upscaler",
+>>>       "icon": "resources/icons/"
+>>>     },
+>>>     "win": {
+>>>       "publisherName": "Upscayl Team",
+>>>       "target": [
+>>>         "nsis",
+>>>         "zip"
+>>>       ],
+>>>       "icon": "build/icon.png"
+>>>     },
+>>>     "nsis": {
+>>>       "allowToChangeInstallationDirectory": true,
+>>>       "oneClick": false,
+>>>       "allowElevation": true,
+>>>       "perMachine": true
+>>>     },
+>>>     "files": [
+>>>       "export",
+>>>       "renderer/out"
+>>>     ],
+>>>     "publish": {
+>>>       "provider": "github"
+>>>     }
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "daisyui": "^3.9.4",
+>>>     "tailwindcss": "^3.3.5"
+>>>   },
+>>>   "dependencies": {
+>>>     "tailwind-scrollbar": "^3.0.4"
+>>>   },
+>>>   "volta": {
+>>>     "node": "18.17.0"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-8662753be007 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-8662753be007
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+
+added 119 packages, and audited 120 packages in 3s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T23:11:16Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T23:11:16Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T23:11:16Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T23:11:16Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

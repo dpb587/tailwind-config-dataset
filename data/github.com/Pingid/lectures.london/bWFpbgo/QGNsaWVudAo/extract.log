@@ -1,0 +1,212 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Pingid/lectures.london
++ reporef=main
++ repopath=./@client
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Pingid/lectures.london
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2141e7205b0f
+++ echo 'github.com/Pingid/lectures.london;main;./@client'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c6f1b91ed521
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Pingid/lectures.london/bWFpbgo/Li9AY2xpZW50Cg
++ jq -nc --arg key analysis_key --arg value github.com/Pingid/lectures.london/bWFpbgo/Li9AY2xpZW50Cg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 02e8c4d9d4f2cb3a
++ jq -nc --arg key analysis_nonce --arg value 02e8c4d9d4f2cb3a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Pingid/lectures.london
++ jq -nc --arg key input_repo_name --arg value github.com/Pingid/lectures.london '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./@client
++ jq -nc --arg key input_repo_path --arg value ./@client '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:04:20Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:04:20Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2141e7205b0f
++ pushd /tmp/twcr-2141e7205b0f
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Pingid/lectures.london.git .
+/tmp/twcr-2141e7205b0f /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:04:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:04:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 48be46bf4f601614d1d011a638151580adc017ce
++ jq -nc --arg key exec_repo_commit_sha --arg value 48be46bf4f601614d1d011a638151580adc017ce '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-07 13:12:18 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-07T13:12:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-07T13:12:18Z '{ key: $key, value: $value }'
++ '[' -z ./@client ']'
++ pushd ./@client
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-2141e7205b0f/@client /tmp/twcr-2141e7205b0f /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2141e7205b0f/@client
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./@client '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2141e7205b0f
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:04:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:04:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@lectures.london/client",
+>>>   "type": "module",
+>>>   "version": "0.0.1",
+>>>   "dependencies": {
+>>>     "@astrojs/tailwind": "^5.0.2",
+>>>     "tailwindcss": "^3.3.5"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./@client '!=' ./ ']'
++ rm -f /tmp/twcr-2141e7205b0f/package.json /tmp/twcr-2141e7205b0f/package-lock.json /tmp/twcr-2141e7205b0f/pnpm-lock.yaml /tmp/twcr-2141e7205b0f/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-2141e7205b0f /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-2141e7205b0f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-2141e7205b0f/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+../@package/scrapers                     |  WARN  deprecated phin@3.7.0
+..                                       | Progress: resolved 24, reused 0, downloaded 16, added 0
+..                                       | Progress: resolved 50, reused 0, downloaded 44, added 0
+..                                       | Progress: resolved 80, reused 0, downloaded 71, added 0
+..                                       | Progress: resolved 122, reused 0, downloaded 84, added 0
+..                                       | Progress: resolved 155, reused 0, downloaded 119, added 0
+..                                       | Progress: resolved 178, reused 0, downloaded 143, added 0
+..                                       | Progress: resolved 215, reused 0, downloaded 170, added 0
+..                                       | Progress: resolved 243, reused 0, downloaded 201, added 0
+..                                       | Progress: resolved 271, reused 0, downloaded 226, added 0
+..                                       | Progress: resolved 302, reused 0, downloaded 256, added 0
+..                                       | Progress: resolved 336, reused 0, downloaded 285, added 0
+..                                       | Progress: resolved 369, reused 0, downloaded 316, added 0
+..                                       | Progress: resolved 401, reused 0, downloaded 349, added 0
+..                                       | Progress: resolved 437, reused 0, downloaded 380, added 0
+..                                       | Progress: resolved 456, reused 0, downloaded 424, added 0
+..                                       | Progress: resolved 487, reused 0, downloaded 453, added 0
+..                                       | Progress: resolved 517, reused 0, downloaded 477, added 0
+..                                       | Progress: resolved 552, reused 0, downloaded 511, added 0
+..                                       | Progress: resolved 585, reused 0, downloaded 544, added 0
+..                                       | Progress: resolved 623, reused 0, downloaded 572, added 0
+..                                       | Progress: resolved 653, reused 0, downloaded 602, added 0
+..                                       | Progress: resolved 688, reused 0, downloaded 635, added 0
+..                                       | Progress: resolved 720, reused 0, downloaded 675, added 0
+ WARN  1 deprecated subdependencies found: centra@2.6.0
+..                                       | +687 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 721, reused 0, downloaded 687, added 687, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @astrojs/tailwind 5.1.0
++ tailwindcss 3.4.1
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
+
+Done in 27.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T12:04:51Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T12:04:51Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T12:04:51Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T12:04:51Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,314 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/learn-anything/learn-anything.xyz
++ reporef=dev
++ repopath=./mobile
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/learn-anything/learn-anything.xyz
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-13e4f1b2fdda
+++ echo 'github.com/learn-anything/learn-anything.xyz;dev;./mobile'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a71f6b80eb6c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/learn-anything/learn-anything.xyz/ZGV2Cg/Li9tb2JpbGUK
++ jq -nc --arg key analysis_key --arg value github.com/learn-anything/learn-anything.xyz/ZGV2Cg/Li9tb2JpbGUK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6f2985f4176f3dca
++ jq -nc --arg key analysis_nonce --arg value 6f2985f4176f3dca '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/learn-anything/learn-anything.xyz
++ jq -nc --arg key input_repo_name --arg value github.com/learn-anything/learn-anything.xyz '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./mobile
++ jq -nc --arg key input_repo_path --arg value ./mobile '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:49:20Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:49:20Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-13e4f1b2fdda
+/tmp/twcr-13e4f1b2fdda /twcr
++ pushd /tmp/twcr-13e4f1b2fdda
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/learn-anything/learn-anything.xyz.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:49:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:49:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e7767503f7f8fb0aad4a8f87b8c9c2676f16eb25
++ jq -nc --arg key exec_repo_commit_sha --arg value e7767503f7f8fb0aad4a8f87b8c9c2676f16eb25 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-22 17:41:41 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-22T14:41:41Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-22T14:41:41Z '{ key: $key, value: $value }'
+/tmp/twcr-13e4f1b2fdda/mobile /tmp/twcr-13e4f1b2fdda /twcr
++ '[' -z ./mobile ']'
++ pushd ./mobile
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-13e4f1b2fdda/mobile
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./mobile '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-13e4f1b2fdda
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:49:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:49:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@la/mobile",
+>>>   "main": "app/app.ts",
+>>>   "version": "0.0.1",
+>>>   "dependencies": {
+>>>     "tailwindcss": "~3.2.0"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./mobile '!=' ./ ']'
++ rm -f /tmp/twcr-13e4f1b2fdda/package.json /tmp/twcr-13e4f1b2fdda/package-lock.json /tmp/twcr-13e4f1b2fdda/pnpm-lock.yaml /tmp/twcr-13e4f1b2fdda/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-13e4f1b2fdda /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-13e4f1b2fdda
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-13e4f1b2fdda/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+../app                                   |  WARN  deprecated @motionone/solid@10.16.4
+..                                       | Progress: resolved 28, reused 0, downloaded 19, added 0
+..                                       | Progress: resolved 60, reused 0, downloaded 46, added 0
+..                                       | Progress: resolved 86, reused 0, downloaded 84, added 0
+..                                       | Progress: resolved 86, reused 0, downloaded 85, added 0
+..                                       | Progress: resolved 86, reused 0, downloaded 86, added 0
+..                                       | Progress: resolved 86, reused 0, downloaded 87, added 0
+..                                       | Progress: resolved 116, reused 0, downloaded 106, added 0
+..                                       | Progress: resolved 150, reused 0, downloaded 131, added 0
+..                                       | Progress: resolved 186, reused 0, downloaded 161, added 0
+..                                       | Progress: resolved 219, reused 0, downloaded 197, added 0
+..                                       | Progress: resolved 259, reused 0, downloaded 230, added 0
+..                                       | Progress: resolved 297, reused 0, downloaded 267, added 0
+..                                       | Progress: resolved 348, reused 0, downloaded 290, added 0
+..                                       | Progress: resolved 399, reused 0, downloaded 325, added 0
+..                                       | Progress: resolved 443, reused 0, downloaded 354, added 0
+..                                       | Progress: resolved 506, reused 0, downloaded 382, added 0
+..                                       | Progress: resolved 540, reused 0, downloaded 424, added 0
+..                                       | Progress: resolved 580, reused 0, downloaded 457, added 0
+..                                       | Progress: resolved 619, reused 0, downloaded 497, added 0
+..                                       | Progress: resolved 653, reused 0, downloaded 524, added 0
+..                                       | Progress: resolved 671, reused 0, downloaded 542, added 0
+..                                       | Progress: resolved 707, reused 0, downloaded 574, added 0
+..                                       | Progress: resolved 750, reused 0, downloaded 613, added 0
+..                                       | Progress: resolved 790, reused 0, downloaded 648, added 0
+..                                       | Progress: resolved 829, reused 0, downloaded 684, added 0
+..                                       | Progress: resolved 854, reused 0, downloaded 710, added 0
+..                                       | Progress: resolved 895, reused 0, downloaded 741, added 0
+..                                       | Progress: resolved 935, reused 0, downloaded 781, added 0
+..                                       | Progress: resolved 968, reused 0, downloaded 816, added 0
+..                                       | Progress: resolved 1011, reused 0, downloaded 858, added 0
+..                                       | Progress: resolved 1057, reused 0, downloaded 893, added 0
+..                                       | Progress: resolved 1097, reused 0, downloaded 936, added 0
+..                                       | Progress: resolved 1135, reused 0, downloaded 971, added 0
+..                                       | Progress: resolved 1152, reused 0, downloaded 1027, added 0
+ WARN  2 deprecated subdependencies found: rollup-plugin-inject@3.0.2, sourcemap-codec@1.4.8
+..                                       |    +1062 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1153, reused 0, downloaded 1058, added 1062, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../node_modules/workerd postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+ WARN  Issues with peer dependencies found
+app
+└─┬ solid-monaco 0.2.0
+  └── ✕ unmet peer monaco-editor@^0.43.0: found 0.44.0
+
+website
+└─┬ solid-start 0.3.10
+  └── ✕ unmet peer @solidjs/router@^0.8.2: found 0.9.1
+
+Done in 53.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:50:17Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:50:17Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at e776750 Have 4 states on each GlobalLink (#92)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-13e4f1b2fdda /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-13e4f1b2fdda
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-13e4f1b2fdda/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-13e4f1b2fdda/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 6 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | +546 -403 +++++++++++++++------------
+..                                       | Progress: resolved 546, reused 176, downloaded 22, added 118
+..                                       | Progress: resolved 546, reused 176, downloaded 81, added 175
+..                                       | Progress: resolved 546, reused 176, downloaded 113, added 208
+..                                       | Progress: resolved 546, reused 176, downloaded 174, added 269
+..                                       | Progress: resolved 546, reused 176, downloaded 207, added 303
+..                                       | Progress: resolved 546, reused 176, downloaded 254, added 351
+..                                       | Progress: resolved 546, reused 176, downloaded 291, added 388
+..                                       | Progress: resolved 546, reused 176, downloaded 303, added 400
+..                                       | Progress: resolved 546, reused 176, downloaded 327, added 424
+..                                       | Progress: resolved 546, reused 176, downloaded 365, added 462
+..                                       | Progress: resolved 546, reused 176, downloaded 366, added 463, done
+.../esbuild@0.19.7/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../node_modules/grafbase postinstall$ node ./postinstall.js
+.../esbuild@0.19.7/node_modules/esbuild postinstall: Done
+.../node_modules/workerd postinstall: Done
+.../node_modules/grafbase postinstall: Done
+Done in 16s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-13e4f1b2fdda/mobile/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

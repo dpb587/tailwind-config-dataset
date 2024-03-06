@@ -1,0 +1,231 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Macrometacorp/docs
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Macrometacorp/docs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2cd9f3452093
+++ echo 'github.com/Macrometacorp/docs;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/8419d6ba18b1
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Macrometacorp/docs/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Macrometacorp/docs/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 902f6c03c50ce380
++ jq -nc --arg key analysis_nonce --arg value 902f6c03c50ce380 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Macrometacorp/docs
++ jq -nc --arg key input_repo_name --arg value github.com/Macrometacorp/docs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:05:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:05:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2cd9f3452093
++ pushd /tmp/twcr-2cd9f3452093
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Macrometacorp/docs.git .
+/tmp/twcr-2cd9f3452093 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:05:22Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:05:22Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3852cdc998d40b024bd84540e733428400bb35ff
++ jq -nc --arg key exec_repo_commit_sha --arg value 3852cdc998d40b024bd84540e733428400bb35ff '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-26 08:38:34 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-26T16:38:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-26T16:38:34Z '{ key: $key, value: $value }'
+/tmp/twcr-2cd9f3452093 /tmp/twcr-2cd9f3452093 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2cd9f3452093
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:05:22Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:05:22Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.1.6"
+>>>   },
+>>>   "resolutions": {
+>>>     "react-scripts": "^4.0.3"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.5%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-2cd9f3452093 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-2cd9f3452093
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_2865e87bbcf1:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_2865e87bbcf1:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_2865e87bbcf1:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_2865e87bbcf1:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_2865e87bbcf1:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_2865e87bbcf1:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning react-scripts > babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+warning react-scripts > babel-preset-react-app > @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+warning react-scripts > babel-preset-react-app > @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+warning react-scripts > babel-preset-react-app > @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+warning react-scripts > babel-preset-react-app > @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+warning react-scripts > babel-preset-react-app > @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+warning react-scripts > webpack-dev-server > chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+warning react-scripts > webpack-dev-server > chokidar > fsevents@1.2.13: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+warning react-scripts > workbox-webpack-plugin > source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+warning react-scripts > workbox-webpack-plugin > workbox-build > source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+warning react-scripts > @svgr/webpack > @svgr/plugin-svgo > svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+warning react-scripts > @pmmmwh/react-refresh-webpack-plugin > native-url > querystring@0.2.1: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+warning react-scripts > terser-webpack-plugin > cacache > @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+warning react-scripts > webpack > terser-webpack-plugin > cacache > figgy-pudding@3.5.2: This module is no longer supported.
+warning react-scripts > webpack > terser-webpack-plugin > cacache > ssri > figgy-pudding@3.5.2: This module is no longer supported.
+warning react-scripts > webpack > watchpack > watchpack-chokidar2 > chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+warning react-scripts > webpack-dev-server > webpack-log > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning react-scripts > workbox-webpack-plugin > workbox-build > rollup-plugin-terser@5.3.1: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+warning react-scripts > workbox-webpack-plugin > workbox-build > rollup-plugin-babel@4.4.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-babel.
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi@15.1.1: Switch to 'npm install joi'
+warning react-scripts > workbox-webpack-plugin > workbox-build > workbox-google-analytics@5.1.4: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+warning react-scripts > @svgr/webpack > @svgr/plugin-svgo > svgo > stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+warning react-scripts > babel-jest > @jest/transform > jest-haste-map > sane@4.1.0: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added
+warning react-scripts > webpack > micromatch > snapdragon > source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+warning react-scripts > resolve-url-loader > rework > css > source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+warning react-scripts > webpack > micromatch > snapdragon > source-map-resolve > source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+warning react-scripts > optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-svgo > svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+warning react-scripts > postcss-preset-env > postcss-color-gray > postcss-values-parser > flatten@1.0.3: flatten is deprecated in favor of utility frameworks such as lodash.
+warning react-scripts > resolve-url-loader > rework > css > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning react-scripts > webpack > micromatch > snapdragon > source-map-resolve > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi > @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi > @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi > @hapi/topo > @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi > @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+warning react-scripts > workbox-webpack-plugin > workbox-build > @hapi/joi > @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+warning react-scripts > webpack > micromatch > snapdragon > source-map-resolve > resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+warning react-scripts > workbox-webpack-plugin > workbox-build > @rollup/plugin-replace > magic-string > sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+warning react-scripts > workbox-webpack-plugin > workbox-build > strip-comments > babel-plugin-transform-object-rest-spread > babel-runtime > core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+warning react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+warning react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > data-urls > abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+warning react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > domexception@2.0.1: Use your platform's native DOMException instead
+warning react-scripts > jest > jest-cli > jest-config > jest-environment-jsdom > jsdom > w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > react-scripts@4.0.3" has unmet peer dependency "react@>= 16".
+warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 76.69s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T12:06:41Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T12:06:41Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T12:06:41Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T12:06:41Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

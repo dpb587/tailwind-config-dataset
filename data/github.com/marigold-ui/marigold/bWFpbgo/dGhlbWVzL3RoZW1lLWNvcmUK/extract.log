@@ -1,0 +1,614 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/marigold-ui/marigold
++ reporef=main
++ repopath=./themes/theme-core
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/marigold-ui/marigold
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3765500415b3
+++ echo 'github.com/marigold-ui/marigold;main;./themes/theme-core'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/bb9ce45da68f
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/marigold-ui/marigold/bWFpbgo/Li90aGVtZXMvdGhlbWUtY29yZQo
++ jq -nc --arg key analysis_key --arg value github.com/marigold-ui/marigold/bWFpbgo/Li90aGVtZXMvdGhlbWUtY29yZQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 960303b2ea6e7317
++ jq -nc --arg key analysis_nonce --arg value 960303b2ea6e7317 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/marigold-ui/marigold
++ jq -nc --arg key input_repo_name --arg value github.com/marigold-ui/marigold '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./themes/theme-core
++ jq -nc --arg key input_repo_path --arg value ./themes/theme-core '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:08:30Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:08:30Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3765500415b3
++ pushd /tmp/twcr-3765500415b3
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/marigold-ui/marigold.git .
+/tmp/twcr-3765500415b3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:08:31Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:08:31Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha dbb4edfc17ad688561cd58992dafb00d4be713d4
++ jq -nc --arg key exec_repo_commit_sha --arg value dbb4edfc17ad688561cd58992dafb00d4be713d4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 18:42:18 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T17:42:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T17:42:18Z '{ key: $key, value: $value }'
+/tmp/twcr-3765500415b3/themes/theme-core /tmp/twcr-3765500415b3 /twcr
++ '[' -z ./themes/theme-core ']'
++ pushd ./themes/theme-core
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3765500415b3/themes/theme-core
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./themes/theme-core '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3765500415b3
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:08:31Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:08:31Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "@marigold/theme-core",
+>>>   "version": "26.1.0",
+>>>   "description": "Marigold Core Theme",
+>>>   "license": "MIT",
+>>>   "keywords": [
+>>>     "marigold",
+>>>     "core",
+>>>     "theme",
+>>>     "styles"
+>>>   ],
+>>>   "main": "./dist/index.js",
+>>>   "module": "./dist/index.mjs",
+>>>   "types": "./dist/index.d.ts",
+>>>   "exports": {
+>>>     ".": {
+>>>       "require": "./dist/index.js",
+>>>       "import": "./dist/index.mjs",
+>>>       "types": "./dist/index.d.ts"
+>>>     },
+>>>     "./preset": {
+>>>       "require": "./dist/preset.js",
+>>>       "import": "./dist/preset.mjs",
+>>>       "types": "./dist/preset.d.ts"
+>>>     },
+>>>     "./styles.css": "./dist/styles.css"
+>>>   },
+>>>   "typesVersions": {
+>>>     "*": {
+>>>       "*": [
+>>>         "./dist/*"
+>>>       ]
+>>>     }
+>>>   },
+>>>   "sideEffects": false,
+>>>   "files": [
+>>>     "dist"
+>>>   ],
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/marigold-ui/marigold",
+>>>     "directory": "themes/theme-core"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ '[' ./themes/theme-core '!=' ./ ']'
++ rm -f /tmp/twcr-3765500415b3/package.json /tmp/twcr-3765500415b3/package-lock.json /tmp/twcr-3765500415b3/pnpm-lock.yaml /tmp/twcr-3765500415b3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3765500415b3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3765500415b3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3765500415b3/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 13 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 21, reused 0, downloaded 17, added 0
+../..                                    | Progress: resolved 34, reused 0, downloaded 30, added 0
+../..                                    | Progress: resolved 49, reused 0, downloaded 40, added 0
+../..                                    | Progress: resolved 75, reused 0, downloaded 62, added 0
+../..                                    | Progress: resolved 88, reused 0, downloaded 76, added 0
+../..                                    | Progress: resolved 107, reused 0, downloaded 104, added 0
+../..                                    | Progress: resolved 142, reused 0, downloaded 130, added 0
+../..                                    | Progress: resolved 167, reused 0, downloaded 155, added 0
+../..                                    | Progress: resolved 186, reused 0, downloaded 172, added 0
+../..                                    | Progress: resolved 207, reused 0, downloaded 188, added 0
+../..                                    | Progress: resolved 228, reused 0, downloaded 211, added 0
+../..                                    | Progress: resolved 261, reused 0, downloaded 232, added 0
+../..                                    | Progress: resolved 289, reused 0, downloaded 259, added 0
+../..                                    | Progress: resolved 308, reused 0, downloaded 280, added 0
+../..                                    | Progress: resolved 331, reused 0, downloaded 304, added 0
+../..                                    | Progress: resolved 367, reused 0, downloaded 336, added 0
+../..                                    | Progress: resolved 390, reused 0, downloaded 356, added 0
+../..                                    | Progress: resolved 412, reused 0, downloaded 380, added 0
+../..                                    | Progress: resolved 452, reused 0, downloaded 405, added 0
+../..                                    | Progress: resolved 476, reused 0, downloaded 431, added 0
+../..                                    | Progress: resolved 504, reused 0, downloaded 453, added 0
+../..                                    | Progress: resolved 538, reused 0, downloaded 488, added 0
+../..                                    | Progress: resolved 573, reused 0, downloaded 515, added 0
+../..                                    | Progress: resolved 604, reused 0, downloaded 546, added 0
+../..                                    | Progress: resolved 630, reused 0, downloaded 573, added 0
+../..                                    | Progress: resolved 664, reused 0, downloaded 603, added 0
+../..                                    | Progress: resolved 699, reused 0, downloaded 636, added 0
+../..                                    | Progress: resolved 730, reused 0, downloaded 665, added 0
+../..                                    | Progress: resolved 758, reused 0, downloaded 695, added 0
+../..                                    | Progress: resolved 787, reused 0, downloaded 721, added 0
+../..                                    | Progress: resolved 818, reused 0, downloaded 748, added 0
+../..                                    | Progress: resolved 848, reused 0, downloaded 776, added 0
+../..                                    | Progress: resolved 877, reused 0, downloaded 809, added 0
+../..                                    | Progress: resolved 915, reused 0, downloaded 844, added 0
+../..                                    | Progress: resolved 944, reused 0, downloaded 867, added 0
+../..                                    | Progress: resolved 992, reused 0, downloaded 883, added 0
+../..                                    | Progress: resolved 1028, reused 0, downloaded 906, added 0
+../..                                    | Progress: resolved 1054, reused 0, downloaded 943, added 0
+../..                                    | Progress: resolved 1089, reused 0, downloaded 974, added 0
+../..                                    | Progress: resolved 1105, reused 0, downloaded 996, added 0
+../..                                    | Progress: resolved 1106, reused 0, downloaded 996, added 0
+../..                                    | Progress: resolved 1118, reused 0, downloaded 1001, added 0
+../..                                    | Progress: resolved 1134, reused 0, downloaded 1018, added 0
+../..                                    | Progress: resolved 1161, reused 0, downloaded 1036, added 0
+../..                                    | Progress: resolved 1187, reused 0, downloaded 1067, added 0
+../..                                    | Progress: resolved 1216, reused 0, downloaded 1094, added 0
+../..                                    | Progress: resolved 1238, reused 0, downloaded 1114, added 0
+../..                                    | Progress: resolved 1269, reused 0, downloaded 1139, added 0
+../..                                    | Progress: resolved 1319, reused 0, downloaded 1164, added 0
+../..                                    | Progress: resolved 1340, reused 0, downloaded 1190, added 0
+../..                                    | Progress: resolved 1349, reused 0, downloaded 1196, added 0
+../..                                    | Progress: resolved 1378, reused 0, downloaded 1222, added 0
+../..                                    | Progress: resolved 1414, reused 0, downloaded 1254, added 0
+../..                                    | Progress: resolved 1435, reused 0, downloaded 1278, added 0
+../..                                    | Progress: resolved 1472, reused 0, downloaded 1310, added 0
+../..                                    | Progress: resolved 1495, reused 0, downloaded 1337, added 0
+../..                                    | Progress: resolved 1520, reused 0, downloaded 1360, added 0
+../..                                    | Progress: resolved 1544, reused 0, downloaded 1383, added 0
+../..                                    | Progress: resolved 1569, reused 0, downloaded 1404, added 0
+../..                                    | Progress: resolved 1605, reused 0, downloaded 1427, added 0
+../..                                    | Progress: resolved 1613, reused 0, downloaded 1444, added 0
+../..                                    | Progress: resolved 1634, reused 0, downloaded 1471, added 0
+../..                                    | Progress: resolved 1669, reused 0, downloaded 1495, added 0
+../..                                    | Progress: resolved 1694, reused 0, downloaded 1520, added 0
+../..                                    | Progress: resolved 1729, reused 0, downloaded 1550, added 0
+../..                                    | Progress: resolved 1747, reused 0, downloaded 1575, added 0
+../..                                    | Progress: resolved 1783, reused 0, downloaded 1599, added 0
+../..                                    | Progress: resolved 1810, reused 0, downloaded 1630, added 0
+../..                                    | Progress: resolved 1831, reused 0, downloaded 1662, added 0
+ WARN  8 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/plugin-proposal-private-methods@7.18.6, @babel/plugin-proposal-private-property-in-object@7.21.11, abab@2.0.6, domexception@4.0.0
+../..                                    | Progress: resolved 1866, reused 0, downloaded 1698, added 0
+../..                                    |    +1779 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1866, reused 0, downloaded 1714, added 1135
+../..                                    | Progress: resolved 1866, reused 0, downloaded 1762, added 1767
+../..                                    | Progress: resolved 1866, reused 0, downloaded 1774, added 1779, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+config/storybook
+└─┬ @storybook/react-vite 7.6.15
+  └─┬ @vitejs/plugin-react 3.1.0
+    └── ✕ unmet peer vite@^4.1.0-beta.0: found 5.1.1
+
+docs
+├─┬ contentlayer 0.3.4
+│ └─┬ @contentlayer/cli 0.3.4
+│   └─┬ @contentlayer/core 0.3.4
+│     ├── ✕ unmet peer esbuild@"0.17.x || 0.18.x": found 0.20.1
+│     └─┬ @contentlayer/utils 0.3.4
+│       └─┬ @opentelemetry/exporter-trace-otlp-grpc 0.39.1
+│         ├─┬ @opentelemetry/core 1.13.0
+│         │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│         └─┬ @opentelemetry/otlp-transformer 0.39.1
+│           ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/resources 1.13.0
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-logs 0.39.1
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-metrics 1.13.0
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           └─┬ @opentelemetry/sdk-trace-base 1.13.0
+│             └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+└─┬ next-contentlayer 0.3.4
+  └── ✕ unmet peer next@"^12 || ^13": found 14.1.0
+
+Done in 1m 25.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@marigold/theme-preset'
+Require stack:
+- /tmp/twcr-3765500415b3/themes/theme-core/src/preset.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-3765500415b3/themes/theme-core/src/preset.ts:1:155
+    at evalModule (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-3765500415b3/themes/theme-core/tailwind.config.ts:3:15
+    at evalModule (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-3765500415b3/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-3765500415b3/themes/theme-core/src/preset.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:09:59Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:09:59Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at dbb4edf release: version packages (#3754)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3765500415b3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3765500415b3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3765500415b3/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3765500415b3/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":"18.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 14 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +642 -222 ++++++++++++++++++++-------
+../..                                    | Progress: resolved 642, reused 317, downloaded 0, added 1
+../..                                    | Progress: resolved 642, reused 317, downloaded 54, added 83
+../..                                    | Progress: resolved 642, reused 317, downloaded 108, added 139
+../..                                    | Progress: resolved 642, reused 317, downloaded 154, added 185
+../..                                    | Progress: resolved 642, reused 317, downloaded 188, added 219
+../..                                    | Progress: resolved 642, reused 317, downloaded 230, added 260
+../..                                    | Progress: resolved 642, reused 317, downloaded 276, added 307
+../..                                    | Progress: resolved 642, reused 317, downloaded 316, added 347
+../..                                    | Progress: resolved 642, reused 317, downloaded 321, added 351
+../..                                    | Progress: resolved 642, reused 317, downloaded 321, added 352, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../esbuild@0.19.10/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.10/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @marigold/components 7.5.0 <- ../../packages/components
++ @marigold/system 7.5.0 <- ../../packages/system
++ @marigold/theme-preset 1.3.5 <- ../../packages/theme-preset
+
+devDependencies:
++ @marigold/tsconfig 0.4.0 <- ../../config/tsconfig
++ autoprefixer 10.4.17
++ cssnano 6.0.3
++ postcss 8.4.35
++ tailwindcss 3.4.1
++ tsup 8.0.2
+
+../.. postinstall$ pnpm build
+../.. postinstall:  WARN  Unsupported engine: wanted: {"node":"18.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+../.. postinstall: > marigold-repo@0.0.0 build /tmp/twcr-3765500415b3
+../.. postinstall: > turbo run --filter "@marigold/components..." --filter "@marigold/theme*..." --filter "@marigold/theme-preset..." build
+../.. postinstall: Attention:
+../.. postinstall: Turborepo now collects completely anonymous telemetry regarding usage.
+../.. postinstall: This information is used to shape the Turborepo roadmap and prioritize features.
+../.. postinstall: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+../.. postinstall: https://turbo.build/repo/docs/telemetry
+../.. postinstall: • Packages in scope: @marigold/components, @marigold/icons, @marigold/system, @marigold/theme-b2b, @marigold/theme-core, @marigold/theme-preset, @marigold/tsconfig, @marigold/types
+../.. postinstall: • Running build in 8 packages
+../.. postinstall: • Remote caching disabled
+../.. postinstall: @marigold/types:build: cache miss, executing 6f5b5599d798ea75
+../.. postinstall: @marigold/types:build: 
+../.. postinstall: @marigold/types:build: > @marigold/types@1.1.0 build /tmp/twcr-3765500415b3/packages/types
+../.. postinstall: @marigold/types:build: > echo types only
+../.. postinstall: @marigold/types:build: 
+../.. postinstall: @marigold/types:build: types only
+../.. postinstall: @marigold/system:build: cache miss, executing fb820013327d0c6f
+../.. postinstall: @marigold/system:build: 
+../.. postinstall: @marigold/system:build: > @marigold/system@7.5.0 build /tmp/twcr-3765500415b3/packages/system
+../.. postinstall: @marigold/system:build: > tsup src/index.ts
+../.. postinstall: @marigold/system:build: 
+../.. postinstall: @marigold/system:build: CLI Building entry: src/index.ts
+../.. postinstall: @marigold/system:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/system:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/system:build: CLI Using tsup config: /tmp/twcr-3765500415b3/packages/system/tsup.config.json
+../.. postinstall: @marigold/system:build: CLI Target: es2018
+../.. postinstall: @marigold/system:build: CLI Cleaning output folder
+../.. postinstall: @marigold/system:build: ESM Build start
+../.. postinstall: @marigold/system:build: CJS Build start
+../.. postinstall: @marigold/system:build: ESM dist/index.mjs 16.98 KB
+../.. postinstall: @marigold/system:build: ESM ⚡️ Build success in 68ms
+../.. postinstall: @marigold/system:build: CJS dist/index.js 20.19 KB
+../.. postinstall: @marigold/system:build: CJS ⚡️ Build success in 68ms
+../.. postinstall: @marigold/system:build: DTS Build start
+../.. postinstall: @marigold/system:build: DTS ⚡️ Build success in 2929ms
+../.. postinstall: @marigold/system:build: DTS dist/index.d.mts 24.38 KB
+../.. postinstall: @marigold/system:build: DTS dist/index.d.ts  24.38 KB
+../.. postinstall: @marigold/icons:build: cache miss, executing 53cc0f57ccd08a49
+../.. postinstall: @marigold/theme-preset:build: cache miss, executing 31ca3a805aadbd50
+../.. postinstall: @marigold/icons:build: 
+../.. postinstall: @marigold/icons:build: > @marigold/icons@1.2.40 build /tmp/twcr-3765500415b3/packages/icons
+../.. postinstall: @marigold/icons:build: > tsup src/index.ts
+../.. postinstall: @marigold/icons:build: 
+../.. postinstall: @marigold/theme-preset:build: 
+../.. postinstall: @marigold/theme-preset:build: > @marigold/theme-preset@1.3.5 build /tmp/twcr-3765500415b3/packages/theme-preset
+../.. postinstall: @marigold/theme-preset:build: > tsup src/index.ts
+../.. postinstall: @marigold/theme-preset:build: 
+../.. postinstall: @marigold/icons:build: CLI Building entry: src/index.ts
+../.. postinstall: @marigold/theme-preset:build: CLI Building entry: src/index.ts
+../.. postinstall: @marigold/icons:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/icons:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/icons:build: CLI Using tsup config: /tmp/twcr-3765500415b3/packages/icons/tsup.config.json
+../.. postinstall: @marigold/theme-preset:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/theme-preset:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/theme-preset:build: CLI Using tsup config: /tmp/twcr-3765500415b3/packages/theme-preset/tsup.config.json
+../.. postinstall: @marigold/icons:build: CLI Target: es2018
+../.. postinstall: @marigold/theme-preset:build: CLI Target: node16
+../.. postinstall: @marigold/icons:build: CLI Cleaning output folder
+../.. postinstall: @marigold/theme-preset:build: CLI Cleaning output folder
+../.. postinstall: @marigold/icons:build: ESM Build start
+../.. postinstall: @marigold/icons:build: CJS Build start
+../.. postinstall: @marigold/theme-preset:build: ESM Build start
+../.. postinstall: @marigold/theme-preset:build: CJS Build start
+../.. postinstall: @marigold/theme-preset:build: ESM dist/index.mjs     2.47 KB
+../.. postinstall: @marigold/theme-preset:build: ESM dist/index.mjs.map 3.89 KB
+../.. postinstall: @marigold/theme-preset:build: ESM ⚡️ Build success in 64ms
+../.. postinstall: @marigold/theme-preset:build: CJS dist/index.js     3.85 KB
+../.. postinstall: @marigold/theme-preset:build: CJS dist/index.js.map 4.05 KB
+../.. postinstall: @marigold/theme-preset:build: CJS ⚡️ Build success in 64ms
+../.. postinstall: @marigold/icons:build: ESM dist/index.mjs 109.30 KB
+../.. postinstall: @marigold/icons:build: ESM ⚡️ Build success in 279ms
+../.. postinstall: @marigold/icons:build: CJS dist/index.js 120.16 KB
+../.. postinstall: @marigold/icons:build: CJS ⚡️ Build success in 279ms
+../.. postinstall: @marigold/theme-preset:build: DTS Build start
+../.. postinstall: @marigold/icons:build: DTS Build start
+../.. postinstall: @marigold/theme-preset:build: DTS ⚡️ Build success in 3139ms
+../.. postinstall: @marigold/theme-preset:build: DTS dist/index.d.mts 285.00 B
+../.. postinstall: @marigold/theme-preset:build: DTS dist/index.d.ts  285.00 B
+../.. postinstall: @marigold/icons:build: DTS ⚡️ Build success in 5096ms
+../.. postinstall: @marigold/icons:build: DTS dist/index.d.mts 13.23 KB
+../.. postinstall: @marigold/icons:build: DTS dist/index.d.ts  13.23 KB
+../.. postinstall: @marigold/components:build: cache miss, executing ca61a0224ef4fa6b
+../.. postinstall: @marigold/components:build: 
+../.. postinstall: @marigold/components:build: > @marigold/components@7.5.0 build /tmp/twcr-3765500415b3/packages/components
+../.. postinstall: @marigold/components:build: > tsup src/index.ts
+../.. postinstall: @marigold/components:build: 
+../.. postinstall: @marigold/components:build: CLI Building entry: src/index.ts
+../.. postinstall: @marigold/components:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/components:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/components:build: CLI Using tsup config: /tmp/twcr-3765500415b3/packages/components/tsup.config.json
+../.. postinstall: @marigold/components:build: CLI Target: es2018
+../.. postinstall: @marigold/components:build: CLI Cleaning output folder
+../.. postinstall: @marigold/components:build: ESM Build start
+../.. postinstall: @marigold/components:build: CJS Build start
+../.. postinstall: @marigold/components:build: ESM dist/index.mjs 109.63 KB
+../.. postinstall: @marigold/components:build: ESM ⚡️ Build success in 812ms
+../.. postinstall: @marigold/components:build: CJS dist/index.js 125.07 KB
+../.. postinstall: @marigold/components:build: CJS ⚡️ Build success in 812ms
+../.. postinstall: @marigold/components:build: DTS Build start
+../.. postinstall: @marigold/components:build: DTS ⚡️ Build success in 8159ms
+../.. postinstall: @marigold/components:build: DTS dist/index.d.mts 33.01 KB
+../.. postinstall: @marigold/components:build: DTS dist/index.d.ts  33.01 KB
+../.. postinstall: @marigold/theme-core:build: cache miss, executing 2d1ed527b0843873
+../.. postinstall: @marigold/theme-b2b:build: cache miss, executing d5176878b016e7e9
+../.. postinstall: @marigold/theme-core:build: 
+../.. postinstall: @marigold/theme-core:build: > @marigold/theme-core@26.1.0 build /tmp/twcr-3765500415b3/themes/theme-core
+../.. postinstall: @marigold/theme-core:build: > NODE_ENV=production tsup && tailwindcss -o dist/styles.css
+../.. postinstall: @marigold/theme-core:build: 
+../.. postinstall: @marigold/theme-b2b:build: 
+../.. postinstall: @marigold/theme-b2b:build: > @marigold/theme-b2b@27.1.0 build /tmp/twcr-3765500415b3/themes/theme-b2b
+../.. postinstall: @marigold/theme-b2b:build: > NODE_ENV=production tsup && tailwindcss -o dist/styles.css
+../.. postinstall: @marigold/theme-b2b:build: 
+../.. postinstall: @marigold/theme-b2b:build: CLI Building entry: src/index.ts, src/preset.ts
+../.. postinstall: @marigold/theme-core:build: CLI Building entry: src/index.ts, src/preset.ts
+../.. postinstall: @marigold/theme-b2b:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/theme-core:build: CLI Using tsconfig: tsconfig.build.json
+../.. postinstall: @marigold/theme-b2b:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/theme-core:build: CLI tsup v8.0.2
+../.. postinstall: @marigold/theme-b2b:build: CLI Using tsup config: /tmp/twcr-3765500415b3/themes/theme-b2b/tsup.config.ts
+../.. postinstall: @marigold/theme-core:build: CLI Using tsup config: /tmp/twcr-3765500415b3/themes/theme-core/tsup.config.ts
+../.. postinstall: @marigold/theme-b2b:build: CLI Target: node16
+../.. postinstall: @marigold/theme-core:build: CLI Target: node16
+../.. postinstall: @marigold/theme-b2b:build: CLI Cleaning output folder
+../.. postinstall: @marigold/theme-core:build: CLI Cleaning output folder
+../.. postinstall: @marigold/theme-b2b:build: ESM Build start
+../.. postinstall: @marigold/theme-b2b:build: CJS Build start
+../.. postinstall: @marigold/theme-core:build: ESM Build start
+../.. postinstall: @marigold/theme-core:build: CJS Build start
+../.. postinstall: @marigold/theme-core:build: ESM dist/index.mjs              18.53 KB
+../.. postinstall: @marigold/theme-core:build: ESM dist/preset.mjs             938.00 B
+../.. postinstall: @marigold/theme-core:build: ESM dist/chunk-GWTP4MZZ.mjs     37.03 KB
+../.. postinstall: @marigold/theme-core:build: ESM dist/index.mjs.map          29.84 KB
+../.. postinstall: @marigold/theme-core:build: ESM dist/preset.mjs.map         1.50 KB
+../.. postinstall: @marigold/theme-core:build: ESM dist/chunk-GWTP4MZZ.mjs.map 55.11 KB
+../.. postinstall: @marigold/theme-core:build: ESM ⚡️ Build success in 143ms
+../.. postinstall: @marigold/theme-core:build: CJS dist/index.js      57.86 KB
+../.. postinstall: @marigold/theme-core:build: CJS dist/preset.js     38.16 KB
+../.. postinstall: @marigold/theme-core:build: CJS dist/preset.js.map 56.68 KB
+../.. postinstall: @marigold/theme-core:build: CJS dist/index.js.map  85.58 KB
+../.. postinstall: @marigold/theme-core:build: CJS ⚡️ Build success in 155ms
+../.. postinstall: @marigold/theme-b2b:build: CJS dist/index.js      60.12 KB
+../.. postinstall: @marigold/theme-b2b:build: CJS dist/preset.js     38.24 KB
+../.. postinstall: @marigold/theme-b2b:build: CJS dist/index.js.map  88.67 KB
+../.. postinstall: @marigold/theme-b2b:build: CJS dist/preset.js.map 56.76 KB
+../.. postinstall: @marigold/theme-b2b:build: CJS ⚡️ Build success in 176ms
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/index.mjs              20.57 KB
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/preset.mjs             828.00 B
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/chunk-2XMPKYY4.mjs     37.28 KB
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/preset.mjs.map         1.24 KB
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/index.mjs.map          32.63 KB
+../.. postinstall: @marigold/theme-b2b:build: ESM dist/chunk-2XMPKYY4.mjs.map 55.41 KB
+../.. postinstall: @marigold/theme-b2b:build: ESM ⚡️ Build success in 180ms
+../.. postinstall: @marigold/theme-b2b:build: DTS Build start
+../.. postinstall: @marigold/theme-core:build: DTS Build start
+../.. postinstall: @marigold/theme-b2b:build: DTS ⚡️ Build success in 5453ms
+../.. postinstall: @marigold/theme-b2b:build: DTS dist/index.d.mts  108.00 B
+../.. postinstall: @marigold/theme-b2b:build: DTS dist/preset.d.mts 166.00 B
+../.. postinstall: @marigold/theme-b2b:build: DTS dist/index.d.ts   108.00 B
+../.. postinstall: @marigold/theme-b2b:build: DTS dist/preset.d.ts  166.00 B
+../.. postinstall: @marigold/theme-core:build: DTS ⚡️ Build success in 5505ms
+../.. postinstall: @marigold/theme-core:build: DTS dist/index.d.mts  108.00 B
+../.. postinstall: @marigold/theme-core:build: DTS dist/preset.d.mts 166.00 B
+../.. postinstall: @marigold/theme-core:build: DTS dist/index.d.ts   108.00 B
+../.. postinstall: @marigold/theme-core:build: DTS dist/preset.d.ts  166.00 B
+../.. postinstall: @marigold/theme-b2b:build: 
+../.. postinstall: @marigold/theme-core:build: 
+../.. postinstall: @marigold/theme-b2b:build: Rebuilding...
+../.. postinstall: @marigold/theme-core:build: Rebuilding...
+../.. postinstall: @marigold/theme-core:build: 
+../.. postinstall: @marigold/theme-core:build: Done in 51323ms.
+../.. postinstall: @marigold/theme-b2b:build: 
+../.. postinstall: @marigold/theme-b2b:build: Done in 52525ms.
+../.. postinstall:  Tasks:    7 successful, 7 total
+../.. postinstall: Cached:    0 cached, 7 total
+../.. postinstall:   Time:    1m25.042s 
+../.. postinstall: Done
+../.. prepare$ husky install
+../.. prepare: install command is deprecated
+../.. prepare: Done
+Done in 1m 40.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.ts
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T03:11:43Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T03:11:43Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T03:11:43Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T03:11:43Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

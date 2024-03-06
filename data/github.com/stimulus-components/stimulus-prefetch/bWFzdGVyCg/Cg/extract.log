@@ -1,0 +1,189 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/stimulus-components/stimulus-prefetch
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/stimulus-components/stimulus-prefetch
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ed0037d4c195
+++ echo 'github.com/stimulus-components/stimulus-prefetch;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/925fa106cd50
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/stimulus-components/stimulus-prefetch/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/stimulus-components/stimulus-prefetch/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce fc084b3f4db54475
++ jq -nc --arg key analysis_nonce --arg value fc084b3f4db54475 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/stimulus-components/stimulus-prefetch
++ jq -nc --arg key input_repo_name --arg value github.com/stimulus-components/stimulus-prefetch '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:08:03Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:08:03Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ed0037d4c195
++ pushd /tmp/twcr-ed0037d4c195
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/stimulus-components/stimulus-prefetch.git .
+/tmp/twcr-ed0037d4c195 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:08:04Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:08:04Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b476cd95e351414740a1d3ebd253e2ba2e5dd5a4
++ jq -nc --arg key exec_repo_commit_sha --arg value b476cd95e351414740a1d3ebd253e2ba2e5dd5a4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-25 23:54:45 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-26T04:54:45Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-26T04:54:45Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-ed0037d4c195 /tmp/twcr-ed0037d4c195 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ed0037d4c195
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:08:04Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:08:04Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "stimulus-prefetch",
+>>>   "version": "3.0.0",
+>>>   "description": "A Stimulus controller that prefetch in-viewport links.",
+>>>   "keywords": [
+>>>     "stimulus",
+>>>     "stimulusjs",
+>>>     "stimulus controller",
+>>>     "prefetch",
+>>>     "resource hints"
+>>>   ],
+>>>   "repository": "git@github.com:stimulus-components/stimulus-prefetch.git",
+>>>   "bugs": {
+>>>     "url": "https://github.com/stimulus-components/stimulus-prefetch/issues"
+>>>   },
+>>>   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+>>>   "license": "MIT",
+>>>   "homepage": "https://github.com/stimulus-components/stimulus-prefetch",
+>>>   "private": false,
+>>>   "main": "dist/stimulus-prefetch.umd.js",
+>>>   "module": "dist/stimulus-prefetch.mjs",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "peerDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-ed0037d4c195 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-ed0037d4c195
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_6af10e0db636:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_6af10e0db636:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_6af10e0db636:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_6af10e0db636:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_6af10e0db636:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_6af10e0db636:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 6.43s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T12:08:12Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T12:08:12Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T12:08:12Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T12:08:12Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

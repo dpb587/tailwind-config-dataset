@@ -1,0 +1,139 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/partykit/partykit
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/partykit/partykit
+++ awk '{ print $1 }'
+++ sha256sum
+++ cut -c1-12
++ procdir=/tmp/twcr-c40fd7c92145
+++ echo 'github.com/partykit/partykit;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/5ed23c99aa24
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/partykit/partykit/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/partykit/partykit/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f117c2ef60a41aca
++ jq -nc --arg key analysis_nonce --arg value f117c2ef60a41aca '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/partykit/partykit
++ jq -nc --arg key input_repo_name --arg value github.com/partykit/partykit '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:55:24Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:55:24Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c40fd7c92145
++ pushd /tmp/twcr-c40fd7c92145
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/partykit/partykit.git .
+/tmp/twcr-c40fd7c92145 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:55:30Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:55:30Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 86840f2c4f2b36f689b323302c6bee5ddb2dfe0d
++ jq -nc --arg key exec_repo_commit_sha --arg value 86840f2c4f2b36f689b323302c6bee5ddb2dfe0d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 16:15:16 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T16:15:16Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T16:15:16Z '{ key: $key, value: $value }'
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-c40fd7c92145/apps/docs /tmp/twcr-c40fd7c92145 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c40fd7c92145/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c40fd7c92145
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:55:30Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:55:30Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
+[squash-package] ERROR: failed to find any match for import path (@astrojs/starlight-tailwind)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T01:55:30Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T01:55:30Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 86840f2 Version Packages (#835)
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-c40fd7c92145 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-c40fd7c92145
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+> @partykit/repo@0.0.0 postinstall
+> patch-package
+
+sh: 1: patch-package: not found
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code 127
+npm ERR! path /tmp/twcr-c40fd7c92145
+npm ERR! command failed
+npm ERR! command sh -c patch-package
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T01_55_31_729Z-debug-0.log
++ exitcode=127
++ set -e
++ [[ 127 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 127

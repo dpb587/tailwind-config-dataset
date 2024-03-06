@@ -1,0 +1,249 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/FormidableLabs/nuka-carousel
++ reporef=main
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/FormidableLabs/nuka-carousel
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5a28a74be3cc
+++ echo 'github.com/FormidableLabs/nuka-carousel;main;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/860ccad806f5
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/FormidableLabs/nuka-carousel/bWFpbgo/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/FormidableLabs/nuka-carousel/bWFpbgo/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3412787b0f743985
++ jq -nc --arg key analysis_nonce --arg value 3412787b0f743985 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/FormidableLabs/nuka-carousel
++ jq -nc --arg key input_repo_name --arg value github.com/FormidableLabs/nuka-carousel '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T21:41:22Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T21:41:22Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5a28a74be3cc
+/tmp/twcr-5a28a74be3cc /twcr
++ pushd /tmp/twcr-5a28a74be3cc
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/FormidableLabs/nuka-carousel.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T21:41:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T21:41:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 51616cb94becf15b03d1cffeb4c0992da662bbca
++ jq -nc --arg key exec_repo_commit_sha --arg value 51616cb94becf15b03d1cffeb4c0992da662bbca '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-15 14:17:14 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-15T20:17:14Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-15T20:17:14Z '{ key: $key, value: $value }'
+/tmp/twcr-5a28a74be3cc/website /tmp/twcr-5a28a74be3cc /twcr
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5a28a74be3cc/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5a28a74be3cc
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T21:41:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T21:41:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.1"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.5%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=16.14"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-5a28a74be3cc/package.json /tmp/twcr-5a28a74be3cc/package-lock.json /tmp/twcr-5a28a74be3cc/pnpm-lock.yaml /tmp/twcr-5a28a74be3cc/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5a28a74be3cc /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5a28a74be3cc
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5a28a74be3cc/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../packages/nuka                         |  WARN  The field "resolutions" was found in /tmp/twcr-5a28a74be3cc/packages/nuka/package.json. This will not take effect. You should configure "resolutions" at the root of the workspace instead.
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 16, reused 0, downloaded 13, added 0
+..                                       | Progress: resolved 30, reused 0, downloaded 28, added 0
+..                                       | Progress: resolved 48, reused 0, downloaded 33, added 0
+..                                       | Progress: resolved 61, reused 0, downloaded 54, added 0
+..                                       | Progress: resolved 83, reused 0, downloaded 72, added 0
+..                                       | Progress: resolved 107, reused 0, downloaded 93, added 0
+..                                       | Progress: resolved 128, reused 0, downloaded 114, added 0
+..                                       | Progress: resolved 157, reused 0, downloaded 140, added 0
+..                                       | Progress: resolved 185, reused 0, downloaded 170, added 0
+..                                       | Progress: resolved 216, reused 0, downloaded 197, added 0
+..                                       | Progress: resolved 242, reused 0, downloaded 224, added 0
+..                                       | Progress: resolved 272, reused 0, downloaded 245, added 0
+..                                       | Progress: resolved 298, reused 0, downloaded 272, added 0
+..                                       | Progress: resolved 325, reused 0, downloaded 300, added 0
+..                                       | Progress: resolved 354, reused 0, downloaded 326, added 0
+..                                       | Progress: resolved 383, reused 0, downloaded 354, added 0
+..                                       | Progress: resolved 411, reused 0, downloaded 379, added 0
+..                                       | Progress: resolved 451, reused 0, downloaded 398, added 0
+..                                       | Progress: resolved 481, reused 0, downloaded 424, added 0
+..                                       | Progress: resolved 513, reused 0, downloaded 456, added 0
+..                                       | Progress: resolved 547, reused 0, downloaded 482, added 0
+..                                       | Progress: resolved 573, reused 0, downloaded 511, added 0
+..                                       | Progress: resolved 627, reused 0, downloaded 539, added 0
+..                                       | Progress: resolved 645, reused 0, downloaded 561, added 0
+..                                       | Progress: resolved 680, reused 0, downloaded 586, added 0
+..                                       | Progress: resolved 714, reused 0, downloaded 612, added 0
+..                                       | Progress: resolved 741, reused 0, downloaded 641, added 0
+..                                       | Progress: resolved 770, reused 0, downloaded 666, added 0
+..                                       | Progress: resolved 799, reused 0, downloaded 690, added 0
+..                                       | Progress: resolved 820, reused 0, downloaded 713, added 0
+..                                       | Progress: resolved 849, reused 0, downloaded 739, added 0
+..                                       | Progress: resolved 879, reused 0, downloaded 769, added 0
+..                                       | Progress: resolved 912, reused 0, downloaded 802, added 0
+..                                       | Progress: resolved 945, reused 0, downloaded 831, added 0
+..                                       | Progress: resolved 974, reused 0, downloaded 863, added 0
+..                                       | Progress: resolved 1010, reused 0, downloaded 891, added 0
+..                                       | Progress: resolved 1036, reused 0, downloaded 919, added 0
+..                                       | Progress: resolved 1071, reused 0, downloaded 949, added 0
+..                                       | Progress: resolved 1101, reused 0, downloaded 977, added 0
+..                                       | Progress: resolved 1134, reused 0, downloaded 1007, added 0
+..                                       | Progress: resolved 1167, reused 0, downloaded 1035, added 0
+..                                       | Progress: resolved 1197, reused 0, downloaded 1069, added 0
+..                                       | Progress: resolved 1226, reused 0, downloaded 1097, added 0
+ WARN  3 deprecated subdependencies found: abab@2.0.6, domexception@4.0.0, w3c-hr-time@1.0.2
+..                                       |    +1192 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1241, reused 0, downloaded 1122, added 0
+..                                       | Progress: resolved 1241, reused 0, downloaded 1148, added 1149
+..                                       | Progress: resolved 1241, reused 0, downloaded 1190, added 1192, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 51.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T21:42:17Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T21:42:17Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T21:42:17Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T21:42:17Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

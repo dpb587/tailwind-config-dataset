@@ -1,0 +1,478 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/home-portal/core
++ reporef=master
++ repopath=./frontend
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/home-portal/core
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-d7b455e747e4
+++ echo 'github.com/home-portal/core;master;./frontend'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e941ffd06b9a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/home-portal/core/bWFzdGVyCg/Li9mcm9udGVuZAo
++ jq -nc --arg key analysis_key --arg value github.com/home-portal/core/bWFzdGVyCg/Li9mcm9udGVuZAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2aae0878662157c2
++ jq -nc --arg key analysis_nonce --arg value 2aae0878662157c2 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/home-portal/core
++ jq -nc --arg key input_repo_name --arg value github.com/home-portal/core '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./frontend
++ jq -nc --arg key input_repo_path --arg value ./frontend '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:27:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:27:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d7b455e747e4
+/tmp/twcr-d7b455e747e4 /twcr
++ pushd /tmp/twcr-d7b455e747e4
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/home-portal/core.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:27:37Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:27:37Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b67e08d38d468c1fb34763385927d22755f2ecb4
++ jq -nc --arg key exec_repo_commit_sha --arg value b67e08d38d468c1fb34763385927d22755f2ecb4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-17 20:51:55 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-17T18:51:55Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-17T18:51:55Z '{ key: $key, value: $value }'
+/tmp/twcr-d7b455e747e4/frontend /tmp/twcr-d7b455e747e4 /twcr
++ '[' -z ./frontend ']'
++ pushd ./frontend
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d7b455e747e4/frontend
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./frontend '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d7b455e747e4
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:27:37Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:27:37Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "home-portal-frontend",
+>>>   "version": "0.1.0",
+>>>   "dependencies": {},
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./frontend '!=' ./ ']'
++ rm -f /tmp/twcr-d7b455e747e4/package.json /tmp/twcr-d7b455e747e4/package-lock.json /tmp/twcr-d7b455e747e4/pnpm-lock.yaml /tmp/twcr-d7b455e747e4/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-d7b455e747e4 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-d7b455e747e4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+up to date, audited 1 package in 339ms
+
+found 0 vulnerabilities
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-d7b455e747e4/frontend/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-d7b455e747e4/frontend/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-d7b455e747e4/frontend/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:27:39Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:27:39Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at b67e08d update minor deps
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-d7b455e747e4 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-d7b455e747e4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN old lockfile 
+npm WARN old lockfile The package-lock.json file was created with an old version of npm,
+npm WARN old lockfile so supplemental metadata must be fetched from the registry.
+npm WARN old lockfile 
+npm WARN old lockfile This is a one-time fix-up, please be patient...
+npm WARN old lockfile 
+npm WARN old lockfile vue-loader-v16: No matching version found for vue-loader-v16@16.0.0-beta.8.
+npm WARN old lockfile     at module.exports (/usr/local/lib/node_modules/npm/node_modules/npm-pick-manifest/lib/index.js:209:23)
+npm WARN old lockfile     at RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:119:22)
+npm WARN old lockfile     at async Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:727:24)
+npm WARN old lockfile  Could not fetch metadata for vue-loader-v16@16.0.0-beta.8 vue-loader-v16: No matching version found for vue-loader-v16@16.0.0-beta.8.
+npm WARN old lockfile     at module.exports (/usr/local/lib/node_modules/npm/node_modules/npm-pick-manifest/lib/index.js:209:23)
+npm WARN old lockfile     at RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:119:22)
+npm WARN old lockfile     at async Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:727:24) {
+npm WARN old lockfile   code: 'ETARGET',
+npm WARN old lockfile   type: 'version',
+npm WARN old lockfile   wanted: '16.0.0-beta.8',
+npm WARN old lockfile   versions: [
+npm WARN old lockfile     '16.0.0-beta.5',
+npm WARN old lockfile     '16.0.0-beta.5.1',
+npm WARN old lockfile     '16.0.0-beta.5.2',
+npm WARN old lockfile     '16.0.0-beta.5.3',
+npm WARN old lockfile     '16.0.0-beta.5.4'
+npm WARN old lockfile   ],
+npm WARN old lockfile   distTags: { latest: '16.0.0-beta.5.4' },
+npm WARN old lockfile   defaultTag: 'latest'
+npm WARN old lockfile }
+npm WARN old lockfile Error: git dep preparation failed
+npm WARN old lockfile     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+npm WARN old lockfile     at ChildProcess.emit (node:events:519:28)
+npm WARN old lockfile     at maybeClose (node:internal/child_process:1105:16)
+npm WARN old lockfile     at ChildProcess._handle.onexit (node:internal/child_process:305:5)
+npm WARN old lockfile  Could not fetch metadata for moleculer-browser@git+ssh://git@github.com/icebob/moleculer-browser.git#9de4409d87a2cede0942467c4c2d630831f7e793 Error: git dep preparation failed
+npm WARN old lockfile     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+npm WARN old lockfile     at ChildProcess.emit (node:events:519:28)
+npm WARN old lockfile     at maybeClose (node:internal/child_process:1105:16)
+npm WARN old lockfile     at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+npm WARN old lockfile   cmd: '/usr/local/bin/node',
+npm WARN old lockfile   args: [
+npm WARN old lockfile     '/usr/local/lib/node_modules/npm/bin/npm-cli.js',
+npm WARN old lockfile     'install',
+npm WARN old lockfile     '--force',
+npm WARN old lockfile     '--cache=/home/node/.npm',
+npm WARN old lockfile     '--prefer-offline=false',
+npm WARN old lockfile     '--prefer-online=false',
+npm WARN old lockfile     '--offline=false',
+npm WARN old lockfile     '--no-progress',
+npm WARN old lockfile     '--no-save',
+npm WARN old lockfile     '--no-audit',
+npm WARN old lockfile     '--include=dev',
+npm WARN old lockfile     '--include=peer',
+npm WARN old lockfile     '--include=optional',
+npm WARN old lockfile     '--no-package-lock-only',
+npm WARN old lockfile     '--no-dry-run'
+npm WARN old lockfile   ],
+npm WARN old lockfile   code: 1,
+npm WARN old lockfile   signal: null,
+npm WARN old lockfile   stdout: '',
+npm WARN old lockfile   stderr: 'npm WARN using --force Recommended protections disabled.\n' +
+npm WARN old lockfile     'npm WARN old lockfile \n' +
+npm WARN old lockfile     'npm WARN old lockfile The package-lock.json file was created with an old version of npm,\n' +
+npm WARN old lockfile     'npm WARN old lockfile so supplemental metadata must be fetched from the registry.\n' +
+npm WARN old lockfile     'npm WARN old lockfile \n' +
+npm WARN old lockfile     'npm WARN old lockfile This is a one-time fix-up, please be patient...\n' +
+npm WARN old lockfile     'npm WARN old lockfile \n' +
+npm WARN old lockfile     'npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility\n' +
+npm WARN old lockfile     'npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n' +
+npm WARN old lockfile     "npm WARN deprecated domexception@2.0.1: Use your platform's native DOMException instead\n" +
+npm WARN old lockfile     'npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(Use `node --trace-warnings ...` to show where the warning was created)\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     'npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\n' +
+npm WARN old lockfile     'npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     'npm WARN deprecated trim@0.0.1: Use String.prototype.trim() instead\n' +
+npm WARN old lockfile     'npm WARN deprecated sourcemap-codec@1.4.6: Please use @jridgewell/sourcemap-codec instead\n' +
+npm WARN old lockfile     "npm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.\n" +
+npm WARN old lockfile     "npm WARN deprecated w3c-hr-time@1.0.1: Use your platform's native performance.now() and performance.timeOrigin.\n" +
+npm WARN old lockfile     'npm WARN deprecated request-promise-native@1.0.9: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142\n' +
+npm WARN old lockfile     "npm WARN deprecated abab@2.0.5: Use your platform's native atob() and btoa() methods instead\n" +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     'npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated source-map-url@0.4.0: See https://github.com/lydell/source-map-url#deprecated\n' +
+npm WARN old lockfile     'npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     '(node:161) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit\n' +
+npm WARN old lockfile     'npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-optional-catch-binding@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys\n' +
+npm WARN old lockfile     'npm WARN deprecated figgy-pudding@3.5.2: This module is no longer supported.\n' +
+npm WARN old lockfile     'npm WARN deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser\n' +
+npm WARN old lockfile     'npm WARN deprecated request-promise-native@1.0.7: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-private-methods@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @types/vfile-message@2.0.0: This is a stub types definition. vfile-message provides its own type definitions, so you do not need this installed.\n' +
+npm WARN old lockfile     'npm WARN deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n' +
+npm WARN old lockfile     'npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained\n' +
+npm WARN old lockfile     "npm WARN deprecated abab@2.0.0: Use your platform's native atob() and btoa() methods instead\n" +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained\n' +
+npm WARN old lockfile     "npm WARN deprecated domexception@1.0.1: Use your platform's native DOMException instead\n" +
+npm WARN old lockfile     'npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\n' +
+npm WARN old lockfile     'npm WARN deprecated request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142\n' +
+npm WARN old lockfile     'npm WARN deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.\n' +
+npm WARN old lockfile     "npm WARN deprecated parcel-bundler@1.12.4: Parcel v1 is no longer maintained. Please migrate to v2, which is published under the 'parcel' package. See https://v2.parceljs.org/getting-started/migration for details.\n" +
+npm WARN old lockfile     'npm WARN deprecated puppeteer@5.3.1: < 21.5.0 is no longer supported\n' +
+npm WARN old lockfile     'npm WARN deprecated source-map-resolve@0.5.2: See https://github.com/lydell/source-map-resolve#deprecated\n' +
+npm WARN old lockfile     'npm WARN deprecated sane@4.1.0: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added\n' +
+npm WARN old lockfile     'npm WARN deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5\n' +
+npm WARN old lockfile     'npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\n' +
+npm WARN old lockfile     'npm WARN deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7\n' +
+npm WARN old lockfile     'npm WARN deprecated ini@1.3.5: Please update to ini >=1.3.6 to avoid a prototype pollution issue\n' +
+npm WARN old lockfile     'npm WARN deprecated har-validator@5.1.3: this library is no longer supported\n' +
+npm WARN old lockfile     'npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-unicode-property-regex@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-numeric-separator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-class-properties@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-json-strings@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-json-strings instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.10.5: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.\n' +
+npm WARN old lockfile     'npm WARN deprecated @babel/plugin-proposal-export-namespace-from@7.10.4: This proposal has been merged to the ECMAScript sta'... 3623 more characters
+npm WARN old lockfile }
+npm WARN deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+npm WARN deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated @babel/plugin-proposal-unicode-property-regex@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
+npm WARN deprecated @babel/plugin-proposal-private-methods@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+npm WARN deprecated @babel/plugin-proposal-optional-catch-binding@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.
+npm WARN deprecated @babel/plugin-proposal-numeric-separator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+npm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+npm WARN deprecated @babel/plugin-proposal-logical-assignment-operators@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-logical-assignment-operators instead.
+npm WARN deprecated @babel/plugin-proposal-export-namespace-from@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-export-namespace-from instead.
+npm WARN deprecated @babel/plugin-proposal-json-strings@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-json-strings instead.
+npm WARN deprecated @babel/plugin-proposal-dynamic-import@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-dynamic-import instead.
+npm WARN deprecated @babel/plugin-proposal-class-properties@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+npm WARN deprecated figgy-pudding@3.5.2: This module is no longer supported.
+npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.10.5: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated source-map-url@0.4.0: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated consolidate@0.15.1: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
+npm WARN deprecated eslint-loader@2.2.1: This loader has been deprecated. Please use eslint-webpack-plugin
+npm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+npm WARN deprecated debug@4.2.0: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm WARN deprecated html-webpack-plugin@3.2.0: 3.x is no longer supported
+npm WARN deprecated webpack-chain@6.5.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+npm WARN deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+npm WARN deprecated highlight.js@9.18.3: Version no longer supported. Upgrade to @latest
+npm WARN deprecated vue@2.6.12: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
+npm WARN deprecated core-js@3.6.5: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code 1
+npm ERR! git dep preparation failed
+npm ERR! command /usr/local/bin/node /usr/local/lib/node_modules/npm/bin/npm-cli.js install --force --cache=/home/node/.npm --prefer-offline=false --prefer-online=false --offline=false --no-progress --no-save --no-audit --include=dev --include=peer --include=optional --no-package-lock-only --no-dry-run
+npm ERR! npm WARN using --force Recommended protections disabled.
+npm ERR! npm WARN old lockfile 
+npm ERR! npm WARN old lockfile The package-lock.json file was created with an old version of npm,
+npm ERR! npm WARN old lockfile so supplemental metadata must be fetched from the registry.
+npm ERR! npm WARN old lockfile 
+npm ERR! npm WARN old lockfile This is a one-time fix-up, please be patient...
+npm ERR! npm WARN old lockfile 
+npm ERR! npm WARN deprecated @types/vfile-message@2.0.0: This is a stub types definition. vfile-message provides its own type definitions, so you do not need this installed.
+npm ERR! npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+npm ERR! npm WARN deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+npm ERR! npm WARN deprecated ini@1.3.5: Please update to ini >=1.3.6 to avoid a prototype pollution issue
+npm ERR! npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+npm ERR! npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm ERR! npm WARN deprecated @babel/plugin-proposal-private-methods@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-unicode-property-regex@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-optional-catch-binding@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-numeric-separator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-logical-assignment-operators@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-logical-assignment-operators instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-json-strings@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-json-strings instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-export-namespace-from@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-export-namespace-from instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-class-properties@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+npm ERR! npm WARN deprecated @babel/plugin-proposal-dynamic-import@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-dynamic-import instead.
+npm ERR! npm WARN deprecated request-promise-native@1.0.9: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+npm ERR! npm WARN deprecated figgy-pudding@3.5.2: This module is no longer supported.
+npm ERR! npm WARN deprecated @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+npm ERR! npm WARN deprecated @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+npm ERR! npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.10.5: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
+npm ERR! npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm ERR! npm WARN deprecated trim@0.0.1: Use String.prototype.trim() instead
+npm ERR! npm WARN deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+npm ERR! npm WARN deprecated request-promise-native@1.0.7: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+npm ERR! npm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys
+npm ERR! npm WARN deprecated har-validator@5.1.3: this library is no longer supported
+npm ERR! npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.11.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+npm ERR! npm WARN deprecated abab@2.0.5: Use your platform's native atob() and btoa() methods instead
+npm ERR! npm WARN deprecated domexception@1.0.1: Use your platform's native DOMException instead
+npm ERR! npm WARN deprecated abab@2.0.0: Use your platform's native atob() and btoa() methods instead
+npm ERR! npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm ERR! npm WARN deprecated sourcemap-codec@1.4.6: Please use @jridgewell/sourcemap-codec instead
+npm ERR! npm WARN deprecated w3c-hr-time@1.0.1: Use your platform's native performance.now() and performance.timeOrigin.
+npm ERR! npm WARN deprecated domexception@2.0.1: Use your platform's native DOMException instead
+npm ERR! npm WARN deprecated source-map-url@0.4.0: See https://github.com/lydell/source-map-url#deprecated
+npm ERR! npm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+npm ERR! npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm ERR! npm WARN deprecated sane@4.1.0: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added
+npm ERR! npm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm ERR! npm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm ERR! npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+npm ERR! npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm ERR! npm WARN deprecated @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+npm ERR! npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm ERR! npm WARN deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm ERR! npm WARN deprecated source-map-resolve@0.5.2: See https://github.com/lydell/source-map-resolve#deprecated
+npm ERR! npm WARN deprecated request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142
+npm ERR! npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm ERR! npm WARN deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+npm ERR! npm WARN deprecated @hapi/joi@15.1.1: Switch to 'npm install joi'
+npm ERR! npm WARN deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+npm ERR! npm WARN deprecated parcel-bundler@1.12.4: Parcel v1 is no longer maintained. Please migrate to v2, which is published under the 'parcel' package. See https://v2.parceljs.org/getting-started/migration for details.
+npm ERR! npm WARN deprecated puppeteer@5.3.1: < 21.5.0 is no longer supported
+npm ERR! npm WARN deprecated core-js@2.6.9: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+npm ERR! npm ERR! code 1
+npm ERR! npm ERR! path /home/node/.npm/_cacache/tmp/git-cloneXXXXXXya2iVC/node_modules/deasync
+npm ERR! npm ERR! command failed
+npm ERR! npm ERR! command sh -c node ./build.js
+npm ERR! npm ERR! gyp info it worked if it ends with ok
+npm ERR! npm ERR! gyp info using node-gyp@10.0.1
+npm ERR! npm ERR! gyp info using node@21.6.2 | linux | x64
+npm ERR! npm ERR! gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+npm ERR! npm ERR! gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+npm ERR! npm ERR! gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+npm ERR! npm ERR! gyp WARN install got an error, rolling back install
+npm ERR! npm ERR! gyp ERR! configure error 
+npm ERR! npm ERR! gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+npm ERR! npm ERR! gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+npm ERR! npm ERR! gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+npm ERR! npm ERR! gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+npm ERR! npm ERR! gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+npm ERR! npm ERR! gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+npm ERR! npm ERR! gyp ERR! System Linux 6.4.16-linuxkit
+npm ERR! npm ERR! gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+npm ERR! npm ERR! gyp ERR! cwd /home/node/.npm/_cacache/tmp/git-cloneXXXXXXya2iVC/node_modules/deasync
+npm ERR! npm ERR! gyp ERR! node -v v21.6.2
+npm ERR! npm ERR! gyp ERR! node-gyp -v v10.0.1
+npm ERR! npm ERR! gyp ERR! not ok 
+npm ERR! npm ERR! Build failed
+npm ERR! 
+npm ERR! npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T09_33_43_438Z-debug-0.log
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T09_27_39_527Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

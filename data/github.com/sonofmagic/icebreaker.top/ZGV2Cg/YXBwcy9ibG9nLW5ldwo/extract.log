@@ -1,0 +1,245 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sonofmagic/icebreaker.top
++ reporef=dev
++ repopath=./apps/blog-new
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/sonofmagic/icebreaker.top
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ba873c535b8e
+++ echo 'github.com/sonofmagic/icebreaker.top;dev;./apps/blog-new'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/305183aa7472
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sonofmagic/icebreaker.top/ZGV2Cg/Li9hcHBzL2Jsb2ctbmV3Cg
++ jq -nc --arg key analysis_key --arg value github.com/sonofmagic/icebreaker.top/ZGV2Cg/Li9hcHBzL2Jsb2ctbmV3Cg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce e311e79f41aaeb71
++ jq -nc --arg key analysis_nonce --arg value e311e79f41aaeb71 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sonofmagic/icebreaker.top
++ jq -nc --arg key input_repo_name --arg value github.com/sonofmagic/icebreaker.top '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/blog-new
++ jq -nc --arg key input_repo_path --arg value ./apps/blog-new '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:23:16Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:23:16Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ba873c535b8e
+/tmp/twcr-ba873c535b8e /twcr
++ pushd /tmp/twcr-ba873c535b8e
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/sonofmagic/icebreaker.top.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:23:17Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:23:17Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e918aa85143214b386729173d065964f180a6a08
++ jq -nc --arg key exec_repo_commit_sha --arg value e918aa85143214b386729173d065964f180a6a08 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 22:23:30 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T14:23:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T14:23:30Z '{ key: $key, value: $value }'
++ '[' -z ./apps/blog-new ']'
++ pushd ./apps/blog-new
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-ba873c535b8e/apps/blog-new /tmp/twcr-ba873c535b8e /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ba873c535b8e/apps/blog-new
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:23:17Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:23:17Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T10:23:17Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T10:23:17Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at e918aa8 sync: 20240303
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-ba873c535b8e /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-ba873c535b8e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-ba873c535b8e/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-ba873c535b8e/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1164
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1164, reused 0, downloaded 28, added 28
+Progress: resolved 1164, reused 0, downloaded 94, added 94
+Progress: resolved 1164, reused 0, downloaded 157, added 158
+Progress: resolved 1164, reused 0, downloaded 204, added 205
+Progress: resolved 1164, reused 0, downloaded 274, added 275
+Progress: resolved 1164, reused 0, downloaded 316, added 318
+Progress: resolved 1164, reused 0, downloaded 371, added 372
+Progress: resolved 1164, reused 0, downloaded 425, added 427
+Progress: resolved 1164, reused 0, downloaded 486, added 488
+Progress: resolved 1164, reused 0, downloaded 545, added 547
+Progress: resolved 1164, reused 0, downloaded 604, added 607
+Progress: resolved 1164, reused 0, downloaded 675, added 677
+Progress: resolved 1164, reused 0, downloaded 730, added 736
+Progress: resolved 1164, reused 0, downloaded 784, added 790
+Progress: resolved 1164, reused 0, downloaded 838, added 845
+Progress: resolved 1164, reused 0, downloaded 870, added 877
+Progress: resolved 1164, reused 0, downloaded 921, added 928
+Progress: resolved 1164, reused 0, downloaded 975, added 982
+Progress: resolved 1164, reused 0, downloaded 1039, added 1044
+Progress: resolved 1164, reused 0, downloaded 1086, added 1093
+Progress: resolved 1164, reused 0, downloaded 1152, added 1159
+Progress: resolved 1164, reused 0, downloaded 1157, added 1164, done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @nuxt-themes/elements 1.0.5
++ @nuxt-themes/tokens 2.1.1
++ @nuxt-themes/typography 1.0.1
++ @nuxt/content 2.7.2
++ @nuxtjs/color-mode 3.3.0
++ @nuxtjs/tailwindcss 6.8.0
++ @vueuse/core 10.3.0
++ daisyui 3.5.1
++ dayjs 1.11.9
++ lodash-es 4.17.21
++ nuxt-config-schema 0.4.6
++ nuxt-icon 0.5.0
++ perfect-scrollbar 1.5.5
++ vanilla-tilt 1.8.0
++ wujie-vue3 1.0.18
+
+devDependencies:
++ @icebreakers/deploy 0.1.4
++ @nuxt/eslint-config 0.1.1
++ @types/lodash-es 4.17.8
++ @types/node 20.5.0
++ @types/prettier 3.0.0
++ eslint 8.47.0
++ eslint-config-prettier 9.0.0
++ eslint-plugin-prettier 5.0.0
++ nuxt 3.6.5
++ prettier 3.0.1
++ prettier-plugin-tailwindcss 0.5.2
++ sass 1.65.1
++ sitemap 7.1.1
++ swiper 10.1.0
++ tailwindcss-patch 2.1.0
++ unplugin-tailwindcss-mangle 2.1.0
+
+
+> icebreaker-blog-nuxt3@0.0.2 postinstall /tmp/twcr-ba873c535b8e/apps/blog-new
+> nuxt prepare
+
+Nuxi 3.6.5
+[nuxt:tailwindcss] ℹ Using Tailwind CSS from ~/assets/css/tailwind.scss
+✔ Types generated in .nuxt
+
+> icebreaker-blog-nuxt3@0.0.2 prepare /tmp/twcr-ba873c535b8e/apps/blog-new
+> tw-patch
+
+Done in 28.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.ts
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T10:23:48Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T10:23:48Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T10:23:48Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T10:23:48Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

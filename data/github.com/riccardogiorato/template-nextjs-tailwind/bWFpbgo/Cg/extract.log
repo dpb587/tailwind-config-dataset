@@ -1,0 +1,198 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/riccardogiorato/template-nextjs-tailwind
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/riccardogiorato/template-nextjs-tailwind
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-0454e8f5c3ec
+++ echo 'github.com/riccardogiorato/template-nextjs-tailwind;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/afc0058686b7
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/riccardogiorato/template-nextjs-tailwind/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/riccardogiorato/template-nextjs-tailwind/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce b8a8d823f754c979
++ jq -nc --arg key analysis_nonce --arg value b8a8d823f754c979 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/riccardogiorato/template-nextjs-tailwind
++ jq -nc --arg key input_repo_name --arg value github.com/riccardogiorato/template-nextjs-tailwind '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:32:46Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:32:46Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-0454e8f5c3ec
++ pushd /tmp/twcr-0454e8f5c3ec
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/riccardogiorato/template-nextjs-tailwind.git .
+/tmp/twcr-0454e8f5c3ec /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:32:48Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:32:48Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7eeeaa07a30d6e8f8d0384ae2039bce0bf9e39fb
++ jq -nc --arg key exec_repo_commit_sha --arg value 7eeeaa07a30d6e8f8d0384ae2039bce0bf9e39fb '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-19 16:51:06 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-19T15:51:06Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-19T15:51:06Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-0454e8f5c3ec /tmp/twcr-0454e8f5c3ec /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0454e8f5c3ec
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:32:48Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:32:48Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "template-nextjs-tailwind",
+>>>   "version": "0.2.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.3.5"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10"
+>>>   },
+>>>   "packageManager": "yarn@4.0.1",
+>>>   "engines": {
+>>>     "node": ">=18.17.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-0454e8f5c3ec /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-0454e8f5c3ec
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_933863f5fc0d:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_933863f5fc0d:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_933863f5fc0d:ok@172.18.0.2:3128'
++ '[' -z http://tid_933863f5fc0d:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_933863f5fc0d:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_933863f5fc0d:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.0.1
+➤ YN0000: ┌ Resolution step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0085: │ + @tailwindcss/typography@npm:0.5.10, tailwindcss@npm:3.4.1, @alloc/quick-lru@npm:5.2.0, @isaacs/cliui@npm:8.0.2, @jridgewell/gen-mapping@npm:0.3.5, and 165 more.
+➤ YN0000: └ Completed in 3s 832ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ 169 packages were added to the project (+ 18.95 MiB).
+➤ YN0000: └ Completed in 5s 713ms
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed in 0s 674ms
+➤ YN0000: · Done with warnings in 10s 264ms
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:33:00Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:33:00Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 7eeeaa0 change article layout from ghost casper
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-0454e8f5c3ec /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-0454e8f5c3ec
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_933863f5fc0d:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_933863f5fc0d:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_933863f5fc0d:ok@172.18.0.2:3128'
++ '[' -z http://tid_933863f5fc0d:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_933863f5fc0d:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_933863f5fc0d:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.0.1
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0013: │ 97 packages were added to the project (+ 342.99 MiB).
+➤ YN0000: └ Completed in 10s 278ms
+➤ YN0000: ┌ Link step
+➤ YN0007: │ @prisma/engines@npm:5.6.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ prisma@npm:5.6.0 must be built because it never has been before or the last one failed
+➤ YN0007: │ @prisma/client@npm:5.6.0 [23b32] must be built because it never has been before or the last one failed
+➤ YN0000: └ Completed in 8s 553ms
+➤ YN0000: · Done with warnings in 18s 987ms
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 5

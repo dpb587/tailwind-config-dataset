@@ -1,0 +1,300 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/badass-courses/course-builder
++ reporef=main
++ repopath=./packages/ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/badass-courses/course-builder
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-78547672730a
+++ echo 'github.com/badass-courses/course-builder;main;./packages/ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4e5bf68c6ebe
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/badass-courses/course-builder/bWFpbgo/Li9wYWNrYWdlcy91aQo
++ jq -nc --arg key analysis_key --arg value github.com/badass-courses/course-builder/bWFpbgo/Li9wYWNrYWdlcy91aQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 17aebd95a9b27b6c
++ jq -nc --arg key analysis_nonce --arg value 17aebd95a9b27b6c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/badass-courses/course-builder
++ jq -nc --arg key input_repo_name --arg value github.com/badass-courses/course-builder '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/ui
++ jq -nc --arg key input_repo_path --arg value ./packages/ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:15:04Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:15:04Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-78547672730a
++ pushd /tmp/twcr-78547672730a
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/badass-courses/course-builder.git .
+/tmp/twcr-78547672730a /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:15:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:15:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fc8ae35b360450da1a5918c396c8e606c37feee0
++ jq -nc --arg key exec_repo_commit_sha --arg value fc8ae35b360450da1a5918c396c8e606c37feee0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 17:28:24 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T01:28:24Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T01:28:24Z '{ key: $key, value: $value }'
+/tmp/twcr-78547672730a/packages/ui /tmp/twcr-78547672730a /twcr
++ '[' -z ./packages/ui ']'
++ pushd ./packages/ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78547672730a/packages/ui
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/ui '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78547672730a
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:15:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:15:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (@tailwindcss/typography)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:15:06Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:15:06Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at fc8ae35 chore: update aws sdk to v3 and fix some rsc fails (#96)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-78547672730a /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-78547672730a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-78547672730a/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-78547672730a/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":"=v20.5.0"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 9 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +2502 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2502, reused 0, downloaded 16, added 15
+../..                                    | Progress: resolved 2502, reused 0, downloaded 89, added 87
+../..                                    | Progress: resolved 2502, reused 0, downloaded 148, added 148
+../..                                    | Progress: resolved 2502, reused 0, downloaded 221, added 221
+../..                                    | Progress: resolved 2502, reused 0, downloaded 290, added 290
+../..                                    | Progress: resolved 2502, reused 0, downloaded 363, added 363
+../..                                    | Progress: resolved 2502, reused 0, downloaded 427, added 427
+../..                                    | Progress: resolved 2502, reused 0, downloaded 500, added 500
+../..                                    | Progress: resolved 2502, reused 0, downloaded 570, added 570
+../..                                    | Progress: resolved 2502, reused 0, downloaded 636, added 636
+../..                                    | Progress: resolved 2502, reused 0, downloaded 700, added 699
+../..                                    | Progress: resolved 2502, reused 0, downloaded 757, added 758
+../..                                    | Progress: resolved 2502, reused 0, downloaded 819, added 821
+../..                                    | Progress: resolved 2502, reused 0, downloaded 886, added 888
+../..                                    | Progress: resolved 2502, reused 0, downloaded 942, added 944
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1000, added 1003
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1060, added 1077
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1129, added 1195
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1196, added 1263
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1260, added 1333
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1314, added 1387
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1342, added 1412
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1389, added 1464
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1436, added 1511
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1498, added 1573
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1563, added 1638
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1628, added 1703
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1682, added 1760
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1738, added 1831
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1788, added 1884
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1827, added 1924
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1871, added 1967
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1918, added 2017
+../..                                    | Progress: resolved 2502, reused 0, downloaded 1971, added 2070
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2031, added 2130
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2086, added 2185
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2136, added 2235
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2203, added 2302
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2261, added 2359
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2325, added 2431
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2384, added 2491
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2393, added 2500
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2394, added 2500
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2394, added 2501
+../..                                    | Progress: resolved 2502, reused 0, downloaded 2395, added 2502, done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/@prisma/engines postinstall: (node:142) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../node_modules/workerd postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @radix-ui/react-accordion 1.1.2
++ @radix-ui/react-alert-dialog 1.0.5
++ @radix-ui/react-checkbox 1.0.4
++ @radix-ui/react-collection 1.0.3
++ @radix-ui/react-compose-refs 1.0.1
++ @radix-ui/react-context 1.0.1
++ @radix-ui/react-dialog 1.0.5
++ @radix-ui/react-dropdown-menu 2.0.6
++ @radix-ui/react-icons 1.3.0
++ @radix-ui/react-label 2.0.2
++ @radix-ui/react-popover 1.0.7
++ @radix-ui/react-primitive 1.0.3
++ @radix-ui/react-progress 1.0.3
++ @radix-ui/react-scroll-area 1.0.5
++ @radix-ui/react-select 1.2.2
++ @radix-ui/react-separator 1.0.3
++ @radix-ui/react-slot 1.0.2
++ @radix-ui/react-switch 1.0.3
++ @radix-ui/react-toast 1.1.5
++ @radix-ui/react-tooltip 1.0.7
++ class-variance-authority 0.7.0
++ clsx 2.1.0
++ cmdk 0.2.1
++ framer-motion 10.18.0
++ lucide-react 0.288.0
++ react 18.3.0-canary-2f8f77602-20240229
++ react-day-picker 8.10.0
++ react-dom 18.3.0-canary-2f8f77602-20240229
++ react-hook-form 7.51.0
++ react-resizable-panels 2.0.12
++ react-wrap-balancer 0.2.4
++ tailwind-merge 1.14.0
+
+devDependencies:
++ @types/react 18.2.61
++ @types/react-dom 18.2.19
+
+../.. prepare$ husky install
+../.. prepare: husky - Git hooks installed
+../.. prepare: Done
+Done in 56.9s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
++ pnpm ls --json
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-78547672730a/packages/ui/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-78547672730a/packages/ui/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-78547672730a/packages/ui/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

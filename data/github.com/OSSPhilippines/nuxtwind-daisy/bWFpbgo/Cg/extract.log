@@ -1,0 +1,190 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/OSSPhilippines/nuxtwind-daisy
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/OSSPhilippines/nuxtwind-daisy
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c49d749500cc
+++ echo 'github.com/OSSPhilippines/nuxtwind-daisy;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/526dcba554ce
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/OSSPhilippines/nuxtwind-daisy/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/OSSPhilippines/nuxtwind-daisy/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 0e5d91cdeaf59766
++ jq -nc --arg key analysis_nonce --arg value 0e5d91cdeaf59766 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/OSSPhilippines/nuxtwind-daisy
++ jq -nc --arg key input_repo_name --arg value github.com/OSSPhilippines/nuxtwind-daisy '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:28:41Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:28:41Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c49d749500cc
+/tmp/twcr-c49d749500cc /twcr
++ pushd /tmp/twcr-c49d749500cc
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/OSSPhilippines/nuxtwind-daisy.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:28:42Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:28:42Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 38674c91d8ac9672ef5f5b7fd412a5d312be7fd4
++ jq -nc --arg key exec_repo_commit_sha --arg value 38674c91d8ac9672ef5f5b7fd412a5d312be7fd4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-06 08:41:42 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-06T00:41:42Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-06T00:41:42Z '{ key: $key, value: $value }'
+/tmp/twcr-c49d749500cc /tmp/twcr-c49d749500cc /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c49d749500cc
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:28:42Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:28:42Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:28:42Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:28:42Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 38674c9 ⬆️ chore(package.json): update nuxt version to 3.9.1 The nuxt package version has been updated from 3.9.0 to 3.9.1. This update may include bug fixes, performance improvements, or new features provided by the updated version of nuxt.
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-c49d749500cc /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-c49d749500cc
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_0ec2bcfb27dd:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning Pattern ["wrap-ansi-cjs@npm:wrap-ansi@^7.0.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-wrap-ansi-cjs-7.0.0-67e145cff510a6a6984bdf1152911d69d2eb9e43-integrity/node_modules/wrap-ansi-cjs" as pattern ["wrap-ansi@^7.0.0"]. This could result in non-deterministic behavior, skipping.
+(node:126) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning vscode-languageclient@7.0.0: The engine "vscode" appears to be invalid.
+[3/4] Linking dependencies...
+warning " > @tailwindcss/typography@0.5.10" has unmet peer dependency "tailwindcss@>=3.0.0 || insiders".
+warning "daisyui > postcss-js@4.0.1" has unmet peer dependency "postcss@^8.4.21".
+warning " > postcss-custom-properties@13.3.4" has unmet peer dependency "postcss@^8.4".
+warning " > @babel/eslint-parser@7.23.3" has unmet peer dependency "@babel/core@^7.11.0".
+warning " > @nuxt/devtools@1.0.6" has unmet peer dependency "vite@*".
+warning "@nuxt/devtools > @nuxt/devtools-kit@1.0.6" has unmet peer dependency "vite@*".
+warning "@nuxt/devtools > vite-plugin-inspect@0.8.1" has unmet peer dependency "vite@^3.1.0 || ^4.0.0 || ^5.0.0-0".
+warning "@nuxt/devtools > vite-plugin-vue-inspector@4.0.2" has unmet peer dependency "vite@^3.0.0-0 || ^4.0.0-0 || ^5.0.0-0".
+warning " > @tailwindcss/container-queries@0.1.1" has unmet peer dependency "tailwindcss@>=3.2.0".
+warning " > @tailwindcss/forms@0.5.7" has unmet peer dependency "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1".
+warning " > eslint-webpack-plugin@4.0.1" has unmet peer dependency "webpack@^5.0.0".
+warning "nuxt-headlessui > @headlessui/vue@1.7.13" has unmet peer dependency "vue@^3.2.0".
+[4/4] Building fresh packages...
+$ nuxt prepare
+[nuxt:tailwindcss] ℹ Using Tailwind CSS from ~/assets/css/tailwind.css
+✔ Types generated in .nuxt
+Done in 67.63s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.0
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/container-queries"),
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T03:29:52Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T03:29:52Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T03:29:52Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T03:29:52Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

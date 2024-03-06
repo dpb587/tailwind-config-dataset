@@ -1,0 +1,249 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/lmsqueezy/wedges
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/lmsqueezy/wedges
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1d8fbba35c80
+++ echo 'github.com/lmsqueezy/wedges;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/508459ffcfa8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/lmsqueezy/wedges/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/lmsqueezy/wedges/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d0a8fb6660d67a33
++ jq -nc --arg key analysis_nonce --arg value d0a8fb6660d67a33 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/lmsqueezy/wedges
++ jq -nc --arg key input_repo_name --arg value github.com/lmsqueezy/wedges '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:21:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:21:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1d8fbba35c80
++ pushd /tmp/twcr-1d8fbba35c80
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/lmsqueezy/wedges.git .
+/tmp/twcr-1d8fbba35c80 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:21:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:21:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1637f640cdf6b12f20542b173f74a61fe12010d9
++ jq -nc --arg key exec_repo_commit_sha --arg value 1637f640cdf6b12f20542b173f74a61fe12010d9 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-16 12:09:13 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-16T17:09:13Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-16T17:09:13Z '{ key: $key, value: $value }'
+/tmp/twcr-1d8fbba35c80 /tmp/twcr-1d8fbba35c80 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1d8fbba35c80
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:21:19Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:21:19Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "private": true,
+>>>   "workspaces": [
+>>>     "apps/*",
+>>>     "packages/*"
+>>>   ],
+>>>   "type": "module",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.4.1"
+>>>   },
+>>>   "packageManager": "pnpm@8.11.0",
+>>>   "dependencies": {}
+>>> }+ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1d8fbba35c80 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1d8fbba35c80
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1d8fbba35c80/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-1d8fbba35c80/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 23, reused 0, downloaded 18, added 0
+Progress: resolved 38, reused 0, downloaded 32, added 0
+Progress: resolved 57, reused 0, downloaded 49, added 0
+Progress: resolved 70, reused 0, downloaded 65, added 0
+Progress: resolved 87, reused 0, downloaded 78, added 0
+Progress: resolved 110, reused 0, downloaded 95, added 0
+Progress: resolved 134, reused 0, downloaded 122, added 0
+Progress: resolved 162, reused 0, downloaded 149, added 0
+Progress: resolved 184, reused 0, downloaded 169, added 0
+Progress: resolved 203, reused 0, downloaded 182, added 0
+Progress: resolved 213, reused 0, downloaded 192, added 0
+Progress: resolved 228, reused 0, downloaded 204, added 0
+Progress: resolved 246, reused 0, downloaded 221, added 0
+Progress: resolved 273, reused 0, downloaded 239, added 0
+Progress: resolved 294, reused 0, downloaded 260, added 0
+Progress: resolved 323, reused 0, downloaded 286, added 0
+Progress: resolved 343, reused 0, downloaded 307, added 0
+Progress: resolved 368, reused 0, downloaded 329, added 0
+Progress: resolved 403, reused 0, downloaded 357, added 0
+Progress: resolved 420, reused 0, downloaded 374, added 0
+Progress: resolved 429, reused 0, downloaded 382, added 0
+Progress: resolved 430, reused 0, downloaded 383, added 0
+Progress: resolved 445, reused 0, downloaded 397, added 0
+Progress: resolved 459, reused 0, downloaded 411, added 0
+Progress: resolved 481, reused 0, downloaded 431, added 0
+Progress: resolved 505, reused 0, downloaded 456, added 0
+Progress: resolved 539, reused 0, downloaded 460, added 0
+Progress: resolved 555, reused 0, downloaded 469, added 0
+Progress: resolved 579, reused 0, downloaded 493, added 0
+Progress: resolved 605, reused 0, downloaded 515, added 0
+Progress: resolved 629, reused 0, downloaded 541, added 0
+Progress: resolved 659, reused 0, downloaded 568, added 0
+Progress: resolved 688, reused 0, downloaded 594, added 0
+Progress: resolved 717, reused 0, downloaded 622, added 0
+Progress: resolved 747, reused 0, downloaded 647, added 0
+Progress: resolved 779, reused 0, downloaded 679, added 0
+Progress: resolved 809, reused 0, downloaded 708, added 0
+Progress: resolved 842, reused 0, downloaded 743, added 0
+Progress: resolved 867, reused 0, downloaded 770, added 0
+Progress: resolved 882, reused 0, downloaded 798, added 0
+Progress: resolved 911, reused 0, downloaded 835, added 0
+Progress: resolved 912, reused 0, downloaded 838, added 0
+Progress: resolved 912, reused 0, downloaded 840, added 0
+
+ WARN  Issues with peer dependencies found
+apps/docs
+├─┬ contentlayer 0.3.4
+│ └─┬ @contentlayer/cli 0.3.4
+│   └─┬ @contentlayer/core 0.3.4
+│     ├── ✕ unmet peer esbuild@"0.17.x || 0.18.x": found 0.20.1
+│     └─┬ @contentlayer/utils 0.3.4
+│       └─┬ @opentelemetry/exporter-trace-otlp-grpc 0.39.1
+│         ├─┬ @opentelemetry/core 1.13.0
+│         │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│         └─┬ @opentelemetry/otlp-transformer 0.39.1
+│           ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/resources 1.13.0
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-logs 0.39.1
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-metrics 1.13.0
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+│           └─┬ @opentelemetry/sdk-trace-base 1.13.0
+│             └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0 in @contentlayer/utils
+└─┬ next-contentlayer 0.3.4
+  └── ✕ unmet peer next@"^12 || ^13": found 14.1.0
+
+Packages: +932
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 912, reused 0, downloaded 841, added 924
+Progress: resolved 912, reused 0, downloaded 841, added 932, done
+node_modules/protobufjs postinstall$ node scripts/postinstall
+node_modules/protobufjs postinstall: Done
+node_modules/@swc/core postinstall$ node postinstall.js
+node_modules/esbuild postinstall$ node install.js
+node_modules/tsup/node_modules/esbuild postinstall$ node install.js
+node_modules/@swc/core postinstall: Done
+node_modules/esbuild postinstall: Done
+node_modules/tsup/node_modules/esbuild postinstall: Done
+node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+node_modules/contentlayer postinstall: Done
+Done in 51.5s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
++ pnpm ls --json
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T03:22:15Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T03:22:15Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T03:22:15Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T03:22:15Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

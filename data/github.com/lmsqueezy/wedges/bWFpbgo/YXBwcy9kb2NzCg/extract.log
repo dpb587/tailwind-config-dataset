@@ -1,0 +1,337 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/lmsqueezy/wedges
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/lmsqueezy/wedges
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1d8fbba35c80
+++ echo 'github.com/lmsqueezy/wedges;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/49a2bc636533
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/lmsqueezy/wedges/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/lmsqueezy/wedges/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce e3c4361602345b5c
++ jq -nc --arg key analysis_nonce --arg value e3c4361602345b5c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/lmsqueezy/wedges
++ jq -nc --arg key input_repo_name --arg value github.com/lmsqueezy/wedges '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:19:22Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:19:22Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1d8fbba35c80
+/tmp/twcr-1d8fbba35c80 /twcr
++ pushd /tmp/twcr-1d8fbba35c80
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/lmsqueezy/wedges.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:19:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:19:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1637f640cdf6b12f20542b173f74a61fe12010d9
++ jq -nc --arg key exec_repo_commit_sha --arg value 1637f640cdf6b12f20542b173f74a61fe12010d9 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-16 12:09:13 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-16T17:09:13Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-16T17:09:13Z '{ key: $key, value: $value }'
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-1d8fbba35c80/apps/docs /tmp/twcr-1d8fbba35c80 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1d8fbba35c80/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1d8fbba35c80
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:19:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:19:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@wedges/docs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@lemonsqueezy/wedges": "workspace:*",
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-1d8fbba35c80/package.json /tmp/twcr-1d8fbba35c80/package-lock.json /tmp/twcr-1d8fbba35c80/pnpm-lock.yaml /tmp/twcr-1d8fbba35c80/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1d8fbba35c80 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1d8fbba35c80
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1d8fbba35c80/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 14, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 30, reused 0, downloaded 22, added 0
+../..                                    | Progress: resolved 43, reused 0, downloaded 33, added 0
+../..                                    | Progress: resolved 66, reused 0, downloaded 54, added 0
+../..                                    | Progress: resolved 82, reused 0, downloaded 76, added 0
+../..                                    | Progress: resolved 94, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 100, added 0
+../..                                    | Progress: resolved 136, reused 0, downloaded 121, added 0
+../..                                    | Progress: resolved 150, reused 0, downloaded 139, added 0
+../..                                    | Progress: resolved 174, reused 0, downloaded 148, added 0
+../..                                    | Progress: resolved 193, reused 0, downloaded 164, added 0
+../..                                    | Progress: resolved 212, reused 0, downloaded 187, added 0
+../..                                    | Progress: resolved 237, reused 0, downloaded 209, added 0
+../..                                    | Progress: resolved 263, reused 0, downloaded 228, added 0
+../..                                    | Progress: resolved 284, reused 0, downloaded 253, added 0
+../..                                    | Progress: resolved 299, reused 0, downloaded 267, added 0
+../..                                    | Progress: resolved 324, reused 0, downloaded 287, added 0
+../..                                    | Progress: resolved 348, reused 0, downloaded 308, added 0
+../..                                    | Progress: resolved 384, reused 0, downloaded 320, added 0
+../..                                    | Progress: resolved 413, reused 0, downloaded 334, added 0
+../..                                    | Progress: resolved 429, reused 0, downloaded 359, added 0
+../..                                    | Progress: resolved 460, reused 0, downloaded 381, added 0
+../..                                    | Progress: resolved 483, reused 0, downloaded 404, added 0
+../..                                    | Progress: resolved 507, reused 0, downloaded 429, added 0
+../..                                    | Progress: resolved 526, reused 0, downloaded 445, added 0
+../..                                    | Progress: resolved 532, reused 0, downloaded 474, added 0
+../..                                    | Progress: resolved 533, reused 0, downloaded 490, added 0
+
+../..                                    | +509 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 533, reused 0, downloaded 491, added 507
+../..                                    | Progress: resolved 533, reused 0, downloaded 491, added 509, done
+../../node_modules/@swc/core postinstall$ node postinstall.js
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/@swc/core postinstall: Done
+../../node_modules/esbuild postinstall: Done
+Done in 30.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-1d8fbba35c80/apps/docs/tailwind.config.ts:1
+import { wedgesTW } from "@lemonsqueezy/wedges";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-1d8fbba35c80/apps/docs/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T03:19:56Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T03:19:56Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 1637f64 chore(release): version packages (#62)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1d8fbba35c80 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1d8fbba35c80
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1d8fbba35c80/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-1d8fbba35c80/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    |    +1009  -55 +++++++++++++++++++++--
+../..                                    | Progress: resolved 0, reused 74, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 103, downloaded 0, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 1, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 16, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 17, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 18, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 26, added 87
+../..                                    | Progress: resolved 0, reused 103, downloaded 35, added 98
+../..                                    | Progress: resolved 0, reused 103, downloaded 56, added 128
+../..                                    | Progress: resolved 0, reused 103, downloaded 86, added 175
+../..                                    | Progress: resolved 0, reused 103, downloaded 100, added 182
+../..                                    | Progress: resolved 0, reused 103, downloaded 121, added 206
+../..                                    | Progress: resolved 0, reused 103, downloaded 152, added 253
+../..                                    | Progress: resolved 0, reused 103, downloaded 186, added 302
+../..                                    | Progress: resolved 0, reused 103, downloaded 202, added 317
+../..                                    | Progress: resolved 0, reused 103, downloaded 217, added 333
+../..                                    | Progress: resolved 0, reused 103, downloaded 242, added 360
+../..                                    | Progress: resolved 0, reused 103, downloaded 275, added 394
+../..                                    | Progress: resolved 0, reused 103, downloaded 304, added 422
+../..                                    | Progress: resolved 0, reused 103, downloaded 327, added 444
+../..                                    | Progress: resolved 0, reused 103, downloaded 356, added 495
+../..                                    | Progress: resolved 0, reused 103, downloaded 390, added 528
+../..                                    | Progress: resolved 0, reused 103, downloaded 417, added 555
+../..                                    | Progress: resolved 0, reused 103, downloaded 445, added 583
+../..                                    | Progress: resolved 0, reused 103, downloaded 479, added 617
+../..                                    | Progress: resolved 0, reused 103, downloaded 499, added 637
+../..                                    | Progress: resolved 0, reused 103, downloaded 525, added 663
+../..                                    | Progress: resolved 0, reused 103, downloaded 550, added 689
+../..                                    | Progress: resolved 0, reused 103, downloaded 582, added 719
+../..                                    | Progress: resolved 0, reused 103, downloaded 614, added 753
+../..                                    | Progress: resolved 0, reused 103, downloaded 648, added 799
+../..                                    | Progress: resolved 0, reused 103, downloaded 684, added 835
+../..                                    | Progress: resolved 0, reused 103, downloaded 715, added 874
+../..                                    | Progress: resolved 0, reused 103, downloaded 737, added 899
+../..                                    | Progress: resolved 0, reused 103, downloaded 770, added 937
+../..                                    | Progress: resolved 0, reused 103, downloaded 792, added 966
+../..                                    | Progress: resolved 0, reused 103, downloaded 809, added 985
+../..                                    | Progress: resolved 0, reused 103, downloaded 821, added 1000
+../..                                    | Progress: resolved 0, reused 103, downloaded 822, added 1000
+../..                                    | Progress: resolved 0, reused 103, downloaded 822, added 1001
+../..                                    | Progress: resolved 0, reused 103, downloaded 823, added 1002
+../..                                    | Progress: resolved 0, reused 103, downloaded 824, added 1002
+../..                                    | Progress: resolved 0, reused 103, downloaded 825, added 1004
+../..                                    | Progress: resolved 0, reused 103, downloaded 826, added 1004
+../..                                    | Progress: resolved 0, reused 103, downloaded 826, added 1005
+../..                                    | Progress: resolved 0, reused 103, downloaded 827, added 1005
+../..                                    | Progress: resolved 0, reused 103, downloaded 828, added 1006
+../..                                    | Progress: resolved 0, reused 103, downloaded 829, added 1009
+../..                                    | Progress: resolved 0, reused 103, downloaded 829, added 1009, done
+../../node_modules/protobufjs postinstall$ node scripts/postinstall
+../../node_modules/protobufjs postinstall: Done
+../../node_modules/@swc/core postinstall$ node postinstall.js
+../../node_modules/esbuild postinstall$ node install.js
+../../node_modules/@swc/core postinstall: Done
+../../node_modules/esbuild postinstall: Done
+../../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+../../node_modules/contentlayer postinstall: Done
+
+devDependencies:
++ @lemonsqueezy/wedges 1.2.2 <- ../../packages/wedges
+
+../.. prepare$ husky install
+../.. prepare: install command is deprecated
+../.. prepare: Done
+Done in 1m 4.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-1d8fbba35c80/apps/docs/tailwind.config.ts:1
+import { wedgesTW } from "@lemonsqueezy/wedges";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-1d8fbba35c80/apps/docs/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

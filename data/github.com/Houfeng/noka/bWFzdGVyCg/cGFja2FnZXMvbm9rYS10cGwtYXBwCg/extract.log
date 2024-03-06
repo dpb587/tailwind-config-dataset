@@ -1,0 +1,307 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Houfeng/noka
++ reporef=master
++ repopath=./packages/noka-tpl-app
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Houfeng/noka
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-64a097499328
+++ echo 'github.com/Houfeng/noka;master;./packages/noka-tpl-app'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c1df555b7807
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Houfeng/noka/bWFzdGVyCg/Li9wYWNrYWdlcy9ub2thLXRwbC1hcHAK
++ jq -nc --arg key analysis_key --arg value github.com/Houfeng/noka/bWFzdGVyCg/Li9wYWNrYWdlcy9ub2thLXRwbC1hcHAK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 218c03a95651f4d3
++ jq -nc --arg key analysis_nonce --arg value 218c03a95651f4d3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Houfeng/noka
++ jq -nc --arg key input_repo_name --arg value github.com/Houfeng/noka '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/noka-tpl-app
++ jq -nc --arg key input_repo_path --arg value ./packages/noka-tpl-app '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T17:26:57Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T17:26:57Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-64a097499328
+/tmp/twcr-64a097499328 /twcr
++ pushd /tmp/twcr-64a097499328
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Houfeng/noka.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T17:26:58Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T17:26:58Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b6c82d1ac0d8dd673b46672a038d5627befea436
++ jq -nc --arg key exec_repo_commit_sha --arg value b6c82d1ac0d8dd673b46672a038d5627befea436 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-31 12:14:44 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-31T04:14:44Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-31T04:14:44Z '{ key: $key, value: $value }'
+/tmp/twcr-64a097499328/packages/noka-tpl-app /tmp/twcr-64a097499328 /twcr
++ '[' -z ./packages/noka-tpl-app ']'
++ pushd ./packages/noka-tpl-app
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-64a097499328/packages/noka-tpl-app
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/noka-tpl-app '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-64a097499328
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T17:26:58Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T17:26:58Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "noka-tpl-app",
+>>>   "version": "2.4.5",
+>>>   "description": "Noka web application template",
+>>>   "main": "./dist/index.js",
+>>>   "typings": "./dist/index.d.ts",
+>>>   "publishConfig": {
+>>>     "registry": "https://registry.npmjs.org"
+>>>   },
+>>>   "keywords": [
+>>>     "noka",
+>>>     "mvc",
+>>>     "rest",
+>>>     "nodejs",
+>>>     "web framework",
+>>>     "webapi",
+>>>     "web"
+>>>   ],
+>>>   "author": {
+>>>     "name": "Houfeng",
+>>>     "email": "houzhanfeng@gmail.com",
+>>>     "url": "https://blog.houfeng.net"
+>>>   },
+>>>   "homepage": "http://noka.site",
+>>>   "bugs": {
+>>>     "url": "https://github.com/houfeng/noka/issues",
+>>>     "email": "houzhanfeng@gmail.com"
+>>>   },
+>>>   "license": "MIT",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/noka/noka.git"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "daisyui": "^4.4.17",
+>>>     "tailwindcss": "^3.3.5"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/noka-tpl-app '!=' ./ ']'
++ rm -f /tmp/twcr-64a097499328/package.json /tmp/twcr-64a097499328/package-lock.json /tmp/twcr-64a097499328/pnpm-lock.yaml /tmp/twcr-64a097499328/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-64a097499328 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-64a097499328
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-64a097499328/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../noka                                  |  WARN  deprecated @types/chokidar@2.1.3
+../..                                    | Progress: resolved 22, reused 0, downloaded 2, added 0
+../..                                    | Progress: resolved 23, reused 0, downloaded 13, added 0
+../..                                    | Progress: resolved 37, reused 0, downloaded 23, added 0
+../noka-cli                              |  WARN  deprecated @types/chalk@2.2.0
+../..                                    | Progress: resolved 50, reused 0, downloaded 35, added 0
+../..                                    | Progress: resolved 57, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 67, reused 0, downloaded 53, added 0
+../noka-util                             |  WARN  deprecated @types/del@4.0.0
+../..                                    | Progress: resolved 77, reused 0, downloaded 63, added 0
+../..                                    | Progress: resolved 82, reused 0, downloaded 74, added 0
+../..                                    | Progress: resolved 93, reused 0, downloaded 86, added 0
+../..                                    | Progress: resolved 108, reused 0, downloaded 97, added 0
+../..                                    | Progress: resolved 122, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 138, reused 0, downloaded 123, added 0
+../..                                    | Progress: resolved 155, reused 0, downloaded 140, added 0
+../..                                    | Progress: resolved 176, reused 0, downloaded 155, added 0
+../..                                    | Progress: resolved 191, reused 0, downloaded 170, added 0
+../..                                    | Progress: resolved 206, reused 0, downloaded 182, added 0
+../..                                    | Progress: resolved 218, reused 0, downloaded 197, added 0
+../..                                    | Progress: resolved 229, reused 0, downloaded 214, added 0
+../..                                    | Progress: resolved 247, reused 0, downloaded 229, added 0
+../..                                    | Progress: resolved 260, reused 0, downloaded 242, added 0
+../..                                    | Progress: resolved 271, reused 0, downloaded 247, added 0
+../..                                    | Progress: resolved 281, reused 0, downloaded 258, added 0
+../..                                    | Progress: resolved 293, reused 0, downloaded 270, added 0
+../..                                    | Progress: resolved 310, reused 0, downloaded 287, added 0
+../..                                    | Progress: resolved 328, reused 0, downloaded 301, added 0
+../..                                    | Progress: resolved 341, reused 0, downloaded 318, added 0
+../..                                    | Progress: resolved 360, reused 0, downloaded 334, added 0
+../..                                    | Progress: resolved 379, reused 0, downloaded 350, added 0
+../..                                    | Progress: resolved 398, reused 0, downloaded 363, added 0
+../..                                    | Progress: resolved 414, reused 0, downloaded 380, added 0
+../..                                    | Progress: resolved 426, reused 0, downloaded 395, added 0
+../..                                    | Progress: resolved 444, reused 0, downloaded 409, added 0
+../..                                    | Progress: resolved 464, reused 0, downloaded 427, added 0
+../..                                    | Progress: resolved 479, reused 0, downloaded 444, added 0
+../..                                    | Progress: resolved 495, reused 0, downloaded 459, added 0
+../..                                    | Progress: resolved 513, reused 0, downloaded 475, added 0
+../..                                    | Progress: resolved 533, reused 0, downloaded 494, added 0
+../..                                    | Progress: resolved 551, reused 0, downloaded 512, added 0
+../..                                    | Progress: resolved 572, reused 0, downloaded 528, added 0
+../..                                    | Progress: resolved 592, reused 0, downloaded 546, added 0
+../..                                    | Progress: resolved 611, reused 0, downloaded 567, added 0
+../..                                    | Progress: resolved 630, reused 0, downloaded 584, added 0
+../..                                    | Progress: resolved 648, reused 0, downloaded 601, added 0
+../..                                    | Progress: resolved 666, reused 0, downloaded 618, added 0
+../..                                    | Progress: resolved 688, reused 0, downloaded 635, added 0
+../..                                    | Progress: resolved 703, reused 0, downloaded 652, added 0
+../..                                    | Progress: resolved 725, reused 0, downloaded 671, added 0
+../..                                    | Progress: resolved 744, reused 0, downloaded 691, added 0
+../..                                    | Progress: resolved 761, reused 0, downloaded 707, added 0
+../..                                    | Progress: resolved 783, reused 0, downloaded 722, added 0
+../..                                    | Progress: resolved 797, reused 0, downloaded 739, added 0
+../..                                    | Progress: resolved 819, reused 0, downloaded 758, added 0
+../..                                    | Progress: resolved 838, reused 0, downloaded 776, added 0
+../..                                    | Progress: resolved 853, reused 0, downloaded 795, added 0
+../..                                    | Progress: resolved 870, reused 0, downloaded 811, added 0
+../..                                    | Progress: resolved 889, reused 0, downloaded 828, added 0
+../..                                    | Progress: resolved 910, reused 0, downloaded 846, added 0
+../..                                    | Progress: resolved 933, reused 0, downloaded 865, added 0
+../..                                    | Progress: resolved 953, reused 0, downloaded 884, added 0
+../..                                    | Progress: resolved 976, reused 0, downloaded 903, added 0
+../..                                    | Progress: resolved 992, reused 0, downloaded 921, added 0
+../..                                    | Progress: resolved 1005, reused 0, downloaded 938, added 0
+../..                                    | Progress: resolved 1014, reused 0, downloaded 957, added 0
+ WARN  13 deprecated subdependencies found: @npmcli/move-file@1.1.2, chokidar@1.7.0, coffee-script@1.12.7, fsevents@1.2.13, ntils@2.0.3, ntils@2.1.2, ntils@3.1.11, ntils@4.2.0, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, xmldom@0.1.31
+../..                                    |    +1019 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1015, reused 0, downloaded 977, added 981
+../..                                    | Progress: resolved 1015, reused 0, downloaded 994, added 1000
+../..                                    | Progress: resolved 1015, reused 0, downloaded 1013, added 1019, done
+.../sqlite3@5.1.6/node_modules/sqlite3 install$ node-pre-gyp install --fallback-to-build
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info it worked if it ends with ok
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../sqlite3@5.1.6/node_modules/sqlite3 install: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../sqlite3@5.1.6/node_modules/sqlite3 install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info check checked for "/tmp/twcr-64a097499328/node_modules/.pnpm/sqlite3@5.1.6/node_modules/sqlite3/lib/binding/napi-v6-linux-glibc-x64/node_sqlite3.node" (not found)
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp http GET https://github.com/TryGhost/node-sqlite3/releases/download/v5.1.6/napi-v6-linux-glibc-x64.tar.gz
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp http download proxy agent configured using: "http://tid_239944f7e644:ok@172.18.0.2:3128"
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info install unpacking napi-v6-linux-glibc-x64/node_sqlite3.node
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info extracted file count: 1 
+.../sqlite3@5.1.6/node_modules/sqlite3 install: node-pre-gyp info ok 
+.../sqlite3@5.1.6/node_modules/sqlite3 install: [sqlite3] Success: "/tmp/twcr-64a097499328/node_modules/.pnpm/sqlite3@5.1.6/node_modules/sqlite3/lib/binding/napi-v6-linux-glibc-x64/node_sqlite3.node" is installed via remote
+.../sqlite3@5.1.6/node_modules/sqlite3 install: Done
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ daisyui 4.7.2
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/noka-cli
+└─┬ ink 3.2.0
+  └─┬ react-reconciler 0.26.2
+    └── ✕ unmet peer react@^17.0.2: found 18.2.0
+
+packages/noka-tpl-app
+└─┬ daisyui 4.7.2
+  └─┬ postcss-js 4.0.1
+    └── ✕ missing peer postcss@^8.4.21
+Peer dependencies that should be installed:
+  postcss@^8.4.21
+
+packages/noka-tpl-site
+└─┬ daisyui 4.7.2
+  └─┬ postcss-js 4.0.1
+    └── ✕ missing peer postcss@^8.4.21
+Peer dependencies that should be installed:
+  postcss@^8.4.21
+
+Done in 1m 9.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T17:28:10Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T17:28:10Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T17:28:10Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T17:28:10Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

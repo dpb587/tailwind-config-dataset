@@ -1,0 +1,372 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/formzillion/formzillion.com
++ reporef=development
++ repopath=./packages/tailwind-config
++ grep -q '^././'
+++ echo github.com/formzillion/formzillion.com
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-adc0d6e99f09
+++ echo 'github.com/formzillion/formzillion.com;development;./packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/add91f47075d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr /+ _-
+++ tr -d =
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/formzillion/formzillion.com/ZGV2ZWxvcG1lbnQK/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK
++ jq -nc --arg key analysis_key --arg value github.com/formzillion/formzillion.com/ZGV2ZWxvcG1lbnQK/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 7ddccb2ac9044bf5
++ jq -nc --arg key analysis_nonce --arg value 7ddccb2ac9044bf5 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/formzillion/formzillion.com
++ jq -nc --arg key input_repo_name --arg value github.com/formzillion/formzillion.com '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref development
++ jq -nc --arg key input_repo_ref --arg value development '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T16:06:24Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T16:06:24Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-adc0d6e99f09
+/tmp/twcr-adc0d6e99f09 /twcr
++ pushd /tmp/twcr-adc0d6e99f09
++ '[' -d .git ']'
++ git clone --depth=1 -b development https://github.com/formzillion/formzillion.com.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T16:06:28Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T16:06:28Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 77e453df59218438440495b6995a84aec9925896
++ jq -nc --arg key exec_repo_commit_sha --arg value 77e453df59218438440495b6995a84aec9925896 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-08 12:14:15 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-08T06:44:15Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-08T06:44:15Z '{ key: $key, value: $value }'
++ '[' -z ./packages/tailwind-config ']'
++ pushd ./packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-adc0d6e99f09/packages/tailwind-config /tmp/twcr-adc0d6e99f09 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-adc0d6e99f09/packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-adc0d6e99f09
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T16:06:28Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T16:06:28Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T16:06:28Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T16:06:28Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-adc0d6e99f09 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-adc0d6e99f09
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-adc0d6e99f09/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-adc0d6e99f09/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1690 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1690, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 1690, reused 0, downloaded 28, added 28
+../..                                    | Progress: resolved 1690, reused 0, downloaded 84, added 84
+../..                                    | Progress: resolved 1690, reused 0, downloaded 139, added 141
+../..                                    | Progress: resolved 1690, reused 0, downloaded 199, added 201
+../..                                    | Progress: resolved 1690, reused 0, downloaded 234, added 236
+../..                                    | Progress: resolved 1690, reused 0, downloaded 268, added 271
+../..                                    | Progress: resolved 1690, reused 0, downloaded 320, added 323
+../..                                    | Progress: resolved 1690, reused 0, downloaded 372, added 374
+../..                                    | Progress: resolved 1690, reused 0, downloaded 419, added 423
+../..                                    | Progress: resolved 1690, reused 0, downloaded 480, added 483
+../..                                    | Progress: resolved 1690, reused 0, downloaded 535, added 539
+../..                                    | Progress: resolved 1690, reused 0, downloaded 600, added 604
+../..                                    | Progress: resolved 1690, reused 0, downloaded 662, added 666
+../..                                    | Progress: resolved 1690, reused 0, downloaded 684, added 686
+../..                                    | Progress: resolved 1690, reused 0, downloaded 719, added 723
+../..                                    | Progress: resolved 1690, reused 0, downloaded 772, added 775
+../..                                    | Progress: resolved 1690, reused 0, downloaded 832, added 836
+../..                                    | Progress: resolved 1690, reused 0, downloaded 882, added 886
+../..                                    | Progress: resolved 1690, reused 0, downloaded 926, added 930
+../..                                    | Progress: resolved 1690, reused 0, downloaded 964, added 968
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1012, added 1015
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1040, added 1044
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1089, added 1093
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1136, added 1139
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1196, added 1201
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1257, added 1261
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1314, added 1318
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1375, added 1380
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1428, added 1432
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1493, added 1497
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1542, added 1546
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1601, added 1605
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1654, added 1659
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1684, added 1689
+../..                                    | Progress: resolved 1690, reused 0, downloaded 1685, added 1690, done
+.../@napi-rs/simple-git-linux-x64-gnu postinstall$ node install.js
+.../@napi-rs/simple-git-linux-x64-musl postinstall$ node install.js
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../@napi-rs/simple-git-linux-x64-musl postinstall: Failed
+.../@napi-rs/simple-git-linux-x64-gnu postinstall: Done
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.75.2/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_c9a265f9baaf:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:158) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: (node:150) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/bufferutil install: Done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/bcrypt install: (node:179) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-adc0d6e99f09/node_modules/.pnpm/bcrypt@5.1.0_encoding@0.1.13/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.0/bcrypt_lib-v5.1.0-napi-v3-linux-x64-glibc.tar.gz
+.../node_modules/utf-8-validate install: Done
+.../node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_c9a265f9baaf:ok@172.18.0.2:3128"
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../sharp@0.31.3/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/fast-folder-size postinstall$ node get-sysinternals-du.js
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../sharp@0.31.3/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.13.3/libvips-8.13.3-linux-x64.tar.br
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../sharp@0.31.3/node_modules/sharp install: sharp: Via proxy http:://172.18.0.2:3128 with credentials
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/fast-folder-size postinstall: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../node_modules/bcrypt install: node-pre-gyp info ok 
+.../node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-adc0d6e99f09/node_modules/.pnpm/bcrypt@5.1.0_encoding@0.1.13/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/bcrypt install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+.../node_modules/@sentry/cli install: Done
+.../sharp@0.31.3/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../node_modules/@prisma/engines postinstall: Done
+.../sharp@0.31.3/node_modules/sharp install: Done
+.../.pnpm/turbo@1.9.9/node_modules/turbo postinstall$ node install.js
+.../esbuild@0.16.4/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../.pnpm/turbo@1.9.9/node_modules/turbo postinstall: Done
+.../esbuild@0.16.4/node_modules/esbuild postinstall: Done
+.../prisma@4.14.1/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../prisma@4.14.1/node_modules/prisma preinstall: Done
+.../node_modules/msgpackr-extract install: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn The postinstall script automatically ran `prisma generate` and did not find your `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+
+Done in 47s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-adc0d6e99f09/packages/tailwind-config/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-adc0d6e99f09/packages/tailwind-config/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-adc0d6e99f09/packages/tailwind-config/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,262 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/bradp/pears
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/bradp/pears
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-8a9873bb3006
+++ echo 'github.com/bradp/pears;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c52eb2180df7
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/bradp/pears/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/bradp/pears/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9b5aca151df997bb
++ jq -nc --arg key analysis_nonce --arg value 9b5aca151df997bb '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/bradp/pears
++ jq -nc --arg key input_repo_name --arg value github.com/bradp/pears '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:18:40Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:18:40Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-8a9873bb3006
+/tmp/twcr-8a9873bb3006 /twcr
++ pushd /tmp/twcr-8a9873bb3006
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/bradp/pears.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:18:42Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:18:42Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 428747dcd8bd4cc87d610196ec02acc905230fe2
++ jq -nc --arg key exec_repo_commit_sha --arg value 428747dcd8bd4cc87d610196ec02acc905230fe2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-07-01 16:32:22 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-07-01T21:32:22Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-07-01T21:32:22Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-8a9873bb3006 /tmp/twcr-8a9873bb3006 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8a9873bb3006
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:18:42Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:18:42Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@bradp/pears",
+>>>   "version": "0.2.0",
+>>>   "description": "A starting point for a Hugo + TailwindCSS powered static site.",
+>>>   "keywords": [
+>>>     "hugo",
+>>>     "tailwind",
+>>>     "tailwindcss",
+>>>     "postcss",
+>>>     "purgecss",
+>>>     "static-site",
+>>>     "starter",
+>>>     "boilerplate"
+>>>   ],
+>>>   "homepage": "https://github.com/bradp/pears",
+>>>   "bugs": "https://github.com/bradp/pears/issues",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/bradp/pears.git"
+>>>   },
+>>>   "license": "MIT",
+>>>   "author": {
+>>>     "name": "Brad Parbs",
+>>>     "email": "brad@bradparbs.com",
+>>>     "url": "https://bradparbs.com"
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.css": [
+>>>       "stylelint"
+>>>     ],
+>>>     "*.js": [
+>>>       "eslint"
+>>>     ],
+>>>     "*.{css,html,json,md,toml}": [
+>>>       "prettier --write"
+>>>     ]
+>>>   },
+>>>   "prettier": {
+>>>     "printWidth": 120,
+>>>     "twUnknownClassesPosition": "end",
+>>>     "useTabs": true,
+>>>     "overrides": [
+>>>       {
+>>>         "files": [
+>>>           "*.html"
+>>>         ],
+>>>         "options": {
+>>>           "parser": "go-template"
+>>>         }
+>>>       }
+>>>     ]
+>>>   },
+>>>   "eslintConfig": {
+>>>     "env": {
+>>>       "browser": true,
+>>>       "es2021": true
+>>>     },
+>>>     "parserOptions": {
+>>>       "ecmaVersion": 12,
+>>>       "sourceType": "module"
+>>>     },
+>>>     "extends": "eslint:recommended",
+>>>     "rules": {}
+>>>   },
+>>>   "stylelint": {
+>>>     "extends": "stylelint-config-standard",
+>>>     "rules": {
+>>>       "at-rule-no-unknown": null,
+>>>       "at-rule-no-vendor-prefix": true,
+>>>       "color-hex-length": "long",
+>>>       "color-no-invalid-hex": true,
+>>>       "comment-no-empty": true,
+>>>       "declaration-no-important": true,
+>>>       "font-family-name-quotes": "always-where-required",
+>>>       "font-family-no-duplicate-names": true,
+>>>       "font-family-no-missing-generic-family-keyword": true,
+>>>       "function-url-quotes": "always",
+>>>       "function-url-scheme-allowed-list": [
+>>>         "data",
+>>>         "/^http/"
+>>>       ],
+>>>       "indentation": "tab",
+>>>       "media-feature-name-no-vendor-prefix": true,
+>>>       "no-invalid-double-slash-comments": true,
+>>>       "no-extra-semicolons": true,
+>>>       "property-no-vendor-prefix": true,
+>>>       "selector-no-vendor-prefix": true,
+>>>       "value-no-vendor-prefix": true,
+>>>       "declaration-empty-line-before": null,
+>>>       "declaration-colon-newline-after": null,
+>>>       "value-list-comma-newline-after": null
+>>>     },
+>>>     "ignoreFiles": [
+>>>       "public/",
+>>>       "assets/css/build.css"
+>>>     ]
+>>>   },
+>>>   "dependencies": {
+>>>     "@tailwindcss/forms": "^0.2.1",
+>>>     "@tailwindcss/typography": "^0.3.1",
+>>>     "tailwindcss": "^2.0.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-8a9873bb3006 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-8a9873bb3006
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 145 packages, and audited 146 packages in 9s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T10:18:52Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T10:18:52Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T10:18:52Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T10:18:52Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,231 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/thebuilder/react-intersection-observer
++ reporef=main
++ repopath=./storybook
+++ echo github.com/thebuilder/react-intersection-observer
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ed8998749eb6
+++ echo 'github.com/thebuilder/react-intersection-observer;main;./storybook'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0d637613a1aa
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/thebuilder/react-intersection-observer/bWFpbgo/Li9zdG9yeWJvb2sK
++ jq -nc --arg key analysis_key --arg value github.com/thebuilder/react-intersection-observer/bWFpbgo/Li9zdG9yeWJvb2sK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ec4dcef9a76e05f9
++ jq -nc --arg key analysis_nonce --arg value ec4dcef9a76e05f9 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/thebuilder/react-intersection-observer
++ jq -nc --arg key input_repo_name --arg value github.com/thebuilder/react-intersection-observer '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./storybook
++ jq -nc --arg key input_repo_path --arg value ./storybook '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T00:05:31Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T00:05:31Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ed8998749eb6
++ pushd /tmp/twcr-ed8998749eb6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/thebuilder/react-intersection-observer.git .
+/tmp/twcr-ed8998749eb6 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T00:05:32Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T00:05:32Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e9b3e7fe94a4ccca1a7419adcf8190fb1562ac5d
++ jq -nc --arg key exec_repo_commit_sha --arg value e9b3e7fe94a4ccca1a7419adcf8190fb1562ac5d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-22 12:37:01 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-22T11:37:01Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-22T11:37:01Z '{ key: $key, value: $value }'
+/tmp/twcr-ed8998749eb6/storybook /tmp/twcr-ed8998749eb6 /twcr
++ '[' -z ./storybook ']'
++ pushd ./storybook
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-ed8998749eb6/pnpm-workspace.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T00:05:32Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T00:05:32Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (@types/tailwindcss/tailwind-config)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T00:05:32Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T00:05:32Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-ed8998749eb6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-ed8998749eb6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-ed8998749eb6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-ed8998749eb6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       |    +1388 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1388, reused 0, downloaded 16, added 16
+..                                       | Progress: resolved 1388, reused 0, downloaded 52, added 52
+..                                       | Progress: resolved 1388, reused 0, downloaded 89, added 89
+..                                       | Progress: resolved 1388, reused 0, downloaded 137, added 137
+..                                       | Progress: resolved 1388, reused 0, downloaded 186, added 186
+..                                       | Progress: resolved 1388, reused 0, downloaded 224, added 223
+..                                       | Progress: resolved 1388, reused 0, downloaded 279, added 279
+..                                       | Progress: resolved 1388, reused 0, downloaded 322, added 322
+..                                       | Progress: resolved 1388, reused 0, downloaded 374, added 387
+..                                       | Progress: resolved 1388, reused 0, downloaded 441, added 460
+..                                       | Progress: resolved 1388, reused 0, downloaded 496, added 515
+..                                       | Progress: resolved 1388, reused 0, downloaded 547, added 566
+..                                       | Progress: resolved 1388, reused 0, downloaded 597, added 617
+..                                       | Progress: resolved 1388, reused 0, downloaded 645, added 665
+..                                       | Progress: resolved 1388, reused 0, downloaded 697, added 717
+..                                       | Progress: resolved 1388, reused 0, downloaded 751, added 769
+..                                       | Progress: resolved 1388, reused 0, downloaded 781, added 801
+..                                       | Progress: resolved 1388, reused 0, downloaded 835, added 855
+..                                       | Progress: resolved 1388, reused 0, downloaded 890, added 907
+..                                       | Progress: resolved 1388, reused 0, downloaded 935, added 955
+..                                       | Progress: resolved 1388, reused 0, downloaded 980, added 1000
+..                                       | Progress: resolved 1388, reused 0, downloaded 1024, added 1043
+..                                       | Progress: resolved 1388, reused 0, downloaded 1067, added 1087
+..                                       | Progress: resolved 1388, reused 0, downloaded 1119, added 1139
+..                                       | Progress: resolved 1388, reused 0, downloaded 1176, added 1195
+..                                       | Progress: resolved 1388, reused 0, downloaded 1226, added 1246
+..                                       | Progress: resolved 1388, reused 0, downloaded 1288, added 1308
+..                                       | Progress: resolved 1388, reused 0, downloaded 1347, added 1369
+..                                       | Progress: resolved 1388, reused 0, downloaded 1366, added 1388, done
+.../node_modules/simple-git-hooks postinstall$ node ./postinstall.js
+.../node_modules/simple-git-hooks postinstall: [INFO] Successfully set the pre-commit with command: npx lint-staged
+.../node_modules/simple-git-hooks postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@biomejs/biome postinstall$ node scripts/postinstall.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/@biomejs/biome postinstall: Done
+
+dependencies:
++ framer-motion 11.0.5
++ react 18.2.0
++ react-dom 18.2.0
++ react-intersection-observer 8.26.1 <- ..
++ tailwindcss 3.4.1
+
+devDependencies:
++ @biomejs/biome 1.5.3
++ @mdx-js/react 3.0.1
++ @storybook/addon-actions 7.6.17
++ @storybook/addon-docs 7.6.17
++ @storybook/addon-essentials 7.6.17
++ @storybook/addons 7.6.17
++ @storybook/builder-vite 7.6.17
++ @storybook/react 7.6.17
++ @storybook/react-vite 7.6.17
++ @storybook/theming 7.6.17
++ @types/react 18.2.57
++ @types/react-dom 18.2.19
++ @vitejs/plugin-react 4.2.1
++ autoprefixer 10.4.17
++ intersection-observer 0.12.2
++ postcss 8.4.35
++ storybook 7.6.17
++ typescript 5.3.3
++ vite 5.1.4
+
+Done in 30.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-03T00:06:04Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-03T00:06:04Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T00:06:04Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T00:06:04Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

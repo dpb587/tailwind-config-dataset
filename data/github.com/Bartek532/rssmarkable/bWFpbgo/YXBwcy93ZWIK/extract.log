@@ -1,0 +1,308 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Bartek532/rssmarkable
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Bartek532/rssmarkable
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-9110ab2d00c0
+++ echo 'github.com/Bartek532/rssmarkable;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/7c9b0bf78b8b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Bartek532/rssmarkable/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/Bartek532/rssmarkable/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 297b8565a7f4b636
++ jq -nc --arg key analysis_nonce --arg value 297b8565a7f4b636 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Bartek532/rssmarkable
++ jq -nc --arg key input_repo_name --arg value github.com/Bartek532/rssmarkable '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T08:23:26Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T08:23:26Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-9110ab2d00c0
+/tmp/twcr-9110ab2d00c0 /twcr
++ pushd /tmp/twcr-9110ab2d00c0
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Bartek532/rssmarkable.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T08:23:28Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T08:23:28Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b1591325314e2fddadadc387ef2df95dcda48b08
++ jq -nc --arg key exec_repo_commit_sha --arg value b1591325314e2fddadadc387ef2df95dcda48b08 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-20 13:21:06 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-20T12:21:06Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-20T12:21:06Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
+/tmp/twcr-9110ab2d00c0/apps/web /tmp/twcr-9110ab2d00c0 /twcr
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9110ab2d00c0/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-9110ab2d00c0
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T08:23:28Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T08:23:28Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "web",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwindcss-animate": "1.0.7"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "ct3aMetadata": {
+>>>     "initVersion": "6.11.5"
+>>>   },
+>>>   "nextBundleAnalysis": {
+>>>     "budget": 358400,
+>>>     "budgetPercentIncreaseRed": 20,
+>>>     "minimumChangeThreshold": 0,
+>>>     "showDetails": true
+>>>   }
+>>> }+ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-9110ab2d00c0/package.json /tmp/twcr-9110ab2d00c0/package-lock.json /tmp/twcr-9110ab2d00c0/pnpm-lock.yaml /tmp/twcr-9110ab2d00c0/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9110ab2d00c0 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9110ab2d00c0
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9110ab2d00c0/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 6 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 26, reused 0, downloaded 17, added 0
+../..                                    | Progress: resolved 45, reused 0, downloaded 39, added 0
+../..                                    | Progress: resolved 76, reused 0, downloaded 63, added 0
+../..                                    | Progress: resolved 107, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 134, reused 0, downloaded 111, added 0
+../..                                    | Progress: resolved 163, reused 0, downloaded 135, added 0
+../..                                    | Progress: resolved 195, reused 0, downloaded 168, added 0
+../..                                    | Progress: resolved 216, reused 0, downloaded 188, added 0
+../..                                    | Progress: resolved 238, reused 0, downloaded 207, added 0
+../..                                    | Progress: resolved 264, reused 0, downloaded 233, added 0
+../..                                    | Progress: resolved 300, reused 0, downloaded 266, added 0
+../..                                    | Progress: resolved 325, reused 0, downloaded 289, added 0
+../..                                    | Progress: resolved 358, reused 0, downloaded 321, added 0
+../..                                    | Progress: resolved 391, reused 0, downloaded 349, added 0
+../..                                    | Progress: resolved 425, reused 0, downloaded 386, added 0
+../..                                    | Progress: resolved 459, reused 0, downloaded 417, added 0
+../..                                    | Progress: resolved 495, reused 0, downloaded 453, added 0
+../..                                    | Progress: resolved 567, reused 0, downloaded 473, added 0
+../..                                    | Progress: resolved 601, reused 0, downloaded 499, added 0
+../..                                    | Progress: resolved 635, reused 0, downloaded 527, added 0
+../..                                    | Progress: resolved 669, reused 0, downloaded 559, added 0
+../..                                    | Progress: resolved 700, reused 0, downloaded 591, added 0
+../..                                    | Progress: resolved 736, reused 0, downloaded 623, added 0
+../..                                    | Progress: resolved 770, reused 0, downloaded 659, added 0
+../..                                    | Progress: resolved 811, reused 0, downloaded 691, added 0
+../..                                    | Progress: resolved 839, reused 0, downloaded 721, added 0
+../..                                    | Progress: resolved 884, reused 0, downloaded 754, added 0
+../..                                    | Progress: resolved 912, reused 0, downloaded 788, added 0
+../..                                    | Progress: resolved 946, reused 0, downloaded 819, added 0
+../..                                    | Progress: resolved 988, reused 0, downloaded 853, added 0
+../..                                    | Progress: resolved 1022, reused 0, downloaded 887, added 0
+../..                                    | Progress: resolved 1057, reused 0, downloaded 934, added 0
+../..                                    | Progress: resolved 1076, reused 0, downloaded 968, added 0
+ WARN  3 deprecated subdependencies found: formidable@1.2.6, sourcemap-codec@1.4.8, superagent@6.1.0
+../..                                    |    +1029 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1091, reused 0, downloaded 1001, added 0
+../..                                    | Progress: resolved 1091, reused 0, downloaded 1024, added 1029, done
+ WARN  Failed to create bin at /tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node_modules/.bin/supabase. ENOENT: no such file or directory, open '/tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node_modules/supabase/bin/supabase'
+ WARN  Failed to create bin at /tmp/twcr-9110ab2d00c0/node_modules/.pnpm/supabase@1.115.4/node_modules/supabase/node_modules/.bin/supabase. ENOENT: no such file or directory, open '/tmp/twcr-9110ab2d00c0/node_modules/.pnpm/supabase@1.115.4/node_modules/supabase/bin/supabase'
+.../node_modules/supabase postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/supabase postinstall: Downloading https://github.com/supabase/cli/releases/download/v1.115.4/supabase_linux_amd64.tar.gz
+.../node_modules/@nestjs/core postinstall: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/supabase postinstall: file:///tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node-fetch@3.3.2/node_modules/node-fetch/src/index.js:108
+.../node_modules/supabase postinstall: 			reject(new FetchError(`request to ${request.url} failed, reason: ${error.message}`, 'system', error));
+.../node_modules/supabase postinstall: 			       ^
+.../node_modules/supabase postinstall: FetchError: request to https://github.com/supabase/cli/releases/download/v1.115.4/supabase_linux_amd64.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/supabase postinstall:     at ClientRequest.<anonymous> (file:///tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node-fetch@3.3.2/node_modules/node-fetch/src/index.js:108:11)
+.../node_modules/supabase postinstall:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/supabase postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/supabase postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/supabase postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/supabase postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/supabase postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/supabase postinstall:   type: 'system',
+.../node_modules/supabase postinstall:   errno: 'EAI_AGAIN',
+.../node_modules/supabase postinstall:   code: 'EAI_AGAIN',
+.../node_modules/supabase postinstall:   erroredSysCall: 'getaddrinfo'
+.../node_modules/supabase postinstall: }
+.../node_modules/supabase postinstall: Node.js v21.6.2
+.../node_modules/supabase postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T08:24:13Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T08:24:13Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at b159132 docs: architecture docs
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-9110ab2d00c0 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-9110ab2d00c0
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-9110ab2d00c0/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-9110ab2d00c0/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":"^20.0.0"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1593 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1593, reused 836, downloaded 0, added 0
+../..                                    | Progress: resolved 1593, reused 864, downloaded 49, added 97
+../..                                    | Progress: resolved 1593, reused 864, downloaded 103, added 153
+../..                                    | Progress: resolved 1593, reused 864, downloaded 137, added 185
+../..                                    | Progress: resolved 1593, reused 864, downloaded 193, added 243
+../..                                    | Progress: resolved 1593, reused 864, downloaded 249, added 299
+../..                                    | Progress: resolved 1593, reused 864, downloaded 306, added 354
+../..                                    | Progress: resolved 1593, reused 864, downloaded 360, added 410
+../..                                    | Progress: resolved 1593, reused 864, downloaded 420, added 470
+../..                                    | Progress: resolved 1593, reused 864, downloaded 476, added 526
+../..                                    | Progress: resolved 1593, reused 864, downloaded 513, added 563
+../..                                    | Progress: resolved 1593, reused 864, downloaded 550, added 600
+../..                                    | Progress: resolved 1593, reused 864, downloaded 607, added 657
+../..                                    | Progress: resolved 1593, reused 864, downloaded 656, added 707
+../..                                    | Progress: resolved 1593, reused 864, downloaded 698, added 749
+../..                                    | Progress: resolved 1593, reused 864, downloaded 717, added 769
+../..                                    | Progress: resolved 1593, reused 864, downloaded 719, added 771
+../..                                    | Progress: resolved 1593, reused 864, downloaded 720, added 771
+../..                                    | Progress: resolved 1593, reused 864, downloaded 720, added 772
+../..                                    | Progress: resolved 1593, reused 864, downloaded 721, added 772
+../..                                    | Progress: resolved 1593, reused 864, downloaded 722, added 774, done
+ WARN  Failed to create bin at /tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node_modules/.bin/supabase. ENOENT: no such file or directory, open '/tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node_modules/supabase/bin/supabase'
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+ WARN  Failed to create bin at /tmp/twcr-9110ab2d00c0/node_modules/.pnpm/supabase@1.115.4/node_modules/supabase/node_modules/.bin/supabase. ENOENT: no such file or directory, open '/tmp/twcr-9110ab2d00c0/node_modules/.pnpm/supabase@1.115.4/node_modules/supabase/bin/supabase'
+.../node_modules/supabase postinstall$ node scripts/postinstall.js
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/@nestjs/core postinstall: (node:205) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+.../node_modules/supabase postinstall: Downloading https://github.com/supabase/cli/releases/download/v1.115.4/supabase_linux_amd64.tar.gz
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/bufferutil install: Done
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../node_modules/utf-8-validate install: Done
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/supabase postinstall: file:///tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node-fetch@3.3.2/node_modules/node-fetch/src/index.js:108
+.../node_modules/supabase postinstall: 			reject(new FetchError(`request to ${request.url} failed, reason: ${error.message}`, 'system', error));
+.../node_modules/supabase postinstall: 			       ^
+.../node_modules/supabase postinstall: FetchError: request to https://github.com/supabase/cli/releases/download/v1.115.4/supabase_linux_amd64.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/supabase postinstall:     at ClientRequest.<anonymous> (file:///tmp/twcr-9110ab2d00c0/node_modules/.pnpm/node-fetch@3.3.2/node_modules/node-fetch/src/index.js:108:11)
+.../node_modules/supabase postinstall:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/supabase postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/supabase postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/supabase postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/supabase postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/supabase postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/supabase postinstall:   type: 'system',
+.../node_modules/supabase postinstall:   errno: 'EAI_AGAIN',
+.../node_modules/supabase postinstall:   code: 'EAI_AGAIN',
+.../node_modules/supabase postinstall:   erroredSysCall: 'getaddrinfo'
+.../node_modules/supabase postinstall: }
+.../node_modules/supabase postinstall: Node.js v21.6.2
+.../node_modules/supabase postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

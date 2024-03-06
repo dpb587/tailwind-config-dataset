@@ -1,0 +1,301 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/johnsonandjohnson/Bodiless-JS
++ reporef=main
++ repopath=./sites/vital-demo-next
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/johnsonandjohnson/Bodiless-JS
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2fd5622fc286
+++ echo 'github.com/johnsonandjohnson/Bodiless-JS;main;./sites/vital-demo-next'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/37df7a89cc63
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/johnsonandjohnson/Bodiless-JS/bWFpbgo/Li9zaXRlcy92aXRhbC1kZW1vLW5leHQK
++ jq -nc --arg key analysis_key --arg value github.com/johnsonandjohnson/Bodiless-JS/bWFpbgo/Li9zaXRlcy92aXRhbC1kZW1vLW5leHQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 849c9548285ae6b6
++ jq -nc --arg key analysis_nonce --arg value 849c9548285ae6b6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/johnsonandjohnson/Bodiless-JS
++ jq -nc --arg key input_repo_name --arg value github.com/johnsonandjohnson/Bodiless-JS '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./sites/vital-demo-next
++ jq -nc --arg key input_repo_path --arg value ./sites/vital-demo-next '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T02:19:26Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T02:19:26Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2fd5622fc286
++ pushd /tmp/twcr-2fd5622fc286
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/johnsonandjohnson/Bodiless-JS.git .
+/tmp/twcr-2fd5622fc286 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T02:19:29Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T02:19:29Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c7cec792d7de1788ed2e6f7bc5ca00d2e9fe0482
++ jq -nc --arg key exec_repo_commit_sha --arg value c7cec792d7de1788ed2e6f7bc5ca00d2e9fe0482 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-08-24 10:24:53 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-08-24T07:24:53Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-08-24T07:24:53Z '{ key: $key, value: $value }'
++ '[' -z ./sites/vital-demo-next ']'
++ pushd ./sites/vital-demo-next
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-2fd5622fc286/sites/vital-demo-next /tmp/twcr-2fd5622fc286 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2fd5622fc286/sites/vital-demo-next
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./sites/vital-demo-next '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2fd5622fc286
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T02:19:30Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T02:19:30Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@sites/vital-demo-next",
+>>>   "version": "1.0.0-rc.42",
+>>>   "description": "Demo site for a Bodiless site using the Vital DS",
+>>>   "author": "Marco Pagliarulo <mpaglia1@its.jnj.com>",
+>>>   "homepage": "",
+>>>   "license": "Apache-2.0",
+>>>   "private": true,
+>>>   "directories": {
+>>>     "lib": "lib",
+>>>     "test": "__tests__"
+>>>   },
+>>>   "dependencies": {
+>>>     "esm": "^3.2.25",
+>>>     "glob": "^7.1.6"
+>>>   },
+>>>   "files": [
+>>>     "lib"
+>>>   ],
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/johnsonandjohnson/bodiless-js.git"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.0.23"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./sites/vital-demo-next '!=' ./ ']'
++ rm -f /tmp/twcr-2fd5622fc286/package.json /tmp/twcr-2fd5622fc286/package-lock.json /tmp/twcr-2fd5622fc286/pnpm-lock.yaml /tmp/twcr-2fd5622fc286/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2fd5622fc286 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2fd5622fc286
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 123 packages, and audited 124 packages in 7s
+
+29 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/process/esm_loader:34
+      internalBinding('errors').triggerUncaughtException(
+                                ^
+
+/tmp/twcr-2fd5622fc286/sites/vital-demo-next/tailwind.config.js:1
+Error: Cannot find module '@bodiless/fclasses'
+Require stack:
+- /tmp/twcr-2fd5622fc286/sites/vital-demo-next/tailwind.config.js
+    at /tmp/twcr-2fd5622fc286/sites/vital-demo-next/tailwind.config.js:23:33
+    at evalModule (/tmp/twcr-2fd5622fc286/sites/vital-demo-next/node_modules/jiti/dist/jiti.js:1)
+    at jiti (/tmp/twcr-2fd5622fc286/sites/vital-demo-next/node_modules/jiti/dist/jiti.js:1)
+    at /tmp/twcr-2fd5622fc286/sites/vital-demo-next/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-2fd5622fc286/sites/vital-demo-next/node_modules/tailwindcss/lib/lib/load-config.js:50:6) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-2fd5622fc286/sites/vital-demo-next/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T02:19:38Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T02:19:38Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing package-lock.json
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at c7cec79 fix(vital-demo): Update styleguide color tokens (#2213)
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2fd5622fc286 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2fd5622fc286
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated async-cache@1.1.0: No longer maintained. Use [lru-cache](http://npm.im/lru-cache) version 7.6 or higher, and provide an asynchronous `fetchMethod` option.
+npm WARN deprecated @types/dotenv@8.2.0: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
+(node:154) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+npm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+npm WARN deprecated superagent@3.8.3: Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>.
+npm WARN deprecated express-graphql@0.12.0: This package is no longer maintained. We recommend using `graphql-http` instead. Please consult the migration document https://github.com/graphql/graphql-http#migrating-express-grpahql.
+(node:154) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:154) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:154) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:154) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+npm WARN deprecated @oclif/screen@1.0.4: Deprecated in favor of @oclif/core
+npm WARN deprecated string-similarity@1.2.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated cli-ux@5.6.7: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated gatsby-image@3.11.0: gatsby-image is now gatsby-plugin-image: https://npm.im/gatsby-plugin-image. This package will no longer receive updates.
+npm WARN deprecated formidable@1.2.6: Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau
+
+> bodiless-js@1.0.0-rc.37 postinstall
+> ./postinstall.sh
+
+Postinstall on Tue Mar 5 02:25:40 UTC 2024 /tmp/twcr-2fd5622fc286
+patch-package
+
+> bodiless-js@1.0.0-rc.37 patch-package
+> patch-package
+
+sh: 1: patch-package: not found
+Building package...
+
+> bodiless-js@1.0.0-rc.37 build:packages
+> npx -y turbo build --filter=./packages/*
+
+
+Attention:
+Turborepo now collects completely anonymous telemetry regarding usage.
+This information is used to shape the Turborepo roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://turbo.build/repo/docs/telemetry
+
+• Packages in scope: --vital--, --vital-next--, @bodiless/accessibility, @bodiless/accordion, @bodiless/backend, @bodiless/bv, @bodiless/card, @bodiless/carousel, @bodiless/cli, @bodiless/components, @bodiless/components-ui, @bodiless/core, @bodiless/core-ui, @bodiless/curator, @bodiless/data, @bodiless/documentation, @bodiless/fclasses, @bodiless/filtering, @bodiless/ga4, @bodiless/gatsby-plugin-akamai-auth, @bodiless/gatsby-plugin-ssi, @bodiless/gatsby-theme-bodiless, @bodiless/git, @bodiless/hydration, @bodiless/i18n, @bodiless/knapsack-edit-provider, @bodiless/knapsack-renderer, @bodiless/layouts, @bodiless/layouts-ui, @bodiless/navigation, @bodiless/next, @bodiless/oidc, @bodiless/organisms, @bodiless/page, @bodiless/psh, @bodiless/richtext, @bodiless/richtext-ui, @bodiless/scaffold, @bodiless/schema-org, @bodiless/search, @bodiless/table, @bodiless/tokens, @bodiless/ui, @bodiless/vital-accordion, @bodiless/vital-button, @bodiless/vital-card, @bodiless/vital-carousel, @bodiless/vital-content-listing, @bodiless/vital-demo, @bodiless/vital-editors, @bodiless/vital-elements, @bodiless/vital-examples, @bodiless/vital-flowcontainer, @bodiless/vital-image, @bodiless/vital-layout, @bodiless/vital-link, @bodiless/vital-list, @bodiless/vital-meta, @bodiless/vital-navigation, @bodiless/vital-product, @bodiless/vital-search, @bodiless/vital-section, @bodiless/vital-table, @bodiless/vital-templates, @bodiless/vital-youtube, @bodiless/webpack, @bodiless/youtube
+• Running build in 67 packages
+• Remote caching disabled
+@bodiless/webpack:build: cache miss, executing c5fd6e24db41bd53
+@bodiless/cli:build: cache miss, executing b15cd41ffeadec6f
+@bodiless/webpack:build: 
+@bodiless/webpack:build: > @bodiless/webpack@1.0.0-rc.42 build
+@bodiless/webpack:build: > run-p build:lib
+@bodiless/webpack:build: 
+@bodiless/cli:build: 
+@bodiless/cli:build: > @bodiless/cli@1.0.0-rc.42 build
+@bodiless/cli:build: > tsc --version && tsc -p ./tsconfig.json
+@bodiless/cli:build: 
+@bodiless/cli:build: Version 4.9.5
+@bodiless/webpack:build: 
+@bodiless/webpack:build: > @bodiless/webpack@1.0.0-rc.42 build:lib
+@bodiless/webpack:build: > tsc -p ./tsconfig.json
+@bodiless/webpack:build: 
+@bodiless/webpack:build: error TS2688: Cannot find type definition file for 'jest'.
+@bodiless/webpack:build:   The file is in the program because:
+@bodiless/webpack:build:     Entry point of type library 'jest' specified in compilerOptions
+@bodiless/webpack:build: npm ERR! Lifecycle script `build:lib` failed with error: 
+@bodiless/webpack:build: npm ERR! Error: command failed 
+@bodiless/webpack:build: npm ERR!   in workspace: @bodiless/webpack@1.0.0-rc.42 
+@bodiless/webpack:build: npm ERR!   at location: /tmp/twcr-2fd5622fc286/packages/bodiless-webpack 
+@bodiless/webpack:build: ERROR: "build:lib" exited with 1.
+@bodiless/webpack:build: npm ERR! Lifecycle script `build` failed with error: 
+@bodiless/webpack:build: npm ERR! Error: command failed 
+@bodiless/webpack:build: npm ERR!   in workspace: @bodiless/webpack@1.0.0-rc.42 
+@bodiless/webpack:build: npm ERR!   at location: /tmp/twcr-2fd5622fc286/packages/bodiless-webpack 
+@bodiless/webpack:build: ERROR: command finished with error: command (/tmp/twcr-2fd5622fc286/packages/bodiless-webpack) /usr/local/bin/npm run build exited (1)
+@bodiless/webpack#build: command (/tmp/twcr-2fd5622fc286/packages/bodiless-webpack) /usr/local/bin/npm run build exited (1)
+
+ Tasks:    0 successful, 2 total
+Cached:    0 cached, 2 total
+  Time:    4.164s 
+Failed:    @bodiless/webpack#build
+
+ ERROR  run failed: command  exited (1)
+npm ERR! code 1
+npm ERR! path /tmp/twcr-2fd5622fc286
+npm ERR! command failed
+npm ERR! command sh -c ./postinstall.sh
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T02_19_39_155Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

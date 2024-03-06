@@ -1,0 +1,181 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/documenso/documenso
++ reporef=main
++ repopath=./packages/email
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/documenso/documenso
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-12c3bcc367ab
+++ echo 'github.com/documenso/documenso;main;./packages/email'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/08b964912cf0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/documenso/documenso/bWFpbgo/Li9wYWNrYWdlcy9lbWFpbAo
++ jq -nc --arg key analysis_key --arg value github.com/documenso/documenso/bWFpbgo/Li9wYWNrYWdlcy9lbWFpbAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ebfa56e5b11e6a77
++ jq -nc --arg key analysis_nonce --arg value ebfa56e5b11e6a77 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/documenso/documenso
++ jq -nc --arg key input_repo_name --arg value github.com/documenso/documenso '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/email
++ jq -nc --arg key input_repo_path --arg value ./packages/email '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T21:23:09Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T21:23:09Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-12c3bcc367ab
++ pushd /tmp/twcr-12c3bcc367ab
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/documenso/documenso.git .
+/tmp/twcr-12c3bcc367ab /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T21:23:13Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T21:23:13Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a17d4a2a39b33bbfe34dd89a0fe4987f4547d5a4
++ jq -nc --arg key exec_repo_commit_sha --arg value a17d4a2a39b33bbfe34dd89a0fe4987f4547d5a4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 11:36:28 +1100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T00:36:28Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T00:36:28Z '{ key: $key, value: $value }'
++ '[' -z ./packages/email ']'
++ pushd ./packages/email
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-12c3bcc367ab/packages/email /tmp/twcr-12c3bcc367ab /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-12c3bcc367ab/packages/email
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/email '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-12c3bcc367ab
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T21:23:13Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T21:23:13Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@documenso/email",
+>>>   "version": "1.0.0",
+>>>   "main": "./index.ts",
+>>>   "types": "./index.ts",
+>>>   "license": "MIT",
+>>>   "files": [
+>>>     "templates/",
+>>>     "transports/",
+>>>     "mailer.ts",
+>>>     "render.ts",
+>>>     "index.ts"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@documenso/tailwind-config": "*"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/email '!=' ./ ']'
++ rm -f /tmp/twcr-12c3bcc367ab/package.json /tmp/twcr-12c3bcc367ab/package-lock.json /tmp/twcr-12c3bcc367ab/pnpm-lock.yaml /tmp/twcr-12c3bcc367ab/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-12c3bcc367ab /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-12c3bcc367ab
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code E404
+npm ERR! 404 Not Found - GET https://registry.npmjs.org/@documenso%2ftailwind-config - Not found
+npm ERR! 404 
+npm ERR! 404  '@documenso/tailwind-config@*' is not in this registry.
+npm ERR! 404 
+npm ERR! 404 Note that you can also install from a
+npm ERR! 404 tarball, folder, http url, or git url.
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T21_23_13_662Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T21:23:14Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T21:23:14Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at a17d4a2 fix: handle signature annotations
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-12c3bcc367ab /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-12c3bcc367ab
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+> prepare
+> husky install
+
+sh: 1: husky: not found
+npm ERR! code 127
+npm ERR! path /tmp/twcr-12c3bcc367ab
+npm ERR! command failed
+npm ERR! command sh -c husky install
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T21_23_14_800Z-debug-0.log
++ exitcode=127
++ set -e
++ [[ 127 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 127

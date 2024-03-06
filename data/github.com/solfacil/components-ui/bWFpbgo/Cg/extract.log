@@ -1,0 +1,210 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/solfacil/components-ui
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/solfacil/components-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-d550c582751e
+++ echo 'github.com/solfacil/components-ui;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/cb4b632f3166
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/solfacil/components-ui/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/solfacil/components-ui/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 01dffa0bd86c10a8
++ jq -nc --arg key analysis_nonce --arg value 01dffa0bd86c10a8 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/solfacil/components-ui
++ jq -nc --arg key input_repo_name --arg value github.com/solfacil/components-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T06:05:16Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T06:05:16Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d550c582751e
++ pushd /tmp/twcr-d550c582751e
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/solfacil/components-ui.git .
+/tmp/twcr-d550c582751e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T06:05:17Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T06:05:17Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a230b66c23dc02c6d7067e5662d87320156d3bd7
++ jq -nc --arg key exec_repo_commit_sha --arg value a230b66c23dc02c6d7067e5662d87320156d3bd7 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-16 01:35:04 -0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-16T04:35:04Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-16T04:35:04Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-d550c582751e /tmp/twcr-d550c582751e /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d550c582751e
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T06:05:17Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T06:05:17Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@solfacil/components-ui",
+>>>   "version": "1.91.0",
+>>>   "private": false,
+>>>   "description": "Component library based on Vue and Tailwind",
+>>>   "author": "Solfacil - Fernando Jesus",
+>>>   "engines": {
+>>>     "node": "^14"
+>>>   },
+>>>   "main": "./dist/solfacil.common.js",
+>>>   "files": [
+>>>     "dist/*",
+>>>     "src/*",
+>>>     "public/*",
+>>>     "*.json",
+>>>     "*.js"
+>>>   ],
+>>>   "setupFiles": [
+>>>     "<rootDir>/.jest/register-context.js"
+>>>   ],
+>>>   "dependencies": {
+>>>     "tailwindcss": "^1.9.6"
+>>>   },
+>>>   "devDependencies": {},
+>>>   "homepage": "http://solfacil.github.io/components-ui",
+>>>   "gitHooks": {
+>>>     "pre-commit": "lint-staged"
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.{js,jsx,vue}": [
+>>>       "vue-cli-service lint",
+>>>       "git add"
+>>>     ]
+>>>   },
+>>>   "keywords": [
+>>>     "ui",
+>>>     "vue",
+>>>     "css",
+>>>     "vue2",
+>>>     "sass",
+>>>     "mobile",
+>>>     "frontend",
+>>>     "component",
+>>>     "components",
+>>>     "tailwind",
+>>>     "javascript",
+>>>     "storybook"
+>>>   ],
+>>>   "license": "MIT"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-d550c582751e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-d550c582751e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3e37d982fccb:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3e37d982fccb:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3e37d982fccb:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_3e37d982fccb:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3e37d982fccb:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3e37d982fccb:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/5] Validating package.json...
+error @solfacil/components-ui@1.91.0: The engine "node" is incompatible with this module. Expected version "^14". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T06:05:18Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T06:05:18Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at a230b66 Merge pull request #193 from solfacil/NPM_OTP_REMOVE
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-d550c582751e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-d550c582751e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3e37d982fccb:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3e37d982fccb:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3e37d982fccb:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_3e37d982fccb:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3e37d982fccb:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3e37d982fccb:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+error @solfacil/components-ui@1.91.0: The engine "node" is incompatible with this module. Expected version "^14". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

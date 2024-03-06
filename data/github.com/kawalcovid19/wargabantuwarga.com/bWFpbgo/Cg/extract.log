@@ -1,0 +1,303 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/kawalcovid19/wargabantuwarga.com
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/kawalcovid19/wargabantuwarga.com
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-8b714c83845e
+++ echo 'github.com/kawalcovid19/wargabantuwarga.com;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/ff9fca2cdcda
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/kawalcovid19/wargabantuwarga.com/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/kawalcovid19/wargabantuwarga.com/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 4819545c566027c6
++ jq -nc --arg key analysis_nonce --arg value 4819545c566027c6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/kawalcovid19/wargabantuwarga.com
++ jq -nc --arg key input_repo_name --arg value github.com/kawalcovid19/wargabantuwarga.com '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T04:58:24Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T04:58:24Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-8b714c83845e
++ pushd /tmp/twcr-8b714c83845e
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/kawalcovid19/wargabantuwarga.com.git .
+/tmp/twcr-8b714c83845e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T04:58:25Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T04:58:25Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 71f6bda0c9a3965edf5daad92205b9648072fb15
++ jq -nc --arg key exec_repo_commit_sha --arg value 71f6bda0c9a3965edf5daad92205b9648072fb15 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-07-19 03:28:04 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-07-19T03:28:04Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-07-19T03:28:04Z '{ key: $key, value: $value }'
+/tmp/twcr-8b714c83845e /tmp/twcr-8b714c83845e /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-8b714c83845e
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T04:58:25Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T04:58:25Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "wargabantuwarga.com",
+>>>   "version": "0.1.0",
+>>>   "dependencies": {
+>>>     "@kawalcovid19/tailwind-preset-wbw": "^0.1.1"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "2.2.4"
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.{js,jsx,ts,tsx,yml,yaml}": [
+>>>       "eslint --cache --fix",
+>>>       "jest --findRelatedTests"
+>>>     ],
+>>>     "*.css": "stylelint --fix",
+>>>     "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+>>>   },
+>>>   "private": true,
+>>>   "config": {
+>>>     "commitizen": {
+>>>       "path": "./node_modules/cz-conventional-changelog"
+>>>     }
+>>>   }
+>>> }+ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-8b714c83845e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-8b714c83845e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_81abc6d2cbcf:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_81abc6d2cbcf:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_81abc6d2cbcf:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_81abc6d2cbcf:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_81abc6d2cbcf:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_81abc6d2cbcf:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > @kawalcovid19/tailwind-preset-wbw@0.1.1" has unmet peer dependency "@tailwindcss/forms@^0.3.3".
+warning " > @kawalcovid19/tailwind-preset-wbw@0.1.1" has unmet peer dependency "@tailwindcss/typography@^0.4.1".
+warning " > @kawalcovid19/tailwind-preset-wbw@0.1.1" has incorrect peer dependency "tailwindcss@^2.2.7".
+warning " > tailwindcss@2.2.4" has unmet peer dependency "autoprefixer@^10.0.2".
+warning " > tailwindcss@2.2.4" has unmet peer dependency "postcss@^8.0.9".
+warning "tailwindcss > @fullhuman/postcss-purgecss@4.1.3" has unmet peer dependency "postcss@^8.0.0".
+warning "tailwindcss > postcss-nested@5.0.5" has unmet peer dependency "postcss@^8.1.13".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 9.61s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module '@tailwindcss/typography'
+Require stack:
+- /tmp/twcr-8b714c83845e/node_modules/@kawalcovid19/tailwind-preset-wbw/dist/tailwind-preset-wbw.modern.js
+- /tmp/twcr-8b714c83845e/tailwind.config.js
+- /tmp/twcr-8b714c83845e/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-8b714c83845e/node_modules/@kawalcovid19/tailwind-preset-wbw/dist/tailwind-preset-wbw.modern.js:1:507)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-8b714c83845e/node_modules/@kawalcovid19/tailwind-preset-wbw/dist/tailwind-preset-wbw.modern.js',
+    '/tmp/twcr-8b714c83845e/tailwind.config.js',
+    '/tmp/twcr-8b714c83845e/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T04:58:36Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T04:58:36Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 71f6bda chore(deps): bump word-wrap from 1.2.3 to 1.2.4 (#887)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-8b714c83845e /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-8b714c83845e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_81abc6d2cbcf:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_81abc6d2cbcf:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_81abc6d2cbcf:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_81abc6d2cbcf:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_81abc6d2cbcf:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_81abc6d2cbcf:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:231) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning " > @kawalcovid19/tailwind-preset-wbw@0.1.1" has incorrect peer dependency "@tailwindcss/forms@^0.3.3".
+warning " > @kawalcovid19/tailwind-preset-wbw@0.1.1" has incorrect peer dependency "tailwindcss@^2.2.7".
+warning " > @tailwindcss/forms@0.4.0" has incorrect peer dependency "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1".
+warning "next > styled-jsx > @babel/plugin-syntax-jsx@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "next-pwa > babel-loader@8.2.5" has unmet peer dependency "@babel/core@^7.0.0".
+warning "next-pwa > babel-loader@8.2.5" has unmet peer dependency "webpack@>=2".
+warning "next-pwa > clean-webpack-plugin@4.0.0" has unmet peer dependency "webpack@>=4.0.0 <6.0.0".
+warning "next-pwa > terser-webpack-plugin@5.3.1" has unmet peer dependency "webpack@^5.1.0".
+warning "next-pwa > workbox-webpack-plugin@6.5.3" has unmet peer dependency "webpack@^4.4.0 || ^5.9.0".
+warning " > @babel/eslint-plugin@7.14.5" has unmet peer dependency "@babel/eslint-parser@>=7.11.0".
+warning " > @babel/preset-react@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-display-name@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx-development@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-pure-annotations@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning " > @babel/preset-typescript@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-typescript > @babel/plugin-transform-typescript@7.14.6" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin@7.14.8" has unmet peer dependency "@babel/core@^7.0.0".
+warning "@babel/preset-typescript > @babel/plugin-transform-typescript > @babel/plugin-syntax-typescript@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning " > @testing-library/user-event@13.2.0" has unmet peer dependency "@testing-library/dom@>=7.21.4".
+[4/4] Building fresh packages...
+$ husky install
+husky - Git hooks installed
+Done in 118.23s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T05:00:37Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T05:00:37Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T05:00:37Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T05:00:37Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

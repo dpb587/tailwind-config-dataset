@@ -1,0 +1,255 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/markuplint/markuplint
++ reporef=dev
++ repopath=./playground
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/markuplint/markuplint
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f26edbe895a8
+++ echo 'github.com/markuplint/markuplint;dev;./playground'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/17645a3fd18a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/markuplint/markuplint/ZGV2Cg/Li9wbGF5Z3JvdW5kCg
++ jq -nc --arg key analysis_key --arg value github.com/markuplint/markuplint/ZGV2Cg/Li9wbGF5Z3JvdW5kCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3768fab5e4987879
++ jq -nc --arg key analysis_nonce --arg value 3768fab5e4987879 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/markuplint/markuplint
++ jq -nc --arg key input_repo_name --arg value github.com/markuplint/markuplint '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./playground
++ jq -nc --arg key input_repo_path --arg value ./playground '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T05:01:35Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T05:01:35Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f26edbe895a8
++ pushd /tmp/twcr-f26edbe895a8
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/markuplint/markuplint.git .
+/tmp/twcr-f26edbe895a8 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T05:01:36Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T05:01:36Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7f949a0ab488c0045185fa14080c3ce671956afc
++ jq -nc --arg key exec_repo_commit_sha --arg value 7f949a0ab488c0045185fa14080c3ce671956afc '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 23:04:38 +0900' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T14:04:38Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T14:04:38Z '{ key: $key, value: $value }'
+/tmp/twcr-f26edbe895a8/playground /tmp/twcr-f26edbe895a8 /twcr
++ '[' -z ./playground ']'
++ pushd ./playground
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f26edbe895a8/playground
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T05:01:36Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T05:01:36Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@markuplint/playground",
+>>>   "version": "4.0.0-alpha.6",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@egoist/tailwindcss-icons": "^1.7.4",
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./playground '!=' ./ ']'
++ rm -f /tmp/twcr-f26edbe895a8/package.json /tmp/twcr-f26edbe895a8/package-lock.json /tmp/twcr-f26edbe895a8/pnpm-lock.yaml /tmp/twcr-f26edbe895a8/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f26edbe895a8 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f26edbe895a8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_41190a15be00:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_41190a15be00:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_41190a15be00:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_41190a15be00:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_41190a15be00:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_41190a15be00:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 9.38s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+/tmp/twcr-f26edbe895a8/playground/node_modules/@egoist/tailwindcss-icons/dist/index.cjs:119
+            throw new Error(
+                  ^
+
+Error: Icon collection "heroicons-solid" not found. Please install @iconify-json/heroicons-solid or @iconify/json
+    at /tmp/twcr-f26edbe895a8/playground/node_modules/@egoist/tailwindcss-icons/dist/index.cjs:119:19
+    at Array.reduce (<anonymous>)
+    at getIconCollections (/tmp/twcr-f26edbe895a8/playground/node_modules/@egoist/tailwindcss-icons/dist/index.cjs:115:22)
+    at /tmp/twcr-f26edbe895a8/playground/tailwind.config.js:19:45
+    at evalModule (/tmp/twcr-f26edbe895a8/playground/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-f26edbe895a8/playground/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-f26edbe895a8/playground/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-f26edbe895a8/playground/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-f26edbe895a8/playground/tailwind.config.exporter3.mjs:5:28
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T05:01:47Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T05:01:47Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 7f949a0 Merge branch 'main' into dev
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f26edbe895a8 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f26edbe895a8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_41190a15be00:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_41190a15be00:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_41190a15be00:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_41190a15be00:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_41190a15be00:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_41190a15be00:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning Pattern ["strip-ansi-cjs@npm:strip-ansi@^6.0.1"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-strip-ansi-cjs-6.0.1-9e26c63d30f53443e9489495b2105d37b67a85d9-integrity/node_modules/strip-ansi-cjs" as pattern ["strip-ansi@^6.0.1"]. This could result in non-deterministic behavior, skipping.
+warning Pattern ["string-width@^4.1.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-string-width-cjs-4.2.3-269c7117d27b05ad2e536830a8ec895ef9c6d010-integrity/node_modules/string-width-cjs" as pattern ["string-width-cjs@npm:string-width@^4.2.0"]. This could result in non-deterministic behavior, skipping.
+warning Pattern ["strip-ansi@^6.0.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-strip-ansi-cjs-6.0.1-9e26c63d30f53443e9489495b2105d37b67a85d9-integrity/node_modules/strip-ansi-cjs" as pattern ["strip-ansi@^6.0.1"]. This could result in non-deterministic behavior, skipping.
+(node:236) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+Done in 40.02s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T05:02:29Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T05:02:29Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T05:02:29Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T05:02:29Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

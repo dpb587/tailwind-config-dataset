@@ -1,0 +1,332 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Khanhtran47/Sora
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Khanhtran47/Sora
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-324b3500e7eb
+++ echo 'github.com/Khanhtran47/Sora;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e0a0e3ebe20d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Khanhtran47/Sora/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Khanhtran47/Sora/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6e9376d80e054e11
++ jq -nc --arg key analysis_nonce --arg value 6e9376d80e054e11 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Khanhtran47/Sora
++ jq -nc --arg key input_repo_name --arg value github.com/Khanhtran47/Sora '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T05:28:54Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T05:28:54Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-324b3500e7eb
++ pushd /tmp/twcr-324b3500e7eb
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Khanhtran47/Sora.git .
+/tmp/twcr-324b3500e7eb /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T05:28:55Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T05:28:55Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 14f97398c59e7ca0e2371d44feae8e2a3425584e
++ jq -nc --arg key exec_repo_commit_sha --arg value 14f97398c59e7ca0e2371d44feae8e2a3425584e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-10-21 15:38:00 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-10-21T13:38:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-10-21T13:38:00Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-324b3500e7eb /tmp/twcr-324b3500e7eb /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-324b3500e7eb
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T05:28:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T05:28:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "sora",
+>>>   "private": true,
+>>>   "sideEffects": false,
+>>>   "license": "GPL-3.0",
+>>>   "dependencies": {
+>>>     "@nextui-org/theme": "^2.1.9",
+>>>     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
+>>>     "tailwind-scrollbar-hide": "^1.1.7",
+>>>     "tailwind-variants": "^0.1.14",
+>>>     "tailwindcss": "^3.3.3",
+>>>     "tailwindcss-animate": "^1.0.7"
+>>>   },
+>>>   "devDependencies": {
+>>>     "prettier-plugin-tailwindcss": "^0.3.0"
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.{tsx,ts,jsx,js,json,css,md}": "pnpm run prettier",
+>>>     "*.{tsx,ts,jsx,js}": "pnpm run lint"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18"
+>>>   },
+>>>   "pnpm": {
+>>>     "peerDependencyRules": {
+>>>       "allowedVersions": {
+>>>         "remix": "2"
+>>>       }
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-324b3500e7eb /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-324b3500e7eb
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-324b3500e7eb/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-324b3500e7eb/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 21, reused 0, downloaded 10, added 0
+Progress: resolved 60, reused 0, downloaded 46, added 0
+Progress: resolved 96, reused 0, downloaded 84, added 0
+Packages: +126
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 127, reused 0, downloaded 125, added 119
+Progress: resolved 127, reused 0, downloaded 126, added 126, done
+
+dependencies:
++ @nextui-org/theme 2.1.18
++ @savvywombat/tailwindcss-grid-areas 3.1.0 (4.0.0 is available)
++ tailwind-scrollbar-hide 1.1.7
++ tailwind-variants 0.1.20 (0.2.0 is available)
++ tailwindcss 3.4.1
++ tailwindcss-animate 1.0.7
+
+devDependencies:
++ prettier-plugin-tailwindcss 0.3.0 (0.5.11 is available)
+
+Done in 5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'clsx'
+Require stack:
+- /tmp/twcr-324b3500e7eb/app/utils/misc.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-324b3500e7eb/app/utils/misc.ts:1:248
+    at evalModule (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-324b3500e7eb/app/utils/index.ts:6:13
+    at evalModule (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-324b3500e7eb/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-324b3500e7eb/app/utils/misc.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T05:29:02Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T05:29:02Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 14f9739 Merge pull request #372 from Khanhtran47/feat/remix-v2
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-324b3500e7eb /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-324b3500e7eb
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-324b3500e7eb/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-324b3500e7eb/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1367
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1367, reused 99, downloaded 24, added 121
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/node/.local/share/pnpm/store/v3
+  Virtual store is at:             node_modules/.pnpm
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install$ npm install
+Progress: resolved 1367, reused 99, downloaded 74, added 172
+Progress: resolved 1367, reused 99, downloaded 118, added 217
+Progress: resolved 1367, reused 99, downloaded 159, added 258
+Progress: resolved 1367, reused 99, downloaded 196, added 295
+Progress: resolved 1367, reused 99, downloaded 247, added 346
+Progress: resolved 1367, reused 99, downloaded 303, added 402
+Progress: resolved 1367, reused 99, downloaded 365, added 464
+Progress: resolved 1367, reused 99, downloaded 426, added 525
+Progress: resolved 1367, reused 99, downloaded 466, added 565
+Progress: resolved 1367, reused 99, downloaded 492, added 591
+Progress: resolved 1367, reused 99, downloaded 532, added 631
+Progress: resolved 1367, reused 99, downloaded 591, added 690
+Progress: resolved 1367, reused 99, downloaded 652, added 751
+Progress: resolved 1367, reused 99, downloaded 703, added 802
+Progress: resolved 1367, reused 99, downloaded 743, added 842
+Progress: resolved 1367, reused 99, downloaded 777, added 876
+Progress: resolved 1367, reused 99, downloaded 807, added 906
+Progress: resolved 1367, reused 99, downloaded 846, added 945
+Progress: resolved 1367, reused 99, downloaded 892, added 991
+Progress: resolved 1367, reused 99, downloaded 945, added 1044
+Progress: resolved 1367, reused 99, downloaded 990, added 1089
+Progress: resolved 1367, reused 99, downloaded 1049, added 1148
+Progress: resolved 1367, reused 99, downloaded 1101, added 1200
+Progress: resolved 1367, reused 99, downloaded 1162, added 1261
+Progress: resolved 1367, reused 99, downloaded 1205, added 1304
+Progress: resolved 1367, reused 99, downloaded 1257, added 1355
+Progress: resolved 1367, reused 99, downloaded 1267, added 1366
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm WARN deprecated request-promise@4.2.6: request-promise has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: > @consumet/extensions@1.5.2 prepare
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: > husky install
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: fatal: not a git repository (or any of the parent directories): .git
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: husky - git command not found, skipping install
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: added 509 packages, and audited 510 packages in 32s
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: 64 packages are looking for funding
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install:   run `npm fund` for details
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: 6 moderate severity vulnerabilities
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: To address all issues possible (including breaking changes), run:
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install:   npm audit fix --force
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: Some issues need review, and may require choosing
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: a different dependency.
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: Run `npm audit` for details.
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm notice 
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm notice Run `npm install -g npm@10.5.0` to update!
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: npm notice 
+..._170_e8a75d9b852536d22d99c30de54d279d npm-install: Done
+Progress: resolved 1367, reused 99, downloaded 1268, added 1366
+Progress: resolved 1367, reused 99, downloaded 1268, added 1367, done
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/better-sqlite3 install$ prebuild-install || npm run build-release
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../sharp@0.31.0/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install: Done
+.../sharp@0.31.0/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.13.1/libvips-8.13.1-linux-x64.tar.br
+.../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/better-sqlite3 install: > better-sqlite3@7.6.2 build-release
+.../node_modules/better-sqlite3 install: > node-gyp rebuild --release
+.../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+.../node_modules/better-sqlite3 install: gyp info using node-gyp@10.0.1
+.../node_modules/better-sqlite3 install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/better-sqlite3 install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/better-sqlite3 install: gyp WARN install got an error, rolling back install
+.../node_modules/better-sqlite3 install: gyp ERR! configure error 
+.../node_modules/better-sqlite3 install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/better-sqlite3 install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/better-sqlite3 install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/better-sqlite3 install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/better-sqlite3 install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/better-sqlite3 install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/better-sqlite3 install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/better-sqlite3 install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild" "--release"
+.../node_modules/better-sqlite3 install: gyp ERR! cwd /tmp/twcr-324b3500e7eb/node_modules/.pnpm/better-sqlite3@7.6.2/node_modules/better-sqlite3
+.../node_modules/better-sqlite3 install: gyp ERR! node -v v21.6.2
+.../node_modules/better-sqlite3 install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/better-sqlite3 install: gyp ERR! not ok 
+.../node_modules/better-sqlite3 install: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

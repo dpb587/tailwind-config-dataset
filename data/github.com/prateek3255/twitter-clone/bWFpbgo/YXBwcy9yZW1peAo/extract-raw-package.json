@@ -1,0 +1,51 @@
+{
+  "name": "remix",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "start": "remix-serve ./build/index.js",
+    "build:css": "tailwindcss -m -i ../../packages/ui/global.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ../../packages/ui/global.css -o app/styles/app.css",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@headlessui/react": "^1.7.15",
+    "@remix-run/css-bundle": "^2.0.0",
+    "@remix-run/node": "^2.0.0",
+    "@remix-run/react": "^2.0.0",
+    "@vercel/remix": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.6.0",
+    "database": "workspace:*",
+    "date-fns": "^2.30.0",
+    "isbot": "^3.6.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "source-map-support": "^0.5.21",
+    "ui": "workspace:*",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.0.0",
+    "@remix-run/eslint-config": "^2.0.0",
+    "@remix-run/serve": "^2.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/source-map-support": "^0.5.6",
+    "autoprefixer": "^10.4.13",
+    "clsx": "^2.0.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.38.0",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.2",
+    "tsconfig": "workspace:*",
+    "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

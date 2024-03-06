@@ -1,0 +1,228 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/MarconLP/loggl
++ reporef=main
++ repopath=./apps/expo
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/MarconLP/loggl
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f10570ac09ed
+++ echo 'github.com/MarconLP/loggl;main;./apps/expo'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/8974a5124147
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/MarconLP/loggl/bWFpbgo/Li9hcHBzL2V4cG8K
++ jq -nc --arg key analysis_key --arg value github.com/MarconLP/loggl/bWFpbgo/Li9hcHBzL2V4cG8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 0c437e901844d840
++ jq -nc --arg key analysis_nonce --arg value 0c437e901844d840 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/MarconLP/loggl
++ jq -nc --arg key input_repo_name --arg value github.com/MarconLP/loggl '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/expo
++ jq -nc --arg key input_repo_path --arg value ./apps/expo '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T02:44:45Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T02:44:45Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f10570ac09ed
+/tmp/twcr-f10570ac09ed /twcr
++ pushd /tmp/twcr-f10570ac09ed
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/MarconLP/loggl.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T02:44:46Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T02:44:46Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1749ab6fcf2f34fc84dcfe26b6f9dce9df6de3f9
++ jq -nc --arg key exec_repo_commit_sha --arg value 1749ab6fcf2f34fc84dcfe26b6f9dce9df6de3f9 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-02 14:09:04 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-02T12:09:04Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-02T12:09:04Z '{ key: $key, value: $value }'
++ '[' -z ./apps/expo ']'
++ pushd ./apps/expo
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-f10570ac09ed/apps/expo /tmp/twcr-f10570ac09ed /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f10570ac09ed/apps/expo
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/expo '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f10570ac09ed
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T02:44:46Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T02:44:46Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@acme/expo",
+>>>   "version": "0.1.0",
+>>>   "main": "index.tsx",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@acme/tailwind-config": "*",
+>>>     "tailwindcss": "^3.3.2"
+>>>   },
+>>>   "private": true
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/expo '!=' ./ ']'
++ rm -f /tmp/twcr-f10570ac09ed/package.json /tmp/twcr-f10570ac09ed/package-lock.json /tmp/twcr-f10570ac09ed/pnpm-lock.yaml /tmp/twcr-f10570ac09ed/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f10570ac09ed /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f10570ac09ed
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code E404
+npm ERR! 404 Not Found - GET https://registry.npmjs.org/@acme%2ftailwind-config - Not found
+npm ERR! 404 
+npm ERR! 404  '@acme/tailwind-config@*' is not in this registry.
+npm ERR! 404 
+npm ERR! 404 Note that you can also install from a
+npm ERR! 404 tarball, folder, http url, or git url.
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T02_44_46_749Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T02:44:49Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T02:44:49Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 1749ab6 remove posthog key from .env.example
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-f10570ac09ed /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-f10570ac09ed
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated uglify-es@3.3.9: support for ECMAScript is superseded by `uglify-js` as of v3.13.0
+(node:128) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:128) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:128) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+
+added 1655 packages, and audited 1662 packages in 5m
+
+185 packages are looking for funding
+  run `npm fund` for details
+
+28 vulnerabilities (1 low, 20 moderate, 6 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T02:50:20Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T02:50:20Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T02:50:20Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T02:50:20Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

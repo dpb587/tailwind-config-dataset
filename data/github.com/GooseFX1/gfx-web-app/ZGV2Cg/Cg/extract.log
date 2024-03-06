@@ -1,0 +1,335 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/GooseFX1/gfx-web-app
++ reporef=dev
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/GooseFX1/gfx-web-app
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-0619c1a89d7b
+++ echo 'github.com/GooseFX1/gfx-web-app;dev;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/9801518f18c9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/GooseFX1/gfx-web-app/ZGV2Cg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/GooseFX1/gfx-web-app/ZGV2Cg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2201c8f89c99ed93
++ jq -nc --arg key analysis_nonce --arg value 2201c8f89c99ed93 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/GooseFX1/gfx-web-app
++ jq -nc --arg key input_repo_name --arg value github.com/GooseFX1/gfx-web-app '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:02:48Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:02:48Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-0619c1a89d7b
++ pushd /tmp/twcr-0619c1a89d7b
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/GooseFX1/gfx-web-app.git .
+/tmp/twcr-0619c1a89d7b /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:02:52Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:02:52Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 019113a64d8624607ffae1177ba4f1d5031e86d4
++ jq -nc --arg key exec_repo_commit_sha --arg value 019113a64d8624607ffae1177ba4f1d5031e86d4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 18:46:19 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T23:46:19Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T23:46:19Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-0619c1a89d7b /tmp/twcr-0619c1a89d7b /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0619c1a89d7b
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:02:52Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:02:52Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "gfx-web-app",
+>>>   "version": "0.1.0",
+>>>   "license": "MIT",
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.3.5",
+>>>     "twin.macro": "^2.8.2"
+>>>   },
+>>>   "babelMacros": {
+>>>     "twin": {
+>>>       "preset": "styled-components",
+>>>       "includeClassNames": true
+>>>     }
+>>>   },
+>>>   "babel": {
+>>>     "presets": [
+>>>       "react-app"
+>>>     ],
+>>>     "plugins": [
+>>>       "styled-components",
+>>>       "babel-plugin-styled-components"
+>>>     ]
+>>>   },
+>>>   "eslintConfig": {
+>>>     "extends": "react-app"
+>>>   },
+>>>   "browserslist": [
+>>>     ">0.2%",
+>>>     "not dead",
+>>>     "not op_mini all",
+>>>     "not firefox < 78",
+>>>     "not chrome < 83"
+>>>   ],
+>>>   "devDependencies": {},
+>>>   "resolutions": {
+>>>     "@solana/web3.js": "^1.75.0",
+>>>     "@types/react": "^17.0.50",
+>>>     "@types/react-dom": "^17.0.17",
+>>>     "goosefx-ssl-sdk/@solana/spl-token": "0.2.0",
+>>>     "react": "^17.0.2",
+>>>     "react-dom": "^17.0.2",
+>>>     "react-error-overlay": "6.0.9",
+>>>     "@coral-xyz/anchor": "0.26.0",
+>>>     "typescript": "^4.3.5"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-0619c1a89d7b /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-0619c1a89d7b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_ac5f94927edc:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_ac5f94927edc:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_ac5f94927edc:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_ac5f94927edc:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_ac5f94927edc:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_ac5f94927edc:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning @solana/spl-token > start-server-and-test@1.15.5: this package has been deprecated
+warning twin.macro > string-similarity@4.0.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 26.40s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'gfx-component-lib'
+Require stack:
+- /tmp/twcr-0619c1a89d7b/tailwindConfig/config.colors.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-0619c1a89d7b/tailwindConfig/config.colors.js:1:103
+    at evalModule (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-0619c1a89d7b/tailwindConfig/index.js:7:16
+    at evalModule (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-0619c1a89d7b/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-0619c1a89d7b/tailwindConfig/config.colors.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:03:20Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:03:20Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 019113a Merge pull request #882 from GooseFX1/feature/remove-vite-config
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-0619c1a89d7b /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-0619c1a89d7b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_ac5f94927edc:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_ac5f94927edc:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_ac5f94927edc:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_ac5f94927edc:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_ac5f94927edc:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_ac5f94927edc:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+warning Resolution field "@coral-xyz/anchor@0.26.0" is incompatible with requested version "@coral-xyz/anchor@^0.28.1-beta.1"
+warning Resolution field "@coral-xyz/anchor@0.26.0" is incompatible with requested version "@coral-xyz/anchor@0.28.1-beta.2"
+warning Resolution field "@coral-xyz/anchor@0.26.0" is incompatible with requested version "@coral-xyz/anchor@0.29.0"
+[2/4] Fetching packages...
+(node:235) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning " > @jup-ag/react-hook@6.0.0-beta.3" has unmet peer dependency "@project-serum/serum@>=0.13.60".
+warning "@jup-ag/react-hook > @mercurial-finance/optimist@0.3.0" has incorrect peer dependency "@coral-xyz/anchor@>=0.28.0".
+warning "@solana-mobile/wallet-adapter-mobile > @react-native-async-storage/async-storage@1.21.0" has unmet peer dependency "react-native@^0.0.0-0 || >=0.60 <1.0".
+warning "@solana-mobile/wallet-adapter-mobile > @solana-mobile/mobile-wallet-adapter-protocol-web3js > @solana-mobile/mobile-wallet-adapter-protocol@2.0.1" has unmet peer dependency "react-native@>0.69".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed@0.3.4" has unmet peer dependency "@babel/runtime@7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/base-controllers@2.9.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/http-helpers@3.4.0" has unmet peer dependency "@babel/runtime@^7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/openlogin-jrpc@3.2.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-keystone > @keystonehq/sol-keyring > @keystonehq/sdk > react-qr-reader@2.2.1" has incorrect peer dependency "react@~16".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-keystone > @keystonehq/sol-keyring > @keystonehq/sdk > react-qr-reader@2.2.1" has incorrect peer dependency "react-dom@~16".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/base-controllers > @toruslabs/openlogin-jrpc@4.7.2" has unmet peer dependency "@babel/runtime@7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/openlogin-jrpc > @toruslabs/openlogin-utils@3.0.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/base-controllers > @toruslabs/openlogin-jrpc > @toruslabs/openlogin-utils@4.7.0" has unmet peer dependency "@babel/runtime@7.x".
+warning " > gfx-component-lib@1.3.1" has unmet peer dependency "clsx@^2.0.0".
+warning " > gfx-component-lib@1.3.1" has unmet peer dependency "lucide-react@^0.294.0".
+warning " > gfx-component-lib@1.3.1" has incorrect peer dependency "react@^18.2.0".
+warning " > gfx-component-lib@1.3.1" has incorrect peer dependency "react-dom@^18.2.0".
+warning " > gfx-component-lib@1.3.1" has unmet peer dependency "tailwind-merge@^2.1.0".
+warning "gfx-component-lib > next-themes@0.2.1" has unmet peer dependency "next@*".
+warning "gfx-component-lib > sonner@1.4.0" has incorrect peer dependency "react@^18.0.0".
+warning "gfx-component-lib > sonner@1.4.0" has incorrect peer dependency "react-dom@^18.0.0".
+warning "react-hot-toast > goober@2.1.13" has unmet peer dependency "csstype@^3.0.10".
+warning " > slick-carousel@1.8.1" has unmet peer dependency "jquery@>=1.8.0".
+warning " > sonner@1.4.2" has incorrect peer dependency "react@^18.0.0".
+warning " > sonner@1.4.2" has incorrect peer dependency "react-dom@^18.0.0".
+warning " > styled-components@5.1.1" has unmet peer dependency "react-is@>= 16.8.0".
+warning " > @babel/plugin-proposal-private-property-in-object@7.21.11" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/plugin-proposal-private-property-in-object > @babel/helper-create-class-features-plugin@7.23.5" has unmet peer dependency "@babel/core@^7.0.0".
+warning "@babel/plugin-proposal-private-property-in-object > @babel/plugin-syntax-private-property-in-object@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/plugin-proposal-private-property-in-object > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers@7.22.20" has unmet peer dependency "@babel/core@^7.0.0".
+warning " > @testing-library/user-event@13.5.0" has unmet peer dependency "@testing-library/dom@>=7.21.4".
+warning " > eslint-plugin-unused-imports@2.0.0" has incorrect peer dependency "eslint@^8.0.0".
+warning " > rollup-plugin-polyfill-node@0.13.0" has unmet peer dependency "rollup@^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0".
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+$ husky install
+husky - Git hooks installed
+Done in 138.60s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
+{"type":"warning","data":"Resolution field \"@coral-xyz/anchor@0.26.0\" is incompatible with requested version \"@coral-xyz/anchor@^0.28.1-beta.1\""}
+{"type":"warning","data":"Resolution field \"@coral-xyz/anchor@0.26.0\" is incompatible with requested version \"@coral-xyz/anchor@0.28.1-beta.2\""}
+{"type":"warning","data":"Resolution field \"@coral-xyz/anchor@0.26.0\" is incompatible with requested version \"@coral-xyz/anchor@0.29.0\""}
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T07:05:41Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T07:05:41Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T07:05:41Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T07:05:41Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

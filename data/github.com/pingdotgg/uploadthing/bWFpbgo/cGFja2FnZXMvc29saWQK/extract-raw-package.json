@@ -1,0 +1,152 @@
+{
+  "name": "@uploadthing/solid",
+  "type": "module",
+  "author": "OrJDev",
+  "license": "MIT",
+  "version": "6.1.5",
+  "main": "./dist/server.cjs",
+  "module": "./dist/server.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {},
+  "exports": {
+    ".": {
+      "worker": {
+        "solid": "./dist/server.jsx",
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/server.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/server.cjs"
+        }
+      },
+      "browser": {
+        "solid": {
+          "development": "./dist/dev.jsx",
+          "import": "./dist/index.jsx"
+        },
+        "development": {
+          "import": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/dev.js"
+          },
+          "require": {
+            "types": "./dist/index.d.cts",
+            "default": "./dist/dev.cjs"
+          }
+        },
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/index.cjs"
+        }
+      },
+      "deno": {
+        "solid": "./dist/server.jsx",
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/server.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/server.cjs"
+        }
+      },
+      "node": {
+        "solid": "./dist/server.jsx",
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/server.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/server.cjs"
+        }
+      },
+      "solid": {
+        "development": "./dist/dev.jsx",
+        "import": "./dist/index.jsx"
+      },
+      "development": {
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/dev.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/dev.cjs"
+        }
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "browser": {
+    "./dist/server.js": "./dist/index.js",
+    "./dist/server.cjs": "./dist/index.cjs"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "clean": "git clean -xdf dist node_modules",
+    "dev": "wait-on ../uploadthing/server/index.d.ts && tsup --watch",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@uploadthing/dropzone": "^0.2.0",
+    "@uploadthing/shared": "^6.3.2",
+    "tailwind-merge": "^2.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.17",
+    "postcss": "8.4.35",
+    "solid-js": "^1.8.15",
+    "tailwindcss": "^3.4.1",
+    "tsup": "8.0.2",
+    "tsup-preset-solid": "2.2.0",
+    "typescript": "^5.3.3",
+    "uploadthing": "6.5.0",
+    "wait-on": "^7.2.0"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.5.3",
+    "uploadthing": "^6.5.1"
+  },
+  "keywords": [
+    "SolidJS",
+    "Uploadthing"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            "@uploadthing/solid",
+            "@uploadthing/solid/*"
+          ]
+        }
+      ]
+    },
+    "extends": [
+      "@uploadthing/eslint-config/base"
+    ]
+  }
+}

@@ -1,0 +1,273 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/helius-labs/xray
++ reporef=dev
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/helius-labs/xray
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-03a534b3b400
+++ echo 'github.com/helius-labs/xray;dev;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e6b59bffec40
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/helius-labs/xray/ZGV2Cg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/helius-labs/xray/ZGV2Cg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce e605cf7836ef3329
++ jq -nc --arg key analysis_nonce --arg value e605cf7836ef3329 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/helius-labs/xray
++ jq -nc --arg key input_repo_name --arg value github.com/helius-labs/xray '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:16:49Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:16:49Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-03a534b3b400
+/tmp/twcr-03a534b3b400 /twcr
++ pushd /tmp/twcr-03a534b3b400
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/helius-labs/xray.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:16:50Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:16:50Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3032880e54667e8c38b661abcc0ad6695c307ee4
++ jq -nc --arg key exec_repo_commit_sha --arg value 3032880e54667e8c38b661abcc0ad6695c307ee4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-27 15:30:33 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-27T15:30:33Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-27T15:30:33Z '{ key: $key, value: $value }'
+/tmp/twcr-03a534b3b400 /tmp/twcr-03a534b3b400 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-03a534b3b400
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:16:50Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:16:50Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "xray",
+>>>   "version": "1.0.0",
+>>>   "type": "module",
+>>>   "platform": "node",
+>>>   "lint-staged": {
+>>>     "*.{js,jsx,ts,tsx}": [
+>>>       "npm run lint",
+>>>       "npm run format",
+>>>       "git add"
+>>>     ]
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.8",
+>>>     "daisyui": "^2.46.1",
+>>>     "prettier-plugin-tailwindcss": "^0.3.0",
+>>>     "tailwindcss": "^3.1.5"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-03a534b3b400 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-03a534b3b400
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 136 packages, and audited 137 packages in 12s
+
+35 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+/tmp/twcr-03a534b3b400/node_modules/prettier/plugins/flow.js:4
+`),x.js_error)throw x.js_error}}else throw x}function _W(){var x=d0.process;x&&x.on?x.on("uncaughtException",function(r,e){xX(r),x.exit(2)}):d0.addEventListener&&d0.addEventListener("error",function(r){r.error&&xX(r.error)})}_W();function l(x,r){return(x.l>=0?x.l:x.l=x.length)==1?x(r):Ys(x,[r])}function p(x,r,e){return(x.l>=0?x.l:x.l=x.length)==2?x(r,e):Ys(x,[r,e])}function G0(x,r,e,t){return(x.l>=0?x.l:x.l=x.length)==3?x(r,e,t):Ys(x,[r,e,t])}function oe(x,r,e,t,u){return(x.l>=0?x.l:x.l=x.length)==4?x(r,e,t,u):Ys(x,[r,e,t,u])}function Ye(x,r,e,t,u,i){return(x.l>=0?x.l:x.l=x.length)==5?x(r,e,t,u,i):Ys(x,[r,e,t,u,i])}function wW(x,r,e,t,u,i,f,o){return(x.l>=0?x.l:x.l=x.length)==7?x(r,e,t,u,i,f,o):Ys(x,[r,e,t,u,i,f,o])}var uO=[Gr,rY,-1],rX=[Gr,CB,-2],kn=[Gr,ew,-3],iO=[Gr,hB,-4],A2=[Gr,Rj,-7],eX=[Gr,ZU,-8],tX=[Gr,PU,-9],wr=[Gr,bM,-11],Ml=[Gr,qU,-12],TW=[4,0,0,0,[12,45,[4,0,0,0,0]]],fO=[0,[11,'File "',[2,0,[11,'", line ',[4,0,0,0,[11,TU,[4,0,0,0,[12,45,[4,0,0,0,[11,": ",[2,0,0]]]]]]]]]],'File "%s", line %d, characters %d-%d: %s'],Ka=[0,0,[0,0,0],[0,0,0]],Dl=[0,0,0,0,1,0,0,0],nX=[0,"first_leading","last_trailing"],uX=[0,Cf,Df,ai,_7,Mf,b7,Ui,Su,dc,Y7,$i,jf,cn,$u,hc,Le,O7,tu,vf,Gf,N7,yi,Gc,Nc,n7,df,K7,Au,Wi,tf,Fc,F7,Ru,Si,sf,Ci,di,nc,Gi,au,d7,qc,W7,Gu,cf,Pc,hi,lf,xc,Hn,yc,_c,ef,Re,Oe,zu,Tf,Ac,Ki,T7,Bf,Zu,cc,kf,ac,Of,Rc,Mi,ce,Xi,t7,yf,nf,Cu,c7,ju,Vi,of,Cc,kc,Mu,Vu,af,w7,bn,Nf,m7,Qf,Z7,H1,Ti,xi,Gn,$7,y7,Yf,gf,G7,cu,Yi,Yu,Nu,pu,bu,oc,eu,zn,pc,S7,$n,B7,ti,ei,Uf,ii,wf,Kn,Ai,Wc,Hi,wu,gi,ku,Ou,Nt,g7,s7,P7,D2,Ei,ou,Ku,p7,hf,yu,$f,I7,G2,ni,r7,Kf,Zi,lu,bc,iu,_u,Vn,zi,Qu,Lc,lc,i7,Ef,Eu,ci,Kc,li,U7,o7,uu,qn,ec,rc,rf,fc,X7,Xu,Qn,ji,j7,Zn,vu,uf,ir,v7,pi,Bu,gc,ri,a7,Xc,Uc,Wu,Dc,Q7,Af,L7,Bi,Jf,qf,su,bi,Zc,pf,Vc,f7,vi,Pf,oi,sc,mi,nu,uc,u7,Fu,If,yn,Yc,Lu,z7,wc,Oc,R7,H7,Ju,l7,h7,Ji,Du,mc,tc,fu,Wf,$c,gu,zf,Tc,mu,je,Ec,du,Uu,Tu,xf,D7,k7,Me,Sc,qu,M7,Ic,Fi,qi,E7,ff,Be,Iu,xu,Xf,Sf,jc,Ii,Rf,Ue,Qc,mf,Qi,Pu,vc,Fn,x7,Pi,Ff,wi,Jc,A7,zc,_i,Wn,V7,Oi,bf,Hf,ru,C7,J7,ki,Hu,Mc,e7,q7,ui,Hc,Li,U2,Vf,_f,si,B2],hn=[0,0,0];Yt(11,Ml,qU),Yt(10,wr,bM),Yt(9,[Gr,jj,YD],jj),Yt(8,tX,PU),Yt(7,eX,ZU),Yt(6,A2,Rj),Yt(5,[Gr,oj,-6],oj),Yt(4,[Gr,mD,-5],mD),Yt(3,iO,hB),Yt(2,kn,ew),Yt(1,rX,CB),Yt(0,uO,rY);var SW="output_substring",EW=ic,gW=Cs,AW=Os,PW="CamlinternalLazy.Undefined",CW=DB,NW="\\'",RW="\\b",OW="\\t",IW="\\n",LW="\\r",MW="List.iter2",DW="tl",jW="hd",UW="String.blit / Bytes.blit_string",BW="Bytes.blit",YW="String.sub / Bytes.sub",XW="String.concat",JW="Array.blit",VW="Array.sub",zW="Map.remove_min_elt",KW=[0,0,0,0],ZW=[0,"map.ml",400,10],WW=[0,0,0],$W=F4,QW=F4,FW=F4,HW=F4,qW="Stdlib.Queue.Empty",GW="Buffer.add_substring/add_subbytes",bW="Buffer.add: cannot grow buffer",x$=[0,vD,93,2],r$=[0,vD,94,2],e$="Buffer.sub",t$="%c",n$="%s",u$=QM,i$=MB,f$=Ej,c$=qB,s$="%f",o$="%B",v$="%{",a$="%}",l$="%(",p$="%)",d$=zj,y$="%t",m$="%?",k$="%r",h$="%_r",_$=[0,i2,850,23],w$=[0,i2,814,21],T$=[0,i2,815,21],S$=[0,i2,818,21],E$=[0,i2,819,21],g$=[0,i2,822,19],A$=[0,i2,823,19],P$=[0,i2,826,22],C$=[0,i2,827,22],N$=[0,i2,831,30],R$=[0,i2,832,30],O$=[0,i2,836,26],I$=[0,i2,837,26],L$=[0,i2,846,28],M$=[0,i2,847,28],D$=[0,i2,851,23],j$=[0,i2,1558,4],U$="Printf: bad conversion %[",B$=[0,i2,1626,39],Y$=[0,i2,1649,31],X$=[0,i2,1650,31],J$="Printf: bad conversion %_",V$=FU,z$=gj,K$=FU,Z$=gj,W$=[0,[11,"invalid box description ",[3,0,0]],"invalid box description %S"],$$=[0,0,4],Q$=Zk,F$="neg_infinity",H$=Mj,q$=ic,G$=[0,nn],b$="%+nd",xQ="% nd",rQ="%+ni",eQ="% ni",tQ="%nx",nQ="%#nx",uQ="%nX",iQ="%#nX",fQ="%no",cQ="%#no",sQ="%nd",oQ=Ej,vQ="%nu",aQ="%+ld",lQ="% ld",pQ="%+li",dQ="% li",yQ="%lx",mQ="%#lx",kQ="%lX",hQ="%#lX",_Q="%lo",wQ="%#lo",TQ="%ld",SQ=MB,EQ="%lu",gQ="%+Ld",AQ="% Ld",PQ="%+Li",CQ="% Li",NQ="%Lx",RQ="%#Lx",OQ="%LX",IQ="%#LX",LQ="%Lo",MQ="%#Lo",DQ="%Ld",jQ=qB,UQ="%Lu",BQ="%+d",YQ="% d",XQ="%+i",JQ="% i",VQ="%x",zQ="%#x",KQ="%X",ZQ="%#X",WQ="%o",$Q="%#o",QQ=El,FQ=QM,HQ=vU,qQ=la,GQ="@}",bQ="@?",xF=`@
+                                     ^
+
+TypeError: Cannot read properties of undefined (reading 'parsers')
+    at Jz (/tmp/twcr-03a534b3b400/node_modules/prettier-plugin-tailwindcss/dist/index.js:2368:52950)
+    at /tmp/twcr-03a534b3b400/node_modules/prettier-plugin-tailwindcss/dist/index.js:2368:43426
+    at evalModule (/tmp/twcr-03a534b3b400/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-03a534b3b400/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-03a534b3b400/tailwind.config.cjs:35:9
+    at evalModule (/tmp/twcr-03a534b3b400/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-03a534b3b400/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-03a534b3b400/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-03a534b3b400/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-03a534b3b400/tailwind.config.exporter3.mjs:5:28
+
+Node.js v21.6.2
++ exitcode=7
++ set -e
++ [[ 7 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T07:17:05Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T07:17:05Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 3032880 Merge pull request #292 from ssamkkim/cnft-burn-fix
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-03a534b3b400 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-03a534b3b400
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+npm WARN deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+npm WARN deprecated @types/sass@1.45.0: This is a stub types definition. sass provides its own type definitions, so you do not need this installed.
+npm WARN deprecated @walletconnect/types@1.8.0: WalletConnect's v1 SDKs are now deprecated. Please upgrade to a v2 SDK. For details see: https://docs.walletconnect.com/
+npm WARN deprecated @walletconnect/mobile-registry@1.4.0: Deprecated in favor of dynamic registry available from: https://github.com/walletconnect/walletconnect-registry
+npm WARN deprecated eip1193-provider@1.0.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @json-rpc-tools/provider@1.7.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @json-rpc-tools/utils@1.7.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @json-rpc-tools/types@1.7.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @babel/polyfill@7.12.1: 🚨 This package has been deprecated in favor of separate inclusion of a polyfill and regenerator-runtime (when needed). See the @babel/polyfill docs (https://babeljs.io/docs/en/babel-polyfill) for more information.
+npm WARN deprecated @walletconnect/qrcode-modal@1.8.0: WalletConnect's v1 SDKs are now deprecated. Please upgrade to a v2 SDK. For details see: https://docs.walletconnect.com/
+npm WARN deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+> xray@1.0.0 prepare
+> husky install
+
+husky - Git hooks installed
+
+added 1165 packages, and audited 1166 packages in 38s
+
+236 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (2 low, 11 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T07:17:47Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T07:17:47Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T07:17:47Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T07:17:47Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

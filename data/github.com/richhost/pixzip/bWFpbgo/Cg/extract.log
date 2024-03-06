@@ -1,0 +1,172 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/richhost/pixzip
++ reporef=main
++ repopath=./
+++ echo github.com/richhost/pixzip
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-47d7a18a978c
+++ echo 'github.com/richhost/pixzip;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/057a39748b5c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/richhost/pixzip/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/richhost/pixzip/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 07822a80439f7744
++ jq -nc --arg key analysis_nonce --arg value 07822a80439f7744 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/richhost/pixzip
++ jq -nc --arg key input_repo_name --arg value github.com/richhost/pixzip '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T23:28:45Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T23:28:45Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-47d7a18a978c
+/tmp/twcr-47d7a18a978c /twcr
++ pushd /tmp/twcr-47d7a18a978c
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/richhost/pixzip.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T23:28:46Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T23:28:46Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha bcad7aca451a33efbd185953898c197fee798cdc
++ jq -nc --arg key exec_repo_commit_sha --arg value bcad7aca451a33efbd185953898c197fee798cdc '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-25 16:17:16 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-25T08:17:16Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-25T08:17:16Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-47d7a18a978c /tmp/twcr-47d7a18a978c /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T23:28:46Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T23:28:46Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "pixzip",
+>>>   "version": "2.1.2",
+>>>   "type": "module",
+>>>   "main": "./out/main/index.js",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1",
+>>>     "tailwindcss-animate": "^1.0.7"
+>>>   },
+>>>   "dependencies": {},
+>>>   "engines": {
+>>>     "node": ">=20.10.0"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-47d7a18a978c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-47d7a18a978c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-47d7a18a978c/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-47d7a18a978c/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 39, reused 0, downloaded 38, added 0
+Progress: resolved 94, reused 0, downloaded 90, added 0
+Packages: +106
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 107, reused 0, downloaded 106, added 106, done
+
+devDependencies:
++ tailwindcss 3.4.1
++ tailwindcss-animate 1.0.7
+
+Done in 3.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T23:28:51Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T23:28:51Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T23:28:51Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T23:28:51Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

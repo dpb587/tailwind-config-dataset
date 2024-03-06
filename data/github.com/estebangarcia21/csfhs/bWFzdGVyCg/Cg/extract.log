@@ -1,0 +1,190 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/estebangarcia21/csfhs
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/estebangarcia21/csfhs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4c93ffef15bc
+++ echo 'github.com/estebangarcia21/csfhs;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/962ff3b99e62
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/estebangarcia21/csfhs/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/estebangarcia21/csfhs/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce cfdd0e24b348faf4
++ jq -nc --arg key analysis_nonce --arg value cfdd0e24b348faf4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/estebangarcia21/csfhs
++ jq -nc --arg key input_repo_name --arg value github.com/estebangarcia21/csfhs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T12:16:20Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T12:16:20Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4c93ffef15bc
+/tmp/twcr-4c93ffef15bc /twcr
++ pushd /tmp/twcr-4c93ffef15bc
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/estebangarcia21/csfhs.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T12:16:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T12:16:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1dee01504a39c87519a33163ac12f3c9c050d689
++ jq -nc --arg key exec_repo_commit_sha --arg value 1dee01504a39c87519a33163ac12f3c9c050d689 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-02 18:20:05 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-03T02:20:05Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-03T02:20:05Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-4c93ffef15bc /tmp/twcr-4c93ffef15bc /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4c93ffef15bc
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T12:16:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T12:16:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "csfhs-website",
+>>>   "version": "0.0.1",
+>>>   "private": true,
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "type": "module",
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4c93ffef15bc /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4c93ffef15bc
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4c93ffef15bc/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-4c93ffef15bc/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 39, reused 0, downloaded 25, added 0
+Progress: resolved 70, reused 0, downloaded 59, added 0
+Progress: resolved 105, reused 0, downloaded 103, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 4.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+
+warn - As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `warmGray` has been renamed to `stone`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `trueGray` has been renamed to `neutral`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `coolGray` has been renamed to `gray`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `blueGray` has been renamed to `slate`.
+warn - Update your configuration file to silence this warning.
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T12:16:29Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T12:16:29Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T12:16:29Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T12:16:29Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,309 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/spacedriveapp/spacedrive
++ reporef=main
++ repopath=./apps/storybook
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/spacedriveapp/spacedrive
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-47b52ce7e0c6
+++ echo 'github.com/spacedriveapp/spacedrive;main;./apps/storybook'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2fdfe2f6edbf
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/spacedriveapp/spacedrive/bWFpbgo/Li9hcHBzL3N0b3J5Ym9vawo
++ jq -nc --arg key analysis_key --arg value github.com/spacedriveapp/spacedrive/bWFpbgo/Li9hcHBzL3N0b3J5Ym9vawo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce e3444864e20606ca
++ jq -nc --arg key analysis_nonce --arg value e3444864e20606ca '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/spacedriveapp/spacedrive
++ jq -nc --arg key input_repo_name --arg value github.com/spacedriveapp/spacedrive '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/storybook
++ jq -nc --arg key input_repo_path --arg value ./apps/storybook '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:07:26Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:07:26Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-47b52ce7e0c6
+/tmp/twcr-47b52ce7e0c6 /twcr
++ pushd /tmp/twcr-47b52ce7e0c6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/spacedriveapp/spacedrive.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:07:30Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:07:30Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 68ca2382fd51ca4b6c0a707644c6a618682b3c6d
++ jq -nc --arg key exec_repo_commit_sha --arg value 68ca2382fd51ca4b6c0a707644c6a618682b3c6d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 18:57:35 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T18:57:35Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T18:57:35Z '{ key: $key, value: $value }'
+/tmp/twcr-47b52ce7e0c6/apps/storybook /tmp/twcr-47b52ce7e0c6 /twcr
++ '[' -z ./apps/storybook ']'
++ pushd ./apps/storybook
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-47b52ce7e0c6/apps/storybook
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/storybook '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-47b52ce7e0c6
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:07:30Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:07:30Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@sd/storybook",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@sd/ui": "workspace:*",
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/storybook '!=' ./ ']'
++ rm -f /tmp/twcr-47b52ce7e0c6/package.json /tmp/twcr-47b52ce7e0c6/package-lock.json /tmp/twcr-47b52ce7e0c6/pnpm-lock.yaml /tmp/twcr-47b52ce7e0c6/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-47b52ce7e0c6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-47b52ce7e0c6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-47b52ce7e0c6/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 13 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 24, reused 0, downloaded 18, added 0
+../..                                    | Progress: resolved 41, reused 0, downloaded 33, added 0
+../..                                    | Progress: resolved 60, reused 0, downloaded 47, added 0
+../..                                    | Progress: resolved 82, reused 0, downloaded 67, added 0
+../..                                    | Progress: resolved 108, reused 0, downloaded 91, added 0
+../..                                    | Progress: resolved 128, reused 0, downloaded 112, added 0
+../..                                    | Progress: resolved 151, reused 0, downloaded 131, added 0
+../..                                    | Progress: resolved 157, reused 0, downloaded 137, added 0
+../..                                    | Progress: resolved 173, reused 0, downloaded 152, added 0
+../..                                    | Progress: resolved 192, reused 0, downloaded 172, added 0
+../..                                    | Progress: resolved 208, reused 0, downloaded 185, added 0
+../..                                    | Progress: resolved 224, reused 0, downloaded 208, added 0
+../..                                    | Progress: resolved 249, reused 0, downloaded 228, added 0
+../..                                    | Progress: resolved 275, reused 0, downloaded 251, added 0
+../..                                    | Progress: resolved 301, reused 0, downloaded 266, added 0
+../..                                    | Progress: resolved 330, reused 0, downloaded 288, added 0
+../..                                    | Progress: resolved 352, reused 0, downloaded 309, added 0
+../..                                    | Progress: resolved 372, reused 0, downloaded 332, added 0
+../..                                    | Progress: resolved 396, reused 0, downloaded 345, added 0
+../..                                    | Progress: resolved 423, reused 0, downloaded 369, added 0
+../..                                    | Progress: resolved 439, reused 0, downloaded 380, added 0
+../..                                    | Progress: resolved 466, reused 0, downloaded 409, added 0
+../..                                    | Progress: resolved 491, reused 0, downloaded 432, added 0
+../..                                    | Progress: resolved 514, reused 0, downloaded 454, added 0
+../..                                    | Progress: resolved 528, reused 0, downloaded 469, added 0
+../..                                    | Progress: resolved 554, reused 0, downloaded 492, added 0
+../..                                    | Progress: resolved 587, reused 0, downloaded 516, added 0
+/tmp/twcr-47b52ce7e0c6/packages/client:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @tanstack/query-core@5.24.8
+
+This error happened while installing the dependencies of @tanstack/solid-query@5.24.8
+
+The latest release of @tanstack/query-core is "5.24.6".
+
+Other releases are:
+  * beta: 5.0.0-beta.35
+  * alpha: 5.0.0-alpha.91
+  * rc: 5.0.0-rc.12
+
+If you need the full list of all 203 published versions run "$ pnpm view @tanstack/query-core versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:08:01Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:08:01Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 68ca238 [ENG-1627] Move all jobs and actors to an "Old" namespace (#2157)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-47b52ce7e0c6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-47b52ce7e0c6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-47b52ce7e0c6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-47b52ce7e0c6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 14 workspace projects
+../..                                    |    +3037 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 500, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 503, downloaded 32, added 411
+../..                                    | Progress: resolved 0, reused 503, downloaded 84, added 602
+../..                                    | Progress: resolved 0, reused 503, downloaded 139, added 658
+../..                                    | Progress: resolved 0, reused 503, downloaded 205, added 730
+../..                                    | Progress: resolved 0, reused 503, downloaded 242, added 765
+../..                                    | Progress: resolved 0, reused 503, downloaded 289, added 805
+../..                                    | Progress: resolved 0, reused 503, downloaded 337, added 857
+../..                                    | Progress: resolved 0, reused 503, downloaded 388, added 936
+../..                                    | Progress: resolved 0, reused 503, downloaded 448, added 1019
+../..                                    | Progress: resolved 0, reused 503, downloaded 495, added 1071
+../..                                    | Progress: resolved 0, reused 503, downloaded 561, added 1148
+../..                                    | Progress: resolved 0, reused 503, downloaded 629, added 1215
+../..                                    | Progress: resolved 0, reused 503, downloaded 694, added 1282
+../..                                    | Progress: resolved 0, reused 503, downloaded 731, added 1322
+../..                                    | Progress: resolved 0, reused 503, downloaded 792, added 1383
+../..                                    | Progress: resolved 0, reused 503, downloaded 851, added 1443
+../..                                    | Progress: resolved 0, reused 503, downloaded 921, added 1551
+../..                                    | Progress: resolved 0, reused 503, downloaded 984, added 1625
+../..                                    | Progress: resolved 0, reused 503, downloaded 1055, added 1707
+../..                                    | Progress: resolved 0, reused 503, downloaded 1111, added 1775
+../..                                    | Progress: resolved 0, reused 503, downloaded 1162, added 1824
+../..                                    | Progress: resolved 0, reused 503, downloaded 1201, added 1863
+../..                                    | Progress: resolved 0, reused 503, downloaded 1241, added 1911
+../..                                    | Progress: resolved 0, reused 503, downloaded 1301, added 1970
+../..                                    | Progress: resolved 0, reused 503, downloaded 1363, added 2039
+../..                                    | Progress: resolved 0, reused 503, downloaded 1417, added 2098
+../..                                    | Progress: resolved 0, reused 503, downloaded 1476, added 2169
+../..                                    | Progress: resolved 0, reused 503, downloaded 1516, added 2221
+../..                                    | Progress: resolved 0, reused 503, downloaded 1534, added 2240
+../..                                    | Progress: resolved 0, reused 503, downloaded 1569, added 2278
+../..                                    | Progress: resolved 0, reused 503, downloaded 1628, added 2356
+../..                                    | Progress: resolved 0, reused 503, downloaded 1701, added 2441
+../..                                    | Progress: resolved 0, reused 503, downloaded 1768, added 2512
+../..                                    | Progress: resolved 0, reused 503, downloaded 1822, added 2572
+../..                                    | Progress: resolved 0, reused 503, downloaded 1875, added 2628
+../..                                    | Progress: resolved 0, reused 503, downloaded 1930, added 2688
+../..                                    | Progress: resolved 0, reused 503, downloaded 1995, added 2757
+../..                                    | Progress: resolved 0, reused 503, downloaded 2054, added 2831
+../..                                    | Progress: resolved 0, reused 503, downloaded 2108, added 2936
+../..                                    | Progress: resolved 0, reused 503, downloaded 2171, added 3023
+../..                                    | Progress: resolved 0, reused 503, downloaded 2182, added 3036
+../..                                    | Progress: resolved 0, reused 503, downloaded 2183, added 3036
+../..                                    | Progress: resolved 0, reused 503, downloaded 2183, added 3037, done
+../../node_modules/@tsparticles/engine install$ node ./scripts/install.js
+../../node_modules/protobufjs postinstall$ node scripts/postinstall
+../../node_modules/@tsparticles/engine install: Thank you for installing tsParticles.
+../../node_modules/@tsparticles/engine install: Remember to checkout the official website https://particles.js.org to explore some samples.
+../../node_modules/@tsparticles/engine install: You can find more samples on CodePen too: https://codepen.io/collection/DPOage
+../../node_modules/@tsparticles/engine install: If you need documentation you can find it here: https://particles.js.org/docs
+../../node_modules/@tsparticles/engine install: Don't forget to star the tsParticles repository, if you like the project and want to support it: https://github.com/tsparticles/tsparticles
+../../node_modules/@tsparticles/engine install: Done
+../../node_modules/protobufjs postinstall: Done
+../../node_modules/@sentry/cli postinstall$ node ./scripts/install.js
+.../core/node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall$ node install.js
+.../vite/node_modules/esbuild postinstall$ node install.js
+../../node_modules/@swc/core postinstall$ node postinstall.js
+../../node_modules/@sentry/cli postinstall: Done
+.../core/node_modules/esbuild postinstall: Done
+../../node_modules/esbuild postinstall: Done
+.../vite/node_modules/esbuild postinstall: Done
+../../node_modules/@swc/core postinstall: Done
+../../node_modules/sharp install$ node install/check
+../../node_modules/sharp install: Done
+../../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+../../node_modules/contentlayer postinstall: Done
+
+devDependencies:
++ @sd/config 0.0.0 <- ../../packages/config
++ @sd/ui 0.0.0 <- ../../packages/ui
+
+Done in 1m 11s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T20:09:15Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T20:09:15Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:09:15Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:09:15Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

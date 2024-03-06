@@ -1,0 +1,196 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/open-decision/open-decision
++ reporef=main
++ repopath=./packages/design-system
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/open-decision/open-decision
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-769704bfb714
+++ echo 'github.com/open-decision/open-decision;main;./packages/design-system'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/569e5f540359
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/open-decision/open-decision/bWFpbgo/Li9wYWNrYWdlcy9kZXNpZ24tc3lzdGVtCg
++ jq -nc --arg key analysis_key --arg value github.com/open-decision/open-decision/bWFpbgo/Li9wYWNrYWdlcy9kZXNpZ24tc3lzdGVtCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 43320a7d48b9ec5e
++ jq -nc --arg key analysis_nonce --arg value 43320a7d48b9ec5e '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/open-decision/open-decision
++ jq -nc --arg key input_repo_name --arg value github.com/open-decision/open-decision '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/design-system
++ jq -nc --arg key input_repo_path --arg value ./packages/design-system '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:13:51Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:13:51Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-769704bfb714
+/tmp/twcr-769704bfb714 /twcr
++ pushd /tmp/twcr-769704bfb714
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/open-decision/open-decision.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:14:04Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:14:04Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 832e4c9f9f33778222c1c3153aad4060dbc9a26e
++ jq -nc --arg key exec_repo_commit_sha --arg value 832e4c9f9f33778222c1c3153aad4060dbc9a26e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-05 17:39:11 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-05T16:39:11Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-05T16:39:11Z '{ key: $key, value: $value }'
+/tmp/twcr-769704bfb714/packages/design-system /tmp/twcr-769704bfb714 /twcr
++ '[' -z ./packages/design-system ']'
++ pushd ./packages/design-system
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-769704bfb714/packages/design-system
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/design-system '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-769704bfb714
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:14:04Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:14:04Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/plugin)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:14:04Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:14:04Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 832e4c9 Update README.md
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-769704bfb714 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-769704bfb714
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128'
++ '[' -z http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_8e2dd7ed9c6a:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0002: │ @nrwl/cypress@npm:15.5.1 [efc6b] doesn't provide nx (pafdc4), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/cypress@npm:15.5.1 [efc6b] doesn't provide typescript (pe9162), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/devkit@npm:15.5.1 [30294] doesn't provide typescript (p2f408), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/devkit@npm:15.5.1 [945fa] doesn't provide typescript (p9f13d), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/devkit@npm:15.5.1 [9aa8f] doesn't provide typescript (pa80a2), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/esbuild@npm:15.5.1 [9aa8f] doesn't provide nx (p5ccfb), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/eslint-plugin-nx@npm:15.5.1 [9aa8f] doesn't provide eslint (p0d73f), requested by @typescript-eslint/utils
+➤ YN0002: │ @nrwl/eslint-plugin-nx@npm:15.5.1 [9aa8f] doesn't provide nx (p984bc), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/jest@npm:15.5.1 doesn't provide nx (pcfd0f), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/jest@npm:15.5.1 doesn't provide typescript (p37e04), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/js@npm:15.5.1 doesn't provide nx (p821e6), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/linter@npm:15.5.1 [81eed] doesn't provide nx (p2b55f), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/linter@npm:15.5.1 [81eed] doesn't provide typescript (p39bcf), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/linter@npm:15.5.1 [9aa8f] doesn't provide nx (p9212b), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/linter@npm:15.5.1 [9aa8f] doesn't provide typescript (p35e3a), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/next@npm:15.5.1 [9aa8f] doesn't provide @babel/core (p0a796), requested by @babel/plugin-proposal-decorators
+➤ YN0002: │ @nrwl/next@npm:15.5.1 [9aa8f] doesn't provide @types/node (p256b6), requested by ts-node
+➤ YN0002: │ @nrwl/next@npm:15.5.1 [9aa8f] doesn't provide nx (pcb9ad), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/next@npm:15.5.1 [9aa8f] doesn't provide typescript (peb448), requested by ts-node
+➤ YN0002: │ @nrwl/next@npm:15.5.1 [9aa8f] doesn't provide webpack (pe4d5f), requested by url-loader
+➤ YN0002: │ @nrwl/node@npm:15.5.1 doesn't provide nx (p11c92), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/react@npm:15.5.1 doesn't provide nx (p2cfa7), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/react@npm:15.5.1 doesn't provide typescript (p238d7), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/vite@npm:15.5.1 [9aa8f] doesn't provide nx (p8b4dd), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/vite@npm:15.5.1 [9aa8f] doesn't provide typescript (pd08f0), requested by @phenomnomnominal/tsquery
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide @babel/core (pf2bf7), requested by babel-loader
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide @types/node (p9ad44), requested by ts-node
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide nx (p22b87), requested by @nrwl/devkit
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide typescript (pfa8b0), requested by fork-ts-checker-webpack-plugin
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide typescript (p90f60), requested by ts-loader
+➤ YN0002: │ @nrwl/webpack@npm:15.5.1 doesn't provide typescript (p68771), requested by ts-node
+➤ YN0002: │ @open-decision/api-react-binding@workspace:packages/api/react-binding doesn't provide next (pcd9ce), requested by next-intl
+➤ YN0002: │ @open-decision/api@workspace:apps/api doesn't provide typescript (p33b94), requested by jest-mock-extended
+➤ YN0002: │ @open-decision/api@workspace:apps/api doesn't provide typescript (p70c18), requested by ts-jest
+➤ YN0002: │ @open-decision/api@workspace:apps/api doesn't provide webpack (p002b9), requested by swc-loader
+➤ YN0002: │ @open-decision/design-system@workspace:packages/design-system doesn't provide tailwindcss (pa3dfa), requested by @tailwindcss/typography
+➤ YN0002: │ @open-decision/design-system@workspace:packages/design-system doesn't provide tailwindcss (p68f6f), requested by tailwindcss-themer
+➤ YN0002: │ @open-decision/plugins-node-document@workspace:packages/plugins/node/document doesn't provide next (p45d68), requested by next-intl
+➤ YN0060: │ open-decision@workspace:. provides @nrwl/devkit (p4f347) with version 15.5.1, which doesn't satisfy what @nxext/vitest requests
+➤ YN0002: │ open-decision@workspace:. doesn't provide react (p43d27), requested by next
+➤ YN0002: │ open-decision@workspace:. doesn't provide react-dom (p25211), requested by next
+➤ YN0002: │ pizzip@npm:3.1.3 doesn't provide @babel/core (p63982), requested by @babel/eslint-parser
+➤ YN0002: │ pizzip@npm:3.1.3 doesn't provide eslint (p9ffb9), requested by @babel/eslint-parser
+➤ YN0002: │ swagger-parser@npm:10.0.2 doesn't provide openapi-types (p8111f), requested by @apidevtools/swagger-parser
+➤ YN0000: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code
+➤ YN0000: └ Completed in 0s 367ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ @next/swc-linux-x64-gnu@npm:13.1.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-769704bfb714/.yarn/releases/yarn-3.2.4.cjs:258:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-769704bfb714/.yarn/releases/yarn-3.2.4.cjs:253:90235)
+    at ClientRequest.c (/tmp/twcr-769704bfb714/.yarn/releases/yarn-3.2.4.cjs:258:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-769704bfb714/.yarn/releases/yarn-3.2.4.cjs:258:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 14s 455ms
+➤ YN0000: Failed with errors in 14s 825ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

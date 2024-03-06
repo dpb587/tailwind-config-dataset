@@ -1,0 +1,168 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/letterpad/letterpad
++ reporef=master
++ repopath=./apps/client
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/letterpad/letterpad
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-6543016cc9a8
+++ echo 'github.com/letterpad/letterpad;master;./apps/client'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/685e24b991bc
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/letterpad/letterpad/bWFzdGVyCg/Li9hcHBzL2NsaWVudAo
++ jq -nc --arg key analysis_key --arg value github.com/letterpad/letterpad/bWFzdGVyCg/Li9hcHBzL2NsaWVudAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 11df6c0dbdd47b42
++ jq -nc --arg key analysis_nonce --arg value 11df6c0dbdd47b42 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/letterpad/letterpad
++ jq -nc --arg key input_repo_name --arg value github.com/letterpad/letterpad '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/client
++ jq -nc --arg key input_repo_path --arg value ./apps/client '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:39:10Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:39:10Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-6543016cc9a8
+/tmp/twcr-6543016cc9a8 /twcr
++ pushd /tmp/twcr-6543016cc9a8
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/letterpad/letterpad.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:39:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:39:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d3bdff6c77c5a1182e8c8f6e91d9dbd370fae11f
++ jq -nc --arg key exec_repo_commit_sha --arg value d3bdff6c77c5a1182e8c8f6e91d9dbd370fae11f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 18:05:21 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T17:05:21Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T17:05:21Z '{ key: $key, value: $value }'
++ '[' -z ./apps/client ']'
++ pushd ./apps/client
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-6543016cc9a8/apps/client /tmp/twcr-6543016cc9a8 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-6543016cc9a8/apps/client
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/client '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-6543016cc9a8
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:39:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:39:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "letterpad-client",
+>>>   "author": "Abhishek Saha",
+>>>   "version": "1.5.1",
+>>>   "dependencies": {
+>>>     "config": "workspace:*"
+>>>   },
+>>>   "devDependencies": {},
+>>>   "lint-staged": {
+>>>     "*.+(js|jsx|ts|tsx)": [
+>>>       "eslint --fix"
+>>>     ],
+>>>     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+>>>       "prettier --write"
+>>>     ]
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/client '!=' ./ ']'
++ rm -f /tmp/twcr-6543016cc9a8/package.json /tmp/twcr-6543016cc9a8/package-lock.json /tmp/twcr-6543016cc9a8/pnpm-lock.yaml /tmp/twcr-6543016cc9a8/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-6543016cc9a8 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-6543016cc9a8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm ERR! code EUNSUPPORTEDPROTOCOL
+npm ERR! Unsupported URL Type "workspace:": workspace:*
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T03_39_12_529Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T03:39:12Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T03:39:12Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at d3bdff6 chore: handle membership hooks
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-6543016cc9a8 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-6543016cc9a8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code EUNSUPPORTEDPROTOCOL
+npm ERR! Unsupported URL Type "workspace:": workspace:*
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T03_39_13_283Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

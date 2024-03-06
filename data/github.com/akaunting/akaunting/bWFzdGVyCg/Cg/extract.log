@@ -1,0 +1,285 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/akaunting/akaunting
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/akaunting/akaunting
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-6618db7dbf42
+++ echo 'github.com/akaunting/akaunting;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a17472c13a70
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/akaunting/akaunting/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/akaunting/akaunting/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a0764f9797257ef6
++ jq -nc --arg key analysis_nonce --arg value a0764f9797257ef6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/akaunting/akaunting
++ jq -nc --arg key input_repo_name --arg value github.com/akaunting/akaunting '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:42:16Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:42:16Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-6618db7dbf42
+/tmp/twcr-6618db7dbf42 /twcr
++ pushd /tmp/twcr-6618db7dbf42
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/akaunting/akaunting.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:42:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:42:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 476612d6690ad175f36160cdfba8304e8705bb46
++ jq -nc --arg key exec_repo_commit_sha --arg value 476612d6690ad175f36160cdfba8304e8705bb46 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 10:27:27 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T07:27:27Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T07:27:27Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-6618db7dbf42 /tmp/twcr-6618db7dbf42 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-6618db7dbf42
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:42:19Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:42:19Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "akaunting",
+>>>   "version": "3.0.13",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.3.6"
+>>>   },
+>>>   "devDependencies": {},
+>>>   "overrides": {
+>>>     "lodash": "^4.17.21",
+>>>     "moment": ">=2.29.4",
+>>>     "jsonwebtoken": "^9.0.2",
+>>>     "ws": "^8.14.2",
+>>>     "postcss": "^8.4.32",
+>>>     "ajv": "^6.12.6"
+>>>   },
+>>>   "browserslist": [
+>>>     "> 1%",
+>>>     "last 2 versions",
+>>>     "not ie <= 10"
+>>>   ],
+>>>   "author": "Akaunting Inc <info@akaunting.com>",
+>>>   "description": "Free Accounting Software"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-6618db7dbf42 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-6618db7dbf42
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 4s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@tailwindcss/forms'
+Require stack:
+- /tmp/twcr-6618db7dbf42/presets.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-6618db7dbf42/presets.js:505:9
+    at evalModule (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-6618db7dbf42/tailwind.config.js:3:9
+    at evalModule (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-6618db7dbf42/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-6618db7dbf42/presets.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:42:23Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:42:23Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 476612d Merge pull request #3143 from CihanSenturk/fix-override-declare-class-isssue
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-6618db7dbf42 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-6618db7dbf42
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'amqplib@0.5.2',
+npm WARN EBADENGINE   required: { node: '>=0.8 <=9' },
+npm WARN EBADENGINE   current: { node: 'v21.6.2', npm: '10.2.4' }
+npm WARN EBADENGINE }
+npm WARN deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+(node:140) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:140) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:140) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+(node:140) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:140) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+npm WARN deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+npm WARN deprecated @themesberg/flowbite@1.3.0: WARNING: This project has been renamed to flowbite. Install using flowbite instead.
+npm WARN deprecated popper.js@1.16.1: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+npm WARN deprecated consolidate@0.15.1: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
+npm WARN deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 1599 packages, and audited 1600 packages in 8m
+
+247 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (4 moderate, 4 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T20:49:57Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T20:49:57Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:49:57Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:49:57Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

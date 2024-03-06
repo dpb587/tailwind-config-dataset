@@ -1,0 +1,376 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/plushdohn/tailprops
++ reporef=main
++ repopath=./apps/website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/plushdohn/tailprops
+++ awk '{ print $1 }'
+++ cut -c1-12
+++ sha256sum
++ procdir=/tmp/twcr-db9e7982d6e1
+++ echo 'github.com/plushdohn/tailprops;main;./apps/website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e421b2850d30
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/plushdohn/tailprops/bWFpbgo/Li9hcHBzL3dlYnNpdGUK
++ jq -nc --arg key analysis_key --arg value github.com/plushdohn/tailprops/bWFpbgo/Li9hcHBzL3dlYnNpdGUK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 4717b45c2ec1ecf4
++ jq -nc --arg key analysis_nonce --arg value 4717b45c2ec1ecf4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/plushdohn/tailprops
++ jq -nc --arg key input_repo_name --arg value github.com/plushdohn/tailprops '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/website
++ jq -nc --arg key input_repo_path --arg value ./apps/website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:56:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:56:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-db9e7982d6e1
++ pushd /tmp/twcr-db9e7982d6e1
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/plushdohn/tailprops.git .
+/tmp/twcr-db9e7982d6e1 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:56:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:56:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 85e243760af4c61219475625bc2d06f45b6e777f
++ jq -nc --arg key exec_repo_commit_sha --arg value 85e243760af4c61219475625bc2d06f45b6e777f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-01 19:09:44 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-01T17:09:44Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-01T17:09:44Z '{ key: $key, value: $value }'
++ '[' -z ./apps/website ']'
++ pushd ./apps/website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-db9e7982d6e1/apps/website /tmp/twcr-db9e7982d6e1 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-db9e7982d6e1/apps/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-db9e7982d6e1
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:56:20Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:56:20Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailprops": "^0.3.0",
+>>>     "tailwindcss": "^3.2.6"
+>>>   },
+>>>   "version": null
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/website '!=' ./ ']'
++ rm -f /tmp/twcr-db9e7982d6e1/package.json /tmp/twcr-db9e7982d6e1/package-lock.json /tmp/twcr-db9e7982d6e1/pnpm-lock.yaml /tmp/twcr-db9e7982d6e1/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-db9e7982d6e1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-db9e7982d6e1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-db9e7982d6e1/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 21, reused 0, downloaded 12, added 0
+../..                                    | Progress: resolved 42, reused 0, downloaded 36, added 0
+../..                                    | Progress: resolved 58, reused 0, downloaded 50, added 0
+../..                                    | Progress: resolved 88, reused 0, downloaded 77, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 102, added 0
+../..                                    | Progress: resolved 141, reused 0, downloaded 126, added 0
+../..                                    | Progress: resolved 175, reused 0, downloaded 155, added 0
+../..                                    | Progress: resolved 202, reused 0, downloaded 175, added 0
+../..                                    | Progress: resolved 228, reused 0, downloaded 195, added 0
+../..                                    | Progress: resolved 238, reused 0, downloaded 204, added 0
+../..                                    | Progress: resolved 269, reused 0, downloaded 230, added 0
+../..                                    | Progress: resolved 306, reused 0, downloaded 249, added 0
+../..                                    | Progress: resolved 333, reused 0, downloaded 277, added 0
+../..                                    | Progress: resolved 390, reused 0, downloaded 311, added 0
+../..                                    | Progress: resolved 411, reused 0, downloaded 327, added 0
+../..                                    | Progress: resolved 428, reused 0, downloaded 341, added 0
+../..                                    | Progress: resolved 453, reused 0, downloaded 365, added 0
+../..                                    | Progress: resolved 479, reused 0, downloaded 388, added 0
+../..                                    | Progress: resolved 507, reused 0, downloaded 419, added 0
+../..                                    | Progress: resolved 538, reused 0, downloaded 450, added 0
+../..                                    | Progress: resolved 572, reused 0, downloaded 482, added 0
+../..                                    | Progress: resolved 602, reused 0, downloaded 509, added 0
+../..                                    | Progress: resolved 631, reused 0, downloaded 534, added 0
+../..                                    | Progress: resolved 661, reused 0, downloaded 561, added 0
+../..                                    | Progress: resolved 696, reused 0, downloaded 595, added 0
+../..                                    | Progress: resolved 728, reused 0, downloaded 627, added 0
+../..                                    | Progress: resolved 760, reused 0, downloaded 657, added 0
+../..                                    | Progress: resolved 790, reused 0, downloaded 688, added 0
+../..                                    | +746 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 800, reused 0, downloaded 716, added 322
+../..                                    | Progress: resolved 800, reused 0, downloaded 746, added 746, done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/website/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/website/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/tailprops/dist/cjs/cli/bin.js'
+
+dependencies:
++ @tailwindcss/typography 0.5.10
++ tailprops 0.3.0 <- ../../packages/core
++ tailwindcss 3.4.1
+
+Done in 33.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:450
+      const err = new Error(
+                  ^
+
+Error: Cannot find module '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/dist/cjs/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:450:19)
+    at Module._findPath (node:internal/modules/cjs/loader:720:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-db9e7982d6e1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-db9e7982d6e1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-db9e7982d6e1/apps/website/tailwind.config.js:1:102
+    at evalModule (/tmp/twcr-db9e7982d6e1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-db9e7982d6e1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-db9e7982d6e1/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30 {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/package.json',
+  requestPath: 'tailprops'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:56:54Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:56:54Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 85e2437 fix: generate optional paths too
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-db9e7982d6e1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-db9e7982d6e1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-db9e7982d6e1/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-db9e7982d6e1/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 9 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 37, reused 8, downloaded 29, added 0
+../..                                    | Progress: resolved 63, reused 8, downloaded 55, added 0
+../..                                    | Progress: resolved 221, reused 125, downloaded 89, added 0
+../..                                    | Progress: resolved 288, reused 144, downloaded 137, added 0
+../..                                    | Progress: resolved 349, reused 146, downloaded 196, added 0
+../..                                    | Progress: resolved 426, reused 171, downloaded 248, added 0
+../..                                    | Progress: resolved 531, reused 202, downloaded 290, added 0
+../..                                    | Progress: resolved 678, reused 298, downloaded 342, added 0
+../..                                    | Progress: resolved 745, reused 313, downloaded 394, added 0
+../..                                    | Progress: resolved 831, reused 349, downloaded 444, added 0
+../..                                    | Progress: resolved 903, reused 366, downloaded 499, added 0
+../..                                    | Progress: resolved 979, reused 385, downloaded 556, added 0
+../..                                    | Progress: resolved 1036, reused 391, downloaded 607, added 0
+../..                                    | Progress: resolved 1067, reused 394, downloaded 635, added 0
+../..                                    | +654 -370 +++++++++++++++++----------
+../..                                    | Progress: resolved 1067, reused 394, downloaded 635, added 1
+../..                                    | Progress: resolved 1067, reused 394, downloaded 635, added 654, done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/@sveltejs/kit postinstall: Error: ENOTDIR: not a directory, chdir '/tmp/twcr-db9e7982d6e1/apps/examples/astro/.vscode' -> '/tmp/twcr-db9e7982d6e1/apps/examples/astro/.vscode/launch.json'
+.../node_modules/@sveltejs/kit postinstall:     at wrappedChdir (node:internal/bootstrap/switches/does_own_process_state:124:14)
+.../node_modules/@sveltejs/kit postinstall:     at process.chdir (node:internal/worker:110:5)
+.../node_modules/@sveltejs/kit postinstall:     at file:///tmp/twcr-db9e7982d6e1/node_modules/.pnpm/@sveltejs+kit@1.5.5_svelte@3.55.1_vite@4.1.1/node_modules/@sveltejs/kit/postinstall.js:28:12
+.../node_modules/@sveltejs/kit postinstall: Done
+.../.pnpm/turbo@1.8.3/node_modules/turbo postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../.pnpm/turbo@1.8.3/node_modules/turbo postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/website/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/core/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/integrations/rollup/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/packages/integrations/webpack/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/astro/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/vite-preact/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/examples/sveltekit/node_modules/tailprops/dist/cjs/cli/bin.js'
+ WARN  Failed to create bin at /tmp/twcr-db9e7982d6e1/apps/website/node_modules/.bin/tailprops. ENOENT: no such file or directory, open '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/dist/cjs/cli/bin.js'
+
+dependencies:
++ @mdx-js/loader 2.3.0
++ @mdx-js/react 2.3.0
++ @next/font 13.1.4
++ @next/mdx 13.1.6
+- @tailwindcss/typography
++ @tailwindcss/typography 0.5.9
++ @types/node 18.13.0
++ @types/react 18.0.27
++ @types/react-dom 18.0.10
++ @types/react-syntax-highlighter 15.5.6
++ autoprefixer 10.4.13
++ clsx 1.2.1
++ eslint 8.32.0
++ eslint-config-next 13.1.5
++ gray-matter 4.0.3
++ highlight.js 11.7.0
++ next 13.1.4
++ next-mdx-remote 4.3.0
++ postcss 8.4.21 (8.4.35 is available)
++ react 18.2.0
++ react-dom 18.2.0
++ react-highlight 0.15.0
++ react-markdown 8.0.5
++ react-syntax-highlighter 15.5.0
++ tailprops 0.3.0 <- ../../packages/core
++ tailprops-next 0.2.2 <- ../../packages/integrations/next
+- tailwindcss
++ tailwindcss 3.2.6
++ typescript 4.9.5
++ webpack 5.75.0
++ zustand 4.3.4
+
+Done in 19.4s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:458
+      throw err;
+      ^
+
+Error: Cannot find module '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/dist/cjs/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:450:19)
+    at Module._findPath (node:internal/modules/cjs/loader:720:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-db9e7982d6e1/apps/website/tailwind.config.js:1:27)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-db9e7982d6e1/apps/website/node_modules/tailprops/package.json',
+  requestPath: 'tailprops'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

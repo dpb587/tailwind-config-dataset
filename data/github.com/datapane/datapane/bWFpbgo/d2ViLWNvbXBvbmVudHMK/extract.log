@@ -1,0 +1,218 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/datapane/datapane
++ reporef=main
++ repopath=./web-components
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/datapane/datapane
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a73ce0679f00
+++ echo 'github.com/datapane/datapane;main;./web-components'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4bc87ad0a99e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/datapane/datapane/bWFpbgo/Li93ZWItY29tcG9uZW50cwo
++ jq -nc --arg key analysis_key --arg value github.com/datapane/datapane/bWFpbgo/Li93ZWItY29tcG9uZW50cwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f3f720e4e3fef4a1
++ jq -nc --arg key analysis_nonce --arg value f3f720e4e3fef4a1 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/datapane/datapane
++ jq -nc --arg key input_repo_name --arg value github.com/datapane/datapane '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./web-components
++ jq -nc --arg key input_repo_path --arg value ./web-components '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:09:05Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:09:05Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a73ce0679f00
++ pushd /tmp/twcr-a73ce0679f00
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/datapane/datapane.git .
+/tmp/twcr-a73ce0679f00 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:09:07Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:09:07Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ae0e2cb2930d1b426b8a048e280f6b1817abd339
++ jq -nc --arg key exec_repo_commit_sha --arg value ae0e2cb2930d1b426b8a048e280f6b1817abd339 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-07 13:44:00 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-07T13:44:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-07T13:44:00Z '{ key: $key, value: $value }'
++ '[' -z ./web-components ']'
++ pushd ./web-components
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-a73ce0679f00/web-components /tmp/twcr-a73ce0679f00 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a73ce0679f00/web-components
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./web-components '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a73ce0679f00
+grep: /tmp/twcr-a73ce0679f00/package.json: No such file or directory
+grep: /tmp/twcr-a73ce0679f00/package.json: No such file or directory
+grep: /tmp/twcr-a73ce0679f00/package.json: No such file or directory
+/twcr/worker/../worker/pm-detect.sh: line 17: /tmp/twcr-a73ce0679f00/package.json: No such file or directory
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:09:07Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:09:07Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "datapane-next",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "engines": {
+>>>     "node": ">=16.13.0 <17",
+>>>     "npm": ">=8.1 <9"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./web-components '!=' ./ ']'
++ rm -f /tmp/twcr-a73ce0679f00/package.json /tmp/twcr-a73ce0679f00/package-lock.json /tmp/twcr-a73ce0679f00/pnpm-lock.yaml /tmp/twcr-a73ce0679f00/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-a73ce0679f00 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-a73ce0679f00
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: datapane-next@0.0.0
+npm ERR! notsup Not compatible with your version of node/npm: datapane-next@0.0.0
+npm ERR! notsup Required: {"node":">=16.13.0 <17","npm":">=8.1 <9"}
+npm ERR! notsup Actual:   {"npm":"10.2.4","node":"v21.6.2"}
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T03_09_07_852Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T03:09:11Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T03:09:11Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at ae0e2cb Bump version: 0.16.7 -> 0.17.0
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-a73ce0679f00 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-a73ce0679f00
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: react-inspector@5.1.1
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   peer react@">=16" from @mdx-js/react@2.2.1
+npm WARN   node_modules/@mdx-js/react
+npm WARN     dev @mdx-js/react@"^2.1.5" from the root project
+npm WARN   26 more (@storybook/addon-actions, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@"^16.8.4 || ^17.0.0" from react-inspector@5.1.1
+npm WARN node_modules/@storybook/addon-actions/node_modules/react-inspector
+npm WARN   react-inspector@"^5.1.0" from @storybook/addon-actions@6.5.15
+npm WARN   node_modules/@storybook/addon-actions
+npm WARN 
+npm WARN Conflicting peer dependency: react@17.0.2
+npm WARN node_modules/react
+npm WARN   peer react@"^16.8.4 || ^17.0.0" from react-inspector@5.1.1
+npm WARN   node_modules/@storybook/addon-actions/node_modules/react-inspector
+npm WARN     react-inspector@"^5.1.0" from @storybook/addon-actions@6.5.15
+npm WARN     node_modules/@storybook/addon-actions
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: @mdx-js/react@1.6.22
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   peer react@">=16" from @mdx-js/react@2.2.1
+npm WARN   node_modules/@mdx-js/react
+npm WARN     dev @mdx-js/react@"^2.1.5" from the root project
+npm WARN   26 more (@storybook/addon-actions, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@"^16.13.1 || ^17.0.0" from @mdx-js/react@1.6.22
+npm WARN node_modules/@storybook/addon-docs/node_modules/@mdx-js/react
+npm WARN   @mdx-js/react@"^1.6.22" from @storybook/addon-docs@6.5.15
+npm WARN   node_modules/@storybook/addon-docs
+npm WARN 
+npm WARN Conflicting peer dependency: react@17.0.2
+npm WARN node_modules/react
+npm WARN   peer react@"^16.13.1 || ^17.0.0" from @mdx-js/react@1.6.22
+npm WARN   node_modules/@storybook/addon-docs/node_modules/@mdx-js/react
+npm WARN     @mdx-js/react@"^1.6.22" from @storybook/addon-docs@6.5.15
+npm WARN     node_modules/@storybook/addon-docs
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: datapane-next@0.0.0
+npm ERR! notsup Not compatible with your version of node/npm: datapane-next@0.0.0
+npm ERR! notsup Required: {"node":">=16.13.0 <17","npm":">=8.1 <9"}
+npm ERR! notsup Actual:   {"npm":"10.2.4","node":"v21.6.2"}
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-04T03_09_11_774Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,274 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/oneezy/monorepo
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/oneezy/monorepo
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c1d4561d063d
+++ echo 'github.com/oneezy/monorepo;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2192d5f5b3ce
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/oneezy/monorepo/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/oneezy/monorepo/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d3564e34ecd668e1
++ jq -nc --arg key analysis_nonce --arg value d3564e34ecd668e1 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/oneezy/monorepo
++ jq -nc --arg key input_repo_name --arg value github.com/oneezy/monorepo '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:54:17Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:54:17Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c1d4561d063d
++ pushd /tmp/twcr-c1d4561d063d
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/oneezy/monorepo.git .
+/tmp/twcr-c1d4561d063d /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:54:18Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:54:18Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha af4129d9b8b363f8be03c0029d5c9bd850e9646a
++ jq -nc --arg key exec_repo_commit_sha --arg value af4129d9b8b363f8be03c0029d5c9bd850e9646a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-12-08 06:08:19 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-12-08T12:08:19Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-12-08T12:08:19Z '{ key: $key, value: $value }'
+/tmp/twcr-c1d4561d063d/apps/docs /tmp/twcr-c1d4561d063d /twcr
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c1d4561d063d/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c1d4561d063d
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:54:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:54:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@apps/docs",
+>>>   "description": "",
+>>>   "author": "Scavenger Dev Team",
+>>>   "version": "0.0.0",
+>>>   "inherits": [
+>>>     "@packages/dependencies/package.svelte.json",
+>>>     "@packages/dependencies/package.shared.json"
+>>>   ],
+>>>   "dependencies": {
+>>>     "@packages/config": "workspace:*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "type": "module"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-c1d4561d063d/package.json /tmp/twcr-c1d4561d063d/package-lock.json /tmp/twcr-c1d4561d063d/pnpm-lock.yaml /tmp/twcr-c1d4561d063d/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-c1d4561d063d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-c1d4561d063d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-c1d4561d063d/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 31, reused 0, downloaded 20, added 0
+../..                                    | Progress: resolved 53, reused 0, downloaded 44, added 0
+../..                                    | Progress: resolved 86, reused 0, downloaded 76, added 0
+../..                                    | Progress: resolved 118, reused 0, downloaded 103, added 0
+../..                                    | Progress: resolved 154, reused 0, downloaded 137, added 0
+../..                                    | Progress: resolved 186, reused 0, downloaded 171, added 0
+../..                                    | Progress: resolved 216, reused 0, downloaded 194, added 0
+../..                                    | Progress: resolved 254, reused 0, downloaded 228, added 0
+../..                                    | Progress: resolved 288, reused 0, downloaded 265, added 0
+../..                                    | Progress: resolved 324, reused 0, downloaded 300, added 0
+../..                                    | Progress: resolved 362, reused 0, downloaded 328, added 0
+../..                                    | Progress: resolved 406, reused 0, downloaded 354, added 0
+../..                                    | Progress: resolved 442, reused 0, downloaded 388, added 0
+../..                                    | Progress: resolved 481, reused 0, downloaded 428, added 0
+../..                                    | Progress: resolved 522, reused 0, downloaded 464, added 0
+../..                                    | Progress: resolved 553, reused 0, downloaded 504, added 0
+ WARN  5 deprecated subdependencies found: @types/sass@1.45.0, abab@2.0.6, domexception@4.0.0, shiki-es@0.1.2, sourcemap-codec@1.4.8
+../..                                    | +545 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 564, reused 0, downloaded 541, added 300
+../..                                    | Progress: resolved 564, reused 0, downloaded 542, added 545, done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+../site preinstall$ pnpm exec inherit -u
+../+app preinstall$ pnpm exec inherit -u
+../site preinstall: undefined
+../site preinstall:  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "inherit" not found
+../+app preinstall: undefined
+../+app preinstall:  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "inherit" not found
+../site preinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
+../+app preinstall: Failed
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T07:54:39Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T07:54:39Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at af4129d fix: added back lib folder doh!
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-c1d4561d063d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-c1d4561d063d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-c1d4561d063d/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-c1d4561d063d/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 220, reused 213, downloaded 5, added 0
+../..                                    | Progress: resolved 534, reused 527, downloaded 7, added 0
+../..                                    | Progress: resolved 558, reused 527, downloaded 21, added 0
+../..                                    | Progress: resolved 615, reused 533, downloaded 52, added 0
+../..                                    | Progress: resolved 651, reused 533, downloaded 77, added 0
+../..                                    | Progress: resolved 686, reused 534, downloaded 111, added 0
+../..                                    | Progress: resolved 708, reused 536, downloaded 131, added 0
+../..                                    | Progress: resolved 746, reused 536, downloaded 162, added 0
+../..                                    | Progress: resolved 776, reused 536, downloaded 193, added 0
+../..                                    | Progress: resolved 811, reused 541, downloaded 221, added 0
+../..                                    | Progress: resolved 845, reused 542, downloaded 254, added 0
+../..                                    | Progress: resolved 876, reused 542, downloaded 279, added 0
+../..                                    | Progress: resolved 907, reused 542, downloaded 314, added 0
+ WARN  5 deprecated subdependencies found: @types/sass@1.45.0, abab@2.0.6, domexception@4.0.0, shiki-es@0.1.2, sourcemap-codec@1.4.8
+../..                                    | +353   -8 ++++++++++++++++++++++++++-
+../..                                    | Progress: resolved 914, reused 542, downloaded 345, added 350
+../..                                    | Progress: resolved 914, reused 542, downloaded 345, added 353, done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+../site preinstall$ pnpm exec inherit -u
+. preinstall$ pnpm exec inherit -u
+../+app preinstall$ pnpm exec inherit -u
+../.. preinstall$ pnpm exec inherit -u
+../site preinstall: Nothing needs to be updated.
+../+app preinstall: Nothing needs to be updated.
+. preinstall: Nothing needs to be updated.
+../site preinstall: Done
+../site prepare$ svelte-kit sync
+. preinstall: Done
+../+app preinstall: Done
+. prepare$ svelte-kit sync
+../+app prepare$ svelte-kit sync
+../.. preinstall: Nothing needs to be updated.
+../.. preinstall: Done
+../.. postinstall$ pnpm exec ./.sh/symlinks.sh
+../site prepare: file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/exports/vite/dev/index.js:6
+../site prepare: import { isCSSRequest } from 'vite';
+../site prepare:          ^^^^^^^^^^^^
+../site prepare: SyntaxError: The requested module 'vite' does not provide an export named 'isCSSRequest'
+../site prepare:     at ModuleJob._instantiate (node:internal/modules/esm/module_job:132:21)
+../site prepare:     at async ModuleJob.run (node:internal/modules/esm/module_job:214:5)
+../site prepare:     at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+../site prepare:     at async load_config (file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/core/config/index.js:61:17)
+../site prepare:     at async file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/cli.js:36:19
+../site prepare: Node.js v21.6.2
+../site prepare: Failed
+ ELIFECYCLE  Command failed with exit code 1.
+. prepare: file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/exports/vite/dev/index.js:6
+. prepare: import { isCSSRequest } from 'vite';
+. prepare:          ^^^^^^^^^^^^
+. prepare: SyntaxError: The requested module 'vite' does not provide an export named 'isCSSRequest'
+. prepare:     at ModuleJob._instantiate (node:internal/modules/esm/module_job:132:21)
+. prepare:     at async ModuleJob.run (node:internal/modules/esm/module_job:214:5)
+. prepare:     at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+. prepare:     at async load_config (file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/core/config/index.js:61:17)
+. prepare:     at async file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/cli.js:36:19
+. prepare: Node.js v21.6.2
+../+app prepare: file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/exports/vite/dev/index.js:6
+../+app prepare: import { isCSSRequest } from 'vite';
+../+app prepare:          ^^^^^^^^^^^^
+../+app prepare: SyntaxError: The requested module 'vite' does not provide an export named 'isCSSRequest'
+../+app prepare:     at ModuleJob._instantiate (node:internal/modules/esm/module_job:132:21)
+../+app prepare:     at async ModuleJob.run (node:internal/modules/esm/module_job:214:5)
+../+app prepare:     at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+../+app prepare:     at async load_config (file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/core/config/index.js:61:17)
+../+app prepare:     at async file:///tmp/twcr-c1d4561d063d/node_modules/.pnpm/@sveltejs+kit@1.0.0-next.589_svelte@3.59.2_vite@3.2.8/node_modules/@sveltejs/kit/src/cli.js:36:19
+../+app prepare: Node.js v21.6.2
+. prepare: Failed
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

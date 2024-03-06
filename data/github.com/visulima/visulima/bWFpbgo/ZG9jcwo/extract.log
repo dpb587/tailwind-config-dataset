@@ -1,0 +1,733 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/visulima/visulima
++ reporef=main
++ repopath=./docs
++ grep -q '^././'
+++ echo github.com/visulima/visulima
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3934102282f3
+++ echo 'github.com/visulima/visulima;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c4b16e920e26
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/visulima/visulima/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/visulima/visulima/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c863a75a9dad1bbe
++ jq -nc --arg key analysis_nonce --arg value c863a75a9dad1bbe '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/visulima/visulima
++ jq -nc --arg key input_repo_name --arg value github.com/visulima/visulima '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T15:57:59Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T15:57:59Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3934102282f3
++ pushd /tmp/twcr-3934102282f3
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/visulima/visulima.git .
+/tmp/twcr-3934102282f3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T15:58:01Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T15:58:01Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 49b1ab0c94b1e6c272ae41e2477b064150c9ec49
++ jq -nc --arg key exec_repo_commit_sha --arg value 49b1ab0c94b1e6c272ae41e2477b064150c9ec49 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 17:48:36 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T16:48:36Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T16:48:36Z '{ key: $key, value: $value }'
+/tmp/twcr-3934102282f3/docs /tmp/twcr-3934102282f3 /twcr
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3934102282f3/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3934102282f3
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T15:58:01Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T15:58:01Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "browserslist": [
+>>>     "> 1%",
+>>>     "not edge <= 18",
+>>>     "not ie 11",
+>>>     "not op_mini all"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "anolilab": {
+>>>     "eslint-config": {
+>>>       "plugin": {
+>>>         "tsdoc": false
+>>>       },
+>>>       "warn_on_unsupported_typescript_version": false,
+>>>       "info_on_disabling_jsx_react_rule": false,
+>>>       "info_on_disabling_prettier_conflict_rule": false,
+>>>       "info_on_disabling_jsonc_sort_keys_rule": false,
+>>>       "info_on_disabling_etc_no_deprecated": false,
+>>>       "info_on_testing_library_framework": false
+>>>     }
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3934102282f3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3934102282f3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3934102282f3/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3934102282f3/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 47 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 26, reused 0, downloaded 14, added 0
+..                                       | Progress: resolved 32, reused 0, downloaded 20, added 0
+..                                       | Progress: resolved 53, reused 0, downloaded 41, added 0
+..                                       | Progress: resolved 95, reused 0, downloaded 83, added 0
+..                                       | Progress: resolved 137, reused 0, downloaded 126, added 0
+..                                       | Progress: resolved 182, reused 0, downloaded 172, added 0
+..                                       | Progress: resolved 221, reused 0, downloaded 211, added 0
+..                                       | Progress: resolved 263, reused 0, downloaded 257, added 0
+..                                       | Progress: resolved 286, reused 1, downloaded 284, added 0
+..                                       | Progress: resolved 286, reused 1, downloaded 285, added 0
+..                                       | Progress: resolved 298, reused 1, downloaded 289, added 0
+..                                       | Progress: resolved 356, reused 1, downloaded 339, added 0
+..                                       | Progress: resolved 411, reused 1, downloaded 394, added 0
+..                                       | Progress: resolved 465, reused 1, downloaded 448, added 0
+..                                       | Progress: resolved 526, reused 1, downloaded 509, added 0
+..                                       | Progress: resolved 591, reused 1, downloaded 574, added 0
+..                                       | Progress: resolved 660, reused 1, downloaded 643, added 0
+..                                       | Progress: resolved 729, reused 1, downloaded 712, added 0
+..                                       | Progress: resolved 793, reused 1, downloaded 776, added 0
+..                                       | Progress: resolved 859, reused 1, downloaded 842, added 0
+..                                       | Progress: resolved 915, reused 1, downloaded 898, added 0
+..                                       | Progress: resolved 979, reused 1, downloaded 962, added 0
+..                                       | Progress: resolved 1041, reused 1, downloaded 1024, added 0
+..                                       | Progress: resolved 1105, reused 1, downloaded 1088, added 0
+..                                       | Progress: resolved 1170, reused 1, downloaded 1153, added 0
+..                                       | Progress: resolved 1238, reused 1, downloaded 1221, added 0
+..                                       | Progress: resolved 1293, reused 1, downloaded 1276, added 0
+..                                       | Progress: resolved 1359, reused 1, downloaded 1343, added 0
+..                                       | Progress: resolved 1420, reused 1, downloaded 1404, added 0
+..                                       | Progress: resolved 1521, reused 1, downloaded 1445, added 0
+..                                       | Progress: resolved 1540, reused 1, downloaded 1451, added 0
+..                                       | Progress: resolved 1552, reused 1, downloaded 1455, added 0
+..                                       | Progress: resolved 1576, reused 1, downloaded 1457, added 0
+..                                       | Progress: resolved 1607, reused 1, downloaded 1457, added 0
+..                                       | Progress: resolved 1618, reused 1, downloaded 1465, added 0
+..                                       | Progress: resolved 1638, reused 1, downloaded 1485, added 0
+..                                       | Progress: resolved 1664, reused 1, downloaded 1511, added 0
+..                                       | Progress: resolved 1687, reused 1, downloaded 1534, added 0
+..                                       | Progress: resolved 1712, reused 1, downloaded 1559, added 0
+..                                       | Progress: resolved 1742, reused 1, downloaded 1590, added 0
+..                                       | Progress: resolved 1776, reused 1, downloaded 1624, added 0
+..                                       | Progress: resolved 1783, reused 1, downloaded 1631, added 0
+..                                       | Progress: resolved 1804, reused 1, downloaded 1652, added 0
+..                                       | Progress: resolved 1814, reused 1, downloaded 1662, added 0
+..                                       | Progress: resolved 1814, reused 1, downloaded 1663, added 0
+..                                       | Progress: resolved 1818, reused 1, downloaded 1668, added 0
+..                                       | Progress: resolved 1819, reused 1, downloaded 1669, added 0
+..                                       | Progress: resolved 1819, reused 1, downloaded 1670, added 0
+..                                       | Progress: resolved 1821, reused 1, downloaded 1671, added 0
+..                                       | Progress: resolved 1822, reused 1, downloaded 1672, added 0
+..                                       | Progress: resolved 1825, reused 1, downloaded 1675, added 0
+..                                       | Progress: resolved 1827, reused 1, downloaded 1677, added 0
+..                                       | Progress: resolved 1827, reused 1, downloaded 1678, added 0
+..                                       | Progress: resolved 1830, reused 1, downloaded 1680, added 0
+..                                       | Progress: resolved 1832, reused 1, downloaded 1683, added 0
+..                                       | Progress: resolved 1833, reused 1, downloaded 1686, added 0
+..                                       | Progress: resolved 1844, reused 1, downloaded 1697, added 0
+..                                       | Progress: resolved 1847, reused 1, downloaded 1701, added 0
+..                                       | Progress: resolved 1860, reused 1, downloaded 1715, added 0
+..                                       | Progress: resolved 1871, reused 1, downloaded 1726, added 0
+..                                       | Progress: resolved 1882, reused 1, downloaded 1737, added 0
+..                                       | Progress: resolved 1895, reused 1, downloaded 1750, added 0
+..                                       | Progress: resolved 1897, reused 1, downloaded 1753, added 0
+..                                       | Progress: resolved 1898, reused 1, downloaded 1754, added 0
+..                                       | Progress: resolved 1903, reused 1, downloaded 1761, added 0
+..                                       | Progress: resolved 1924, reused 1, downloaded 1783, added 0
+..                                       | Progress: resolved 1962, reused 1, downloaded 1821, added 0
+..                                       | Progress: resolved 1994, reused 1, downloaded 1853, added 0
+..                                       | Progress: resolved 2001, reused 1, downloaded 1860, added 0
+..                                       | Progress: resolved 2006, reused 1, downloaded 1865, added 0
+..                                       | Progress: resolved 2053, reused 1, downloaded 1912, added 0
+..                                       | Progress: resolved 2097, reused 1, downloaded 1947, added 0
+..                                       | Progress: resolved 2132, reused 1, downloaded 1982, added 0
+..                                       | Progress: resolved 2181, reused 1, downloaded 2031, added 0
+..                                       | Progress: resolved 2233, reused 1, downloaded 2083, added 0
+..                                       | Progress: resolved 2277, reused 1, downloaded 2127, added 0
+..                                       | Progress: resolved 2321, reused 1, downloaded 2171, added 0
+..                                       | Progress: resolved 2372, reused 1, downloaded 2222, added 0
+..                                       | Progress: resolved 2414, reused 1, downloaded 2264, added 0
+..                                       | Progress: resolved 2433, reused 1, downloaded 2282, added 0
+..                                       | Progress: resolved 2481, reused 1, downloaded 2331, added 0
+..                                       | Progress: resolved 2529, reused 1, downloaded 2379, added 0
+..                                       | Progress: resolved 2556, reused 1, downloaded 2406, added 0
+..                                       | Progress: resolved 2574, reused 1, downloaded 2416, added 0
+..                                       | Progress: resolved 2612, reused 1, downloaded 2454, added 0
+..                                       | Progress: resolved 2670, reused 1, downloaded 2513, added 0
+..                                       | Progress: resolved 2729, reused 1, downloaded 2572, added 0
+..                                       | Progress: resolved 2774, reused 1, downloaded 2619, added 0
+..                                       | Progress: resolved 2830, reused 1, downloaded 2675, added 0
+..                                       | Progress: resolved 2882, reused 1, downloaded 2727, added 0
+..                                       | Progress: resolved 2931, reused 1, downloaded 2776, added 0
+..                                       | Progress: resolved 2984, reused 1, downloaded 2829, added 0
+..                                       | Progress: resolved 3032, reused 1, downloaded 2877, added 0
+..                                       | Progress: resolved 3091, reused 1, downloaded 2936, added 0
+..                                       | Progress: resolved 3148, reused 1, downloaded 2993, added 0
+..                                       | Progress: resolved 3202, reused 1, downloaded 3048, added 0
+..                                       | Progress: resolved 3254, reused 1, downloaded 3100, added 0
+..                                       | Progress: resolved 3312, reused 1, downloaded 3158, added 0
+..                                       | Progress: resolved 3373, reused 1, downloaded 3219, added 0
+..                                       | Progress: resolved 3384, reused 1, downloaded 3230, added 0
+ WARN  GET https://registry.npmjs.org/@swagger-api/apidom-ns-openapi-3-1/-/apidom-ns-openapi-3-1-0.75.0.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/@swagger-api/apidom-reference/-/apidom-reference-0.75.0.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.8.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/fast-json-patch/-/fast-json-patch-3.1.1.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/form-data-encoder/-/form-data-encoder-1.9.0.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+..                                       | Progress: resolved 3384, reused 1, downloaded 3231, added 0
+..                                       | Progress: resolved 3413, reused 1, downloaded 3258, added 0
+ WARN  6 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, is-accessor-descriptor@1.0.0, is-data-descriptor@1.0.0, read-pkg-up@11.0.0, txt-ast-traverse@1.2.1
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 0
+..                                       |    +3309 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 247
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 740
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 866
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 1464
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 2002
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 2596
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 3308
+..                                       | Progress: resolved 3432, reused 1, downloaded 3278, added 3309, done
+.../core-js@3.33.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../core-js@3.33.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.33.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.33.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.33.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.33.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.33.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.33.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../core-js@3.33.0/node_modules/core-js postinstall: Done
+.../@anolilab/prettier-config postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../@anolilab/prettier-config postinstall: Configuring @anolilab/prettier-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+prettier-config@5.0.14_prettier@3.2.5/node_modules/@anolilab/prettier-config 
+.../@anolilab/prettier-config postinstall: 😎  Everything went well, have fun!
+.../@anolilab/prettier-config postinstall: Done
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../.pnpm/yarn@1.22.21/node_modules/yarn preinstall$ :; (node ./preinstall.js > /dev/null 2>&1 || true)
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+.../.pnpm/yarn@1.22.21/node_modules/yarn preinstall: Done
+.../@anolilab/textlint-config postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../node_modules/@prisma/engines postinstall: (node:222) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../@anolilab/textlint-config postinstall: Configuring @anolilab/textlint-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+textlint-config@8.0.16_textlint@14.0.3/node_modules/@anolilab/textlint-config 
+.../@anolilab/textlint-config postinstall: 😎  Everything went well, have fun!
+.../@anolilab/textlint-config postinstall: Done
+.../node_modules/playwright install$ node install.js
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/playwright install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/playwright install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/tree-sitter-json install$ node-gyp rebuild
+.../node_modules/tree-sitter-yaml install$ node-gyp rebuild
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../prisma@4.16.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../node_modules/tree-sitter-json install: gyp info it worked if it ends with ok
+.../node_modules/tree-sitter-json install: gyp info using node-gyp@9.4.1
+.../node_modules/tree-sitter-json install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/tree-sitter-yaml install: gyp info it worked if it ends with ok
+.../node_modules/tree-sitter-yaml install: gyp info using node-gyp@9.4.1
+.../node_modules/tree-sitter-yaml install: gyp info using node@21.6.2 | linux | x64
+.../esbuild@0.19.8/node_modules/esbuild postinstall$ node install.js
+.../prisma@4.16.2/node_modules/prisma preinstall: Done
+.../node_modules/lightningcss-cli postinstall$ node postinstall.js
+.../node_modules/tree-sitter-yaml install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/tree-sitter-json install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../esbuild@0.19.8/node_modules/esbuild postinstall: Done
+.../node_modules/lightningcss-cli postinstall: Done
+.../node_modules/dtrace-provider install$ node-gyp rebuild || node suppress-error.js
+.../node_modules/tree-sitter-json install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/tree-sitter-yaml install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/dtrace-provider install: gyp info it worked if it ends with ok
+.../node_modules/dtrace-provider install: gyp info using node-gyp@9.4.1
+.../node_modules/dtrace-provider install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/dtrace-provider install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/tree-sitter-yaml install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/tree-sitter-json install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@swc/core postinstall: Done
+.../node_modules/@pnpm/exe preinstall$ node setup.js
+.../node_modules/@pnpm/exe preinstall: Done
+.../node_modules/tree-sitter-json install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/tree-sitter-yaml install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/tree-sitter-json install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/tree-sitter-json install: gyp info spawn /usr/bin/python3
+.../node_modules/tree-sitter-json install: gyp info spawn args [
+.../node_modules/tree-sitter-json install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/tree-sitter-json install: gyp info spawn args   'binding.gyp',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-f',
+.../node_modules/tree-sitter-json install: gyp info spawn args   'make',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-json@0.20.0/node_modules/tree-sitter-json/build/config.gypi',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-json@0.20.0/node_modules/tree-sitter-json',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '--depth=.',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '--no-parallel',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '--generator-output',
+.../node_modules/tree-sitter-json install: gyp info spawn args   'build',
+.../node_modules/tree-sitter-json install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/tree-sitter-json install: gyp info spawn args ]
+.../node_modules/tree-sitter-yaml install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/tree-sitter-yaml install: gyp info spawn /usr/bin/python3
+.../node_modules/tree-sitter-yaml install: gyp info spawn args [
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   'binding.gyp',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-f',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   'make',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-yaml@0.5.0/node_modules/tree-sitter-yaml/build/config.gypi',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-yaml@0.5.0/node_modules/tree-sitter-yaml',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '--depth=.',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '--no-parallel',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '--generator-output',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   'build',
+.../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/tree-sitter-yaml install: gyp info spawn args ]
+.../node_modules/dtrace-provider install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/dtrace-provider install: gyp info spawn /usr/bin/python3
+.../node_modules/dtrace-provider install: gyp info spawn args [
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/dtrace-provider install: gyp info spawn args   'binding.gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-f',
+.../node_modules/dtrace-provider install: gyp info spawn args   'make',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/tmp/twcr-3934102282f3/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build/config.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-I',
+.../node_modules/dtrace-provider install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3934102282f3/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--depth=.',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--no-parallel',
+.../node_modules/dtrace-provider install: gyp info spawn args   '--generator-output',
+.../node_modules/dtrace-provider install: gyp info spawn args   'build',
+.../node_modules/dtrace-provider install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/dtrace-provider install: gyp info spawn args ]
+.../node_modules/tree-sitter-yaml install: gyp info spawn make
+.../node_modules/tree-sitter-json install: gyp info spawn make
+.../node_modules/tree-sitter-json install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/tree-sitter-yaml install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/tree-sitter-yaml install: make: Entering directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-yaml@0.5.0/node_modules/tree-sitter-yaml/build'
+.../node_modules/tree-sitter-json install: make: Entering directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-json@0.20.0/node_modules/tree-sitter-json/build'
+.../node_modules/tree-sitter-json install:   CC(target) Release/obj.target/tree_sitter_json_binding/src/parser.o
+.../node_modules/tree-sitter-yaml install:   CXX(target) Release/obj.target/tree_sitter_yaml_binding/bindings/node/binding.o
+.../node_modules/dtrace-provider install: gyp info spawn make
+.../node_modules/dtrace-provider install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/dtrace-provider install: make: Entering directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install:   TOUCH Release/obj.target/DTraceProviderStub.stamp
+.../node_modules/dtrace-provider install: make: Leaving directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/dtrace-provider@0.8.8/node_modules/dtrace-provider/build'
+.../node_modules/dtrace-provider install: gyp info ok 
+.../node_modules/dtrace-provider install: Done
+.../node_modules/tree-sitter-json install:   CXX(target) Release/obj.target/tree_sitter_json_binding/bindings/node/binding.o
+.../node_modules/tree-sitter-yaml install: In file included from ../bindings/node/binding.cc:2:
+.../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/tree-sitter-yaml install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/tree-sitter-yaml install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/tree-sitter-yaml install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/tree-sitter-yaml install:       |   ^~~~~~~~~~~~~
+.../node_modules/tree-sitter-yaml install: ../bindings/node/binding.cc:26:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/tree-sitter-yaml install:    26 | NODE_MODULE(tree_sitter_yaml_binding, Init)
+.../node_modules/tree-sitter-yaml install:       | ^~~~~~~~~~~
+.../node_modules/tree-sitter-json install: In file included from ../bindings/node/binding.cc:2:
+.../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/tree-sitter-json install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/tree-sitter-json install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/tree-sitter-json install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/tree-sitter-json install:       |   ^~~~~~~~~~~~~
+.../node_modules/tree-sitter-json install: ../bindings/node/binding.cc:26:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/tree-sitter-json install:    26 | NODE_MODULE(tree_sitter_json_binding, Init)
+.../node_modules/tree-sitter-json install:       | ^~~~~~~~~~~
+.../node_modules/tree-sitter-yaml install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../node_modules/tree-sitter-yaml install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../node_modules/tree-sitter-yaml install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/node.h:73:
+.../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h: In instantiation of 'v8::Local<T>::Local(v8::Local<S>) [with S = v8::Data; T = v8::Value]':
+.../node_modules/tree-sitter-yaml install: ../../../../nan@2.17.0/node_modules/nan/nan_callbacks_12_inl.h:175:53:   required from here
+.../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: error: static assertion failed: type check
+.../node_modules/tree-sitter-yaml install:   253 |     static_assert(std::is_base_of<T, S>::value, "type check");
+.../node_modules/tree-sitter-yaml install:       |                                          ^~~~~
+.../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: note: 'std::integral_constant<bool, false>::value' evaluates to false
+.../node_modules/tree-sitter-json install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../node_modules/tree-sitter-json install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../node_modules/tree-sitter-json install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/node.h:73:
+.../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h: In instantiation of 'v8::Local<T>::Local(v8::Local<S>) [with S = v8::Data; T = v8::Value]':
+.../node_modules/tree-sitter-json install: ../../../../nan@2.17.0/node_modules/nan/nan_callbacks_12_inl.h:175:53:   required from here
+.../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: error: static assertion failed: type check
+.../node_modules/tree-sitter-json install:   253 |     static_assert(std::is_base_of<T, S>::value, "type check");
+.../node_modules/tree-sitter-json install:       |                                          ^~~~~
+.../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: note: 'std::integral_constant<bool, false>::value' evaluates to false
+.../node_modules/tree-sitter-json install: make: *** [tree_sitter_json_binding.target.mk:113: Release/obj.target/tree_sitter_json_binding/bindings/node/binding.o] Error 1
+.../node_modules/tree-sitter-json install: make: Leaving directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-json@0.20.0/node_modules/tree-sitter-json/build'
+.../node_modules/tree-sitter-yaml install: make: *** [tree_sitter_yaml_binding.target.mk:117: Release/obj.target/tree_sitter_yaml_binding/bindings/node/binding.o] Error 1
+.../node_modules/tree-sitter-yaml install: make: Leaving directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-yaml@0.5.0/node_modules/tree-sitter-yaml/build'
+.../node_modules/tree-sitter-yaml install: gyp ERR! build error 
+.../node_modules/tree-sitter-json install: gyp ERR! build error 
+.../node_modules/tree-sitter-json install: gyp ERR! stack Error: `make` failed with exit code: 2
+.../node_modules/tree-sitter-yaml install: gyp ERR! stack Error: `make` failed with exit code: 2
+.../node_modules/tree-sitter-yaml install: gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/lib/build.js:203:23)
+.../node_modules/tree-sitter-yaml install: gyp ERR! stack     at ChildProcess.emit (node:events:519:28)
+.../node_modules/tree-sitter-yaml install: gyp ERR! stack     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+.../node_modules/tree-sitter-json install: gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/lib/build.js:203:23)
+.../node_modules/tree-sitter-json install: gyp ERR! stack     at ChildProcess.emit (node:events:519:28)
+.../node_modules/tree-sitter-json install: gyp ERR! stack     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+.../node_modules/tree-sitter-json install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/tree-sitter-json install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/tree-sitter-json install: gyp ERR! cwd /tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-json@0.20.0/node_modules/tree-sitter-json
+.../node_modules/tree-sitter-json install: gyp ERR! node -v v21.6.2
+.../node_modules/tree-sitter-json install: gyp ERR! node-gyp -v v9.4.1
+.../node_modules/tree-sitter-json install: gyp ERR! not ok 
+.../node_modules/tree-sitter-yaml install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/tree-sitter-yaml install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/tree-sitter-yaml install: gyp ERR! cwd /tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter-yaml@0.5.0/node_modules/tree-sitter-yaml
+.../node_modules/tree-sitter-yaml install: gyp ERR! node -v v21.6.2
+.../node_modules/tree-sitter-yaml install: gyp ERR! node-gyp -v v9.4.1
+.../node_modules/tree-sitter-yaml install: gyp ERR! not ok 
+.../node_modules/tree-sitter-json install: Failed
+.../node_modules/tree-sitter-yaml install: Failed
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../node_modules/tree-sitter install$ prebuild-install || node-gyp rebuild
+.../node_modules/tree-sitter install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/tree-sitter install: gyp info it worked if it ends with ok
+.../node_modules/tree-sitter install: gyp info using node-gyp@9.4.1
+.../node_modules/tree-sitter install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/tree-sitter install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/tree-sitter install: gyp info spawn /usr/bin/python3
+.../node_modules/tree-sitter install: gyp info spawn args [
+.../node_modules/tree-sitter install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/tree-sitter install: gyp info spawn args   'binding.gyp',
+.../node_modules/tree-sitter install: gyp info spawn args   '-f',
+.../node_modules/tree-sitter install: gyp info spawn args   'make',
+.../node_modules/tree-sitter install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter install: gyp info spawn args   '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter@0.20.4/node_modules/tree-sitter/build/config.gypi',
+.../node_modules/tree-sitter install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/tree-sitter install: gyp info spawn args   '-I',
+.../node_modules/tree-sitter install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter@0.20.4/node_modules/tree-sitter',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/tree-sitter install: gyp info spawn args   '--depth=.',
+.../node_modules/tree-sitter install: gyp info spawn args   '--no-parallel',
+.../node_modules/tree-sitter install: gyp info spawn args   '--generator-output',
+.../node_modules/tree-sitter install: gyp info spawn args   'build',
+.../node_modules/tree-sitter install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/tree-sitter install: gyp info spawn args ]
+.../node_modules/tree-sitter install: gyp info spawn make
+.../node_modules/tree-sitter install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/tree-sitter install: make: Entering directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter@0.20.4/node_modules/tree-sitter/build'
+.../node_modules/tree-sitter install:   CC(target) Release/obj.target/tree_sitter/vendor/tree-sitter/lib/src/lib.o
+.../node_modules/tree-sitter install: rm -f Release/obj.target/tree_sitter.a Release/obj.target/tree_sitter.a.ar-file-list; mkdir -p `dirname Release/obj.target/tree_sitter.a`
+.../node_modules/tree-sitter install: ar crs Release/obj.target/tree_sitter.a @Release/obj.target/tree_sitter.a.ar-file-list
+.../node_modules/tree-sitter install:   COPY Release/tree_sitter.a
+.../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/binding.o
+.../node_modules/tree-sitter install: In file included from ../src/binding.cc:1:
+.../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/tree-sitter install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/tree-sitter install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/tree-sitter install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/tree-sitter install:       |   ^~~~~~~~~~~~~
+.../node_modules/tree-sitter install: ../src/binding.cc:25:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/tree-sitter install:    25 | NODE_MODULE(tree_sitter_runtime_binding, InitAll)
+.../node_modules/tree-sitter install:       | ^~~~~~~~~~~
+.../node_modules/tree-sitter install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../node_modules/tree-sitter install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../node_modules/tree-sitter install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/node.h:73:
+.../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h: In instantiation of 'v8::Local<T>::Local(v8::Local<S>) [with S = v8::Data; T = v8::Value]':
+.../node_modules/tree-sitter install: ../../../../nan@2.17.0/node_modules/nan/nan_callbacks_12_inl.h:175:53:   required from here
+.../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: error: static assertion failed: type check
+.../node_modules/tree-sitter install:   253 |     static_assert(std::is_base_of<T, S>::value, "type check");
+.../node_modules/tree-sitter install:       |                                          ^~~~~
+.../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: note: 'std::integral_constant<bool, false>::value' evaluates to false
+.../node_modules/tree-sitter install: make: *** [tree_sitter_runtime_binding.target.mk:126: Release/obj.target/tree_sitter_runtime_binding/src/binding.o] Error 1
+.../node_modules/tree-sitter install: make: Leaving directory '/tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter@0.20.4/node_modules/tree-sitter/build'
+.../node_modules/tree-sitter install: gyp ERR! build error 
+.../node_modules/tree-sitter install: gyp ERR! stack Error: `make` failed with exit code: 2
+.../node_modules/tree-sitter install: gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/lib/build.js:203:23)
+.../node_modules/tree-sitter install: gyp ERR! stack     at ChildProcess.emit (node:events:519:28)
+.../node_modules/tree-sitter install: gyp ERR! stack     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+.../node_modules/tree-sitter install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/tree-sitter install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/tree-sitter install: gyp ERR! cwd /tmp/twcr-3934102282f3/node_modules/.pnpm/tree-sitter@0.20.4/node_modules/tree-sitter
+.../node_modules/tree-sitter install: gyp ERR! node -v v21.6.2
+.../node_modules/tree-sitter install: gyp ERR! node-gyp -v v9.4.1
+.../node_modules/tree-sitter install: gyp ERR! not ok 
+.../node_modules/tree-sitter install: Failed
+.../@anolilab/lint-staged-config postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../@anolilab/lint-staged-config postinstall: Configuring @anolilab/lint-staged-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+lint-staged-config@2.1.7_eslint@8.57.0_husky@9.0.11_lint-staged@15.2.2_prettier@3.2_cr3ywqubu4kdh5drehuutvux6a/node_modules/@anolilab/lint-staged-config 
+.../@anolilab/lint-staged-config postinstall: 😎  Everything went well, have fun!
+.../@anolilab/lint-staged-config postinstall: Done
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall$ node ./bin/post-install
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall: Unable to create nodes for pnpm-lock.yaml using plugin nx/js/dependencies-and-lockfile. 
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall: 	 Inner Error: Error: Could not find ".modules.yaml" at "/tmp/twcr-3934102282f3/node_modules/.modules.yaml"
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at loadPnpmHoistedDepsDefinition (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/plugins/js/lock-file/utils/pnpm-normalizer.js:23:15)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at getNodes (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/plugins/js/lock-file/pnpm-parser.js:69:77)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at getPnpmLockfileNodes (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/plugins/js/lock-file/pnpm-parser.js:27:12)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at getLockFileNodes (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/plugins/js/lock-file/lock-file.js:36:59)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at exports.createNodes (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/plugins/js/index.js:42:64)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at buildProjectsConfigurationsFromProjectPathsAndPlugins (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/project-graph/utils/project-configuration-utils.js:148:29)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at createProjectConfigurations (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:89:156)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at _retrieveProjectConfigurations (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:61:12)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at retrieveProjectConfigurations (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:46:12)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall:     at async buildProjectGraphAndSourceMapsWithoutDaemon (/tmp/twcr-3934102282f3/node_modules/.pnpm/nx@18.0.5/node_modules/nx/src/project-graph/project-graph.js:71:69)
+.../.pnpm/nx@18.0.5/node_modules/nx postinstall: Done
+.../@anolilab/commitlint-config postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../@anolilab/commitlint-config postinstall: Configuring @anolilab/commitlint-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+commitlint-config@5.0.3_@commitlint+cli@18.6.1_@types+node@18.18.14_typescript@5.3.3/node_modules/@anolilab/commitlint-config 
+.../@anolilab/commitlint-config postinstall: 😎  Everything went well, have fun!
+.../@anolilab/commitlint-config postinstall: Done
+.../@anolilab/semantic-release-preset postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../@anolilab/semantic-release-preset postinstall: Configuring @anolilab/semantic-release-preset /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+semantic-release-preset@8.0.3_semantic-release@23.0.2/node_modules/@anolilab/semantic-release-preset 
+.../@anolilab/semantic-release-preset postinstall: 😎  Everything went well, have fun!
+.../@anolilab/semantic-release-preset postinstall: Done
+.../node_modules/@anolilab/eslint-config postinstall$ node ./skip.js || node ./dist/postinstall.js
+.../node_modules/@anolilab/eslint-config postinstall: Configuring @anolilab/eslint-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+eslint-config@15.0.3_@arthurgeron+eslint-plugin-react-usememo@2.3.1_@babel+core@7.2_yb5gvtgjhuw3gofwsqnpd7zxky/node_modules/@anolilab/eslint-config 
+.../node_modules/@anolilab/eslint-config postinstall: Configuring @anolilab/eslint-config /tmp/twcr-3934102282f3/node_modules/.pnpm/@anolilab+eslint-config@15.0.3_@arthurgeron+eslint-plugin-react-usememo@2.3.1_@babel+core@7.2_yb5gvtgjhuw3gofwsqnpd7zxky/node_modules/@anolilab/eslint-config 
+.../node_modules/@anolilab/eslint-config postinstall: 😎  Everything went well, have fun!
+.../node_modules/@anolilab/eslint-config postinstall: Done
+.. preinstall$ node verify-node-version.cjs && npx only-allow pnpm
+.. preinstall: npm WARN exec The following package was not found and will be installed: only-allow@1.2.1
+.. preinstall: npm notice 
+.. preinstall: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.. preinstall: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.. preinstall: npm notice Run `npm install -g npm@10.5.0` to update!
+.. preinstall: npm notice 
+.. preinstall: Done
+.. prepare$ is-ci || husky install || exit 0
+.. prepare: install command is deprecated
+.. prepare: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+.
+├─┬ @anolilab/eslint-config 15.0.3
+│ └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+├─┬ @anolilab/lint-staged-config 2.1.7
+│ ├── ✕ unmet peer husky@^8.x: found 9.0.11
+│ ├── ✕ unmet peer secretlint@^7.0.7: found 8.1.2
+│ └── ✕ unmet peer vite@^4.4.9: found 5.1.4
+├─┬ @storybook/react-vite 7.6.17
+│ └─┬ @vitejs/plugin-react 3.1.0
+│   └── ✕ unmet peer vite@^4.1.0-beta.0: found 5.1.4
+└─┬ @anolilab/textlint-config 8.0.16
+  └── ✕ unmet peer textlint@^13.3.2: found 14.0.3
+
+packages/api-platform
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/colorize
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/connect
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/crud
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/deep-clone
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/error
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/fmt
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/health-check
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/is-ansi-color-supported
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/jsdoc-open-api
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/nextra-theme-docs
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/package
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/pagination
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/pail
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/prisma-dmmf-transformer
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+packages/readdir
+└─┬ @anolilab/eslint-config 15.0.3
+  └── ✕ unmet peer eslint-plugin-storybook@^0.6.14: found 0.8.0
+
+Done in 7m 25.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T16:05:30Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T16:05:30Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T16:05:30Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T16:05:30Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

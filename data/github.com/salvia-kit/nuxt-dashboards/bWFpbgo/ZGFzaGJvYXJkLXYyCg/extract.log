@@ -1,0 +1,143 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/salvia-kit/nuxt-dashboards
++ reporef=main
++ repopath=./dashboard-v2
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/salvia-kit/nuxt-dashboards
+++ awk '{ print $1 }'
+++ sha256sum
+++ cut -c1-12
++ procdir=/tmp/twcr-d450758562e6
+++ echo 'github.com/salvia-kit/nuxt-dashboards;main;./dashboard-v2'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b81bafeab46b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/salvia-kit/nuxt-dashboards/bWFpbgo/Li9kYXNoYm9hcmQtdjIK
++ jq -nc --arg key analysis_key --arg value github.com/salvia-kit/nuxt-dashboards/bWFpbgo/Li9kYXNoYm9hcmQtdjIK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 918ca874b2705755
++ jq -nc --arg key analysis_nonce --arg value 918ca874b2705755 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/salvia-kit/nuxt-dashboards
++ jq -nc --arg key input_repo_name --arg value github.com/salvia-kit/nuxt-dashboards '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./dashboard-v2
++ jq -nc --arg key input_repo_path --arg value ./dashboard-v2 '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T05:37:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T05:37:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d450758562e6
+/tmp/twcr-d450758562e6 /twcr
++ pushd /tmp/twcr-d450758562e6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/salvia-kit/nuxt-dashboards.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T05:37:20Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T05:37:20Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b42125c879e87b2ab93ecf467df72699582fe8e2
++ jq -nc --arg key exec_repo_commit_sha --arg value b42125c879e87b2ab93ecf467df72699582fe8e2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-08-02 20:47:59 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-08-02T19:47:59Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-08-02T19:47:59Z '{ key: $key, value: $value }'
++ '[' -z ./dashboard-v2 ']'
++ pushd ./dashboard-v2
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-d450758562e6/dashboard-v2 /tmp/twcr-d450758562e6 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d450758562e6/dashboard-v2
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T05:37:20Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T05:37:20Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T05:37:20Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T05:37:20Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at b42125c remove webstorm config folder from root dir and add gitignore file
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-d450758562e6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-d450758562e6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-d450758562e6/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 11, reused 0, downloaded 9, added 0
+Progress: resolved 47, reused 0, downloaded 35, added 0
+Progress: resolved 73, reused 0, downloaded 60, added 0
+Progress: resolved 101, reused 0, downloaded 89, added 0
+Progress: resolved 139, reused 0, downloaded 123, added 0
+Progress: resolved 178, reused 0, downloaded 155, added 0
+Progress: resolved 205, reused 0, downloaded 183, added 0
+Progress: resolved 243, reused 0, downloaded 216, added 0
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @unhead/shared@1.8.11
+
+This error happened while installing the dependencies of nuxt@3.10.3
+ at @unhead/ssr@1.8.11
+
+The latest release of @unhead/shared is "1.8.10".
+
+Other releases are:
+  * beta: 1.8.0-beta.15
+
+If you need the full list of all 89 published versions run "$ pnpm view @unhead/shared versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

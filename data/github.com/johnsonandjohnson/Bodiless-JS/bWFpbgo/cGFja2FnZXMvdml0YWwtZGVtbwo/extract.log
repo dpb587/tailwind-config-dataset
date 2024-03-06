@@ -1,0 +1,200 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/johnsonandjohnson/Bodiless-JS
++ reporef=main
++ repopath=./packages/vital-demo
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/johnsonandjohnson/Bodiless-JS
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2fd5622fc286
+++ echo 'github.com/johnsonandjohnson/Bodiless-JS;main;./packages/vital-demo'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/02011bbb18f2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/johnsonandjohnson/Bodiless-JS/bWFpbgo/Li9wYWNrYWdlcy92aXRhbC1kZW1vCg
++ jq -nc --arg key analysis_key --arg value github.com/johnsonandjohnson/Bodiless-JS/bWFpbgo/Li9wYWNrYWdlcy92aXRhbC1kZW1vCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1c2fe7fa2f1cbd5f
++ jq -nc --arg key analysis_nonce --arg value 1c2fe7fa2f1cbd5f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/johnsonandjohnson/Bodiless-JS
++ jq -nc --arg key input_repo_name --arg value github.com/johnsonandjohnson/Bodiless-JS '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/vital-demo
++ jq -nc --arg key input_repo_path --arg value ./packages/vital-demo '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:43:38Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:43:38Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2fd5622fc286
+/tmp/twcr-2fd5622fc286 /twcr
++ pushd /tmp/twcr-2fd5622fc286
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/johnsonandjohnson/Bodiless-JS.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:43:42Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:43:42Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c7cec792d7de1788ed2e6f7bc5ca00d2e9fe0482
++ jq -nc --arg key exec_repo_commit_sha --arg value c7cec792d7de1788ed2e6f7bc5ca00d2e9fe0482 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-08-24 10:24:53 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-08-24T07:24:53Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-08-24T07:24:53Z '{ key: $key, value: $value }'
++ '[' -z ./packages/vital-demo ']'
++ pushd ./packages/vital-demo
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-2fd5622fc286/packages/vital-demo /tmp/twcr-2fd5622fc286 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2fd5622fc286/packages/vital-demo
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/vital-demo '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2fd5622fc286
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:43:42Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:43:42Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "@bodiless/vital-demo",
+>>>   "sideEffects": false,
+>>>   "version": "1.0.0-rc.42",
+>>>   "description": "Demo Package for a Design System package based on Vital DS",
+>>>   "author": "Heidi Vanyo <hvanyo@its.jnj.com>",
+>>>   "license": "Apache-2.0",
+>>>   "private": true,
+>>>   "main": "lib/index.js",
+>>>   "typings": "lib/index.d.ts",
+>>>   "files": [
+>>>     "/lib",
+>>>     "/bodiless.docs.json",
+>>>     "/getDocs.js",
+>>>     "/tailwind.config.js",
+>>>     "/doc",
+>>>     "./shadow.js"
+>>>   ],
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/johnsonandjohnson/bodiless-js.git"
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "peerDependencies": {},
+>>>   "dependencies": {
+>>>     "@bodiless/fclasses": "^1.0.0-rc.42",
+>>>     "tailwindcss": "^3.0.23"
+>>>   }
+>>> }+ '[' ./packages/vital-demo '!=' ./ ']'
++ rm -f /tmp/twcr-2fd5622fc286/package.json /tmp/twcr-2fd5622fc286/package-lock.json /tmp/twcr-2fd5622fc286/pnpm-lock.yaml /tmp/twcr-2fd5622fc286/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-2fd5622fc286 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-2fd5622fc286
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm WARN deprecated @oclif/command@1.8.36: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @oclif/help@1.0.15: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @oclif/errors@1.3.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated @oclif/parser@3.8.17: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @oclif/config@1.18.17: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @oclif/config@1.18.16: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+added 307 packages, and audited 308 packages in 7s
+
+56 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T01:43:50Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T01:43:50Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:43:50Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:43:50Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

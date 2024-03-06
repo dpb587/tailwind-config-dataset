@@ -1,0 +1,345 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Computerization/Enspire
++ reporef=next
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Computerization/Enspire
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bbd6bfb6de54
+++ echo 'github.com/Computerization/Enspire;next;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1dbcde249d60
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Computerization/Enspire/bmV4dAo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Computerization/Enspire/bmV4dAo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ee108572dc1f4e9c
++ jq -nc --arg key analysis_nonce --arg value ee108572dc1f4e9c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Computerization/Enspire
++ jq -nc --arg key input_repo_name --arg value github.com/Computerization/Enspire '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref next
++ jq -nc --arg key input_repo_ref --arg value next '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T12:22:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T12:22:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bbd6bfb6de54
++ pushd /tmp/twcr-bbd6bfb6de54
++ '[' -d .git ']'
++ git clone --depth=1 -b next https://github.com/Computerization/Enspire.git .
+/tmp/twcr-bbd6bfb6de54 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T12:22:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T12:22:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 0798f5120f52cd0d9a8e7efdcd2f0452ad54fccb
++ jq -nc --arg key exec_repo_commit_sha --arg value 0798f5120f52cd0d9a8e7efdcd2f0452ad54fccb '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 14:35:06 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T06:35:06Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T06:35:06Z '{ key: $key, value: $value }'
+/tmp/twcr-bbd6bfb6de54 /tmp/twcr-bbd6bfb6de54 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bbd6bfb6de54
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T12:22:19Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T12:22:19Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T12:22:19Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T12:22:19Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 0798f51 fix(deps): update dependency vaul-vue to ^0.1.0 (#495)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-bbd6bfb6de54 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-bbd6bfb6de54
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-bbd6bfb6de54/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-bbd6bfb6de54/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1151
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1151, reused 0, downloaded 25, added 25
+Progress: resolved 1151, reused 0, downloaded 79, added 79
+Progress: resolved 1151, reused 0, downloaded 128, added 128
+Progress: resolved 1151, reused 0, downloaded 188, added 188
+Progress: resolved 1151, reused 0, downloaded 259, added 259
+Progress: resolved 1151, reused 0, downloaded 328, added 328
+Progress: resolved 1151, reused 0, downloaded 385, added 385
+Progress: resolved 1151, reused 0, downloaded 451, added 451
+Progress: resolved 1151, reused 0, downloaded 512, added 511
+Progress: resolved 1151, reused 0, downloaded 564, added 564
+Progress: resolved 1151, reused 0, downloaded 606, added 602
+Progress: resolved 1151, reused 0, downloaded 640, added 640
+Progress: resolved 1151, reused 0, downloaded 699, added 699
+Progress: resolved 1151, reused 0, downloaded 762, added 762
+Progress: resolved 1151, reused 0, downloaded 818, added 818
+Progress: resolved 1151, reused 0, downloaded 868, added 868
+Progress: resolved 1151, reused 0, downloaded 936, added 936
+Progress: resolved 1151, reused 0, downloaded 997, added 997
+Progress: resolved 1151, reused 0, downloaded 1060, added 1060
+Progress: resolved 1151, reused 0, downloaded 1119, added 1119
+Progress: resolved 1151, reused 0, downloaded 1151, added 1151, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@sentry/profiling-node install$ node scripts/check-build.js
+.../node_modules/browser-tabs-lock postinstall$ node scripts/postinstall.js
+.../core-js@3.26.1/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/vue-demi postinstall$ node -e "try{require('./scripts/postinstall.js')}catch(e){}"
+.../node_modules/browser-tabs-lock postinstall: [93mThank you for using browser-tabs-lock ([34m https://github.com/supertokens/browser-tabs-lock [93m).
+.../node_modules/browser-tabs-lock postinstall: [93mThis library was created as a part of a larger project, SuperTokens([34m https://supertokens.io [93m) - an open source auth solution.[0m
+.../node_modules/browser-tabs-lock postinstall: [93mYou can also check out our other projects on [34mhttps://github.com/supertokens[93m
+.../node_modules/browser-tabs-lock postinstall: [0m
+.../node_modules/browser-tabs-lock postinstall: Done
+.../node_modules/@sentry/profiling-node install: @sentry/profiling-node: No precompiled binary found
+.../node_modules/@sentry/profiling-node install: @sentry/profiling-node: Compiling from source...
+.../core-js@3.26.1/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.26.1/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js:
+.../core-js@3.26.1/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.26.1/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.26.1/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.26.1/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@3.26.1/node_modules/core-js postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/@prisma/engines postinstall: (node:125) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/profiling-node install: > @sentry/profiling-node@7.104.0 build:bindings:configure
+.../node_modules/@sentry/profiling-node install: > node-gyp configure
+.../node_modules/@sentry/profiling-node install: @sentry/profiling-node: Failed to configure gyp
+.../node_modules/@sentry/profiling-node install: @sentry/profiling-node: gyp info it worked if it ends with ok
+.../node_modules/@sentry/profiling-node install: gyp info using node-gyp@10.0.1
+.../node_modules/@sentry/profiling-node install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/@sentry/profiling-node install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/@sentry/profiling-node install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/profiling-node install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/profiling-node install: gyp WARN install got an error, rolling back install
+.../node_modules/@sentry/profiling-node install: gyp ERR! configure error 
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/@sentry/profiling-node install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/@sentry/profiling-node install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/@sentry/profiling-node install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "configure"
+.../node_modules/@sentry/profiling-node install: gyp ERR! cwd /tmp/twcr-bbd6bfb6de54/node_modules/.pnpm/@sentry+profiling-node@7.104.0/node_modules/@sentry/profiling-node
+.../node_modules/@sentry/profiling-node install: gyp ERR! node -v v21.6.2
+.../node_modules/@sentry/profiling-node install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/@sentry/profiling-node install: gyp ERR! not ok 
+.../node_modules/@sentry/profiling-node install: npm notice 
+.../node_modules/@sentry/profiling-node install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/@sentry/profiling-node install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/@sentry/profiling-node install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/@sentry/profiling-node install: npm notice
+.../node_modules/@sentry/profiling-node install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: Prisma schema loaded from db/schema.prisma
+.../node_modules/@prisma/client postinstall: ✔ Generated Prisma Client (v5.10.2) to ./node_modules/.pnpm/@prisma+client@5.10.2_prisma@5.10.2/node_modules/@prisma/client in 170ms
+.../node_modules/@prisma/client postinstall: Start using Prisma Client in Node.js (See: https://pris.ly/d/client)
+.../node_modules/@prisma/client postinstall: ```
+.../node_modules/@prisma/client postinstall: import { PrismaClient } from '@prisma/client'
+.../node_modules/@prisma/client postinstall: const prisma = new PrismaClient()
+.../node_modules/@prisma/client postinstall: ```
+.../node_modules/@prisma/client postinstall: or start using Prisma Client at the edge (See: https://pris.ly/d/accelerate)
+.../node_modules/@prisma/client postinstall: ```
+.../node_modules/@prisma/client postinstall: import { PrismaClient } from '@prisma/client/edge'
+.../node_modules/@prisma/client postinstall: const prisma = new PrismaClient()
+.../node_modules/@prisma/client postinstall: ```
+.../node_modules/@prisma/client postinstall: See other ways of importing Prisma Client: http://pris.ly/d/importing-client
+.../node_modules/@prisma/client postinstall: ┌─────────────────────────────────────────────────────────────┐
+.../node_modules/@prisma/client postinstall: │  Deploying your app to serverless or edge functions?        │
+.../node_modules/@prisma/client postinstall: │  Try Prisma Accelerate for connection pooling and caching.  │
+.../node_modules/@prisma/client postinstall: │  https://pris.ly/cli/accelerate                             │
+.../node_modules/@prisma/client postinstall: └─────────────────────────────────────────────────────────────┘
+.../node_modules/@prisma/client postinstall: Done
+
+dependencies:
++ @clerk/clerk-sdk-node 4.13.9
++ @formkit/auto-animate 0.8.1
++ @neondatabase/serverless 0.8.1
++ @prisma/adapter-neon 5.10.2
++ @radix-icons/vue 1.0.0
++ @tanstack/vue-table 8.12.0
++ @vee-validate/zod 4.12.5
++ @vueuse/core 10.8.0
++ class-variance-authority 0.7.0
++ clsx 2.1.0
++ date-fns 3.3.1
++ h3 1.11.1
++ h3-clerk 0.3.8
++ lucide-vue-next 0.343.0
++ nitropack <- nitropack-nightly 2.9.0-28481592.5374429
++ node-fetch-native 1.6.2
++ radix-vue 1.4.9
++ tailwind-merge 2.2.1
++ tailwindcss-animate 1.0.7
++ uuid 9.0.1
++ v-calendar 3.1.2
++ vaul-vue 0.1.0
++ vee-validate 4.12.5
++ vue-clerk 0.2.0
++ ws 8.16.0
++ zod 3.22.4
+
+devDependencies:
++ @antfu/eslint-config 2.7.0
++ @nuxtjs/google-fonts 3.1.3
++ @nuxtjs/tailwindcss 6.11.4
++ @prisma/client 5.10.2
++ @rollup/plugin-wasm 6.2.2
++ @sentry/node 7.104.0
++ @sentry/profiling-node 7.104.0
++ @sentry/vue 7.104.0
++ @types/uuid 9.0.8
++ @types/ws 8.5.10
++ eslint 8.57.0
++ nuxt 3.10.3
++ nuxt-icon 0.6.8
++ prisma 5.10.2
++ shadcn-nuxt 0.9.0
++ ts-node 10.9.2
++ typescript 5.3.3
++ vue 3.4.20
++ vue-router 4.3.0
+
+
+> nuxt-app@ postinstall /tmp/twcr-bbd6bfb6de54
+> nuxt prepare && prisma generate
+
+[nuxt:tailwindcss] ℹ Using Tailwind CSS from ~/assets/css/tailwind.css
+✔ Types generated in .nuxt
+Prisma schema loaded from db/schema.prisma
+
+✔ Generated Prisma Client (v5.10.2) to ./node_modules/.pnpm/@prisma+client@5.10.2_prisma@5.10.2/node_modules/@prisma/client in 75ms
+
+Start using Prisma Client in Node.js (See: https://pris.ly/d/client)
+```
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+```
+or start using Prisma Client at the edge (See: https://pris.ly/d/accelerate)
+```
+import { PrismaClient } from '@prisma/client/edge'
+const prisma = new PrismaClient()
+```
+
+See other ways of importing Prisma Client: http://pris.ly/d/importing-client
+
+┌─────────────────────────────────────────────────────────────┐
+│  Deploying your app to serverless or edge functions?        │
+│  Try Prisma Accelerate for connection pooling and caching.  │
+│  https://pris.ly/cli/accelerate                             │
+└─────────────────────────────────────────────────────────────┘
+
+Done in 30.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T12:22:52Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T12:22:52Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T12:22:52Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T12:22:52Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

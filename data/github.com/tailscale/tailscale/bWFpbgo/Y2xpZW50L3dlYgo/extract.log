@@ -1,0 +1,207 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/tailscale/tailscale
++ reporef=main
++ repopath=./client/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/tailscale/tailscale
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e0da8ba9da67
+++ echo 'github.com/tailscale/tailscale;main;./client/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/734d1d44a3cd
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/tailscale/tailscale/bWFpbgo/Li9jbGllbnQvd2ViCg
++ jq -nc --arg key analysis_key --arg value github.com/tailscale/tailscale/bWFpbgo/Li9jbGllbnQvd2ViCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c6618486a1c80156
++ jq -nc --arg key analysis_nonce --arg value c6618486a1c80156 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/tailscale/tailscale
++ jq -nc --arg key input_repo_name --arg value github.com/tailscale/tailscale '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./client/web
++ jq -nc --arg key input_repo_path --arg value ./client/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:48:12Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:48:12Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e0da8ba9da67
+/tmp/twcr-e0da8ba9da67 /twcr
++ pushd /tmp/twcr-e0da8ba9da67
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/tailscale/tailscale.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:48:14Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:48:14Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 232a2d627c54a95737a1491c7d381323f1c9690b
++ jq -nc --arg key exec_repo_commit_sha --arg value 232a2d627c54a95737a1491c7d381323f1c9690b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 17:42:19 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T23:42:19Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T23:42:19Z '{ key: $key, value: $value }'
+/tmp/twcr-e0da8ba9da67/client/web /tmp/twcr-e0da8ba9da67 /twcr
++ '[' -z ./client/web ']'
++ pushd ./client/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e0da8ba9da67/client/web
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:48:14Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:48:14Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "webclient",
+>>>   "version": "0.0.1",
+>>>   "license": "BSD-3-Clause",
+>>>   "engines": {
+>>>     "node": "18.16.1",
+>>>     "yarn": "1.22.19"
+>>>   },
+>>>   "type": "module",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   },
+>>>   "resolutions": {
+>>>     "@typescript-eslint/eslint-plugin": "^6.2.1",
+>>>     "@typescript-eslint/parser": "^6.2.1"
+>>>   },
+>>>   "eslintConfig": {
+>>>     "extends": [
+>>>       "react-app"
+>>>     ],
+>>>     "plugins": [
+>>>       "curly-quotes",
+>>>       "react-hooks"
+>>>     ],
+>>>     "rules": {
+>>>       "curly-quotes/no-straight-quotes": "warn",
+>>>       "react-hooks/rules-of-hooks": "error",
+>>>       "react-hooks/exhaustive-deps": "error"
+>>>     },
+>>>     "settings": {
+>>>       "projectRoot": "client/web/package.json"
+>>>     }
+>>>   },
+>>>   "prettier": {
+>>>     "semi": false,
+>>>     "printWidth": 80
+>>>   },
+>>>   "postcss": {
+>>>     "plugins": {
+>>>       "tailwindcss": {},
+>>>       "autoprefixer": {}
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./client/web '!=' ./ ']'
++ rm -f /tmp/twcr-e0da8ba9da67/package.json /tmp/twcr-e0da8ba9da67/package-lock.json /tmp/twcr-e0da8ba9da67/pnpm-lock.yaml /tmp/twcr-e0da8ba9da67/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-e0da8ba9da67 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-e0da8ba9da67
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_d563f80a7ac2:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_d563f80a7ac2:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_d563f80a7ac2:ok@172.18.0.2:3128".
+Done in 0.03s.
++ '[' -z http://tid_d563f80a7ac2:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_d563f80a7ac2:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_d563f80a7ac2:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/5] Validating package.json...
+error webclient@0.0.1: The engine "node" is incompatible with this module. Expected version "18.16.1". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:48:15Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:48:15Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 232a2d6 tailfs: only impersonate unprivileged user if able to sudo -u as that user
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-e0da8ba9da67 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-e0da8ba9da67
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_d563f80a7ac2:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_d563f80a7ac2:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_d563f80a7ac2:ok@172.18.0.2:3128".
+Done in 0.03s.
++ '[' -z http://tid_d563f80a7ac2:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_d563f80a7ac2:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_d563f80a7ac2:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+error webclient@0.0.1: The engine "node" is incompatible with this module. Expected version "18.16.1". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

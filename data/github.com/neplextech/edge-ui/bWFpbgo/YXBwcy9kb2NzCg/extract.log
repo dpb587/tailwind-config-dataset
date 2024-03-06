@@ -1,0 +1,197 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/neplextech/edge-ui
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/neplextech/edge-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a5328798c9f4
+++ echo 'github.com/neplextech/edge-ui;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/abbca013eecb
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/neplextech/edge-ui/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/neplextech/edge-ui/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d9b714b744078166
++ jq -nc --arg key analysis_nonce --arg value d9b714b744078166 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/neplextech/edge-ui
++ jq -nc --arg key input_repo_name --arg value github.com/neplextech/edge-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:25:30Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:25:30Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a5328798c9f4
+/tmp/twcr-a5328798c9f4 /twcr
++ pushd /tmp/twcr-a5328798c9f4
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/neplextech/edge-ui.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:25:32Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:25:32Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c8f3720cde11595e80cb9494fe8c65837d442f5b
++ jq -nc --arg key exec_repo_commit_sha --arg value c8f3720cde11595e80cb9494fe8c65837d442f5b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-15 00:38:14 +0545' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-14T18:53:14Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-14T18:53:14Z '{ key: $key, value: $value }'
+/tmp/twcr-a5328798c9f4/apps/docs /tmp/twcr-a5328798c9f4 /twcr
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a5328798c9f4/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a5328798c9f4
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:25:32Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:25:32Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@edge-ui/react": "workspace:^"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-a5328798c9f4/package.json /tmp/twcr-a5328798c9f4/package-lock.json /tmp/twcr-a5328798c9f4/pnpm-lock.yaml /tmp/twcr-a5328798c9f4/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-a5328798c9f4 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-a5328798c9f4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_fee4fb1db308:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_fee4fb1db308:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_fee4fb1db308:ok@172.18.0.2:3128'
++ '[' -z http://tid_fee4fb1db308:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_fee4fb1db308:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_fee4fb1db308:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.0.2
+➤ YN0000: ┌ Resolution step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0001: │ Error: @edge-ui/react@workspace:^: Workspace not found (@edge-ui/react@workspace:^)
+    at St.getWorkspaceByDescriptor (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:210:3520)
+    at a1.getCandidates (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:140:115280)
+    at vd.getCandidates (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:141:1311)
+    at vd.getCandidates (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:141:1311)
+    at /tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:210:8409
+    at Wy (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:140:53920)
+    at ke (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:210:8389)
+    at async Promise.allSettled (index 0)
+    at async Uc (/tmp/twcr-a5328798c9f4/.yarn/releases/yarn-4.0.2.cjs:140:53248)
+➤ YN0000: └ Completed in 0s 421ms
+➤ YN0000: · Failed with errors in 0s 440ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T10:25:36Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T10:25:36Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing .yarnrc.yml
++ git reset --hard
+HEAD is now at c8f3720 0.1.0
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-a5328798c9f4 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-a5328798c9f4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_fee4fb1db308:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_fee4fb1db308:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_fee4fb1db308:ok@172.18.0.2:3128'
++ '[' -z http://tid_fee4fb1db308:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_fee4fb1db308:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_fee4fb1db308:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: · Yarn 4.0.2
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed in 0s 240ms
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0002: │ @edge-ui/react@workspace:packages/react [ba56d] doesn't provide next (p7888e), requested by next-themes.
+➤ YN0002: │ @edge-ui/react@workspace:packages/react doesn't provide next (p0248d), requested by next-themes.
+➤ YN0086: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: │ DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+➤ YN0013: │ 755 packages were added to the project (+ 589.53 MiB).
+➤ YN0000: └ Completed in 42s 690ms
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed in 13s 851ms
+➤ YN0000: · Done with warnings in 56s 935ms
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ yarn list --depth=0 --json --non-interactive --no-progress
+jq: parse error: Invalid numeric literal at line 1, column 6
++ exitcode=5
++ set -e
++ [[ 5 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 5

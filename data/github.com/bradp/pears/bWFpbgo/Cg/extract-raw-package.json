@@ -1,0 +1,143 @@
+{
+	"name": "@bradp/pears",
+	"version": "0.2.0",
+	"description": "A starting point for a Hugo + TailwindCSS powered static site.",
+	"keywords": [
+		"hugo",
+		"tailwind",
+		"tailwindcss",
+		"postcss",
+		"purgecss",
+		"static-site",
+		"starter",
+		"boilerplate"
+	],
+	"homepage": "https://github.com/bradp/pears",
+	"bugs": "https://github.com/bradp/pears/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bradp/pears.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Brad Parbs",
+		"email": "brad@bradparbs.com",
+		"url": "https://bradparbs.com"
+	},
+	"scripts": {
+		"build": "npm run build:hugo",
+		"build:hugo": "npm run clean && hugo --gc --environment development",
+		"build:hugo:prod": "npm run clean && hugo --gc --minify --environment production",
+		"clean": "rimraf public",
+		"format": "npx prettier --write .",
+		"format:check": "npx prettier --check .",
+		"postinstall": "npx husky install &&w npm run build:hugo",
+		"lint": "npm run lint:css && npm run lint:js",
+		"lint:css": "stylelint 'assets/css/*.css' --syntax css",
+		"lint:css:fix": "stylelint 'assets/css/*.css' --syntax css --fix",
+		"lint:fix": "npm run lint:css:fix && npm run lint:js:fix",
+		"lint:js": "eslint assets/js/*.js",
+		"lint:js:fix": "eslint assets/js/*.js --fix",
+		"start": "npm run build:hugo && hugo server --buildDrafts"
+	},
+	"lint-staged": {
+		"*.css": [
+			"stylelint"
+		],
+		"*.js": [
+			"eslint"
+		],
+		"*.{css,html,json,md,toml}": [
+			"prettier --write"
+		]
+	},
+	"prettier": {
+		"printWidth": 120,
+		"twUnknownClassesPosition": "end",
+		"useTabs": true,
+		"overrides": [
+			{
+				"files": [
+					"*.html"
+				],
+				"options": {
+					"parser": "go-template"
+				}
+			}
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"es2021": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 12,
+			"sourceType": "module"
+		},
+		"extends": "eslint:recommended",
+		"rules": {}
+	},
+	"stylelint": {
+		"extends": "stylelint-config-standard",
+		"rules": {
+			"at-rule-no-unknown": null,
+			"at-rule-no-vendor-prefix": true,
+			"color-hex-length": "long",
+			"color-no-invalid-hex": true,
+			"comment-no-empty": true,
+			"declaration-no-important": true,
+			"font-family-name-quotes": "always-where-required",
+			"font-family-no-duplicate-names": true,
+			"font-family-no-missing-generic-family-keyword": true,
+			"function-url-quotes": "always",
+			"function-url-scheme-allowed-list": [
+				"data",
+				"/^http/"
+			],
+			"indentation": "tab",
+			"media-feature-name-no-vendor-prefix": true,
+			"no-invalid-double-slash-comments": true,
+			"no-extra-semicolons": true,
+			"property-no-vendor-prefix": true,
+			"selector-no-vendor-prefix": true,
+			"value-no-vendor-prefix": true,
+			"declaration-empty-line-before": null,
+			"declaration-colon-newline-after": null,
+			"value-list-comma-newline-after": null
+		},
+		"ignoreFiles": [
+			"public/",
+			"assets/css/build.css"
+		]
+	},
+	"dependencies": {
+		"@babel/cli": "^7.12.10",
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"@fullhuman/postcss-purgecss": "^4.0.3",
+		"@tailwindcss/forms": "^0.2.1",
+		"@tailwindcss/typography": "^0.3.1",
+		"autoprefixer": "^10.1.0",
+		"cssnano": "^4.1.10",
+		"eslint": "^7.15.0",
+		"eslint-config-prettier": "^7.0.0",
+		"eslint-config-standard": "^16.0.2",
+		"husky": "^5.0.6",
+		"lint-staged": "^10.5.3",
+		"live-server": "^1.2.1",
+		"postcss": "^8.2.10",
+		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.0",
+		"postcss-purgecss": "^2.0.3",
+		"prettier": "2.2.1",
+		"prettier-plugin-go-template": "^0.0.10",
+		"prettier-plugin-packagejson": "^2.2.8",
+		"prettier-plugin-tailwind": "^2.2.8",
+		"prettier-plugin-toml": "0.3.1",
+		"rimraf": "^3.0.2",
+		"stylelint": "^13.8.0",
+		"stylelint-config-standard": "^20.0.0",
+		"tailwindcss": "^2.0.2"
+	}
+}

@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/javahuang/SurveyKing
++ reporef=master
++ repopath=./website
+++ echo github.com/javahuang/SurveyKing
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f8ff1e968cfd
+++ echo 'github.com/javahuang/SurveyKing;master;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/643b41901fea
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/javahuang/SurveyKing/bWFzdGVyCg/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/javahuang/SurveyKing/bWFzdGVyCg/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 46c3ce6a4f76a603
++ jq -nc --arg key analysis_nonce --arg value 46c3ce6a4f76a603 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/javahuang/SurveyKing
++ jq -nc --arg key input_repo_name --arg value github.com/javahuang/SurveyKing '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T22:56:07Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T22:56:07Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f8ff1e968cfd
+/tmp/twcr-f8ff1e968cfd /twcr
++ pushd /tmp/twcr-f8ff1e968cfd
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/javahuang/SurveyKing.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T22:56:10Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T22:56:10Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 23dfb1988fef17319d895654664529388eac1ddf
++ jq -nc --arg key exec_repo_commit_sha --arg value 23dfb1988fef17319d895654664529388eac1ddf '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-02-02 23:10:10 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-02-02T15:10:10Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-02-02T15:10:10Z '{ key: $key, value: $value }'
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-f8ff1e968cfd/website /tmp/twcr-f8ff1e968cfd /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-f8ff1e968cfd/pnpm-workspace.yaml ']'
++ cat README.md
++ grep -q 'pnpm install'
++ grep -q '"packageManager":[^"]+"yarn@"' package.json
++ '[' -f yarn.lock ']'
++ package_manager_name=yarn
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T22:56:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T22:56:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "engines": {
+>>>     "node": ">=14"
+>>>   },
+>>>   "dependencies": {
+>>>     "tailwindcss": "^2.2.15"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.5%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f8ff1e968cfd /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f8ff1e968cfd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ yarn install --ignore-engines
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:86) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error An unexpected error occurred: "https://registry.npmmirror.com/arg/-/arg-5.0.1.tgz: Request failed \"403 Forbidden\"".
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-f8ff1e968cfd/website/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-02T22:56:12Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-02T22:56:12Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 1 path from the index
++ git clean -fdx
+Removing yarn-error.log
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-f8ff1e968cfd /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-f8ff1e968cfd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ yarn install --ignore-engines
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:112) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info There appears to be trouble with your network connection. Retrying...
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-f8ff1e968cfd/website/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error An unexpected error occurred: "https://registry.npmmirror.com/@babel/generator/-/generator-7.17.3.tgz: Request failed \"403 Forbidden\"".
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
+info There appears to be trouble with your network connection. Retrying...
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

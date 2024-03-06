@@ -1,0 +1,623 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Frontify/guideline-blocks
++ reporef=main
++ repopath=./packages/figma-block
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Frontify/guideline-blocks
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-70b4f673dc9b
+++ echo 'github.com/Frontify/guideline-blocks;main;./packages/figma-block'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/169a317fe959
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Frontify/guideline-blocks/bWFpbgo/Li9wYWNrYWdlcy9maWdtYS1ibG9jawo
++ jq -nc --arg key analysis_key --arg value github.com/Frontify/guideline-blocks/bWFpbgo/Li9wYWNrYWdlcy9maWdtYS1ibG9jawo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 65eba995a4b46307
++ jq -nc --arg key analysis_nonce --arg value 65eba995a4b46307 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Frontify/guideline-blocks
++ jq -nc --arg key input_repo_name --arg value github.com/Frontify/guideline-blocks '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/figma-block
++ jq -nc --arg key input_repo_path --arg value ./packages/figma-block '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T11:24:49Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T11:24:49Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-70b4f673dc9b
++ pushd /tmp/twcr-70b4f673dc9b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Frontify/guideline-blocks.git .
+/tmp/twcr-70b4f673dc9b /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T11:24:50Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T11:24:50Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fe968622f61f06f2ff3d745dfac538b16ceb948c
++ jq -nc --arg key exec_repo_commit_sha --arg value fe968622f61f06f2ff3d745dfac538b16ceb948c '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 15:52:53 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T14:52:53Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T14:52:53Z '{ key: $key, value: $value }'
++ '[' -z ./packages/figma-block ']'
++ pushd ./packages/figma-block
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-70b4f673dc9b/packages/figma-block /tmp/twcr-70b4f673dc9b /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-70b4f673dc9b/packages/figma-block
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/figma-block '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-70b4f673dc9b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T11:24:50Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T11:24:50Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "figma-block",
+>>>   "private": true,
+>>>   "author": "Frontify Developers <developers@frontify.com>",
+>>>   "version": "1.0.0",
+>>>   "main": "dist/index.js",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "dependencies": {
+>>>     "@frontify/fondue": "12.0.0-beta.409"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/figma-block '!=' ./ ']'
++ rm -f /tmp/twcr-70b4f673dc9b/package.json /tmp/twcr-70b4f673dc9b/package-lock.json /tmp/twcr-70b4f673dc9b/pnpm-lock.yaml /tmp/twcr-70b4f673dc9b/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-70b4f673dc9b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-70b4f673dc9b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-70b4f673dc9b/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 28 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 23, reused 0, downloaded 17, added 0
+../..                                    | Progress: resolved 34, reused 0, downloaded 30, added 0
+../..                                    | Progress: resolved 61, reused 0, downloaded 51, added 0
+../..                                    | Progress: resolved 92, reused 0, downloaded 78, added 0
+../..                                    | Progress: resolved 123, reused 0, downloaded 109, added 0
+../..                                    | Progress: resolved 150, reused 0, downloaded 138, added 0
+../..                                    | Progress: resolved 180, reused 0, downloaded 164, added 0
+../..                                    | Progress: resolved 211, reused 0, downloaded 193, added 0
+../..                                    | Progress: resolved 241, reused 0, downloaded 222, added 0
+../..                                    | Progress: resolved 271, reused 0, downloaded 250, added 0
+../..                                    | Progress: resolved 300, reused 0, downloaded 276, added 0
+../..                                    | Progress: resolved 311, reused 0, downloaded 292, added 0
+../..                                    | Progress: resolved 342, reused 0, downloaded 316, added 0
+../..                                    | Progress: resolved 370, reused 0, downloaded 344, added 0
+../..                                    | Progress: resolved 388, reused 0, downloaded 360, added 0
+../..                                    | Progress: resolved 423, reused 0, downloaded 393, added 0
+../..                                    | Progress: resolved 444, reused 0, downloaded 410, added 0
+../..                                    | Progress: resolved 477, reused 0, downloaded 439, added 0
+../..                                    | Progress: resolved 508, reused 0, downloaded 470, added 0
+../..                                    | Progress: resolved 534, reused 0, downloaded 493, added 0
+../..                                    | Progress: resolved 569, reused 0, downloaded 527, added 0
+../..                                    | Progress: resolved 602, reused 0, downloaded 559, added 0
+../..                                    | Progress: resolved 630, reused 0, downloaded 585, added 0
+../..                                    | Progress: resolved 665, reused 0, downloaded 618, added 0
+../..                                    | Progress: resolved 679, reused 0, downloaded 638, added 0
+../..                                    | Progress: resolved 714, reused 0, downloaded 663, added 0
+../..                                    | Progress: resolved 744, reused 0, downloaded 690, added 0
+../..                                    | Progress: resolved 770, reused 0, downloaded 716, added 0
+../..                                    | Progress: resolved 777, reused 0, downloaded 724, added 0
+../..                                    | Progress: resolved 780, reused 0, downloaded 730, added 0
+../..                                    | Progress: resolved 819, reused 0, downloaded 765, added 0
+../..                                    | Progress: resolved 872, reused 0, downloaded 776, added 0
+../..                                    | Progress: resolved 873, reused 0, downloaded 780, added 0
+../..                                    | Progress: resolved 910, reused 0, downloaded 817, added 0
+../..                                    | Progress: resolved 940, reused 0, downloaded 851, added 0
+../..                                    | Progress: resolved 968, reused 0, downloaded 868, added 0
+../..                                    | Progress: resolved 1024, reused 0, downloaded 902, added 0
+../..                                    | Progress: resolved 1047, reused 0, downloaded 924, added 0
+../..                                    | Progress: resolved 1072, reused 0, downloaded 949, added 0
+../..                                    | Progress: resolved 1084, reused 0, downloaded 964, added 0
+../..                                    | Progress: resolved 1111, reused 0, downloaded 981, added 0
+../..                                    | Progress: resolved 1128, reused 0, downloaded 1005, added 0
+../..                                    | Progress: resolved 1131, reused 0, downloaded 1008, added 0
+../..                                    | Progress: resolved 1135, reused 0, downloaded 1010, added 0
+../..                                    | Progress: resolved 1154, reused 0, downloaded 1021, added 0
+../..                                    | Progress: resolved 1183, reused 0, downloaded 1055, added 0
+../..                                    | Progress: resolved 1218, reused 0, downloaded 1082, added 0
+../..                                    | Progress: resolved 1242, reused 0, downloaded 1110, added 0
+../..                                    | Progress: resolved 1264, reused 0, downloaded 1131, added 0
+../..                                    | Progress: resolved 1268, reused 0, downloaded 1131, added 0
+../..                                    | Progress: resolved 1306, reused 0, downloaded 1165, added 0
+../..                                    | Progress: resolved 1332, reused 0, downloaded 1195, added 0
+../..                                    | Progress: resolved 1352, reused 0, downloaded 1206, added 0
+../..                                    | Progress: resolved 1371, reused 0, downloaded 1230, added 0
+../..                                    | Progress: resolved 1379, reused 0, downloaded 1257, added 0
+ WARN  1 deprecated subdependencies found: sourcemap-codec@1.4.8
+../..                                    | Progress: resolved 1388, reused 0, downloaded 1288, added 0
+../..                                    |    +1334 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1388, reused 0, downloaded 1318, added 1316
+../..                                    | Progress: resolved 1388, reused 0, downloaded 1333, added 1334, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../cypress@13.6.6/node_modules/cypress postinstall$ node index.js --exec install
+.../cypress@13.6.6/node_modules/cypress postinstall: (node:156) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@13.6.6/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@13.6.6/node_modules/cypress postinstall: Installing Cypress (version: 13.6.6)
+.../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 10s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      2% 10s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 10s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      10% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      12% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      16% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      18% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      20% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      22% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      23% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      25% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      28% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      30% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      32% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      33% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      34% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      35% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      39% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      40% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      42% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      44% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      46% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      47% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      49% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      52% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      53% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      55% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      58% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      60% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      63% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      65% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      66% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      68% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      69% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      70% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      72% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      75% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      77% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      78% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      79% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      82% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      84% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      86% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      87% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      88% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      90% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      91% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      92% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      94% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      98% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      99% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 93s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 94s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 95s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 47s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 48s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 49s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 51s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 54s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 55s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 56s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 58s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 38s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 39s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 29s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 30s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 24s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 20s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 21s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 18s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 16s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 14s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 13s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 12s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 11s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 10s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 9s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 9s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 8s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 7s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 6s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 5s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 4s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 3s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 1s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 2s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/13.6.6
+.../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/13.6.6
+.../cypress@13.6.6/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@13.6.6/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@13.6.6/node_modules/cypress postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+
+dependencies:
++ @frontify/fondue 12.0.0-beta.409
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+examples/asset-upload
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/animation-curve-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/asset-kit-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/audio-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/brand-positioning-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/callout-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/checklist-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/code-snippet-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/color-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/color-kit-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/color-scale-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/compare-slider-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/divider-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/dos-donts-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/example
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/figma-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/glyphs-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/gradient-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/image-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/personal-note-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/quote-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/shared
+├─┬ msw 1.3.2
+│ └── ✕ unmet peer typescript@">= 4.4.x <= 5.2.x": found 5.3.3
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/sketchfab-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/storybook-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/template-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/text-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/thumbnail-grid-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/ui-pattern-block
+└─┬ @frontify/fondue 12.0.0-beta.409
+  ├─┬ @xstate/immer 0.3.1
+  │ └── ✕ unmet peer xstate@^4.29.0: found 4.28.1 in @frontify/fondue
+  └─┬ @xstate/react 1.6.3
+    └── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+
+Done in 1m 22.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T11:26:14Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T11:26:14Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T11:26:14Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T11:26:14Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

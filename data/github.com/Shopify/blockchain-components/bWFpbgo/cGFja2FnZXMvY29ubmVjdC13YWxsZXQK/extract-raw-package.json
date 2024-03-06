@@ -1,0 +1,80 @@
+{
+  "name": "@shopify/connect-wallet",
+  "version": "3.0.1",
+  "private": false,
+  "license": "MIT",
+  "description": "Crypto wallet connection library for Shopify storefronts",
+  "author": "Shopify Inc.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shopify/blockchain-components.git",
+    "directory": "packages/connect-wallet"
+  },
+  "bugs": {
+    "url": "https://github.com/Shopify/blockchain-components/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "@shopify:registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/Shopify/blockchain-components/blob/main/packages/connect-wallet/README.md",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "node": ">=14.16",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js"
+    },
+    "./styles.css": {
+      "import": "./dist/styles.css"
+    }
+  },
+  "scripts": {
+    "build": "tsup && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "dev": "concurrently \"yarn run dev:*\"",
+    "dev:tailwind": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "dev:tsup": "DEV=true tsup --watch",
+    "lint": "eslint '**/*.ts*'",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shopify/blockchain-components": "*",
+    "@shopify/gate-context-client": "*",
+    "delegatecash": "^0.4.1",
+    "framer-motion": "^8.5.0",
+    "i18next": "^22.4.9",
+    "immer": "9.0.7",
+    "qrcode": "^1.5.1",
+    "react-i18next": "^12.1.4",
+    "react-use-measure": "^2.1.1",
+    "siwe": "^1.1.6",
+    "ua-parser-js": "^1.0.32",
+    "zustand": "^4.3.8"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "viem": "^1.0.0",
+    "wagmi": "^1.0.0"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.0.0-beta.52",
+    "@testing-library/dom": "^9.3.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.4.0",
+    "@types/qrcode": "^1.5.0",
+    "@types/ua-parser-js": "^0.7.36",
+    "autoprefixer": "^10.4.14",
+    "happy-dom": "^8.7.1",
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.3.2",
+    "tsup": "^6.5.0",
+    "vitest": "^0.31.1"
+  }
+}

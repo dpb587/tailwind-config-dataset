@@ -1,0 +1,291 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/needim/radix-ui-themes-with-tailwind
++ reporef=main
++ repopath=./docs-dev
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/needim/radix-ui-themes-with-tailwind
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3149d7057a96
+++ echo 'github.com/needim/radix-ui-themes-with-tailwind;main;./docs-dev'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2f7d93eb6d56
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/needim/radix-ui-themes-with-tailwind/bWFpbgo/Li9kb2NzLWRldgo
++ jq -nc --arg key analysis_key --arg value github.com/needim/radix-ui-themes-with-tailwind/bWFpbgo/Li9kb2NzLWRldgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 419007898d688944
++ jq -nc --arg key analysis_nonce --arg value 419007898d688944 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/needim/radix-ui-themes-with-tailwind
++ jq -nc --arg key input_repo_name --arg value github.com/needim/radix-ui-themes-with-tailwind '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs-dev
++ jq -nc --arg key input_repo_path --arg value ./docs-dev '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T05:39:35Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T05:39:35Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3149d7057a96
+/tmp/twcr-3149d7057a96 /twcr
++ pushd /tmp/twcr-3149d7057a96
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/needim/radix-ui-themes-with-tailwind.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T05:39:36Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T05:39:36Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f7d43c1402a3188c6f8f06a4ef7b86741f40ffe2
++ jq -nc --arg key exec_repo_commit_sha --arg value f7d43c1402a3188c6f8f06a4ef7b86741f40ffe2 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-29 01:33:46 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-28T22:33:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-28T22:33:46Z '{ key: $key, value: $value }'
+/tmp/twcr-3149d7057a96/docs-dev /tmp/twcr-3149d7057a96 /twcr
++ '[' -z ./docs-dev ']'
++ pushd ./docs-dev
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3149d7057a96/docs-dev
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T05:39:36Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T05:39:36Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "-docs",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs-dev '!=' ./ ']'
++ rm -f /tmp/twcr-3149d7057a96/package.json /tmp/twcr-3149d7057a96/package-lock.json /tmp/twcr-3149d7057a96/pnpm-lock.yaml /tmp/twcr-3149d7057a96/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3149d7057a96 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3149d7057a96
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3149d7057a96/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 37, reused 0, downloaded 23, added 0
+Progress: resolved 71, reused 0, downloaded 56, added 0
+Progress: resolved 102, reused 0, downloaded 94, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 4.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwindcss/plugin'
+Require stack:
+- /tmp/twcr-3149d7057a96/src/index.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-3149d7057a96/src/index.ts:1:520
+    at evalModule (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-3149d7057a96/docs-dev/tailwind.config.ts:1:245
+    at evalModule (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-3149d7057a96/src/index.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T05:39:42Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T05:39:42Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at f7d43c1 Create FUNDING.yml
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3149d7057a96 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3149d7057a96
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3149d7057a96/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3149d7057a96/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +362
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 362, reused 63, downloaded 40, added 103
+Progress: resolved 362, reused 63, downloaded 102, added 159
+Progress: resolved 362, reused 63, downloaded 165, added 228
+Progress: resolved 362, reused 63, downloaded 229, added 292
+Progress: resolved 362, reused 63, downloaded 281, added 344
+Progress: resolved 362, reused 63, downloaded 299, added 362, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @radix-ui/react-icons 1.3.0
++ @radix-ui/themes 1.1.2
++ clsx 2.0.0
++ react 18.2.0
++ react-dom 18.2.0
++ react-refractor 2.1.7
++ react-rotating-text 1.4.1
++ refractor 4.8.1
++ tailwind-merge 1.14.0
+
+devDependencies:
++ @types/react 18.2.15
++ @types/react-dom 18.2.7
++ @typescript-eslint/eslint-plugin 6.0.0
++ @typescript-eslint/parser 6.0.0
++ @vitejs/plugin-react 4.0.3
++ autoprefixer 10.4.15
++ eslint 8.45.0
++ eslint-plugin-react-hooks 4.6.0
++ eslint-plugin-react-refresh 0.4.3
++ postcss 8.4.29
++ tailwindcss 3.3.3
++ typescript 5.0.2
++ vite 4.4.5
+
+Done in 6.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwindcss/plugin'
+Require stack:
+- /tmp/twcr-3149d7057a96/src/index.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:250196)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:252505)
+    at /tmp/twcr-3149d7057a96/src/index.ts:1:520
+    at evalModule (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:255202)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:253130)
+    at /tmp/twcr-3149d7057a96/docs-dev/tailwind.config.ts:1:245
+    at evalModule (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:255202)
+    at jiti (/tmp/twcr-3149d7057a96/docs-dev/node_modules/.pnpm/jiti@1.19.3/node_modules/jiti/dist/jiti.js:1:253130) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-3149d7057a96/src/index.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

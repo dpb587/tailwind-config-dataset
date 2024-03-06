@@ -1,0 +1,427 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Milkdown/milkdown
++ reporef=main
++ repopath=./packages/theme-nord
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Milkdown/milkdown
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-401997ddd81f
+++ echo 'github.com/Milkdown/milkdown;main;./packages/theme-nord'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/25b97e69ee17
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Milkdown/milkdown/bWFpbgo/Li9wYWNrYWdlcy90aGVtZS1ub3JkCg
++ jq -nc --arg key analysis_key --arg value github.com/Milkdown/milkdown/bWFpbgo/Li9wYWNrYWdlcy90aGVtZS1ub3JkCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6bb579a2badc3bb7
++ jq -nc --arg key analysis_nonce --arg value 6bb579a2badc3bb7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Milkdown/milkdown
++ jq -nc --arg key input_repo_name --arg value github.com/Milkdown/milkdown '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/theme-nord
++ jq -nc --arg key input_repo_path --arg value ./packages/theme-nord '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:09:05Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:09:05Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-401997ddd81f
+/tmp/twcr-401997ddd81f /twcr
++ pushd /tmp/twcr-401997ddd81f
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Milkdown/milkdown.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:09:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:09:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 6cfe465295cf2b7c1c8d62591559c51a7cf55100
++ jq -nc --arg key exec_repo_commit_sha --arg value 6cfe465295cf2b7c1c8d62591559c51a7cf55100 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 10:17:51 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T02:17:51Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T02:17:51Z '{ key: $key, value: $value }'
+/tmp/twcr-401997ddd81f/packages/theme-nord /tmp/twcr-401997ddd81f /twcr
++ '[' -z ./packages/theme-nord ']'
++ pushd ./packages/theme-nord
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-401997ddd81f/packages/theme-nord
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/theme-nord '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-401997ddd81f
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:09:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:09:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
+[squash-package] ERROR: failed to find any match for import path (@tailwindcss/forms)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T01:09:06Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T01:09:06Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 6cfe465 chore(deps): update all dependencies (#1256)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-401997ddd81f /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-401997ddd81f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-401997ddd81f/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-401997ddd81f/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 31 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1983 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1983, reused 0, downloaded 21, added 20
+../..                                    | Progress: resolved 1983, reused 0, downloaded 84, added 84
+../..                                    | Progress: resolved 1983, reused 0, downloaded 139, added 139
+../..                                    | Progress: resolved 1983, reused 0, downloaded 186, added 186
+../..                                    | Progress: resolved 1983, reused 0, downloaded 232, added 231
+../..                                    | Progress: resolved 1983, reused 0, downloaded 295, added 295
+../..                                    | Progress: resolved 1983, reused 0, downloaded 354, added 354
+../..                                    | Progress: resolved 1983, reused 0, downloaded 418, added 418
+../..                                    | Progress: resolved 1983, reused 0, downloaded 474, added 474
+../..                                    | Progress: resolved 1983, reused 0, downloaded 532, added 532
+../..                                    | Progress: resolved 1983, reused 0, downloaded 577, added 577
+../..                                    | Progress: resolved 1983, reused 0, downloaded 616, added 616
+../..                                    | Progress: resolved 1983, reused 0, downloaded 679, added 679
+../..                                    | Progress: resolved 1983, reused 0, downloaded 738, added 738
+../..                                    | Progress: resolved 1983, reused 0, downloaded 795, added 795
+../..                                    | Progress: resolved 1983, reused 0, downloaded 862, added 862
+../..                                    | Progress: resolved 1983, reused 0, downloaded 920, added 920
+../..                                    | Progress: resolved 1983, reused 0, downloaded 983, added 983
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1047, added 1047
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1094, added 1094
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1153, added 1153
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1220, added 1220
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1283, added 1282
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1332, added 1332
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1374, added 1374
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1419, added 1419
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1455, added 1455
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1499, added 1499
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1552, added 1552
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1584, added 1584
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1633, added 1633
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1687, added 1687
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1728, added 1728
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1759, added 1759
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1797, added 1797
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1852, added 1852
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1902, added 1902
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1956, added 1955
+../..                                    | Progress: resolved 1983, reused 0, downloaded 1983, added 1983, done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.10/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.0/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.10/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.0/node_modules/esbuild postinstall: Done
+.../cypress@13.6.1/node_modules/cypress postinstall$ node index.js --exec install
+.../cypress@13.6.1/node_modules/cypress postinstall: (node:185) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@13.6.1/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@13.6.1/node_modules/cypress postinstall: Installing Cypress (version: 13.6.1)
+.../cypress@13.6.1/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 10s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      2% 10s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 10s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 8s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 8s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      12% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      16% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      17% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      18% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      21% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      22% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      26% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      29% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      31% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      33% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      35% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      37% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      40% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      42% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      45% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      46% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      48% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      51% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      53% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      54% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      58% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      61% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      63% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      64% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      66% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      67% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      69% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      71% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      72% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      74% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      75% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      77% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      79% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      81% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      83% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      85% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      87% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      88% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      91% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      93% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      95% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      98% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@13.6.1/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@13.6.1/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 46s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 47s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 48s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 49s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 50s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 51s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 25s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 26s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 27s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 28s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 18s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 19s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 20s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 15s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 16s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 13s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 11s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 12s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 10s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 11s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 9s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 8s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 9s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 8s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 7s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 6s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 5s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 4s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 1s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 2s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 3s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@13.6.1/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@13.6.1/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@13.6.1/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/13.6.1
+.../cypress@13.6.1/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/13.6.1
+.../cypress@13.6.1/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@13.6.1/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@13.6.1/node_modules/cypress postinstall: Done
+.../node_modules/nx postinstall$ node ./bin/post-install
+.../node_modules/nx postinstall: Unable to create nodes for pnpm-lock.yaml using plugin nx/js/dependencies-and-lockfile. 
+.../node_modules/nx postinstall: 	 Inner Error: Error: Could not find ".modules.yaml" at "/tmp/twcr-401997ddd81f/node_modules/.modules.yaml"
+.../node_modules/nx postinstall:     at loadPnpmHoistedDepsDefinition (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/plugins/js/lock-file/utils/pnpm-normalizer.js:23:15)
+.../node_modules/nx postinstall:     at getNodes (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/plugins/js/lock-file/pnpm-parser.js:69:77)
+.../node_modules/nx postinstall:     at getPnpmLockfileNodes (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/plugins/js/lock-file/pnpm-parser.js:27:12)
+.../node_modules/nx postinstall:     at getLockFileNodes (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/plugins/js/lock-file/lock-file.js:36:59)
+.../node_modules/nx postinstall:     at exports.createNodes (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/plugins/js/index.js:42:64)
+.../node_modules/nx postinstall:     at buildProjectsConfigurationsFromProjectPathsAndPlugins (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/project-graph/utils/project-configuration-utils.js:148:29)
+.../node_modules/nx postinstall:     at createProjectConfigurations (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:89:156)
+.../node_modules/nx postinstall:     at _retrieveProjectConfigurations (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:61:12)
+.../node_modules/nx postinstall:     at retrieveProjectConfigurations (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/project-graph/utils/retrieve-workspace-files.js:46:12)
+.../node_modules/nx postinstall:     at async buildProjectGraphAndSourceMapsWithoutDaemon (/tmp/twcr-401997ddd81f/node_modules/.pnpm/nx@18.0.6_@swc+core@1.4.2/node_modules/nx/src/project-graph/project-graph.js:71:69)
+.../node_modules/nx postinstall: Done
+
+dependencies:
++ clsx 2.0.0
++ tslib 2.6.2
+
+devDependencies:
++ @milkdown/core 7.3.5 <- ../core
++ @milkdown/ctx 7.3.5 <- ../ctx
++ @milkdown/prose 7.3.5 <- ../prose
++ tailwind-nord 1.3.0
+
+../.. postinstall$ husky install
+../.. postinstall: install command is deprecated
+../.. postinstall: Done
+../.. prepare$ husky
+../.. prepare: Done
+Done in 1m 3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T01:10:11Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T01:10:11Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T01:10:11Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T01:10:11Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

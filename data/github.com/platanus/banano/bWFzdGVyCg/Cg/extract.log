@@ -1,0 +1,297 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/platanus/banano
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/platanus/banano
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c7552c00ddf4
+++ echo 'github.com/platanus/banano;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/97eda8d838fa
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/platanus/banano/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/platanus/banano/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 09af080691613885
++ jq -nc --arg key analysis_nonce --arg value 09af080691613885 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/platanus/banano
++ jq -nc --arg key input_repo_name --arg value github.com/platanus/banano '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:10:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:10:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c7552c00ddf4
+/tmp/twcr-c7552c00ddf4 /twcr
++ pushd /tmp/twcr-c7552c00ddf4
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/platanus/banano.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:10:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:10:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f5c65c726ea3a8e0e11df6b2fd00aa09ff08d7b4
++ jq -nc --arg key exec_repo_commit_sha --arg value f5c65c726ea3a8e0e11df6b2fd00aa09ff08d7b4 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-12-14 17:13:13 -0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-12-14T20:13:13Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-12-14T20:13:13Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-c7552c00ddf4 /tmp/twcr-c7552c00ddf4 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c7552c00ddf4
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:10:19Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:10:19Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "@platanus/banano",
+>>>   "private": false,
+>>>   "version": "1.0.2",
+>>>   "description": "A Vue 3 UI components library for platanus proyects",
+>>>   "main": "./dist/vue/index.js",
+>>>   "module": "./dist/vue/index.js",
+>>>   "types": "./dist/vue/index.d.ts",
+>>>   "author": "Platanus",
+>>>   "license": "MIT",
+>>>   "repository": "https://github.com/platanus/banano.git",
+>>>   "exports": {
+>>>     ".": "./dist/vue/index.js",
+>>>     "./tailwind": "./dist/tailwind/tailwind.umd.cjs"
+>>>   },
+>>>   "bin": {
+>>>     "banano": "./bin/banano.js"
+>>>   },
+>>>   "contributors": [
+>>>     {
+>>>       "name": "Diego Fernández"
+>>>     },
+>>>     {
+>>>       "name": "Guillermo Moreno"
+>>>     },
+>>>     {
+>>>       "name": "Francisca Rebolledo"
+>>>     }
+>>>   ],
+>>>   "files": [
+>>>     "dist/**/*",
+>>>     "README.md"
+>>>   ],
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "peerDependencies": {
+>>>     "@headlessui/tailwindcss": "^0.1.1",
+>>>     "@tailwindcss/forms": "^0.5.3",
+>>>     "tailwindcss": "^3.2.2"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@headlessui/tailwindcss": "^0.1.1",
+>>>     "@tailwindcss/forms": "^0.5.3",
+>>>     "tailwindcss": "^3.2.2"
+>>>   }
+>>> }+ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-c7552c00ddf4 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-c7552c00ddf4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b476eddb12b9:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b476eddb12b9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_b476eddb12b9:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b476eddb12b9:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b476eddb12b9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_b476eddb12b9:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.19s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'lodash/mergeWith'
+Require stack:
+- /tmp/twcr-c7552c00ddf4/src/tailwind/index.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-c7552c00ddf4/src/tailwind/index.cjs:3:19
+    at evalModule (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-c7552c00ddf4/tailwind.config.cjs:1:91
+    at evalModule (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-c7552c00ddf4/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-c7552c00ddf4/src/tailwind/index.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T12:10:28Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T12:10:28Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at f5c65c7 feat(): change version to upload to npm
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-c7552c00ddf4 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-c7552c00ddf4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_b476eddb12b9:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_b476eddb12b9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_b476eddb12b9:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_b476eddb12b9:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_b476eddb12b9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_b476eddb12b9:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:235) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning " > @rollup/plugin-commonjs@22.0.0" has unmet peer dependency "rollup@^2.68.0".
+warning "@rollup/plugin-commonjs > @rollup/pluginutils@3.1.0" has unmet peer dependency "rollup@^1.20.0||^2.0.0".
+warning " > @vitest/browser@0.33.0" has incorrect peer dependency "vitest@>=0.32.3".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-preset-algolia@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-plugin-algolia-insights@1.9.3" has unmet peer dependency "search-insights@>= 1 < 3".
+warning "vitepress > @docsearch/js > @docsearch/react > @algolia/autocomplete-core > @algolia/autocomplete-shared@1.9.3" has unmet peer dependency "@algolia/client-search@>= 4.9.1 < 6".
+[4/4] Building fresh packages...
+Done in 65.42s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T12:11:35Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T12:11:35Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T12:11:35Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T12:11:35Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,190 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/xiaogenban1993/xiaogenban1993.github.io
++ reporef=master
++ repopath=./23.06/shadcn-demo
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/xiaogenban1993/xiaogenban1993.github.io
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-913dc4736faa
+++ echo 'github.com/xiaogenban1993/xiaogenban1993.github.io;master;./23.06/shadcn-demo'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/156de880b60f
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/xiaogenban1993/xiaogenban1993.github.io/bWFzdGVyCg/Li8yMy4wNi9zaGFkY24tZGVtbwo
++ jq -nc --arg key analysis_key --arg value github.com/xiaogenban1993/xiaogenban1993.github.io/bWFzdGVyCg/Li8yMy4wNi9zaGFkY24tZGVtbwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d5afc9d6c7b690e4
++ jq -nc --arg key analysis_nonce --arg value d5afc9d6c7b690e4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/xiaogenban1993/xiaogenban1993.github.io
++ jq -nc --arg key input_repo_name --arg value github.com/xiaogenban1993/xiaogenban1993.github.io '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./23.06/shadcn-demo
++ jq -nc --arg key input_repo_path --arg value ./23.06/shadcn-demo '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:44:10Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:44:10Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-913dc4736faa
+/tmp/twcr-913dc4736faa /twcr
++ pushd /tmp/twcr-913dc4736faa
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/xiaogenban1993/xiaogenban1993.github.io.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:44:18Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:44:18Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha b866c3cb7af622015486871074919333a8946632
++ jq -nc --arg key exec_repo_commit_sha --arg value b866c3cb7af622015486871074919333a8946632 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-24 14:00:17 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-24T14:00:17Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-24T14:00:17Z '{ key: $key, value: $value }'
+/tmp/twcr-913dc4736faa/23.06/shadcn-demo /tmp/twcr-913dc4736faa /twcr
++ '[' -z ./23.06/shadcn-demo ']'
++ pushd ./23.06/shadcn-demo
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-913dc4736faa/23.06/shadcn-demo
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./23.06/shadcn-demo '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-913dc4736faa
+grep: /tmp/twcr-913dc4736faa/package.json: No such file or directory
+grep: /tmp/twcr-913dc4736faa/package.json: No such file or directory
+grep: /tmp/twcr-913dc4736faa/package.json: No such file or directory
+/twcr/worker/../worker/pm-detect.sh: line 17: /tmp/twcr-913dc4736faa/package.json: No such file or directory
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:44:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:44:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:44:18Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:44:18Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at b866c3c update note
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-913dc4736faa /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-913dc4736faa
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'amqplib@0.5.2',
+npm WARN EBADENGINE   required: { node: '>=0.8 <=9' },
+npm WARN EBADENGINE   current: { node: 'v21.6.2', npm: '10.2.4' }
+npm WARN EBADENGINE }
+npm WARN deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 449 packages, and audited 450 packages in 12s
+
+96 packages are looking for funding
+  run `npm fund` for details
+
+17 vulnerabilities (7 moderate, 5 high, 5 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T07:44:33Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T07:44:33Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T07:44:33Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T07:44:33Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

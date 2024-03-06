@@ -1,0 +1,261 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/eels/pbbg
++ reporef=main
++ repopath=./packages/storybook
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/eels/pbbg
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-d477dc235097
+++ echo 'github.com/eels/pbbg;main;./packages/storybook'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c3dc570139fa
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/eels/pbbg/bWFpbgo/Li9wYWNrYWdlcy9zdG9yeWJvb2sK
++ jq -nc --arg key analysis_key --arg value github.com/eels/pbbg/bWFpbgo/Li9wYWNrYWdlcy9zdG9yeWJvb2sK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 5d62ad1f65847992
++ jq -nc --arg key analysis_nonce --arg value 5d62ad1f65847992 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/eels/pbbg
++ jq -nc --arg key input_repo_name --arg value github.com/eels/pbbg '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/storybook
++ jq -nc --arg key input_repo_path --arg value ./packages/storybook '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T12:48:41Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T12:48:41Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d477dc235097
+/tmp/twcr-d477dc235097 /twcr
++ pushd /tmp/twcr-d477dc235097
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/eels/pbbg.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T12:48:42Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T12:48:42Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e0992c1ed8fd8f29fa8510d571c845dc4750ed27
++ jq -nc --arg key exec_repo_commit_sha --arg value e0992c1ed8fd8f29fa8510d571c845dc4750ed27 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-05 14:20:37 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-05T14:20:37Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-05T14:20:37Z '{ key: $key, value: $value }'
++ '[' -z ./packages/storybook ']'
++ pushd ./packages/storybook
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-d477dc235097/packages/storybook /tmp/twcr-d477dc235097 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d477dc235097/packages/storybook
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T12:48:42Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T12:48:42Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
+[squash-package] ERROR: failed to find any match for import path (tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T12:48:42Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T12:48:42Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at e0992c1 build: bump various astro packages to support astro 4.1.0
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-d477dc235097 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-d477dc235097
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_d4f05921fb95:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_d4f05921fb95:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_d4f05921fb95:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_d4f05921fb95:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_d4f05921fb95:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_d4f05921fb95:ok@172.18.0.2:3128".
+Done in 0.08s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning prettier-plugin-astro@0.8.0: The engine "pnpm" appears to be invalid.
+warning sharp@0.33.1: The engine "libvips" appears to be invalid.
+warning @img/sharp-darwin-arm64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-darwin-arm64@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-darwin-x64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-darwin-x64@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-libvips-darwin-arm64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-darwin-arm64@1.0.0: The engine "macos" appears to be invalid.
+warning @img/sharp-libvips-darwin-x64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-darwin-x64@1.0.0: The engine "macos" appears to be invalid.
+warning @img/sharp-libvips-linux-arm@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linux-arm@1.0.0: The engine "glibc" appears to be invalid.
+warning @img/sharp-libvips-linux-arm64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linux-arm64@1.0.0: The engine "glibc" appears to be invalid.
+warning @img/sharp-libvips-linux-s390x@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linux-s390x@1.0.0: The engine "glibc" appears to be invalid.
+warning @img/sharp-libvips-linux-x64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linux-x64@1.0.0: The engine "glibc" appears to be invalid.
+warning @img/sharp-libvips-linuxmusl-arm64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linuxmusl-arm64@1.0.0: The engine "musl" appears to be invalid.
+warning @img/sharp-libvips-linuxmusl-x64@1.0.0: The engine "pnpm" appears to be invalid.
+warning @img/sharp-libvips-linuxmusl-x64@1.0.0: The engine "musl" appears to be invalid.
+warning @img/sharp-linux-arm@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linux-arm@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-linux-arm64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linux-arm64@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-linux-s390x@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linux-s390x@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-linux-x64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linux-x64@0.33.1: The engine "glibc" appears to be invalid.
+warning @img/sharp-linuxmusl-arm64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linuxmusl-arm64@0.33.1: The engine "musl" appears to be invalid.
+warning @img/sharp-linuxmusl-x64@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-linuxmusl-x64@0.33.1: The engine "musl" appears to be invalid.
+warning @img/sharp-wasm32@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-win32-ia32@0.33.1: The engine "pnpm" appears to be invalid.
+warning @img/sharp-win32-x64@0.33.1: The engine "pnpm" appears to be invalid.
+[3/4] Linking dependencies...
+warning "@pbbg/eslint-config > eslint-plugin-prettier@4.2.1" has unmet peer dependency "prettier@>=2.0.0".
+warning "@pbbg/eslint-config > eslint-plugin-typescript-sort-keys@2.3.0" has incorrect peer dependency "@typescript-eslint/parser@^1 || ^2 || ^3 || ^4 || ^5".
+warning "@pbbg/eslint-config > eslint-plugin-typescript-sort-keys@2.3.0" has unmet peer dependency "typescript@^3 || ^4 || ^5".
+warning "@pbbg/eslint-config > @typescript-eslint/eslint-plugin > ts-api-utils@1.0.3" has unmet peer dependency "typescript@>=4.2.0".
+warning "@pbbg/eslint-config > eslint-plugin-storybook > @typescript-eslint/utils > @typescript-eslint/typescript-estree > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-syntax-bigint@7.8.3" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-object-rest-spread > @babel/helper-compilation-targets@7.22.5" has unmet peer dependency "@babel/core@^7.0.0".
+warning " > ts-jest@29.1.1" has unmet peer dependency "typescript@>=4.3 <6".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/web > @astrojs/tailwind@5.1.0" has unmet peer dependency "tailwindcss@^3.0.24".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/web > tailwind-compose@1.1.0" has unmet peer dependency "tailwindcss@>=3.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer@0.3.4" has unmet peer dependency "contentlayer@0.3.4".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer@0.3.4" has unmet peer dependency "next@^12 || ^13".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > @testing-library/react-hooks@8.0.1" has incorrect peer dependency "react@^16.9.0 || ^17.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/web > @astrojs/react > @vitejs/plugin-react@4.2.1" has unmet peer dependency "vite@^4.2.0 || ^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/stylelint-config > stylelint-config-idiomatic-order > stylelint-order@5.0.0" has incorrect peer dependency "stylelint@^14.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > css-loader@6.8.1" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > less-loader@11.1.3" has unmet peer dependency "less@^3.5.0 || ^4.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > less-loader@11.1.3" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > postcss-loader@7.3.3" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > sass-loader@13.3.2" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/addon-styling > style-loader@3.3.3" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-class-properties@7.18.6" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-export-namespace-from@7.18.9" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-numeric-separator@7.18.6" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-object-rest-spread@7.20.7" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-syntax-dynamic-import@7.8.3" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-syntax-import-assertions@7.22.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-transform-runtime@7.22.15" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-react@7.22.15" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-typescript@7.23.0" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > node-polyfill-webpack-plugin@2.0.1" has unmet peer dependency "webpack@>=5".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > sass-loader@12.6.0" has unmet peer dependency "webpack@^5.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin@7.22.5" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/plugin-proposal-object-rest-spread > @babel/plugin-transform-parameters@7.22.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-react > @babel/plugin-transform-react-display-name@7.22.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-react > @babel/plugin-transform-react-jsx-development@7.22.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-react > @babel/plugin-transform-react-pure-annotations@7.22.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-typescript > @babel/plugin-transform-modules-commonjs@7.23.0" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @babel/preset-typescript > @babel/plugin-transform-typescript@7.22.15" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @storybook/builder-webpack5 > fork-ts-checker-webpack-plugin@7.3.0" has unmet peer dependency "typescript@>3.6.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @storybook/preset-react-webpack > @babel/preset-flow@7.22.15" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @storybook/preset-react-webpack > @storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0" has unmet peer dependency "typescript@>= 4.x".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/storybook > @storybook/nextjs > @storybook/preset-react-webpack > @storybook/react-docgen-typescript-plugin > react-docgen-typescript@2.2.2" has unmet peer dependency "typescript@>= 4.3.x".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/core@1.13.0" has incorrect peer dependency "@opentelemetry/api@>=1.0.0 <1.5.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/otlp-transformer@0.39.1" has incorrect peer dependency "@opentelemetry/api@>=1.3.0 <1.5.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/resources@1.13.0" has incorrect peer dependency "@opentelemetry/api@>=1.0.0 <1.5.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/sdk-trace-base@1.13.0" has incorrect peer dependency "@opentelemetry/api@>=1.0.0 <1.5.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/otlp-transformer > @opentelemetry/sdk-logs@0.39.1" has incorrect peer dependency "@opentelemetry/api@>=1.4.0 <1.5.0".
+warning "workspace-aggregator-8798b058-2bf7-475a-a43c-f6243aad512b > @pbbg/ui > next-contentlayer > @contentlayer/utils > @opentelemetry/exporter-trace-otlp-grpc > @opentelemetry/otlp-transformer > @opentelemetry/sdk-metrics@1.13.0" has incorrect peer dependency "@opentelemetry/api@>=1.3.0 <1.5.0".
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+Done in 246.50s.
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ yarn list --depth=0 --json --non-interactive --no-progress
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T12:52:51Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T12:52:51Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T12:52:51Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T12:52:51Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

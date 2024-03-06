@@ -1,0 +1,384 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Yoast/wordpress-seo
++ reporef=trunk
++ repopath=./
+++ echo github.com/Yoast/wordpress-seo
+++ sha256sum
+++ cut -c1-12
+++ awk '{ print $1 }'
++ procdir=/tmp/twcr-584a1d6484ab
+++ echo 'github.com/Yoast/wordpress-seo;trunk;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/40eaef4a1759
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Yoast/wordpress-seo/dHJ1bmsK/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Yoast/wordpress-seo/dHJ1bmsK/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d1ec5ba4e06d0cd2
++ jq -nc --arg key analysis_nonce --arg value d1ec5ba4e06d0cd2 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Yoast/wordpress-seo
++ jq -nc --arg key input_repo_name --arg value github.com/Yoast/wordpress-seo '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref trunk
++ jq -nc --arg key input_repo_ref --arg value trunk '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T23:02:35Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T23:02:35Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-584a1d6484ab
++ pushd /tmp/twcr-584a1d6484ab
++ '[' -d .git ']'
++ git clone --depth=1 -b trunk https://github.com/Yoast/wordpress-seo.git .
+/tmp/twcr-584a1d6484ab /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T23:02:39Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T23:02:39Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 14a551f319c28c9acdff064bc91beec9741b1b8a
++ jq -nc --arg key exec_repo_commit_sha --arg value 14a551f319c28c9acdff064bc91beec9741b1b8a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 15:46:18 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T14:46:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T14:46:18Z '{ key: $key, value: $value }'
+/tmp/twcr-584a1d6484ab /tmp/twcr-584a1d6484ab /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-584a1d6484ab/pnpm-workspace.yaml ']'
++ cat README.md
++ grep -q 'pnpm install'
++ grep -q '"packageManager":[^"]+"yarn@"' package.json
++ '[' -f yarn.lock ']'
++ package_manager_name=yarn
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T23:02:39Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T23:02:39Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "wordpress-seo",
+>>>   "license": "GPL-2.0+",
+>>>   "description": "Development files for the Yoast SEO plugin",
+>>>   "private": true,
+>>>   "plugin": {
+>>>     "glotpress": "http://translate.wordpress.org",
+>>>     "textdomain": "wordpress-seo"
+>>>   },
+>>>   "pot": {
+>>>     "reportmsgidbugsto": "https://github.com/yoast/wordpress-seo/issues",
+>>>     "languageteam": "Yoast Translate <translations@yoast.com>",
+>>>     "lasttranslator": "Yoast Translate Team <translations@yoast.com>"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/Yoast/wordpress-seo"
+>>>   },
+>>>   "workspaces": {
+>>>     "packages": [
+>>>       "packages/*"
+>>>     ],
+>>>     "nohoist": [
+>>>       "**/sassdash"
+>>>     ]
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {},
+>>>   "yoast": {
+>>>     "pluginVersion": "22.2-RC4"
+>>>   },
+>>>   "version": "0.0.0"
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-584a1d6484ab /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-584a1d6484ab
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ yarn install --ignore-engines
+yarn install v1.19.1
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning Pattern ["array-flatten@1.1.1"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-abbrev-1.1.1-9a5f699051b1e7073328f2a008968b64ea2955d2-integrity/node_modules/abbrev" as pattern ["abbrev@1","abbrev@1"]. This could result in non-deterministic behavior, skipping.
+(node:103) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info fsevents@2.3.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.3.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > @yoast/babel-preset@1.1.1" has unmet peer dependency "@babel/core@^7.18.5".
+warning " > eslint-config-yoast@6.0.0" has unmet peer dependency "eslint-plugin-import@>=2.27.5".
+warning " > eslint-config-yoast@6.0.0" has unmet peer dependency "eslint-plugin-jsx-a11y@>=6.1.1".
+warning " > eslint-config-yoast@6.0.0" has unmet peer dependency "eslint-plugin-react@>=7.11.1".
+warning " > @yoast/jest-preset@1.0.1" has unmet peer dependency "@babel/core@^7.17.2".
+warning " > @yoast/jest-preset@1.0.1" has unmet peer dependency "jest@^27.5.1".
+warning " > @yoast/postcss-preset@1.2.0" has unmet peer dependency "postcss@^8.4.19".
+warning " > @yoast/replacement-variable-editor@1.17.0" has unmet peer dependency "@draft-js-plugins/mention@^5.0.0".
+warning " > @yoast/replacement-variable-editor@1.17.0" has unmet peer dependency "draft-js@^0.11.7".
+warning " > @yoast/tailwindcss-preset@2.3.0" has unmet peer dependency "@tailwindcss/forms@^0.5.3".
+warning " > @yoast/tailwindcss-preset@2.3.0" has unmet peer dependency "tailwindcss@^3.2.4".
+warning " > @yoast/ui-library@3.3.0" has unmet peer dependency "@wordpress/element@^4.1.1".
+warning " > yoast-components@5.24.1" has unmet peer dependency "material-ui@^0.18.6".
+warning " > yoast-components@5.24.1" has unmet peer dependency "react@^16.12.0".
+warning " > yoast-components@5.24.1" has unmet peer dependency "react-dom@^16.12.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/analysis-report > styled-components@5.3.6" has unmet peer dependency "react-is@>= 16.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-proposal-optional-chaining@7.21.0" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-class-properties@7.23.3" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime@7.23.7" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-modal@3.12.1" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16 || ^17".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-modal@3.12.1" has incorrect peer dependency "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-select@3.1.0" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-select@3.1.0" has incorrect peer dependency "react-dom@^16.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-tabs@2.3.1" has incorrect peer dependency "react@^0.14.9 || ^15.3.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/e2e-tests > babel-jest@26.6.3" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default@8.0.1" has unmet peer dependency "@babel/core@>=7".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default@8.0.1" has unmet peer dependency "jest@>=27".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default@8.0.1" has unmet peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default@8.0.1" has unmet peer dependency "react-dom@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > babel-jest@27.5.1" has unmet peer dependency "@babel/core@^7.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @draft-js-plugins/mention@5.0.0" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components@13.0.3" has unmet peer dependency "@wp-g2/create-styles@^0.0.154".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components@13.0.3" has unmet peer dependency "reakit-utils@^0.15.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > react-aria-live@2.0.5" has incorrect peer dependency "react@^16.3.x".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > react-intl@2.9.0" has incorrect peer dependency "react@^0.14.9 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > react-redux@5.1.2" has incorrect peer dependency "react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @testing-library/react-hooks@8.0.1" has incorrect peer dependency "react@^16.9.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/dependency-extraction-webpack-plugin@2.9.0" has unmet peer dependency "webpack@^4.8.3 || ^5.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > autoprefixer@10.4.7" has unmet peer dependency "postcss@^8.1.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano@5.0.17" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > postcss-import@14.1.0" has unmet peer dependency "postcss@^8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > tailwindcss@3.2.4" has unmet peer dependency "postcss@^8.0.9".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @draft-js-plugins/editor@4.1.0" has unmet peer dependency "draft-js@^0.11.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @draft-js-plugins/editor@4.1.0" has incorrect peer dependency "react@^16.3.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @wordpress/components@20.0.0" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @wordpress/components@20.0.0" has incorrect peer dependency "react-dom@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > draft-js-single-line-plugin@2.0.5" has unmet peer dependency "draft-js@>=0.7.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/react@6.5.14" has unmet peer dependency "require-from-string@^2.0.2".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > babel-loader@9.1.0" has unmet peer dependency "webpack@>=5".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > react-transition-group@2.6.0" has unmet peer dependency "react@>=15.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > react-transition-group@2.6.0" has unmet peer dependency "react-dom@>=15.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui@0.18.7" has unmet peer dependency "react@^15.4.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui@0.18.7" has unmet peer dependency "react-dom@^15.4.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui@0.18.7" has unmet peer dependency "react-tap-event-plugin@^2.0.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools@3.7.0" has unmet peer dependency "react@^0.14.9 || ^15.3.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-dock-monitor@1.2.0" has unmet peer dependency "@types/react@^16.3.18".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-dock-monitor@1.2.0" has unmet peer dependency "react@^16.3.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-log-monitor@1.4.0" has unmet peer dependency "react@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-proposal-optional-chaining > @babel/plugin-syntax-optional-chaining@7.8.3" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-class-properties > @babel/helper-create-class-features-plugin@7.23.7" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime > babel-plugin-polyfill-corejs2@0.4.8" has unmet peer dependency "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime > babel-plugin-polyfill-corejs3@0.8.7" has unmet peer dependency "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime > babel-plugin-polyfill-regenerator@0.5.5" has unmet peer dependency "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/components > react-select > react-input-autosize@2.2.2" has incorrect peer dependency "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/e2e-tests > @wordpress/url > react-native-url-polyfill@1.3.0" has unmet peer dependency "react-native@*".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/e2e-tests > babel-jest > babel-preset-jest@26.6.2" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default > @wojtekmaj/enzyme-adapter-react-17@0.6.6" has unmet peer dependency "react@^17.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default > @wojtekmaj/enzyme-adapter-react-17@0.6.6" has unmet peer dependency "react-dom@^17.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default > @wordpress/jest-console@5.0.1" has unmet peer dependency "jest@>=27".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > babel-jest > babel-preset-jest@27.5.1" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @draft-js-plugins/mention > react-popper@2.2.5" has incorrect peer dependency "react@^16.8.0 || ^17".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/block-editor > react-autosize-textarea@7.1.0" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/block-editor > react-autosize-textarea@7.1.0" has incorrect peer dependency "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/blocks > @wordpress/compose@5.1.2" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/blocks > @wordpress/data@6.3.0" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @emotion/native@10.0.27" has unmet peer dependency "react-native@>=0.14.0 <1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/components@0.0.160" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/components@0.0.160" has incorrect peer dependency "react-dom@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/context@0.0.160" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/context@0.0.160" has incorrect peer dependency "react-dom@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/styles@0.0.160" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/styles@0.0.160" has incorrect peer dependency "react-dom@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/utils@0.0.160" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/utils@0.0.160" has incorrect peer dependency "react-dom@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates@17.2.0" has incorrect peer dependency "react@^0.14 || ^15.5.4 || ^16.1.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates@17.2.0" has incorrect peer dependency "react-dom@^0.14 || ^15.5.4 || ^16.1.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-resize-aware@3.1.0" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit@1.3.11" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit@1.3.11" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/compose > use-memo-one@1.1.2" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default@5.1.12" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @wordpress/components > @wordpress/compose@5.20.0" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @wordpress/components > @wordpress/rich-text@5.20.0" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-postcss > css-loader@3.6.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-postcss > postcss-loader@4.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-postcss > style-loader@1.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-storyshots > @storybook/core@6.5.14" has unmet peer dependency "webpack@*".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-storyshots > @storybook/core-client@6.5.14" has unmet peer dependency "webpack@*".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-storyshots > preact-render-to-string@5.1.20" has unmet peer dependency "preact@>=10".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-storyshots-puppeteer > @axe-core/puppeteer@4.4.0" has incorrect peer dependency "puppeteer@>=1.10.0 <= 13".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/react > @storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0" has unmet peer dependency "typescript@>= 3.x".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui > react-event-listener@0.4.5" has unmet peer dependency "react@^0.14.0 || ^15.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui > react-transition-group@1.2.1" has unmet peer dependency "react@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui > react-transition-group@1.2.1" has unmet peer dependency "react-dom@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > material-ui > recompose@0.24.0" has unmet peer dependency "react@^0.14.0 || ^15.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-dock-monitor > react-dock@0.3.0" has unmet peer dependency "@types/react@^16.3.18".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-dock-monitor > react-dock@0.3.0" has unmet peer dependency "react@^16.3.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-log-monitor > react-json-tree@0.11.2" has unmet peer dependency "react@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > yoast-components > redux-devtools-log-monitor > react-json-tree@0.11.2" has unmet peer dependency "react-dom@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers@7.22.20" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime > babel-plugin-polyfill-corejs2 > @babel/helper-define-polyfill-provider@0.5.0" has unmet peer dependency "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/babel-preset > @babel/plugin-transform-runtime > babel-plugin-polyfill-corejs3 > @babel/helper-define-polyfill-provider@0.4.4" has unmet peer dependency "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/e2e-tests > babel-jest > babel-preset-jest > babel-preset-current-node-syntax@1.0.1" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/jest-preset > @wordpress/jest-preset-default > @wojtekmaj/enzyme-adapter-react-17 > @wojtekmaj/enzyme-adapter-utils@0.1.4" has unmet peer dependency "react@^17.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/context > @wp-g2/create-styles@0.0.160" has incorrect peer dependency "@wordpress/data@>=4.26".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/context > @wp-g2/create-styles@0.0.160" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/context > @wp-g2/create-styles@0.0.160" has incorrect peer dependency "react-dom@^16.13.1".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > @wp-g2/utils > use-enhanced-state@0.0.13" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates > airbnb-prop-types@2.16.0" has incorrect peer dependency "react@^0.14 || ^15.0.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates > react-with-styles@3.2.3" has unmet peer dependency "react-with-direction@^1.1.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit > reakit-system@0.15.2" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit > reakit-system@0.15.2" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit > reakit-utils@0.15.2" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit > reakit-utils@0.15.2" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > reakit > reakit-warning@0.6.2" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > css-declaration-sorter@6.2.2" has unmet peer dependency "postcss@^8.0.9".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > cssnano-utils@3.0.2" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-calc@8.2.4" has unmet peer dependency "postcss@^8.2.2".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-colormin@5.2.5" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-convert-values@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-discard-comments@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-discard-duplicates@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-discard-empty@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-discard-overridden@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-merge-longhand@5.0.6" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-merge-rules@5.0.6" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-minify-font-values@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-minify-gradients@5.0.6" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-minify-params@5.0.5" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-minify-selectors@5.1.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-charset@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-display-values@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-positions@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-repeat-style@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-string@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-timing-functions@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-unicode@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-url@5.0.5" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-normalize-whitespace@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-ordered-values@5.0.5" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-reduce-initial@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-reduce-transforms@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-svgo@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-unique-selectors@5.0.4" has unmet peer dependency "postcss@^8.2.15".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/replacement-variable-editor > @wordpress/components > @wordpress/rich-text > @wordpress/data@7.6.0" has incorrect peer dependency "react@^17.0.0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-essentials > @storybook/addon-docs > babel-loader@8.2.3" has unmet peer dependency "webpack@>=2".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/addon-essentials > @storybook/core-common > fork-ts-checker-webpack-plugin@6.5.0" has unmet peer dependency "typescript@>= 2.7".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/ui-library > @storybook/react > @storybook/react-docgen-typescript-plugin > react-docgen-typescript@2.2.2" has unmet peer dependency "typescript@>= 4.3.x".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/e2e-tests > babel-jest > babel-preset-jest > babel-preset-current-node-syntax > @babel/plugin-syntax-bigint@7.8.3" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates > react-with-styles > react-with-direction@1.4.0" has incorrect peer dependency "react@^0.14 || ^15 || ^16".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > @wordpress/components > react-dates > react-with-styles > react-with-direction@1.4.0" has incorrect peer dependency "react-dom@^0.14 || ^15 || ^16".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/wordpress-seo > eslint-plugin-jest > @typescript-eslint/utils > @typescript-eslint/typescript-estree > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+warning "workspace-aggregator-162e8a00-cb06-45be-89e1-f70896d5ee84 > @yoast/postcss-preset > cssnano > cssnano-preset-default > postcss-merge-longhand > stylehacks@5.0.3" has unmet peer dependency "postcss@^8.2.15".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 300.49s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.4
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/esm/resolve:263
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/twcr-584a1d6484ab/node_modules/tailwindcss/lib/lib/load-config.js' imported from /tmp/twcr-584a1d6484ab/tailwind.config.exporter3.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:263:11)
+    at moduleResolve (node:internal/modules/esm/resolve:908:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1131:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:390:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:359:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:234:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:85:39)
+    at link (node:internal/modules/esm/module_job:84:36) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/twcr-584a1d6484ab/node_modules/tailwindcss/lib/lib/load-config.js'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ tailwind.config.exporter3.mjs == \t\a\i\l\w\i\n\d\.\c\o\n\f\i\g\.\e\x\p\o\r\t\e\r\3\.\m\j\s ]]
++ echo '[worker] WARN: exporter failed; retrying with alternative'
+[worker] WARN: exporter failed; retrying with alternative
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ continue
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T23:07:43Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T23:07:43Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T23:07:43Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T23:07:43Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

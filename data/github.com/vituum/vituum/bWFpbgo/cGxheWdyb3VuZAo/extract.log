@@ -1,0 +1,238 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/vituum/vituum
++ reporef=main
++ repopath=./playground
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/vituum/vituum
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bbe73986fe17
+++ echo 'github.com/vituum/vituum;main;./playground'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/baf43a2f940e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/vituum/vituum/bWFpbgo/Li9wbGF5Z3JvdW5kCg
++ jq -nc --arg key analysis_key --arg value github.com/vituum/vituum/bWFpbgo/Li9wbGF5Z3JvdW5kCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9d0cdf832114d677
++ jq -nc --arg key analysis_nonce --arg value 9d0cdf832114d677 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/vituum/vituum
++ jq -nc --arg key input_repo_name --arg value github.com/vituum/vituum '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./playground
++ jq -nc --arg key input_repo_path --arg value ./playground '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:03:55Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:03:55Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bbe73986fe17
++ pushd /tmp/twcr-bbe73986fe17
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/vituum/vituum.git .
+/tmp/twcr-bbe73986fe17 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:03:56Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:03:56Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a04632b1ae27095f7eb1fcc8349a38d14481c375
++ jq -nc --arg key exec_repo_commit_sha --arg value a04632b1ae27095f7eb1fcc8349a38d14481c375 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-17 12:44:35 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-17T11:44:35Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-17T11:44:35Z '{ key: $key, value: $value }'
+/tmp/twcr-bbe73986fe17/playground /tmp/twcr-bbe73986fe17 /twcr
++ '[' -z ./playground ']'
++ pushd ./playground
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bbe73986fe17/playground
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./playground '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bbe73986fe17
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:03:56Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:03:56Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@vituum/playground",
+>>>   "version": "0.0.1",
+>>>   "type": "module",
+>>>   "private": true,
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./playground '!=' ./ ']'
++ rm -f /tmp/twcr-bbe73986fe17/package.json /tmp/twcr-bbe73986fe17/package-lock.json /tmp/twcr-bbe73986fe17/pnpm-lock.yaml /tmp/twcr-bbe73986fe17/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bbe73986fe17 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bbe73986fe17
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+up to date, audited 1 package in 239ms
+
+found 0 vulnerabilities
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-bbe73986fe17/playground/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-bbe73986fe17/playground/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-bbe73986fe17/playground/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:03:58Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:03:58Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing package-lock.json
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at a04632b feat: changelog
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-bbe73986fe17 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-bbe73986fe17
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 276 packages, and audited 277 packages in 22s
+
+79 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T06:04:21Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T06:04:21Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T06:04:21Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T06:04:21Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,568 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/xtendui/xtendui
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/xtendui/xtendui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f654267154ca
+++ echo 'github.com/xtendui/xtendui;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/874b57a837bc
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/xtendui/xtendui/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/xtendui/xtendui/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 8004f37e40264c49
++ jq -nc --arg key analysis_nonce --arg value 8004f37e40264c49 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/xtendui/xtendui
++ jq -nc --arg key input_repo_name --arg value github.com/xtendui/xtendui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T05:29:48Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T05:29:48Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f654267154ca
++ pushd /tmp/twcr-f654267154ca
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/xtendui/xtendui.git .
+/tmp/twcr-f654267154ca /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T05:29:51Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T05:29:51Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 9d1c1660032f6b528b2bf20995e1e9f98f6eb534
++ jq -nc --arg key exec_repo_commit_sha --arg value 9d1c1660032f6b528b2bf20995e1e9f98f6eb534 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-13 11:31:20 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-13T09:31:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-13T09:31:20Z '{ key: $key, value: $value }'
+/tmp/twcr-f654267154ca /tmp/twcr-f654267154ca /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f654267154ca
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T05:29:51Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T05:29:51Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "xtendui",
+>>>   "version": "1.4.2",
+>>>   "description": "Xtend UI is a powerful frontend library of Tailwind CSS components enhanced by vanilla js. It helps you build interfaces with advanced interactions and animations.",
+>>>   "homepage": "https://xtendui.com/",
+>>>   "license": "MIT",
+>>>   "author": "Riccardo Caroli <beaver82+xtendui@gmail.com>",
+>>>   "repository": "https://github.com/xtendui/xtendui.git",
+>>>   "keywords": [
+>>>     "react",
+>>>     "javascript",
+>>>     "components",
+>>>     "ui",
+>>>     "html5",
+>>>     "frontend",
+>>>     "react-components",
+>>>     "vanilla-javascript",
+>>>     "tailwindcss"
+>>>   ],
+>>>   "main": "src/xt.mjs",
+>>>   "exports": {
+>>>     ".": "./src/xt.mjs",
+>>>     "./src/xt": "./src/xt.mjs",
+>>>     "./tailwind.preset": "./tailwind.preset.js",
+>>>     "./src/drop": "./src/drop.mjs",
+>>>     "./src/form": "./src/form.mjs",
+>>>     "./src/googlelocator": "./src/googlelocator.mjs",
+>>>     "./src/groupnumber": "./src/groupnumber.mjs",
+>>>     "./src/infinitescroll": "./src/infinitescroll.mjs",
+>>>     "./src/mousefollow": "./src/mousefollow.mjs",
+>>>     "./src/overlay": "./src/overlay.mjs",
+>>>     "./src/ripple": "./src/ripple.mjs",
+>>>     "./src/scrollto": "./src/scrollto.mjs",
+>>>     "./src/slider": "./src/slider.mjs",
+>>>     "./src/stickyflow": "./src/stickyflow.mjs",
+>>>     "./src/textareaautosize": "./src/textareaautosize.mjs",
+>>>     "./src/toggle": "./src/toggle.mjs",
+>>>     "./src/tooltip": "./src/tooltip.mjs",
+>>>     "./src/usability": "./src/usability.mjs"
+>>>   },
+>>>   "publishConfig": {
+>>>     "registry": "https://registry.npmjs.org/"
+>>>   },
+>>>   "files": [
+>>>     "tailwind.*.js",
+>>>     "dist/*.min.*",
+>>>     "src/*.*"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "peerDependencies": {
+>>>     "tailwindcss": "^3.0.12"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-f654267154ca /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-f654267154ca
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-f654267154ca/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-f654267154ca/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 40, reused 0, downloaded 22, added 0
+Progress: resolved 74, reused 0, downloaded 58, added 0
+Progress: resolved 105, reused 0, downloaded 103, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 4.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'lodash'
+Require stack:
+- /tmp/twcr-f654267154ca/tailwind.plugin.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-f654267154ca/tailwind.plugin.js:2:11
+    at evalModule (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-f654267154ca/tailwind.preset.js:75:13
+    at evalModule (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-f654267154ca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-f654267154ca/tailwind.plugin.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T05:29:57Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T05:29:57Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 9d1c166 chore: no automatic deploy
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-f654267154ca /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-f654267154ca
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-f654267154ca/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-f654267154ca/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1220
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1220, reused 81, downloaded 26, added 107
+Progress: resolved 1220, reused 81, downloaded 100, added 181
+Progress: resolved 1220, reused 81, downloaded 168, added 249
+Progress: resolved 1220, reused 81, downloaded 236, added 317
+Progress: resolved 1220, reused 81, downloaded 308, added 388
+Progress: resolved 1220, reused 81, downloaded 378, added 458
+Progress: resolved 1220, reused 81, downloaded 437, added 518
+Progress: resolved 1220, reused 81, downloaded 500, added 581
+Progress: resolved 1220, reused 81, downloaded 566, added 647
+Progress: resolved 1220, reused 81, downloaded 638, added 719
+Progress: resolved 1220, reused 81, downloaded 700, added 780
+Progress: resolved 1220, reused 81, downloaded 765, added 846
+Progress: resolved 1220, reused 81, downloaded 821, added 901
+Progress: resolved 1220, reused 81, downloaded 869, added 950
+Progress: resolved 1220, reused 81, downloaded 908, added 989
+Progress: resolved 1220, reused 81, downloaded 939, added 1020
+Progress: resolved 1220, reused 81, downloaded 986, added 1067
+Progress: resolved 1220, reused 81, downloaded 1049, added 1130
+Progress: resolved 1220, reused 81, downloaded 1093, added 1174
+Progress: resolved 1220, reused 81, downloaded 1139, added 1220, done
+.../core-js@3.32.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.32.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.32.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.32.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.32.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.32.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.32.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.32.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.32.0/node_modules/core-js postinstall: Done
+.../cypress@12.17.3/node_modules/cypress postinstall$ node index.js --exec install
+.../cypress@12.17.3/node_modules/cypress postinstall: (node:201) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@12.17.3/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@12.17.3/node_modules/cypress postinstall: Installing Cypress (version: 12.17.3)
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      7% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      13% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      15% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      17% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      21% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      22% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      26% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      29% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      30% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      32% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      33% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      35% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      37% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      39% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      41% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      42% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      44% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      45% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      47% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      49% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      51% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      52% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      54% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      57% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      61% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      64% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      66% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      68% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      69% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      71% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      74% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      75% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      76% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      78% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      82% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      83% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      85% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      86% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      87% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      88% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      90% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      92% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      93% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      95% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      98% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 18s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 19s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 20s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 21s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 10s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 11s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 12s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 8s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 9s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 7s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 6s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 5s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 4s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 3s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 1s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 2s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@12.17.3/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.3/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/12.17.3
+.../cypress@12.17.3/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/12.17.3
+.../cypress@12.17.3/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@12.17.3/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@12.17.3/node_modules/cypress postinstall: Done
+
+dependencies:
++ @popperjs/core 2.11.8
++ eslint-config-next 13.4.13
++ focus-trap 7.5.2
++ lodash 4.17.21
++ lodash.kebabcase 4.1.1
++ relaxed-json 1.0.3
+
+devDependencies:
++ @babel/core 7.22.10
++ @babel/preset-env 7.22.10
++ @semantic-release/changelog 6.0.3
++ @semantic-release/commit-analyzer 10.0.1
++ @semantic-release/git 10.0.1
++ @semantic-release/github 9.0.4
++ @semantic-release/npm 10.0.4
++ @semantic-release/release-notes-generator 11.0.4
++ autoprefixer 10.4.14
++ babel-loader 9.1.3
++ clipboard 2.0.11
++ core-js 3.32.0
++ cross-env 7.0.3
++ css-loader 6.8.1
++ cssnano 6.0.1
++ cypress 12.17.3
++ cypress-axe 1.4.0
++ cypress-plugin-tab 1.0.5
++ dotenv 16.3.1
++ eslint 8.46.0
++ eslint-config-prettier 9.0.0
++ eslint-plugin-cypress 2.14.0
++ eslint-plugin-next 0.0.0
++ eslint-plugin-prettier 5.0.0
++ esm 3.2.25
++ gh-pages 5.0.0
++ glob 10.3.3
++ gray-matter 4.0.3
++ gsap 3.12.2
++ mini-css-extract-plugin 2.7.6
++ next 13.4.13
++ path 0.12.7
++ postcss 8.4.27
++ postcss-import 15.1.0
++ postcss-loader 7.3.3
++ prettier-eslint 15.0.1
++ prismjs 1.29.0
++ prop-types 15.8.1
++ purgecss 5.0.0
++ react 18.2.0
++ react-dom 18.2.0
++ react-helmet 6.1.0
++ regenerator-runtime 0.14.0
++ rehype-add-classes 1.0.0
++ rehype-external-links 2.1.0
++ rehype-parse 8.0.4
++ rehype-react 7.2.0
++ remark-gfm 3.0.1
++ remark-html 15.0.2
++ remark-parse 10.0.2
++ semantic-release 21.0.7
++ serve 14.2.0
++ start-server-and-test 2.0.0
++ tailwindcss 3.3.3
++ terser-webpack-plugin 5.3.9
++ unified 10.1.2
++ uuid 9.0.0
++ webpack 5.88.2
++ webpack-cli 5.1.4
++ write 2.0.0
+
+Done in 38.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T05:30:37Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T05:30:37Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T05:30:37Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T05:30:37Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

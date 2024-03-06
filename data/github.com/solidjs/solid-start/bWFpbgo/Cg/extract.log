@@ -1,0 +1,273 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/solidjs/solid-start
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/solidjs/solid-start
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1861b62892a2
+++ echo 'github.com/solidjs/solid-start;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/115cf9bc7dcf
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/solidjs/solid-start/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/solidjs/solid-start/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce feb83aa2d0ad42ec
++ jq -nc --arg key analysis_nonce --arg value feb83aa2d0ad42ec '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/solidjs/solid-start
++ jq -nc --arg key input_repo_name --arg value github.com/solidjs/solid-start '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:49:15Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:49:15Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1861b62892a2
+/tmp/twcr-1861b62892a2 /twcr
++ pushd /tmp/twcr-1861b62892a2
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/solidjs/solid-start.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:49:16Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:49:16Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha bc003f628b97ff2dbb114f8d381447bf14319d35
++ jq -nc --arg key exec_repo_commit_sha --arg value bc003f628b97ff2dbb114f8d381447bf14319d35 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 10:59:25 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T09:59:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T09:59:25Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-1861b62892a2 /tmp/twcr-1861b62892a2 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1861b62892a2
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:49:16Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:49:16Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "solid-start-monorepo",
+>>>   "description": "Official starter for SolidJS",
+>>>   "version": "0.2.0",
+>>>   "author": "Ryan Carniato",
+>>>   "type": "module",
+>>>   "license": "MIT",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/ryansolid/solid-start"
+>>>   },
+>>>   "private": true,
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-1861b62892a2 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-1861b62892a2
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-1861b62892a2/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-1861b62892a2/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 17 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 14, reused 0, downloaded 8, added 0
+examples/with-trpc                       |  WARN  deprecated @decs/typeschema@0.12.2
+Progress: resolved 29, reused 0, downloaded 20, added 0
+packages/mdx                             |  WARN  deprecated mdast@3.0.0
+Progress: resolved 46, reused 0, downloaded 39, added 0
+Progress: resolved 59, reused 0, downloaded 48, added 0
+Progress: resolved 63, reused 0, downloaded 61, added 0
+Progress: resolved 88, reused 0, downloaded 74, added 0
+Progress: resolved 107, reused 0, downloaded 98, added 0
+Progress: resolved 133, reused 0, downloaded 119, added 0
+Progress: resolved 158, reused 0, downloaded 141, added 0
+Progress: resolved 178, reused 0, downloaded 158, added 0
+Progress: resolved 202, reused 0, downloaded 180, added 0
+Progress: resolved 220, reused 0, downloaded 202, added 0
+Progress: resolved 239, reused 0, downloaded 221, added 0
+Progress: resolved 261, reused 0, downloaded 243, added 0
+Progress: resolved 291, reused 0, downloaded 263, added 0
+Progress: resolved 315, reused 0, downloaded 292, added 0
+Progress: resolved 338, reused 0, downloaded 312, added 0
+Progress: resolved 366, reused 0, downloaded 333, added 0
+Progress: resolved 395, reused 0, downloaded 343, added 0
+Progress: resolved 419, reused 0, downloaded 367, added 0
+Progress: resolved 426, reused 0, downloaded 378, added 0
+Progress: resolved 470, reused 0, downloaded 399, added 0
+Progress: resolved 488, reused 0, downloaded 414, added 0
+Progress: resolved 508, reused 0, downloaded 436, added 0
+Progress: resolved 526, reused 0, downloaded 448, added 0
+Progress: resolved 562, reused 0, downloaded 462, added 0
+Progress: resolved 593, reused 0, downloaded 482, added 0
+Progress: resolved 623, reused 0, downloaded 503, added 0
+Progress: resolved 653, reused 0, downloaded 530, added 0
+Progress: resolved 683, reused 0, downloaded 551, added 0
+Progress: resolved 710, reused 0, downloaded 582, added 0
+Progress: resolved 732, reused 0, downloaded 603, added 0
+Progress: resolved 742, reused 0, downloaded 612, added 0
+Progress: resolved 758, reused 0, downloaded 627, added 0
+Progress: resolved 775, reused 0, downloaded 645, added 0
+Progress: resolved 798, reused 0, downloaded 663, added 0
+Progress: resolved 826, reused 0, downloaded 689, added 0
+Progress: resolved 854, reused 0, downloaded 717, added 0
+Progress: resolved 878, reused 0, downloaded 737, added 0
+Progress: resolved 899, reused 0, downloaded 759, added 0
+Progress: resolved 919, reused 0, downloaded 774, added 0
+Progress: resolved 942, reused 0, downloaded 801, added 0
+Progress: resolved 974, reused 0, downloaded 829, added 0
+Progress: resolved 991, reused 0, downloaded 843, added 0
+Progress: resolved 1026, reused 0, downloaded 871, added 0
+Progress: resolved 1048, reused 0, downloaded 899, added 0
+ WARN  1 deprecated subdependencies found: stable@0.1.8
+Progress: resolved 1062, reused 0, downloaded 926, added 0
+Packages: +980
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1062, reused 0, downloaded 942, added 680
+Progress: resolved 1062, reused 0, downloaded 976, added 980, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/engines postinstall: (node:124) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.7/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../esbuild@0.18.7/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/start
+├─┬ @vinxi/server-components 0.3.2
+│ └── ✕ unmet peer vinxi@^0.3.9: found 0.3.4
+└─┬ @vinxi/server-functions 0.3.1
+  └── ✕ unmet peer vinxi@^0.3.7: found 0.3.4
+
+Done in 1m 0.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+
+warn - As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `warmGray` has been renamed to `stone`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `trueGray` has been renamed to `neutral`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `coolGray` has been renamed to `gray`.
+warn - Update your configuration file to silence this warning.
+
+warn - As of Tailwind CSS v3.0, `blueGray` has been renamed to `slate`.
+warn - Update your configuration file to silence this warning.
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T01:50:19Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T01:50:19Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T01:50:19Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T01:50:19Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,307 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/nuxt-modules/tailwindcss
++ reporef=main
++ repopath=./nuxt2-playground
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/nuxt-modules/tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-6dc26f7356a1
+++ echo 'github.com/nuxt-modules/tailwindcss;main;./nuxt2-playground'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/7260b66fa3b2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/nuxt-modules/tailwindcss/bWFpbgo/Li9udXh0Mi1wbGF5Z3JvdW5kCg
++ jq -nc --arg key analysis_key --arg value github.com/nuxt-modules/tailwindcss/bWFpbgo/Li9udXh0Mi1wbGF5Z3JvdW5kCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1dcb9570e685b7c1
++ jq -nc --arg key analysis_nonce --arg value 1dcb9570e685b7c1 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/nuxt-modules/tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/nuxt-modules/tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./nuxt2-playground
++ jq -nc --arg key input_repo_path --arg value ./nuxt2-playground '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T02:54:06Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T02:54:06Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-6dc26f7356a1
++ pushd /tmp/twcr-6dc26f7356a1
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/nuxt-modules/tailwindcss.git .
+/tmp/twcr-6dc26f7356a1 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T02:54:07Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T02:54:07Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2ae28e52a959f6d80155f083fef49e5524abfc66
++ jq -nc --arg key exec_repo_commit_sha --arg value 2ae28e52a959f6d80155f083fef49e5524abfc66 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-28 13:46:58 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-28T08:16:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-28T08:16:58Z '{ key: $key, value: $value }'
+/tmp/twcr-6dc26f7356a1/nuxt2-playground /tmp/twcr-6dc26f7356a1 /twcr
++ '[' -z ./nuxt2-playground ']'
++ pushd ./nuxt2-playground
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-6dc26f7356a1/nuxt2-playground
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T02:54:07Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T02:54:07Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "nuxt2-tailwindcss-playground",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "keywords": []
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./nuxt2-playground '!=' ./ ']'
++ rm -f /tmp/twcr-6dc26f7356a1/package.json /tmp/twcr-6dc26f7356a1/package-lock.json /tmp/twcr-6dc26f7356a1/pnpm-lock.yaml /tmp/twcr-6dc26f7356a1/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-6dc26f7356a1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-6dc26f7356a1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-6dc26f7356a1/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 23, reused 0, downloaded 15, added 0
+..                                       | Progress: resolved 49, reused 0, downloaded 41, added 0
+..                                       | Progress: resolved 76, reused 0, downloaded 68, added 0
+..                                       | Progress: resolved 98, reused 0, downloaded 86, added 0
+..                                       | Progress: resolved 126, reused 0, downloaded 103, added 0
+..                                       | Progress: resolved 154, reused 0, downloaded 124, added 0
+..                                       | Progress: resolved 184, reused 0, downloaded 153, added 0
+..                                       | Progress: resolved 209, reused 0, downloaded 181, added 0
+..                                       | Progress: resolved 238, reused 0, downloaded 208, added 0
+..                                       | Progress: resolved 259, reused 0, downloaded 226, added 0
+..                                       | Progress: resolved 288, reused 0, downloaded 257, added 0
+..                                       | Progress: resolved 318, reused 0, downloaded 281, added 0
+..                                       | Progress: resolved 346, reused 0, downloaded 309, added 0
+..                                       | Progress: resolved 380, reused 0, downloaded 337, added 0
+..                                       | Progress: resolved 410, reused 0, downloaded 367, added 0
+..                                       | Progress: resolved 442, reused 0, downloaded 395, added 0
+..                                       | Progress: resolved 480, reused 0, downloaded 425, added 0
+..                                       | Progress: resolved 512, reused 0, downloaded 459, added 0
+..                                       | Progress: resolved 542, reused 0, downloaded 488, added 0
+..                                       | Progress: resolved 584, reused 0, downloaded 525, added 0
+..                                       | Progress: resolved 600, reused 0, downloaded 568, added 0
+..                                       | Progress: resolved 622, reused 0, downloaded 598, added 0
+..                                       | Progress: resolved 641, reused 0, downloaded 619, added 0
+..                                       | Progress: resolved 665, reused 0, downloaded 645, added 0
+..                                       | Progress: resolved 705, reused 0, downloaded 654, added 0
+..                                       | Progress: resolved 727, reused 0, downloaded 678, added 0
+..                                       | Progress: resolved 774, reused 0, downloaded 703, added 0
+..                                       | Progress: resolved 806, reused 0, downloaded 721, added 0
+..                                       | Progress: resolved 831, reused 0, downloaded 744, added 0
+..                                       | Progress: resolved 857, reused 0, downloaded 768, added 0
+..                                       | Progress: resolved 887, reused 0, downloaded 797, added 0
+..                                       | Progress: resolved 920, reused 0, downloaded 830, added 0
+..                                       | Progress: resolved 955, reused 0, downloaded 855, added 0
+..                                       | Progress: resolved 985, reused 0, downloaded 885, added 0
+..                                       | Progress: resolved 1020, reused 0, downloaded 912, added 0
+..                                       | Progress: resolved 1054, reused 0, downloaded 947, added 0
+..                                       | Progress: resolved 1076, reused 0, downloaded 987, added 0
+ WARN  1 deprecated subdependencies found: shiki-es@0.14.0
+..                                       |    +1003 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1078, reused 0, downloaded 1002, added 999
+..                                       | Progress: resolved 1078, reused 0, downloaded 1002, added 1003, done
+.../node_modules/vue-demi postinstall$ node -e "try{require('./scripts/postinstall.js')}catch(e){}"
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+../docs postinstall$ nuxt prepare
+../docs postinstall:  ERROR  Error while requiring module @nuxt/content: Error: Cannot find module '/tmp/twcr-6dc26f7356a1/docs/@nuxt/content'
+../docs postinstall: Require stack:
+../docs postinstall: - /tmp/twcr-6dc26f7356a1/docs/index.js
+../docs postinstall:  ERROR  Cannot find module '/tmp/twcr-6dc26f7356a1/docs/@nuxt/content'
+../docs postinstall: Require stack:
+../docs postinstall: - /tmp/twcr-6dc26f7356a1/docs/index.js
+../docs postinstall:   Require stack:
+../docs postinstall:   - index.js
+../docs postinstall:   at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+../docs postinstall:   at Function.resolve (node:internal/modules/helpers:187:19)
+../docs postinstall:   at Function._resolve [as resolve] (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+../docs postinstall:   at resolveModule (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2210:29)
+../docs postinstall:   at requireModule (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2215:24)
+../docs postinstall:   at loadNuxtModuleInstance (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2451:92)
+../docs postinstall:   at async installModule (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2407:47)
+../docs postinstall:   at async initNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxt@3.10.3_vite@5.1.4/node_modules/nuxt/dist/index.mjs:4023:7)
+../docs postinstall:   at async loadNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxt@3.10.3_vite@5.1.4/node_modules/nuxt/dist/index.mjs:4121:5)
+../docs postinstall:   at async loadNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2570:19)
+../docs postinstall:   at async Object.run (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/chunks/prepare.mjs:53:18)
+../docs postinstall:   at async runCommand$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1648:16)
+../docs postinstall:   at async runCommand$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1639:11)
+../docs postinstall:   at async runMain$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1777:7) 
+../docs postinstall:  ERROR  Cannot find module '/tmp/twcr-6dc26f7356a1/docs/@nuxt/content'
+../docs postinstall: Require stack:
+../docs postinstall: - /tmp/twcr-6dc26f7356a1/docs/index.js
+../docs postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T02:54:55Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T02:54:55Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 2ae28e5 Revert "refactor: first class HMR support (#795)" (#817)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-6dc26f7356a1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-6dc26f7356a1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-6dc26f7356a1/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-6dc26f7356a1/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | +597 -285 ++++++++++++++++++---------
+..                                       | Progress: resolved 597, reused 135, downloaded 16, added 91
+..                                       | Progress: resolved 597, reused 135, downloaded 71, added 144
+..                                       | Progress: resolved 597, reused 135, downloaded 126, added 201
+..                                       | Progress: resolved 597, reused 135, downloaded 182, added 257
+..                                       | Progress: resolved 597, reused 135, downloaded 236, added 308
+..                                       | Progress: resolved 597, reused 135, downloaded 286, added 361
+..                                       | Progress: resolved 597, reused 135, downloaded 345, added 417
+..                                       | Progress: resolved 597, reused 135, downloaded 400, added 475
+..                                       | Progress: resolved 597, reused 135, downloaded 453, added 528
+..                                       | Progress: resolved 597, reused 135, downloaded 454, added 529, done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+../docs postinstall$ nuxt prepare
+.. prepare$ nuxt-module-build prepare
+.. prepare: [nuxt:tailwindcss] ℹ Using default Tailwind CSS file
+.. prepare: ✔ Types generated in .nuxt
+.. prepare: Done
+../docs postinstall: [nuxt:tailwindcss] ℹ Using default Tailwind CSS file
+../docs postinstall:  ERROR  (node:233) [DEP0040] DeprecationWarning: The punycode module is deprecated. Please use a userland alternative instead.
+../docs postinstall: (Use node --trace-deprecation ... to show where the warning was created)
+../docs postinstall: [nuxt:google-fonts] ◐ Downloading fonts...
+../docs postinstall: [nuxt:google-fonts]  ERROR  [GET] "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap": <no response> fetch failed
+../docs postinstall:   at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+../docs postinstall:   at async $fetchRaw2 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/ofetch@1.3.3/node_modules/ofetch/dist/shared/ofetch.00501375.mjs:228:14)
+../docs postinstall:   at async $fetch2 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/ofetch@1.3.3/node_modules/ofetch/dist/shared/ofetch.00501375.mjs:261:15)
+../docs postinstall:   at async Downloader.execute (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/google-fonts-helper@3.4.1/node_modules/google-fonts-helper/dist/index.mjs:191:24)
+../docs postinstall:   at async setup (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxtjs+google-fonts@3.1.3_rollup@3.29.4/node_modules/@nuxtjs/google-fonts/dist/module.mjs:82:9)
+../docs postinstall:   at async normalizedModule (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.9.1_rollup@3.29.4/node_modules/@nuxt/kit/dist/index.mjs:2112:17)
+../docs postinstall:   at async installModule (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.9.3_rollup@3.29.4/node_modules/@nuxt/kit/dist/index.mjs:2415:95)
+../docs postinstall:   at async initNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxt@3.9.3_eslint@8.56.0_rollup@3.29.4_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/index.mjs:3858:7)
+../docs postinstall:   at async loadNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxt@3.9.3_eslint@8.56.0_rollup@3.29.4_typescript@5.3.3_vite@5.0.11/node_modules/nuxt/dist/index.mjs:3956:5)
+../docs postinstall:   at async loadNuxt (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/@nuxt+kit@3.9.3_rollup@3.29.4/node_modules/@nuxt/kit/dist/index.mjs:2570:19)
+../docs postinstall:   at async Object.run (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/chunks/prepare.mjs:53:18)
+../docs postinstall:   at async runCommand$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1648:16)
+../docs postinstall:   at async runCommand$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1639:11)
+../docs postinstall:   at async runMain$1 (/tmp/twcr-6dc26f7356a1/node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1777:7)
+../docs postinstall:  WARN  Slow module @nuxtjs/google-fonts took 16095.55ms to setup.
+../docs postinstall: ✔ Types generated in .nuxt
+../docs postinstall: Done
+Done in 37.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T02:55:35Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T02:55:35Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T02:55:35Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T02:55:35Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,238 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/directus-labs/agency-os
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/directus-labs/agency-os
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a22aad8f136d
+++ echo 'github.com/directus-labs/agency-os;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/84286d7cf95e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/directus-labs/agency-os/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/directus-labs/agency-os/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3406aa5399761385
++ jq -nc --arg key analysis_nonce --arg value 3406aa5399761385 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/directus-labs/agency-os
++ jq -nc --arg key input_repo_name --arg value github.com/directus-labs/agency-os '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T05:26:18Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T05:26:18Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a22aad8f136d
++ pushd /tmp/twcr-a22aad8f136d
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/directus-labs/agency-os.git .
+/tmp/twcr-a22aad8f136d /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T05:26:19Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T05:26:19Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 285d545a82d0fffbbbfc0b3efba40cb8248d37eb
++ jq -nc --arg key exec_repo_commit_sha --arg value 285d545a82d0fffbbbfc0b3efba40cb8248d37eb '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 09:11:54 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T14:11:54Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T14:11:54Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
+/tmp/twcr-a22aad8f136d /tmp/twcr-a22aad8f136d /twcr
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a22aad8f136d
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T05:26:19Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T05:26:19Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (@formkit/themes/tailwindcss)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T05:26:19Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T05:26:19Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 285d545 bump to latest nuxt
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a22aad8f136d /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a22aad8f136d
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a22aad8f136d/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-a22aad8f136d/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1278
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1278, reused 0, downloaded 27, added 24
+Progress: resolved 1278, reused 0, downloaded 94, added 94
+Progress: resolved 1278, reused 0, downloaded 161, added 161
+Progress: resolved 1278, reused 0, downloaded 226, added 226
+Progress: resolved 1278, reused 0, downloaded 280, added 280
+Progress: resolved 1278, reused 0, downloaded 344, added 344
+Progress: resolved 1278, reused 0, downloaded 412, added 412
+Progress: resolved 1278, reused 0, downloaded 469, added 468
+Progress: resolved 1278, reused 0, downloaded 524, added 524
+Progress: resolved 1278, reused 0, downloaded 594, added 594
+Progress: resolved 1278, reused 0, downloaded 649, added 649
+Progress: resolved 1278, reused 0, downloaded 715, added 715
+Progress: resolved 1278, reused 0, downloaded 767, added 767
+Progress: resolved 1278, reused 0, downloaded 818, added 817
+Progress: resolved 1278, reused 0, downloaded 871, added 872
+Progress: resolved 1278, reused 0, downloaded 936, added 937
+Progress: resolved 1278, reused 0, downloaded 976, added 977
+Progress: resolved 1278, reused 0, downloaded 1019, added 1019
+Progress: resolved 1278, reused 0, downloaded 1073, added 1074
+Progress: resolved 1278, reused 0, downloaded 1137, added 1137
+Progress: resolved 1278, reused 0, downloaded 1175, added 1175
+Progress: resolved 1278, reused 0, downloaded 1216, added 1217
+Progress: resolved 1278, reused 0, downloaded 1267, added 1268
+Progress: resolved 1278, reused 0, downloaded 1277, added 1278, done
+.../node_modules/vue-demi postinstall$ node -e "try{require('./scripts/postinstall.js')}catch(e){}"
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @nuxt/image 1.1.0
++ nuxt-og-image 3.0.0-rc.23
+
+devDependencies:
++ @directus/sdk 14.0.0
++ @directus/types 11.0.3
++ @formkit/auto-animate 1.0.0-beta.6
++ @headlessui/vue 1.7.16
++ @iconify/json 2.2.166
++ @nuxt/devtools 1.0.8
++ @nuxt/ui 2.11.1
++ @nuxtjs/color-mode 3.3.2
++ @nuxtjs/eslint-config-typescript 12.1.0
++ @nuxtjs/eslint-module 4.1.0
++ @nuxtjs/google-fonts 3.1.3
++ @nuxtjs/tailwindcss 6.10.3
++ @stripe/stripe-js 2.2.2
++ @tailwindcss/forms 0.5.7
++ @tailwindcss/typography 0.5.10
++ @types/uuid 9.0.7
++ @vueuse/core 10.7.1
++ @vueuse/motion 2.0.0
++ @vueuse/nuxt 10.7.1
++ eslint 8.56.0
++ eslint-config-prettier 9.1.0
++ eslint-plugin-prettier 5.1.2
++ eslint-plugin-vue 9.19.2
++ floating-vue 2.0.0-beta.24
++ form-data 4.0.0
++ jwt-decode 3.1.2
++ micromark 4.0.0
++ micromark-extension-gfm 3.0.0
++ nuxt 3.10.3
++ nuxt-icon 0.6.8
++ nuxt-schema-org 3.3.2
++ nuxt-simple-sitemap 3.4.0
++ prettier 3.1.1
++ stripe 13.8.0
++ typescript 5.3.3
++ uuid 9.0.1
++ v-perfect-signature 1.4.0
++ vue-tsc 1.8.27
+
+
+> @ postinstall /tmp/twcr-a22aad8f136d
+> nuxt prepare
+
+◐ Loading Directus Module
+
+ WARN  Please make sure to set Directus baseUrl
+
+
+ ERROR  Invalid URL
+
+  at new URL (node:internal/url:787:36)
+  at M (node_modules/.pnpm/@directus+sdk@14.0.0/node_modules/@directus/sdk/dist/index.cjs:1:8224)
+  at setup (modules/directus/index.ts:160:46)
+  at normalizedModule (node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2112:38)
+  at async installModule (node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2415:95)
+  at async initNuxt (node_modules/.pnpm/nuxt@3.10.3_eslint@8.56.0_typescript@5.3.3_vite@5.1.4_vue-tsc@1.8.27/node_modules/nuxt/dist/index.mjs:4023:7)
+  at async loadNuxt (node_modules/.pnpm/nuxt@3.10.3_eslint@8.56.0_typescript@5.3.3_vite@5.1.4_vue-tsc@1.8.27/node_modules/nuxt/dist/index.mjs:4121:5)
+  at async loadNuxt (node_modules/.pnpm/@nuxt+kit@3.10.3/node_modules/@nuxt/kit/dist/index.mjs:2570:19)
+  at async Object.run (node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/chunks/prepare.mjs:53:18)
+  at async runCommand$1 (node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1648:16)
+  at async runCommand$1 (node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1639:11)
+  at async runMain$1 (node_modules/.pnpm/nuxi@3.10.1/node_modules/nuxi/dist/shared/nuxi.a9f3bca7.mjs:1777:7) 
+
+
+
+ ERROR  Invalid URL
+
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

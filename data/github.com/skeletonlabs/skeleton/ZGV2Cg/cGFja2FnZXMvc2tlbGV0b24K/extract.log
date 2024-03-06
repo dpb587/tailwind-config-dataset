@@ -1,0 +1,272 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/skeletonlabs/skeleton
++ reporef=dev
++ repopath=./packages/skeleton
+++ echo github.com/skeletonlabs/skeleton
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ddb0b433dc57
+++ echo 'github.com/skeletonlabs/skeleton;dev;./packages/skeleton'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/751ebd9a09f1
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/skeletonlabs/skeleton/ZGV2Cg/Li9wYWNrYWdlcy9za2VsZXRvbgo
++ jq -nc --arg key analysis_key --arg value github.com/skeletonlabs/skeleton/ZGV2Cg/Li9wYWNrYWdlcy9za2VsZXRvbgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d6239e68fc6639f9
++ jq -nc --arg key analysis_nonce --arg value d6239e68fc6639f9 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/skeletonlabs/skeleton
++ jq -nc --arg key input_repo_name --arg value github.com/skeletonlabs/skeleton '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/skeleton
++ jq -nc --arg key input_repo_path --arg value ./packages/skeleton '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T00:12:54Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T00:12:54Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ddb0b433dc57
+/tmp/twcr-ddb0b433dc57 /twcr
++ pushd /tmp/twcr-ddb0b433dc57
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/skeletonlabs/skeleton.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T00:12:55Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T00:12:55Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a4897a4471b7bb27cb1967a2d057bc97032d4459
++ jq -nc --arg key exec_repo_commit_sha --arg value a4897a4471b7bb27cb1967a2d057bc97032d4459 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-27 11:27:47 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-27T17:27:47Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-27T17:27:47Z '{ key: $key, value: $value }'
+/tmp/twcr-ddb0b433dc57/packages/skeleton /tmp/twcr-ddb0b433dc57 /twcr
++ '[' -z ./packages/skeleton ']'
++ pushd ./packages/skeleton
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T00:12:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T00:12:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (../../packages/plugin/dist/index.js)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T00:12:55Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T00:12:55Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-ddb0b433dc57 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-ddb0b433dc57
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-ddb0b433dc57/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-ddb0b433dc57/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+Lockfile is up to date, resolution step is skipped
+../create-skeleton-app                   | Progress: resolved 1, reused 0, downloaded 0, added 0
+../create-skeleton-app                   | +177 ++++++++++++++++++
+../plugin                                | Progress: resolved 1, reused 0, downloaded 0, added 0
+../plugin                                | +224 ++++++++++++++++++++++
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +452
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +379 ++++++++++++++++++++++++++++++++
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 3, added 0
+../plugin                                | Progress: resolved 224, reused 0, downloaded 0, added 13
+Progress: resolved 452, reused 0, downloaded 0, added 18
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 23
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 57, added 57
+../plugin                                | Progress: resolved 224, reused 0, downloaded 0, added 28
+Progress: resolved 452, reused 0, downloaded 0, added 31
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 32
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 107, added 106
+../plugin                                | Progress: resolved 224, reused 0, downloaded 0, added 52
+Progress: resolved 452, reused 0, downloaded 0, added 67
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 51
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 167, added 167
+../plugin                                | Progress: resolved 224, reused 0, downloaded 8, added 100
+Progress: resolved 452, reused 0, downloaded 0, added 107
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 67
+../plugin                                | Progress: resolved 224, reused 0, downloaded 61, added 152
+Progress: resolved 452, reused 0, downloaded 0, added 158
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 75
+../plugin                                | Progress: resolved 224, reused 0, downloaded 117, added 209
+Progress: resolved 452, reused 0, downloaded 7, added 189
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 77
+../plugin                                | Progress: resolved 224, reused 0, downloaded 119, added 211
+Progress: resolved 452, reused 0, downloaded 51, added 234
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 96
+../plugin                                | Progress: resolved 224, reused 0, downloaded 120, added 212
+Progress: resolved 452, reused 0, downloaded 116, added 300
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 128
+Progress: resolved 452, reused 0, downloaded 181, added 365
+../..                                    | Progress: resolved 379, reused 0, downloaded 0, added 130
+Progress: resolved 452, reused 0, downloaded 238, added 421
+../..                                    | Progress: resolved 379, reused 0, downloaded 15, added 149
+Progress: resolved 452, reused 0, downloaded 240, added 424
+../..                                    | Progress: resolved 379, reused 0, downloaded 84, added 217
+Progress: resolved 452, reused 0, downloaded 241, added 425
+../..                                    | Progress: resolved 379, reused 0, downloaded 139, added 273
+../..                                    | Progress: resolved 379, reused 0, downloaded 174, added 308
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 168, added 167
+Progress: resolved 452, reused 0, downloaded 241, added 426
+../plugin                                | Progress: resolved 224, reused 0, downloaded 120, added 213
+../create-skeleton-app                   | Progress: resolved 177, reused 0, downloaded 177, added 177, done
+../..                                    | Progress: resolved 379, reused 0, downloaded 223, added 360
+../../sites/skeleton.dev                 | Progress: resolved 1, reused 0, downloaded 0, added 0
+../../sites/skeleton.dev                 | +389 ++++++++++++++++++++++++++++++++
+../plugin                                | Progress: resolved 224, reused 0, downloaded 128, added 224, done
+Progress: resolved 452, reused 0, downloaded 257, added 452, done
+../..                                    | Progress: resolved 379, reused 0, downloaded 232, added 374
+../../sites/skeleton.dev                 | Progress: resolved 389, reused 0, downloaded 22, added 328
+
+../..                                    | Progress: resolved 379, reused 0, downloaded 233, added 375
+../../sites/skeleton.dev                 | Progress: resolved 389, reused 0, downloaded 70, added 376
+../..                                    | Progress: resolved 379, reused 0, downloaded 237, added 379, done
+../../sites/skeleton.dev                 | Progress: resolved 389, reused 0, downloaded 80, added 386
+../../sites/skeleton.dev                 | Progress: resolved 389, reused 0, downloaded 83, added 389, done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+../.. postinstall$ pnpm -r sync
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+../.. postinstall: Scope: 4 of 5 workspace projects
+../.. postinstall: packages/plugin sync$ pnpm build:jss && tsup
+../.. postinstall: packages/skeleton sync$ svelte-kit sync
+../.. postinstall: packages/plugin sync: > @skeletonlabs/tw-plugin@0.3.1 build:jss /tmp/twcr-ddb0b433dc57/packages/plugin
+../.. postinstall: packages/plugin sync: > tsx ./scripts/generate-jss.ts
+.../node_modules/@sveltejs/kit postinstall: Done
+../.. postinstall: packages/plugin sync: (node:206) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+../.. postinstall: packages/plugin sync: --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("file%3A///tmp/twcr-ddb0b433dc57/packages/plugin/node_modules/.pnpm/tsx%403.12.7/node_modules/tsx/dist/loader.js", pathToFileURL("./"));'
+../.. postinstall: packages/plugin sync: (Use `node --trace-warnings ...` to show where the warning was created)
+../.. postinstall: packages/skeleton sync: Done
+../.. postinstall: packages/plugin sync: CLI Building entry: src/index.ts
+../.. postinstall: packages/plugin sync: CLI Using tsconfig: tsconfig.json
+../.. postinstall: packages/plugin sync: CLI tsup v6.7.0
+../.. postinstall: packages/plugin sync: CLI Using tsup config: /tmp/twcr-ddb0b433dc57/packages/plugin/tsup.config.ts
+../.. postinstall: packages/plugin sync: CLI Target: es2020
+../.. postinstall: packages/plugin sync: CLI Cleaning output folder
+../.. postinstall: packages/plugin sync: CJS Build start
+../.. postinstall: packages/plugin sync: CJS dist/index.js     527.40 KB
+../.. postinstall: packages/plugin sync: CJS dist/index.js.map 827.80 KB
+../.. postinstall: packages/plugin sync: CJS ⚡️ Build success in 126ms
+../.. postinstall: packages/plugin sync: DTS Build start
+../.. postinstall: packages/plugin sync: DTS ⚡️ Build success in 1265ms
+../.. postinstall: packages/plugin sync: DTS dist/index.d.ts 78.78 KB
+../.. postinstall: packages/plugin sync: Done
+../.. postinstall: Done
+.../@fortawesome/fontawesome-free postinstall$ node attribution.js
+.../@fortawesome/fontawesome-free postinstall: Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+.../@fortawesome/fontawesome-free postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/fontawesome-free postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/fontawesome-free postinstall: Done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+Done in 34.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-03T00:13:33Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-03T00:13:33Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T00:13:33Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T00:13:33Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,366 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/dimatill/graphql-shield
++ reporef=master
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/dimatill/graphql-shield
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-31008432e902
+++ echo 'github.com/dimatill/graphql-shield;master;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/cbd825eec83a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/dimatill/graphql-shield/bWFzdGVyCg/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/dimatill/graphql-shield/bWFzdGVyCg/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c87ee5df5bcf7442
++ jq -nc --arg key analysis_nonce --arg value c87ee5df5bcf7442 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/dimatill/graphql-shield
++ jq -nc --arg key input_repo_name --arg value github.com/dimatill/graphql-shield '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T02:03:44Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T02:03:44Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-31008432e902
+/tmp/twcr-31008432e902 /twcr
++ pushd /tmp/twcr-31008432e902
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/dimatill/graphql-shield.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T02:03:45Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T02:03:45Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 6ac877e18d2c18b1b97f6e3d9beb5c4d62ede503
++ jq -nc --arg key exec_repo_commit_sha --arg value 6ac877e18d2c18b1b97f6e3d9beb5c4d62ede503 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-06-07 14:50:45 -0400' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-06-07T18:50:45Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-06-07T18:50:45Z '{ key: $key, value: $value }'
+/tmp/twcr-31008432e902/website /tmp/twcr-31008432e902 /twcr
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-31008432e902/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-31008432e902
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T02:03:45Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T02:03:45Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ sed 's/^/>>> /'
++ cat package.json
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "description": "GraphQL Shield Website",
+>>>   "license": "MIT",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@theguild/tailwind-config": "0.2.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-31008432e902/package.json /tmp/twcr-31008432e902/package-lock.json /tmp/twcr-31008432e902/pnpm-lock.yaml /tmp/twcr-31008432e902/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-31008432e902 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-31008432e902
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-31008432e902/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+../packages/graphql-shield               |  WARN  deprecated apollo-server@3.10.0
+..                                       | Progress: resolved 23, reused 0, downloaded 17, added 0
+..                                       | Progress: resolved 50, reused 0, downloaded 39, added 0
+..                                       | Progress: resolved 79, reused 0, downloaded 61, added 0
+..                                       | Progress: resolved 107, reused 0, downloaded 96, added 0
+..                                       | Progress: resolved 139, reused 0, downloaded 122, added 0
+..                                       | Progress: resolved 169, reused 0, downloaded 145, added 0
+..                                       | Progress: resolved 194, reused 0, downloaded 179, added 0
+..                                       | Progress: resolved 229, reused 0, downloaded 205, added 0
+..                                       | Progress: resolved 262, reused 0, downloaded 242, added 0
+..                                       | Progress: resolved 295, reused 0, downloaded 269, added 0
+..                                       | Progress: resolved 332, reused 0, downloaded 298, added 0
+ WARN  7 deprecated subdependencies found: apollo-datasource@3.3.2, apollo-reporting-protobuf@3.4.0, apollo-server-env@4.2.1, apollo-server-errors@3.3.1, apollo-server-plugin-base@3.7.2, apollo-server-types@3.8.0, stable@0.1.8
+..                                       | +346 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 347, reused 0, downloaded 345, added 0
+..                                       | Progress: resolved 347, reused 0, downloaded 346, added 346, done
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../node_modules/@apollo/protobufjs postinstall: Done
+
+devDependencies:
++ @theguild/tailwind-config 0.2.1 (0.3.2 is available)
+
+ WARN  Issues with peer dependencies found
+packages/graphql-shield
+└─┬ graphql-shield-rules 0.0.1
+  ├── ✕ unmet peer graphql@"^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0": found 16.5.0
+  └── ✕ unmet peer graphql-middleware@"^2.0.0 || ^3.0.0 || ^4.0.0": found 6.1.33
+
+Done in 14s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T02:04:01Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T02:04:01Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 6ac877e Fix: Small typo: "sentantce" to "sentence" (#1514)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-31008432e902 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-31008432e902
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-31008432e902/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-31008432e902/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+..                                       | Progress: resolved 0, reused 1, downloaded 0, added 0
+..                                       |  WARN  deprecated codecov@3.8.3
+..                                       | Progress: resolved 36, reused 13, downloaded 23, added 0
+..                                       | Progress: resolved 41, reused 13, downloaded 28, added 0
+..                                       | Progress: resolved 63, reused 29, downloaded 33, added 0
+..                                       | Progress: resolved 109, reused 29, downloaded 66, added 0
+..                                       | Progress: resolved 157, reused 29, downloaded 114, added 0
+..                                       | Progress: resolved 211, reused 30, downloaded 167, added 0
+..                                       | Progress: resolved 284, reused 53, downloaded 217, added 0
+..                                       | Progress: resolved 352, reused 92, downloaded 246, added 0
+..                                       | Progress: resolved 393, reused 92, downloaded 288, added 0
+..                                       | Progress: resolved 445, reused 98, downloaded 334, added 0
+..                                       | Progress: resolved 502, reused 123, downloaded 366, added 0
+..                                       | Progress: resolved 587, reused 154, downloaded 420, added 0
+..                                       | Progress: resolved 634, reused 155, downloaded 466, added 0
+..                                       | Progress: resolved 685, reused 163, downloaded 509, added 0
+..                                       | Progress: resolved 719, reused 163, downloaded 543, added 0
+..                                       | Progress: resolved 727, reused 163, downloaded 551, added 0
+..                                       | Progress: resolved 755, reused 163, downloaded 581, added 0
+..                                       | Progress: resolved 805, reused 167, downloaded 627, added 0
+..                                       | Progress: resolved 860, reused 167, downloaded 682, added 0
+..                                       | Progress: resolved 930, reused 189, downloaded 729, added 0
+..                                       | Progress: resolved 981, reused 189, downloaded 780, added 0
+..                                       | Progress: resolved 1035, reused 194, downloaded 829, added 0
+..                                       | Progress: resolved 1110, reused 210, downloaded 888, added 0
+..                                       | Progress: resolved 1150, reused 210, downloaded 925, added 0
+..                                       | Progress: resolved 1199, reused 210, downloaded 945, added 0
+..                                       | Progress: resolved 1249, reused 211, downloaded 994, added 0
+..                                       | Progress: resolved 1301, reused 211, downloaded 1049, added 0
+..                                       | Progress: resolved 1332, reused 211, downloaded 1080, added 0
+..                                       | Progress: resolved 1349, reused 211, downloaded 1087, added 0
+..                                       | Progress: resolved 1372, reused 211, downloaded 1112, added 0
+..                                       | Progress: resolved 1398, reused 211, downloaded 1134, added 0
+..                                       | Progress: resolved 1422, reused 211, downloaded 1158, added 0
+..                                       | Progress: resolved 1449, reused 211, downloaded 1182, added 0
+..                                       | Progress: resolved 1472, reused 211, downloaded 1210, added 0
+..                                       | Progress: resolved 1504, reused 211, downloaded 1235, added 0
+..                                       | Progress: resolved 1529, reused 212, downloaded 1261, added 0
+..                                       | Progress: resolved 1559, reused 212, downloaded 1287, added 0
+ WARN  8 deprecated subdependencies found: chokidar@2.1.8, figgy-pudding@3.5.2, fsevents@1.2.13, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, stable@0.1.8, urix@0.1.0
+..                                       | Progress: resolved 1575, reused 213, downloaded 1320, added 0
+..                                       |    +1340 -147 ++++++++++++++++++++---
+..                                       | Progress: resolved 1575, reused 213, downloaded 1320, added 1339
+..                                       | Progress: resolved 1575, reused 213, downloaded 1320, added 1340, done
+.../@napi-rs/simple-git-linux-x64-gnu postinstall$ node install.js
+.../@napi-rs/simple-git-linux-x64-musl postinstall$ node install.js
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../@napi-rs/simple-git-linux-x64-gnu postinstall: Done
+.../@napi-rs/simple-git-linux-x64-musl postinstall: Failed
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.. prepare$ husky install
+.. prepare: husky - Git hooks installed
+.. prepare: Done
+
+dependencies:
++ @theguild/components 4.4.3
++ next 13.0.6
++ next-sitemap 3.1.24
++ react 18.2.0
++ react-dom 18.2.0
+
+devDependencies:
++ @theguild/algolia 1.0.2
+- @theguild/tailwind-config
++ @theguild/tailwind-config 0.2.1
++ @types/node 18.8.5
++ @types/react 18.0.21
++ typescript 4.8.4
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ ts-jest 28.0.7
+  └── ✕ unmet peer babel-jest@^28.0.0: found 29.3.1
+
+packages/graphql-shield
+└─┬ graphql-shield-rules 0.0.1
+  ├── ✕ unmet peer graphql@"^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0": found 16.5.0
+  └── ✕ unmet peer graphql-middleware@"^2.0.0 || ^3.0.0 || ^4.0.0": found 6.1.33
+
+website
+└─┬ @theguild/components 4.4.3
+  └─┬ nextra-theme-docs 2.0.0-beta.43
+    └─┬ @reach/skip-nav 0.17.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+      └─┬ @reach/utils 0.17.0
+        ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+        └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+Done in 44.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-31008432e902/website/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

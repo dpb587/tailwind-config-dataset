@@ -1,0 +1,303 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Shopify/blockchain-components
++ reporef=main
++ repopath=./packages/shared
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Shopify/blockchain-components
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2425b395b1ba
+++ echo 'github.com/Shopify/blockchain-components;main;./packages/shared'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/379a8506b4df
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Shopify/blockchain-components/bWFpbgo/Li9wYWNrYWdlcy9zaGFyZWQK
++ jq -nc --arg key analysis_key --arg value github.com/Shopify/blockchain-components/bWFpbgo/Li9wYWNrYWdlcy9zaGFyZWQK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9c89857b09c3b991
++ jq -nc --arg key analysis_nonce --arg value 9c89857b09c3b991 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Shopify/blockchain-components
++ jq -nc --arg key input_repo_name --arg value github.com/Shopify/blockchain-components '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/shared
++ jq -nc --arg key input_repo_path --arg value ./packages/shared '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:38:37Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:38:37Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2425b395b1ba
+/tmp/twcr-2425b395b1ba /twcr
++ pushd /tmp/twcr-2425b395b1ba
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Shopify/blockchain-components.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:38:38Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:38:38Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1f7bf4c1b41db2df9f590ba60a809d3b409ad810
++ jq -nc --arg key exec_repo_commit_sha --arg value 1f7bf4c1b41db2df9f590ba60a809d3b409ad810 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-21 08:41:18 +1100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-20T21:41:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-20T21:41:18Z '{ key: $key, value: $value }'
+/tmp/twcr-2425b395b1ba/packages/shared /tmp/twcr-2425b395b1ba /twcr
++ '[' -z ./packages/shared ']'
++ pushd ./packages/shared
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2425b395b1ba/packages/shared
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/shared '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2425b395b1ba
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:38:39Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:38:39Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "shared",
+>>>   "version": "0.0.3",
+>>>   "private": true,
+>>>   "license": "MIT",
+>>>   "main": "src/index.ts",
+>>>   "types": "src/index.ts",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   },
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/shared '!=' ./ ']'
++ rm -f /tmp/twcr-2425b395b1ba/package.json /tmp/twcr-2425b395b1ba/package-lock.json /tmp/twcr-2425b395b1ba/pnpm-lock.yaml /tmp/twcr-2425b395b1ba/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-2425b395b1ba /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-2425b395b1ba
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_397cc00cf22f:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_397cc00cf22f:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_397cc00cf22f:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_397cc00cf22f:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_397cc00cf22f:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_397cc00cf22f:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 8.41s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'tailwindcss/defaultTheme'
+Require stack:
+- /tmp/twcr-2425b395b1ba/packages/tailwind-config/tailwind.config.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-2425b395b1ba/packages/tailwind-config/tailwind.config.ts:2:21
+    at evalModule (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-2425b395b1ba/packages/shared/tailwind.config.ts:1:256
+    at evalModule (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-2425b395b1ba/packages/shared/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-2425b395b1ba/packages/tailwind-config/tailwind.config.ts'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:38:49Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:38:49Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
+Removing yarn.lock
++ git reset --hard
+HEAD is now at 1f7bf4c Update snapit.yml to use shopify/snapit (#223)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-2425b395b1ba /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-2425b395b1ba
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_397cc00cf22f:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_397cc00cf22f:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_397cc00cf22f:ok@172.18.0.2:3128".
+Done in 0.07s.
++ '[' -z http://tid_397cc00cf22f:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_397cc00cf22f:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_397cc00cf22f:ok@172.18.0.2:3128".
+Done in 0.07s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:249) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning "viem > abitype@0.8.7" has incorrect peer dependency "typescript@>=5.0.4".
+warning " > wagmi@1.0.1" has incorrect peer dependency "viem@~0.3.18".
+warning "wagmi > @wagmi/core@1.0.1" has incorrect peer dependency "viem@~0.3.18".
+warning "wagmi > @wagmi/core > @wagmi/connectors@1.0.1" has incorrect peer dependency "viem@~0.3.18".
+warning "workspace-aggregator-1c98f390-635f-4e02-8de1-639ddab2be75 > @shopify/connect-wallet > siwe@1.1.6" has unmet peer dependency "ethers@5.5.1".
+warning "workspace-aggregator-1c98f390-635f-4e02-8de1-639ddab2be75 > cra > react-scripts > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-syntax-flow@^7.14.5".
+warning "workspace-aggregator-1c98f390-635f-4e02-8de1-639ddab2be75 > cra > react-scripts > eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-transform-react-jsx@^7.14.9".
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+info This module is OPTIONAL, you can safely ignore this error
+warning Error running install script for optional dependency: "/tmp/twcr-2425b395b1ba/node_modules/deasync: Command failed.
+Exit code: 1
+Command: node ./build.js
+Arguments: 
+Directory: /tmp/twcr-2425b395b1ba/node_modules/deasync
+Output:
+gyp info it worked if it ends with ok
+gyp info using node-gyp@10.0.1
+gyp info using node@21.6.2 | linux | x64
+gyp info find Python using Python version 3.11.2 found at \"/usr/bin/python3\"
+
+gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+gyp WARN install got an error, rolling back install
+gyp ERR! configure error 
+gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+gyp ERR! System Linux 6.4.16-linuxkit
+gyp ERR! command \"/usr/local/bin/node\" \"/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js\" \"rebuild\"
+gyp ERR! cwd /tmp/twcr-2425b395b1ba/node_modules/deasync
+gyp ERR! node -v v21.6.2
+gyp ERR! node-gyp -v v10.0.1
+gyp ERR! not ok 
+Build failed"
+Done in 271.82s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-2425b395b1ba/packages/shared/tailwind.config.ts:1
+import config from '../tailwind-config/tailwind.config.js';
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-2425b395b1ba/packages/shared/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

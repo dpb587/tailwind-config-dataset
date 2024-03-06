@@ -1,0 +1,284 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/JensDll/tailwindcss-plugin-icons
++ reporef=main
++ repopath=./playground/vue
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/JensDll/tailwindcss-plugin-icons
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-51da131cee3b
+++ echo 'github.com/JensDll/tailwindcss-plugin-icons;main;./playground/vue'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/f09af7f0cd7e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/JensDll/tailwindcss-plugin-icons/bWFpbgo/Li9wbGF5Z3JvdW5kL3Z1ZQo
++ jq -nc --arg key analysis_key --arg value github.com/JensDll/tailwindcss-plugin-icons/bWFpbgo/Li9wbGF5Z3JvdW5kL3Z1ZQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 8a17cd60dab0e9ed
++ jq -nc --arg key analysis_nonce --arg value 8a17cd60dab0e9ed '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/JensDll/tailwindcss-plugin-icons
++ jq -nc --arg key input_repo_name --arg value github.com/JensDll/tailwindcss-plugin-icons '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./playground/vue
++ jq -nc --arg key input_repo_path --arg value ./playground/vue '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:02:05Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:02:05Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-51da131cee3b
++ pushd /tmp/twcr-51da131cee3b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/JensDll/tailwindcss-plugin-icons.git .
+/tmp/twcr-51da131cee3b /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:02:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:02:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2e119c97588180e9603482efe892abc31bc837ae
++ jq -nc --arg key exec_repo_commit_sha --arg value 2e119c97588180e9603482efe892abc31bc837ae '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-16 17:32:58 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-16T16:32:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-16T16:32:58Z '{ key: $key, value: $value }'
+/tmp/twcr-51da131cee3b/playground/vue /tmp/twcr-51da131cee3b /twcr
++ '[' -z ./playground/vue ']'
++ pushd ./playground/vue
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-51da131cee3b/playground/vue
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./playground/vue '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-51da131cee3b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:02:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:02:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "private": true,
+>>>   "name": "vue-playground",
+>>>   "version": "0.1.0",
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "tailwindcss": "3.4.1",
+>>>     "tailwindcss-plugin-icons": "latest"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./playground/vue '!=' ./ ']'
++ rm -f /tmp/twcr-51da131cee3b/package.json /tmp/twcr-51da131cee3b/package-lock.json /tmp/twcr-51da131cee3b/pnpm-lock.yaml /tmp/twcr-51da131cee3b/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-51da131cee3b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-51da131cee3b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-51da131cee3b/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 36, reused 0, downloaded 22, added 0
+../..                                    | Progress: resolved 70, reused 0, downloaded 55, added 0
+../..                                    | Progress: resolved 104, reused 0, downloaded 98, added 0
+../..                                    | +105 +++++++++++
+../..                                    | Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+dependencies:
++ tailwindcss 3.4.1
++ tailwindcss-plugin-icons 2.2.2 <- ../../src
+
+Done in 4.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-51da131cee3b/playground/vue/node_modules/tailwindcss-plugin-icons/dist/index.cjs'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-51da131cee3b/playground/vue/tailwind.config.ts:5:31
+    at evalModule (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-51da131cee3b/playground/vue/node_modules/tailwindcss-plugin-icons/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:02:12Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:02:12Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 2e119c9 fix path to cache mock (#42)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-51da131cee3b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-51da131cee3b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-51da131cee3b/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-51da131cee3b/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | +343  -14 ++++++++++++++++++++++++++-
+../..                                    | Progress: resolved 343, reused 8, downloaded 26, added 30
+../..                                    | Progress: resolved 343, reused 8, downloaded 63, added 67
+../..                                    | Progress: resolved 343, reused 8, downloaded 110, added 114
+../..                                    | Progress: resolved 343, reused 8, downloaded 168, added 171
+../..                                    | Progress: resolved 343, reused 8, downloaded 220, added 224
+../..                                    | Progress: resolved 343, reused 8, downloaded 284, added 288
+../..                                    | Progress: resolved 343, reused 8, downloaded 333, added 337
+../..                                    | Progress: resolved 343, reused 8, downloaded 334, added 338
+../..                                    | Progress: resolved 343, reused 8, downloaded 335, added 338
+../..                                    | Progress: resolved 343, reused 8, downloaded 335, added 339, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.0/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.0/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @iconify/json 2.2.175
++ @types/node 20.11.8
++ @vitejs/plugin-vue 5.0.3
++ autoprefixer 10.4.17
++ my-icons <- @iconify-json/logos 1.1.42
++ postcss 8.4.33
++ tailwindcss 3.4.1
++ tailwindcss-plugin-icons 2.2.2 <- ../../src
++ typescript 5.3.3
++ vite 5.0.12
++ vue 3.4.15
++ vue-tsc 1.8.27
+
+Done in 11.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-51da131cee3b/playground/vue/node_modules/tailwindcss-plugin-icons/dist/index.cjs'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-51da131cee3b/playground/vue/tailwind.config.ts:5:31
+    at evalModule (/tmp/twcr-51da131cee3b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-51da131cee3b/playground/vue/node_modules/tailwindcss-plugin-icons/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

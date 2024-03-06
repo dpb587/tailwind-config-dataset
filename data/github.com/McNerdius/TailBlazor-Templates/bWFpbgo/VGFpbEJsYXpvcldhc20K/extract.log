@@ -1,0 +1,175 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/McNerdius/TailBlazor-Templates
++ reporef=main
++ repopath=./TailBlazorWasm
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/McNerdius/TailBlazor-Templates
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ae32a187900e
+++ echo 'github.com/McNerdius/TailBlazor-Templates;main;./TailBlazorWasm'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1a532ceca448
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/McNerdius/TailBlazor-Templates/bWFpbgo/Li9UYWlsQmxhem9yV2FzbQo
++ jq -nc --arg key analysis_key --arg value github.com/McNerdius/TailBlazor-Templates/bWFpbgo/Li9UYWlsQmxhem9yV2FzbQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce eee47cc457ef5dac
++ jq -nc --arg key analysis_nonce --arg value eee47cc457ef5dac '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/McNerdius/TailBlazor-Templates
++ jq -nc --arg key input_repo_name --arg value github.com/McNerdius/TailBlazor-Templates '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./TailBlazorWasm
++ jq -nc --arg key input_repo_path --arg value ./TailBlazorWasm '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:01:50Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:01:50Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ae32a187900e
++ pushd /tmp/twcr-ae32a187900e
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/McNerdius/TailBlazor-Templates.git .
+/tmp/twcr-ae32a187900e /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:01:50Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:01:50Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3904d728753b80704b7656210a012ed0b09433b7
++ jq -nc --arg key exec_repo_commit_sha --arg value 3904d728753b80704b7656210a012ed0b09433b7 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-21 02:11:33 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-21T08:11:33Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-21T08:11:33Z '{ key: $key, value: $value }'
++ '[' -z ./TailBlazorWasm ']'
++ pushd ./TailBlazorWasm
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-ae32a187900e/TailBlazorWasm /tmp/twcr-ae32a187900e /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ae32a187900e/TailBlazorWasm
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./TailBlazorWasm '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ae32a187900e
+grep: /tmp/twcr-ae32a187900e/package.json: No such file or directory
+grep: /tmp/twcr-ae32a187900e/package.json: No such file or directory
+grep: /tmp/twcr-ae32a187900e/package.json: No such file or directory
+/twcr/worker/../worker/pm-detect.sh: line 17: /tmp/twcr-ae32a187900e/package.json: No such file or directory
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:01:50Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:01:50Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "local",
+>>>   "version": "1.0.0",
+>>>   "keywords": [],
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.7",
+>>>     "tailwindcss-debug-screens": "^2.2.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./TailBlazorWasm '!=' ./ ']'
++ rm -f /tmp/twcr-ae32a187900e/package.json /tmp/twcr-ae32a187900e/package-lock.json /tmp/twcr-ae32a187900e/pnpm-lock.yaml /tmp/twcr-ae32a187900e/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-ae32a187900e /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-ae32a187900e
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 113 packages, and audited 114 packages in 7s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T07:01:59Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T07:01:59Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T07:01:59Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T07:01:59Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

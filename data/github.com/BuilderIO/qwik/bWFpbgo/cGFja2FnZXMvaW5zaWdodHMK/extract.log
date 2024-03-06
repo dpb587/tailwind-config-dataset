@@ -1,0 +1,527 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/BuilderIO/qwik
++ reporef=main
++ repopath=./packages/insights
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/BuilderIO/qwik
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-a2a2b1ee53bf
+++ echo 'github.com/BuilderIO/qwik;main;./packages/insights'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b76bc2b1a5c3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/BuilderIO/qwik/bWFpbgo/Li9wYWNrYWdlcy9pbnNpZ2h0cwo
++ jq -nc --arg key analysis_key --arg value github.com/BuilderIO/qwik/bWFpbgo/Li9wYWNrYWdlcy9pbnNpZ2h0cwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a376f448fc1ea287
++ jq -nc --arg key analysis_nonce --arg value a376f448fc1ea287 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/BuilderIO/qwik
++ jq -nc --arg key input_repo_name --arg value github.com/BuilderIO/qwik '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/insights
++ jq -nc --arg key input_repo_path --arg value ./packages/insights '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:17:11Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:17:11Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-a2a2b1ee53bf
++ pushd /tmp/twcr-a2a2b1ee53bf
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/BuilderIO/qwik.git .
+/tmp/twcr-a2a2b1ee53bf /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:17:14Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:17:14Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3ba872ebcca9a695144445811309c9fa264f5a27
++ jq -nc --arg key exec_repo_commit_sha --arg value 3ba872ebcca9a695144445811309c9fa264f5a27 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 18:39:10 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T18:39:10Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T18:39:10Z '{ key: $key, value: $value }'
+/tmp/twcr-a2a2b1ee53bf/packages/insights /tmp/twcr-a2a2b1ee53bf /twcr
++ '[' -z ./packages/insights ']'
++ pushd ./packages/insights
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2a2b1ee53bf/packages/insights
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/insights '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-a2a2b1ee53bf
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:17:15Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:17:15Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "insights",
+>>>   "description": "Qwik Insights dashboard",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=16.8.0 <18.0.0 || >=18.11"
+>>>   },
+>>>   "private": true
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/insights '!=' ./ ']'
++ rm -f /tmp/twcr-a2a2b1ee53bf/package.json /tmp/twcr-a2a2b1ee53bf/package-lock.json /tmp/twcr-a2a2b1ee53bf/pnpm-lock.yaml /tmp/twcr-a2a2b1ee53bf/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2a2b1ee53bf /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2a2b1ee53bf
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2a2b1ee53bf/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 12 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 23, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 33, reused 0, downloaded 22, added 0
+../..                                    | Progress: resolved 44, reused 0, downloaded 34, added 0
+../..                                    | Progress: resolved 47, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 54, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 69, reused 0, downloaded 57, added 0
+../..                                    | Progress: resolved 80, reused 0, downloaded 65, added 0
+../..                                    | Progress: resolved 85, reused 0, downloaded 71, added 0
+/tmp/twcr-a2a2b1ee53bf/packages/eslint-plugin-qwik:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @typescript-eslint/utils@7.1.1
+
+This error happened while installing the dependencies of @typescript-eslint/rule-tester@7.1.1
+
+The latest release of @typescript-eslint/utils is "7.1.0".
+
+Other releases are:
+  * canary: 7.1.1-alpha.2
+  * rc-v: 6.0.0-alpha.58
+  * rc-v6: 7.0.0-alpha.0
+
+If you need the full list of all 1628 published versions run "$ pnpm view @typescript-eslint/utils versions".
+../..                                    | Progress: resolved 91, reused 0, downloaded 90, added 0
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:17:28Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:17:28Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 3ba872e chore: 1.5.0 (#5946)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-a2a2b1ee53bf /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-a2a2b1ee53bf
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-a2a2b1ee53bf/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-a2a2b1ee53bf/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 13 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1939 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1939, reused 59, downloaded 0, added 0
+../..                                    | Progress: resolved 1939, reused 87, downloaded 33, added 118
+../..                                    | Progress: resolved 1939, reused 87, downloaded 69, added 156
+../..                                    | Progress: resolved 1939, reused 87, downloaded 114, added 201
+../..                                    | Progress: resolved 1939, reused 87, downloaded 161, added 248
+../..                                    | Progress: resolved 1939, reused 87, downloaded 207, added 294
+../..                                    | Progress: resolved 1939, reused 87, downloaded 241, added 328
+../..                                    | Progress: resolved 1939, reused 87, downloaded 268, added 353
+../..                                    | Progress: resolved 1939, reused 87, downloaded 302, added 389
+../..                                    | Progress: resolved 1939, reused 87, downloaded 339, added 426
+../..                                    | Progress: resolved 1939, reused 87, downloaded 358, added 445
+../..                                    | Progress: resolved 1939, reused 87, downloaded 386, added 473
+../..                                    | Progress: resolved 1939, reused 87, downloaded 417, added 504
+../..                                    | Progress: resolved 1939, reused 87, downloaded 451, added 538
+../..                                    | Progress: resolved 1939, reused 87, downloaded 489, added 576
+../..                                    | Progress: resolved 1939, reused 87, downloaded 525, added 611
+../..                                    | Progress: resolved 1939, reused 87, downloaded 557, added 644
+../..                                    | Progress: resolved 1939, reused 87, downloaded 593, added 680
+../..                                    | Progress: resolved 1939, reused 87, downloaded 631, added 718
+../..                                    | Progress: resolved 1939, reused 87, downloaded 673, added 760
+../..                                    | Progress: resolved 1939, reused 87, downloaded 711, added 797
+../..                                    | Progress: resolved 1939, reused 87, downloaded 741, added 828
+../..                                    | Progress: resolved 1939, reused 87, downloaded 779, added 866
+../..                                    | Progress: resolved 1939, reused 87, downloaded 827, added 914
+../..                                    | Progress: resolved 1939, reused 87, downloaded 865, added 952
+../..                                    | Progress: resolved 1939, reused 87, downloaded 903, added 989
+../..                                    | Progress: resolved 1939, reused 87, downloaded 941, added 1028
+../..                                    | Progress: resolved 1939, reused 87, downloaded 977, added 1063
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1023, added 1110
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1063, added 1150
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1103, added 1190
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1135, added 1222
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1166, added 1253
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1195, added 1282
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1222, added 1309
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1261, added 1348
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1299, added 1386
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1329, added 1416
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1357, added 1444
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1402, added 1489
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1433, added 1520
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1481, added 1568
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1525, added 1611
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1566, added 1653
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1606, added 1693
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1651, added 1737
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1698, added 1785
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1744, added 1831
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1795, added 1882
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1843, added 1930
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1850, added 1937
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1851, added 1938
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1852, added 1938
+../..                                    | Progress: resolved 1939, reused 87, downloaded 1852, added 1939, done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/isolated-vm install$ prebuild-install || (node-gyp rebuild --release -j max && node-gyp clean)
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install: Done
+.../node_modules/isolated-vm install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/isolated-vm install: gyp info it worked if it ends with ok
+.../node_modules/isolated-vm install: gyp info using node-gyp@9.4.1
+.../node_modules/isolated-vm install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/isolated-vm install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/isolated-vm install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/better-sqlite3 install: Done
+.../node_modules/isolated-vm install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/isolated-vm install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/isolated-vm install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/isolated-vm install: gyp info spawn /usr/bin/python3
+.../node_modules/isolated-vm install: gyp info spawn args [
+.../node_modules/isolated-vm install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/isolated-vm install: gyp info spawn args   'binding.gyp',
+.../node_modules/isolated-vm install: gyp info spawn args   '-f',
+.../node_modules/isolated-vm install: gyp info spawn args   'make',
+.../node_modules/isolated-vm install: gyp info spawn args   '-I',
+.../node_modules/isolated-vm install: gyp info spawn args   '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/isolated-vm@4.7.2/node_modules/isolated-vm/build/config.gypi',
+.../node_modules/isolated-vm install: gyp info spawn args   '-I',
+.../node_modules/isolated-vm install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/isolated-vm install: gyp info spawn args   '-I',
+.../node_modules/isolated-vm install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/isolated-vm@4.7.2/node_modules/isolated-vm',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/isolated-vm install: gyp info spawn args   '--depth=.',
+.../node_modules/isolated-vm install: gyp info spawn args   '--no-parallel',
+.../node_modules/isolated-vm install: gyp info spawn args   '--generator-output',
+.../node_modules/isolated-vm install: gyp info spawn args   'build',
+.../node_modules/isolated-vm install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/isolated-vm install: gyp info spawn args ]
+.../node_modules/isolated-vm install: gyp info spawn make
+.../node_modules/isolated-vm install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build', '--jobs', 12 ]
+.../node_modules/isolated-vm install: make: Entering directory '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/isolated-vm@4.7.2/node_modules/isolated-vm/build'
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/nortti/src/external_copy/serializer_nortti.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/nortti/src/isolate/allocator_nortti.o
+.../node_modules/isolated-vm install: rm -f Release/obj.target/nortti.a Release/obj.target/nortti.a.ar-file-list; mkdir -p `dirname Release/obj.target/nortti.a`
+.../node_modules/isolated-vm install: ar crs Release/obj.target/nortti.a @Release/obj.target/nortti.a.ar-file-list
+.../node_modules/isolated-vm install:   COPY Release/nortti.a
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/external_copy/external_copy.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/external_copy/serializer.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/external_copy/string.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/environment.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/cpu_profile_manager.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/executor.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/holder.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/inspector.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/platform_delegate.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/scheduler.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/stack_trace.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/isolate/three_phase_task.o
+.../node_modules/isolated-vm install: ../src/isolate/environment.cc:58: warning: "_GNU_SOURCE" redefined
+.../node_modules/isolated-vm install:    58 | #define _GNU_SOURCE
+.../node_modules/isolated-vm install:       | 
+.../node_modules/isolated-vm install: <command-line>: note: this is the location of the previous definition
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/lib/thread_pool.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/lib/timer.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/callback.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/context_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/evaluation.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/external_copy_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/isolate.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/isolate_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/lib_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/module_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/native_module_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/reference_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/script_handle.o
+.../node_modules/isolated-vm install: ../src/module/lib_handle.cc: In member function 'v8::Local<v8::Value> ivm::LibHandle::PrivateSymbol(v8::MaybeLocal<v8::String>)':
+.../node_modules/isolated-vm install: ../src/module/lib_handle.cc:58:17: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+.../node_modules/isolated-vm install:    58 |         return *reinterpret_cast<Local<Value>*>(&symbol);
+.../node_modules/isolated-vm install:       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/isolated-vm install: ../src/module/lib_handle.cc:58:17: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/session_handle.o
+.../node_modules/isolated-vm install:   CXX(target) Release/obj.target/isolated_vm/src/module/transferable.o
+.../node_modules/isolated-vm install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-handle-base.h:8,
+.../node_modules/isolated-vm install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:12,
+.../node_modules/isolated-vm install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../node_modules/isolated-vm install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../node_modules/isolated-vm install:                  from ../src/external_copy/external_copy.h:2,
+.../node_modules/isolated-vm install:                  from ../src/module/transferable.cc:1:
+.../node_modules/isolated-vm install: In static member function 'static v8::internal::Address v8::internal::Internals::GetRoot(v8::Isolate*, int)',
+.../node_modules/isolated-vm install:     inlined from 'v8::internal::Address v8::ReturnValue<F>::GetDefaultValue() [with T = v8::Value]' at /home/node/.cache/node-gyp/21.6.2/include/node/v8-function-callback.h:403:20,
+.../node_modules/isolated-vm install:     inlined from 'void v8::ReturnValue<F>::Set(v8::Local<S>) [with S = v8::Value; T = v8::Value]' at /home/node/.cache/node-gyp/21.6.2/include/node/v8-function-callback.h:307:30,
+.../node_modules/isolated-vm install:     inlined from 'void ivm::detail::Returner(Type, const v8::FunctionCallbackInfo<v8::Value>&) [with Type = VoidReturn]' at ../src/isolate/generic/callbacks.h:77:27,
+.../node_modules/isolated-vm install:     inlined from 'static void ivm::detail::CallbackMaker<Signature, Function, Offset, Args>::Spread(Args ..., std::index_sequence<Indices ...>) [with long unsigned int ...Indices = {0, 1}; Signature = void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>); Signature Function = ivm::{anonymous}::TransferablePromiseHolder::Rejected; int Offset = -2; Args = {const v8::FunctionCallbackInfo<v8::Value>&}]' at ../src/isolate/generic/callbacks.h:100:18,
+.../node_modules/isolated-vm install:     inlined from 'ivm::detail::CallbackMaker<void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>), ivm::{anonymous}::TransferablePromiseHolder::Rejected, -2, const v8::FunctionCallbackInfo<v8::Value>&>::Callback(const v8::FunctionCallbackInfo<v8::Value>&)::<lambda()>' at ../src/isolate/generic/callbacks.h:118:10,
+.../node_modules/isolated-vm install:     inlined from 'void ivm::detail::RunBarrier(Functor) [with Functor = CallbackMaker<void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>), ivm::{anonymous}::TransferablePromiseHolder::Rejected, -2, const v8::FunctionCallbackInfo<v8::Value>&>::Callback(const v8::FunctionCallbackInfo<v8::Value>&)::<lambda()>]' at ../src/isolate/generic/error.h:119:5,
+.../node_modules/isolated-vm install:     inlined from 'static void ivm::detail::CallbackMaker<Signature, Function, Offset, Args>::Callback(Args ...) [with Signature = void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>); Signature Function = ivm::{anonymous}::TransferablePromiseHolder::Rejected; int Offset = -2; Args = {const v8::FunctionCallbackInfo<v8::Value>&}]' at ../src/isolate/generic/callbacks.h:117:13:
+.../node_modules/isolated-vm install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-internal.h:849:39: warning: array subscript 0 is outside array bounds of 'v8::internal::Address [0]' [-Warray-bounds]
+.../node_modules/isolated-vm install:   849 |     return *GetRootSlot(isolate, index);
+.../node_modules/isolated-vm install:       |                                       ^
+.../node_modules/isolated-vm install: In static member function 'static v8::internal::Address v8::internal::Internals::GetRoot(v8::Isolate*, int)',
+.../node_modules/isolated-vm install:     inlined from 'v8::internal::Address v8::ReturnValue<F>::GetDefaultValue() [with T = v8::Value]' at /home/node/.cache/node-gyp/21.6.2/include/node/v8-function-callback.h:403:20,
+.../node_modules/isolated-vm install:     inlined from 'void v8::ReturnValue<F>::Set(v8::Local<S>) [with S = v8::Value; T = v8::Value]' at /home/node/.cache/node-gyp/21.6.2/include/node/v8-function-callback.h:307:30,
+.../node_modules/isolated-vm install:     inlined from 'void ivm::detail::Returner(Type, const v8::FunctionCallbackInfo<v8::Value>&) [with Type = VoidReturn]' at ../src/isolate/generic/callbacks.h:77:27,
+.../node_modules/isolated-vm install:     inlined from 'static void ivm::detail::CallbackMaker<Signature, Function, Offset, Args>::Spread(Args ..., std::index_sequence<Indices ...>) [with long unsigned int ...Indices = {0, 1}; Signature = void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>); Signature Function = ivm::{anonymous}::TransferablePromiseHolder::Resolved; int Offset = -2; Args = {const v8::FunctionCallbackInfo<v8::Value>&}]' at ../src/isolate/generic/callbacks.h:100:18,
+.../node_modules/isolated-vm install:     inlined from 'ivm::detail::CallbackMaker<void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>), ivm::{anonymous}::TransferablePromiseHolder::Resolved, -2, const v8::FunctionCallbackInfo<v8::Value>&>::Callback(const v8::FunctionCallbackInfo<v8::Value>&)::<lambda()>' at ../src/isolate/generic/callbacks.h:118:10,
+.../node_modules/isolated-vm install:     inlined from 'void ivm::detail::RunBarrier(Functor) [with Functor = CallbackMaker<void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>), ivm::{anonymous}::TransferablePromiseHolder::Resolved, -2, const v8::FunctionCallbackInfo<v8::Value>&>::Callback(const v8::FunctionCallbackInfo<v8::Value>&)::<lambda()>]' at ../src/isolate/generic/error.h:119:5,
+.../node_modules/isolated-vm install:     inlined from 'static void ivm::detail::CallbackMaker<Signature, Function, Offset, Args>::Callback(Args ...) [with Signature = void (*)(ivm::{anonymous}::TransferablePromiseHolder&, v8::Local<v8::Value>); Signature Function = ivm::{anonymous}::TransferablePromiseHolder::Resolved; int Offset = -2; Args = {const v8::FunctionCallbackInfo<v8::Value>&}]' at ../src/isolate/generic/callbacks.h:117:13:
+.../node_modules/isolated-vm install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-internal.h:849:39: warning: array subscript 0 is outside array bounds of 'v8::internal::Address [0]' [-Warray-bounds]
+.../node_modules/isolated-vm install:   849 |     return *GetRootSlot(isolate, index);
+.../node_modules/isolated-vm install:       |                                       ^
+.../node_modules/isolated-vm install:   SOLINK_MODULE(target) Release/obj.target/isolated_vm.node
+.../node_modules/isolated-vm install:   COPY Release/isolated_vm.node
+.../node_modules/isolated-vm install:   COPY ../out/isolated_vm.node
+.../node_modules/isolated-vm install:   TOUCH Release/obj.target/action_after_build.stamp
+.../node_modules/isolated-vm install: make: Leaving directory '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/isolated-vm@4.7.2/node_modules/isolated-vm/build'
+.../node_modules/isolated-vm install: gyp info ok 
+.../node_modules/isolated-vm install: gyp info it worked if it ends with ok
+.../node_modules/isolated-vm install: gyp info using node-gyp@9.4.1
+.../node_modules/isolated-vm install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/isolated-vm install: gyp info ok 
+.../node_modules/isolated-vm install: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../node_modules/unix-dgram install$ node-gyp rebuild
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../node_modules/unix-dgram install: gyp info it worked if it ends with ok
+.../node_modules/unix-dgram install: gyp info using node-gyp@9.4.1
+.../node_modules/unix-dgram install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/unix-dgram install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/unix-dgram install: gyp info spawn /usr/bin/python3
+.../node_modules/unix-dgram install: gyp info spawn args [
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/unix-dgram install: gyp info spawn args   'binding.gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-f',
+.../node_modules/unix-dgram install: gyp info spawn args   'make',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build/config.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/unix-dgram install: gyp info spawn args   '--depth=.',
+.../node_modules/unix-dgram install: gyp info spawn args   '--no-parallel',
+.../node_modules/unix-dgram install: gyp info spawn args   '--generator-output',
+.../node_modules/unix-dgram install: gyp info spawn args   'build',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/unix-dgram install: gyp info spawn args ]
+.../node_modules/unix-dgram install: gyp info spawn make
+.../node_modules/unix-dgram install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/unix-dgram install: make: Entering directory '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install:   CXX(target) Release/obj.target/unix_dgram/src/unix_dgram.o
+.../node_modules/unix-dgram install: In file included from ../../../../nan@2.18.0/node_modules/nan/nan.h:62,
+.../node_modules/unix-dgram install:                  from ../src/unix_dgram.cc:5:
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/unix-dgram install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/unix-dgram install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/unix-dgram install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/unix-dgram install:       |   ^~~~~~~~~~~~~
+.../node_modules/unix-dgram install: ../src/unix_dgram.cc:404:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/unix-dgram install:   404 | NODE_MODULE(unix_dgram, Initialize)
+.../node_modules/unix-dgram install:       | ^~~~~~~~~~~
+.../node_modules/unix-dgram install:   SOLINK_MODULE(target) Release/obj.target/unix_dgram.node
+.../node_modules/unix-dgram install:   COPY Release/unix_dgram.node
+.../node_modules/unix-dgram install: make: Leaving directory '/tmp/twcr-a2a2b1ee53bf/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install: gyp info ok 
+.../node_modules/unix-dgram install: Done
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../sharp@0.33.2/node_modules/sharp install: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+.../node_modules/puppeteer postinstall$ node install.mjs
+.../node_modules/puppeteer postinstall: **INFO** Skipping browser download as instructed.
+.../node_modules/puppeteer postinstall: Done
+.../node_modules/netlify-cli postinstall$ node ./scripts/postinstall.js
+.../node_modules/netlify-cli postinstall: (node:1143) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/netlify-cli postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/netlify-cli postinstall: Success! Netlify CLI has been installed!
+.../node_modules/netlify-cli postinstall: Your device is now configured to use Netlify CLI to deploy and manage your Netlify sites.
+.../node_modules/netlify-cli postinstall: Next steps:
+.../node_modules/netlify-cli postinstall:   netlify init     Connect or create a Netlify site from current directory
+.../node_modules/netlify-cli postinstall:   netlify deploy   Deploy the latest changes to your Netlify site
+.../node_modules/netlify-cli postinstall: For more information on the CLI run netlify help
+.../node_modules/netlify-cli postinstall: Or visit the docs at https://cli.netlify.com
+.../node_modules/netlify-cli postinstall: Done
+
+dependencies:
++ @auth/core 0.21.0
++ @builder.io/qwik-auth 0.1.3 <- ../qwik-auth
++ @libsql/client 0.5.2
++ @modular-forms/qwik 0.23.1
++ @typescript/analyze-trace 0.10.1
++ density-clustering 1.3.0
++ dotenv 16.4.5
++ drizzle-kit 0.20.14
++ drizzle-orm 0.29.4
++ install 0.13.0
+
+devDependencies:
++ @builder.io/qwik 1.5.0 <- ../qwik
++ @builder.io/qwik-city 1.5.0 <- ../qwik-city
++ @builder.io/qwik-labs 0.0.1 <- ../qwik-labs
++ @builder.io/vite-plugin-macro 0.0.7
++ @netlify/edge-functions 2.3.1
++ @types/density-clustering 1.3.3
++ @types/eslint 8.56.5
++ @types/node 20.11.24
++ @typescript-eslint/eslint-plugin 7.1.0
++ @typescript-eslint/parser 7.1.0
++ autoprefixer 10.4.18
++ better-sqlite3 9.4.3
++ eslint 8.57.0
++ eslint-plugin-qwik 1.5.0 <- ../eslint-plugin-qwik
++ netlify-cli 17.17.1
++ postcss 8.4.35
++ prettier 3.2.5
++ prettier-plugin-tailwindcss 0.5.11
++ tailwindcss 3.4.1
++ typescript 5.3.3
++ undici 6.6.2
++ vite 5.1.4
++ vite-tsconfig-paths 4.3.1
++ vitest 1.3.1
+
+Done in 2m 36.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T20:20:09Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T20:20:09Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:20:09Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:20:09Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

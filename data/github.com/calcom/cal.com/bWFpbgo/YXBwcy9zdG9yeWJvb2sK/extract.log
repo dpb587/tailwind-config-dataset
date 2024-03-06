@@ -1,0 +1,204 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/calcom/cal.com
++ reporef=main
++ repopath=./apps/storybook
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/calcom/cal.com
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-b0fe062aab22
+++ echo 'github.com/calcom/cal.com;main;./apps/storybook'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/29ddb0df5e1e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/calcom/cal.com/bWFpbgo/Li9hcHBzL3N0b3J5Ym9vawo
++ jq -nc --arg key analysis_key --arg value github.com/calcom/cal.com/bWFpbgo/Li9hcHBzL3N0b3J5Ym9vawo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 1bea596a85c5c796
++ jq -nc --arg key analysis_nonce --arg value 1bea596a85c5c796 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/calcom/cal.com
++ jq -nc --arg key input_repo_name --arg value github.com/calcom/cal.com '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/storybook
++ jq -nc --arg key input_repo_path --arg value ./apps/storybook '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T18:15:55Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T18:15:55Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-b0fe062aab22
++ pushd /tmp/twcr-b0fe062aab22
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/calcom/cal.com.git .
+/tmp/twcr-b0fe062aab22 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T18:16:02Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T18:16:02Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 92a919069d50b9bd1424809c92ad1e8437847bbc
++ jq -nc --arg key exec_repo_commit_sha --arg value 92a919069d50b9bd1424809c92ad1e8437847bbc '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 22:29:40 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T22:29:40Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T22:29:40Z '{ key: $key, value: $value }'
++ '[' -z ./apps/storybook ']'
++ pushd ./apps/storybook
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-b0fe062aab22/apps/storybook /tmp/twcr-b0fe062aab22 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-b0fe062aab22/apps/storybook
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/storybook '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-b0fe062aab22
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T18:16:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T18:16:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@calcom/storybook",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "dependencies": {
+>>>     "@calcom/config": "*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/storybook '!=' ./ ']'
++ rm -f /tmp/twcr-b0fe062aab22/package.json /tmp/twcr-b0fe062aab22/package-lock.json /tmp/twcr-b0fe062aab22/pnpm-lock.yaml /tmp/twcr-b0fe062aab22/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-b0fe062aab22 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-b0fe062aab22
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_f6bad20f89cb:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_f6bad20f89cb:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_f6bad20f89cb:ok@172.18.0.2:3128'
++ '[' -z http://tid_f6bad20f89cb:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_f6bad20f89cb:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_f6bad20f89cb:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:190:90244)
+    at ClientRequest.c (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 7s 184ms
+➤ YN0000: Failed with errors in 7s 186ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T18:16:12Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T18:16:12Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 1 path from the index
++ git clean -fdx
+Removing .yarn/
+Removing .yarnrc.yml
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-b0fe062aab22 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-b0fe062aab22
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_f6bad20f89cb:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_f6bad20f89cb:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpProxy to 'http://tid_f6bad20f89cb:ok@172.18.0.2:3128'
++ '[' -z http://tid_f6bad20f89cb:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_f6bad20f89cb:ok@172.18.0.2:3128
+➤ YN0000: Successfully set httpsProxy to 'http://tid_f6bad20f89cb:ok@172.18.0.2:3128'
++ yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0001: │ RequestError: tunneling socket could not be established, statusCode=407
+    at ClientRequest.<anonymous> (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:14340)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at o.emit (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:190:90244)
+    at ClientRequest.c (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:33205)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at ClientRequest.c (/tmp/twcr-b0fe062aab22/.yarn/releases/yarn-3.4.1.cjs:195:33094)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketOnData (node:_http_client:572:11)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+➤ YN0000: └ Completed in 7s 358ms
+➤ YN0000: Failed with errors in 7s 360ms
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

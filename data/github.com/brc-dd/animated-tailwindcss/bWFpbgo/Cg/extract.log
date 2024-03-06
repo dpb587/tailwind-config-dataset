@@ -1,0 +1,228 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/brc-dd/animated-tailwindcss
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/brc-dd/animated-tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e212355c270c
+++ echo 'github.com/brc-dd/animated-tailwindcss;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/122eb506d000
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/brc-dd/animated-tailwindcss/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/brc-dd/animated-tailwindcss/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 609eb8d5f22acba3
++ jq -nc --arg key analysis_nonce --arg value 609eb8d5f22acba3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/brc-dd/animated-tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/brc-dd/animated-tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:43:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:43:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e212355c270c
+/tmp/twcr-e212355c270c /twcr
++ pushd /tmp/twcr-e212355c270c
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/brc-dd/animated-tailwindcss.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:43:22Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:43:22Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 65d02c15f800ba9c8735273112702582b532afdd
++ jq -nc --arg key exec_repo_commit_sha --arg value 65d02c15f800ba9c8735273112702582b532afdd '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-01 09:07:19 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-01T03:37:19Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-01T03:37:19Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-e212355c270c /tmp/twcr-e212355c270c /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e212355c270c
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:43:22Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:43:22Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
+[squash-package] ERROR: failed to find any match for import path (.)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:43:22Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:43:22Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 65d02c1 docs: add links to docs and installation quick start (#220)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-e212355c270c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-e212355c270c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-e212355c270c/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-e212355c270c/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 32, reused 0, downloaded 32, added 0
+Progress: resolved 83, reused 0, downloaded 75, added 0
+Progress: resolved 148, reused 0, downloaded 140, added 0
+Progress: resolved 194, reused 0, downloaded 186, added 0
+Progress: resolved 252, reused 0, downloaded 244, added 0
+Progress: resolved 306, reused 0, downloaded 298, added 0
+Progress: resolved 362, reused 0, downloaded 353, added 0
+Progress: resolved 427, reused 0, downloaded 419, added 0
+Progress: resolved 479, reused 0, downloaded 471, added 0
+Progress: resolved 544, reused 0, downloaded 536, added 0
+Progress: resolved 612, reused 0, downloaded 604, added 0
+Progress: resolved 678, reused 0, downloaded 628, added 0
+Progress: resolved 733, reused 0, downloaded 683, added 0
+Progress: resolved 788, reused 0, downloaded 738, added 0
+Progress: resolved 842, reused 0, downloaded 792, added 0
+Packages: +793
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 843, reused 0, downloaded 793, added 793, done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../lefthook@1.2.6/node_modules/lefthook postinstall$ node postinstall.js
+.../esbuild@0.16.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.10/node_modules/esbuild postinstall$ node install.js
+.../lefthook@1.2.6/node_modules/lefthook postinstall: SYNCING
+.../lefthook@1.2.6/node_modules/lefthook postinstall: SERVED HOOKS: [1mpre-commit, post-commit, post-checkout, commit-msg[0m
+.../lefthook@1.2.6/node_modules/lefthook postinstall: Done
+.../esbuild@0.16.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.10/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ @commitlint/cli 17.3.0
++ @commitlint/config-conventional 17.3.0
++ @release-it/conventional-changelog 5.1.1
++ @tsconfig/node12 1.0.11
++ @typescript-eslint/eslint-plugin 5.48.0
++ @typescript-eslint/parser 5.48.0
++ @vue/tsconfig 0.1.3
++ autoprefixer 10.4.13
++ csstype 3.1.1
++ eslint 8.31.0
++ eslint-config-airbnb-base 15.0.0
++ eslint-config-airbnb-typescript 17.0.0
++ eslint-config-prettier 8.6.0
++ eslint-import-resolver-node 0.3.6
++ eslint-import-resolver-typescript 3.5.2
++ eslint-plugin-eslint-comments 3.2.0
++ eslint-plugin-import 2.26.0
++ eslint-plugin-prettier 4.2.1
++ eslint-plugin-security 1.5.0
++ lefthook 1.2.6
++ postcss 8.4.20
++ prettier 2.8.1
++ prettier-plugin-packagejson 2.3.0
++ prettier-plugin-tailwindcss 0.2.1
++ release-it 15.6.0
++ replace 1.2.2
++ rimraf 3.0.2
++ tailwindcss 3.2.4
++ tsup 6.5.0
++ typescript 4.9.4
++ vitepress 1.0.0-alpha.35
++ vue 3.2.45
+
+Done in 18.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:458
+      throw err;
+      ^
+
+Error: Cannot find module '/tmp/twcr-e212355c270c/dist/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (node:internal/modules/cjs/loader:450:19)
+    at Module._findPath (node:internal/modules/cjs/loader:720:18)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-e212355c270c/tailwind.config.cjs:1:28)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-e212355c270c/package.json',
+  requestPath: '.'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

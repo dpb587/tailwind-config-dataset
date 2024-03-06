@@ -1,0 +1,187 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/freeCodeCamp/classroom
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/freeCodeCamp/classroom
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c837095fd791
+++ echo 'github.com/freeCodeCamp/classroom;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/f0a4f7a046ec
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/freeCodeCamp/classroom/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/freeCodeCamp/classroom/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6aa093c1433d947a
++ jq -nc --arg key analysis_nonce --arg value 6aa093c1433d947a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/freeCodeCamp/classroom
++ jq -nc --arg key input_repo_name --arg value github.com/freeCodeCamp/classroom '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T17:52:57Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T17:52:57Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c837095fd791
+/tmp/twcr-c837095fd791 /twcr
++ pushd /tmp/twcr-c837095fd791
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/freeCodeCamp/classroom.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T17:52:58Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T17:52:58Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2c16063bee1ab88d12fa4f3e180a6f48a19223bb
++ jq -nc --arg key exec_repo_commit_sha --arg value 2c16063bee1ab88d12fa4f3e180a6f48a19223bb '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-10 18:50:25 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-10T18:50:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-10T18:50:25Z '{ key: $key, value: $value }'
+/tmp/twcr-c837095fd791 /tmp/twcr-c837095fd791 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c837095fd791
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T17:52:58Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T17:52:58Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@freecodecamp/classroom",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "description": "Classroom mode for freeCodeCamp",
+>>>   "engines": {
+>>>     "node": "^16",
+>>>     "npm": "^8"
+>>>   },
+>>>   "main": "index.js",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/freecodecamp/classroom.git"
+>>>   },
+>>>   "license": "BSD-3-Clause",
+>>>   "bugs": {
+>>>     "url": "https://github.com/freecodecamp/classroom/issues"
+>>>   },
+>>>   "homepage": "https://github.com/freecodecamp/classroom#readme",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.3.5"
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.js": "eslint --cache --fix",
+>>>     "*.{js,css,md}": "prettier --write"
+>>>   },
+>>>   "prisma": {
+>>>     "seed": "node prisma/seed.js"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-c837095fd791 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-c837095fd791
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: @freecodecamp/classroom@0.0.0
+npm ERR! notsup Not compatible with your version of node/npm: @freecodecamp/classroom@0.0.0
+npm ERR! notsup Required: {"node":"^16","npm":"^8"}
+npm ERR! notsup Actual:   {"npm":"10.2.4","node":"v21.6.2"}
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-03T17_52_58_612Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T17:53:03Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T17:53:03Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 2 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-c837095fd791 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-c837095fd791
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: @freecodecamp/classroom@0.0.0
+npm ERR! notsup Not compatible with your version of node/npm: @freecodecamp/classroom@0.0.0
+npm ERR! notsup Required: {"node":"^16","npm":"^8"}
+npm ERR! notsup Actual:   {"npm":"10.2.4","node":"v21.6.2"}
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-03T17_53_03_569Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

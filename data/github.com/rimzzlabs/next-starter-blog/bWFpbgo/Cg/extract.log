@@ -1,0 +1,172 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/rimzzlabs/next-starter-blog
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/rimzzlabs/next-starter-blog
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-0df5517aa6d6
+++ echo 'github.com/rimzzlabs/next-starter-blog;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/3dcb344831b9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/rimzzlabs/next-starter-blog/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/rimzzlabs/next-starter-blog/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a205f256b9600ef8
++ jq -nc --arg key analysis_nonce --arg value a205f256b9600ef8 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/rimzzlabs/next-starter-blog
++ jq -nc --arg key input_repo_name --arg value github.com/rimzzlabs/next-starter-blog '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T08:57:01Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T08:57:01Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-0df5517aa6d6
+/tmp/twcr-0df5517aa6d6 /twcr
++ pushd /tmp/twcr-0df5517aa6d6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/rimzzlabs/next-starter-blog.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T08:57:02Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T08:57:02Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f2f5a2f19710d49ce3d004f353ea49391481df79
++ jq -nc --arg key exec_repo_commit_sha --arg value f2f5a2f19710d49ce3d004f353ea49391481df79 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-07-05 11:19:40 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-07-05T04:19:40Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-07-05T04:19:40Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-0df5517aa6d6 /tmp/twcr-0df5517aa6d6 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-0df5517aa6d6
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T08:57:02Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T08:57:02Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (@types/tailwindcss/tailwind-config)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T08:57:02Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T08:57:02Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at f2f5a2f feat: filter blog post based on selected tags
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-0df5517aa6d6 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-0df5517aa6d6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_1e07477c60b1:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_1e07477c60b1:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_1e07477c60b1:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_1e07477c60b1:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_1e07477c60b1:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_1e07477c60b1:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+$ husky install
+husky - Git hooks installed
+Done in 59.77s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T08:58:04Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T08:58:04Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T08:58:04Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T08:58:04Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

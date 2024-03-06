@@ -1,0 +1,194 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Tencent/omi
++ reporef=master
++ repopath=./packages/omi-router
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Tencent/omi
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7eeed1ea37c5
+++ echo 'github.com/Tencent/omi;master;./packages/omi-router'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e78dfdbf3434
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Tencent/omi/bWFzdGVyCg/Li9wYWNrYWdlcy9vbWktcm91dGVyCg
++ jq -nc --arg key analysis_key --arg value github.com/Tencent/omi/bWFzdGVyCg/Li9wYWNrYWdlcy9vbWktcm91dGVyCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 4b33a6f8218adbfd
++ jq -nc --arg key analysis_nonce --arg value 4b33a6f8218adbfd '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Tencent/omi
++ jq -nc --arg key input_repo_name --arg value github.com/Tencent/omi '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/omi-router
++ jq -nc --arg key input_repo_path --arg value ./packages/omi-router '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:54:10Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:54:10Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7eeed1ea37c5
+/tmp/twcr-7eeed1ea37c5 /twcr
++ pushd /tmp/twcr-7eeed1ea37c5
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Tencent/omi.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:54:12Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:54:12Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 32f64e56c6bf3d5812d256fb4138683d0eab0d88
++ jq -nc --arg key exec_repo_commit_sha --arg value 32f64e56c6bf3d5812d256fb4138683d0eab0d88 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 08:51:51 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T00:51:51Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T00:51:51Z '{ key: $key, value: $value }'
+/tmp/twcr-7eeed1ea37c5/packages/omi-router /tmp/twcr-7eeed1ea37c5 /twcr
++ '[' -z ./packages/omi-router ']'
++ pushd ./packages/omi-router
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7eeed1ea37c5/packages/omi-router
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:54:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:54:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "omi-router",
+>>>   "version": "4.1.7",
+>>>   "type": "module",
+>>>   "description": "Router for Omi",
+>>>   "main": "dist/index.es.js",
+>>>   "exports": {
+>>>     ".": "./dist/index.es.js"
+>>>   },
+>>>   "types": "./dist/src/router.d.ts",
+>>>   "files": [
+>>>     "dist",
+>>>     "types"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   },
+>>>   "license": "MIT",
+>>>   "keywords": [
+>>>     "omi",
+>>>     "omiu"
+>>>   ],
+>>>   "authors": [
+>>>     "The Omi Authors (https://github.com/Tencent/omi/contributors)"
+>>>   ],
+>>>   "repository": "Tencent/omi",
+>>>   "bugs": "https://github.com/Tencent/omi/issues/",
+>>>   "homepage": "http://omijs.org"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/omi-router '!=' ./ ']'
++ rm -f /tmp/twcr-7eeed1ea37c5/package.json /tmp/twcr-7eeed1ea37c5/package-lock.json /tmp/twcr-7eeed1ea37c5/pnpm-lock.yaml /tmp/twcr-7eeed1ea37c5/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-7eeed1ea37c5 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-7eeed1ea37c5
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_1ead0ed2d4fd:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 6.30s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T00:54:20Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T00:54:20Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T00:54:20Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T00:54:20Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,299 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/internxt/website
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/internxt/website
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-b5ad72a2f361
+++ echo 'github.com/internxt/website;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/570a9e51c3eb
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/internxt/website/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/internxt/website/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce feb88fb2fc213031
++ jq -nc --arg key analysis_nonce --arg value feb88fb2fc213031 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/internxt/website
++ jq -nc --arg key input_repo_name --arg value github.com/internxt/website '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:25:02Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:25:02Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-b5ad72a2f361
++ pushd /tmp/twcr-b5ad72a2f361
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/internxt/website.git .
+/tmp/twcr-b5ad72a2f361 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:25:10Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:25:10Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c54480c78219b12ebf771bd5d559fff3503b1ca3
++ jq -nc --arg key exec_repo_commit_sha --arg value c54480c78219b12ebf771bd5d559fff3503b1ca3 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-05 08:24:31 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-05T07:24:31Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-05T07:24:31Z '{ key: $key, value: $value }'
+/tmp/twcr-b5ad72a2f361 /tmp/twcr-b5ad72a2f361 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-b5ad72a2f361
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:25:10Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:25:10Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.1.1",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "react-select": "^5.7.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/line-clamp": "0.4.0",
+>>>     "tailwindcss": "3.1.8"
+>>>   },
+>>>   "browser": {
+>>>     "child_process": false
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18.0.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-b5ad72a2f361 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-b5ad72a2f361
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_67bd18d2c1fa:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_67bd18d2c1fa:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_67bd18d2c1fa:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_67bd18d2c1fa:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_67bd18d2c1fa:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_67bd18d2c1fa:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+(node:131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/5] Fetching packages...
+[4/5] Linking dependencies...
+warning " > react-select@5.8.0" has unmet peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+warning " > react-select@5.8.0" has unmet peer dependency "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0".
+warning "react-select > react-transition-group@4.4.5" has unmet peer dependency "react@>=16.6.0".
+warning "react-select > react-transition-group@4.4.5" has unmet peer dependency "react-dom@>=16.6.0".
+warning "react-select > use-isomorphic-layout-effect@1.1.2" has unmet peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+warning "react-select > @emotion/react@11.11.4" has unmet peer dependency "react@>=16.8.0".
+warning "react-select > @emotion/react > @emotion/use-insertion-effect-with-fallbacks@1.0.1" has unmet peer dependency "react@>=16.8.0".
+warning " > tailwindcss@3.1.8" has unmet peer dependency "postcss@^8.0.9".
+[5/5] Building fresh packages...
+success Saved lockfile.
+Done in 22.41s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.8
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'react'
+Require stack:
+- /tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/useStateManager-7748b351.cjs.dev.js
+- /tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/react-select.cjs.dev.js
+- /tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/react-select.cjs.js
+- /tmp/twcr-b5ad72a2f361/tailwind.config.js
+- /tmp/twcr-b5ad72a2f361/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/useStateManager-7748b351.cjs.dev.js:6:13)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/useStateManager-7748b351.cjs.dev.js',
+    '/tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/react-select.cjs.dev.js',
+    '/tmp/twcr-b5ad72a2f361/node_modules/react-select/dist/react-select.cjs.js',
+    '/tmp/twcr-b5ad72a2f361/tailwind.config.js',
+    '/tmp/twcr-b5ad72a2f361/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:25:34Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:25:34Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at c54480c Merge pull request #800 from internxt/feat/spring-campaign
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-b5ad72a2f361 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-b5ad72a2f361
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_67bd18d2c1fa:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_67bd18d2c1fa:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_67bd18d2c1fa:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_67bd18d2c1fa:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_67bd18d2c1fa:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_67bd18d2c1fa:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+$ node ./scripts/use-yarn.js
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+(node:231) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[4/5] Linking dependencies...
+warning " > @iconscout/react-unicons@1.1.6" has incorrect peer dependency "react@>=15.0.0 <17.0.0".
+warning " > next-share@0.18.1" has unmet peer dependency "react-scripts@>=4.0.0".
+warning " > react-device-detect@1.17.0" has incorrect peer dependency "react@>= 0.14.0 < 18.0.0".
+warning " > react-device-detect@1.17.0" has incorrect peer dependency "react-dom@>= 0.14.0 < 18.0.0".
+warning " > react-hook-roulette@0.0.10" has unmet peer dependency "@types/react@^18".
+warning " > react-hook-roulette@0.0.10" has unmet peer dependency "@types/react-dom@^18".
+warning " > react-markdown@6.0.3" has unmet peer dependency "@types/react@>=16".
+warning "react-select > @emotion/react > @emotion/babel-plugin@11.10.5" has unmet peer dependency "@babel/core@^7.0.0".
+warning "react-select > @emotion/react > @emotion/babel-plugin > @babel/plugin-syntax-jsx@7.18.6" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning " > @cypress/code-coverage@3.12.20" has unmet peer dependency "@babel/core@^7.0.1".
+warning " > @cypress/code-coverage@3.12.20" has unmet peer dependency "@babel/preset-env@^7.0.0".
+warning " > @cypress/code-coverage@3.12.20" has unmet peer dependency "babel-loader@^8.3 || ^9".
+warning " > @cypress/code-coverage@3.12.20" has unmet peer dependency "webpack@^4 || ^5".
+warning "@cypress/code-coverage > @cypress/webpack-preprocessor@6.0.1" has unmet peer dependency "@babel/core@^7.0.1".
+warning "@cypress/code-coverage > @cypress/webpack-preprocessor@6.0.1" has unmet peer dependency "@babel/preset-env@^7.0.0".
+warning "@cypress/code-coverage > @cypress/webpack-preprocessor@6.0.1" has unmet peer dependency "babel-loader@^8.3 || ^9".
+warning "@cypress/code-coverage > @cypress/webpack-preprocessor@6.0.1" has unmet peer dependency "webpack@^4 || ^5".
+[5/5] Building fresh packages...
+Done in 103.37s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.8
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/line-clamp"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T09:27:20Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T09:27:20Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:27:20Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:27:20Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

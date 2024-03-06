@@ -1,0 +1,232 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/TryGhost/Ghost
++ reporef=main
++ repopath=./apps/admin-x-settings
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/TryGhost/Ghost
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3c6fa558af96
+++ echo 'github.com/TryGhost/Ghost;main;./apps/admin-x-settings'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/3ad4212951c3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/TryGhost/Ghost/bWFpbgo/Li9hcHBzL2FkbWluLXgtc2V0dGluZ3MK
++ jq -nc --arg key analysis_key --arg value github.com/TryGhost/Ghost/bWFpbgo/Li9hcHBzL2FkbWluLXgtc2V0dGluZ3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 35d232c6057e8a8d
++ jq -nc --arg key analysis_nonce --arg value 35d232c6057e8a8d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/TryGhost/Ghost
++ jq -nc --arg key input_repo_name --arg value github.com/TryGhost/Ghost '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/admin-x-settings
++ jq -nc --arg key input_repo_path --arg value ./apps/admin-x-settings '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:14:07Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:14:07Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3c6fa558af96
+/tmp/twcr-3c6fa558af96 /twcr
++ pushd /tmp/twcr-3c6fa558af96
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/TryGhost/Ghost.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:14:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:14:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 9df514842749f95ea9f4234cd4445c119766d312
++ jq -nc --arg key exec_repo_commit_sha --arg value 9df514842749f95ea9f4234cd4445c119766d312 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 16:04:20 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T16:04:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T16:04:20Z '{ key: $key, value: $value }'
++ '[' -z ./apps/admin-x-settings ']'
++ pushd ./apps/admin-x-settings
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
+/tmp/twcr-3c6fa558af96/apps/admin-x-settings /tmp/twcr-3c6fa558af96 /twcr
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3c6fa558af96/apps/admin-x-settings
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:14:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:14:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@tryghost/admin-x-settings",
+>>>   "version": "0.0.20",
+>>>   "license": "MIT",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/TryGhost/Ghost/tree/main/packages/admin-x-settings"
+>>>   },
+>>>   "author": "Ghost Foundation",
+>>>   "files": [
+>>>     "LICENSE",
+>>>     "README.md",
+>>>     "dist/"
+>>>   ],
+>>>   "main": "./dist/admin-x-settings.umd.cjs",
+>>>   "module": "./dist/admin-x-settings.js",
+>>>   "exports": {
+>>>     ".": {
+>>>       "import": "./dist/admin-x-settings.js",
+>>>       "require": "./dist/admin-x-settings.umd.cjs"
+>>>     }
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public",
+>>>     "registry": "https://registry.npmjs.org/"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tryghost/admin-x-design-system": "0.0.0"
+>>>   },
+>>>   "nx": {
+>>>     "targets": {
+>>>       "dev": {
+>>>         "dependsOn": [
+>>>           "^build"
+>>>         ]
+>>>       },
+>>>       "test:acceptance": {
+>>>         "dependsOn": [
+>>>           "test:acceptance",
+>>>           "^build"
+>>>         ]
+>>>       }
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/admin-x-settings '!=' ./ ']'
++ rm -f /tmp/twcr-3c6fa558af96/package.json /tmp/twcr-3c6fa558af96/package-lock.json /tmp/twcr-3c6fa558af96/pnpm-lock.yaml /tmp/twcr-3c6fa558af96/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-3c6fa558af96 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-3c6fa558af96
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128".
+Done in 0.08s.
++ '[' -z http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128".
+Done in 0.08s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error An unexpected error occurred: "https://registry.yarnpkg.com/@tryghost%2fadmin-x-design-system: Not found".
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-3c6fa558af96/apps/admin-x-settings/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:14:13Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:14:13Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing yarn-error.log
++ git reset --hard
+HEAD is now at 9df5148 v5.80.0
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-3c6fa558af96 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-3c6fa558af96
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128".
+Done in 0.08s.
++ '[' -z http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_43c7c9e6fb6c:ok@172.18.0.2:3128".
+Done in 0.08s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@^2.29.1"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.1"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.4"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.4"
+warning Resolution field "moment-timezone@0.5.23" is incompatible with requested version "moment-timezone@0.5.34"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.4"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.1"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.29.3"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@^2.27.0"
+warning Resolution field "moment-timezone@0.5.23" is incompatible with requested version "moment-timezone@^0.5.31"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@2.27.0"
+warning Resolution field "@tryghost/errors@1.2.26" is incompatible with requested version "@tryghost/errors@1.3.0"
+warning Resolution field "@tryghost/logging@2.4.8" is incompatible with requested version "@tryghost/logging@2.4.10"
+warning Resolution field "@tryghost/errors@1.2.26" is incompatible with requested version "@tryghost/errors@^1.2.27"
+warning Resolution field "moment-timezone@0.5.23" is incompatible with requested version "moment-timezone@^0.5.33"
+warning Resolution field "@tryghost/errors@1.2.26" is incompatible with requested version "@tryghost/errors@^1.2.27"
+warning Resolution field "@tryghost/errors@1.2.26" is incompatible with requested version "@tryghost/errors@^1.2.27"
+warning Resolution field "moment@2.24.0" is incompatible with requested version "moment@^2.29.1"
+[2/4] Fetching packages...
+(node:204) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error ghost-admin@5.80.0: The engine "node" is incompatible with this module. Expected version "^18.12.1". Got "21.6.2"
+error Found incompatible module.
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,180 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/unfolding-io/nebulix
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/unfolding-io/nebulix
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-6e1639f8a1a4
+++ echo 'github.com/unfolding-io/nebulix;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0222e8f9cdbd
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/unfolding-io/nebulix/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/unfolding-io/nebulix/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 313dc9163f23b3aa
++ jq -nc --arg key analysis_nonce --arg value 313dc9163f23b3aa '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/unfolding-io/nebulix
++ jq -nc --arg key input_repo_name --arg value github.com/unfolding-io/nebulix '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:27:09Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:27:09Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-6e1639f8a1a4
++ pushd /tmp/twcr-6e1639f8a1a4
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/unfolding-io/nebulix.git .
+/tmp/twcr-6e1639f8a1a4 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:27:12Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:27:12Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 8d77f1960de3c41434a3ec213b78cc04179408eb
++ jq -nc --arg key exec_repo_commit_sha --arg value 8d77f1960de3c41434a3ec213b78cc04179408eb '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-23 16:44:29 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-23T15:44:29Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-23T15:44:29Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-6e1639f8a1a4 /tmp/twcr-6e1639f8a1a4 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-6e1639f8a1a4
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:27:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:27:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "nebulix",
+>>>   "type": "module",
+>>>   "license": "CC BY-ND 4.0",
+>>>   "version": "0.1.9",
+>>>   "keywords": [
+>>>     "astro",
+>>>     "Static CMS",
+>>>     "Vue 3",
+>>>     "mdx",
+>>>     "markdown"
+>>>   ],
+>>>   "description": "Fast & Green Theme Based on Astro + Static CMS. A Universe of Possibilities: Blogs, Portfolios, Menus, Webshop & Beyond",
+>>>   "dependencies": {
+>>>     "@astrojs/tailwind": "^5.1.0",
+>>>     "@tailwindcss/container-queries": "^0.1.1",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-6e1639f8a1a4 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-6e1639f8a1a4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 498 packages, and audited 499 packages in 26s
+
+195 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/container-queries"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T01:27:40Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T01:27:40Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:27:40Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:27:40Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

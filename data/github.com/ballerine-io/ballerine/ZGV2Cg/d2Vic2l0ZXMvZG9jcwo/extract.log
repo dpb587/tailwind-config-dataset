@@ -1,0 +1,612 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/ballerine-io/ballerine
++ reporef=dev
++ repopath=./websites/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/ballerine-io/ballerine
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e68aca823e53
+++ echo 'github.com/ballerine-io/ballerine;dev;./websites/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/90231a415f11
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/ballerine-io/ballerine/ZGV2Cg/Li93ZWJzaXRlcy9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/ballerine-io/ballerine/ZGV2Cg/Li93ZWJzaXRlcy9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 454676d0e18ca925
++ jq -nc --arg key analysis_nonce --arg value 454676d0e18ca925 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/ballerine-io/ballerine
++ jq -nc --arg key input_repo_name --arg value github.com/ballerine-io/ballerine '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref dev
++ jq -nc --arg key input_repo_ref --arg value dev '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./websites/docs
++ jq -nc --arg key input_repo_path --arg value ./websites/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T02:42:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T02:42:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e68aca823e53
++ pushd /tmp/twcr-e68aca823e53
++ '[' -d .git ']'
++ git clone --depth=1 -b dev https://github.com/ballerine-io/ballerine.git .
+/tmp/twcr-e68aca823e53 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T02:42:37Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T02:42:37Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4187b9c8b91c10a52de84f5316ccec6b1d54165a
++ jq -nc --arg key exec_repo_commit_sha --arg value 4187b9c8b91c10a52de84f5316ccec6b1d54165a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 15:07:50 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T13:07:50Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T13:07:50Z '{ key: $key, value: $value }'
++ '[' -z ./websites/docs ']'
++ pushd ./websites/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
+/tmp/twcr-e68aca823e53/websites/docs /tmp/twcr-e68aca823e53 /twcr
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e68aca823e53/websites/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./websites/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e68aca823e53
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T02:42:37Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T02:42:37Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@ballerine/docs-site",
+>>>   "type": "module",
+>>>   "version": "0.0.1",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@astrojs/tailwind": "^4.0.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./websites/docs '!=' ./ ']'
++ rm -f /tmp/twcr-e68aca823e53/package.json /tmp/twcr-e68aca823e53/package-lock.json /tmp/twcr-e68aca823e53/pnpm-lock.yaml /tmp/twcr-e68aca823e53/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-e68aca823e53 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-e68aca823e53
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-e68aca823e53/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 20 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 21, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 29, reused 0, downloaded 22, added 0
+../..                                    | Progress: resolved 46, reused 0, downloaded 36, added 0
+../..                                    | Progress: resolved 58, reused 0, downloaded 50, added 0
+../../apps/workflows-dashboard           |  WARN  deprecated @types/axios@0.14.0
+../../apps/workflows-dashboard           |  WARN  deprecated @types/moment@2.13.0
+../../apps/workflows-dashboard           |  WARN  deprecated @types/classnames@2.3.1
+../..                                    | Progress: resolved 72, reused 0, downloaded 57, added 0
+../..                                    | Progress: resolved 93, reused 0, downloaded 77, added 0
+../..                                    | Progress: resolved 116, reused 0, downloaded 99, added 0
+../..                                    | Progress: resolved 125, reused 0, downloaded 112, added 0
+../../packages/common                    |  WARN  deprecated rollup-plugin-terser@7.0.2
+../..                                    | Progress: resolved 150, reused 0, downloaded 133, added 0
+../..                                    | Progress: resolved 159, reused 0, downloaded 143, added 0
+../..                                    | Progress: resolved 170, reused 0, downloaded 154, added 0
+../..                                    | Progress: resolved 183, reused 0, downloaded 165, added 0
+../..                                    | Progress: resolved 203, reused 0, downloaded 179, added 0
+../..                                    | Progress: resolved 217, reused 0, downloaded 197, added 0
+../../packages/workflow-core             |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-e68aca823e53/packages/workflow-core/@types/@rollup/plugin-babel
+../../packages/workflow-core             |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-e68aca823e53/packages/workflow-core/@types/@rollup/plugin-terser
+../../sdks/workflow-browser-sdk          |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-e68aca823e53/sdks/workflow-browser-sdk/@types/@rollup/plugin-babel
+../../sdks/workflow-browser-sdk          |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-e68aca823e53/sdks/workflow-browser-sdk/@types/@rollup/plugin-terser
+../..                                    | Progress: resolved 231, reused 0, downloaded 211, added 0
+../..                                    | Progress: resolved 237, reused 0, downloaded 216, added 0
+../..                                    | Progress: resolved 250, reused 0, downloaded 224, added 0
+../..                                    | Progress: resolved 259, reused 1, downloaded 239, added 0
+../..                                    | Progress: resolved 282, reused 1, downloaded 253, added 0
+../..                                    | Progress: resolved 299, reused 1, downloaded 270, added 0
+../..                                    | Progress: resolved 301, reused 1, downloaded 274, added 0
+../..                                    | Progress: resolved 321, reused 1, downloaded 292, added 0
+../..                                    | Progress: resolved 335, reused 1, downloaded 315, added 0
+../..                                    | Progress: resolved 350, reused 1, downloaded 331, added 0
+../..                                    | Progress: resolved 364, reused 1, downloaded 355, added 0
+../..                                    | Progress: resolved 383, reused 1, downloaded 368, added 0
+../..                                    | Progress: resolved 399, reused 1, downloaded 387, added 0
+../..                                    | Progress: resolved 418, reused 1, downloaded 400, added 0
+../..                                    | Progress: resolved 436, reused 1, downloaded 418, added 0
+../..                                    | Progress: resolved 458, reused 1, downloaded 437, added 0
+../..                                    | Progress: resolved 482, reused 1, downloaded 455, added 0
+../..                                    | Progress: resolved 493, reused 1, downloaded 473, added 0
+../..                                    | Progress: resolved 516, reused 1, downloaded 493, added 0
+../..                                    | Progress: resolved 539, reused 1, downloaded 511, added 0
+../..                                    | Progress: resolved 560, reused 1, downloaded 533, added 0
+../..                                    | Progress: resolved 584, reused 1, downloaded 556, added 0
+../..                                    | Progress: resolved 605, reused 1, downloaded 577, added 0
+../..                                    | Progress: resolved 626, reused 1, downloaded 597, added 0
+../..                                    | Progress: resolved 647, reused 1, downloaded 614, added 0
+../..                                    | Progress: resolved 670, reused 1, downloaded 635, added 0
+../..                                    | Progress: resolved 696, reused 1, downloaded 658, added 0
+../..                                    | Progress: resolved 719, reused 1, downloaded 676, added 0
+../..                                    | Progress: resolved 744, reused 1, downloaded 703, added 0
+../..                                    | Progress: resolved 754, reused 1, downloaded 712, added 0
+../..                                    | Progress: resolved 774, reused 1, downloaded 729, added 0
+../..                                    | Progress: resolved 782, reused 1, downloaded 745, added 0
+../..                                    | Progress: resolved 793, reused 1, downloaded 753, added 0
+../..                                    | Progress: resolved 813, reused 1, downloaded 768, added 0
+../..                                    | Progress: resolved 836, reused 1, downloaded 790, added 0
+../..                                    | Progress: resolved 856, reused 1, downloaded 808, added 0
+../..                                    | Progress: resolved 876, reused 1, downloaded 829, added 0
+../..                                    | Progress: resolved 901, reused 1, downloaded 852, added 0
+../..                                    | Progress: resolved 929, reused 1, downloaded 871, added 0
+../..                                    | Progress: resolved 944, reused 1, downloaded 892, added 0
+../..                                    | Progress: resolved 966, reused 1, downloaded 911, added 0
+../..                                    | Progress: resolved 991, reused 1, downloaded 933, added 0
+../..                                    | Progress: resolved 1014, reused 1, downloaded 959, added 0
+../..                                    | Progress: resolved 1034, reused 1, downloaded 978, added 0
+../..                                    | Progress: resolved 1054, reused 1, downloaded 994, added 0
+../..                                    | Progress: resolved 1074, reused 1, downloaded 1016, added 0
+../..                                    | Progress: resolved 1100, reused 1, downloaded 1040, added 0
+../..                                    | Progress: resolved 1126, reused 1, downloaded 1056, added 0
+../..                                    | Progress: resolved 1151, reused 1, downloaded 1081, added 0
+../..                                    | Progress: resolved 1181, reused 1, downloaded 1100, added 0
+../..                                    | Progress: resolved 1200, reused 1, downloaded 1120, added 0
+../..                                    | Progress: resolved 1222, reused 1, downloaded 1139, added 0
+../..                                    | Progress: resolved 1232, reused 1, downloaded 1155, added 0
+../..                                    | Progress: resolved 1259, reused 1, downloaded 1176, added 0
+../..                                    | Progress: resolved 1273, reused 1, downloaded 1196, added 0
+../..                                    | Progress: resolved 1297, reused 1, downloaded 1214, added 0
+../..                                    | Progress: resolved 1318, reused 1, downloaded 1232, added 0
+../..                                    | Progress: resolved 1344, reused 1, downloaded 1250, added 0
+../..                                    | Progress: resolved 1374, reused 1, downloaded 1266, added 0
+../..                                    | Progress: resolved 1406, reused 1, downloaded 1286, added 0
+../..                                    | Progress: resolved 1427, reused 1, downloaded 1318, added 0
+../..                                    | Progress: resolved 1470, reused 1, downloaded 1338, added 0
+../..                                    | Progress: resolved 1501, reused 1, downloaded 1352, added 0
+../..                                    | Progress: resolved 1520, reused 1, downloaded 1372, added 0
+../..                                    | Progress: resolved 1545, reused 1, downloaded 1390, added 0
+../..                                    | Progress: resolved 1565, reused 1, downloaded 1415, added 0
+../..                                    | Progress: resolved 1587, reused 1, downloaded 1439, added 0
+../..                                    | Progress: resolved 1613, reused 1, downloaded 1463, added 0
+../..                                    | Progress: resolved 1637, reused 1, downloaded 1481, added 0
+../..                                    | Progress: resolved 1651, reused 1, downloaded 1495, added 0
+../..                                    | Progress: resolved 1681, reused 1, downloaded 1518, added 0
+../..                                    | Progress: resolved 1730, reused 1, downloaded 1545, added 0
+../..                                    | Progress: resolved 1741, reused 1, downloaded 1562, added 0
+../..                                    | Progress: resolved 1754, reused 1, downloaded 1572, added 0
+../..                                    | Progress: resolved 1774, reused 1, downloaded 1590, added 0
+../..                                    | Progress: resolved 1791, reused 1, downloaded 1612, added 0
+../..                                    | Progress: resolved 1816, reused 1, downloaded 1633, added 0
+../..                                    | Progress: resolved 1850, reused 1, downloaded 1660, added 0
+../..                                    | Progress: resolved 1878, reused 1, downloaded 1686, added 0
+../..                                    | Progress: resolved 1901, reused 1, downloaded 1710, added 0
+../..                                    | Progress: resolved 1933, reused 1, downloaded 1737, added 0
+../..                                    | Progress: resolved 1957, reused 1, downloaded 1762, added 0
+../..                                    | Progress: resolved 1979, reused 1, downloaded 1788, added 0
+../..                                    | Progress: resolved 2012, reused 1, downloaded 1803, added 0
+../..                                    | Progress: resolved 2031, reused 1, downloaded 1829, added 0
+../..                                    | Progress: resolved 2060, reused 1, downloaded 1849, added 0
+../..                                    | Progress: resolved 2074, reused 1, downloaded 1866, added 0
+../..                                    | Progress: resolved 2092, reused 1, downloaded 1885, added 0
+../..                                    | Progress: resolved 2118, reused 1, downloaded 1905, added 0
+../..                                    | Progress: resolved 2139, reused 1, downloaded 1925, added 0
+../..                                    | Progress: resolved 2166, reused 1, downloaded 1953, added 0
+../..                                    | Progress: resolved 2190, reused 1, downloaded 1973, added 0
+../..                                    | Progress: resolved 2204, reused 1, downloaded 1985, added 0
+../..                                    | Progress: resolved 2224, reused 1, downloaded 2011, added 0
+../..                                    | Progress: resolved 2255, reused 1, downloaded 2037, added 0
+../..                                    | Progress: resolved 2287, reused 1, downloaded 2059, added 0
+../..                                    | Progress: resolved 2299, reused 1, downloaded 2076, added 0
+../..                                    | Progress: resolved 2318, reused 1, downloaded 2096, added 0
+../..                                    | Progress: resolved 2332, reused 1, downloaded 2106, added 0
+../..                                    | Progress: resolved 2363, reused 1, downloaded 2113, added 0
+../..                                    | Progress: resolved 2379, reused 1, downloaded 2134, added 0
+../..                                    | Progress: resolved 2403, reused 1, downloaded 2160, added 0
+../..                                    | Progress: resolved 2436, reused 1, downloaded 2188, added 0
+../..                                    | Progress: resolved 2461, reused 1, downloaded 2207, added 0
+../..                                    | Progress: resolved 2482, reused 1, downloaded 2227, added 0
+../..                                    | Progress: resolved 2503, reused 1, downloaded 2247, added 0
+../..                                    | Progress: resolved 2529, reused 1, downloaded 2268, added 0
+../..                                    | Progress: resolved 2561, reused 1, downloaded 2295, added 0
+../..                                    | Progress: resolved 2574, reused 1, downloaded 2314, added 0
+../..                                    | Progress: resolved 2596, reused 1, downloaded 2334, added 0
+../..                                    | Progress: resolved 2621, reused 1, downloaded 2357, added 0
+../..                                    | Progress: resolved 2653, reused 1, downloaded 2384, added 0
+../..                                    | Progress: resolved 2679, reused 1, downloaded 2416, added 0
+../../services/workflows-service         |  WARN  deprecated @aws-sdk/abort-controller@3.374.0
+../..                                    | Progress: resolved 2707, reused 1, downloaded 2443, added 0
+../..                                    | Progress: resolved 2725, reused 1, downloaded 2472, added 0
+../..                                    | Progress: resolved 2735, reused 1, downloaded 2499, added 0
+../..                                    | Progress: resolved 2752, reused 1, downloaded 2530, added 0
+../..                                    | Progress: resolved 2808, reused 1, downloaded 2561, added 0
+../..                                    | Progress: resolved 2833, reused 1, downloaded 2586, added 0
+../..                                    | Progress: resolved 2865, reused 1, downloaded 2617, added 0
+../..                                    | Progress: resolved 2889, reused 1, downloaded 2641, added 0
+ WARN  23 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.20.7, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-class-static-block@7.21.0, @babel/plugin-proposal-dynamic-import@7.18.6, @babel/plugin-proposal-export-namespace-from@7.18.9, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-logical-assignment-operators@7.20.7, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-numeric-separator@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @babel/plugin-proposal-optional-catch-binding@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0, @babel/plugin-proposal-private-methods@7.18.6, @babel/plugin-proposal-private-property-in-object@7.21.11, @babel/plugin-proposal-unicode-property-regex@7.18.6, @types/sass@1.45.0, abab@2.0.6, axios@0.19.2, domexception@4.0.0, formidable@1.2.6, sourcemap-codec@1.4.8, subscriptions-transport-ws@0.11.0, superagent@3.8.3
+../..                                    | Progress: resolved 2905, reused 1, downloaded 2678, added 0
+../..                                    |    +2903 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2905, reused 1, downloaded 2701, added 127
+../..                                    | Progress: resolved 2905, reused 1, downloaded 2701, added 1970
+../..                                    | Progress: resolved 2905, reused 1, downloaded 2723, added 2852
+../..                                    | Progress: resolved 2905, reused 1, downloaded 2771, added 2903, done
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: node-sass/sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../bcrypt@5.1.0/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../node_modules/tesseract.js postinstall$ opencollective-postinstall || true
+.../node_modules/@prisma/engines postinstall: (node:133) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@nestjs/core postinstall: (node:140) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/tesseract.js postinstall: [96m[1mThank you for using tesseract.js![96m[1m
+.../node_modules/tesseract.js postinstall: [0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+.../node_modules/tesseract.js postinstall: > [94mhttps://opencollective.com/tesseractjs/donate[0m
+.../node_modules/tesseract.js postinstall: Done
+.../bcrypt@5.1.0/node_modules/bcrypt install: (node:161) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.0/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-e68aca823e53/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.0/bcrypt_lib-v5.1.0-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_8eb4a759fd47:ok@172.18.0.2:3128"
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.0/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-e68aca823e53/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.0/node_modules/bcrypt install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@sentry/cli postinstall$ node ./scripts/install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/@sentry/cli postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../prisma@4.13.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../node_modules/cpu-features install$ node buildcheck.js > buildcheck.gypi && node-gyp rebuild
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../prisma@4.13.0/node_modules/prisma preinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall: Done
+.../node_modules/cpu-features install: gyp info it worked if it ends with ok
+.../node_modules/cpu-features install: gyp info using node-gyp@9.4.1
+.../node_modules/cpu-features install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/cpu-features install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/cpu-features install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/cpu-features install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/cpu-features install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/cpu-features install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/cpu-features install: gyp info spawn /usr/bin/python3
+.../node_modules/cpu-features install: gyp info spawn args [
+.../node_modules/cpu-features install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/cpu-features install: gyp info spawn args   'binding.gyp',
+.../node_modules/cpu-features install: gyp info spawn args   '-f',
+.../node_modules/cpu-features install: gyp info spawn args   'make',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/tmp/twcr-e68aca823e53/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build/config.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-I',
+.../node_modules/cpu-features install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-e68aca823e53/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features',
+.../node_modules/cpu-features install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/cpu-features install: gyp info spawn args   '--depth=.',
+.../node_modules/cpu-features install: gyp info spawn args   '--no-parallel',
+.../node_modules/cpu-features install: gyp info spawn args   '--generator-output',
+.../node_modules/cpu-features install: gyp info spawn args   'build',
+.../node_modules/cpu-features install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/cpu-features install: gyp info spawn args ]
+.../node_modules/cpu-features install: gyp info spawn make
+.../node_modules/cpu-features install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/cpu-features install: make: Entering directory '/tmp/twcr-e68aca823e53/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build'
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_aarch64_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_aarch64_macos_or_iphone.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_arm_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_mips_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_ppc_linux.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_freebsd.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_linux_or_android.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_macos.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/impl_x86_windows.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/filesystem.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/stack_line_reader.o
+.../node_modules/cpu-features install:   CC(target) Release/obj.target/cpu_features/deps/cpu_features/src/string_view.o
+.../node_modules/cpu-features install: rm -f Release/obj.target/deps/cpu_features/cpu_features.a Release/obj.target/deps/cpu_features/cpu_features.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/cpu_features/cpu_features.a`
+.../node_modules/cpu-features install: ar crs Release/obj.target/deps/cpu_features/cpu_features.a @Release/obj.target/deps/cpu_features/cpu_features.a.ar-file-list
+.../node_modules/cpu-features install:   COPY Release/cpu_features.a
+.../node_modules/cpu-features install:   CXX(target) Release/obj.target/cpufeatures/src/binding.o
+.../node_modules/cpu-features install: In file included from ../src/binding.cc:1:
+.../node_modules/cpu-features install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)' {aka 'void (*)(v8::Local<v8::Object>)'} to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/cpu-features install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/cpu-features install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/cpu-features install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/cpu-features install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/cpu-features install:       |   ^~~~~~~~~~~~~
+.../node_modules/cpu-features install: ../src/binding.cc:151:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/cpu-features install:   151 | NODE_MODULE(cpufeatures, init)
+.../node_modules/cpu-features install:       | ^~~~~~~~~~~
+.../node_modules/cpu-features install:   SOLINK_MODULE(target) Release/obj.target/cpufeatures.node
+.../node_modules/cpu-features install:   COPY Release/cpufeatures.node
+.../node_modules/cpu-features install: make: Leaving directory '/tmp/twcr-e68aca823e53/node_modules/.pnpm/cpu-features@0.0.9/node_modules/cpu-features/build'
+.../node_modules/cpu-features install: gyp info ok 
+.../node_modules/cpu-features install: Done
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install$ node install.js
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info it worked if it ends with ok
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info using node-gyp@9.4.1
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info using node@21.6.2 | linux | x64
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn /usr/bin/python3
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args [
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'binding.gyp',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-f',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'make',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/tmp/twcr-e68aca823e53/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build/config.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-I',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dvisibility=default',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-e68aca823e53/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Dnode_engine=v8',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--depth=.',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--no-parallel',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '--generator-output',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   'build',
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args   '-Goutput_dir=.'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args ]
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn make
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: make: Entering directory '/tmp/twcr-e68aca823e53/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   CXX(target) Release/obj.target/sshcrypto/src/binding.o
+.../node_modules/@prisma/client postinstall: prisma:warn The postinstall script automatically ran `prisma generate` and did not find your `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   SOLINK_MODULE(target) Release/obj.target/sshcrypto.node
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install:   COPY Release/sshcrypto.node
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: make: Leaving directory '/tmp/twcr-e68aca823e53/node_modules/.pnpm/ssh2@1.15.0/node_modules/ssh2/lib/protocol/crypto/build'
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: gyp info ok 
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: Succeeded in building optional crypto binding
+.../.pnpm/ssh2@1.15.0/node_modules/ssh2 install: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+.../node_modules/msw postinstall: Done
+../../services/workflows-service prepare$ npm run prisma:generate
+../../services/workflows-service prepare: > @ballerine/workflows-service@0.5.45 prisma:generate
+../../services/workflows-service prepare: > prisma generate
+../../services/workflows-service prepare: Prisma schema loaded from prisma/schema.prisma
+../../services/workflows-service prepare: ✔ Generated Prisma Client (4.16.2 | library) to ./../../node_modules/.pnpm/@prisma+client@4.16.2_prisma@4.13.0/node_modules/@prisma/client in 611ms
+../../services/workflows-service prepare: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+../../services/workflows-service prepare: ```
+../../services/workflows-service prepare: import { PrismaClient } from '@prisma/client'
+../../services/workflows-service prepare: const prisma = new PrismaClient()
+../../services/workflows-service prepare: ```
+../../services/workflows-service prepare: warn Versions of prisma@4.13.0 and @prisma/client@4.16.2 don't match.
+../../services/workflows-service prepare: This might lead to unexpected behavior.
+../../services/workflows-service prepare: Please make sure they have the same version.
+../../services/workflows-service prepare: npm notice 
+../../services/workflows-service prepare: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+../../services/workflows-service prepare: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+../../services/workflows-service prepare: npm notice Run `npm install -g npm@10.5.0` to update!
+../../services/workflows-service prepare: npm notice 
+../../services/workflows-service prepare: Done
+
+dependencies:
++ @astrojs/tailwind 4.0.0 (5.1.0 is available)
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+apps/backoffice-v2
+├─┬ @tanstack/react-query-devtools 4.22.0
+│ └── ✕ unmet peer @tanstack/react-query@4.22.0: found 4.36.1
+├─┬ vite-tsconfig-paths 4.3.1
+│ └─┬ tsconfck 3.0.2
+│   └── ✕ unmet peer typescript@^5.0.0: found 4.9.5
+└─┬ react-json-view 1.21.3
+  ├── ✕ unmet peer react@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  └─┬ flux 4.0.4
+    └── ✕ unmet peer react@"^15.0.2 || ^16.0.0 || ^17.0.0": found 18.2.0
+
+apps/kyb-app
+└─┬ @testing-library/jest-dom 6.4.2
+  └── ✕ unmet peer @types/jest@">= 28": found 26.0.24
+
+apps/workflows-dashboard
+├─┬ react-custom-scrollbars 4.2.1
+│ ├── ✕ unmet peer react@"^0.14.0 || ^15.0.0 || ^16.0.0": found 18.2.0
+│ └── ✕ unmet peer react-dom@"^0.14.0 || ^15.0.0 || ^16.0.0": found 18.2.0
+└─┬ react-json-view 1.21.3
+  ├── ✕ unmet peer react@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  └─┬ flux 4.0.4
+    └── ✕ unmet peer react@"^15.0.2 || ^16.0.0 || ^17.0.0": found 18.2.0
+
+examples/headless-example
+├─┬ @xstate/svelte 2.1.0
+│ └── ✕ unmet peer xstate@^4.38.1: found 4.37.1
+└─┬ vite-tsconfig-paths 4.3.1
+  └─┬ tsconfck 3.0.2
+    └── ✕ unmet peer typescript@^5.0.0: found 4.9.5
+
+packages/blocks
+├─┬ eslint-plugin-functional 3.7.2
+│ ├── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+│ └── ✕ unmet peer typescript@"^3.4.1 || ^4.0.0": found 5.1.6
+└─┬ rollup-plugin-dts 4.2.2
+  └── ✕ unmet peer typescript@^4.1: found 5.1.6
+
+packages/common
+└─┬ eslint-plugin-functional 3.7.2
+  └── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+
+packages/rules-engine
+└─┬ eslint-plugin-functional 3.7.2
+  └── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+
+packages/ui
+├─┬ vite-tsconfig-paths 4.3.1
+│ └─┬ tsconfck 3.0.2
+│   └── ✕ unmet peer typescript@^5.0.0: found 4.9.5
+└─┬ react-json-view 1.21.3
+  ├── ✕ unmet peer react@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^17.0.0 || ^16.3.0 || ^15.5.4": found 18.2.0
+  └─┬ flux 4.0.4
+    └── ✕ unmet peer react@"^15.0.2 || ^16.0.0 || ^17.0.0": found 18.2.0
+
+packages/workflow-core
+├─┬ eslint-plugin-functional 3.7.2
+│ ├── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+│ └── ✕ unmet peer typescript@"^3.4.1 || ^4.0.0": found 5.1.6
+└─┬ rollup-plugin-dts 4.2.2
+  └── ✕ unmet peer typescript@^4.1: found 5.1.6
+
+sdks/web-ui-sdk
+├─┬ @sveltejs/vite-plugin-svelte 1.0.8
+│ └── ✕ unmet peer vite@^3.0.0: found 4.0.3
+└─┬ typedoc-plugin-markdown 3.17.1
+  └── ✕ unmet peer typedoc@>=0.24.0: found 0.23.28
+
+sdks/workflow-browser-sdk
+└─┬ eslint-plugin-functional 3.7.2
+  └── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+
+sdks/workflow-node-sdk
+├─┬ eslint-plugin-functional 3.7.2
+│ ├── ✕ unmet peer eslint@"^5.0.0 || ^6.0.0 || ^7.0.0": found 8.57.0
+│ └── ✕ unmet peer typescript@"^3.4.1 || ^4.0.0": found 5.1.6
+└─┬ rollup-plugin-dts 4.2.2
+  └── ✕ unmet peer typescript@^4.1: found 5.1.6
+
+Done in 3m 4.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T02:45:45Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T02:45:45Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T02:45:45Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T02:45:45Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

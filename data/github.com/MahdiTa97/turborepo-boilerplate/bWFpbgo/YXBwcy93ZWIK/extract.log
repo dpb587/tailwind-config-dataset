@@ -1,0 +1,180 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/MahdiTa97/turborepo-boilerplate
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/MahdiTa97/turborepo-boilerplate
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-830fb464d768
+++ echo 'github.com/MahdiTa97/turborepo-boilerplate;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e685b505d1cb
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/MahdiTa97/turborepo-boilerplate/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/MahdiTa97/turborepo-boilerplate/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 30d98102bda00d47
++ jq -nc --arg key analysis_nonce --arg value 30d98102bda00d47 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/MahdiTa97/turborepo-boilerplate
++ jq -nc --arg key input_repo_name --arg value github.com/MahdiTa97/turborepo-boilerplate '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T03:20:24Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T03:20:24Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-830fb464d768
+/tmp/twcr-830fb464d768 /twcr
++ pushd /tmp/twcr-830fb464d768
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/MahdiTa97/turborepo-boilerplate.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T03:20:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T03:20:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c8d44fa1e7cdba2773067f2b6f62f3223b94f61e
++ jq -nc --arg key exec_repo_commit_sha --arg value c8d44fa1e7cdba2773067f2b6f62f3223b94f61e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-13 13:41:18 +0330' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-13T10:11:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-13T10:11:18Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-830fb464d768/apps/web /tmp/twcr-830fb464d768 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-830fb464d768/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-830fb464d768
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T03:20:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T03:20:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "web",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@repo/tailwind-config": "*",
+>>>     "tailwindcss": "^3.4.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-830fb464d768/package.json /tmp/twcr-830fb464d768/package-lock.json /tmp/twcr-830fb464d768/pnpm-lock.yaml /tmp/twcr-830fb464d768/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-830fb464d768 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-830fb464d768
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_a154c87bdbd7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_a154c87bdbd7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_a154c87bdbd7:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_a154c87bdbd7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_a154c87bdbd7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_a154c87bdbd7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-830fb464d768/apps/web/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error An unexpected error occurred: "https://registry.yarnpkg.com/@repo%2ftailwind-config: Not found".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T03:20:26Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T03:20:26Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing yarn-error.log
++ git reset --hard
+HEAD is now at c8d44fa feat: new version of lib Release!
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-830fb464d768 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-830fb464d768
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_a154c87bdbd7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_a154c87bdbd7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_a154c87bdbd7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_a154c87bdbd7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_a154c87bdbd7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_a154c87bdbd7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+error turborepo-design-system@: The engine "node" is incompatible with this module. Expected version "^20". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

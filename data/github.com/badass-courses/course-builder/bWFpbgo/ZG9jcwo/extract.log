@@ -1,0 +1,402 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/badass-courses/course-builder
++ reporef=main
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/badass-courses/course-builder
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-78547672730a
+++ echo 'github.com/badass-courses/course-builder;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b7365869aaf0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/badass-courses/course-builder/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/badass-courses/course-builder/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 064a6d811f756368
++ jq -nc --arg key analysis_nonce --arg value 064a6d811f756368 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/badass-courses/course-builder
++ jq -nc --arg key input_repo_name --arg value github.com/badass-courses/course-builder '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:13:03Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:13:03Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-78547672730a
++ pushd /tmp/twcr-78547672730a
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/badass-courses/course-builder.git .
+/tmp/twcr-78547672730a /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:13:05Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:13:05Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fc8ae35b360450da1a5918c396c8e606c37feee0
++ jq -nc --arg key exec_repo_commit_sha --arg value fc8ae35b360450da1a5918c396c8e606c37feee0 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 17:28:24 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T01:28:24Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T01:28:24Z '{ key: $key, value: $value }'
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ tailwind_config_file_name=tailwind.config.mjs
++ writetaskstat exec_tailwind_config_file tailwind.config.mjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.mjs '{ key: $key, value: $value }'
+/tmp/twcr-78547672730a/docs /tmp/twcr-78547672730a /twcr
++ cp tailwind.config.mjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78547672730a/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-78547672730a
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:13:05Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:13:05Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.mjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "course-builder-docs",
+>>>   "type": "module",
+>>>   "version": "0.0.1",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@astrojs/starlight-tailwind": "^2.0.1",
+>>>     "@astrojs/tailwind": "^5.0.2",
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-78547672730a/package.json /tmp/twcr-78547672730a/package-lock.json /tmp/twcr-78547672730a/pnpm-lock.yaml /tmp/twcr-78547672730a/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-78547672730a /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-78547672730a
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-78547672730a/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 24, reused 0, downloaded 18, added 0
+..                                       | Progress: resolved 42, reused 0, downloaded 30, added 0
+..                                       | Progress: resolved 67, reused 0, downloaded 53, added 0
+..                                       | Progress: resolved 92, reused 0, downloaded 82, added 0
+..                                       | Progress: resolved 118, reused 0, downloaded 102, added 0
+..                                       | Progress: resolved 135, reused 0, downloaded 121, added 0
+../apps/course-builder-web               |  WARN  deprecated shortid@2.2.16
+..                                       | Progress: resolved 155, reused 0, downloaded 134, added 0
+..                                       | Progress: resolved 180, reused 0, downloaded 157, added 0
+../packages/config/eslint-config         |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-78547672730a/packages/config/eslint-config/@rushstack/eslint-patch/modern-module-resolution
+..                                       | Progress: resolved 198, reused 0, downloaded 179, added 0
+..                                       | Progress: resolved 204, reused 0, downloaded 200, added 0
+..                                       | Progress: resolved 224, reused 0, downloaded 211, added 0
+..                                       | Progress: resolved 256, reused 0, downloaded 243, added 0
+..                                       | Progress: resolved 288, reused 0, downloaded 273, added 0
+..                                       | Progress: resolved 318, reused 0, downloaded 300, added 0
+..                                       | Progress: resolved 333, reused 0, downloaded 314, added 0
+..                                       | Progress: resolved 355, reused 0, downloaded 332, added 0
+..                                       | Progress: resolved 376, reused 0, downloaded 357, added 0
+..                                       | Progress: resolved 399, reused 0, downloaded 378, added 0
+..                                       | Progress: resolved 421, reused 0, downloaded 402, added 0
+..                                       | Progress: resolved 440, reused 0, downloaded 419, added 0
+..                                       | Progress: resolved 462, reused 0, downloaded 437, added 0
+..                                       | Progress: resolved 488, reused 0, downloaded 460, added 0
+..                                       | Progress: resolved 506, reused 0, downloaded 483, added 0
+..                                       | Progress: resolved 531, reused 0, downloaded 497, added 0
+..                                       | Progress: resolved 560, reused 0, downloaded 526, added 0
+..                                       | Progress: resolved 592, reused 0, downloaded 546, added 0
+..                                       | Progress: resolved 620, reused 0, downloaded 581, added 0
+..                                       | Progress: resolved 636, reused 0, downloaded 594, added 0
+..                                       | Progress: resolved 653, reused 0, downloaded 604, added 0
+..                                       | Progress: resolved 685, reused 0, downloaded 638, added 0
+..                                       | Progress: resolved 716, reused 0, downloaded 664, added 0
+..                                       | Progress: resolved 752, reused 0, downloaded 703, added 0
+..                                       | Progress: resolved 787, reused 0, downloaded 734, added 0
+..                                       | Progress: resolved 811, reused 0, downloaded 761, added 0
+..                                       | Progress: resolved 849, reused 0, downloaded 792, added 0
+..                                       | Progress: resolved 898, reused 0, downloaded 818, added 0
+..                                       | Progress: resolved 957, reused 0, downloaded 852, added 0
+..                                       | Progress: resolved 992, reused 0, downloaded 884, added 0
+..                                       | Progress: resolved 1020, reused 0, downloaded 914, added 0
+..                                       | Progress: resolved 1050, reused 0, downloaded 941, added 0
+..                                       | Progress: resolved 1080, reused 0, downloaded 968, added 0
+..                                       | Progress: resolved 1113, reused 0, downloaded 999, added 0
+..                                       | Progress: resolved 1153, reused 0, downloaded 1038, added 0
+..                                       | Progress: resolved 1186, reused 0, downloaded 1068, added 0
+..                                       | Progress: resolved 1220, reused 0, downloaded 1097, added 0
+..                                       | Progress: resolved 1250, reused 0, downloaded 1130, added 0
+..                                       | Progress: resolved 1291, reused 0, downloaded 1168, added 0
+..                                       | Progress: resolved 1348, reused 0, downloaded 1202, added 0
+..                                       | Progress: resolved 1367, reused 0, downloaded 1219, added 0
+..                                       | Progress: resolved 1396, reused 0, downloaded 1242, added 0
+..                                       | Progress: resolved 1424, reused 0, downloaded 1276, added 0
+..                                       | Progress: resolved 1464, reused 0, downloaded 1300, added 0
+..                                       | Progress: resolved 1488, reused 0, downloaded 1324, added 0
+..                                       | Progress: resolved 1526, reused 0, downloaded 1361, added 0
+..                                       | Progress: resolved 1544, reused 0, downloaded 1377, added 0
+..                                       | Progress: resolved 1548, reused 0, downloaded 1379, added 0
+..                                       | Progress: resolved 1584, reused 0, downloaded 1412, added 0
+..                                       | Progress: resolved 1641, reused 0, downloaded 1455, added 0
+..                                       | Progress: resolved 1682, reused 0, downloaded 1490, added 0
+..                                       | Progress: resolved 1727, reused 0, downloaded 1522, added 0
+..                                       | Progress: resolved 1770, reused 0, downloaded 1568, added 0
+..                                       | Progress: resolved 1811, reused 0, downloaded 1609, added 0
+..                                       | Progress: resolved 1852, reused 0, downloaded 1651, added 0
+..                                       | Progress: resolved 1880, reused 0, downloaded 1694, added 0
+..                                       | Progress: resolved 1902, reused 0, downloaded 1719, added 0
+..                                       | Progress: resolved 1934, reused 0, downloaded 1750, added 0
+..                                       | Progress: resolved 1957, reused 0, downloaded 1770, added 0
+..                                       | Progress: resolved 1983, reused 0, downloaded 1793, added 0
+..                                       | Progress: resolved 2029, reused 0, downloaded 1825, added 0
+..                                       | Progress: resolved 2061, reused 0, downloaded 1856, added 0
+..                                       | Progress: resolved 2091, reused 0, downloaded 1884, added 0
+..                                       | Progress: resolved 2123, reused 0, downloaded 1911, added 0
+..                                       | Progress: resolved 2158, reused 0, downloaded 1940, added 0
+..                                       | Progress: resolved 2190, reused 0, downloaded 1972, added 0
+..                                       | Progress: resolved 2217, reused 0, downloaded 1985, added 0
+..                                       | Progress: resolved 2228, reused 0, downloaded 1996, added 0
+..                                       | Progress: resolved 2237, reused 0, downloaded 2009, added 0
+..                                       | Progress: resolved 2252, reused 0, downloaded 2035, added 0
+..                                       | Progress: resolved 2256, reused 0, downloaded 2058, added 0
+..                                       |    +2237 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 2256, reused 0, downloaded 2075, added 456
+..                                       | Progress: resolved 2256, reused 0, downloaded 2076, added 1276
+..                                       | Progress: resolved 2256, reused 0, downloaded 2092, added 2186
+..                                       | Progress: resolved 2256, reused 0, downloaded 2127, added 2236
+..                                       | Progress: resolved 2256, reused 0, downloaded 2128, added 2237, done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/@prisma/engines postinstall: (node:133) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall: Done
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @astrojs/starlight-tailwind 2.0.1
++ @astrojs/tailwind 5.1.0
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+apps/course-builder-web
+├─┬ @atlaskit/button 17.6.0
+│ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/analytics-next 9.2.0
+│ │ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ │ └─┬ @atlaskit/analytics-next-stable-react-context 1.0.1
+│ │   └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/ds-lib 2.2.4
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/focus-ring 1.3.7
+│ │ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ │ └─┬ @atlaskit/tokens 1.38.0
+│ │   └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/icon 22.1.1
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/interaction-context 2.1.3
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/primitives 3.2.0
+│ │ ├─┬ @atlaskit/app-provider 1.0.0
+│ │ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ │ └─┬ @atlaskit/css 0.0.3
+│ │   └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/spinner 16.0.1
+│ │ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ │ └─┬ @atlaskit/theme 12.6.4
+│ │   └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ └─┬ @atlaskit/visually-hidden 1.2.4
+│   └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/dropdown-menu 12.6.0
+│ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├── ✕ unmet peer react-dom@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/layering 0.2.3
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/menu 2.1.7
+│ │ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ │ └── ✕ unmet peer react-dom@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ └─┬ @atlaskit/popup 1.13.0
+│   ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│   ├── ✕ unmet peer react-dom@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│   ├─┬ @atlaskit/popper 5.5.4
+│   │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│   └─┬ @atlaskit/portal 4.4.0
+│     ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│     └── ✕ unmet peer react-dom@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/form 9.0.9
+│ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/modal-dialog 12.10.7
+│ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/blanket 13.0.0
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @atlaskit/motion 1.5.1
+│ │ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ └─┬ react-scrolllock 5.0.1
+│   └── ✕ unmet peer react@^16.3.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/pragmatic-drag-and-drop-flourish 0.2.0
+│ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/pragmatic-drag-and-drop-react-accessibility 0.5.1
+│ └── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @atlaskit/select 17.1.3
+│ ├── ✕ unmet peer react@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ └── ✕ unmet peer react-dom@^16.8.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @react-email/components 0.0.11
+│ ├── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/body 0.0.4
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/button 0.0.11
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/column 0.0.8
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/container 0.0.10
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/font 0.0.4
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/head 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/hr 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/html 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/img 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/link 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/preview 0.0.7
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/row 0.0.6
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/section 0.0.10
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ ├─┬ @react-email/tailwind 0.0.12
+│ │ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+│ └─┬ @react-email/text 0.0.6
+│   └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+├─┬ @react-email/markdown 0.0.7
+│ └── ✕ unmet peer react@18.2.0: found 18.3.0-canary-03d6f7cf0-20240209
+└─┬ @uploadthing/react 5.7.1-canary.65ab2fd
+  └── ✕ unmet peer next@14.0.1: found 14.1.2-canary.1
+
+Done in 1m 42.3s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
++ pnpm ls --json
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.mjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.mjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.mjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T06:14:49Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T06:14:49Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T06:14:49Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T06:14:49Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

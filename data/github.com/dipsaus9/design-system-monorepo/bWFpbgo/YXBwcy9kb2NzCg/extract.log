@@ -1,0 +1,350 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/dipsaus9/design-system-monorepo
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/dipsaus9/design-system-monorepo
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-993073043cb1
+++ echo 'github.com/dipsaus9/design-system-monorepo;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1d23090312b7
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/dipsaus9/design-system-monorepo/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/dipsaus9/design-system-monorepo/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6784322b482ad7b4
++ jq -nc --arg key analysis_nonce --arg value 6784322b482ad7b4 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/dipsaus9/design-system-monorepo
++ jq -nc --arg key input_repo_name --arg value github.com/dipsaus9/design-system-monorepo '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:29:46Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:29:46Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-993073043cb1
++ pushd /tmp/twcr-993073043cb1
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/dipsaus9/design-system-monorepo.git .
+/tmp/twcr-993073043cb1 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:29:46Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:29:46Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha bcce4685299a3ec91a58f77160ff1c5582af6186
++ jq -nc --arg key exec_repo_commit_sha --arg value bcce4685299a3ec91a58f77160ff1c5582af6186 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-10-02 12:59:18 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-10-02T10:59:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-10-02T10:59:18Z '{ key: $key, value: $value }'
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-993073043cb1/apps/docs /tmp/twcr-993073043cb1 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-993073043cb1/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-993073043cb1
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:29:46Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:29:46Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "private": true,
+>>>   "version": "0.0.0",
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "@dipsaus9/tailwind-theme": "workspace:^"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-993073043cb1/package.json /tmp/twcr-993073043cb1/package-lock.json /tmp/twcr-993073043cb1/pnpm-lock.yaml /tmp/twcr-993073043cb1/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-993073043cb1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-993073043cb1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-993073043cb1/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 6 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 21, reused 0, downloaded 16, added 0
+../..                                    | Progress: resolved 32, reused 0, downloaded 30, added 0
+../..                                    | Progress: resolved 67, reused 0, downloaded 58, added 0
+../..                                    | Progress: resolved 100, reused 0, downloaded 87, added 0
+../..                                    | Progress: resolved 133, reused 0, downloaded 120, added 0
+../..                                    | Progress: resolved 171, reused 0, downloaded 154, added 0
+../..                                    | Progress: resolved 207, reused 0, downloaded 186, added 0
+../..                                    | Progress: resolved 242, reused 0, downloaded 219, added 0
+../..                                    | Progress: resolved 278, reused 0, downloaded 251, added 0
+../..                                    | Progress: resolved 313, reused 0, downloaded 283, added 0
+../..                                    | Progress: resolved 351, reused 0, downloaded 322, added 0
+../..                                    | Progress: resolved 385, reused 0, downloaded 353, added 0
+../..                                    | Progress: resolved 423, reused 0, downloaded 390, added 0
+../..                                    | Progress: resolved 458, reused 0, downloaded 420, added 0
+../..                                    | Progress: resolved 509, reused 0, downloaded 459, added 0
+../..                                    | Progress: resolved 543, reused 0, downloaded 499, added 0
+../..                                    | Progress: resolved 592, reused 0, downloaded 527, added 0
+../..                                    | Progress: resolved 629, reused 0, downloaded 564, added 0
+../..                                    | Progress: resolved 663, reused 0, downloaded 606, added 0
+../..                                    | +644 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 665, reused 0, downloaded 642, added 638
+../..                                    | Progress: resolved 665, reused 0, downloaded 643, added 644, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @dipsaus9/tailwind-theme 1.0.0 <- ../../packages/tailwind-theme
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 23.1s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@dipsaus9/design-tokens/dist/js/border-radius'
+Require stack:
+- /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js:1:252
+    at evalModule (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/index.js:1:436
+    at evalModule (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:30:11Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:30:11Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at bcce468 reset button color
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-993073043cb1 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-993073043cb1
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-993073043cb1/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-993073043cb1/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":"18"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 45, reused 9, downloaded 36, added 0
+../..                                    | Progress: resolved 177, reused 127, downloaded 44, added 0
+../..                                    | Progress: resolved 243, reused 145, downloaded 92, added 0
+../..                                    | Progress: resolved 362, reused 205, downloaded 151, added 0
+../..                                    | Progress: resolved 509, reused 312, downloaded 191, added 0
+../..                                    | Progress: resolved 592, reused 336, downloaded 251, added 0
+../..                                    | Progress: resolved 693, reused 373, downloaded 315, added 0
+../..                                    | Progress: resolved 775, reused 387, downloaded 383, added 0
+../..                                    | Progress: resolved 864, reused 406, downloaded 431, added 0
+../..                                    | Progress: resolved 949, reused 426, downloaded 496, added 0
+../..                                    | Progress: resolved 1015, reused 426, downloaded 562, added 0
+../..                                    | Progress: resolved 1087, reused 426, downloaded 634, added 0
+../..                                    | Progress: resolved 1159, reused 427, downloaded 705, added 0
+../..                                    | Progress: resolved 1232, reused 427, downloaded 778, added 0
+../..                                    | Progress: resolved 1255, reused 427, downloaded 798, added 0
+../..                                    | Progress: resolved 1284, reused 427, downloaded 823, added 0
+ WARN  3 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.18.6, @babel/plugin-proposal-optional-chaining@7.21.0
+../..                                    | +839 -223 +++++++++++++++++++++------
+../..                                    | Progress: resolved 1285, reused 427, downloaded 831, added 838
+../..                                    | Progress: resolved 1285, reused 427, downloaded 831, added 839, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall: Done
+
+dependencies:
++ @dipsaus9/tailwind-theme 1.0.0 <- ../../packages/tailwind-theme
++ globby 13.2.2
++ react 18.2.0
++ react-dom 18.2.0
+
+devDependencies:
++ @dipsaus9/eslint-config 1.0.0 <- ../../config/eslint
++ @storybook/addon-essentials 7.4.3
++ @storybook/addon-interactions 7.4.3
++ @storybook/addon-links 7.4.3
++ @storybook/addon-onboarding 1.0.8
++ @storybook/addon-styling 1.3.7
++ @storybook/blocks 7.4.3
++ @storybook/react 7.4.3
++ @storybook/react-vite 7.4.3
++ @storybook/testing-library 0.2.1
++ @types/react 18.2.22
++ @types/react-dom 18.2.7
++ @typescript-eslint/eslint-plugin 6.5.0
++ @typescript-eslint/parser 6.5.0
++ @vitejs/plugin-react 4.0.4
++ autoprefixer 10.4.16
++ eslint 8.48.0
++ eslint-plugin-react-hooks 4.6.0
++ eslint-plugin-react-refresh 0.4.3
++ eslint-plugin-storybook 0.6.14
++ postcss 8.4.30
++ storybook 7.4.3
+- tailwindcss
++ tailwindcss 3.3.3 (3.4.1 is available)
++ typescript 5.2.2
++ vite 4.4.9
+
+Done in 20.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@dipsaus9/design-tokens/dist/js/border-radius'
+Require stack:
+- /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:250334)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:252917)
+    at /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js:1:252
+    at evalModule (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:255614)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:253542)
+    at /tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/index.js:1:436
+    at evalModule (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:255614)
+    at jiti (/tmp/twcr-993073043cb1/node_modules/.pnpm/jiti@1.20.0/node_modules/jiti/dist/jiti.js:1:253542) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-993073043cb1/packages/tailwind-theme/src/border-radius/BorderRadius.js'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

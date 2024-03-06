@@ -1,0 +1,217 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/gitsindonesia/ui-component
++ reporef=main
++ repopath=./starter/nuxt-commerce
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/gitsindonesia/ui-component
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-88bc26222e11
+++ echo 'github.com/gitsindonesia/ui-component;main;./starter/nuxt-commerce'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/da81d81e51cd
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/gitsindonesia/ui-component/bWFpbgo/Li9zdGFydGVyL251eHQtY29tbWVyY2UK
++ jq -nc --arg key analysis_key --arg value github.com/gitsindonesia/ui-component/bWFpbgo/Li9zdGFydGVyL251eHQtY29tbWVyY2UK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 823381d3262c7303
++ jq -nc --arg key analysis_nonce --arg value 823381d3262c7303 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/gitsindonesia/ui-component
++ jq -nc --arg key input_repo_name --arg value github.com/gitsindonesia/ui-component '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./starter/nuxt-commerce
++ jq -nc --arg key input_repo_path --arg value ./starter/nuxt-commerce '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T04:55:30Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T04:55:30Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-88bc26222e11
+/tmp/twcr-88bc26222e11 /twcr
++ pushd /tmp/twcr-88bc26222e11
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/gitsindonesia/ui-component.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T04:55:32Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T04:55:32Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 19eecbd1d984891c45ffbaa989cd88106f657b51
++ jq -nc --arg key exec_repo_commit_sha --arg value 19eecbd1d984891c45ffbaa989cd88106f657b51 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-16 16:41:20 +0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-16T09:41:20Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-16T09:41:20Z '{ key: $key, value: $value }'
++ '[' -z ./starter/nuxt-commerce ']'
++ pushd ./starter/nuxt-commerce
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-88bc26222e11/starter/nuxt-commerce /tmp/twcr-88bc26222e11 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-88bc26222e11/starter/nuxt-commerce
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T04:55:32Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T04:55:32Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T04:55:32Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T04:55:32Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 19eecbd v1.0.0-rc.9
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-88bc26222e11 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-88bc26222e11
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-88bc26222e11/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-88bc26222e11/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1145
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1145, reused 0, downloaded 35, added 35
+Progress: resolved 1145, reused 0, downloaded 96, added 97
+Progress: resolved 1145, reused 0, downloaded 161, added 162
+Progress: resolved 1145, reused 0, downloaded 223, added 224
+Progress: resolved 1145, reused 0, downloaded 290, added 291
+Progress: resolved 1145, reused 0, downloaded 356, added 358
+Progress: resolved 1145, reused 0, downloaded 421, added 422
+Progress: resolved 1145, reused 0, downloaded 493, added 493
+Progress: resolved 1145, reused 0, downloaded 559, added 561
+Progress: resolved 1145, reused 0, downloaded 621, added 624
+Progress: resolved 1145, reused 0, downloaded 686, added 688
+Progress: resolved 1145, reused 0, downloaded 755, added 758
+Progress: resolved 1145, reused 0, downloaded 832, added 835
+Progress: resolved 1145, reused 0, downloaded 901, added 904
+Progress: resolved 1145, reused 0, downloaded 965, added 968
+Progress: resolved 1145, reused 0, downloaded 1037, added 1040
+Progress: resolved 1145, reused 0, downloaded 1109, added 1112
+Progress: resolved 1145, reused 0, downloaded 1142, added 1145, done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.19.2/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.2/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../sharp@0.32.5/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.5/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.4/libvips-8.14.4-linux-x64.tar.br
+.../sharp@0.32.5/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.5/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.5/node_modules/sharp install: Done
+
+dependencies:
++ @morpheme/nuxt 1.0.0-rc.6
++ @nuxt/image 1.0.0-rc.1
+
+devDependencies:
++ @nuxt/devtools 0.8.3
++ @nuxtjs/tailwindcss 6.8.0
++ nuxt 3.7.1
++ sass 1.66.1
+
+
+> @morpheme/nuxt-commerce@0.3.1 postinstall /tmp/twcr-88bc26222e11/starter/nuxt-commerce
+> nuxt prepare
+
+[nuxt:tailwindcss] ℹ Using default Tailwind CSS file
+✔ Types generated in .nuxt
+Done in 25s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T04:55:59Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T04:55:59Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T04:55:59Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T04:55:59Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

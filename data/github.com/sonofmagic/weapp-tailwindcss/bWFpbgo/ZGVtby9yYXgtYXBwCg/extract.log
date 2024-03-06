@@ -1,0 +1,159 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sonofmagic/weapp-tailwindcss
++ reporef=main
++ repopath=./demo/rax-app
++ grep -q '^././'
+++ echo github.com/sonofmagic/weapp-tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-225add5617ea
+++ echo 'github.com/sonofmagic/weapp-tailwindcss;main;./demo/rax-app'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2bad109d080b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li9kZW1vL3JheC1hcHAK
++ jq -nc --arg key analysis_key --arg value github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li9kZW1vL3JheC1hcHAK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ef24da0ad2d3fe4f
++ jq -nc --arg key analysis_nonce --arg value ef24da0ad2d3fe4f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sonofmagic/weapp-tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/sonofmagic/weapp-tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./demo/rax-app
++ jq -nc --arg key input_repo_path --arg value ./demo/rax-app '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T16:34:34Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T16:34:34Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-225add5617ea
++ pushd /tmp/twcr-225add5617ea
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/sonofmagic/weapp-tailwindcss.git .
+/tmp/twcr-225add5617ea /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T16:34:36Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T16:34:36Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e5b84a47e42e1893d421d88c93f672b8d5ed655d
++ jq -nc --arg key exec_repo_commit_sha --arg value e5b84a47e42e1893d421d88c93f672b8d5ed655d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-23 21:07:34 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-23T13:07:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-23T13:07:34Z '{ key: $key, value: $value }'
++ '[' -z ./demo/rax-app ']'
++ pushd ./demo/rax-app
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
+/tmp/twcr-225add5617ea/demo/rax-app /tmp/twcr-225add5617ea /twcr
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-225add5617ea/demo/rax-app
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T16:34:36Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T16:34:36Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@rax-materials/scaffolds-app-ts",
+>>>   "author": "rax",
+>>>   "description": "Rax 无线跨端应用工程，使用 TypeScript。",
+>>>   "version": "0.1.0",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "private": true,
+>>>   "originTemplate": "@rax-materials/scaffolds-app-ts"
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-225add5617ea /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-225add5617ea
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ yarn install --ignore-engines
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:88) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.58s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-03T16:34:45Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-03T16:34:45Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T16:34:45Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T16:34:45Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,259 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/paritytech/capi-multisig-app
++ reporef=main
++ repopath=./www
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/paritytech/capi-multisig-app
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7eb33c9ae429
+++ echo 'github.com/paritytech/capi-multisig-app;main;./www'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/68a7ee3a737b
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/paritytech/capi-multisig-app/bWFpbgo/Li93d3cK
++ jq -nc --arg key analysis_key --arg value github.com/paritytech/capi-multisig-app/bWFpbgo/Li93d3cK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a4ba3e0420eb3c66
++ jq -nc --arg key analysis_nonce --arg value a4ba3e0420eb3c66 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/paritytech/capi-multisig-app
++ jq -nc --arg key input_repo_name --arg value github.com/paritytech/capi-multisig-app '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./www
++ jq -nc --arg key input_repo_path --arg value ./www '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T11:40:50Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T11:40:50Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7eb33c9ae429
+/tmp/twcr-7eb33c9ae429 /twcr
++ pushd /tmp/twcr-7eb33c9ae429
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/paritytech/capi-multisig-app.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T11:40:51Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T11:40:51Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 33bce5419b058b9f44be24d9db51cfc435b31ed7
++ jq -nc --arg key exec_repo_commit_sha --arg value 33bce5419b058b9f44be24d9db51cfc435b31ed7 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-07-05 18:19:18 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-07-05T16:19:18Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-07-05T16:19:18Z '{ key: $key, value: $value }'
+/tmp/twcr-7eb33c9ae429/www /tmp/twcr-7eb33c9ae429 /twcr
++ '[' -z ./www ']'
++ pushd ./www
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7eb33c9ae429/www
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./www '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7eb33c9ae429
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T11:40:51Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T11:40:51Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "www",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "prettier-plugin-tailwindcss": "^0.2.8"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/forms": "^0.5.3",
+>>>     "tailwindcss": "^3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./www '!=' ./ ']'
++ rm -f /tmp/twcr-7eb33c9ae429/package.json /tmp/twcr-7eb33c9ae429/package-lock.json /tmp/twcr-7eb33c9ae429/pnpm-lock.yaml /tmp/twcr-7eb33c9ae429/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-7eb33c9ae429 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-7eb33c9ae429
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-7eb33c9ae429/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 28, reused 0, downloaded 19, added 0
+..                                       | Progress: resolved 62, reused 0, downloaded 52, added 0
+..                                       | Progress: resolved 98, reused 0, downloaded 82, added 0
+..                                       | Progress: resolved 131, reused 0, downloaded 113, added 0
+..                                       | Progress: resolved 157, reused 0, downloaded 140, added 0
+..                                       | Progress: resolved 199, reused 0, downloaded 176, added 0
+..                                       | Progress: resolved 235, reused 0, downloaded 211, added 0
+..                                       | Progress: resolved 276, reused 0, downloaded 245, added 0
+..                                       | Progress: resolved 318, reused 0, downloaded 284, added 0
+ WARN  2 deprecated subdependencies found: @aws-sdk/smithy-client@3.374.0, querystring@0.2.0
+..                                       | Progress: resolved 331, reused 0, downloaded 329, added 0
+..                                       | +330 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 331, reused 0, downloaded 330, added 330, done
+
+dependencies:
++ prettier-plugin-tailwindcss 0.2.8 (0.5.11 is available)
+
+devDependencies:
++ @tailwindcss/forms 0.5.7
++ tailwindcss 3.4.1
+
+Done in 11.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/prettier@3.2.5/node_modules/prettier/plugins/flow.js:4
+`),x.js_error)throw x.js_error}}else throw x}function _W(){var x=d0.process;x&&x.on?x.on("uncaughtException",function(r,e){xX(r),x.exit(2)}):d0.addEventListener&&d0.addEventListener("error",function(r){r.error&&xX(r.error)})}_W();function l(x,r){return(x.l>=0?x.l:x.l=x.length)==1?x(r):Ys(x,[r])}function p(x,r,e){return(x.l>=0?x.l:x.l=x.length)==2?x(r,e):Ys(x,[r,e])}function G0(x,r,e,t){return(x.l>=0?x.l:x.l=x.length)==3?x(r,e,t):Ys(x,[r,e,t])}function oe(x,r,e,t,u){return(x.l>=0?x.l:x.l=x.length)==4?x(r,e,t,u):Ys(x,[r,e,t,u])}function Ye(x,r,e,t,u,i){return(x.l>=0?x.l:x.l=x.length)==5?x(r,e,t,u,i):Ys(x,[r,e,t,u,i])}function wW(x,r,e,t,u,i,f,o){return(x.l>=0?x.l:x.l=x.length)==7?x(r,e,t,u,i,f,o):Ys(x,[r,e,t,u,i,f,o])}var uO=[Gr,rY,-1],rX=[Gr,CB,-2],kn=[Gr,ew,-3],iO=[Gr,hB,-4],A2=[Gr,Rj,-7],eX=[Gr,ZU,-8],tX=[Gr,PU,-9],wr=[Gr,bM,-11],Ml=[Gr,qU,-12],TW=[4,0,0,0,[12,45,[4,0,0,0,0]]],fO=[0,[11,'File "',[2,0,[11,'", line ',[4,0,0,0,[11,TU,[4,0,0,0,[12,45,[4,0,0,0,[11,": ",[2,0,0]]]]]]]]]],'File "%s", line %d, characters %d-%d: %s'],Ka=[0,0,[0,0,0],[0,0,0]],Dl=[0,0,0,0,1,0,0,0],nX=[0,"first_leading","last_trailing"],uX=[0,Cf,Df,ai,_7,Mf,b7,Ui,Su,dc,Y7,$i,jf,cn,$u,hc,Le,O7,tu,vf,Gf,N7,yi,Gc,Nc,n7,df,K7,Au,Wi,tf,Fc,F7,Ru,Si,sf,Ci,di,nc,Gi,au,d7,qc,W7,Gu,cf,Pc,hi,lf,xc,Hn,yc,_c,ef,Re,Oe,zu,Tf,Ac,Ki,T7,Bf,Zu,cc,kf,ac,Of,Rc,Mi,ce,Xi,t7,yf,nf,Cu,c7,ju,Vi,of,Cc,kc,Mu,Vu,af,w7,bn,Nf,m7,Qf,Z7,H1,Ti,xi,Gn,$7,y7,Yf,gf,G7,cu,Yi,Yu,Nu,pu,bu,oc,eu,zn,pc,S7,$n,B7,ti,ei,Uf,ii,wf,Kn,Ai,Wc,Hi,wu,gi,ku,Ou,Nt,g7,s7,P7,D2,Ei,ou,Ku,p7,hf,yu,$f,I7,G2,ni,r7,Kf,Zi,lu,bc,iu,_u,Vn,zi,Qu,Lc,lc,i7,Ef,Eu,ci,Kc,li,U7,o7,uu,qn,ec,rc,rf,fc,X7,Xu,Qn,ji,j7,Zn,vu,uf,ir,v7,pi,Bu,gc,ri,a7,Xc,Uc,Wu,Dc,Q7,Af,L7,Bi,Jf,qf,su,bi,Zc,pf,Vc,f7,vi,Pf,oi,sc,mi,nu,uc,u7,Fu,If,yn,Yc,Lu,z7,wc,Oc,R7,H7,Ju,l7,h7,Ji,Du,mc,tc,fu,Wf,$c,gu,zf,Tc,mu,je,Ec,du,Uu,Tu,xf,D7,k7,Me,Sc,qu,M7,Ic,Fi,qi,E7,ff,Be,Iu,xu,Xf,Sf,jc,Ii,Rf,Ue,Qc,mf,Qi,Pu,vc,Fn,x7,Pi,Ff,wi,Jc,A7,zc,_i,Wn,V7,Oi,bf,Hf,ru,C7,J7,ki,Hu,Mc,e7,q7,ui,Hc,Li,U2,Vf,_f,si,B2],hn=[0,0,0];Yt(11,Ml,qU),Yt(10,wr,bM),Yt(9,[Gr,jj,YD],jj),Yt(8,tX,PU),Yt(7,eX,ZU),Yt(6,A2,Rj),Yt(5,[Gr,oj,-6],oj),Yt(4,[Gr,mD,-5],mD),Yt(3,iO,hB),Yt(2,kn,ew),Yt(1,rX,CB),Yt(0,uO,rY);var SW="output_substring",EW=ic,gW=Cs,AW=Os,PW="CamlinternalLazy.Undefined",CW=DB,NW="\\'",RW="\\b",OW="\\t",IW="\\n",LW="\\r",MW="List.iter2",DW="tl",jW="hd",UW="String.blit / Bytes.blit_string",BW="Bytes.blit",YW="String.sub / Bytes.sub",XW="String.concat",JW="Array.blit",VW="Array.sub",zW="Map.remove_min_elt",KW=[0,0,0,0],ZW=[0,"map.ml",400,10],WW=[0,0,0],$W=F4,QW=F4,FW=F4,HW=F4,qW="Stdlib.Queue.Empty",GW="Buffer.add_substring/add_subbytes",bW="Buffer.add: cannot grow buffer",x$=[0,vD,93,2],r$=[0,vD,94,2],e$="Buffer.sub",t$="%c",n$="%s",u$=QM,i$=MB,f$=Ej,c$=qB,s$="%f",o$="%B",v$="%{",a$="%}",l$="%(",p$="%)",d$=zj,y$="%t",m$="%?",k$="%r",h$="%_r",_$=[0,i2,850,23],w$=[0,i2,814,21],T$=[0,i2,815,21],S$=[0,i2,818,21],E$=[0,i2,819,21],g$=[0,i2,822,19],A$=[0,i2,823,19],P$=[0,i2,826,22],C$=[0,i2,827,22],N$=[0,i2,831,30],R$=[0,i2,832,30],O$=[0,i2,836,26],I$=[0,i2,837,26],L$=[0,i2,846,28],M$=[0,i2,847,28],D$=[0,i2,851,23],j$=[0,i2,1558,4],U$="Printf: bad conversion %[",B$=[0,i2,1626,39],Y$=[0,i2,1649,31],X$=[0,i2,1650,31],J$="Printf: bad conversion %_",V$=FU,z$=gj,K$=FU,Z$=gj,W$=[0,[11,"invalid box description ",[3,0,0]],"invalid box description %S"],$$=[0,0,4],Q$=Zk,F$="neg_infinity",H$=Mj,q$=ic,G$=[0,nn],b$="%+nd",xQ="% nd",rQ="%+ni",eQ="% ni",tQ="%nx",nQ="%#nx",uQ="%nX",iQ="%#nX",fQ="%no",cQ="%#no",sQ="%nd",oQ=Ej,vQ="%nu",aQ="%+ld",lQ="% ld",pQ="%+li",dQ="% li",yQ="%lx",mQ="%#lx",kQ="%lX",hQ="%#lX",_Q="%lo",wQ="%#lo",TQ="%ld",SQ=MB,EQ="%lu",gQ="%+Ld",AQ="% Ld",PQ="%+Li",CQ="% Li",NQ="%Lx",RQ="%#Lx",OQ="%LX",IQ="%#LX",LQ="%Lo",MQ="%#Lo",DQ="%Ld",jQ=qB,UQ="%Lu",BQ="%+d",YQ="% d",XQ="%+i",JQ="% i",VQ="%x",zQ="%#x",KQ="%X",ZQ="%#X",WQ="%o",$Q="%#o",QQ=El,FQ=QM,HQ=vU,qQ=la,GQ="@}",bQ="@?",xF=`@
+                                     ^
+
+TypeError: Cannot read properties of undefined (reading 'parsers')
+    at Vz (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/prettier-plugin-tailwindcss@0.2.8_prettier@3.2.5/node_modules/prettier-plugin-tailwindcss/dist/index.js:2371:48095)
+    at /tmp/twcr-7eb33c9ae429/node_modules/.pnpm/prettier-plugin-tailwindcss@0.2.8_prettier@3.2.5/node_modules/prettier-plugin-tailwindcss/dist/index.js:2371:37858
+    at evalModule (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-7eb33c9ae429/www/tailwind.config.cjs:67:5
+    at evalModule (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-7eb33c9ae429/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-7eb33c9ae429/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-7eb33c9ae429/www/tailwind.config.exporter3.mjs:5:28
+
+Node.js v21.6.2
++ exitcode=7
++ set -e
++ [[ 7 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T11:41:05Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T11:41:05Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 33bce54 refactor: decouple capi from presentation layer (#223)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-7eb33c9ae429 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-7eb33c9ae429
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-7eb33c9ae429/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-7eb33c9ae429/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | +355 -186 +++++++++++++++++----------
+..                                       | Progress: resolved 355, reused 14, downloaded 18, added 22
+..                                       | Progress: resolved 355, reused 14, downloaded 62, added 66
+..                                       | Progress: resolved 355, reused 14, downloaded 105, added 109
+..                                       | Progress: resolved 355, reused 14, downloaded 141, added 143
+..                                       | Progress: resolved 355, reused 14, downloaded 187, added 191
+..                                       | Progress: resolved 355, reused 14, downloaded 243, added 250
+..                                       | Progress: resolved 355, reused 14, downloaded 281, added 288
+..                                       | Progress: resolved 355, reused 14, downloaded 289, added 296
+..                                       | Progress: resolved 355, reused 14, downloaded 311, added 318
+..                                       | Progress: resolved 355, reused 14, downloaded 325, added 332
+ WARN  GET https://capi.dev/a416a0563f132155/westend.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/westend.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/statemint.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm-trappist.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm-statemine.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-westmint.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-contracts.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/polkadot-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/polkadot.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/westend-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/contracts-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://capi.dev/a416a0563f132155/westend.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/westend.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/statemint.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm-trappist.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm-statemine.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-xcm.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-westmint.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/rococo-dev-contracts.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/polkadot.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/westend-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/polkadot-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://capi.dev/@v0.1.0-beta.42/371568ef82e78f0c/contracts-dev.tar error (ERR_PNPM_FETCH_502). Will retry in 1 minute. 1 retries left.
+ ERR_PNPM_FETCH_502  GET https://capi.dev/a416a0563f132155/westend.tar: Bad Gateway - 502
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

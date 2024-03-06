@@ -1,0 +1,1354 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/dotansimha/graphql-yoga
++ reporef=main
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/dotansimha/graphql-yoga
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3a4b36402932
+++ echo 'github.com/dotansimha/graphql-yoga;main;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/051886120d6c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/dotansimha/graphql-yoga/bWFpbgo/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/dotansimha/graphql-yoga/bWFpbgo/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ cut -c1-16
+++ awk '{ print $1 }'
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 83c86e8ca7b59975
++ jq -nc --arg key analysis_nonce --arg value 83c86e8ca7b59975 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/dotansimha/graphql-yoga
++ jq -nc --arg key input_repo_name --arg value github.com/dotansimha/graphql-yoga '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T01:10:31Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T01:10:31Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3a4b36402932
+/tmp/twcr-3a4b36402932 /twcr
++ pushd /tmp/twcr-3a4b36402932
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/dotansimha/graphql-yoga.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T01:10:32Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T01:10:32Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 6725f8e736493f446a1556d7b429215020ea578e
++ jq -nc --arg key exec_repo_commit_sha --arg value 6725f8e736493f446a1556d7b429215020ea578e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-23 10:52:31 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-23T09:52:31Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-23T09:52:31Z '{ key: $key, value: $value }'
+/tmp/twcr-3a4b36402932/website /tmp/twcr-3a4b36402932 /twcr
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3a4b36402932/website
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./website '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3a4b36402932
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T01:10:32Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T01:10:32Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "type": "module",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@theguild/tailwind-config": "0.3.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-3a4b36402932/package.json /tmp/twcr-3a4b36402932/package-lock.json /tmp/twcr-3a4b36402932/pnpm-lock.yaml /tmp/twcr-3a4b36402932/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3a4b36402932 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3a4b36402932
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3a4b36402932/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 75 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 14, reused 0, downloaded 5, added 0
+..                                       | Progress: resolved 22, reused 0, downloaded 17, added 0
+..                                       | Progress: resolved 37, reused 0, downloaded 24, added 0
+..                                       | Progress: resolved 44, reused 0, downloaded 35, added 0
+..                                       | Progress: resolved 54, reused 0, downloaded 43, added 0
+..                                       | Progress: resolved 67, reused 0, downloaded 58, added 0
+..                                       | Progress: resolved 77, reused 0, downloaded 67, added 0
+..                                       | Progress: resolved 87, reused 0, downloaded 75, added 0
+..                                       | Progress: resolved 108, reused 0, downloaded 97, added 0
+..                                       | Progress: resolved 124, reused 0, downloaded 107, added 0
+../packages/graphql-yoga                 |  WARN  deprecated puppeteer@19.6.0
+..                                       | Progress: resolved 139, reused 0, downloaded 125, added 0
+../packages/nestjs                       |  WARN  deprecated subscriptions-transport-ws@0.11.0
+../packages/plugins/apollo-inline-trace  |  WARN  deprecated apollo-reporting-protobuf@3.4.0
+..                                       | Progress: resolved 157, reused 0, downloaded 147, added 0
+..                                       | Progress: resolved 172, reused 0, downloaded 160, added 0
+..                                       | Progress: resolved 172, reused 0, downloaded 171, added 0
+..                                       | Progress: resolved 172, reused 0, downloaded 172, added 0
+..                                       | Progress: resolved 172, reused 0, downloaded 173, added 0
+..                                       | Progress: resolved 199, reused 0, downloaded 188, added 0
+..                                       | Progress: resolved 224, reused 0, downloaded 215, added 0
+..                                       | Progress: resolved 250, reused 0, downloaded 233, added 0
+..                                       | Progress: resolved 258, reused 0, downloaded 249, added 0
+..                                       | Progress: resolved 277, reused 0, downloaded 267, added 0
+..                                       | Progress: resolved 303, reused 0, downloaded 271, added 0
+..                                       | Progress: resolved 319, reused 0, downloaded 283, added 0
+..                                       | Progress: resolved 333, reused 0, downloaded 295, added 0
+..                                       | Progress: resolved 357, reused 0, downloaded 315, added 0
+..                                       | Progress: resolved 389, reused 0, downloaded 341, added 0
+..                                       | Progress: resolved 412, reused 0, downloaded 368, added 0
+..                                       | Progress: resolved 444, reused 0, downloaded 397, added 0
+..                                       | Progress: resolved 473, reused 0, downloaded 429, added 0
+..                                       | Progress: resolved 494, reused 0, downloaded 437, added 0
+..                                       | Progress: resolved 516, reused 0, downloaded 458, added 0
+..                                       | Progress: resolved 529, reused 0, downloaded 465, added 0
+..                                       | Progress: resolved 552, reused 0, downloaded 493, added 0
+..                                       | Progress: resolved 556, reused 0, downloaded 498, added 0
+..                                       | Progress: resolved 568, reused 0, downloaded 503, added 0
+..                                       | Progress: resolved 573, reused 0, downloaded 511, added 0
+..                                       | Progress: resolved 579, reused 0, downloaded 513, added 0
+..                                       | Progress: resolved 591, reused 0, downloaded 527, added 0
+..                                       | Progress: resolved 601, reused 0, downloaded 540, added 0
+..                                       | Progress: resolved 606, reused 0, downloaded 548, added 0
+..                                       | Progress: resolved 614, reused 0, downloaded 552, added 0
+..                                       | Progress: resolved 619, reused 0, downloaded 558, added 0
+..                                       | Progress: resolved 632, reused 0, downloaded 565, added 0
+..                                       | Progress: resolved 655, reused 0, downloaded 586, added 0
+..                                       | Progress: resolved 684, reused 0, downloaded 616, added 0
+..                                       | Progress: resolved 704, reused 0, downloaded 637, added 0
+..                                       | Progress: resolved 732, reused 0, downloaded 657, added 0
+..                                       | Progress: resolved 760, reused 0, downloaded 686, added 0
+..                                       | Progress: resolved 796, reused 0, downloaded 718, added 0
+..                                       | Progress: resolved 816, reused 0, downloaded 740, added 0
+..                                       | Progress: resolved 844, reused 0, downloaded 766, added 0
+..                                       | Progress: resolved 874, reused 0, downloaded 792, added 0
+..                                       | Progress: resolved 903, reused 0, downloaded 816, added 0
+..                                       | Progress: resolved 934, reused 0, downloaded 843, added 0
+..                                       | Progress: resolved 950, reused 0, downloaded 857, added 0
+..                                       | Progress: resolved 969, reused 0, downloaded 874, added 0
+..                                       | Progress: resolved 998, reused 0, downloaded 900, added 0
+..                                       | Progress: resolved 1024, reused 0, downloaded 927, added 0
+..                                       | Progress: resolved 1058, reused 0, downloaded 957, added 0
+..                                       | Progress: resolved 1087, reused 0, downloaded 988, added 0
+..                                       | Progress: resolved 1118, reused 0, downloaded 1012, added 0
+..                                       | Progress: resolved 1170, reused 0, downloaded 1041, added 0
+..                                       | Progress: resolved 1205, reused 0, downloaded 1075, added 0
+..                                       | Progress: resolved 1245, reused 0, downloaded 1113, added 0
+..                                       | Progress: resolved 1272, reused 0, downloaded 1141, added 0
+..                                       | Progress: resolved 1304, reused 0, downloaded 1168, added 0
+..                                       | Progress: resolved 1339, reused 0, downloaded 1202, added 0
+..                                       | Progress: resolved 1372, reused 0, downloaded 1234, added 0
+..                                       | Progress: resolved 1403, reused 0, downloaded 1261, added 0
+..                                       | Progress: resolved 1404, reused 0, downloaded 1262, added 0
+..                                       | Progress: resolved 1404, reused 0, downloaded 1263, added 0
+..                                       | Progress: resolved 1405, reused 0, downloaded 1263, added 0
+..                                       | Progress: resolved 1421, reused 0, downloaded 1283, added 0
+..                                       | Progress: resolved 1443, reused 0, downloaded 1297, added 0
+..                                       | Progress: resolved 1460, reused 0, downloaded 1314, added 0
+..                                       | Progress: resolved 1488, reused 0, downloaded 1343, added 0
+..                                       | Progress: resolved 1512, reused 0, downloaded 1370, added 0
+..                                       | Progress: resolved 1540, reused 0, downloaded 1390, added 0
+..                                       | Progress: resolved 1570, reused 0, downloaded 1421, added 0
+..                                       | Progress: resolved 1606, reused 0, downloaded 1436, added 0
+..                                       | Progress: resolved 1646, reused 0, downloaded 1468, added 0
+..                                       | Progress: resolved 1674, reused 0, downloaded 1502, added 0
+..                                       | Progress: resolved 1703, reused 0, downloaded 1535, added 0
+..                                       | Progress: resolved 1733, reused 0, downloaded 1566, added 0
+..                                       | Progress: resolved 1766, reused 0, downloaded 1591, added 0
+..                                       | Progress: resolved 1797, reused 0, downloaded 1623, added 0
+..                                       | Progress: resolved 1832, reused 0, downloaded 1658, added 0
+..                                       | Progress: resolved 1867, reused 0, downloaded 1690, added 0
+..                                       | Progress: resolved 1906, reused 0, downloaded 1721, added 0
+..                                       | Progress: resolved 1934, reused 0, downloaded 1750, added 0
+..                                       | Progress: resolved 1969, reused 0, downloaded 1780, added 0
+..                                       | Progress: resolved 2001, reused 0, downloaded 1805, added 0
+..                                       | Progress: resolved 2035, reused 0, downloaded 1841, added 0
+..                                       | Progress: resolved 2068, reused 0, downloaded 1870, added 0
+..                                       | Progress: resolved 2098, reused 0, downloaded 1894, added 0
+..                                       | Progress: resolved 2119, reused 0, downloaded 1920, added 0
+..                                       | Progress: resolved 2177, reused 0, downloaded 1951, added 0
+..                                       | Progress: resolved 2211, reused 0, downloaded 1982, added 0
+..                                       | Progress: resolved 2234, reused 0, downloaded 2007, added 0
+..                                       | Progress: resolved 2257, reused 0, downloaded 2036, added 0
+..                                       | Progress: resolved 2281, reused 0, downloaded 2050, added 0
+..                                       | Progress: resolved 2310, reused 0, downloaded 2080, added 0
+..                                       | Progress: resolved 2341, reused 0, downloaded 2109, added 0
+..                                       | Progress: resolved 2372, reused 0, downloaded 2138, added 0
+..                                       | Progress: resolved 2402, reused 0, downloaded 2166, added 0
+..                                       | Progress: resolved 2435, reused 0, downloaded 2196, added 0
+..                                       | Progress: resolved 2460, reused 0, downloaded 2226, added 0
+..                                       | Progress: resolved 2507, reused 0, downloaded 2253, added 0
+..                                       | Progress: resolved 2539, reused 0, downloaded 2291, added 0
+..                                       | Progress: resolved 2567, reused 0, downloaded 2323, added 0
+..                                       | Progress: resolved 2603, reused 0, downloaded 2356, added 0
+..                                       | Progress: resolved 2633, reused 0, downloaded 2382, added 0
+..                                       | Progress: resolved 2672, reused 0, downloaded 2415, added 0
+..                                       | Progress: resolved 2706, reused 0, downloaded 2450, added 0
+..                                       | Progress: resolved 2760, reused 0, downloaded 2480, added 0
+..                                       | Progress: resolved 2801, reused 0, downloaded 2515, added 0
+..                                       | Progress: resolved 2834, reused 0, downloaded 2546, added 0
+..                                       | Progress: resolved 2859, reused 0, downloaded 2575, added 0
+..                                       | Progress: resolved 2901, reused 0, downloaded 2613, added 0
+..                                       | Progress: resolved 2929, reused 0, downloaded 2653, added 0
+..                                       | Progress: resolved 2937, reused 0, downloaded 2671, added 0
+..                                       | Progress: resolved 2946, reused 0, downloaded 2672, added 0
+..                                       | Progress: resolved 2962, reused 0, downloaded 2689, added 0
+..                                       | Progress: resolved 2978, reused 0, downloaded 2713, added 0
+..                                       | Progress: resolved 3006, reused 0, downloaded 2737, added 0
+..                                       | Progress: resolved 3023, reused 0, downloaded 2774, added 0
+ WARN  22 deprecated subdependencies found: @azure/msal-browser@2.38.3, @azure/msal-node@1.18.4, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, @opentelemetry/api-metrics@0.32.0, @prisma/ni@4.15.0, apollo-server-caching@3.3.0, apollo-server-env@4.2.1, apollo-server-types@3.8.0, debuglog@1.0.1, har-validator@5.1.5, querystring@0.2.0, read-package-tree@5.3.1, readdir-scoped-modules@1.1.0, request@2.88.2, resolve-url@0.2.1, rollup-plugin-inject@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, urix@0.1.0, uuid@3.4.0
+..                                       | Progress: resolved 3025, reused 0, downloaded 2778, added 0
+..                                       |    +2915 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 3025, reused 0, downloaded 2810, added 182
+..                                       | Progress: resolved 3025, reused 0, downloaded 2810, added 1408
+..                                       | Progress: resolved 3025, reused 0, downloaded 2810, added 2359
+..                                       | Progress: resolved 3025, reused 0, downloaded 2841, added 2846
+..                                       | Progress: resolved 3025, reused 0, downloaded 2895, added 2900
+..                                       | Progress: resolved 3025, reused 0, downloaded 2908, added 2914
+..                                       | Progress: resolved 3025, reused 0, downloaded 2908, added 2915
+..                                       | Progress: resolved 3025, reused 0, downloaded 2908, added 2915, done
+.../node_modules/@pulumi/azure-native install$ node scripts/install-pulumi-plugin.js resource azure-native v2.0.0
+.../node_modules/@pulumi/cloudflare install$ node scripts/install-pulumi-plugin.js resource cloudflare v4.16.0
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@pulumi/aws install$ node scripts/install-pulumi-plugin.js resource aws v5.41.0
+.../node_modules/@pulumi/docker install$ node scripts/install-pulumi-plugin.js resource docker v3.6.1
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@pulumi/aws install: There was an error installing the resource provider plugin. It looks like `pulumi` is not installed on your system. Please visit https://pulumi.com/ to install the Pulumi CLI.
+.../node_modules/@pulumi/aws install: You may try manually installing the plugin by running `pulumi plugin install resource aws v5.41.0`
+.../node_modules/@pulumi/azure-native install: There was an error installing the resource provider plugin. It looks like `pulumi` is not installed on your system. Please visit https://pulumi.com/ to install the Pulumi CLI.
+.../node_modules/@pulumi/azure-native install: You may try manually installing the plugin by running `pulumi plugin install resource azure-native v2.0.0`
+.../node_modules/@pulumi/cloudflare install: There was an error installing the resource provider plugin. It looks like `pulumi` is not installed on your system. Please visit https://pulumi.com/ to install the Pulumi CLI.
+.../node_modules/@pulumi/cloudflare install: You may try manually installing the plugin by running `pulumi plugin install resource cloudflare v4.16.0`
+.../node_modules/@pulumi/cloudflare install: Done
+.../node_modules/@pulumi/azure-native install: Done
+.../node_modules/@pulumi/aws install: Done
+.../node_modules/@pulumi/docker install: There was an error installing the resource provider plugin. It looks like `pulumi` is not installed on your system. Please visit https://pulumi.com/ to install the Pulumi CLI.
+.../node_modules/@pulumi/docker install: You may try manually installing the plugin by running `pulumi plugin install resource docker v3.6.1`
+.../node_modules/@pulumi/docker install: Done
+.../node_modules/@pulumi/docker install$ node scripts/install-pulumi-plugin.js resource docker v4.2.4
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@pulumi/docker install: There was an error installing the resource provider plugin. It looks like `pulumi` is not installed on your system. Please visit https://pulumi.com/ to install the Pulumi CLI.
+.../node_modules/@pulumi/docker install: You may try manually installing the plugin by running `pulumi plugin install resource docker v4.2.4`
+.../node_modules/@pulumi/docker install: Done
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/puppeteer postinstall$ node install.js
+.../node_modules/@prisma/engines postinstall: (node:223) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@nestjs/core postinstall: (node:231) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/puppeteer postinstall: **INFO** Skipping browser download as instructed.
+.../node_modules/puppeteer postinstall: Done
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@nestjs/core postinstall: (node:274) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/@sveltejs/kit postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../node_modules/workerd postinstall$ node install.js
+.../esbuild@0.16.3/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../prisma@4.15.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../node_modules/workerd postinstall: Done
+.../esbuild@0.16.3/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.4/node_modules/esbuild postinstall$ node install.js
+.../prisma@4.15.0/node_modules/prisma preinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../node_modules/unix-dgram install$ node-gyp rebuild
+.../esbuild@0.19.4/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/unix-dgram install: gyp info it worked if it ends with ok
+.../node_modules/unix-dgram install: gyp info using node-gyp@9.4.1
+.../node_modules/unix-dgram install: gyp info using node@21.6.2 | linux | x64
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall: Done
+.../node_modules/unix-dgram install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/unix-dgram install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/unix-dgram install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/unix-dgram install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/unix-dgram install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/unix-dgram install: gyp info spawn /usr/bin/python3
+.../node_modules/unix-dgram install: gyp info spawn args [
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/unix-dgram install: gyp info spawn args   'binding.gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-f',
+.../node_modules/unix-dgram install: gyp info spawn args   'make',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build/config.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-I',
+.../node_modules/unix-dgram install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/unix-dgram install: gyp info spawn args   '--depth=.',
+.../node_modules/unix-dgram install: gyp info spawn args   '--no-parallel',
+.../node_modules/unix-dgram install: gyp info spawn args   '--generator-output',
+.../node_modules/unix-dgram install: gyp info spawn args   'build',
+.../node_modules/unix-dgram install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/unix-dgram install: gyp info spawn args ]
+.../node_modules/unix-dgram install: gyp info spawn make
+.../node_modules/unix-dgram install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/unix-dgram install: make: Entering directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install:   CXX(target) Release/obj.target/unix_dgram/src/unix_dgram.o
+.../node_modules/unix-dgram install: In file included from ../../../../nan@2.18.0/node_modules/nan/nan.h:62,
+.../node_modules/unix-dgram install:                  from ../src/unix_dgram.cc:5:
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+.../node_modules/unix-dgram install:  1202 |       (node::addon_register_func) (regfunc),                          \
+.../node_modules/unix-dgram install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/unix-dgram install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+.../node_modules/unix-dgram install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+.../node_modules/unix-dgram install:       |   ^~~~~~~~~~~~~
+.../node_modules/unix-dgram install: ../src/unix_dgram.cc:404:1: note: in expansion of macro 'NODE_MODULE'
+.../node_modules/unix-dgram install:   404 | NODE_MODULE(unix_dgram, Initialize)
+.../node_modules/unix-dgram install:       | ^~~~~~~~~~~
+.../node_modules/unix-dgram install:   SOLINK_MODULE(target) Release/obj.target/unix_dgram.node
+.../node_modules/unix-dgram install:   COPY Release/unix_dgram.node
+.../node_modules/unix-dgram install: make: Leaving directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/unix-dgram@2.0.6/node_modules/unix-dgram/build'
+.../node_modules/unix-dgram install: gyp info ok 
+.../node_modules/unix-dgram install: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn The postinstall script automatically ran `prisma generate` and did not find your `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+.../.pnpm/re2@1.20.10/node_modules/re2 install$ install-from-cache --artifact build/Release/re2.node --host-var RE2_DOWNLOAD_MIRROR --skip-path-var RE2_DOWNLOAD_SKIP_PATH --skip-ver-var RE2_DOWNLOAD_SKIP_VER || node-gyp rebuild
+.../.pnpm/re2@1.20.10/node_modules/re2 install: Trying https://github.com/uhop/node-re2/releases/download/1.20.10/linux-x64-120.br ...
+.../.pnpm/re2@1.20.10/node_modules/re2 install: Trying https://github.com/uhop/node-re2/releases/download/1.20.10/linux-x64-120.gz ...
+.../.pnpm/re2@1.20.10/node_modules/re2 install: Building locally ...
+.../.pnpm/re2@1.20.10/node_modules/re2 install: > re2@1.20.10 rebuild
+.../.pnpm/re2@1.20.10/node_modules/re2 install: > node-gyp rebuild
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info it worked if it ends with ok
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info using node-gyp@10.0.1
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info using node@21.6.2 | linux | x64
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn /usr/bin/python3
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args [
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@10.0.1/node_modules/node-gyp/gyp/gyp_main.py',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args 'binding.gyp',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-f',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args 'make',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-I',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.20.10/node_modules/re2/build/config.gypi',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-I',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@10.0.1/node_modules/node-gyp/addon.gypi',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-I',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dlibrary=shared_library',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dvisibility=default',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dnode_gyp_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@10.0.1/node_modules/node-gyp',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dmodule_root_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.20.10/node_modules/re2',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Dnode_engine=v8',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '--depth=.',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '--no-parallel',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '--generator-output',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args 'build',
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args '-Goutput_dir=.'
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args ]
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn make
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../.pnpm/re2@1.20.10/node_modules/re2 install: make: Entering directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.20.10/node_modules/re2/build'
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/addon.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/new.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/exec.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/test.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/match.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/replace.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/search.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/split.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/to_string.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/accessors.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/util.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/bitmap256.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/bitstate.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/compile.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/dfa.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/filtered_re2.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/mimics_pcre.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/nfa.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/onepass.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/parse.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/perl_groups.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/prefilter.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/prefilter_tree.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/prog.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/re2.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/regexp.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/set.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/simplify.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/tostring.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/unicode_casefold.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/re2/unicode_groups.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/util/pcre.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/util/rune.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/re2/util/strutil.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/cycleclock.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/low_level_alloc.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/raw_logging.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/spinlock.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/spinlock_wait.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/sysinfo.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/thread_identity.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/throw_delegate.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/base/internal/unscaledcycleclock.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/internal/demangle.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/container/internal/raw_hash_set.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/internal/address_is_readable.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/internal/elf_mem_image.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/internal/vdso_support.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/stacktrace.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/debugging/symbolize.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/commandlineflag.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/internal/commandlineflag.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/internal/flag.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/internal/private_handle_accessor.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/internal/program_name.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/marshalling.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/reflection.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/flags/usage_config.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/hash/internal/city.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/hash/internal/hash.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/hash/internal/low_level_hash.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/numeric/int128.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/ascii.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/charconv.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/charconv_bigint.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/charconv_parse.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/memutil.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/arg.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/bind.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/extension.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/float_conversion.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/output.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/internal/str_format/parser.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/match.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/numbers.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/str_cat.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/str_split.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/strings/string_view.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/create_thread_identity.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/graphcycles.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/futex_waiter.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/kernel_timeout.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/per_thread_sem.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/internal/waiter_base.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/synchronization/mutex.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/clock.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/duration.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_fixed.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_if.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_impl.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_info.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_libc.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_lookup.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/time_zone_posix.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/internal/cctz/src/zone_info_source.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   CXX(target) Release/obj.target/re2/vendor/abseil-cpp/absl/time/time.o
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   SOLINK_MODULE(target) Release/obj.target/re2.node
+.../.pnpm/re2@1.20.10/node_modules/re2 install:   COPY Release/re2.node
+.../.pnpm/re2@1.20.10/node_modules/re2 install: make: Leaving directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.20.10/node_modules/re2/build'
+.../.pnpm/re2@1.20.10/node_modules/re2 install: gyp info ok 
+.../.pnpm/re2@1.20.10/node_modules/re2 install: npm notice 
+.../.pnpm/re2@1.20.10/node_modules/re2 install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../.pnpm/re2@1.20.10/node_modules/re2 install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../.pnpm/re2@1.20.10/node_modules/re2 install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../.pnpm/re2@1.20.10/node_modules/re2 install: npm notice 
+.../.pnpm/re2@1.20.10/node_modules/re2 install: Done
+.../node_modules/netlify-cli postinstall$ node ./scripts/postinstall.mjs
+.../node_modules/netlify-cli postinstall: (node:2582) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/netlify-cli postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/netlify-cli postinstall: Success! Netlify CLI has been installed!
+.../node_modules/netlify-cli postinstall: Your device is now configured to use Netlify CLI to deploy and manage your Netlify sites.
+.../node_modules/netlify-cli postinstall: Next steps:
+.../node_modules/netlify-cli postinstall:   netlify init     Connect or create a Netlify site from current directory
+.../node_modules/netlify-cli postinstall:   netlify deploy   Deploy the latest changes to your Netlify site
+.../node_modules/netlify-cli postinstall: For more information on the CLI run netlify help
+.../node_modules/netlify-cli postinstall: Or visit the docs at https://cli.netlify.com
+.../node_modules/netlify-cli postinstall: Done
+../packages/graphql-yoga postinstall$ node node_modules/puppeteer/install.js
+../packages/graphql-yoga postinstall: **INFO** Skipping browser download as instructed.
+../packages/graphql-yoga postinstall: Done
+../examples/hackernews postinstall$ prisma generate
+../examples/subscriptions postinstall$ pnpm run codegen
+../examples/sveltekit postinstall$ cd ./node_modules/puppeteer && npm install
+../examples/hackernews postinstall: Prisma schema loaded from prisma/schema.prisma
+../examples/subscriptions postinstall: > example-subscriptions@0.13.6 codegen /tmp/twcr-3a4b36402932/examples/subscriptions
+../examples/subscriptions postinstall: > graphql-codegen --config codegen.yml
+../examples/hackernews postinstall: ✔ Generated Prisma Client (4.15.0 | library) to ./../../node_modules/.pnpm/@prisma+client@4.15.0_prisma@4.15.0/node_modules/@prisma/client in 71ms
+../examples/hackernews postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+../examples/hackernews postinstall: ```
+../examples/hackernews postinstall: import { PrismaClient } from '@prisma/client'
+../examples/hackernews postinstall: const prisma = new PrismaClient()
+../examples/hackernews postinstall: ```
+../examples/hackernews postinstall: Done
+../examples/subscriptions postinstall: (node:2689) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../examples/subscriptions postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../examples/subscriptions postinstall: [STARTED] Parse Configuration
+../examples/subscriptions postinstall: [SUCCESS] Parse Configuration
+../examples/subscriptions postinstall: [STARTED] Generate outputs
+../examples/subscriptions postinstall: [STARTED] Generate to ./src/generated/graphql.ts
+../examples/subscriptions postinstall: [STARTED] Load GraphQL schemas
+../examples/subscriptions postinstall: [SUCCESS] Load GraphQL schemas
+../examples/subscriptions postinstall: [STARTED] Load GraphQL documents
+../examples/subscriptions postinstall: [SUCCESS] Load GraphQL documents
+../examples/subscriptions postinstall: [STARTED] Generate
+../examples/subscriptions postinstall: [SUCCESS] Generate
+../examples/subscriptions postinstall: [SUCCESS] Generate to ./src/generated/graphql.ts
+../examples/subscriptions postinstall: [SUCCESS] Generate outputs
+../examples/subscriptions postinstall: Done
+../examples/sveltekit postinstall: > puppeteer@19.6.0 postinstall
+../examples/sveltekit postinstall: > node install.js
+../examples/sveltekit postinstall: **INFO** Skipping browser download as instructed.
+../examples/sveltekit postinstall: added 76 packages, and audited 77 packages in 6s
+../examples/sveltekit postinstall: 9 packages are looking for funding
+../examples/sveltekit postinstall:   run `npm fund` for details
+../examples/sveltekit postinstall: found 0 vulnerabilities
+../examples/sveltekit postinstall: Done
+
+devDependencies:
++ @theguild/tailwind-config 0.3.0 (0.3.2 is available)
+
+ WARN  Issues with peer dependencies found
+examples/apollo-federation/gateway
+└─┬ @envelop/apollo-federation 5.0.0
+  └── ✕ unmet peer @apollo/gateway@^0.54.0: found 2.4.7
+
+examples/aws-lambda
+├─┬ @aws-cdk/assert 2.68.0
+│ └── ✕ unmet peer constructs@^10.0.0: found 3.4.344
+└─┬ aws-cdk-lib 2.83.0
+  └── ✕ unmet peer constructs@^10.0.0: found 3.4.344
+
+examples/netlify-edge
+└─┬ netlify-cli 16.9.3
+  └─┬ @netlify/build 29.23.4
+    └─┬ @honeycombio/opentelemetry-node 0.5.0
+      ├─┬ @opentelemetry/exporter-metrics-otlp-grpc 0.41.2
+      │ ├─┬ @opentelemetry/core 1.15.2
+      │ │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      │ └─┬ @opentelemetry/exporter-metrics-otlp-http 0.41.2
+      │   └─┬ @opentelemetry/otlp-transformer 0.41.2
+      │     ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/resources 1.15.2
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/sdk-logs 0.41.2
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/sdk-metrics 1.15.2
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+      │     └─┬ @opentelemetry/sdk-trace-base 1.15.2
+      │       └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      ├─┬ @opentelemetry/exporter-metrics-otlp-proto 0.39.1
+      │ ├─┬ @opentelemetry/core 1.13.0
+      │ │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      │ └─┬ @opentelemetry/exporter-metrics-otlp-http 0.39.1
+      │   └─┬ @opentelemetry/otlp-transformer 0.39.1
+      │     ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/resources 1.13.0
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/sdk-logs 0.39.1
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.8.0
+      │     ├─┬ @opentelemetry/sdk-metrics 1.13.0
+      │     │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+      │     └─┬ @opentelemetry/sdk-trace-base 1.13.0
+      │       └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+      └─┬ @opentelemetry/sdk-node 0.39.1
+        ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.8.0
+        └─┬ @opentelemetry/sdk-trace-node 1.13.0
+          ├── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+          ├─┬ @opentelemetry/context-async-hooks 1.13.0
+          │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+          ├─┬ @opentelemetry/propagator-b3 1.13.0
+          │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+          └─┬ @opentelemetry/propagator-jaeger 1.13.0
+            └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.8.0
+
+examples/sveltekit
+├─┬ @sveltejs/kit 1.0.0-next.520
+│ ├── ✕ unmet peer svelte@^3.44.0: found 4.0.1
+│ ├── ✕ unmet peer vite@^3.1.0: found 4.3.9
+│ └─┬ @sveltejs/vite-plugin-svelte 1.4.0
+│   ├── ✕ unmet peer svelte@^3.44.0: found 4.0.1
+│   └── ✕ unmet peer vite@^3.0.0: found 4.3.9
+└─┬ eslint-plugin-svelte3 4.0.0
+  └── ✕ unmet peer svelte@^3.2.0: found 4.0.1
+
+packages/graphiql
+├─┬ @graphiql/plugin-explorer 0.1.22
+│ └─┬ graphiql-explorer 0.9.0
+│   ├── ✕ unmet peer graphql@"^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0": found 16.6.0
+│   ├── ✕ unmet peer react@"^15.6.0 || ^16.0.0": found 18.2.0
+│   └── ✕ unmet peer react-dom@"^15.6.0 || ^16.0.0": found 18.2.0
+└─┬ graphiql 2.0.7
+  └─┬ @graphiql/react 0.13.7
+    ├─┬ @reach/combobox 0.17.0
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ ├─┬ @reach/auto-id 0.17.0
+    │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ │ └─┬ @reach/utils 0.17.0
+    │ │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ ├─┬ @reach/descendants 0.17.0
+    │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ └─┬ @reach/popover 0.17.0
+    │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │   ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │   ├─┬ @reach/portal 0.17.0
+    │   │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │   │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │   └─┬ @reach/rect 0.17.0
+    │     ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │     └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    ├─┬ @reach/dialog 0.17.0
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    ├─┬ @reach/listbox 0.17.0
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ └─┬ @reach/machine 0.17.0
+    │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    ├─┬ @reach/menu-button 0.17.0
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    │ └─┬ @reach/dropdown 0.17.0
+    │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    └─┬ @reach/tooltip 0.17.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+      └─┬ @reach/visually-hidden 0.17.0
+        ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+        └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+packages/nestjs-federation
+└─┬ @envelop/apollo-federation 5.0.0
+  └── ✕ unmet peer @apollo/gateway@^0.54.0: found 2.4.7
+
+Done in 5m 39.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T01:16:13Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T01:16:13Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 6725f8e feat: allow accessing request within persisted operation id extraction (#3183)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3a4b36402932 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3a4b36402932
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3a4b36402932/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3a4b36402932/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 76 workspace projects
+..                                       | Progress: resolved 0, reused 1, downloaded 0, added 0
+..                                       | Progress: resolved 128, reused 122, downloaded 6, added 0
+..                                       | Progress: resolved 148, reused 123, downloaded 25, added 0
+..                                       | Progress: resolved 187, reused 123, downloaded 64, added 0
+..                                       | Progress: resolved 214, reused 123, downloaded 91, added 0
+..                                       | Progress: resolved 215, reused 123, downloaded 92, added 0
+..                                       | Progress: resolved 223, reused 125, downloaded 98, added 0
+..                                       | Progress: resolved 833, reused 719, downloaded 102, added 0
+..                                       | Progress: resolved 1074, reused 923, downloaded 138, added 0
+..                                       | Progress: resolved 1152, reused 963, downloaded 176, added 0
+..                                       | Progress: resolved 1214, reused 984, downloaded 217, added 0
+..                                       | Progress: resolved 1252, reused 995, downloaded 244, added 0
+..                                       | Progress: resolved 1288, reused 1008, downloaded 267, added 0
+..                                       | Progress: resolved 1350, reused 1026, downloaded 311, added 0
+..                                       | Progress: resolved 1403, reused 1041, downloaded 349, added 0
+..                                       | Progress: resolved 1468, reused 1055, downloaded 400, added 0
+..                                       | Progress: resolved 1522, reused 1056, downloaded 453, added 0
+..                                       | Progress: resolved 1593, reused 1074, downloaded 506, added 0
+..                                       | Progress: resolved 1661, reused 1099, downloaded 550, added 0
+..                                       | Progress: resolved 1745, reused 1134, downloaded 602, added 0
+..                                       | Progress: resolved 1811, reused 1149, downloaded 653, added 0
+..                                       | Progress: resolved 1889, reused 1177, downloaded 703, added 0
+..                                       | Progress: resolved 1966, reused 1199, downloaded 758, added 0
+..                                       | Progress: resolved 2037, reused 1213, downloaded 815, added 0
+..                                       | Progress: resolved 2121, reused 1239, downloaded 844, added 0
+..                                       | Progress: resolved 2239, reused 1313, downloaded 861, added 0
+..                                       | Progress: resolved 2574, reused 1629, downloaded 881, added 0
+..                                       | Progress: resolved 2667, reused 1678, downloaded 925, added 0
+..                                       | Progress: resolved 2785, reused 1730, downloaded 980, added 0
+..                                       | Progress: resolved 2857, reused 1750, downloaded 1033, added 0
+..                                       | Progress: resolved 2912, reused 1754, downloaded 1084, added 0
+..                                       | Progress: resolved 2968, reused 1757, downloaded 1137, added 0
+..                                       | Progress: resolved 3029, reused 1765, downloaded 1190, added 0
+..                                       | Progress: resolved 3082, reused 1766, downloaded 1241, added 0
+..                                       | Progress: resolved 3145, reused 1775, downloaded 1285, added 0
+..                                       | Progress: resolved 3223, reused 1817, downloaded 1323, added 0
+..                                       | Progress: resolved 3286, reused 1823, downloaded 1381, added 0
+..                                       | Progress: resolved 3331, reused 1831, downloaded 1398, added 0
+..                                       | Progress: resolved 3403, reused 1862, downloaded 1440, added 0
+..                                       | Progress: resolved 3448, reused 1863, downloaded 1484, added 0
+..                                       | Progress: resolved 3505, reused 1877, downloaded 1527, added 0
+..                                       | Progress: resolved 3571, reused 1891, downloaded 1579, added 0
+..                                       | Progress: resolved 3633, reused 1912, downloaded 1600, added 0
+..                                       | Progress: resolved 3653, reused 1926, downloaded 1602, added 0
+..                                       | Progress: resolved 3675, reused 1927, downloaded 1622, added 0
+..                                       | Progress: resolved 3706, reused 1927, downloaded 1647, added 0
+..                                       | Progress: resolved 3726, reused 1927, downloaded 1671, added 0
+..                                       | Progress: resolved 3744, reused 1929, downloaded 1685, added 0
+..                                       | Progress: resolved 3764, reused 1929, downloaded 1705, added 0
+..                                       | Progress: resolved 3789, reused 1929, downloaded 1720, added 0
+..                                       | Progress: resolved 3817, reused 1929, downloaded 1746, added 0
+ WARN  23 deprecated subdependencies found: @npmcli/move-file@2.0.1, @opentelemetry/api-metrics@0.32.0, @sinonjs/fake-timers@10.2.0, apollo-server-caching@3.3.0, apollo-server-env@4.2.1, apollo-server-types@3.6.3, chokidar@2.1.8, figgy-pudding@3.5.2, fsevents@1.2.13, har-validator@5.1.5, querystring@0.2.0, react-instantsearch-dom@6.40.4, read-package-tree@5.3.1, readdir-scoped-modules@1.1.0, request@2.88.2, resolve-url@0.2.1, rollup-plugin-inject@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, sourcemap-codec@1.4.8, superagent@8.0.2, urix@0.1.0, uuid@3.4.0
+..                                       | Progress: resolved 3830, reused 1937, downloaded 1770, added 0
+..                                       | Progress: resolved 3830, reused 1937, downloaded 1772, added 0
+..                                       |    +1889    -1070 ++++++++++++-------
+..                                       | Progress: resolved 3830, reused 1937, downloaded 1772, added 675
+..                                       | Progress: resolved 3830, reused 1937, downloaded 1772, added 1889
+..                                       | Progress: resolved 3830, reused 1937, downloaded 1772, added 1889, done
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/.bin/mqtt. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/mqtt/build/bin/mqtt.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/.bin/mqtt_pub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/mqtt/build/bin/pub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/.bin/mqtt_sub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node_modules/mqtt/build/bin/sub.js'
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+.../.pnpm/re2@1.19.0/node_modules/re2 install$ install-from-cache --artifact build/Release/re2.node --host-var RE2_DOWNLOAD_MIRROR --skip-path-var RE2_DOWNLOAD_SKIP_PATH --skip-ver-var RE2_DOWNLOAD_SKIP_VER || npm run rebuild
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../.pnpm/re2@1.19.0/node_modules/re2 install: Trying https://github.com/uhop/node-re2/releases/download/1.19.0/linux-x64-120.br ...
+.../node_modules/@nestjs/core postinstall: (node:2812) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@nestjs/core postinstall: (node:2830) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@nestjs/core postinstall: (node:2849) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+.../node_modules/better-sqlite3 install: gyp info using node-gyp@9.4.1
+.../node_modules/better-sqlite3 install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/better-sqlite3 install: gyp info spawn /usr/bin/python3
+.../node_modules/better-sqlite3 install: gyp info spawn args [
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'binding.gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-f',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'make',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/better-sqlite3@8.4.0/node_modules/better-sqlite3/build/config.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/better-sqlite3@8.4.0/node_modules/better-sqlite3',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--depth=.',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--no-parallel',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--generator-output',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'build',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/better-sqlite3 install: gyp info spawn args ]
+.../node_modules/better-sqlite3 install: gyp info spawn make
+.../node_modules/better-sqlite3 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/better-sqlite3 install: make: Entering directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/better-sqlite3@8.4.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install:   TOUCH ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   ACTION deps_sqlite3_gyp_locate_sqlite3_target_copy_builtin_sqlite3 ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   TOUCH Release/obj.target/deps/locate_sqlite3.stamp
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/sqlite3/gen/sqlite3/sqlite3.o
+.../.pnpm/re2@1.19.0/node_modules/re2 install: Trying https://github.com/uhop/node-re2/releases/download/1.19.0/linux-x64-120.gz ...
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/postinstall-postinstall postinstall$ node ./run.js
+.../node_modules/weak-napi install$ node-gyp-build
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../node_modules/postinstall-postinstall postinstall: Done
+.../node_modules/weak-napi install: Done
+.../.pnpm/re2@1.19.0/node_modules/re2 install: Building locally ...
+.../.pnpm/re2@1.19.0/node_modules/re2 install: > re2@1.19.0 rebuild
+.../.pnpm/re2@1.19.0/node_modules/re2 install: > node-gyp rebuild
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info it worked if it ends with ok
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info using node-gyp@9.3.1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info using node@21.6.2 | linux | x64
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn /usr/bin/python3
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args [
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/gyp/gyp_main.py',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'binding.gyp',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-f',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'make',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build/config.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/addon.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dvisibility=default',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_gyp_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_engine=v8',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--depth=.',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--no-parallel',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--generator-output',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'build',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Goutput_dir=.'
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args ]
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn make
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: Entering directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build'
+.../.pnpm/re2@1.19.0/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/addon.o
+.../.pnpm/re2@1.19.0/node_modules/re2 install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/node.h:73,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../../../../nan@2.17.0/node_modules/nan/nan.h:60,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../lib/./wrapped_re2.h:4,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../lib/addon.cc:1:
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h: In instantiation of 'v8::Local<T>::Local(v8::Local<S>) [with S = v8::Data; T = v8::Value]':
+.../.pnpm/re2@1.19.0/node_modules/re2 install: ../../../../nan@2.17.0/node_modules/nan/nan_callbacks_12_inl.h:175:53:   required from here
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: error: static assertion failed: type check
+.../.pnpm/re2@1.19.0/node_modules/re2 install:   253 |     static_assert(std::is_base_of<T, S>::value, "type check");
+.../.pnpm/re2@1.19.0/node_modules/re2 install:       |                                          ^~~~~
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: note: 'std::integral_constant<bool, false>::value' evaluates to false
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: *** [re2.target.mk:168: Release/obj.target/re2/lib/addon.o] Error 1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! build error 
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack Error: `make` failed with exit code: 2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess.onExit (/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/lib/build.js:203:23)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess.emit (node:events:519:28)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! System Linux 6.4.16-linuxkit
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! command "/usr/local/bin/node" "/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! cwd /tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: Leaving directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build'
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! node -v v21.6.2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! node-gyp -v v9.3.1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! not ok 
+.../.pnpm/re2@1.19.0/node_modules/re2 install: node:internal/process/promises:289
+.../.pnpm/re2@1.19.0/node_modules/re2 install:             triggerUncaughtException(err, true /* fromPromise */);
+.../.pnpm/re2@1.19.0/node_modules/re2 install:             ^
+.../.pnpm/re2@1.19.0/node_modules/re2 install: [UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason "1".] {
+.../.pnpm/re2@1.19.0/node_modules/re2 install:   code: 'ERR_UNHANDLED_REJECTION'
+.../.pnpm/re2@1.19.0/node_modules/re2 install: }
+.../.pnpm/re2@1.19.0/node_modules/re2 install: Node.js v21.6.2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: > re2@1.19.0 rebuild
+.../.pnpm/re2@1.19.0/node_modules/re2 install: > node-gyp rebuild
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info it worked if it ends with ok
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info using node-gyp@9.3.1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info using node@21.6.2 | linux | x64
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn /usr/bin/python3
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args [
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/gyp/gyp_main.py',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'binding.gyp',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-f',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'make',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build/config.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/addon.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-I',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dvisibility=default',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_gyp_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Dnode_engine=v8',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--depth=.',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--no-parallel',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '--generator-output',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   'build',
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args   '-Goutput_dir=.'
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args ]
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn make
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: Entering directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build'
+.../.pnpm/re2@1.19.0/node_modules/re2 install:   CXX(target) Release/obj.target/re2/lib/addon.o
+.../.pnpm/re2@1.19.0/node_modules/re2 install: In file included from /home/node/.cache/node-gyp/21.6.2/include/node/v8-array-buffer.h:12,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/v8.h:24,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from /home/node/.cache/node-gyp/21.6.2/include/node/node.h:73,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../../../../nan@2.17.0/node_modules/nan/nan.h:60,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../lib/./wrapped_re2.h:4,
+.../.pnpm/re2@1.19.0/node_modules/re2 install:                  from ../lib/addon.cc:1:
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h: In instantiation of 'v8::Local<T>::Local(v8::Local<S>) [with S = v8::Data; T = v8::Value]':
+.../.pnpm/re2@1.19.0/node_modules/re2 install: ../../../../nan@2.17.0/node_modules/nan/nan_callbacks_12_inl.h:175:53:   required from here
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: error: static assertion failed: type check
+.../.pnpm/re2@1.19.0/node_modules/re2 install:   253 |     static_assert(std::is_base_of<T, S>::value, "type check");
+.../.pnpm/re2@1.19.0/node_modules/re2 install:       |                                          ^~~~~
+.../.pnpm/re2@1.19.0/node_modules/re2 install: /home/node/.cache/node-gyp/21.6.2/include/node/v8-local-handle.h:253:42: note: 'std::integral_constant<bool, false>::value' evaluates to false
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: *** [re2.target.mk:168: Release/obj.target/re2/lib/addon.o] Error 1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: make: Leaving directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2/build'
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! build error 
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack Error: `make` failed with exit code: 2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess.onExit (/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/lib/build.js:203:23)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess.emit (node:events:519:28)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! stack     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! System Linux 6.4.16-linuxkit
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! command "/usr/local/bin/node" "/tmp/twcr-3a4b36402932/node_modules/.pnpm/node-gyp@9.3.1/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! cwd /tmp/twcr-3a4b36402932/node_modules/.pnpm/re2@1.19.0/node_modules/re2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! node -v v21.6.2
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! node-gyp -v v9.3.1
+.../.pnpm/re2@1.19.0/node_modules/re2 install: gyp ERR! not ok 
+.../.pnpm/re2@1.19.0/node_modules/re2 install: Failed
+.../node_modules/better-sqlite3 install: rm -f Release/obj.target/deps/sqlite3.a Release/obj.target/deps/sqlite3.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/sqlite3.a`
+.../node_modules/better-sqlite3 install: ar crs Release/obj.target/deps/sqlite3.a @Release/obj.target/deps/sqlite3.a.ar-file-list
+.../node_modules/better-sqlite3 install:   COPY Release/sqlite3.a
+.../node_modules/better-sqlite3 install:   CXX(target) Release/obj.target/better_sqlite3/src/better_sqlite3.o
+.../node_modules/better-sqlite3 install: In file included from ./src/better_sqlite3.lzz:11,
+.../node_modules/better-sqlite3 install:                  from ../src/better_sqlite3.cpp:4:
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1222:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>)' to 'node::addon_context_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>, void*)'} [-Wcast-function-type]
+.../node_modules/better-sqlite3 install:  1222 |       (node::addon_context_register_func) (regfunc),                  \
+.../node_modules/better-sqlite3 install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1240:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE_X'
+.../node_modules/better-sqlite3 install:  1240 |   NODE_MODULE_CONTEXT_AWARE_X(modname, regfunc, NULL, 0)
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1271:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE'
+.../node_modules/better-sqlite3 install:  1271 |   NODE_MODULE_CONTEXT_AWARE(NODE_GYP_MODULE_NAME,                     \
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: ./src/better_sqlite3.lzz:67:1: note: in expansion of macro 'NODE_MODULE_INIT'
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz: In static member function 'static void Database::JS_new(const v8::FunctionCallbackInfo<v8::Value>&)':
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz:180:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_stmt*, int, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:92: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:197: note: here
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_value*, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:81: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:175: note: here
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   COPY Release/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/test_extension/deps/test_extension.o
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/test_extension.node
+.../node_modules/better-sqlite3 install:   COPY Release/test_extension.node
+.../node_modules/better-sqlite3 install: rm ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install: make: Leaving directory '/tmp/twcr-3a4b36402932/node_modules/.pnpm/better-sqlite3@8.4.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install: gyp info ok 
+.../node_modules/better-sqlite3 install: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/workerd postinstall$ node install.js
+.../node_modules/@netlify/esbuild postinstall$ node install.js
+.../node_modules/@netlify/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../node_modules/workerd postinstall: /tmp/twcr-3a4b36402932/node_modules/.pnpm/workerd@1.20230518.0/node_modules/workerd/bin/workerd: error while loading shared libraries: libc++.so.1: cannot open shared object file: No such file or directory
+.../node_modules/workerd postinstall: [workerd] Failed to validate workerd binary
+.../node_modules/workerd postinstall: Local development will not work. This usually means you're on an unsupported
+.../node_modules/workerd postinstall: operating system, or missing some shared libraries. On Debian-based systems,
+.../node_modules/workerd postinstall: make sure you've installed the `libc++1` package.
+.../node_modules/workerd postinstall: Done
+.../node_modules/@netlify/esbuild postinstall: Done
+.../node_modules/@netlify/esbuild postinstall: Done
+.../node_modules/netlify-cli postinstall$ node ./scripts/postinstall.mjs
+.../node_modules/netlify-cli postinstall: (node:3203) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/netlify-cli postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/netlify-cli postinstall: Success! Netlify CLI has been installed!
+.../node_modules/netlify-cli postinstall: Your device is now configured to use Netlify CLI to deploy and manage your Netlify sites.
+.../node_modules/netlify-cli postinstall: Next steps:
+.../node_modules/netlify-cli postinstall:   netlify init     Connect or create a Netlify site from current directory
+.../node_modules/netlify-cli postinstall:   netlify deploy   Deploy the latest changes to your Netlify site
+.../node_modules/netlify-cli postinstall: For more information on the CLI run netlify help
+.../node_modules/netlify-cli postinstall: Or visit the docs at https://cli.netlify.com
+.../node_modules/netlify-cli postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/@nestjs+microservices@10.0.0_@nestjs+common@10.0.0_@nestjs+core@10.0.0_@nestjs+websockets@10._nsnk5tgqzkmw2qfsbes2xxl4wa/node_modules/@nestjs/microservices/node_modules/.bin/mqtt. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/mqtt.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/@nestjs+microservices@10.0.0_@nestjs+common@10.0.0_@nestjs+core@10.0.0_@nestjs+websockets@10._nsnk5tgqzkmw2qfsbes2xxl4wa/node_modules/@nestjs/microservices/node_modules/.bin/mqtt_pub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/pub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/@nestjs+microservices@10.0.0_@nestjs+common@10.0.0_@nestjs+core@10.0.0_@nestjs+websockets@10._nsnk5tgqzkmw2qfsbes2xxl4wa/node_modules/@nestjs/microservices/node_modules/.bin/mqtt_sub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/sub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/node_modules/.bin/mqtt. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/mqtt.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/node_modules/.bin/mqtt_pub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/pub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/node_modules/.bin/mqtt_sub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/sub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/mqtt.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt_pub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/pub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt_sub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/node_modules/.pnpm/mqtt@5.0.0/node_modules/mqtt/build/bin/sub.js'
+.. postinstall$ husky install
+.. postinstall: husky - Git hooks installed
+.. postinstall: Done
+../packages/graphql-yoga postinstall$ node node_modules/puppeteer/install.js
+../packages/graphql-yoga postinstall: **INFO** Skipping browser download as instructed.
+../packages/graphql-yoga postinstall: Done
+../examples/hackernews postinstall$ prisma generate
+../examples/subscriptions postinstall$ pnpm run codegen
+../examples/sveltekit postinstall$ cd ./node_modules/puppeteer && npm install
+../examples/hackernews postinstall: Prisma schema loaded from prisma/schema.prisma
+../examples/subscriptions postinstall: > example-subscriptions@0.13.6 codegen /tmp/twcr-3a4b36402932/examples/subscriptions
+../examples/subscriptions postinstall: > graphql-codegen --config codegen.yml
+../examples/sveltekit postinstall: > puppeteer@19.6.0 postinstall
+../examples/sveltekit postinstall: > node install.js
+../examples/hackernews postinstall: ✔ Generated Prisma Client (4.15.0 | library) to ./../../node_modules/.pnpm/@prisma+client@4.15.0_prisma@4.15.0/node_modules/@prisma/client in 92ms
+../examples/hackernews postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+../examples/hackernews postinstall: ```
+../examples/hackernews postinstall: import { PrismaClient } from '@prisma/client'
+../examples/hackernews postinstall: const prisma = new PrismaClient()
+../examples/hackernews postinstall: ```
+../examples/hackernews postinstall: Done
+../examples/sveltekit postinstall: **INFO** Skipping browser download as instructed.
+../examples/sveltekit postinstall: up to date, audited 77 packages in 820ms
+../examples/sveltekit postinstall: 9 packages are looking for funding
+../examples/sveltekit postinstall:   run `npm fund` for details
+../examples/sveltekit postinstall: found 0 vulnerabilities
+../examples/sveltekit postinstall: Done
+../examples/subscriptions postinstall: (node:3321) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../examples/subscriptions postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../examples/subscriptions postinstall: [STARTED] Parse Configuration
+../examples/subscriptions postinstall: [SUCCESS] Parse Configuration
+../examples/subscriptions postinstall: [STARTED] Generate outputs
+../examples/subscriptions postinstall: [STARTED] Generate to ./src/generated/graphql.ts
+../examples/subscriptions postinstall: [STARTED] Load GraphQL schemas
+../examples/subscriptions postinstall: [SUCCESS] Load GraphQL schemas
+../examples/subscriptions postinstall: [STARTED] Load GraphQL documents
+../examples/subscriptions postinstall: [SUCCESS] Load GraphQL documents
+../examples/subscriptions postinstall: [STARTED] Generate
+../examples/subscriptions postinstall: [SUCCESS] Generate
+../examples/subscriptions postinstall: [SUCCESS] Generate to ./src/generated/graphql.ts
+../examples/subscriptions postinstall: [SUCCESS] Generate outputs
+../examples/subscriptions postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/mqtt/build/bin/mqtt.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt_pub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/mqtt/build/bin/pub.js'
+ WARN  Failed to create bin at /tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/.bin/mqtt_sub. ENOENT: no such file or directory, open '/tmp/twcr-3a4b36402932/examples/nestjs-apollo-federation-compatibility/node_modules/mqtt/build/bin/sub.js'
+
+dependencies:
++ @theguild/components 5.2.5
++ clsx 2.0.0
++ graphql 16.6.0 (16.8.1 is available)
++ next 13.4.12
++ next-sitemap 4.2.3
++ nextra 2.13.2
++ react 18.2.0
++ react-dom 18.2.0
++ react-icons 4.9.0
+
+devDependencies:
++ @theguild/algolia 1.1.9
++ @theguild/tailwind-config 0.3.0
++ @types/node 18.16.16 (20.11.24 is available)
++ @types/react 18.2.8
++ cross-env 7.0.3
++ fast-xml-parser 4.2.4
++ tsx 3.12.7
++ typescript 5.1.6 (5.3.3 is available)
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ @theguild/prettier-config 2.0.1
+  └─┬ @ianvs/prettier-plugin-sort-imports 4.0.2
+    └── ✕ unmet peer prettier@2.x: found 3.0.0
+
+e2e
+└─┬ @pulumi/aws 5.41.0
+  └─┬ @pulumi/pulumi 3.69.0
+    ├─┬ @opentelemetry/exporter-zipkin 1.7.0
+    │ ├─┬ @opentelemetry/core 1.7.0
+    │ │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+    │ ├─┬ @opentelemetry/resources 1.7.0
+    │ │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+    │ └─┬ @opentelemetry/sdk-trace-base 1.7.0
+    │   └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+    └─┬ @opentelemetry/sdk-trace-node 1.7.0
+      ├── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+      ├─┬ @opentelemetry/context-async-hooks 1.7.0
+      │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+      ├─┬ @opentelemetry/propagator-b3 1.7.0
+      │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+      └─┬ @opentelemetry/propagator-jaeger 1.7.0
+        └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.3.0": found 1.4.1 in @pulumi/pulumi
+
+examples/apollo-federation/gateway
+└─┬ @envelop/apollo-federation 5.0.0
+  └── ✕ unmet peer @apollo/gateway@^0.54.0: found 2.4.7
+
+examples/aws-lambda
+├─┬ @aws-cdk/assert 2.68.0
+│ └── ✕ unmet peer constructs@^10.0.0: found 3.4.311
+└─┬ aws-cdk-lib 2.83.0
+  └── ✕ unmet peer constructs@^10.0.0: found 3.4.311
+
+examples/nestjs-apollo-federation-compatibility
+└─┬ @nestjs/graphql 12.0.0
+  ├── ✕ unmet peer ts-morph@"^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0": found 20.0.0
+  └─┬ @nestjs/mapped-types 1.2.2
+    └── ✕ unmet peer @nestjs/common@"^7.0.8 || ^8.0.0 || ^9.0.0": found 10.0.0
+
+examples/sveltekit
+├─┬ @sveltejs/kit 1.0.0-next.520
+│ ├── ✕ unmet peer svelte@^3.44.0: found 4.0.1
+│ ├── ✕ unmet peer vite@^3.1.0: found 4.3.9
+│ └─┬ @sveltejs/vite-plugin-svelte 1.0.9
+│   ├── ✕ unmet peer svelte@^3.44.0: found 4.0.1
+│   └── ✕ unmet peer vite@^3.0.0: found 4.3.9
+└─┬ eslint-plugin-svelte3 4.0.0
+  └── ✕ unmet peer svelte@^3.2.0: found 4.0.1
+
+packages/graphiql
+└─┬ @graphiql/plugin-explorer 0.1.4
+  ├─┬ @graphiql/react 0.13.3
+  │ ├─┬ @reach/combobox 0.17.0
+  │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ ├─┬ @reach/auto-id 0.17.0
+  │ │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ │ └─┬ @reach/utils 0.17.0
+  │ │ │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ ├─┬ @reach/descendants 0.17.0
+  │ │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ └─┬ @reach/popover 0.17.0
+  │ │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │   ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │   ├─┬ @reach/portal 0.17.0
+  │ │   │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │   │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │   └─┬ @reach/rect 0.17.0
+  │ │     ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │     └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ ├─┬ @reach/dialog 0.17.0
+  │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ ├─┬ @reach/listbox 0.17.0
+  │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ └─┬ @reach/machine 0.17.0
+  │ │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ ├─┬ @reach/menu-button 0.17.0
+  │ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ │ └─┬ @reach/dropdown 0.17.0
+  │ │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ └─┬ @reach/tooltip 0.17.0
+  │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │   ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │   └─┬ @reach/visually-hidden 0.17.0
+  │     ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │     └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  └─┬ graphiql-explorer 0.9.0
+    ├── ✕ unmet peer react@"^15.6.0 || ^16.0.0": found 18.2.0
+    └── ✕ unmet peer react-dom@"^15.6.0 || ^16.0.0": found 18.2.0
+
+packages/nestjs
+└─┬ @nestjs/graphql 12.0.0
+  └─┬ @nestjs/mapped-types 1.2.2
+    └── ✕ unmet peer @nestjs/common@"^7.0.8 || ^8.0.0 || ^9.0.0": found 10.0.0
+
+packages/nestjs-federation
+├─┬ @nestjs/graphql 12.0.0
+│ └─┬ @nestjs/mapped-types 1.2.2
+│   └── ✕ unmet peer @nestjs/common@"^7.0.8 || ^8.0.0 || ^9.0.0": found 10.0.0
+└─┬ @envelop/apollo-federation 5.0.0
+  └── ✕ unmet peer @apollo/gateway@^0.54.0: found 2.4.0
+
+Done in 2m 20.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module 'tailwindcss/resolveConfig.js'
+Require stack:
+- /tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:142:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-3a4b36402932/website/tailwind.config.exporter2.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

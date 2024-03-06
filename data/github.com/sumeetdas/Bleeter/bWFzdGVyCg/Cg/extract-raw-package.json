@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "dotnet tool restore",
+    "start": "dotnet fable watch App.fsproj --run webpack-dev-server",
+    "build": "npm run css && npm run format && npm run fsbuild",
+    "prodbuild": "npm run prodcss && npm run format && npm run fsbuild",
+    "fsbuild": "dotnet fable App.fsproj && webpack",
+    "css": "tailwindcss build -i src/style.css -o docs/style.css",
+    "prodcss": "tailwindcss build -i src/style.css -o docs/style.css --minify",
+    "format": "fantomas src -r"
+  },
+  "devDependencies": {
+    "@iconify/react": "^3.1.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

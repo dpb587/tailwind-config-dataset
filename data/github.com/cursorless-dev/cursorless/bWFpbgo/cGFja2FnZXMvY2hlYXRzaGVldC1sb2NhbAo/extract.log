@@ -1,0 +1,294 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/cursorless-dev/cursorless
++ reporef=main
++ repopath=./packages/cheatsheet-local
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/cursorless-dev/cursorless
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e85dadd305a8
+++ echo 'github.com/cursorless-dev/cursorless;main;./packages/cheatsheet-local'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/915358d716c9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr /+ _-
+++ tr -d =
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/cursorless-dev/cursorless/bWFpbgo/Li9wYWNrYWdlcy9jaGVhdHNoZWV0LWxvY2FsCg
++ jq -nc --arg key analysis_key --arg value github.com/cursorless-dev/cursorless/bWFpbgo/Li9wYWNrYWdlcy9jaGVhdHNoZWV0LWxvY2FsCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 45fbb6ee5067d89a
++ jq -nc --arg key analysis_nonce --arg value 45fbb6ee5067d89a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/cursorless-dev/cursorless
++ jq -nc --arg key input_repo_name --arg value github.com/cursorless-dev/cursorless '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/cheatsheet-local
++ jq -nc --arg key input_repo_path --arg value ./packages/cheatsheet-local '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T23:40:39Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T23:40:39Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e85dadd305a8
++ pushd /tmp/twcr-e85dadd305a8
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/cursorless-dev/cursorless.git .
+/tmp/twcr-e85dadd305a8 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T23:40:41Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T23:40:41Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f92f8890c3a21e6b74b470411de1c253236a2cc7
++ jq -nc --arg key exec_repo_commit_sha --arg value f92f8890c3a21e6b74b470411de1c253236a2cc7 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-28 12:19:33 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-28T12:19:33Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-28T12:19:33Z '{ key: $key, value: $value }'
++ '[' -z ./packages/cheatsheet-local ']'
++ pushd ./packages/cheatsheet-local
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-e85dadd305a8/packages/cheatsheet-local /tmp/twcr-e85dadd305a8 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e85dadd305a8/packages/cheatsheet-local
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/cheatsheet-local '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e85dadd305a8
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T23:40:41Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T23:40:41Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@cursorless/cheatsheet-local",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "description": "Thin wrapper around the cheatsheet for showing local cheatsheet",
+>>>   "main": "./out/index.js",
+>>>   "keywords": [],
+>>>   "author": "",
+>>>   "license": "MIT",
+>>>   "types": "./out/index.d.ts",
+>>>   "exports": {
+>>>     ".": {
+>>>       "cursorless:bundler": "./src/index.ts",
+>>>       "default": "./out/index.js"
+>>>     }
+>>>   },
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.3.5"
+>>>   },
+>>>   "postcss": {
+>>>     "plugins": {
+>>>       "tailwindcss": {},
+>>>       "autoprefixer": {}
+>>>     }
+>>>   },
+>>>   "type": "module"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/cheatsheet-local '!=' ./ ']'
++ rm -f /tmp/twcr-e85dadd305a8/package.json /tmp/twcr-e85dadd305a8/package-lock.json /tmp/twcr-e85dadd305a8/pnpm-lock.yaml /tmp/twcr-e85dadd305a8/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-e85dadd305a8 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-e85dadd305a8
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-e85dadd305a8/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 11 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 24, reused 0, downloaded 13, added 0
+../common                                |  WARN  deprecated sinon@11.1.2
+../..                                    | Progress: resolved 38, reused 0, downloaded 25, added 0
+../..                                    | Progress: resolved 53, reused 0, downloaded 42, added 0
+../..                                    | Progress: resolved 63, reused 0, downloaded 52, added 0
+../..                                    | Progress: resolved 69, reused 0, downloaded 61, added 0
+../..                                    | Progress: resolved 84, reused 0, downloaded 69, added 0
+../..                                    | Progress: resolved 91, reused 0, downloaded 84, added 0
+../..                                    | Progress: resolved 101, reused 0, downloaded 93, added 0
+../..                                    | Progress: resolved 114, reused 0, downloaded 101, added 0
+../..                                    | Progress: resolved 129, reused 0, downloaded 120, added 0
+../..                                    | Progress: resolved 158, reused 0, downloaded 141, added 0
+../..                                    | Progress: resolved 182, reused 0, downloaded 167, added 0
+../..                                    | Progress: resolved 206, reused 0, downloaded 191, added 0
+../..                                    | Progress: resolved 234, reused 0, downloaded 214, added 0
+../..                                    | Progress: resolved 253, reused 0, downloaded 237, added 0
+../..                                    | Progress: resolved 267, reused 0, downloaded 250, added 0
+../..                                    | Progress: resolved 293, reused 0, downloaded 264, added 0
+../..                                    | Progress: resolved 308, reused 0, downloaded 279, added 0
+../..                                    | Progress: resolved 321, reused 0, downloaded 290, added 0
+../..                                    | Progress: resolved 339, reused 0, downloaded 303, added 0
+../..                                    | Progress: resolved 354, reused 0, downloaded 328, added 0
+../..                                    | Progress: resolved 358, reused 0, downloaded 329, added 0
+../..                                    | Progress: resolved 367, reused 0, downloaded 337, added 0
+../..                                    | Progress: resolved 383, reused 0, downloaded 348, added 0
+../..                                    | Progress: resolved 411, reused 0, downloaded 361, added 0
+../..                                    | Progress: resolved 432, reused 0, downloaded 375, added 0
+../..                                    | Progress: resolved 456, reused 0, downloaded 396, added 0
+../..                                    | Progress: resolved 479, reused 0, downloaded 420, added 0
+../..                                    | Progress: resolved 507, reused 0, downloaded 441, added 0
+../..                                    | Progress: resolved 532, reused 0, downloaded 467, added 0
+../..                                    | Progress: resolved 560, reused 0, downloaded 498, added 0
+../..                                    | Progress: resolved 586, reused 0, downloaded 518, added 0
+../..                                    | Progress: resolved 609, reused 0, downloaded 545, added 0
+../..                                    | Progress: resolved 638, reused 0, downloaded 566, added 0
+../..                                    | Progress: resolved 661, reused 0, downloaded 592, added 0
+../..                                    | Progress: resolved 689, reused 0, downloaded 617, added 0
+../..                                    | Progress: resolved 714, reused 0, downloaded 639, added 0
+../..                                    | Progress: resolved 737, reused 0, downloaded 662, added 0
+../..                                    | Progress: resolved 757, reused 0, downloaded 680, added 0
+../..                                    | Progress: resolved 781, reused 0, downloaded 704, added 0
+../..                                    | Progress: resolved 803, reused 0, downloaded 725, added 0
+../..                                    | Progress: resolved 833, reused 0, downloaded 747, added 0
+../..                                    | Progress: resolved 862, reused 0, downloaded 776, added 0
+../..                                    | Progress: resolved 893, reused 0, downloaded 804, added 0
+../..                                    | Progress: resolved 918, reused 0, downloaded 833, added 0
+../..                                    | Progress: resolved 944, reused 0, downloaded 855, added 0
+../..                                    | Progress: resolved 974, reused 0, downloaded 882, added 0
+../..                                    | Progress: resolved 1004, reused 0, downloaded 909, added 0
+../..                                    | Progress: resolved 1018, reused 0, downloaded 923, added 0
+../..                                    | Progress: resolved 1047, reused 0, downloaded 951, added 0
+../..                                    | Progress: resolved 1075, reused 0, downloaded 978, added 0
+../..                                    | Progress: resolved 1104, reused 0, downloaded 1004, added 0
+../..                                    | Progress: resolved 1135, reused 0, downloaded 1033, added 0
+../..                                    | Progress: resolved 1156, reused 0, downloaded 1058, added 0
+../..                                    | Progress: resolved 1195, reused 0, downloaded 1085, added 0
+../..                                    | Progress: resolved 1215, reused 0, downloaded 1114, added 0
+../..                                    | Progress: resolved 1251, reused 0, downloaded 1141, added 0
+../..                                    | Progress: resolved 1278, reused 0, downloaded 1170, added 0
+../..                                    | Progress: resolved 1315, reused 0, downloaded 1202, added 0
+../..                                    | Progress: resolved 1350, reused 0, downloaded 1233, added 0
+../..                                    | Progress: resolved 1383, reused 0, downloaded 1264, added 0
+../..                                    | Progress: resolved 1405, reused 0, downloaded 1287, added 0
+../..                                    | Progress: resolved 1426, reused 0, downloaded 1308, added 0
+../..                                    | Progress: resolved 1455, reused 0, downloaded 1334, added 0
+../..                                    | Progress: resolved 1489, reused 0, downloaded 1365, added 0
+../..                                    | Progress: resolved 1524, reused 0, downloaded 1397, added 0
+../..                                    | Progress: resolved 1554, reused 0, downloaded 1431, added 0
+../..                                    | Progress: resolved 1583, reused 0, downloaded 1453, added 0
+../..                                    | Progress: resolved 1617, reused 0, downloaded 1484, added 0
+../..                                    | Progress: resolved 1644, reused 0, downloaded 1511, added 0
+ WARN  3 deprecated subdependencies found: abab@2.0.6, domexception@4.0.0, stable@0.1.8
+../..                                    | Progress: resolved 1648, reused 0, downloaded 1547, added 0
+../..                                    |    +1619 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1648, reused 0, downloaded 1562, added 738
+../..                                    | Progress: resolved 1648, reused 0, downloaded 1588, added 1585
+../..                                    | Progress: resolved 1648, reused 0, downloaded 1619, added 1619, done
+.../fontawesome-common-types postinstall$ node attribution.js
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../fontawesome-common-types postinstall: Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com
+.../fontawesome-common-types postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../fontawesome-common-types postinstall: Copyright 2023 Fonticons, Inc.
+.../fontawesome-common-types postinstall: Done
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../@fortawesome/free-solid-svg-icons postinstall$ node attribution.js
+.../@fortawesome/fontawesome-svg-core postinstall$ node attribution.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../@fortawesome/free-solid-svg-icons postinstall: Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com
+.../@fortawesome/free-solid-svg-icons postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/free-solid-svg-icons postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/free-solid-svg-icons postinstall: Done
+.../@fortawesome/fontawesome-svg-core postinstall: Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com
+.../@fortawesome/fontawesome-svg-core postinstall: License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+.../@fortawesome/fontawesome-svg-core postinstall: Copyright 2023 Fonticons, Inc.
+.../@fortawesome/fontawesome-svg-core postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+
+devDependencies:
++ tailwindcss 3.3.5 (3.4.1 is available)
+
+Done in 1m 22.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.5
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T23:42:07Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T23:42:07Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T23:42:07Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T23:42:07Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

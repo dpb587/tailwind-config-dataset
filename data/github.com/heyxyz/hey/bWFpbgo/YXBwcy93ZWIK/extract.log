@@ -1,0 +1,418 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/heyxyz/hey
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/heyxyz/hey
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-f9c9c8fb41b0
+++ echo 'github.com/heyxyz/hey;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1fea5dffac99
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/heyxyz/hey/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/heyxyz/hey/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2170c574de1ad102
++ jq -nc --arg key analysis_nonce --arg value 2170c574de1ad102 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/heyxyz/hey
++ jq -nc --arg key input_repo_name --arg value github.com/heyxyz/hey '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:46:25Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:46:25Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-f9c9c8fb41b0
++ pushd /tmp/twcr-f9c9c8fb41b0
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/heyxyz/hey.git .
+/tmp/twcr-f9c9c8fb41b0 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:46:27Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:46:27Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 038bac153c5caa16afe3b8fd93b4f969cb30c344
++ jq -nc --arg key exec_repo_commit_sha --arg value 038bac153c5caa16afe3b8fd93b4f969cb30c344 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 22:14:45 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-03T16:44:45Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-03T16:44:45Z '{ key: $key, value: $value }'
+/tmp/twcr-f9c9c8fb41b0/apps/web /tmp/twcr-f9c9c8fb41b0 /twcr
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f9c9c8fb41b0/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-f9c9c8fb41b0
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:46:27Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:46:27Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@hey/web",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "license": "AGPL-3.0",
+>>>   "dependencies": {
+>>>     "@hey/ui": "workspace:*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "@tailwindcss/aspect-ratio": "^0.4.2",
+>>>     "@tailwindcss/forms": "^0.5.6",
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-f9c9c8fb41b0/package.json /tmp/twcr-f9c9c8fb41b0/package-lock.json /tmp/twcr-f9c9c8fb41b0/pnpm-lock.yaml /tmp/twcr-f9c9c8fb41b0/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-f9c9c8fb41b0 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-f9c9c8fb41b0
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-f9c9c8fb41b0/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 13 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 24, reused 0, downloaded 16, added 0
+/tmp/twcr-f9c9c8fb41b0/apps/api:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for viem@^2.7.18
+
+This error happened while installing a direct dependency of /tmp/twcr-f9c9c8fb41b0/apps/api
+
+The latest release of viem is "2.7.16".
+
+Other releases are:
+  * main: 0.0.0-main.20240302T041436
+  * beta: 2.0.0-beta.16
+  * rc: 2.0.0-rc.4
+  * fix-recursive-decode: 0.0.0-fix-recursive-decode.20240109T102414
+
+If you need the full list of all 1500 published versions run "$ pnpm view viem versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:46:30Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:46:30Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 038bac1 chore: bump version
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-f9c9c8fb41b0 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-f9c9c8fb41b0
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-f9c9c8fb41b0/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-f9c9c8fb41b0/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":">=16.x <=20.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 14 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +2298 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2298, reused 22, downloaded 18, added 40
+../..                                    | Progress: resolved 2298, reused 22, downloaded 79, added 101
+../..                                    | Progress: resolved 2298, reused 22, downloaded 134, added 156
+../..                                    | Progress: resolved 2298, reused 22, downloaded 189, added 212
+../..                                    | Progress: resolved 2298, reused 22, downloaded 231, added 254
+../..                                    | Progress: resolved 2298, reused 22, downloaded 280, added 303
+../..                                    | Progress: resolved 2298, reused 22, downloaded 337, added 360
+../..                                    | Progress: resolved 2298, reused 22, downloaded 398, added 421
+../..                                    | Progress: resolved 2298, reused 22, downloaded 450, added 473
+../..                                    | Progress: resolved 2298, reused 22, downloaded 505, added 527
+../..                                    | Progress: resolved 2298, reused 22, downloaded 562, added 583
+../..                                    | Progress: resolved 2298, reused 22, downloaded 619, added 642
+../..                                    | Progress: resolved 2298, reused 22, downloaded 671, added 694
+../..                                    | Progress: resolved 2298, reused 22, downloaded 720, added 744
+../..                                    | Progress: resolved 2298, reused 22, downloaded 770, added 794
+../..                                    | Progress: resolved 2298, reused 22, downloaded 824, added 848
+../..                                    | Progress: resolved 2298, reused 22, downloaded 884, added 908
+../..                                    | Progress: resolved 2298, reused 22, downloaded 947, added 971
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1005, added 1029
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1052, added 1076
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1093, added 1116
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1117, added 1141
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1163, added 1187
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1226, added 1250
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1270, added 1293
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1308, added 1331
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1340, added 1364
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1380, added 1403
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1413, added 1437
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1460, added 1484
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1517, added 1541
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1578, added 1602
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1639, added 1664
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1702, added 1727
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1752, added 1776
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1800, added 1825
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1853, added 1878
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1906, added 1931
+../..                                    | Progress: resolved 2298, reused 22, downloaded 1954, added 1979
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2005, added 2030
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2066, added 2091
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2123, added 2148
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2184, added 2209
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2241, added 2266
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2270, added 2295
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2272, added 2297
+../..                                    | Progress: resolved 2298, reused 22, downloaded 2273, added 2298, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/bufferutil install$ node-gyp-build
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../node_modules/@prisma/engines postinstall: (node:167) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/utf-8-validate install: Done
+.../node_modules/secp256k1 install$ node-gyp-build || exit 0
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../node_modules/bufferutil install: Done
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../node_modules/secp256k1 install: Done
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/secp256k1 install$ node-gyp-build || exit 0
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/utf-8-validate install: Done
+.../node_modules/secp256k1 install: Done
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-f9c9c8fb41b0/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/bigint-buffer install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.20.1/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../esbuild@0.20.1/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+dependencies:
++ @apollo/client 3.9.5
++ @aws-sdk/client-s3 3.525.0
++ @aws-sdk/lib-storage 3.525.1
++ @headlessui/react 1.7.18
++ @heroicons/react 2.1.1
++ @hey/abis 0.0.0 <- ../../packages/abis
++ @hey/data 0.0.0 <- ../../packages/data
++ @hey/icons 0.0.0 <- ../../packages/icons
++ @hey/image-cropper 0.0.0 <- ../../packages/image-cropper
++ @hey/lens 0.0.0 <- ../../packages/lens
++ @hey/lib 0.0.0 <- ../../packages/lib
++ @hey/ui 0.0.0 <- ../../packages/ui
++ @lens-protocol/metadata 1.1.5
++ @lexical/code 0.13.1
++ @lexical/hashtag 0.13.1
++ @lexical/link 0.13.1
++ @lexical/markdown 0.13.1
++ @lexical/react 0.13.1
++ @lexical/utils 0.13.1
++ @livepeer/react 3.1.9
++ @radix-ui/react-hover-card 1.0.7
++ @tanstack/react-query 5.24.6
++ @thirdweb-dev/storage 2.0.10
++ @uidotdev/usehooks 2.4.1
++ alchemy-sdk 3.1.2
++ axios 1.6.7
++ browser-image-compression 2.0.2
++ chart.js 4.4.2
++ dotenv 16.4.5
++ esbuild 0.20.1
++ framer-motion 11.0.8
++ graphql 16.8.1
++ idb-keyval 6.2.1
++ lexical 0.13.1
++ next 14.1.1
++ next-themes 0.2.1
++ plur 5.1.0
++ plyr-react 5.3.0
++ rc-slider 10.5.0
++ react 18.2.0
++ react-chartjs-2 5.2.0
++ react-cool-inview 3.0.1
++ react-device-detect 2.2.3
++ react-dom 18.2.0
++ react-hot-toast 2.4.1
++ react-markdown 9.0.1
++ react-virtuoso 4.7.1
++ remark-breaks 4.0.0
++ remark-linkify-regex 1.2.1
++ shared-zustand 2.0.0
++ strip-markdown 6.0.0
++ urlcat 3.1.0
++ use-resize-observer 9.1.0
++ uuid 9.0.1
++ viem 2.7.18
++ wagmi 2.5.7
++ zod 3.22.4
++ zustand 4.5.2
+
+devDependencies:
++ @hey/config 0.0.0 <- ../../packages/config
++ @hey/types 0.0.0 <- ../../packages/types
++ @tailwindcss/aspect-ratio 0.4.2
++ @tailwindcss/forms 0.5.7
++ @types/node 20.11.24
++ @types/react 18.2.61
++ @types/react-dom 18.2.19
++ @types/uuid 9.0.8
++ autoprefixer 10.4.18
++ postcss 8.4.35
++ tailwindcss 3.4.1
++ typescript 5.3.3
+
+../.. prepare$ husky install
+../.. prepare: install command is deprecated
+../.. prepare: Done
+../api postinstall$ pnpm codegen
+../api postinstall: > @hey/api@0.0.0 codegen /tmp/twcr-f9c9c8fb41b0/apps/api
+../api postinstall: > prisma generate --schema ./src/db/schema.prisma > /dev/null
+../api postinstall: Done
+Done in 54.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T00:47:27Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T00:47:27Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T00:47:27Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T00:47:27Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

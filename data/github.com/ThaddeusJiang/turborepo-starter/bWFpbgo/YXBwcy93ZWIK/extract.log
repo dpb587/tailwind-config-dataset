@@ -1,0 +1,292 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/ThaddeusJiang/turborepo-starter
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/ThaddeusJiang/turborepo-starter
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-cfddeccb45e3
+++ echo 'github.com/ThaddeusJiang/turborepo-starter;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/434e8928432a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/ThaddeusJiang/turborepo-starter/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/ThaddeusJiang/turborepo-starter/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce cec934ab8d0a239c
++ jq -nc --arg key analysis_nonce --arg value cec934ab8d0a239c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/ThaddeusJiang/turborepo-starter
++ jq -nc --arg key input_repo_name --arg value github.com/ThaddeusJiang/turborepo-starter '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T08:18:56Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T08:18:56Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-cfddeccb45e3
++ pushd /tmp/twcr-cfddeccb45e3
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/ThaddeusJiang/turborepo-starter.git .
+/tmp/twcr-cfddeccb45e3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T08:18:57Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T08:18:57Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7068d353eb57175bd80e9a5f80c4691793acf85c
++ jq -nc --arg key exec_repo_commit_sha --arg value 7068d353eb57175bd80e9a5f80c4691793acf85c '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-02-25 15:20:53 +0900' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-02-25T06:20:53Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-02-25T06:20:53Z '{ key: $key, value: $value }'
+/tmp/twcr-cfddeccb45e3/apps/web /tmp/twcr-cfddeccb45e3 /twcr
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-cfddeccb45e3/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-cfddeccb45e3
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T08:18:57Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T08:18:57Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "web",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "daisyui": "^2.42.1",
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "msw": {
+>>>     "workerDirectory": "public"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-cfddeccb45e3/package.json /tmp/twcr-cfddeccb45e3/package-lock.json /tmp/twcr-cfddeccb45e3/pnpm-lock.yaml /tmp/twcr-cfddeccb45e3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-cfddeccb45e3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-cfddeccb45e3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3e5f883aa7f7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3e5f883aa7f7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3e5f883aa7f7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_3e5f883aa7f7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3e5f883aa7f7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3e5f883aa7f7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > daisyui@2.52.0" has unmet peer dependency "autoprefixer@^10.0.2".
+warning " > daisyui@2.52.0" has unmet peer dependency "postcss@^8.1.6".
+warning "daisyui > postcss-js@4.0.1" has unmet peer dependency "postcss@^8.4.21".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 6.89s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@thaddeusjiang/react-table'
+Require stack:
+- /tmp/twcr-cfddeccb45e3/apps/web/tailwind.config.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at Function._resolve [as resolve] (/tmp/twcr-cfddeccb45e3/apps/web/node_modules/jiti/dist/jiti.js:1:251148)
+    at /tmp/twcr-cfddeccb45e3/apps/web/tailwind.config.js:6:23
+    at evalModule (/tmp/twcr-cfddeccb45e3/apps/web/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-cfddeccb45e3/apps/web/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-cfddeccb45e3/apps/web/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-cfddeccb45e3/apps/web/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-cfddeccb45e3/apps/web/tailwind.config.exporter3.mjs:5:28
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-cfddeccb45e3/apps/web/tailwind.config.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T08:19:05Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T08:19:05Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
+Removing yarn.lock
++ git reset --hard
+HEAD is now at 7068d35 first commit
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-cfddeccb45e3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-cfddeccb45e3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3e5f883aa7f7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3e5f883aa7f7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3e5f883aa7f7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_3e5f883aa7f7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3e5f883aa7f7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3e5f883aa7f7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+(node:249) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[4/5] Linking dependencies...
+warning "eslint-config-custom > eslint-config-next@12.3.4" has unmet peer dependency "eslint@^7.23.0 || ^8.0.0".
+warning "eslint-config-custom > eslint-config-prettier@8.6.0" has unmet peer dependency "eslint@>=7.0.0".
+warning "eslint-config-custom > eslint-plugin-react@7.28.0" has unmet peer dependency "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8".
+warning "eslint-config-custom > eslint-config-next > @typescript-eslint/parser@5.53.0" has unmet peer dependency "eslint@^6.0.0 || ^7.0.0 || ^8.0.0".
+warning "eslint-config-custom > eslint-config-next > eslint-import-resolver-typescript@2.7.1" has unmet peer dependency "eslint@*".
+warning "eslint-config-custom > eslint-config-next > eslint-plugin-import@2.27.5" has unmet peer dependency "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8".
+warning "eslint-config-custom > eslint-config-next > eslint-plugin-jsx-a11y@6.7.1" has unmet peer dependency "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8".
+warning "eslint-config-custom > eslint-config-next > eslint-plugin-react@7.32.2" has unmet peer dependency "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8".
+warning "eslint-config-custom > eslint-config-next > eslint-plugin-react-hooks@4.6.0" has unmet peer dependency "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0".
+warning "eslint-config-custom > eslint-config-turbo@0.0.8" has unmet peer dependency "eslint@>6.6.0".
+warning "eslint-config-custom > eslint-config-turbo > eslint-plugin-turbo@0.0.8" has unmet peer dependency "eslint@>6.6.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/builder-vite@0.2.7" has unmet peer dependency "vite@>= 3.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/react@6.5.16" has unmet peer dependency "require-from-string@^2.0.2".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > babel-loader@8.3.0" has unmet peer dependency "webpack@>=2".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > jest-presets > ts-jest@26.5.6" has unmet peer dependency "jest@>=26 <27".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > jest-presets > ts-jest@26.5.6" has unmet peer dependency "typescript@>=3.8 <5.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > react-hot-toast > goober@2.1.12" has unmet peer dependency "csstype@^3.0.10".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/addon-actions > react-inspector@5.1.1" has incorrect peer dependency "react@^16.8.4 || ^17.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/addon-postcss > css-loader@3.6.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/addon-postcss > postcss-loader@4.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/addon-postcss > style-loader@1.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/builder-vite > @joshwooding/vite-plugin-react-docgen-typescript@0.0.5" has unmet peer dependency "vite@>2.0.0-0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/builder-vite > @vitejs/plugin-react@2.2.0" has unmet peer dependency "vite@^3.0.0".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/react > react-element-to-jsx-string@14.3.4" has incorrect peer dependency "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/react > react-element-to-jsx-string@14.3.4" has incorrect peer dependency "react-dom@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1".
+warning "workspace-aggregator-3a2b5e53-583b-45ec-a9e8-cc0966563f92 > web > @storybook/addon-essentials > @storybook/addon-docs > @mdx-js/react@1.6.22" has incorrect peer dependency "react@^16.13.1 || ^17.0.0".
+[5/5] Building fresh packages...
+Done in 156.81s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T08:21:44Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T08:21:44Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T08:21:44Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T08:21:44Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

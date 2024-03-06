@@ -1,0 +1,289 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/indielayer/ui
++ reporef=main
++ repopath=./packages/demo-vue
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/indielayer/ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-284452382521
+++ echo 'github.com/indielayer/ui;main;./packages/demo-vue'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/002e9a877337
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/indielayer/ui/bWFpbgo/Li9wYWNrYWdlcy9kZW1vLXZ1ZQo
++ jq -nc --arg key analysis_key --arg value github.com/indielayer/ui/bWFpbgo/Li9wYWNrYWdlcy9kZW1vLXZ1ZQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6abe4602820eb914
++ jq -nc --arg key analysis_nonce --arg value 6abe4602820eb914 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/indielayer/ui
++ jq -nc --arg key input_repo_name --arg value github.com/indielayer/ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/demo-vue
++ jq -nc --arg key input_repo_path --arg value ./packages/demo-vue '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:33:33Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:33:33Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-284452382521
+/tmp/twcr-284452382521 /twcr
++ pushd /tmp/twcr-284452382521
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/indielayer/ui.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:33:34Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:33:34Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 9a355903189eee89835af189bdb8e3fe848c015b
++ jq -nc --arg key exec_repo_commit_sha --arg value 9a355903189eee89835af189bdb8e3fe848c015b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-23 11:00:04 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-23T11:00:04Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-23T11:00:04Z '{ key: $key, value: $value }'
++ '[' -z ./packages/demo-vue ']'
++ pushd ./packages/demo-vue
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-284452382521/packages/demo-vue /tmp/twcr-284452382521 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-284452382521/packages/demo-vue
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/demo-vue '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-284452382521
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:33:34Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:33:34Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "demo-vue",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@indielayer/ui": "workspace:*",
+>>>     "tailwindcss": "^3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/demo-vue '!=' ./ ']'
++ rm -f /tmp/twcr-284452382521/package.json /tmp/twcr-284452382521/package-lock.json /tmp/twcr-284452382521/pnpm-lock.yaml /tmp/twcr-284452382521/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-284452382521 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-284452382521
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-284452382521/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 33, reused 0, downloaded 23, added 0
+../..                                    | Progress: resolved 50, reused 0, downloaded 39, added 0
+../..                                    | Progress: resolved 92, reused 0, downloaded 62, added 0
+../..                                    | Progress: resolved 127, reused 0, downloaded 98, added 0
+../..                                    | Progress: resolved 166, reused 0, downloaded 135, added 0
+../..                                    | Progress: resolved 205, reused 0, downloaded 169, added 0
+../..                                    | Progress: resolved 244, reused 0, downloaded 204, added 0
+../..                                    | Progress: resolved 279, reused 0, downloaded 238, added 0
+../..                                    | Progress: resolved 315, reused 0, downloaded 271, added 0
+../..                                    | Progress: resolved 357, reused 0, downloaded 307, added 0
+../..                                    | Progress: resolved 396, reused 0, downloaded 344, added 0
+../..                                    | Progress: resolved 430, reused 0, downloaded 377, added 0
+../..                                    | Progress: resolved 474, reused 0, downloaded 416, added 0
+../..                                    | Progress: resolved 506, reused 0, downloaded 452, added 0
+../..                                    | Progress: resolved 557, reused 0, downloaded 478, added 0
+../..                                    | Progress: resolved 589, reused 0, downloaded 508, added 0
+/tmp/twcr-284452382521/packages/demo-nuxt:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @unhead/schema@1.8.11
+
+This error happened while installing the dependencies of nuxt@3.10.3
+ at @unhead/ssr@1.8.11
+
+The latest release of @unhead/schema is "1.8.10".
+
+Other releases are:
+  * beta: 1.8.0-beta.15
+
+If you need the full list of all 150 published versions run "$ pnpm view @unhead/schema versions".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:33:52Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:33:52Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 9a35590 chore: release packages (#61)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-284452382521 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-284452382521
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-284452382521/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-284452382521/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +1440 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1440, reused 372, downloaded 15, added 394
+../..                                    | Progress: resolved 1440, reused 372, downloaded 84, added 464
+../..                                    | Progress: resolved 1440, reused 372, downloaded 142, added 523
+../..                                    | Progress: resolved 1440, reused 372, downloaded 198, added 584
+../..                                    | Progress: resolved 1440, reused 372, downloaded 260, added 648
+../..                                    | Progress: resolved 1440, reused 372, downloaded 311, added 699
+../..                                    | Progress: resolved 1440, reused 372, downloaded 353, added 744
+../..                                    | Progress: resolved 1440, reused 372, downloaded 404, added 795
+../..                                    | Progress: resolved 1440, reused 372, downloaded 467, added 857
+../..                                    | Progress: resolved 1440, reused 372, downloaded 529, added 923
+../..                                    | Progress: resolved 1440, reused 372, downloaded 589, added 988
+../..                                    | Progress: resolved 1440, reused 372, downloaded 636, added 1034
+../..                                    | Progress: resolved 1440, reused 372, downloaded 700, added 1099
+../..                                    | Progress: resolved 1440, reused 372, downloaded 755, added 1155
+../..                                    | Progress: resolved 1440, reused 372, downloaded 816, added 1218
+../..                                    | Progress: resolved 1440, reused 372, downloaded 885, added 1290
+../..                                    | Progress: resolved 1440, reused 372, downloaded 941, added 1346
+../..                                    | Progress: resolved 1440, reused 372, downloaded 1002, added 1410
+../..                                    | Progress: resolved 1440, reused 372, downloaded 1031, added 1439
+../..                                    | Progress: resolved 1440, reused 372, downloaded 1032, added 1439
+../..                                    | Progress: resolved 1440, reused 372, downloaded 1032, added 1440, done
+.../node_modules/simple-git-hooks postinstall$ node ./postinstall.js
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/simple-git-hooks postinstall: [INFO] Successfully set the pre-commit with command: npm exec lint-staged --concurrent false
+.../node_modules/simple-git-hooks postinstall: [INFO] Successfully set the commit-msg with command: npm exec tsx .scripts/verifyCommit.ts $1
+.../node_modules/simple-git-hooks postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.20.0/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.5/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.36/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.20.0/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.5/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.36/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+
+dependencies:
++ vue 3.3.9
+
+devDependencies:
++ @indielayer/ui 1.6.2 <- ../ui
++ @tsconfig/node18 18.2.2
++ @types/node 18.18.8
++ @vitejs/plugin-vue 4.4.0
++ @vitejs/plugin-vue-jsx 3.0.2
++ @vue/tsconfig 0.4.0
++ npm-run-all2 6.1.1
++ postcss 8.4.31
++ rollup-plugin-visualizer 5.9.2
++ tailwindcss 3.3.2
++ typescript 5.2.2
++ vite 4.5.0
++ vue-tsc 1.8.22
+
+../.. prepare$ is-ci || simple-git-hooks
+../.. prepare: [INFO] Successfully set the pre-commit with command: npm exec lint-staged --concurrent false
+../.. prepare: [INFO] Successfully set the commit-msg with command: npm exec tsx .scripts/verifyCommit.ts $1
+../.. prepare: [INFO] Successfully set all git hooks
+../.. prepare: Done
+Done in 24.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.2
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T01:34:19Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T01:34:19Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T01:34:19Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T01:34:19Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

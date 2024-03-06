@@ -1,0 +1,3429 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/umijs/umi
++ reporef=master
++ repopath=./packages/plugin-docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/umijs/umi
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-d534e1ac44fd
+++ echo 'github.com/umijs/umi;master;./packages/plugin-docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/ba0ad392779d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/umijs/umi/bWFzdGVyCg/Li9wYWNrYWdlcy9wbHVnaW4tZG9jcwo
++ jq -nc --arg key analysis_key --arg value github.com/umijs/umi/bWFzdGVyCg/Li9wYWNrYWdlcy9wbHVnaW4tZG9jcwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 348dab42c1afd30c
++ jq -nc --arg key analysis_nonce --arg value 348dab42c1afd30c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/umijs/umi
++ jq -nc --arg key input_repo_name --arg value github.com/umijs/umi '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/plugin-docs
++ jq -nc --arg key input_repo_path --arg value ./packages/plugin-docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:21:36Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:21:36Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-d534e1ac44fd
+/tmp/twcr-d534e1ac44fd /twcr
++ pushd /tmp/twcr-d534e1ac44fd
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/umijs/umi.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:21:40Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:21:40Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e3038c9214661940741408f6f4b4ff94919e6279
++ jq -nc --arg key exec_repo_commit_sha --arg value e3038c9214661940741408f6f4b4ff94919e6279 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-03 00:36:32 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T16:36:32Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T16:36:32Z '{ key: $key, value: $value }'
++ '[' -z ./packages/plugin-docs ']'
++ pushd ./packages/plugin-docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-d534e1ac44fd/packages/plugin-docs /tmp/twcr-d534e1ac44fd /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d534e1ac44fd/packages/plugin-docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/plugin-docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-d534e1ac44fd
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:21:40Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:21:40Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@umijs/plugin-docs",
+>>>   "version": "4.0.0-canary.20240229.1",
+>>>   "description": "@umijs/plugin-docs",
+>>>   "homepage": "https://github.com/umijs/umi/tree/master/packages/plugin-docs#readme",
+>>>   "bugs": "https://github.com/umijs/umi/issues",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/umijs/umi"
+>>>   },
+>>>   "license": "MIT",
+>>>   "main": "dist/index.js",
+>>>   "types": "dist/index.d.ts",
+>>>   "files": [
+>>>     "dist",
+>>>     "client",
+>>>     "compiled"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.4"
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "authors": [
+>>>     "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)"
+>>>   ],
+>>>   "compiledConfig": {
+>>>     "deps": [
+>>>       "@mdx-js/mdx",
+>>>       "rehype-slug",
+>>>       "remark-gfm",
+>>>       "rehype-autolink-headings"
+>>>     ],
+>>>     "externals": {},
+>>>     "excludeDtsDeps": [
+>>>       "@mdx-js/mdx",
+>>>       "rehype-slug",
+>>>       "remark-gfm",
+>>>       "rehype-autolink-headings"
+>>>     ]
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/plugin-docs '!=' ./ ']'
++ rm -f /tmp/twcr-d534e1ac44fd/package.json /tmp/twcr-d534e1ac44fd/package-lock.json /tmp/twcr-d534e1ac44fd/pnpm-lock.yaml /tmp/twcr-d534e1ac44fd/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-d534e1ac44fd /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-d534e1ac44fd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-d534e1ac44fd/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 106 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 22, reused 0, downloaded 10, added 0
+../../examples/ant-design-pro            |  WARN  deprecated querystring@0.2.1
+../..                                    | Progress: resolved 34, reused 0, downloaded 22, added 0
+../../examples/antd-pro-create           |  WARN  deprecated @types/history@5.0.0
+../../examples/antd-pro-create           |  WARN  deprecated @types/classnames@2.3.1
+../..                                    | Progress: resolved 42, reused 0, downloaded 32, added 0
+../../examples/antd-pro-create           |  WARN  deprecated start-server-and-test@1.15.5
+../..                                    | Progress: resolved 59, reused 0, downloaded 47, added 0
+../..                                    | Progress: resolved 74, reused 0, downloaded 59, added 0
+../..                                    | Progress: resolved 84, reused 0, downloaded 72, added 0
+../..                                    | Progress: resolved 101, reused 0, downloaded 83, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 98, added 0
+../..                                    | Progress: resolved 120, reused 0, downloaded 102, added 0
+../..                                    | Progress: resolved 131, reused 0, downloaded 114, added 0
+../..                                    | Progress: resolved 143, reused 0, downloaded 124, added 0
+../../examples/with-vanilla-extract      |  WARN  deprecated @vanilla-extract/babel-plugin@1.2.0
+../..                                    | Progress: resolved 159, reused 0, downloaded 141, added 0
+../..                                    | Progress: resolved 178, reused 0, downloaded 159, added 0
+../bundler-utils                         |  WARN  deprecated @types/babel__parser@7.1.1
+../..                                    | Progress: resolved 202, reused 0, downloaded 179, added 0
+../..                                    | Progress: resolved 226, reused 0, downloaded 204, added 0
+../..                                    | Progress: resolved 251, reused 0, downloaded 228, added 0
+../lint                                  |  WARN  deprecated @stylelint/postcss-css-in-js@0.38.0
+../..                                    | Progress: resolved 274, reused 0, downloaded 251, added 0
+../..                                    | Progress: resolved 294, reused 0, downloaded 270, added 0
+../preset-umi                            |  WARN  deprecated multer@1.4.4
+../..                                    | Progress: resolved 313, reused 0, downloaded 284, added 0
+../utils                                 |  WARN  deprecated @hapi/joi@17.1.1
+../..                                    | Progress: resolved 341, reused 0, downloaded 311, added 0
+../..                                    | Progress: resolved 368, reused 0, downloaded 339, added 0
+../..                                    | Progress: resolved 379, reused 0, downloaded 369, added 0
+../..                                    | Progress: resolved 405, reused 0, downloaded 397, added 0
+../..                                    | Progress: resolved 431, reused 0, downloaded 420, added 0
+../..                                    | Progress: resolved 453, reused 0, downloaded 443, added 0
+../..                                    | Progress: resolved 465, reused 0, downloaded 451, added 0
+../..                                    | Progress: resolved 481, reused 0, downloaded 464, added 0
+../..                                    | Progress: resolved 498, reused 0, downloaded 486, added 0
+../..                                    | Progress: resolved 523, reused 0, downloaded 505, added 0
+../..                                    | Progress: resolved 543, reused 0, downloaded 525, added 0
+../..                                    | Progress: resolved 569, reused 0, downloaded 548, added 0
+../..                                    | Progress: resolved 592, reused 0, downloaded 572, added 0
+../..                                    | Progress: resolved 619, reused 0, downloaded 592, added 0
+../..                                    | Progress: resolved 653, reused 0, downloaded 623, added 0
+../..                                    | Progress: resolved 688, reused 0, downloaded 656, added 0
+../..                                    | Progress: resolved 718, reused 0, downloaded 686, added 0
+../..                                    | Progress: resolved 761, reused 0, downloaded 731, added 0
+../..                                    | Progress: resolved 797, reused 0, downloaded 764, added 0
+../..                                    | Progress: resolved 840, reused 0, downloaded 781, added 0
+../..                                    | Progress: resolved 857, reused 0, downloaded 821, added 0
+../..                                    | Progress: resolved 895, reused 0, downloaded 854, added 0
+../..                                    | Progress: resolved 928, reused 0, downloaded 884, added 0
+../..                                    | Progress: resolved 959, reused 0, downloaded 912, added 0
+../..                                    | Progress: resolved 983, reused 0, downloaded 938, added 0
+../..                                    | Progress: resolved 1024, reused 0, downloaded 953, added 0
+../..                                    | Progress: resolved 1050, reused 0, downloaded 979, added 0
+../..                                    | Progress: resolved 1084, reused 0, downloaded 1008, added 0
+../..                                    | Progress: resolved 1111, reused 0, downloaded 1039, added 0
+../..                                    | Progress: resolved 1146, reused 0, downloaded 1067, added 0
+../..                                    | Progress: resolved 1169, reused 0, downloaded 1094, added 0
+../..                                    | Progress: resolved 1188, reused 0, downloaded 1108, added 0
+../..                                    | Progress: resolved 1221, reused 0, downloaded 1139, added 0
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1165, added 0
+../..                                    | Progress: resolved 1282, reused 0, downloaded 1195, added 0
+../..                                    | Progress: resolved 1311, reused 0, downloaded 1224, added 0
+../..                                    | Progress: resolved 1355, reused 0, downloaded 1254, added 0
+../..                                    | Progress: resolved 1382, reused 0, downloaded 1271, added 0
+../..                                    | Progress: resolved 1397, reused 0, downloaded 1292, added 0
+../..                                    | Progress: resolved 1420, reused 0, downloaded 1313, added 0
+../..                                    | Progress: resolved 1452, reused 0, downloaded 1340, added 0
+../..                                    | Progress: resolved 1474, reused 0, downloaded 1362, added 0
+../..                                    | Progress: resolved 1484, reused 0, downloaded 1377, added 0
+../..                                    | Progress: resolved 1518, reused 0, downloaded 1395, added 0
+../..                                    | Progress: resolved 1544, reused 0, downloaded 1424, added 0
+../..                                    | Progress: resolved 1582, reused 0, downloaded 1453, added 0
+../..                                    | Progress: resolved 1623, reused 0, downloaded 1488, added 0
+../..                                    | Progress: resolved 1650, reused 0, downloaded 1510, added 0
+../..                                    | Progress: resolved 1677, reused 0, downloaded 1539, added 0
+../..                                    | Progress: resolved 1703, reused 0, downloaded 1566, added 0
+../..                                    | Progress: resolved 1721, reused 0, downloaded 1575, added 0
+../..                                    | Progress: resolved 1738, reused 0, downloaded 1591, added 0
+../..                                    | Progress: resolved 1750, reused 0, downloaded 1612, added 0
+../..                                    | Progress: resolved 1774, reused 0, downloaded 1628, added 0
+../..                                    | Progress: resolved 1795, reused 0, downloaded 1652, added 0
+../..                                    | Progress: resolved 1829, reused 0, downloaded 1678, added 0
+../..                                    | Progress: resolved 1873, reused 0, downloaded 1717, added 0
+../..                                    | Progress: resolved 1903, reused 0, downloaded 1747, added 0
+../..                                    | Progress: resolved 1926, reused 0, downloaded 1768, added 0
+../..                                    | Progress: resolved 1958, reused 0, downloaded 1799, added 0
+../..                                    | Progress: resolved 1994, reused 0, downloaded 1832, added 0
+../..                                    | Progress: resolved 2022, reused 0, downloaded 1853, added 0
+../..                                    | Progress: resolved 2056, reused 0, downloaded 1893, added 0
+../..                                    | Progress: resolved 2091, reused 0, downloaded 1924, added 0
+../..                                    | Progress: resolved 2117, reused 0, downloaded 1955, added 0
+../..                                    | Progress: resolved 2157, reused 0, downloaded 1984, added 0
+../..                                    | Progress: resolved 2188, reused 0, downloaded 2016, added 0
+../..                                    | Progress: resolved 2218, reused 0, downloaded 2045, added 0
+../..                                    | Progress: resolved 2252, reused 0, downloaded 2077, added 0
+../..                                    | Progress: resolved 2286, reused 0, downloaded 2111, added 0
+../..                                    | Progress: resolved 2322, reused 0, downloaded 2138, added 0
+../..                                    | Progress: resolved 2349, reused 0, downloaded 2167, added 0
+../..                                    | Progress: resolved 2396, reused 0, downloaded 2206, added 0
+../..                                    | Progress: resolved 2419, reused 0, downloaded 2238, added 0
+../..                                    | Progress: resolved 2453, reused 0, downloaded 2266, added 0
+../..                                    | Progress: resolved 2486, reused 0, downloaded 2295, added 0
+../..                                    | Progress: resolved 2523, reused 0, downloaded 2323, added 0
+../..                                    | Progress: resolved 2564, reused 0, downloaded 2365, added 0
+../..                                    | Progress: resolved 2600, reused 0, downloaded 2399, added 0
+../..                                    | Progress: resolved 2618, reused 0, downloaded 2417, added 0
+../..                                    | Progress: resolved 2637, reused 0, downloaded 2434, added 0
+../..                                    | Progress: resolved 2659, reused 0, downloaded 2454, added 0
+../..                                    | Progress: resolved 2683, reused 0, downloaded 2480, added 0
+../..                                    | Progress: resolved 2728, reused 0, downloaded 2512, added 0
+../..                                    | Progress: resolved 2761, reused 0, downloaded 2552, added 0
+../..                                    | Progress: resolved 2802, reused 0, downloaded 2587, added 0
+../..                                    | Progress: resolved 2836, reused 0, downloaded 2612, added 0
+../..                                    | Progress: resolved 2867, reused 0, downloaded 2653, added 0
+../..                                    | Progress: resolved 2901, reused 0, downloaded 2684, added 0
+../..                                    | Progress: resolved 2947, reused 0, downloaded 2704, added 0
+../..                                    | Progress: resolved 2990, reused 0, downloaded 2752, added 0
+../..                                    | Progress: resolved 3022, reused 0, downloaded 2771, added 0
+../..                                    | Progress: resolved 3074, reused 0, downloaded 2809, added 0
+../..                                    | Progress: resolved 3120, reused 0, downloaded 2851, added 0
+../..                                    | Progress: resolved 3156, reused 0, downloaded 2888, added 0
+../..                                    | Progress: resolved 3185, reused 0, downloaded 2917, added 0
+../..                                    | Progress: resolved 3205, reused 0, downloaded 2931, added 0
+../..                                    | Progress: resolved 3238, reused 0, downloaded 2959, added 0
+../..                                    | Progress: resolved 3273, reused 0, downloaded 2995, added 0
+../..                                    | Progress: resolved 3330, reused 0, downloaded 3024, added 0
+../..                                    | Progress: resolved 3355, reused 0, downloaded 3053, added 0
+../..                                    | Progress: resolved 3413, reused 0, downloaded 3084, added 0
+../..                                    | Progress: resolved 3450, reused 0, downloaded 3110, added 0
+../..                                    | Progress: resolved 3477, reused 0, downloaded 3140, added 0
+../..                                    | Progress: resolved 3504, reused 0, downloaded 3162, added 0
+../..                                    | Progress: resolved 3538, reused 0, downloaded 3193, added 0
+../..                                    | Progress: resolved 3571, reused 0, downloaded 3216, added 0
+../..                                    | Progress: resolved 3604, reused 0, downloaded 3248, added 0
+../..                                    | Progress: resolved 3643, reused 0, downloaded 3286, added 0
+../..                                    | Progress: resolved 3677, reused 0, downloaded 3324, added 0
+../..                                    | Progress: resolved 3703, reused 0, downloaded 3359, added 0
+../..                                    | Progress: resolved 3733, reused 0, downloaded 3395, added 0
+ WARN  56 deprecated subdependencies found: @babel/plugin-proposal-async-generator-functions@7.2.0, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-class-properties@7.4.4, @babel/plugin-proposal-export-namespace-from@7.2.0, @babel/plugin-proposal-json-strings@7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@7.4.4, @babel/plugin-proposal-object-rest-spread@7.20.7, @babel/plugin-proposal-object-rest-spread@7.4.4, @babel/plugin-proposal-optional-catch-binding@7.2.0, @babel/plugin-proposal-optional-chaining@7.2.0, @babel/plugin-proposal-unicode-property-regex@7.18.6, @codemirror/closebrackets@0.19.2, @codemirror/comment@0.19.1, @codemirror/gutter@0.19.9, @codemirror/highlight@0.19.8, @codemirror/history@0.19.2, @codemirror/matchbrackets@0.19.4, @codemirror/panel@0.19.1, @codemirror/rangeset@0.19.9, @codemirror/text@0.19.6, @codemirror/tooltip@0.19.16, @floating-ui/react-dom-interactions@0.3.1, @formatjs/intl-unified-numberformat@3.3.7, @formatjs/intl-utils@2.3.0, @hapi/address@4.1.0, @hapi/formula@2.0.0, @stylelint/postcss-css-in-js@0.37.3, @stylelint/postcss-markdown@0.36.2, abab@2.0.6, axios@0.18.1, core-js@1.2.7, core-js@2.6.12, core-js@3.22.4, date-format@0.0.0, domexception@4.0.0, flatten@1.0.3, har-validator@5.1.5, intl-messageformat-parser@3.6.4, json-schema-ref-parser@9.0.9, log4js@1.1.1, node-fetch-npm@2.0.4, ohmyfetch@0.4.21, react-native-swipeout@2.3.6, request@2.88.2, resolve-url@0.2.1, sane@4.1.0, shortid@2.2.16, socks@1.1.10, source-map-resolve@0.5.3, source-map-resolve@0.6.0, source-map-url@0.4.1, sourcemap-codec@1.4.8, stable@0.1.8, streamroller@0.4.1, urix@0.1.0, uuid@3.4.0
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3436, added 0
+../..                                    |    +3750 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3447, added 0
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3469, added 231
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3470, added 1064
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3470, added 1820
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3470, added 2434
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3470, added 3242
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3495, added 3643
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3536, added 3683
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3586, added 3737
+../..                                    | Progress: resolved 3751, reused 0, downloaded 3599, added 3750, done
+.../core-js@3.34.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@antv/l7-react postinstall$ node -e "try{require('./postinstall')}catch(e){}" || exit 0
+.../core-js@2.6.12/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/puppeteer-core install$ node install.js
+.../node_modules/@antv/l7-react postinstall: [31m---------------------------------------------------------------------------------------
+.../node_modules/@antv/l7-react postinstall: [31m---------------------------------------------------------------------------------------
+.../node_modules/@antv/l7-react postinstall: [0mThank you for installing [35m@antv/l7-react[0m: built from [32mhttps://github.com/antvis/L7-react
+.../node_modules/@antv/l7-react postinstall: [31m L7-React 全面升级为 LarkMap[32m (https://github.com/antvis/LarkMap)[31m, [31mL7-React 已经停止维护! 请手动升级。
+.../node_modules/@antv/l7-react postinstall: [0m[96mLarkMap 新一代 React 地图可视分析组件库，提供易用/丰富/易用/专业的可视化组件，一站式满足可视化需求。了解更多:
+.../node_modules/@antv/l7-react postinstall: [0m> [32mhttps://larkmap.antv.antgroup.com/guide[0m
+.../node_modules/@antv/l7-react postinstall: [31m---------------------------------------------------------------------------------------
+.../node_modules/@antv/l7-react postinstall: [31m---------------------------------------------------------------------------------------
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.34.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.34.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.34.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.34.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.34.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.34.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.34.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/@antv/l7-react postinstall: Done
+.../core-js@3.34.0/node_modules/core-js postinstall: Done
+.../node_modules/core-js-pure postinstall: Done
+.../core-js@2.6.12/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@2.6.12/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@2.6.12/node_modules/core-js postinstall: > https://www.patreon.com/zloirock 
+.../core-js@2.6.12/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@2.6.12/node_modules/core-js postinstall: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/puppeteer-core install: Done
+.../core-js@3.22.4/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../core-js@3.22.4/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.22.4/node_modules/core-js postinstall: The project needs your help! Please consider supporting of core-js:
+.../core-js@3.22.4/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.22.4/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.22.4/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.22.4/node_modules/core-js postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../core-js@3.22.4/node_modules/core-js postinstall: Done
+.../swiper@8.4.7/node_modules/swiper postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../esbuild@0.11.23/node_modules/esbuild postinstall$ node install.js
+.../node_modules/vue-demi postinstall$ node -e "try{require('./scripts/postinstall.js')}catch(e){}"
+.../swiper@8.4.7/node_modules/swiper postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../esbuild@0.11.23/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.14.36/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.36/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../cypress@12.17.4/node_modules/cypress postinstall$ node index.js --exec install
+.../cypress@12.17.4/node_modules/cypress postinstall: (node:309) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@12.17.4/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@12.17.4/node_modules/cypress postinstall: Installing Cypress (version: 12.17.4)
+.../cypress@12.17.4/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 10s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      2% 10s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 10s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 13s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 10s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 9s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      10% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      10% 9s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      13% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      15% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      17% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      21% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      23% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      26% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      28% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      30% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      31% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      33% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      34% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      35% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      36% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      37% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      40% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      41% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      42% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      44% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      45% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      47% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      48% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      51% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      52% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      54% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      55% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      58% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      61% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      63% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      64% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      66% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      68% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      69% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      71% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      74% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      76% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      77% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      78% 2s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      81% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      83% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      84% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      86% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      87% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      89% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      90% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      91% 1s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      94% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      95% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      97% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      98% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      99% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      100% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@12.17.4/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@12.17.4/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 24s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 25s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 26s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 27s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 14s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 15s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 10s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 11s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 9s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 8s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 7s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 6s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 3s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 4s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 5s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@12.17.4/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@12.17.4/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@12.17.4/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/12.17.4
+.../cypress@12.17.4/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/12.17.4
+.../cypress@12.17.4/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@12.17.4/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@12.17.4/node_modules/cypress postinstall: Done
+.../node_modules/@umijs/bundler-vite postinstall$ node scripts/linkDeps.js
+.../node_modules/@umijs/bundler-vite postinstall: Done
+../../docs prepare$ dumi setup
+../../docs prepare: info  - dumi v2.2.17
+../../docs prepare: info  - generate files
+../../docs prepare: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+docs
+├─┬ dumi 2.2.17
+│ ├── ✕ missing peer react@>=16.8
+│ ├── ✕ missing peer react-dom@>=16.8
+│ ├─┬ @makotot/ghostui 2.0.0
+│ │ └── ✕ missing peer react@>=16
+│ ├─┬ prism-react-renderer 1.3.5
+│ │ └── ✕ missing peer react@>=0.14.9
+│ ├─┬ rc-motion 2.9.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-util 5.38.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tabs 12.15.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-dropdown 4.1.0
+│ │ │ ├── ✕ missing peer react@>=16.11.0
+│ │ │ ├── ✕ missing peer react-dom@>=16.11.0
+│ │ │ └─┬ @rc-component/trigger 1.18.3
+│ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │   ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │   ├─┬ @rc-component/portal 1.1.2
+│ │ │   │ ├── ✕ missing peer react@>=16.9.0
+│ │ │   │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ │   └─┬ rc-resize-observer 1.4.0
+│ │ │     ├── ✕ missing peer react@>=16.9.0
+│ │ │     └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-menu 9.12.4
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   ├── ✕ missing peer react-dom@>=16.9.0
+│ │   └─┬ rc-overflow 1.3.2
+│ │     ├── ✕ missing peer react@>=16.9.0
+│ │     └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tree 5.8.5
+│ │ ├── ✕ missing peer react@"*"
+│ │ ├── ✕ missing peer react-dom@"*"
+│ │ └─┬ rc-virtual-list 3.11.4
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ react-copy-to-clipboard 5.1.0
+│ │ └── ✕ missing peer react@"^15.3.0 || 16 || 17 || 18"
+│ ├─┬ react-error-boundary 4.0.13
+│ │ └── ✕ missing peer react@>=16.13.1
+│ ├─┬ react-intl 6.6.2
+│ │ ├── ✕ missing peer react@"^16.6.0 || 17 || 18"
+│ │ ├── ✕ missing peer typescript@"^4.7 || 5"
+│ │ └─┬ @formatjs/intl 2.10.0
+│ │   └── ✕ missing peer typescript@"^4.7 || 5"
+│ ├─┬ umi 4.1.2
+│ │ ├─┬ @umijs/renderer-react 4.1.2
+│ │ │ ├── ✕ missing peer react@>=16.8
+│ │ │ ├── ✕ missing peer react-dom@>=16.8
+│ │ │ ├─┬ @loadable/component 5.15.2
+│ │ │ │ └── ✕ missing peer react@>=16.3.0
+│ │ │ ├─┬ react-helmet-async 1.3.0
+│ │ │ │ ├── ✕ missing peer react@"^16.6.0 || ^17.0.0 || ^18.0.0"
+│ │ │ │ └── ✕ missing peer react-dom@"^16.6.0 || ^17.0.0 || ^18.0.0"
+│ │ │ └─┬ react-router-dom 6.3.0
+│ │ │   ├── ✕ missing peer react@>=16.8
+│ │ │   ├── ✕ missing peer react-dom@>=16.8
+│ │ │   └─┬ react-router 6.3.0
+│ │ │     └── ✕ missing peer react@>=16.8
+│ │ ├─┬ @umijs/bundler-webpack 4.1.2
+│ │ │ ├─┬ @umijs/react-refresh-webpack-plugin 0.5.11
+│ │ │ │ └── ✕ missing peer webpack@">=4.43.0 <6.0.0"
+│ │ │ ├─┬ css-loader 6.7.1
+│ │ │ │ └── ✕ missing peer webpack@^5.0.0
+│ │ │ └─┬ fork-ts-checker-webpack-plugin 8.0.0
+│ │ │   ├── ✕ missing peer webpack@^5.11.0
+│ │ │   └── ✕ missing peer typescript@>3.6.0
+│ │ ├─┬ @umijs/preset-umi 4.1.2
+│ │ │ └─┬ html-webpack-plugin 5.5.0
+│ │ │   └── ✕ missing peer webpack@^5.20.0
+│ │ ├─┬ prettier-plugin-organize-imports 3.2.4
+│ │ │ ├── ✕ missing peer typescript@>=2.9
+│ │ │ └── ✕ missing peer prettier@>=2.0
+│ │ ├─┬ @umijs/lint 4.1.2
+│ │ │ ├─┬ @typescript-eslint/eslint-plugin 5.62.0
+│ │ │ │ ├── ✕ missing peer typescript@"*"
+│ │ │ │ ├── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│ │ │ │ └─┬ @typescript-eslint/type-utils 5.62.0
+│ │ │ │   ├── ✕ missing peer typescript@"*"
+│ │ │ │   ├── ✕ missing peer eslint@"*"
+│ │ │ │   ├─┬ @typescript-eslint/typescript-estree 5.62.0
+│ │ │ │   │ ├── ✕ missing peer typescript@"*"
+│ │ │ │   │ └─┬ tsutils 3.21.0
+│ │ │ │   │   └── ✕ missing peer typescript@">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
+│ │ │ │   └─┬ @typescript-eslint/utils 5.62.0
+│ │ │ │     ├── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│ │ │ │     └─┬ @eslint-community/eslint-utils 4.4.0
+│ │ │ │       └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0"
+│ │ │ ├─┬ @typescript-eslint/parser 5.62.0
+│ │ │ │ ├── ✕ missing peer typescript@"*"
+│ │ │ │ └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│ │ │ ├─┬ @babel/eslint-parser 7.23.3
+│ │ │ │ └── ✕ missing peer eslint@"^7.5.0 || ^8.0.0"
+│ │ │ ├─┬ eslint-plugin-jest 27.2.3
+│ │ │ │ └── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+│ │ │ ├─┬ eslint-plugin-react 7.33.2
+│ │ │ │ └── ✕ missing peer eslint@"^3 || ^4 || ^5 || ^6 || ^7 || ^8"
+│ │ │ ├─┬ eslint-plugin-react-hooks 4.6.0
+│ │ │ │ └── ✕ missing peer eslint@"^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0"
+│ │ │ └─┬ stylelint-config-standard 25.0.0
+│ │ │   ├── ✕ missing peer stylelint@^14.4.0
+│ │ │   └─┬ stylelint-config-recommended 7.0.0
+│ │ │     └── ✕ missing peer stylelint@^14.4.0
+│ │ ├─┬ prettier-plugin-packagejson 2.4.3
+│ │ │ └── ✕ missing peer prettier@">= 1.16.0"
+│ │ └─┬ @umijs/test 4.1.2
+│ │   ├─┬ @babel/plugin-transform-modules-commonjs 7.23.3
+│ │   │ ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │   │ └─┬ @babel/helper-module-transforms 7.23.3
+│ │   │   └── ✕ missing peer @babel/core@^7.0.0
+│ │   └─┬ babel-jest 29.7.0
+│ │     ├── ✕ missing peer @babel/core@^7.8.0
+│ │     └─┬ babel-preset-jest 29.6.3
+│ │       ├── ✕ missing peer @babel/core@^7.0.0
+│ │       └─┬ babel-preset-current-node-syntax 1.0.1
+│ │         ├── ✕ missing peer @babel/core@^7.0.0
+│ │         ├─┬ @babel/plugin-syntax-async-generators 7.8.4
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-bigint 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-class-properties 7.12.13
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-import-meta 7.10.4
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-json-strings 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-logical-assignment-operators 7.10.4
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-nullish-coalescing-operator 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-numeric-separator 7.10.4
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-object-rest-spread 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-optional-catch-binding 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         ├─┬ @babel/plugin-syntax-optional-chaining 7.8.3
+│ │         │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │         └─┬ @babel/plugin-syntax-top-level-await 7.14.5
+│ │           └── ✕ missing peer @babel/core@^7.0.0-0
+│ └─┬ raw-loader 4.0.2
+│   └── ✕ missing peer webpack@"^4.0.0 || ^5.0.0"
+└─┬ react-countup 6.5.0
+  └── ✕ missing peer react@">= 16.3.0"
+Peer dependencies that should be installed:
+  @babel/core@">=7.8.0 <8.0.0-0"
+  eslint@">=7.5.0 <8.0.0-0 || >=8.0.0 <9.0.0-0"
+  prettier@>=2.0.0
+  react-dom@">=16.11.0 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+  react@">=16.13.1 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+  stylelint@">=14.4.0 <15.0.0-0"
+  typescript@">=4.7.0 <5.0.0 || >=5.0.0 <6.0.0"
+  webpack@">=5.20.0 <6.0.0-0"
+
+examples/ant-design-pro
+├─┬ @ant-design/charts 1.4.3
+│ ├── ✕ missing peer react@>=16.8.4
+│ ├── ✕ missing peer react-dom@>=16.8.4
+│ ├─┬ @ant-design/flowchart 1.2.2
+│ │ ├── ✕ missing peer react@>=16.8.4
+│ │ ├── ✕ missing peer react-dom@>=16.8.4
+│ │ ├─┬ @antv/x6-react-components 1.1.20
+│ │ │ ├── ✕ missing peer react@">=16.8.6 || >=17.0.0"
+│ │ │ ├── ✕ missing peer react-dom@">=16.8.6 || >=17.0.0"
+│ │ │ ├─┬ rc-dropdown 3.6.2
+│ │ │ │ ├── ✕ missing peer react@>=16.11.0
+│ │ │ │ ├── ✕ missing peer react-dom@>=16.11.0
+│ │ │ │ └─┬ rc-trigger 5.3.4
+│ │ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │   ├─┬ rc-align 4.0.15
+│ │ │ │   │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │   │ └─┬ rc-util 5.38.2
+│ │ │ │   │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │   └─┬ rc-motion 2.9.0
+│ │ │ │     ├── ✕ missing peer react@>=16.9.0
+│ │ │ │     └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ ├─┬ react-color 2.17.1
+│ │ │ │ ├── ✕ missing peer react@"*"
+│ │ │ │ ├─┬ @icons/material 0.2.4
+│ │ │ │ │ └── ✕ missing peer react@"*"
+│ │ │ │ └─┬ reactcss 1.2.3
+│ │ │ │   └── ✕ missing peer react@"*"
+│ │ │ └─┬ react-resize-detector 7.1.2
+│ │ │   ├── ✕ missing peer react@"^16.0.0 || ^17.0.0 || ^18.0.0"
+│ │ │   └── ✕ missing peer react-dom@"^16.0.0 || ^17.0.0 || ^18.0.0"
+│ │ ├─┬ @antv/x6-react-shape 1.6.5
+│ │ │ ├── ✕ missing peer react@">=16.8.6 || >=17.0.0"
+│ │ │ └── ✕ missing peer react-dom@">=16.8.6 || >=17.0.0"
+│ │ ├─┬ @antv/xflow 1.1.52
+│ │ │ ├── ✕ missing peer react@"^16.8.0  || ^17.0.0"
+│ │ │ ├── ✕ missing peer react-dom@"^16.8.0  || ^17.0.0"
+│ │ │ ├─┬ @antv/xflow-core 1.1.52
+│ │ │ │ ├── ✕ missing peer react@"^16.8.0  || ^17.0.0"
+│ │ │ │ └── ✕ missing peer react-dom@"^16.8.0  || ^17.0.0"
+│ │ │ └─┬ @antv/xflow-extension 1.1.52
+│ │ │   ├── ✕ missing peer react@"^16.8.0  || ^17.0.0"
+│ │ │   ├── ✕ missing peer react-dom@"^16.8.0  || ^17.0.0"
+│ │ │   └─┬ rc-field-form 1.42.0
+│ │ │     ├── ✕ missing peer react@>=16.9.0
+│ │ │     └── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ react-color 2.17.3
+│ │ │ └── ✕ missing peer react@"*"
+│ │ └─┬ react-use 17.3.1
+│ │   ├── ✕ missing peer react@"^16.8.0  || ^17.0.0"
+│ │   ├── ✕ missing peer react-dom@"^16.8.0  || ^17.0.0"
+│ │   ├─┬ nano-css 5.6.1
+│ │   │ ├── ✕ missing peer react@"*"
+│ │   │ └── ✕ missing peer react-dom@"*"
+│ │   └─┬ react-universal-interface 0.6.2
+│ │     └── ✕ missing peer react@"*"
+│ ├─┬ @ant-design/graphs 1.4.1
+│ │ ├── ✕ missing peer react@>=16.8.4
+│ │ ├── ✕ missing peer react-dom@>=16.8.4
+│ │ └─┬ react-content-loader 5.1.4
+│ │   └── ✕ missing peer react@>=16.0.0
+│ ├─┬ @ant-design/maps 1.0.8
+│ │ ├── ✕ missing peer react@>=16.8.4
+│ │ └── ✕ missing peer react-dom@>=16.8.4
+│ └─┬ @ant-design/plots 1.2.6
+│   ├── ✕ missing peer react@>=16.8.4
+│   └── ✕ missing peer react-dom@>=16.8.4
+├─┬ @ant-design/icons 4.7.0
+│ ├── ✕ missing peer react@>=16.0.0
+│ └── ✕ missing peer react-dom@>=16.0.0
+├─┬ @ant-design/pro-components 2.6.49
+│ ├── ✕ missing peer react@>=17.0.0
+│ ├── ✕ missing peer react-dom@>=17.0.0
+│ ├─┬ @ant-design/pro-card 2.5.29
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/icons 5.3.1
+│ │ │ ├── ✕ missing peer react@>=16.0.0
+│ │ │ └── ✕ missing peer react-dom@>=16.0.0
+│ │ ├─┬ @ant-design/pro-provider 2.13.5
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ ├─┬ @ant-design/cssinjs 1.18.4
+│ │ │ │ ├── ✕ missing peer react@>=16.0.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.0.0
+│ │ │ └─┬ swr 2.0.4
+│ │ │   ├── ✕ missing peer react@"^16.11.0 || ^17.0.0 || ^18.0.0"
+│ │ │   └─┬ use-sync-external-store 1.2.0
+│ │ │     └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ ├─┬ @ant-design/pro-utils 2.15.4
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └── ✕ missing peer react-dom@>=17.0.0
+│ │ └─┬ rc-resize-observer 1.4.0
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/pro-descriptions 2.5.33
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/pro-field 2.14.6
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └─┬ @chenshuai2144/sketch-color 1.0.9
+│ │ │   └── ✕ missing peer react@>=16.12.0
+│ │ ├─┬ @ant-design/pro-form 2.24.4
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ ├── ✕ missing peer rc-field-form@^1.22.0
+│ │ │ └─┬ @umijs/use-params 1.0.9
+│ │ │   └── ✕ missing peer react@"*"
+│ │ ├─┬ @ant-design/pro-skeleton 2.1.10
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └── ✕ missing peer react-dom@>=17.0.0
+│ │ └─┬ rc-resize-observer 0.2.6
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/pro-layout 7.17.19
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ └── ✕ missing peer react-dom@>=17.0.0
+│ └─┬ @ant-design/pro-list 2.5.48
+│   ├── ✕ missing peer react@>=17.0.0
+│   ├── ✕ missing peer react-dom@>=17.0.0
+│   └─┬ @ant-design/pro-table 3.14.2
+│     ├── ✕ missing peer react@>=17.0.0
+│     ├── ✕ missing peer react-dom@>=17.0.0
+│     ├── ✕ missing peer rc-field-form@^1.22.0
+│     ├─┬ @dnd-kit/core 6.1.0
+│     │ ├── ✕ missing peer react@>=16.8.0
+│     │ ├── ✕ missing peer react-dom@>=16.8.0
+│     │ ├─┬ @dnd-kit/accessibility 3.1.0
+│     │ │ └── ✕ missing peer react@>=16.8.0
+│     │ └─┬ @dnd-kit/utilities 3.2.2
+│     │   └── ✕ missing peer react@>=16.8.0
+│     ├─┬ @dnd-kit/modifiers 6.0.1
+│     │ └── ✕ missing peer react@>=16.8.0
+│     └─┬ @dnd-kit/sortable 7.0.2
+│       └── ✕ missing peer react@>=16.8.0
+├─┬ @antv/l7-react 2.4.3
+│ ├── ✕ missing peer react@"^16.8.6 || ^17.0.2"
+│ ├── ✕ missing peer react-dom@"^16.8.6 || ^17.0.2"
+│ ├── ✕ missing peer @antv/l7@^2.11.0
+│ ├── ✕ missing peer mapbox-gl@^1.2.1
+│ └─┬ ahooks 2.10.14
+│   ├── ✕ missing peer react@"^16.8.6 || ^17.0"
+│   └─┬ @ahooksjs/use-request 2.8.15
+│     └── ✕ missing peer react@"^16.8.0 || ^17.0.0"
+├─┬ @testing-library/react 14.2.1
+│ ├── ✕ missing peer react@^18.0.0
+│ └── ✕ missing peer react-dom@^18.0.0
+├─┬ ahooks 3.7.10
+│ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+├─┬ antd 4.24.15
+│ ├── ✕ missing peer react@>=16.9.0
+│ ├── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/icons 4.8.1
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ @ant-design/react-slick 1.0.2
+│ │ └── ✕ missing peer react@>=16.9.0
+│ ├─┬ rc-cascader 3.7.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-select 14.1.18
+│ │ │ ├── ✕ missing peer react@"*"
+│ │ │ ├── ✕ missing peer react-dom@"*"
+│ │ │ ├─┬ rc-overflow 1.3.2
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ └─┬ rc-virtual-list 3.11.4
+│ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-tree 5.7.12
+│ │   ├── ✕ missing peer react@"*"
+│ │   └── ✕ missing peer react-dom@"*"
+│ ├─┬ rc-checkbox 3.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-collapse 3.4.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dialog 9.0.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ @rc-component/portal 1.1.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-drawer 6.3.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dropdown 4.0.1
+│ │ ├── ✕ missing peer react@>=16.11.0
+│ │ └── ✕ missing peer react-dom@>=16.11.0
+│ ├─┬ rc-field-form 1.38.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-image 5.13.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-input 0.1.4
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-input-number 7.3.11
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-mentions 1.13.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-menu 9.8.4
+│ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-textarea 0.4.7
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-notification 4.6.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-pagination 3.2.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-picker 2.7.6
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-progress 3.4.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-rate 2.9.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-segmented 2.1.2
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-slider 10.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-steps 5.0.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-switch 3.2.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-table 7.26.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tabs 12.5.10
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tooltip 5.2.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tree-select 5.5.5
+│ │ ├── ✕ missing peer react@"*"
+│ │ └── ✕ missing peer react-dom@"*"
+│ └─┬ rc-upload 4.3.6
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+├─┬ bizcharts 4.1.23
+│ ├─┬ react-error-boundary 3.0.2
+│ │ └── ✕ missing peer react@>=16.13.1
+│ ├─┬ react-reconciler 0.25.1
+│ │ └── ✕ missing peer react@^16.13.1
+│ ├─┬ @babel/plugin-transform-modules-commonjs 7.23.3
+│ │ ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │ └─┬ @babel/helper-module-transforms 7.23.3
+│ │   └── ✕ missing peer @babel/core@^7.0.0
+│ ├─┬ @babel/plugin-transform-runtime 7.23.6
+│ │ ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │ ├─┬ babel-plugin-polyfill-corejs2 0.4.8
+│ │ │ ├── ✕ missing peer @babel/core@"^7.4.0 || ^8.0.0-0 <8.0.0"
+│ │ │ └─┬ @babel/helper-define-polyfill-provider 0.5.0
+│ │ │   └── ✕ missing peer @babel/core@"^7.4.0 || ^8.0.0-0 <8.0.0"
+│ │ ├─┬ babel-plugin-polyfill-corejs3 0.8.7
+│ │ │ ├── ✕ missing peer @babel/core@"^7.4.0 || ^8.0.0-0 <8.0.0"
+│ │ │ └─┬ @babel/helper-define-polyfill-provider 0.4.4
+│ │ │   └── ✕ missing peer @babel/core@"^7.4.0 || ^8.0.0-0 <8.0.0"
+│ │ └─┬ babel-plugin-polyfill-regenerator 0.5.5
+│ │   └── ✕ missing peer @babel/core@"^7.4.0 || ^8.0.0-0 <8.0.0"
+│ └─┬ babel-plugin-transform-replace-object-assign 2.0.0
+│   └── ✕ missing peer @babel/core@^7.0.0
+├─┬ bizcharts-plugin-slider 3.0.1
+│ ├── ✕ missing peer react@>15
+│ ├── ✕ missing peer react-dom@>15
+│ └─┬ @antv/g2-plugin-slider 2.1.0
+│   └── ✕ missing peer @antv/g2@>=3.2.8
+├─┬ gg-editor 3.1.3
+│ ├── ✕ missing peer react@^16.8.0
+│ └── ✕ missing peer react-dom@^16.8.0
+├─┬ react-fittext 1.0.0
+│ ├── ✕ missing peer react@^15.0.0
+│ └── ✕ missing peer react-dom@^15.0.0
+├─┬ jsdom-global 3.0.2
+│ └── ✕ missing peer jsdom@>=10.0.0
+└─┬ monaco-editor-webpack-plugin 7.1.0
+  └── ✕ missing peer webpack@"^4.5.0 || 5.x"
+✕ Conflicting peer dependencies:
+  react
+  react-dom
+Peer dependencies that should be installed:
+  @antv/g2@>=3.2.8
+  @antv/l7@^2.11.0
+  @babel/core@">=7.4.0 <8.0.0-0"
+  jsdom@>=10.0.0
+  mapbox-gl@^1.2.1
+  rc-field-form@">=1.22.0 <2.0.0-0"
+  webpack@"^4.5.0 || 5.x"
+
+examples/antd-pro-create
+├─┬ umi-presets-pro 1.0.8
+│ ├─┬ @alita/plugins 3.3.10
+│ │ └─┬ @umijs/plugins 4.1.2
+│ │   ├─┬ @ant-design/pro-components 2.6.49
+│ │   │ ├─┬ @ant-design/pro-descriptions 2.5.33
+│ │   │ │ └─┬ @ant-design/pro-form 2.24.4
+│ │   │ │   └── ✕ missing peer rc-field-form@^1.22.0
+│ │   │ └─┬ @ant-design/pro-list 2.5.48
+│ │   │   └─┬ @ant-design/pro-table 3.14.2
+│ │   │     └── ✕ missing peer rc-field-form@^1.22.0
+│ │   ├─┬ babel-plugin-styled-components 2.1.4
+│ │   │ └─┬ @babel/plugin-syntax-jsx 7.23.3
+│ │   │   └── ✕ missing peer @babel/core@^7.0.0-0
+│ │   ├─┬ dva-immer 1.0.1
+│ │   │ └── ✕ missing peer dva@^2.5.0-0
+│ │   ├─┬ dva-loading 3.0.24
+│ │   │ └── ✕ unmet peer dva-core@"^1.1.0 || ^1.5.0-0 || ^1.6.0-0": found 2.0.4 in @umijs/plugins
+│ │   └─┬ react-intl 3.12.1
+│ │     └── ✕ unmet peer react@^16.3.0: found 17.0.2
+│ ├─┬ umi 4.1.2
+│ │ ├─┬ @umijs/test 4.1.2
+│ │ │ ├─┬ @babel/plugin-transform-modules-commonjs 7.23.3
+│ │ │ │ ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │ │ └─┬ @babel/helper-module-transforms 7.23.3
+│ │ │ │   └── ✕ missing peer @babel/core@^7.0.0
+│ │ │ └─┬ babel-jest 29.7.0
+│ │ │   ├── ✕ missing peer @babel/core@^7.8.0
+│ │ │   └─┬ babel-preset-jest 29.6.3
+│ │ │     ├── ✕ missing peer @babel/core@^7.0.0
+│ │ │     └─┬ babel-preset-current-node-syntax 1.0.1
+│ │ │       ├── ✕ missing peer @babel/core@^7.0.0
+│ │ │       ├─┬ @babel/plugin-syntax-async-generators 7.8.4
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-bigint 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-class-properties 7.12.13
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-import-meta 7.10.4
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-json-strings 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-logical-assignment-operators 7.10.4
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-nullish-coalescing-operator 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-numeric-separator 7.10.4
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-object-rest-spread 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-optional-catch-binding 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       ├─┬ @babel/plugin-syntax-optional-chaining 7.8.3
+│ │ │       │ └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ │       └─┬ @babel/plugin-syntax-top-level-await 7.14.5
+│ │ │         └── ✕ missing peer @babel/core@^7.0.0-0
+│ │ ├─┬ @umijs/bundler-webpack 4.1.2
+│ │ │ ├─┬ @umijs/react-refresh-webpack-plugin 0.5.11
+│ │ │ │ └── ✕ missing peer webpack@">=4.43.0 <6.0.0"
+│ │ │ └─┬ fork-ts-checker-webpack-plugin 8.0.0
+│ │ │   ├── ✕ missing peer webpack@^5.11.0
+│ │ │   └── ✕ missing peer typescript@>3.6.0
+│ │ ├─┬ @umijs/preset-umi 4.1.2
+│ │ │ ├─┬ html-webpack-plugin 5.5.0
+│ │ │ │ └── ✕ missing peer webpack@^5.20.0
+│ │ │ └─┬ @umijs/bundler-vite 4.1.2
+│ │ │   └─┬ rollup-plugin-visualizer 5.9.0
+│ │ │     └── ✕ missing peer rollup@"2.x || 3.x"
+│ │ ├─┬ prettier-plugin-organize-imports 3.2.4
+│ │ │ └── ✕ missing peer typescript@>=2.9
+│ │ └─┬ @umijs/lint 4.1.2
+│ │   ├─┬ @typescript-eslint/eslint-plugin 5.62.0
+│ │   │ ├── ✕ missing peer typescript@"*"
+│ │   │ └─┬ @typescript-eslint/type-utils 5.62.0
+│ │   │   └── ✕ missing peer typescript@"*"
+│ │   └─┬ @typescript-eslint/parser 5.62.0
+│ │     └── ✕ missing peer typescript@"*"
+│ └─┬ @umijs/max-plugin-openapi 1.0.8
+│   └─┬ umi 4.0.0-canary.20220628.2
+│     ├─┬ @umijs/bundler-webpack 4.0.0-canary.20220628.2
+│     │ ├─┬ @pmmmwh/react-refresh-webpack-plugin 0.5.7
+│     │ │ ├── ✕ missing peer react-refresh@">=0.10.0 <1.0.0"
+│     │ │ └── ✕ missing peer webpack@">=4.43.0 <6.0.0"
+│     │ └─┬ css-loader 6.7.1
+│     │   └── ✕ missing peer webpack@^5.0.0
+│     ├─┬ @umijs/lint 4.0.0-canary.20220628.2
+│     │ ├─┬ @typescript-eslint/eslint-plugin 5.27.1
+│     │ │ ├── ✕ missing peer typescript@"*"
+│     │ │ └─┬ @typescript-eslint/type-utils 5.27.1
+│     │ │   ├── ✕ missing peer typescript@"*"
+│     │ │   └─┬ @typescript-eslint/utils 5.27.1
+│     │ │     └─┬ @typescript-eslint/typescript-estree 5.27.1
+│     │ │       ├── ✕ missing peer typescript@"*"
+│     │ │       └─┬ tsutils 3.21.0
+│     │ │         └── ✕ missing peer typescript@">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
+│     │ ├─┬ @typescript-eslint/parser 5.27.1
+│     │ │ └── ✕ missing peer typescript@"*"
+│     │ ├─┬ eslint-plugin-jest 26.1.5
+│     │ │ └─┬ @typescript-eslint/utils 5.62.0
+│     │ │   └─┬ @typescript-eslint/typescript-estree 5.62.0
+│     │ │     └── ✕ missing peer typescript@"*"
+│     │ └─┬ stylelint-config-standard 25.0.0
+│     │   ├── ✕ missing peer stylelint@^14.4.0
+│     │   └─┬ stylelint-config-recommended 7.0.0
+│     │     └── ✕ missing peer stylelint@^14.4.0
+│     ├─┬ prettier-plugin-organize-imports 2.3.4
+│     │ └── ✕ missing peer typescript@>=2.9
+│     └─┬ @umijs/preset-umi 4.0.0-canary.20220628.2
+│       └─┬ @umijs/bundler-vite 4.0.0-canary.20220628.2
+│         ├─┬ postcss-preset-env 7.5.0
+│         │ ├── ✕ missing peer postcss@^8.4
+│         │ ├─┬ @csstools/postcss-color-function 1.1.1
+│         │ │ ├── ✕ missing peer postcss@^8.2
+│         │ │ └─┬ @csstools/postcss-progressive-custom-properties 1.3.0
+│         │ │   └── ✕ missing peer postcss@^8.3
+│         │ ├─┬ @csstools/postcss-font-format-keywords 1.0.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-hwb-function 1.0.2
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-ic-unit 1.0.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-is-pseudo-class 2.0.7
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-normalize-display-values 1.0.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-oklab-function 1.1.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-stepped-value-functions 1.0.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ @csstools/postcss-unset-value 1.0.2
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ autoprefixer 10.4.13
+│         │ │ └── ✕ missing peer postcss@^8.1.0
+│         │ ├─┬ css-blank-pseudo 3.0.3
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ css-has-pseudo 3.0.4
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ css-prefers-color-scheme 6.0.3
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-attribute-case-insensitive 5.0.2
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-clamp 4.1.0
+│         │ │ └── ✕ missing peer postcss@^8.4.6
+│         │ ├─┬ postcss-color-functional-notation 4.2.4
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-color-hex-alpha 8.0.4
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-color-rebeccapurple 7.1.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-custom-media 8.0.2
+│         │ │ └── ✕ missing peer postcss@^8.3
+│         │ ├─┬ postcss-custom-properties 12.1.11
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-custom-selectors 6.0.3
+│         │ │ └── ✕ missing peer postcss@^8.3
+│         │ ├─┬ postcss-dir-pseudo-class 6.0.5
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-double-position-gradients 3.1.2
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-env-function 4.0.6
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-focus-visible 6.0.4
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-focus-within 5.0.4
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-font-variant 5.0.0
+│         │ │ └── ✕ missing peer postcss@^8.1.0
+│         │ ├─┬ postcss-gap-properties 3.0.5
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-image-set-function 4.0.7
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-initial 4.0.1
+│         │ │ └── ✕ missing peer postcss@^8.0.0
+│         │ ├─┬ postcss-lab-function 4.2.1
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-logical 5.0.4
+│         │ │ └── ✕ missing peer postcss@^8.4
+│         │ ├─┬ postcss-media-minmax 5.0.0
+│         │ │ └── ✕ missing peer postcss@^8.1.0
+│         │ ├─┬ postcss-nesting 10.2.0
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-opacity-percentage 1.1.3
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-overflow-shorthand 3.0.4
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-page-break 3.0.4
+│         │ │ └── ✕ missing peer postcss@^8
+│         │ ├─┬ postcss-place 7.0.5
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-pseudo-class-any-link 7.1.6
+│         │ │ └── ✕ missing peer postcss@^8.2
+│         │ ├─┬ postcss-replace-overflow-wrap 4.0.0
+│         │ │ └── ✕ missing peer postcss@^8.0.3
+│         │ └─┬ postcss-selector-not 5.0.0
+│         │   └── ✕ missing peer postcss@^8.1.0
+│         └─┬ rollup-plugin-visualizer 5.6.0
+│           └── ✕ missing peer rollup@^2.0.0
+├─┬ umi-serve 1.9.11
+│ ├─┬ @babel/preset-typescript 7.3.3
+│ │ ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │ └─┬ @babel/plugin-transform-typescript 7.23.6
+│ │   ├── ✕ missing peer @babel/core@^7.0.0-0
+│ │   ├─┬ @babel/helper-create-class-features-plugin 7.24.0
+│ │   │ ├── ✕ missing peer @babel/core@^7.0.0
+│ │   │ └─┬ @babel/helper-replace-supers 7.22.20
+│ │   │   └── ✕ missing peer @babel/core@^7.0.0
+│ │   └─┬ @babel/plugin-syntax-typescript 7.23.3
+│ │     └── ✕ missing peer @babel/core@^7.0.0-0
+│ └─┬ @babel/register 7.4.4
+│   └── ✕ missing peer @babel/core@^7.0.0-0
+└─┬ react-dev-inspector 1.9.0
+  └─┬ react-dev-utils 12.0.1
+    ├── ✕ missing peer webpack@>=4
+    ├── ✕ missing peer typescript@>=2.7
+    └─┬ fork-ts-checker-webpack-plugin 6.5.3
+      ├── ✕ missing peer webpack@">= 4"
+      └── ✕ missing peer typescript@">= 2.7"
+Peer dependencies that should be installed:
+  @babel/core@">=7.8.0 <8.0.0-0"
+  dva@^2.5.0-0
+  postcss@">=8.4.6 <9.0.0-0"
+  rc-field-form@">=1.22.0 <2.0.0-0"
+  react-refresh@">=0.10.0 <1.0.0"
+  rollup@">=2.0.0 <3.0.0-0"
+  stylelint@">=14.4.0 <15.0.0-0"
+  typescript@>3.6.0
+  webpack@">=5.20.0 <6.0.0"
+
+examples/config-locale
+└─┬ antd 5.15.0
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/cssinjs 1.18.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 5.3.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ @rc-component/color-picker 1.5.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/mutate-observer 1.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/tour 1.12.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ @rc-component/portal 1.1.2
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/trigger 1.18.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   ├── ✕ missing peer react-dom@>=16.9.0
+  │   ├─┬ rc-motion 2.9.0
+  │   │ ├── ✕ missing peer react@>=16.9.0
+  │   │ └── ✕ missing peer react-dom@>=16.9.0
+  │   └─┬ rc-resize-observer 1.4.0
+  │     ├── ✕ missing peer react@>=16.9.0
+  │     └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ qrcode.react 3.1.0
+  │ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  ├─┬ rc-cascader 3.22.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.12.0
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.8.5
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.7.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.4.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 7.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.1.0
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 7.6.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 1.4.3
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 9.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 2.10.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.12.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 1.6.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 5.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 4.0.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 4.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.5.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.12.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.3.0
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.5.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 6.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 4.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/context 1.4.0
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 14.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 6.1.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.18.0
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.5.2
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@">=16.11.0 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+
+examples/create-umi-pro
+├─┬ prettier-plugin-organize-imports 3.2.4
+│ └── ✕ missing peer typescript@>=2.9
+├─┬ @ant-design/icons 4.7.0
+│ ├── ✕ missing peer react@>=16.0.0
+│ ├── ✕ missing peer react-dom@>=16.0.0
+│ └─┬ rc-util 5.38.2
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+├─┬ @ant-design/pro-components 2.6.49
+│ ├── ✕ missing peer react@>=17.0.0
+│ ├── ✕ missing peer react-dom@>=17.0.0
+│ ├─┬ @ant-design/pro-card 2.5.29
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/icons 5.3.1
+│ │ │ ├── ✕ missing peer react@>=16.0.0
+│ │ │ └── ✕ missing peer react-dom@>=16.0.0
+│ │ ├─┬ @ant-design/pro-provider 2.13.5
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ ├─┬ @ant-design/cssinjs 1.18.4
+│ │ │ │ ├── ✕ missing peer react@>=16.0.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.0.0
+│ │ │ └─┬ swr 2.0.4
+│ │ │   ├── ✕ missing peer react@"^16.11.0 || ^17.0.0 || ^18.0.0"
+│ │ │   └─┬ use-sync-external-store 1.2.0
+│ │ │     └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ ├─┬ @ant-design/pro-utils 2.15.4
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └── ✕ missing peer react-dom@>=17.0.0
+│ │ └─┬ rc-resize-observer 1.4.0
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/pro-descriptions 2.5.33
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/pro-field 2.14.6
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └─┬ @chenshuai2144/sketch-color 1.0.9
+│ │ │   ├── ✕ missing peer react@>=16.12.0
+│ │ │   └─┬ reactcss 1.2.3
+│ │ │     └── ✕ missing peer react@"*"
+│ │ ├─┬ @ant-design/pro-form 2.24.4
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ ├── ✕ missing peer rc-field-form@^1.22.0
+│ │ │ └─┬ @umijs/use-params 1.0.9
+│ │ │   └── ✕ missing peer react@"*"
+│ │ ├─┬ @ant-design/pro-skeleton 2.1.10
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └── ✕ missing peer react-dom@>=17.0.0
+│ │ └─┬ rc-resize-observer 0.2.6
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/pro-layout 7.17.19
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ └── ✕ missing peer react-dom@>=17.0.0
+│ └─┬ @ant-design/pro-list 2.5.48
+│   ├── ✕ missing peer react@>=17.0.0
+│   ├── ✕ missing peer react-dom@>=17.0.0
+│   └─┬ @ant-design/pro-table 3.14.2
+│     ├── ✕ missing peer react@>=17.0.0
+│     ├── ✕ missing peer react-dom@>=17.0.0
+│     ├── ✕ missing peer rc-field-form@^1.22.0
+│     ├─┬ @dnd-kit/core 6.1.0
+│     │ ├── ✕ missing peer react@>=16.8.0
+│     │ ├── ✕ missing peer react-dom@>=16.8.0
+│     │ ├─┬ @dnd-kit/accessibility 3.1.0
+│     │ │ └── ✕ missing peer react@>=16.8.0
+│     │ └─┬ @dnd-kit/utilities 3.2.2
+│     │   └── ✕ missing peer react@>=16.8.0
+│     ├─┬ @dnd-kit/modifiers 6.0.1
+│     │ └── ✕ missing peer react@>=16.8.0
+│     └─┬ @dnd-kit/sortable 7.0.2
+│       └── ✕ missing peer react@>=16.8.0
+└─┬ antd 4.24.15
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.8.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.7.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.7.12
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.0.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/portal 1.1.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 6.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.0.1
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.38.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.1.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.13.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.8.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.4.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.7.6
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 5.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.26.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 12.5.10
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.5.5
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  rc-field-form@">=1.22.0 <2.0.0-0"
+  react-dom@>=17.0.0
+  react@">=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+  typescript@>=2.9
+
+examples/libs
+├─┬ @codesandbox/sandpack-react 1.0.1
+│ ├── ✕ missing peer react@"^16.8.0 || ^17"
+│ ├── ✕ missing peer react-dom@"^16.8.0 || ^17"
+│ ├─┬ @code-hike/classer 0.0.0-e48fa74
+│ │ └── ✕ missing peer react@>=16.8
+│ └─┬ @react-hook/intersection-observer 3.1.1
+│   ├── ✕ missing peer react@>=16.8
+│   └─┬ @react-hook/passive-layout-effect 1.2.1
+│     └── ✕ missing peer react@>=16.8
+├─┬ antd 4.20.6
+│ ├── ✕ missing peer react@>=16.9.0
+│ ├── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/icons 4.7.0
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ ├── ✕ missing peer react-dom@>=16.0.0
+│ │ └─┬ rc-util 5.38.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/react-slick 0.28.4
+│ │ └── ✕ missing peer react@>=16.9.0
+│ ├─┬ rc-cascader 3.5.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-select 14.1.18
+│ │ │ ├── ✕ missing peer react@"*"
+│ │ │ ├── ✕ missing peer react-dom@"*"
+│ │ │ ├─┬ rc-motion 2.9.0
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ ├─┬ rc-overflow 1.3.2
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │ └─┬ rc-resize-observer 1.4.0
+│ │ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ ├─┬ rc-trigger 5.3.4
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │ └─┬ rc-align 4.0.15
+│ │ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ └─┬ rc-virtual-list 3.11.4
+│ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-tree 5.5.0
+│ │   ├── ✕ missing peer react@"*"
+│ │   └── ✕ missing peer react-dom@"*"
+│ ├─┬ rc-checkbox 2.3.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-collapse 3.1.4
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dialog 8.8.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-drawer 4.4.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dropdown 3.5.2
+│ │ ├── ✕ missing peer react@>=16.11.0
+│ │ └── ✕ missing peer react-dom@>=16.11.0
+│ ├─┬ rc-field-form 1.26.7
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-image 5.6.4
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-dialog 8.9.0
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-input 0.0.1-alpha.7
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-input-number 7.3.11
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-mentions 1.7.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-menu 9.5.5
+│ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-textarea 0.3.7
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-notification 4.6.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-pagination 3.1.17
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-picker 2.6.11
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-progress 3.2.4
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-rate 2.9.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-segmented 2.1.2
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-slider 10.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-steps 4.1.4
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-switch 3.2.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-table 7.24.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tabs 11.13.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tooltip 5.1.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tree-select 5.3.0
+│ │ ├── ✕ missing peer react@"*"
+│ │ └── ✕ missing peer react-dom@"*"
+│ └─┬ rc-upload 4.3.6
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+├─┬ framer-motion 10.0.0
+│ ├── ✕ missing peer react@^18.0.0
+│ └── ✕ missing peer react-dom@^18.0.0
+├─┬ react-redux 8.1.3
+│ ├── ✕ missing peer react@"^16.8 || ^17.0 || ^18.0"
+│ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ └─┬ use-sync-external-store 1.2.0
+│   └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+└─┬ swr 2.0.4
+  └── ✕ missing peer react@"^16.11.0 || ^17.0.0 || ^18.0.0"
+✕ Conflicting peer dependencies:
+  react
+  react-dom
+
+examples/mfsu-esbuild-less-demo
+└─┬ antd 4.20.2
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.7.0
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/react-slick 0.28.4
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.5.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-resize-observer 1.4.0
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.5.0
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 2.3.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.1.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 8.8.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 4.4.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 3.5.2
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.26.7
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.6.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-dialog 8.9.0
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.0.1-alpha.7
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.7.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.5.5
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.3.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.1.17
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.6.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.2.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 4.1.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.24.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 11.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.1.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.3.0
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@>=16.11.0
+
+examples/plugin-antd-e2e
+└─┬ antd 5.15.0
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/cssinjs 1.18.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 5.3.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ @rc-component/color-picker 1.5.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/mutate-observer 1.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/tour 1.12.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ @rc-component/portal 1.1.2
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/trigger 1.18.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   ├── ✕ missing peer react-dom@>=16.9.0
+  │   ├─┬ rc-motion 2.9.0
+  │   │ ├── ✕ missing peer react@>=16.9.0
+  │   │ └── ✕ missing peer react-dom@>=16.9.0
+  │   └─┬ rc-resize-observer 1.4.0
+  │     ├── ✕ missing peer react@>=16.9.0
+  │     └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ qrcode.react 3.1.0
+  │ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  ├─┬ rc-cascader 3.22.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.12.0
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.8.5
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.7.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.4.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 7.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.1.0
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 7.6.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 1.4.3
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 9.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 2.10.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.12.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 1.6.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 5.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 4.0.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 4.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.5.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.12.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.3.0
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.5.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 6.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 4.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/context 1.4.0
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 14.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 6.1.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.18.0
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.5.2
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@">=16.11.0 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+
+examples/test-test
+├─┬ @testing-library/react 14.2.1
+│ ├── ✕ missing peer react@^18.0.0
+│ └── ✕ missing peer react-dom@^18.0.0
+├─┬ jest 29.7.0
+│ └─┬ jest-cli 29.7.0
+│   └─┬ create-jest 29.7.0
+│     └─┬ jest-config 29.7.0
+│       └── ✕ missing peer @types/node@"*"
+└─┬ ts-node 10.9.2
+  ├── ✕ missing peer @types/node@"*"
+  └── ✕ missing peer typescript@>=2.7
+Peer dependencies that should be installed:
+  @types/node@"*"
+  react-dom@^18.0.0
+  react@^18.0.0
+  typescript@>=2.7
+
+examples/test-vitest
+├─┬ @vitejs/plugin-react 3.0.1
+│ └── ✕ missing peer vite@^4.0.0
+└─┬ react-test-renderer 18.2.0
+  ├── ✕ missing peer react@^18.2.0
+  └─┬ react-shallow-renderer 16.15.0
+    └── ✕ missing peer react@"^16.0.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react@">=18.2.0 <19.0.0-0"
+  vite@^4.0.0
+
+examples/umi-3-compat-mode
+└─┬ @umijs/plugin-umi-request-compat 1.0.0
+  └─┬ @ahooksjs/use-request 2.8.15
+    └── ✕ missing peer react@"^16.8.0 || ^17.0.0"
+Peer dependencies that should be installed:
+  react@"^16.8.0 || ^17.0.0"
+
+examples/vite-e2e
+└─┬ antd 4.24.15
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.8.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.7.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-resize-observer 1.4.0
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.7.12
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.0.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/portal 1.1.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 6.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.0.1
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.38.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.1.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.13.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.8.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.4.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.7.6
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 5.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.26.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 12.5.10
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.5.5
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@>=16.11.0
+
+examples/vue-demo
+└─┬ vite-plugin-style-import 2.0.0
+  └── ✕ missing peer vite@>=2.0.0
+Peer dependencies that should be installed:
+  vite@>=2.0.0
+
+examples/with-antd
+└─┬ antd 4.24.15
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.8.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.7.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-resize-observer 1.4.0
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.7.12
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.0.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/portal 1.1.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 6.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.0.1
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.38.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.1.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.13.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.8.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.4.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.7.6
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 5.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.26.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 12.5.10
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.5.5
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@>=16.11.0
+
+examples/with-antd-5
+├─┬ @ant-design/cssinjs 1.18.4
+│ ├── ✕ missing peer react@>=16.0.0
+│ ├── ✕ missing peer react-dom@>=16.0.0
+│ └─┬ rc-util 5.38.2
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+└─┬ antd 5.15.0
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 5.3.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ @rc-component/color-picker 1.5.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/mutate-observer 1.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @rc-component/tour 1.12.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ @rc-component/portal 1.1.2
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/trigger 1.18.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   ├── ✕ missing peer react-dom@>=16.9.0
+  │   ├─┬ rc-motion 2.9.0
+  │   │ ├── ✕ missing peer react@>=16.9.0
+  │   │ └── ✕ missing peer react-dom@>=16.9.0
+  │   └─┬ rc-resize-observer 1.4.0
+  │     ├── ✕ missing peer react@>=16.9.0
+  │     └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ qrcode.react 3.1.0
+  │ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  ├─┬ rc-cascader 3.22.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.12.0
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.8.5
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.7.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.4.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 7.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.1.0
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 7.6.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 1.4.3
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 9.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 2.10.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.12.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 1.6.3
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 5.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 4.0.4
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 4.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.5.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.12.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.3.0
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.5.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 6.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 4.1.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.42.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/context 1.4.0
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 14.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 6.1.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.18.0
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.5.2
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@">=16.11.0 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+
+examples/with-emotion
+├─┬ @emotion/react 11.11.4
+│ ├── ✕ missing peer react@>=16.8.0
+│ └─┬ @emotion/use-insertion-effect-with-fallbacks 1.0.1
+│   └── ✕ missing peer react@>=16.8.0
+└─┬ @emotion/styled 11.11.0
+  └── ✕ missing peer react@>=16.8.0
+Peer dependencies that should be installed:
+  react@>=16.8.0
+
+examples/with-mobx
+└─┬ mobx-react 7.6.0
+  ├── ✕ missing peer react@"^16.8.0 || ^17 || ^18"
+  └─┬ mobx-react-lite 3.4.3
+    └── ✕ missing peer react@"^16.8.0 || ^17 || ^18"
+Peer dependencies that should be installed:
+  react@">=16.8.0 <17.0.0-0 || >=17.0.0 <18.0.0-0 || >=18.0.0 <19.0.0-0"
+
+examples/with-monaco-editor
+└─┬ monaco-editor-webpack-plugin 7.1.0
+  └── ✕ missing peer webpack@"^4.5.0 || 5.x"
+Peer dependencies that should be installed:
+  webpack@"^4.5.0 || 5.x"
+
+examples/with-monaco-editor-react
+└─┬ @monaco-editor/react 4.6.0
+  ├── ✕ missing peer monaco-editor@">= 0.25.0 < 1"
+  ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  ├── ✕ missing peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  └─┬ @monaco-editor/loader 1.4.0
+    └── ✕ missing peer monaco-editor@">= 0.21.0 < 1"
+Peer dependencies that should be installed:
+  monaco-editor@">=0.25.0 <1.0.0-0"
+  react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0"
+  react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+
+examples/with-react-three-fiber
+├─┬ @react-three/drei 9.99.7
+│ ├── ✕ missing peer react@>=18.0
+│ ├── ✕ missing peer react-dom@>=18.0
+│ ├─┬ @react-spring/three 9.6.1
+│ │ ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ ├─┬ @react-spring/animated 9.6.1
+│ │ │ ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ │ └─┬ @react-spring/shared 9.6.1
+│ │ │   └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ └─┬ @react-spring/core 9.6.1
+│ │   └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ ├─┬ @use-gesture/react 10.3.0
+│ │ └── ✕ missing peer react@">= 16.8.0"
+│ ├─┬ react-composer 5.0.3
+│ │ └── ✕ missing peer react@"^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+│ ├─┬ suspend-react 0.1.3
+│ │ └── ✕ missing peer react@>=17.0
+│ ├─┬ tunnel-rat 0.1.2
+│ │ └─┬ zustand 4.5.2
+│ │   ├── ✕ missing peer react@>=16.8
+│ │   └─┬ use-sync-external-store 1.2.0
+│ │     └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ ├─┬ zustand 3.7.2
+│ │ └── ✕ missing peer react@>=16.8
+│ └─┬ three-mesh-bvh 0.7.3
+│   └── ✕ unmet peer three@">= 0.151.0": found 0.148.0
+└─┬ @react-three/fiber 8.15.19
+  ├── ✕ missing peer react@>=18.0
+  ├── ✕ missing peer react-dom@>=18.0
+  ├─┬ its-fine 1.1.1
+  │ └── ✕ missing peer react@>=18.0
+  ├─┬ react-reconciler 0.27.0
+  │ └── ✕ missing peer react@^18.0.0
+  └─┬ react-use-measure 2.1.1
+    ├── ✕ missing peer react@>=16.13
+    └── ✕ missing peer react-dom@>=16.13
+Peer dependencies that should be installed:
+  react-dom@>=18.0.0
+  react@">=18.0.0 <19.0.0"
+
+examples/with-recoil
+└─┬ recoil 0.7.7
+  └── ✕ missing peer react@>=16.13.1
+Peer dependencies that should be installed:
+  react@>=16.13.1
+
+examples/with-redux
+└─┬ react-redux 8.1.3
+  ├── ✕ missing peer react@"^16.8 || ^17.0 || ^18.0"
+  └─┬ use-sync-external-store 1.2.0
+    └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react@">=16.8.0 <17.0.0-0 || >=17.0.0 <18.0.0-0 || >=18.0.0 <19.0.0-0"
+
+examples/with-redux-toolkit
+├─┬ @reduxjs/toolkit 1.9.7
+│ └── ✕ missing peer react@"^16.9.0 || ^17.0.0 || ^18"
+└─┬ react-redux 8.1.3
+  ├── ✕ missing peer react@"^16.8 || ^17.0 || ^18.0"
+  └─┬ use-sync-external-store 1.2.0
+    └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react@">=16.9.0 <17.0.0-0 || >=17.0.0 <18.0.0-0 || >=18.0.0 <19.0.0-0"
+
+examples/with-rematch
+├─┬ @rematch/core 2.2.0
+│ └── ✕ missing peer redux@>=4
+└─┬ react-redux 8.1.3
+  ├── ✕ missing peer redux@"^4 || ^5.0.0-beta.0"
+  ├── ✕ missing peer react@"^16.8 || ^17.0 || ^18.0"
+  └─┬ use-sync-external-store 1.2.0
+    └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react@">=16.8.0 <17.0.0-0 || >=17.0.0 <18.0.0-0 || >=18.0.0 <19.0.0-0"
+  redux@">=4.0.0 <5.0.0 || >=5.0.0-beta.0 <6.0.0"
+
+examples/with-styled-components
+└─┬ styled-components 6.1.1
+  ├── ✕ missing peer react@">= 16.8.0"
+  └── ✕ missing peer react-dom@">= 16.8.0"
+Peer dependencies that should be installed:
+  react-dom@">= 16.8.0"
+  react@">= 16.8.0"
+
+examples/with-unocss
+└─┬ unocss 0.34.1
+  └─┬ @unocss/vite 0.34.1
+    └── ✕ missing peer vite@^2.9.0
+Peer dependencies that should be installed:
+  vite@^2.9.0
+
+examples/with-vanilla-extract
+└─┬ @vanilla-extract/webpack-plugin 2.3.6
+  └── ✕ missing peer webpack@"^4.30.0 || ^5.20.2"
+Peer dependencies that should be installed:
+  webpack@"^4.30.0 || ^5.20.2"
+
+examples/with-vue-pinia
+└─┬ pinia 2.1.7
+  └── ✕ unmet peer vue@"^2.6.14 || ^3.3.0": found 3.2.45
+
+examples/with-workerize-loader
+├─┬ workerize-loader 2.0.2
+│ └── ✕ missing peer webpack@"*"
+└─┬ antd 4.24.15
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.8.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.7.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-resize-observer 1.4.0
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.7.12
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.0.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/portal 1.1.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 6.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.0.1
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.38.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.1.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.13.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.8.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.4.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.7.6
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 5.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.26.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 12.5.10
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.5.5
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@>=16.11.0
+  webpack@"*"
+
+libs/valtio
+└─┬ valtio 1.11.2
+  ├── ✕ missing peer react@>=16.8
+  └─┬ use-sync-external-store 1.2.0
+    └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react@">=16.8.0 <17.0.0 || >=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+
+packages/bundler-vite
+├─┬ @vitejs/plugin-legacy 4.1.1
+│ └── ✕ missing peer terser@^5.4.0
+├─┬ vite 4.3.1
+│ └── ✕ missing peer terser@^5.4.0
+└─┬ postcss-preset-env 7.5.0
+  ├── ✕ missing peer postcss@^8.4
+  ├─┬ @csstools/postcss-color-function 1.1.1
+  │ ├── ✕ missing peer postcss@^8.2
+  │ └─┬ @csstools/postcss-progressive-custom-properties 1.3.0
+  │   └── ✕ missing peer postcss@^8.3
+  ├─┬ @csstools/postcss-font-format-keywords 1.0.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-hwb-function 1.0.2
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-ic-unit 1.0.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-is-pseudo-class 2.0.7
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-normalize-display-values 1.0.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-oklab-function 1.1.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-stepped-value-functions 1.0.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ @csstools/postcss-unset-value 1.0.2
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ autoprefixer 10.4.13
+  │ └── ✕ missing peer postcss@^8.1.0
+  ├─┬ css-blank-pseudo 3.0.3
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ css-has-pseudo 3.0.4
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ css-prefers-color-scheme 6.0.3
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-attribute-case-insensitive 5.0.2
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-clamp 4.1.0
+  │ └── ✕ missing peer postcss@^8.4.6
+  ├─┬ postcss-color-functional-notation 4.2.4
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-color-hex-alpha 8.0.4
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-color-rebeccapurple 7.1.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-custom-media 8.0.2
+  │ └── ✕ missing peer postcss@^8.3
+  ├─┬ postcss-custom-properties 12.1.11
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-custom-selectors 6.0.3
+  │ └── ✕ missing peer postcss@^8.3
+  ├─┬ postcss-dir-pseudo-class 6.0.5
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-double-position-gradients 3.1.2
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-env-function 4.0.6
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-focus-visible 6.0.4
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-focus-within 5.0.4
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-font-variant 5.0.0
+  │ └── ✕ missing peer postcss@^8.1.0
+  ├─┬ postcss-gap-properties 3.0.5
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-image-set-function 4.0.7
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-initial 4.0.1
+  │ └── ✕ missing peer postcss@^8.0.0
+  ├─┬ postcss-lab-function 4.2.1
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-logical 5.0.4
+  │ └── ✕ missing peer postcss@^8.4
+  ├─┬ postcss-media-minmax 5.0.0
+  │ └── ✕ missing peer postcss@^8.1.0
+  ├─┬ postcss-nesting 10.2.0
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-opacity-percentage 1.1.3
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-overflow-shorthand 3.0.4
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-page-break 3.0.4
+  │ └── ✕ missing peer postcss@^8
+  ├─┬ postcss-place 7.0.5
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-pseudo-class-any-link 7.1.6
+  │ └── ✕ missing peer postcss@^8.2
+  ├─┬ postcss-replace-overflow-wrap 4.0.0
+  │ └── ✕ missing peer postcss@^8.0.3
+  └─┬ postcss-selector-not 5.0.0
+    └── ✕ missing peer postcss@^8.1.0
+Peer dependencies that should be installed:
+  postcss@">=8.4.6 <9.0.0-0"
+  terser@">=5.4.0 <6.0.0-0"
+
+packages/bundler-webpack
+├─┬ babel-loader 9.1.3
+│ └── ✕ missing peer @babel/core@^7.12.0
+├─┬ less-loader 11.1.0
+│ └── ✕ missing peer less@"^3.5.0 || ^4.0.0"
+├─┬ stylus-loader 7.1.3
+│ └── ✕ missing peer stylus@>=0.52.4
+└─┬ fork-ts-checker-webpack-plugin 8.0.0
+  └── ✕ missing peer typescript@>3.6.0
+Peer dependencies that should be installed:
+  @babel/core@^7.12.0
+  less@"^3.5.0 || ^4.0.0"
+  stylus@>=0.52.4
+  typescript@>3.6.0
+
+packages/lint
+├─┬ stylelint-config-css-modules 4.1.0
+│ ├── ✕ missing peer stylelint@^14.5.1
+│ └─┬ stylelint-scss 4.7.0
+│   └── ✕ missing peer stylelint@"^14.5.1 || ^15.0.0"
+├─┬ stylelint-config-prettier 9.0.3
+│ └── ✕ missing peer stylelint@>=11.0.0
+├─┬ stylelint-declaration-block-no-ignored-properties 2.5.0
+│ └── ✕ missing peer stylelint@"^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0"
+├─┬ stylelint-config-standard 25.0.0
+│ ├── ✕ missing peer stylelint@^14.4.0
+│ └─┬ stylelint-config-recommended 7.0.0
+│   └── ✕ missing peer stylelint@^14.4.0
+├─┬ @babel/eslint-parser 7.23.3
+│ └── ✕ missing peer eslint@"^7.5.0 || ^8.0.0"
+├─┬ @typescript-eslint/eslint-plugin 5.62.0
+│ ├── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│ ├── ✕ missing peer typescript@"*"
+│ └─┬ @typescript-eslint/type-utils 5.62.0
+│   ├── ✕ missing peer eslint@"*"
+│   ├── ✕ missing peer typescript@"*"
+│   ├─┬ @typescript-eslint/utils 5.62.0
+│   │ ├── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│   │ └─┬ @eslint-community/eslint-utils 4.4.0
+│   │   └── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0"
+│   └─┬ @typescript-eslint/typescript-estree 5.62.0
+│     ├── ✕ missing peer typescript@"*"
+│     └─┬ tsutils 3.21.0
+│       └── ✕ missing peer typescript@">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
+├─┬ @typescript-eslint/parser 5.62.0
+│ ├── ✕ missing peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0"
+│ └── ✕ missing peer typescript@"*"
+├─┬ eslint-plugin-jest 27.2.3
+│ └── ✕ missing peer eslint@"^7.0.0 || ^8.0.0"
+├─┬ eslint-plugin-react 7.33.2
+│ └── ✕ missing peer eslint@"^3 || ^4 || ^5 || ^6 || ^7 || ^8"
+└─┬ eslint-plugin-react-hooks 4.6.0
+  └── ✕ missing peer eslint@"^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0"
+Peer dependencies that should be installed:
+  eslint@">=7.5.0 <8.0.0-0 || >=8.0.0 <9.0.0-0"
+  stylelint@">=14.5.1 <15.0.0-0"
+  typescript@>=2.8.0
+
+packages/max
+└─┬ antd 4.24.15
+  ├── ✕ missing peer react@>=16.9.0
+  ├── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/icons 4.8.1
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ ├── ✕ missing peer react-dom@>=16.0.0
+  │ └─┬ rc-util 5.38.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ @ant-design/react-slick 1.0.2
+  │ └── ✕ missing peer react@>=16.9.0
+  ├─┬ rc-cascader 3.7.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-select 14.1.18
+  │ │ ├── ✕ missing peer react@"*"
+  │ │ ├── ✕ missing peer react-dom@"*"
+  │ │ ├─┬ rc-motion 2.9.0
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-overflow 1.3.2
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-resize-observer 1.4.0
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ ├─┬ rc-trigger 5.3.4
+  │ │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ │ │ └─┬ rc-align 4.0.15
+  │ │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ │ └─┬ rc-virtual-list 3.11.4
+  │ │   ├── ✕ missing peer react@>=16.9.0
+  │ │   └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-tree 5.7.12
+  │   ├── ✕ missing peer react@"*"
+  │   └── ✕ missing peer react-dom@"*"
+  ├─┬ rc-checkbox 3.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-collapse 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dialog 9.0.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ @rc-component/portal 1.1.2
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-drawer 6.3.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-dropdown 4.0.1
+  │ ├── ✕ missing peer react@>=16.11.0
+  │ └── ✕ missing peer react-dom@>=16.11.0
+  ├─┬ rc-field-form 1.38.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-image 5.13.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-input 0.1.4
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-input-number 7.3.11
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-mentions 1.13.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ ├── ✕ missing peer react-dom@>=16.9.0
+  │ ├─┬ rc-menu 9.8.4
+  │ │ ├── ✕ missing peer react@>=16.9.0
+  │ │ └── ✕ missing peer react-dom@>=16.9.0
+  │ └─┬ rc-textarea 0.4.7
+  │   ├── ✕ missing peer react@>=16.9.0
+  │   └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-notification 4.6.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-pagination 3.2.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-picker 2.7.6
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-progress 3.4.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-rate 2.9.3
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-segmented 2.1.2
+  │ ├── ✕ missing peer react@>=16.0.0
+  │ └── ✕ missing peer react-dom@>=16.0.0
+  ├─┬ rc-slider 10.0.1
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-steps 5.0.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-switch 3.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-table 7.26.0
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tabs 12.5.10
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tooltip 5.2.2
+  │ ├── ✕ missing peer react@>=16.9.0
+  │ └── ✕ missing peer react-dom@>=16.9.0
+  ├─┬ rc-tree-select 5.5.5
+  │ ├── ✕ missing peer react@"*"
+  │ └── ✕ missing peer react-dom@"*"
+  └─┬ rc-upload 4.3.6
+    ├── ✕ missing peer react@>=16.9.0
+    └── ✕ missing peer react-dom@>=16.9.0
+Peer dependencies that should be installed:
+  react-dom@>=16.11.0
+  react@>=16.11.0
+
+packages/plugins
+├─┬ antd 4.24.15
+│ ├── ✕ missing peer react@>=16.9.0
+│ ├── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/icons 4.8.1
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ ├── ✕ missing peer react-dom@>=16.0.0
+│ │ └─┬ rc-util 5.38.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/react-slick 1.0.2
+│ │ └── ✕ missing peer react@>=16.9.0
+│ ├─┬ rc-cascader 3.7.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-select 14.1.18
+│ │ │ ├── ✕ missing peer react@"*"
+│ │ │ ├── ✕ missing peer react-dom@"*"
+│ │ │ ├─┬ rc-motion 2.9.0
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ ├─┬ rc-overflow 1.3.2
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │ └─┬ rc-resize-observer 1.4.0
+│ │ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ ├─┬ rc-trigger 5.3.4
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ │ │ └─┬ rc-align 4.0.15
+│ │ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ └─┬ rc-virtual-list 3.11.4
+│ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-tree 5.7.12
+│ │   ├── ✕ missing peer react@"*"
+│ │   └── ✕ missing peer react-dom@"*"
+│ ├─┬ rc-checkbox 3.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-collapse 3.4.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dialog 9.0.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ @rc-component/portal 1.1.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-drawer 6.3.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dropdown 4.0.1
+│ │ ├── ✕ missing peer react@>=16.11.0
+│ │ └── ✕ missing peer react-dom@>=16.11.0
+│ ├─┬ rc-field-form 1.38.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-image 5.13.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-input 0.1.4
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-input-number 7.3.11
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-mentions 1.13.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-menu 9.8.4
+│ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-textarea 0.4.7
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-notification 4.6.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-pagination 3.2.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-picker 2.7.6
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-progress 3.4.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-rate 2.9.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-segmented 2.1.2
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-slider 10.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-steps 5.0.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-switch 3.2.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-table 7.26.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tabs 12.5.10
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tooltip 5.2.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tree-select 5.5.5
+│ │ ├── ✕ missing peer react@"*"
+│ │ └── ✕ missing peer react-dom@"*"
+│ └─┬ rc-upload 4.3.6
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+├─┬ @ahooksjs/use-request 2.8.15
+│ └── ✕ missing peer react@"^16.8.0 || ^17.0.0"
+├─┬ @ant-design/cssinjs 1.18.4
+│ ├── ✕ missing peer react@>=16.0.0
+│ └── ✕ missing peer react-dom@>=16.0.0
+├─┬ @ant-design/icons 4.7.0
+│ ├── ✕ missing peer react@>=16.0.0
+│ └── ✕ missing peer react-dom@>=16.0.0
+├─┬ @ant-design/pro-components 2.6.49
+│ ├── ✕ missing peer react@>=17.0.0
+│ ├── ✕ missing peer react-dom@>=17.0.0
+│ ├─┬ @ant-design/pro-card 2.5.29
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/icons 5.3.1
+│ │ │ ├── ✕ missing peer react@>=16.0.0
+│ │ │ └── ✕ missing peer react-dom@>=16.0.0
+│ │ ├─┬ @ant-design/pro-provider 2.13.5
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ └─┬ swr 2.0.4
+│ │ │   ├── ✕ missing peer react@"^16.11.0 || ^17.0.0 || ^18.0.0"
+│ │ │   └─┬ use-sync-external-store 1.2.0
+│ │ │     └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ │ └─┬ @ant-design/pro-utils 2.15.4
+│ │   ├── ✕ missing peer react@>=17.0.0
+│ │   └── ✕ missing peer react-dom@>=17.0.0
+│ ├─┬ @ant-design/pro-descriptions 2.5.33
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ ├─┬ @ant-design/pro-field 2.14.6
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └─┬ @chenshuai2144/sketch-color 1.0.9
+│ │ │   ├── ✕ missing peer react@>=16.12.0
+│ │ │   └─┬ reactcss 1.2.3
+│ │ │     └── ✕ missing peer react@"*"
+│ │ ├─┬ @ant-design/pro-form 2.24.4
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ ├── ✕ missing peer react-dom@>=17.0.0
+│ │ │ ├── ✕ missing peer rc-field-form@^1.22.0
+│ │ │ └─┬ @umijs/use-params 1.0.9
+│ │ │   └── ✕ missing peer react@"*"
+│ │ ├─┬ @ant-design/pro-skeleton 2.1.10
+│ │ │ ├── ✕ missing peer react@>=17.0.0
+│ │ │ └── ✕ missing peer react-dom@>=17.0.0
+│ │ └─┬ rc-resize-observer 0.2.6
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/pro-layout 7.17.19
+│ │ ├── ✕ missing peer react@>=17.0.0
+│ │ └── ✕ missing peer react-dom@>=17.0.0
+│ └─┬ @ant-design/pro-list 2.5.48
+│   ├── ✕ missing peer react@>=17.0.0
+│   ├── ✕ missing peer react-dom@>=17.0.0
+│   └─┬ @ant-design/pro-table 3.14.2
+│     ├── ✕ missing peer react@>=17.0.0
+│     ├── ✕ missing peer react-dom@>=17.0.0
+│     ├── ✕ missing peer rc-field-form@^1.22.0
+│     ├─┬ @dnd-kit/core 6.1.0
+│     │ ├── ✕ missing peer react@>=16.8.0
+│     │ ├── ✕ missing peer react-dom@>=16.8.0
+│     │ ├─┬ @dnd-kit/accessibility 3.1.0
+│     │ │ └── ✕ missing peer react@>=16.8.0
+│     │ └─┬ @dnd-kit/utilities 3.2.2
+│     │   └── ✕ missing peer react@>=16.8.0
+│     ├─┬ @dnd-kit/modifiers 6.0.1
+│     │ └── ✕ missing peer react@>=16.8.0
+│     └─┬ @dnd-kit/sortable 7.0.2
+│       └── ✕ missing peer react@>=16.8.0
+├─┬ @tanstack/react-query 4.36.1
+│ ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ └── ✕ missing peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0"
+├─┬ @tanstack/react-query-devtools 4.36.1
+│ ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ └── ✕ missing peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0"
+├─┬ react-intl 3.12.1
+│ └── ✕ missing peer react@^16.3.0
+├─┬ react-redux 8.1.3
+│ ├── ✕ missing peer react@"^16.8 || ^17.0 || ^18.0"
+│ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+├─┬ styled-components 6.1.1
+│ ├── ✕ missing peer react@">= 16.8.0"
+│ └── ✕ missing peer react-dom@">= 16.8.0"
+├─┬ babel-plugin-styled-components 2.1.4
+│ └─┬ @babel/plugin-syntax-jsx 7.23.3
+│   └── ✕ missing peer @babel/core@^7.0.0-0
+├─┬ dva-immer 1.0.1
+│ └── ✕ missing peer dva@^2.5.0-0
+└─┬ dva-loading 3.0.24
+  └── ✕ unmet peer dva-core@"^1.1.0 || ^1.5.0-0 || ^1.6.0-0": found 2.0.4
+✕ Conflicting peer dependencies:
+  react
+Peer dependencies that should be installed:
+  @babel/core@^7.0.0-0
+  dva@^2.5.0-0
+  rc-field-form@">=1.22.0 <2.0.0-0"
+  react-dom@">=17.0.0 <18.0.0 || >=18.0.0 <19.0.0"
+
+packages/preset-umi
+├─┬ joi2types 1.1.1
+│ └── ✕ missing peer @hapi/joi@16.x
+└─┬ html-webpack-plugin 5.5.0
+  └── ✕ missing peer webpack@^5.20.0
+Peer dependencies that should be installed:
+  @hapi/joi@16.x
+  webpack@^5.20.0
+
+packages/preset-vue
+├─┬ @vitejs/plugin-vue 4.1.0
+│ └── ✕ missing peer vite@^4.0.0
+├─┬ @vitejs/plugin-vue-jsx 3.0.1
+│ └── ✕ missing peer vite@^4.0.0
+├─┬ @vue/babel-plugin-jsx 1.1.1
+│ └─┬ @babel/plugin-syntax-jsx 7.23.3
+│   └── ✕ missing peer @babel/core@^7.0.0-0
+└─┬ vue-loader 17.0.1
+  └── ✕ missing peer webpack@"^4.1.0 || ^5.0.0-0"
+Peer dependencies that should be installed:
+  @babel/core@^7.0.0-0
+  vite@">=4.0.0 <5.0.0-0"
+  webpack@"^4.1.0 || ^5.0.0-0"
+
+packages/umi
+├─┬ prettier-plugin-organize-imports 3.2.4
+│ ├── ✕ missing peer prettier@>=2.0
+│ └── ✕ missing peer typescript@>=2.9
+└─┬ prettier-plugin-packagejson 2.4.3
+  └── ✕ missing peer prettier@">= 1.16.0"
+Peer dependencies that should be installed:
+  prettier@>=2.0.0
+  typescript@>=2.9
+
+ui
+├─┬ antd 5.15.0
+│ ├── ✕ missing peer react@>=16.9.0
+│ ├── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/cssinjs 1.18.4
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ ├── ✕ missing peer react-dom@>=16.0.0
+│ │ └─┬ rc-util 5.38.2
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @ant-design/icons 5.3.1
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ @ant-design/react-slick 1.0.2
+│ │ └── ✕ missing peer react@>=16.9.0
+│ ├─┬ @rc-component/color-picker 1.5.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @rc-component/mutate-observer 1.1.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ @rc-component/tour 1.12.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ @rc-component/portal 1.1.2
+│ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ @rc-component/trigger 1.18.3
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   ├── ✕ missing peer react-dom@>=16.9.0
+│ │   ├─┬ rc-motion 2.9.0
+│ │   │ ├── ✕ missing peer react@>=16.9.0
+│ │   │ └── ✕ missing peer react-dom@>=16.9.0
+│ │   └─┬ rc-resize-observer 1.4.0
+│ │     ├── ✕ missing peer react@>=16.9.0
+│ │     └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ qrcode.react 3.1.0
+│ │ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+│ ├─┬ rc-cascader 3.22.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-select 14.12.0
+│ │ │ ├── ✕ missing peer react@"*"
+│ │ │ ├── ✕ missing peer react-dom@"*"
+│ │ │ ├─┬ rc-overflow 1.3.2
+│ │ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ │ └─┬ rc-virtual-list 3.11.4
+│ │ │   ├── ✕ missing peer react@>=16.9.0
+│ │ │   └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-tree 5.8.5
+│ │   ├── ✕ missing peer react@"*"
+│ │   └── ✕ missing peer react-dom@"*"
+│ ├─┬ rc-checkbox 3.2.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-collapse 3.7.2
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dialog 9.4.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-drawer 7.1.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-dropdown 4.1.0
+│ │ ├── ✕ missing peer react@>=16.11.0
+│ │ └── ✕ missing peer react-dom@>=16.11.0
+│ ├─┬ rc-field-form 1.42.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-image 7.6.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-input 1.4.3
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-input-number 9.0.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-mentions 2.10.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ ├─┬ rc-menu 9.12.4
+│ │ │ ├── ✕ missing peer react@>=16.9.0
+│ │ │ └── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ rc-textarea 1.6.3
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-notification 5.3.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-pagination 4.0.4
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-picker 4.2.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-progress 3.5.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-rate 2.12.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-segmented 2.3.0
+│ │ ├── ✕ missing peer react@>=16.0.0
+│ │ └── ✕ missing peer react-dom@>=16.0.0
+│ ├─┬ rc-slider 10.5.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-steps 6.0.1
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-switch 4.1.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-table 7.42.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ ├── ✕ missing peer react-dom@>=16.9.0
+│ │ └─┬ @rc-component/context 1.4.0
+│ │   ├── ✕ missing peer react@>=16.9.0
+│ │   └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tabs 14.0.0
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tooltip 6.1.3
+│ │ ├── ✕ missing peer react@>=16.9.0
+│ │ └── ✕ missing peer react-dom@>=16.9.0
+│ ├─┬ rc-tree-select 5.18.0
+│ │ ├── ✕ missing peer react@"*"
+│ │ └── ✕ missing peer react-dom@"*"
+│ └─┬ rc-upload 4.5.2
+│   ├── ✕ missing peer react@>=16.9.0
+│   └── ✕ missing peer react-dom@>=16.9.0
+└─┬ react-json-view 1.21.3
+  ├── ✕ missing peer react@"^17.0.0 || ^16.3.0 || ^15.5.4"
+  ├── ✕ missing peer react-dom@"^17.0.0 || ^16.3.0 || ^15.5.4"
+  ├─┬ flux 4.0.4
+  │ └── ✕ missing peer react@"^15.0.2 || ^16.0.0 || ^17.0.0"
+  └─┬ react-textarea-autosize 8.5.3
+    ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+    ├─┬ use-composed-ref 1.3.0
+    │ └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+    └─┬ use-latest 1.2.1
+      ├── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+      └─┬ use-isomorphic-layout-effect 1.1.2
+        └── ✕ missing peer react@"^16.8.0 || ^17.0.0 || ^18.0.0"
+Peer dependencies that should be installed:
+  react-dom@">=17.0.0 <18.0.0 || >=16.11.0 <17.0.0"
+  react@">=16.11.0 <17.0.0-0 || >=17.0.0 <18.0.0-0"
+
+Done in 3m 5.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T20:24:48Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T20:24:48Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:24:48Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:24:48Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

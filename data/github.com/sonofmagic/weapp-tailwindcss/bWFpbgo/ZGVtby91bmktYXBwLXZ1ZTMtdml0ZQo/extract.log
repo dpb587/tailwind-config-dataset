@@ -1,0 +1,190 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sonofmagic/weapp-tailwindcss
++ reporef=main
++ repopath=./demo/uni-app-vue3-vite
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/sonofmagic/weapp-tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-225add5617ea
+++ echo 'github.com/sonofmagic/weapp-tailwindcss;main;./demo/uni-app-vue3-vite'
+++ awk '{ print $1 }'
+++ sha256sum
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/fb10d0d5db94
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li9kZW1vL3VuaS1hcHAtdnVlMy12aXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li9kZW1vL3VuaS1hcHAtdnVlMy12aXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a2608b8cd01710d8
++ jq -nc --arg key analysis_nonce --arg value a2608b8cd01710d8 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sonofmagic/weapp-tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/sonofmagic/weapp-tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./demo/uni-app-vue3-vite
++ jq -nc --arg key input_repo_path --arg value ./demo/uni-app-vue3-vite '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T00:03:28Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T00:03:28Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-225add5617ea
+/tmp/twcr-225add5617ea /twcr
++ pushd /tmp/twcr-225add5617ea
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/sonofmagic/weapp-tailwindcss.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T00:03:30Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T00:03:30Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e5b84a47e42e1893d421d88c93f672b8d5ed655d
++ jq -nc --arg key exec_repo_commit_sha --arg value e5b84a47e42e1893d421d88c93f672b8d5ed655d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-23 21:07:34 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-23T13:07:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-23T13:07:34Z '{ key: $key, value: $value }'
++ '[' -z ./demo/uni-app-vue3-vite ']'
++ pushd ./demo/uni-app-vue3-vite
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-225add5617ea/demo/uni-app-vue3-vite /tmp/twcr-225add5617ea /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-225add5617ea/demo/uni-app-vue3-vite
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T00:03:30Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T00:03:30Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (daisyui)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T00:03:30Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T00:03:30Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at e5b84a4 chore: add css vars docs
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-225add5617ea /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-225add5617ea
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_0976b358bc19:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_0976b358bc19:ok@172.18.0.2:3128
+yarn config v1.22.19
+warning package.json: No license field
+success Set "httpProxy" to "http://tid_0976b358bc19:ok@172.18.0.2:3128".
+Done in 0.10s.
++ '[' -z http://tid_0976b358bc19:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_0976b358bc19:ok@172.18.0.2:3128
+yarn config v1.22.19
+warning package.json: No license field
+success Set "httpsProxy" to "http://tid_0976b358bc19:ok@172.18.0.2:3128".
+Done in 0.09s.
++ yarn install
+yarn install v1.22.19
+warning package.json: No license field
+warning uni-preset-vue@0.0.0: No license field
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning Pattern ["strip-ansi@^6.0.1"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-strip-ansi-cjs-6.0.1-9e26c63d30f53443e9489495b2105d37b67a85d9-integrity/node_modules/strip-ansi-cjs" as pattern ["strip-ansi-cjs@npm:strip-ansi@^6.0.1"]. This could result in non-deterministic behavior, skipping.
+warning Pattern ["string-width@^4.1.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-string-width-cjs-4.2.3-269c7117d27b05ad2e536830a8ec895ef9c6d010-integrity/node_modules/string-width-cjs" as pattern ["string-width-cjs@npm:string-width@^4.2.0"]. This could result in non-deterministic behavior, skipping.
+warning Pattern ["strip-ansi@^6.0.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-strip-ansi-cjs-6.0.1-9e26c63d30f53443e9489495b2105d37b67a85d9-integrity/node_modules/strip-ansi-cjs" as pattern ["strip-ansi-cjs@npm:strip-ansi@^6.0.1"]. This could result in non-deterministic behavior, skipping.
+(node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning uview-plus@3.1.41: The engine "HBuilderX" appears to be invalid.
+warning vk-uview-ui@1.5.2: The engine "HBuilderX" appears to be invalid.
+[3/4] Linking dependencies...
+warning "@dcloudio/uni-app > @dcloudio/uni-cloud > @dcloudio/uni-cli-shared > @vue/server-renderer@3.2.47" has incorrect peer dependency "vue@3.2.47".
+warning " > @dcloudio/uni-automator@3.0.0-3090920231225001" has unmet peer dependency "jest@27.0.4".
+warning " > @dcloudio/uni-automator@3.0.0-3090920231225001" has unmet peer dependency "jest-environment-node@27.5.1".
+[4/4] Building fresh packages...
+$ weapp-tw patch
+Done in 92.03s.
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
++ yarn list --depth=0 --json --non-interactive --no-progress
+        | sort_by(.name)[]'
+{"type":"warning","data":"package.json: No license field"}
+{"type":"warning","data":"uni-preset-vue@0.0.0: No license field"}
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/container-queries"),
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/line-clamp"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T00:05:05Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T00:05:05Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T00:05:05Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T00:05:05Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

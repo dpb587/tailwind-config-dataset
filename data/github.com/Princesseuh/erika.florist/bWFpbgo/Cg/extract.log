@@ -1,0 +1,214 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Princesseuh/erika.florist
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Princesseuh/erika.florist
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-07ef4a027d28
+++ echo 'github.com/Princesseuh/erika.florist;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a992a4be2197
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Princesseuh/erika.florist/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Princesseuh/erika.florist/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce fb62420b230f4c97
++ jq -nc --arg key analysis_nonce --arg value fb62420b230f4c97 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Princesseuh/erika.florist
++ jq -nc --arg key input_repo_name --arg value github.com/Princesseuh/erika.florist '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T08:03:05Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T08:03:05Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-07ef4a027d28
++ pushd /tmp/twcr-07ef4a027d28
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Princesseuh/erika.florist.git .
+/tmp/twcr-07ef4a027d28 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T08:03:21Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T08:03:21Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c07e3dfa1b0bb747b7d247be065db3218da964e1
++ jq -nc --arg key exec_repo_commit_sha --arg value c07e3dfa1b0bb747b7d247be065db3218da964e1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-27 21:40:58 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-27T21:40:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-27T21:40:58Z '{ key: $key, value: $value }'
+/tmp/twcr-07ef4a027d28 /tmp/twcr-07ef4a027d28 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-07ef4a027d28
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T08:03:21Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T08:03:21Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
++ rm -f package-lock.json pnpm-lock.yaml yarn.lock
+>>> {
+>>>   "name": "erika.florist",
+>>>   "type": "module",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "devDependencies": {
+>>>     "@astrojs/tailwind": "^5.1.0"
+>>>   },
+>>>   "pnpm": {
+>>>     "overrides": {
+>>>       "sharp": "^0.33.0"
+>>>     },
+>>>     "packageExtensions": {
+>>>       "quicklink": {
+>>>         "peerDependenciesMeta": {
+>>>           "react": {
+>>>             "optional": true
+>>>           },
+>>>           "react-dom": {
+>>>             "optional": true
+>>>           }
+>>>         }
+>>>       }
+>>>     }
+>>>   },
+>>>   "packageManager": "pnpm@8.10.0",
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-07ef4a027d28 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-07ef4a027d28
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-07ef4a027d28/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-07ef4a027d28/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 29, reused 0, downloaded 20, added 0
+Progress: resolved 65, reused 0, downloaded 54, added 0
+Progress: resolved 97, reused 0, downloaded 92, added 0
+Progress: resolved 117, reused 0, downloaded 115, added 0
+Progress: resolved 152, reused 0, downloaded 144, added 0
+Progress: resolved 192, reused 0, downloaded 175, added 0
+Progress: resolved 236, reused 0, downloaded 206, added 0
+Progress: resolved 285, reused 0, downloaded 229, added 0
+Progress: resolved 325, reused 0, downloaded 268, added 0
+Progress: resolved 361, reused 0, downloaded 299, added 0
+Progress: resolved 404, reused 0, downloaded 338, added 0
+Progress: resolved 449, reused 0, downloaded 373, added 0
+Progress: resolved 474, reused 0, downloaded 420, added 0
+Packages: +423
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 474, reused 0, downloaded 425, added 423, done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../sharp@0.33.2/node_modules/sharp install: Done
+
+dependencies:
++ tailwindcss 3.4.1
+
+devDependencies:
++ @astrojs/tailwind 5.1.0
+
+Done in 15.3s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.ts
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T08:03:38Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T08:03:38Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T08:03:38Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T08:03:38Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

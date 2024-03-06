@@ -1,0 +1,228 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/braden-w/whispering
++ reporef=main
++ repopath=./packages/tailwind-config
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/braden-w/whispering
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-603e77ba4690
+++ echo 'github.com/braden-w/whispering;main;./packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/51b96c6f0e73
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/braden-w/whispering/bWFpbgo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK
++ jq -nc --arg key analysis_key --arg value github.com/braden-w/whispering/bWFpbgo/Li9wYWNrYWdlcy90YWlsd2luZC1jb25maWcK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce fadac22ae0639b3c
++ jq -nc --arg key analysis_nonce --arg value fadac22ae0639b3c '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/braden-w/whispering
++ jq -nc --arg key input_repo_name --arg value github.com/braden-w/whispering '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T07:51:55Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T07:51:55Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-603e77ba4690
+/tmp/twcr-603e77ba4690 /twcr
++ pushd /tmp/twcr-603e77ba4690
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/braden-w/whispering.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T07:51:57Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T07:51:57Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 706901f76b63acbf3ffae2be887e5d2a83dcb725
++ jq -nc --arg key exec_repo_commit_sha --arg value 706901f76b63acbf3ffae2be887e5d2a83dcb725 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-30 15:07:43 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-30T20:07:43Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-30T20:07:43Z '{ key: $key, value: $value }'
+/tmp/twcr-603e77ba4690/packages/tailwind-config /tmp/twcr-603e77ba4690 /twcr
++ '[' -z ./packages/tailwind-config ']'
++ pushd ./packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-603e77ba4690/packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-603e77ba4690
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T07:51:57Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T07:51:57Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "tailwind-config",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "main": "index.js",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/tailwind-config '!=' ./ ']'
++ rm -f /tmp/twcr-603e77ba4690/package.json /tmp/twcr-603e77ba4690/package-lock.json /tmp/twcr-603e77ba4690/pnpm-lock.yaml /tmp/twcr-603e77ba4690/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-603e77ba4690 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-603e77ba4690
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-603e77ba4690/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 24, reused 0, downloaded 21, added 0
+../..                                    | Progress: resolved 48, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 83, reused 0, downloaded 73, added 0
+../..                                    | Progress: resolved 116, reused 0, downloaded 102, added 0
+../..                                    | Progress: resolved 154, reused 0, downloaded 127, added 0
+../..                                    | Progress: resolved 182, reused 0, downloaded 160, added 0
+../..                                    | Progress: resolved 218, reused 0, downloaded 188, added 0
+../..                                    | Progress: resolved 252, reused 0, downloaded 218, added 0
+../..                                    | Progress: resolved 272, reused 0, downloaded 241, added 0
+../..                                    | Progress: resolved 306, reused 0, downloaded 275, added 0
+../..                                    | Progress: resolved 343, reused 0, downloaded 297, added 0
+../..                                    | Progress: resolved 383, reused 0, downloaded 321, added 0
+../..                                    | Progress: resolved 412, reused 0, downloaded 351, added 0
+../..                                    | Progress: resolved 442, reused 0, downloaded 384, added 0
+../..                                    | Progress: resolved 474, reused 0, downloaded 408, added 0
+../..                                    | Progress: resolved 513, reused 0, downloaded 445, added 0
+../..                                    | Progress: resolved 552, reused 0, downloaded 469, added 0
+../..                                    | Progress: resolved 595, reused 0, downloaded 500, added 0
+../..                                    | Progress: resolved 636, reused 0, downloaded 528, added 0
+../..                                    | Progress: resolved 673, reused 0, downloaded 565, added 0
+../..                                    | Progress: resolved 733, reused 0, downloaded 598, added 0
+../..                                    | Progress: resolved 764, reused 0, downloaded 638, added 0
+../..                                    | Progress: resolved 783, reused 0, downloaded 686, added 0
+ WARN  1 deprecated subdependencies found: stable@0.1.8
+../..                                    | +724 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 805, reused 0, downloaded 722, added 0
+../..                                    | Progress: resolved 805, reused 0, downloaded 723, added 724, done
+.../sharp@0.32.1/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../node_modules/@parcel/watcher install$ node-gyp-build
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../sharp@0.32.1/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.2/libvips-8.14.2-linux-x64.tar.br
+.../sharp@0.32.1/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../node_modules/@parcel/watcher install: Done
+.../sharp@0.32.1/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.1/node_modules/sharp install: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/msgpackr-extract install$ node-gyp-build-optional-packages
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/msgpackr-extract install: Done
+.../.pnpm/lmdb@2.5.2/node_modules/lmdb install$ node-gyp-build-optional-packages
+.../.pnpm/lmdb@2.5.2/node_modules/lmdb install: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+apps/browser-extension
+└─┬ plasmo 0.73.7
+  └─┬ @plasmohq/parcel-config 0.36.5
+    └─┬ @parcel/config-default 2.8.3
+      └─┬ @parcel/optimizer-htmlnano 2.8.3
+        └─┬ htmlnano 2.1.0
+          └── ✕ unmet peer svgo@^3.0.2: found 2.8.0 in @parcel/optimizer-htmlnano
+
+Done in 29.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T07:52:28Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T07:52:28Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T07:52:28Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T07:52:28Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

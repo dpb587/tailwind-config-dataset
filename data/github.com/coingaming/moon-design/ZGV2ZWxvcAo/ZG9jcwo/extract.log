@@ -1,0 +1,499 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/coingaming/moon-design
++ reporef=develop
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/coingaming/moon-design
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-910e870e2ea9
+++ echo 'github.com/coingaming/moon-design;develop;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/bbedde055f7a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/coingaming/moon-design/ZGV2ZWxvcAo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/coingaming/moon-design/ZGV2ZWxvcAo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 362659c7c0715d16
++ jq -nc --arg key analysis_nonce --arg value 362659c7c0715d16 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/coingaming/moon-design
++ jq -nc --arg key input_repo_name --arg value github.com/coingaming/moon-design '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref develop
++ jq -nc --arg key input_repo_ref --arg value develop '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:06:59Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:06:59Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-910e870e2ea9
++ pushd /tmp/twcr-910e870e2ea9
++ '[' -d .git ']'
++ git clone --depth=1 -b develop https://github.com/coingaming/moon-design.git .
+/tmp/twcr-910e870e2ea9 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:07:02Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:07:02Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 626581f65eae2d8cf7e0af7462859c7495c6f529
++ jq -nc --arg key exec_repo_commit_sha --arg value 626581f65eae2d8cf7e0af7462859c7495c6f529 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 10:07:29 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T08:07:29Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T08:07:29Z '{ key: $key, value: $value }'
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
+/tmp/twcr-910e870e2ea9/docs /tmp/twcr-910e870e2ea9 /twcr
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-910e870e2ea9/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-910e870e2ea9
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:07:02Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:07:02Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "10.13.4",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "dependencies": {
+>>>     "@heathmont/moon-core-tw": "workspace:^10.13.4",
+>>>     "tailwindcss": "3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-910e870e2ea9/package.json /tmp/twcr-910e870e2ea9/package-lock.json /tmp/twcr-910e870e2ea9/pnpm-lock.yaml /tmp/twcr-910e870e2ea9/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-910e870e2ea9 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-910e870e2ea9
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-910e870e2ea9/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 26 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 28, reused 0, downloaded 16, added 0
+..                                       | Progress: resolved 45, reused 0, downloaded 35, added 0
+../packages/calendar                     |  WARN  deprecated @types/date-fns@2.6.0
+..                                       | Progress: resolved 62, reused 0, downloaded 49, added 0
+..                                       | Progress: resolved 85, reused 0, downloaded 71, added 0
+..                                       | Progress: resolved 109, reused 0, downloaded 96, added 0
+..                                       | Progress: resolved 143, reused 0, downloaded 129, added 0
+..                                       | Progress: resolved 176, reused 0, downloaded 165, added 0
+..                                       | Progress: resolved 200, reused 0, downloaded 183, added 0
+..                                       | Progress: resolved 228, reused 0, downloaded 209, added 0
+..                                       | Progress: resolved 258, reused 0, downloaded 238, added 0
+..                                       | Progress: resolved 285, reused 0, downloaded 255, added 0
+..                                       | Progress: resolved 318, reused 0, downloaded 289, added 0
+..                                       | Progress: resolved 356, reused 0, downloaded 320, added 0
+..                                       | Progress: resolved 397, reused 0, downloaded 361, added 0
+..                                       | Progress: resolved 429, reused 0, downloaded 393, added 0
+..                                       | Progress: resolved 451, reused 0, downloaded 411, added 0
+..                                       | Progress: resolved 488, reused 0, downloaded 448, added 0
+..                                       | Progress: resolved 525, reused 0, downloaded 485, added 0
+..                                       | Progress: resolved 558, reused 0, downloaded 515, added 0
+..                                       | Progress: resolved 602, reused 0, downloaded 551, added 0
+..                                       | Progress: resolved 635, reused 0, downloaded 586, added 0
+..                                       | Progress: resolved 678, reused 0, downloaded 627, added 0
+..                                       | Progress: resolved 717, reused 0, downloaded 664, added 0
+..                                       | Progress: resolved 755, reused 0, downloaded 699, added 0
+..                                       | Progress: resolved 798, reused 0, downloaded 731, added 0
+..                                       | Progress: resolved 832, reused 0, downloaded 771, added 0
+..                                       | Progress: resolved 861, reused 0, downloaded 801, added 0
+..                                       | Progress: resolved 907, reused 0, downloaded 835, added 0
+ WARN  3 deprecated subdependencies found: abab@2.0.6, domexception@2.0.1, w3c-hr-time@1.0.2
+..                                       | +911 ++++++++++++++++++++++++++++++++
+..                                       | Progress: resolved 919, reused 0, downloaded 870, added 0
+..                                       | Progress: resolved 919, reused 0, downloaded 910, added 907
+..                                       | Progress: resolved 919, reused 0, downloaded 911, added 911, done
+.../sharp@0.32.6/node_modules/sharp install$ (node install/libvips && node install/dll-copy && prebuild-install) || (node install/can-compile && node-gyp rebuild && node install/dll-copy)
+.../sharp@0.32.6/node_modules/sharp install: sharp: Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+.../sharp@0.32.6/node_modules/sharp install: sharp: Via proxy http://172.18.0.2:3128 with credentials
+.../sharp@0.32.6/node_modules/sharp install: sharp: Integrity check passed for linux-x64
+.../sharp@0.32.6/node_modules/sharp install: Done
+
+dependencies:
++ @heathmont/moon-core-tw 10.13.4 <- ../workspaces/core
++ tailwindcss 3.3.3 (3.4.1 is available)
+
+ WARN  Issues with peer dependencies found
+packages/charts
+├─┬ react-simple-maps 2.3.0
+│ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+├─┬ react-use 15.3.8
+│ ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0": found 18.2.0
+│ └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0": found 18.2.0
+└─┬ recharts 2.0.9
+  ├── ✕ unmet peer react@"^16.0.0 || ^17.0.0": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.0.0 || ^17.0.0": found 18.2.0
+  └─┬ react-resize-detector 6.7.8
+    ├── ✕ unmet peer react@"^16.0.0 || ^17.0.0": found 18.2.0
+    └── ✕ unmet peer react-dom@"^16.0.0 || ^17.0.0": found 18.2.0
+
+packages/components
+└─┬ @reach/dialog 0.16.2
+  ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  └─┬ @reach/portal 0.16.2
+    ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    └─┬ @reach/utils 0.16.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+packages/core
+└─┬ @reach/listbox 0.16.2
+  ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/auto-id 0.16.0
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ └─┬ @reach/utils 0.16.0
+  │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/descendants 0.16.1
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/machine 0.16.0
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  └─┬ @reach/popover 0.16.2
+    ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    ├─┬ @reach/portal 0.16.2
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    └─┬ @reach/rect 0.16.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+packages/draggabletable
+├─┬ react-table 7.5.1
+│ └── ✕ unmet peer react@^16.8.3: found 18.2.0
+└─┬ react-table-hoc-fixed-columns 2.3.3
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0": found 18.2.0
+
+packages/pagination
+└─┬ react-paginate 6.5.0
+  └── ✕ unmet peer react@^16.0.0: found 18.2.0
+
+packages/table
+├─┬ react-table 7.5.1
+│ └── ✕ unmet peer react@^16.8.3: found 18.2.0
+└─┬ react-table-hoc-fixed-columns 2.3.3
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0": found 18.2.0
+
+workspaces/tables
+└─┬ react-table-hoc-fixed-columns 2.3.4
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0 || ^17.0.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0 || ^17.0.0": found 18.2.0
+
+Done in 35s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@heathmont/moon-core-tw/lib/private/presets/ds-moon-preset'
+Require stack:
+- /tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs:14:5
+    at evalModule (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-910e870e2ea9/node_modules/.pnpm/tailwindcss@3.3.3/node_modules/tailwindcss/lib/lib/load-config.js:37:30
+    at Object.loadConfig (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/tailwindcss@3.3.3/node_modules/tailwindcss/lib/lib/load-config.js:39:6)
+    at file:///tmp/twcr-910e870e2ea9/docs/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:07:38Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:07:38Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 626581f Merge pull request #2559 from coingaming/develop
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-910e870e2ea9 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-910e870e2ea9
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-910e870e2ea9/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-910e870e2ea9/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 27 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+../packages/calendar                     |  WARN  deprecated @types/date-fns@2.6.0
+..                                       | Progress: resolved 115, reused 97, downloaded 18, added 0
+..                                       | Progress: resolved 367, reused 329, downloaded 37, added 0
+..                                       | Progress: resolved 730, reused 645, downloaded 82, added 0
+..                                       | Progress: resolved 848, reused 695, downloaded 153, added 0
+..                                       | Progress: resolved 918, reused 696, downloaded 222, added 0
+..                                       | Progress: resolved 989, reused 704, downloaded 285, added 0
+..                                       | Progress: resolved 1087, reused 739, downloaded 348, added 0
+..                                       | Progress: resolved 1172, reused 750, downloaded 415, added 0
+..                                       | Progress: resolved 1206, reused 767, downloaded 431, added 0
+..                                       | Progress: resolved 1280, reused 807, downloaded 464, added 0
+..                                       | Progress: resolved 1334, reused 808, downloaded 517, added 0
+..                                       | Progress: resolved 1392, reused 809, downloaded 573, added 0
+..                                       | Progress: resolved 1454, reused 809, downloaded 637, added 0
+..                                       | Progress: resolved 1511, reused 810, downloaded 692, added 0
+..                                       | Progress: resolved 1572, reused 810, downloaded 754, added 0
+..                                       | Progress: resolved 1633, reused 810, downloaded 815, added 0
+ WARN  5 deprecated subdependencies found: abab@2.0.6, domexception@2.0.1, stable@0.1.8, svgo@1.3.2, w3c-hr-time@1.0.2
+..                                       | +893 -173 ++++++++++++++++++++++-----
+..                                       | Progress: resolved 1633, reused 810, downloaded 815, added 1
+..                                       | Progress: resolved 1633, reused 810, downloaded 815, added 893, done
+.../.pnpm/husky@3.1.0/node_modules/husky install$ node husky install
+.../.pnpm/husky@3.1.0/node_modules/husky install: husky > Setting up git hooks
+.../.pnpm/husky@3.1.0/node_modules/husky install: husky > Done
+.../.pnpm/husky@3.1.0/node_modules/husky install: Done
+.../.pnpm/husky@3.1.0/node_modules/husky postinstall$ opencollective-postinstall || exit 0
+.../.pnpm/husky@3.1.0/node_modules/husky postinstall: [96m[1mThank you for using husky![96m[1m
+.../.pnpm/husky@3.1.0/node_modules/husky postinstall: [0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+.../.pnpm/husky@3.1.0/node_modules/husky postinstall: > [94mhttps://opencollective.com/husky/donate[0m
+.../.pnpm/husky@3.1.0/node_modules/husky postinstall: Done
+
+dependencies:
++ @heathmont/moon-base-tw 10.13.4 <- ../workspaces/base
++ @heathmont/moon-cmdk-tw 10.13.4 <- ../workspaces/cmdk
++ @heathmont/moon-core-tw 10.13.4 <- ../workspaces/core
++ @heathmont/moon-icons-tw 9.28.6
++ @heathmont/moon-themes-tw 10.13.4 <- ../workspaces/themes
++ @types/node 20.4.9 (20.11.24 is available)
++ @types/react 18.2.19
++ @types/react-dom 18.2.7
++ autoprefixer 10.4.14
++ eslint 8.46.0
++ eslint-config-next 13.4.13
++ next 13.4.13
++ next-mdx-remote 4.4.1
++ postcss 8.4.27
++ react 18.2.0
++ react-dom 18.2.0
+- tailwindcss
++ tailwindcss 3.3.3
++ ts-node 10.9.1
++ typescript 5.1.6 (5.3.3 is available)
+
+ WARN  Issues with peer dependencies found
+packages/charts
+├─┬ react-simple-maps 2.3.0
+│ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+├─┬ react-use 15.3.8
+│ ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0": found 18.2.0
+│ └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0": found 18.2.0
+└─┬ recharts 2.0.9
+  ├── ✕ unmet peer react@"^16.0.0 || ^17.0.0": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.0.0 || ^17.0.0": found 18.2.0
+  └─┬ react-resize-detector 6.7.8
+    ├── ✕ unmet peer react@"^16.0.0 || ^17.0.0": found 18.2.0
+    └── ✕ unmet peer react-dom@"^16.0.0 || ^17.0.0": found 18.2.0
+
+packages/components
+└─┬ @reach/dialog 0.16.2
+  ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  └─┬ @reach/portal 0.16.2
+    ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    └─┬ @reach/utils 0.16.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+packages/core
+└─┬ @reach/listbox 0.16.2
+  ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/auto-id 0.16.0
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  │ └─┬ @reach/utils 0.16.0
+  │   ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │   └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/descendants 0.16.1
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  ├─┬ @reach/machine 0.16.0
+  │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+  │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+  └─┬ @reach/popover 0.16.2
+    ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    ├── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    ├─┬ @reach/portal 0.16.2
+    │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+    │ └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+    └─┬ @reach/rect 0.16.0
+      ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+      └── ✕ unmet peer react-dom@"^16.8.0 || 17.x": found 18.2.0
+
+packages/datepicker
+└─┬ react-select 5.2.1
+  ├── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/draggabletable
+└─┬ react-table-hoc-fixed-columns 2.3.3
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0": found 18.2.0
+
+packages/pagination
+└─┬ react-paginate 6.5.0
+  └── ✕ unmet peer react@^16.0.0: found 18.2.0
+
+packages/select
+└─┬ react-select 5.2.1
+  ├── ✕ unmet peer react@"^16.8.0 || ^17.0.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^16.8.0 || ^17.0.0": found 18.2.0
+
+packages/table
+└─┬ react-table-hoc-fixed-columns 2.3.3
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0": found 18.2.0
+
+workspaces/tables
+└─┬ react-table-hoc-fixed-columns 2.3.4
+  ├── ✕ unmet peer react@"^15.3.0 || ^16.2.0 || ^17.0.0": found 18.2.0
+  └── ✕ unmet peer react-dom@"^15.3.0 || ^16.2.0 || ^17.0.0": found 18.2.0
+
+Done in 20.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.3
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '@heathmont/moon-core-tw/lib/private/presets/ds-moon-preset'
+Require stack:
+- /tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs:14:5
+    at evalModule (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-910e870e2ea9/node_modules/.pnpm/tailwindcss@3.3.3_ts-node@10.9.1/node_modules/tailwindcss/lib/lib/load-config.js:37:30
+    at Object.loadConfig (/tmp/twcr-910e870e2ea9/node_modules/.pnpm/tailwindcss@3.3.3_ts-node@10.9.1/node_modules/tailwindcss/lib/lib/load-config.js:39:6)
+    at file:///tmp/twcr-910e870e2ea9/docs/tailwind.config.exporter3.mjs:5:28 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-910e870e2ea9/docs/tailwind.config.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

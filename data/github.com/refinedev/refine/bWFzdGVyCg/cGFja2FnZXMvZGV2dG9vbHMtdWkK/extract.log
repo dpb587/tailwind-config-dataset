@@ -1,0 +1,207 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/refinedev/refine
++ reporef=master
++ repopath=./packages/devtools-ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/refinedev/refine
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-01bc2b95eb5c
+++ echo 'github.com/refinedev/refine;master;./packages/devtools-ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4862f6398a15
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/refinedev/refine/bWFzdGVyCg/Li9wYWNrYWdlcy9kZXZ0b29scy11aQo
++ jq -nc --arg key analysis_key --arg value github.com/refinedev/refine/bWFzdGVyCg/Li9wYWNrYWdlcy9kZXZ0b29scy11aQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce acd319681db398b6
++ jq -nc --arg key analysis_nonce --arg value acd319681db398b6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/refinedev/refine
++ jq -nc --arg key input_repo_name --arg value github.com/refinedev/refine '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/devtools-ui
++ jq -nc --arg key input_repo_path --arg value ./packages/devtools-ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:46:09Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:46:09Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-01bc2b95eb5c
+/tmp/twcr-01bc2b95eb5c /twcr
++ pushd /tmp/twcr-01bc2b95eb5c
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/refinedev/refine.git .
+Cloning into '.'...
+Updating files:  91% (9793/10660)Updating files:  92% (9808/10660)Updating files:  93% (9914/10660)Updating files:  94% (10021/10660)Updating files:  95% (10127/10660)Updating files:  96% (10234/10660)Updating files:  97% (10341/10660)Updating files:  98% (10447/10660)Updating files:  99% (10554/10660)Updating files: 100% (10660/10660)Updating files: 100% (10660/10660), done.
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:46:13Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:46:13Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 923d8e1d45c009ba586ef8871219e83f826a718b
++ jq -nc --arg key exec_repo_commit_sha --arg value 923d8e1d45c009ba586ef8871219e83f826a718b '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 09:51:59 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T06:51:59Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T06:51:59Z '{ key: $key, value: $value }'
+/tmp/twcr-01bc2b95eb5c/packages/devtools-ui /tmp/twcr-01bc2b95eb5c /twcr
++ '[' -z ./packages/devtools-ui ']'
++ pushd ./packages/devtools-ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-01bc2b95eb5c/packages/devtools-ui
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/devtools-ui '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-01bc2b95eb5c
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:46:14Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:46:14Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@refinedev/devtools-ui",
+>>>   "version": "1.1.17",
+>>>   "private": false,
+>>>   "description": "refine devtools offers a set of features from monitoring to quickly prototyping a UI.",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/refinedev/refine.git",
+>>>     "directory": "packages/devtools"
+>>>   },
+>>>   "license": "MIT",
+>>>   "author": "refine",
+>>>   "sideEffects": false,
+>>>   "exports": {
+>>>     ".": {
+>>>       "import": "./dist/esm/index.js",
+>>>       "require": "./dist/index.js"
+>>>     },
+>>>     "./style.css": {
+>>>       "import": "./dist/esm/style.css",
+>>>       "require": "./dist/style.css"
+>>>     }
+>>>   },
+>>>   "main": "dist/index.js",
+>>>   "module": "dist/esm/index.js",
+>>>   "typings": "dist/index.d.ts",
+>>>   "files": [
+>>>     "dist",
+>>>     "src"
+>>>   ],
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "tailwindcss": "^3.0.11"
+>>>   },
+>>>   "peerDependencies": {},
+>>>   "engines": {
+>>>     "node": ">=10"
+>>>   },
+>>>   "publishConfig": {
+>>>     "access": "public"
+>>>   },
+>>>   "gitHead": "829f5a516f98c06f666d6be3e6e6099c75c07719"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/devtools-ui '!=' ./ ']'
++ rm -f /tmp/twcr-01bc2b95eb5c/package.json /tmp/twcr-01bc2b95eb5c/package-lock.json /tmp/twcr-01bc2b95eb5c/pnpm-lock.yaml /tmp/twcr-01bc2b95eb5c/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-01bc2b95eb5c /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-01bc2b95eb5c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 118 packages, and audited 119 packages in 7s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T00:46:22Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T00:46:22Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T00:46:22Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T00:46:22Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

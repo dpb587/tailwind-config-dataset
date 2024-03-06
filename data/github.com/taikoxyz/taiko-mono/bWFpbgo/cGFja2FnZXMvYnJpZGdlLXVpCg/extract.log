@@ -1,0 +1,261 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/taikoxyz/taiko-mono
++ reporef=main
++ repopath=./packages/bridge-ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/taikoxyz/taiko-mono
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-697ad195e9b3
+++ echo 'github.com/taikoxyz/taiko-mono;main;./packages/bridge-ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1e93c18e9ce8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/taikoxyz/taiko-mono/bWFpbgo/Li9wYWNrYWdlcy9icmlkZ2UtdWkK
++ jq -nc --arg key analysis_key --arg value github.com/taikoxyz/taiko-mono/bWFpbgo/Li9wYWNrYWdlcy9icmlkZ2UtdWkK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce ac376a329f03d186
++ jq -nc --arg key analysis_nonce --arg value ac376a329f03d186 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/taikoxyz/taiko-mono
++ jq -nc --arg key input_repo_name --arg value github.com/taikoxyz/taiko-mono '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/bridge-ui
++ jq -nc --arg key input_repo_path --arg value ./packages/bridge-ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T21:34:50Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T21:34:50Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-697ad195e9b3
++ pushd /tmp/twcr-697ad195e9b3
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/taikoxyz/taiko-mono.git .
+/tmp/twcr-697ad195e9b3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T21:34:52Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T21:34:52Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha a520cc1db52cc35aae60c32850b0732864bb69f3
++ jq -nc --arg key exec_repo_commit_sha --arg value a520cc1db52cc35aae60c32850b0732864bb69f3 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 15:30:10 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T15:30:10Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T15:30:10Z '{ key: $key, value: $value }'
+/tmp/twcr-697ad195e9b3/packages/bridge-ui /tmp/twcr-697ad195e9b3 /twcr
++ '[' -z ./packages/bridge-ui ']'
++ pushd ./packages/bridge-ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-697ad195e9b3/packages/bridge-ui
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T21:34:52Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T21:34:52Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "bridge-ui",
+>>>   "version": "2.9.3",
+>>>   "private": true,
+>>>   "devDependencies": {
+>>>     "daisyui": "^4.7.2",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "type": "module",
+>>>   "dependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/bridge-ui '!=' ./ ']'
++ rm -f /tmp/twcr-697ad195e9b3/package.json /tmp/twcr-697ad195e9b3/package-lock.json /tmp/twcr-697ad195e9b3/pnpm-lock.yaml /tmp/twcr-697ad195e9b3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-697ad195e9b3 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-697ad195e9b3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-697ad195e9b3/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 15, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 20, added 0
+../..                                    | Progress: resolved 40, reused 0, downloaded 34, added 0
+../..                                    | Progress: resolved 42, reused 0, downloaded 41, added 0
+../..                                    | Progress: resolved 42, reused 0, downloaded 42, added 0
+../..                                    | Progress: resolved 42, reused 0, downloaded 43, added 0
+../..                                    | Progress: resolved 44, reused 0, downloaded 44, added 0
+../..                                    | Progress: resolved 44, reused 0, downloaded 45, added 0
+../..                                    | Progress: resolved 45, reused 0, downloaded 45, added 0
+../..                                    | Progress: resolved 62, reused 0, downloaded 57, added 0
+../..                                    | Progress: resolved 89, reused 0, downloaded 76, added 0
+../..                                    | Progress: resolved 117, reused 0, downloaded 105, added 0
+../..                                    | Progress: resolved 153, reused 0, downloaded 136, added 0
+../..                                    | Progress: resolved 175, reused 0, downloaded 158, added 0
+../..                                    | Progress: resolved 204, reused 0, downloaded 184, added 0
+../..                                    | Progress: resolved 228, reused 0, downloaded 211, added 0
+../..                                    | Progress: resolved 258, reused 0, downloaded 233, added 0
+../..                                    | Progress: resolved 281, reused 0, downloaded 259, added 0
+../..                                    | Progress: resolved 312, reused 0, downloaded 287, added 0
+../..                                    | Progress: resolved 341, reused 0, downloaded 310, added 0
+../..                                    | Progress: resolved 368, reused 0, downloaded 339, added 0
+../..                                    | Progress: resolved 399, reused 0, downloaded 370, added 0
+../..                                    | Progress: resolved 435, reused 0, downloaded 389, added 0
+../..                                    | Progress: resolved 475, reused 0, downloaded 407, added 0
+../..                                    | Progress: resolved 507, reused 0, downloaded 438, added 0
+../..                                    | Progress: resolved 536, reused 0, downloaded 461, added 0
+../..                                    | Progress: resolved 566, reused 0, downloaded 488, added 0
+../..                                    | Progress: resolved 613, reused 0, downloaded 516, added 0
+../..                                    | Progress: resolved 643, reused 0, downloaded 542, added 0
+../..                                    | Progress: resolved 668, reused 0, downloaded 568, added 0
+../..                                    | Progress: resolved 700, reused 0, downloaded 600, added 0
+../..                                    | Progress: resolved 736, reused 0, downloaded 633, added 0
+../..                                    | Progress: resolved 769, reused 0, downloaded 663, added 0
+../..                                    | Progress: resolved 810, reused 0, downloaded 700, added 0
+../..                                    | Progress: resolved 838, reused 0, downloaded 723, added 0
+../..                                    | Progress: resolved 869, reused 0, downloaded 755, added 0
+../..                                    | Progress: resolved 896, reused 0, downloaded 781, added 0
+../..                                    | Progress: resolved 931, reused 0, downloaded 814, added 0
+../..                                    | Progress: resolved 958, reused 0, downloaded 845, added 0
+../..                                    | Progress: resolved 974, reused 0, downloaded 892, added 0
+ WARN  1 deprecated subdependencies found: @motionone/vue@10.16.4
+../..                                    | +912 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 978, reused 0, downloaded 910, added 241
+../..                                    | Progress: resolved 978, reused 0, downloaded 912, added 912, done
+.../node_modules/bigint-buffer install$ npm run rebuild || echo "Couldn't build bindings. Non-native version used."
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+.../node_modules/svelte-preprocess postinstall: Done
+.../keccak@3.0.4/node_modules/keccak install$ node-gyp-build || exit 0
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install: Done
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../keccak@3.0.4/node_modules/keccak install: Done
+.../node_modules/bigint-buffer install: > bigint-buffer@1.1.5 rebuild
+.../node_modules/bigint-buffer install: > node-gyp rebuild
+.../node_modules/bigint-buffer install: gyp info it worked if it ends with ok
+.../node_modules/bigint-buffer install: gyp info using node-gyp@10.0.1
+.../node_modules/bigint-buffer install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/bigint-buffer install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/bigint-buffer install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp http 403 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp WARN install got an error, rolling back install
+.../node_modules/bigint-buffer install: gyp ERR! configure error 
+.../node_modules/bigint-buffer install: gyp ERR! stack Error: 403 response downloading https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/bigint-buffer install: gyp ERR! stack at go (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:223:21)
+.../node_modules/bigint-buffer install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async install (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/install.js:63:18)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async getNodeDir (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:53:7)
+.../node_modules/bigint-buffer install: gyp ERR! stack at async run (/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js:81:18)
+.../node_modules/bigint-buffer install: gyp ERR! System Linux 6.4.16-linuxkit
+.../node_modules/bigint-buffer install: gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+.../node_modules/bigint-buffer install: gyp ERR! cwd /tmp/twcr-697ad195e9b3/node_modules/.pnpm/bigint-buffer@1.1.5/node_modules/bigint-buffer
+.../node_modules/bigint-buffer install: gyp ERR! node -v v21.6.2
+.../node_modules/bigint-buffer install: gyp ERR! node-gyp -v v10.0.1
+.../node_modules/bigint-buffer install: gyp ERR! not ok 
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+.../node_modules/bigint-buffer install: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+.../node_modules/bigint-buffer install: npm notice Run `npm install -g npm@10.5.0` to update!
+.../node_modules/bigint-buffer install: npm notice 
+.../node_modules/bigint-buffer install: Couldn't build bindings. Non-native version used.
+.../node_modules/bigint-buffer install: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+
+devDependencies:
++ daisyui 4.7.2
++ tailwindcss 3.4.1
+
+Done in 1m 14.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T21:36:09Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T21:36:09Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T21:36:09Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T21:36:09Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

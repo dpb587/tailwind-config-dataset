@@ -1,0 +1,264 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/makeplane/plane
++ reporef=preview
++ repopath=./web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/makeplane/plane
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-829f840554a3
+++ echo 'github.com/makeplane/plane;preview;./web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/904f02b2365a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/makeplane/plane/cHJldmlldwo/Li93ZWIK
++ jq -nc --arg key analysis_key --arg value github.com/makeplane/plane/cHJldmlldwo/Li93ZWIK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a8c97a0c2b9edc88
++ jq -nc --arg key analysis_nonce --arg value a8c97a0c2b9edc88 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/makeplane/plane
++ jq -nc --arg key input_repo_name --arg value github.com/makeplane/plane '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref preview
++ jq -nc --arg key input_repo_ref --arg value preview '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./web
++ jq -nc --arg key input_repo_path --arg value ./web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:42:03Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:42:03Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-829f840554a3
++ pushd /tmp/twcr-829f840554a3
++ '[' -d .git ']'
++ git clone --depth=1 -b preview https://github.com/makeplane/plane.git .
+/tmp/twcr-829f840554a3 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:42:05Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:42:05Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 894de80f418eea057aebf6658657ddb6d596762c
++ jq -nc --arg key exec_repo_commit_sha --arg value 894de80f418eea057aebf6658657ddb6d596762c '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 17:29:30 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T11:59:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T11:59:30Z '{ key: $key, value: $value }'
+/tmp/twcr-829f840554a3/web /tmp/twcr-829f840554a3 /twcr
++ '[' -z ./web ']'
++ pushd ./web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-829f840554a3/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-829f840554a3
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:42:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:42:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "web",
+>>>   "version": "0.16.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwind-config-custom": "*"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./web '!=' ./ ']'
++ rm -f /tmp/twcr-829f840554a3/package.json /tmp/twcr-829f840554a3/package-lock.json /tmp/twcr-829f840554a3/pnpm-lock.yaml /tmp/twcr-829f840554a3/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-829f840554a3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-829f840554a3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_66ad907231d9:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_66ad907231d9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_66ad907231d9:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_66ad907231d9:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_66ad907231d9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_66ad907231d9:ok@172.18.0.2:3128".
+Done in 0.03s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:145) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-829f840554a3/web/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error An unexpected error occurred: "https://registry.yarnpkg.com/tailwind-config-custom: Not found".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T00:42:07Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T00:42:07Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing yarn-error.log
++ git reset --hard
+HEAD is now at 894de80 [WEB-616] fix: inbox issue navigation issue title and description event propagation (#3851)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-829f840554a3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-829f840554a3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_66ad907231d9:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_66ad907231d9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_66ad907231d9:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_66ad907231d9:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_66ad907231d9:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_66ad907231d9:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:213) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning react-hook-form@7.49.2: The engine "pnpm" appears to be invalid.
+[3/4] Linking dependencies...
+warning "eslint-config-custom > @typescript-eslint/eslint-plugin@6.16.0" has unmet peer dependency "@typescript-eslint/parser@^6.0.0 || ^6.0.0-alpha".
+warning " > prettier-plugin-tailwindcss@0.5.9" has unmet peer dependency "prettier@^3.0".
+warning " > @plane/editor-core@0.16.0" has unmet peer dependency "next@12.3.2".
+warning " > @plane/editor-core@0.16.0" has unmet peer dependency "react@^18.2.0".
+warning " > @plane/editor-core@0.16.0" has unmet peer dependency "react-dom@18.2.0".
+warning " > @plane/document-editor@0.16.0" has unmet peer dependency "next@12.3.2".
+warning " > @plane/document-editor@0.16.0" has unmet peer dependency "next-themes@^0.2.1".
+warning " > @plane/document-editor@0.16.0" has unmet peer dependency "react@^18.2.0".
+warning " > @plane/document-editor@0.16.0" has unmet peer dependency "react-dom@18.2.0".
+warning " > @plane/editor-extensions@0.16.0" has unmet peer dependency "next@12.3.2".
+warning " > @plane/editor-extensions@0.16.0" has unmet peer dependency "next-themes@^0.2.1".
+warning " > @plane/editor-extensions@0.16.0" has unmet peer dependency "react@^18.2.0".
+warning " > @plane/editor-extensions@0.16.0" has unmet peer dependency "react-dom@18.2.0".
+warning " > @plane/lite-text-editor@0.16.0" has unmet peer dependency "next@12.3.2".
+warning " > @plane/lite-text-editor@0.16.0" has unmet peer dependency "next-themes@^0.2.1".
+warning " > @plane/lite-text-editor@0.16.0" has unmet peer dependency "react@^18.2.0".
+warning " > @plane/lite-text-editor@0.16.0" has unmet peer dependency "react-dom@18.2.0".
+warning " > @plane/rich-text-editor@0.16.0" has unmet peer dependency "next@12.3.2".
+warning " > @plane/rich-text-editor@0.16.0" has unmet peer dependency "next-themes@^0.2.1".
+warning " > @plane/rich-text-editor@0.16.0" has unmet peer dependency "react@^18.2.0".
+warning " > @plane/rich-text-editor@0.16.0" has unmet peer dependency "react-dom@18.2.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/core@0.80.0" has unmet peer dependency "@nivo/tooltip@0.80.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/core@0.80.0" has unmet peer dependency "prop-types@>= 15.5.10 < 16.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/legends@0.80.0" has unmet peer dependency "prop-types@>= 15.5.10 < 16.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/line@0.80.0" has unmet peer dependency "prop-types@>= 15.5.10 < 16.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/editor-core > @tiptap/extension-code-block-lowlight@2.1.13" has unmet peer dependency "@tiptap/extension-code-block@^2.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/editor-core > @tiptap/react@2.1.13" has unmet peer dependency "react@^17.0.0 || ^18.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/editor-core > @tiptap/react@2.1.13" has unmet peer dependency "react-dom@^17.0.0 || ^18.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @floating-ui/react@0.26.4" has unmet peer dependency "react@>=16.8.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @floating-ui/react@0.26.4" has unmet peer dependency "react-dom@>=16.8.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @tippyjs/react@4.2.6" has unmet peer dependency "react@>=16.8".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @tippyjs/react@4.2.6" has unmet peer dependency "react-dom@>=16.8".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > lucide-react@0.309.0" has unmet peer dependency "react@^16.5.1 || ^17.0.0 || ^18.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/bar > @nivo/axes@0.80.0" has unmet peer dependency "prop-types@>= 15.5.10 < 16.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > @nivo/bar > @nivo/colors@0.80.0" has unmet peer dependency "prop-types@>= 15.5.10 < 16.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > next-pwa > babel-loader@8.3.0" has unmet peer dependency "@babel/core@^7.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > next-pwa > babel-loader@8.3.0" has unmet peer dependency "webpack@>=2".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > next-pwa > clean-webpack-plugin@4.0.0" has unmet peer dependency "webpack@>=4.0.0 <6.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > next-pwa > terser-webpack-plugin@5.3.9" has unmet peer dependency "webpack@^5.1.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > web > next-pwa > workbox-webpack-plugin@6.6.1" has unmet peer dependency "webpack@^4.4.0 || ^5.9.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > space > @blueprintjs/core > react-popper@1.3.11" has incorrect peer dependency "react@0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @floating-ui/react > @floating-ui/react-dom@2.0.4" has unmet peer dependency "react@>=16.8.0".
+warning "workspace-aggregator-683bafb1-2d5f-441e-b38d-2aa7db24ae50 > @plane/document-editor > @floating-ui/react > @floating-ui/react-dom@2.0.4" has unmet peer dependency "react-dom@>=16.8.0".
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+Done in 171.87s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.0
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T00:45:02Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T00:45:02Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T00:45:02Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T00:45:02Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,265 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/karthickthankyou/supply-chain-x-workshop
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/karthickthankyou/supply-chain-x-workshop
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4b80f20d09e9
+++ echo 'github.com/karthickthankyou/supply-chain-x-workshop;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4bdb54cc8c2d
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/karthickthankyou/supply-chain-x-workshop/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/karthickthankyou/supply-chain-x-workshop/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a314f515afb60ec6
++ jq -nc --arg key analysis_nonce --arg value a314f515afb60ec6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/karthickthankyou/supply-chain-x-workshop
++ jq -nc --arg key input_repo_name --arg value github.com/karthickthankyou/supply-chain-x-workshop '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:05:08Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:05:08Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4b80f20d09e9
+/tmp/twcr-4b80f20d09e9 /twcr
++ pushd /tmp/twcr-4b80f20d09e9
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/karthickthankyou/supply-chain-x-workshop.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:05:09Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:05:09Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha eeaf8e83c70291563bbbf0b1e5c27e2f46ad7bd8
++ jq -nc --arg key exec_repo_commit_sha --arg value eeaf8e83c70291563bbbf0b1e5c27e2f46ad7bd8 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-11 12:36:39 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-11T07:06:39Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-11T07:06:39Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
+/tmp/twcr-4b80f20d09e9/apps/web /tmp/twcr-4b80f20d09e9 /twcr
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4b80f20d09e9/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4b80f20d09e9
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:05:09Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:05:09Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@foundation/web",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-4b80f20d09e9/package.json /tmp/twcr-4b80f20d09e9/package-lock.json /tmp/twcr-4b80f20d09e9/pnpm-lock.yaml /tmp/twcr-4b80f20d09e9/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4b80f20d09e9 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4b80f20d09e9
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4b80f20d09e9/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 28, reused 0, downloaded 21, added 0
+../..                                    | Progress: resolved 43, reused 0, downloaded 37, added 0
+../..                                    | Progress: resolved 62, reused 0, downloaded 53, added 0
+../..                                    | Progress: resolved 69, reused 0, downloaded 58, added 0
+../..                                    | Progress: resolved 75, reused 0, downloaded 71, added 0
+../..                                    | Progress: resolved 78, reused 0, downloaded 75, added 0
+../..                                    | Progress: resolved 107, reused 0, downloaded 97, added 0
+../..                                    | Progress: resolved 140, reused 0, downloaded 122, added 0
+../..                                    | Progress: resolved 163, reused 0, downloaded 150, added 0
+../..                                    | Progress: resolved 185, reused 0, downloaded 172, added 0
+../..                                    | Progress: resolved 218, reused 0, downloaded 200, added 0
+../..                                    | Progress: resolved 252, reused 0, downloaded 231, added 0
+../..                                    | Progress: resolved 289, reused 0, downloaded 250, added 0
+../..                                    | Progress: resolved 300, reused 0, downloaded 265, added 0
+../..                                    | Progress: resolved 303, reused 0, downloaded 266, added 0
+../..                                    | Progress: resolved 308, reused 0, downloaded 271, added 0
+../..                                    | Progress: resolved 325, reused 0, downloaded 288, added 0
+../..                                    | Progress: resolved 343, reused 0, downloaded 298, added 0
+../..                                    | Progress: resolved 361, reused 0, downloaded 319, added 0
+../..                                    | Progress: resolved 392, reused 0, downloaded 351, added 0
+../..                                    | Progress: resolved 404, reused 0, downloaded 363, added 0
+../..                                    | Progress: resolved 412, reused 0, downloaded 370, added 0
+../..                                    | Progress: resolved 423, reused 0, downloaded 375, added 0
+../..                                    | Progress: resolved 442, reused 0, downloaded 393, added 0
+../..                                    | Progress: resolved 464, reused 0, downloaded 418, added 0
+../..                                    | Progress: resolved 504, reused 0, downloaded 448, added 0
+../..                                    | Progress: resolved 536, reused 0, downloaded 483, added 0
+../..                                    | Progress: resolved 565, reused 0, downloaded 514, added 0
+../..                                    | Progress: resolved 596, reused 0, downloaded 539, added 0
+../..                                    | Progress: resolved 616, reused 0, downloaded 558, added 0
+../..                                    | Progress: resolved 654, reused 0, downloaded 590, added 0
+../..                                    | Progress: resolved 682, reused 0, downloaded 618, added 0
+../..                                    | Progress: resolved 715, reused 0, downloaded 647, added 0
+../..                                    | Progress: resolved 741, reused 0, downloaded 669, added 0
+../..                                    | Progress: resolved 781, reused 0, downloaded 671, added 0
+../..                                    | Progress: resolved 787, reused 0, downloaded 676, added 0
+../..                                    | Progress: resolved 796, reused 0, downloaded 694, added 0
+../..                                    | Progress: resolved 805, reused 0, downloaded 700, added 0
+../..                                    | Progress: resolved 823, reused 0, downloaded 710, added 0
+../..                                    | Progress: resolved 840, reused 0, downloaded 727, added 0
+../..                                    | Progress: resolved 868, reused 0, downloaded 754, added 0
+../..                                    | Progress: resolved 902, reused 0, downloaded 790, added 0
+../..                                    | Progress: resolved 937, reused 0, downloaded 821, added 0
+../..                                    | Progress: resolved 977, reused 0, downloaded 860, added 0
+../..                                    | Progress: resolved 1011, reused 0, downloaded 891, added 0
+../..                                    | Progress: resolved 1046, reused 0, downloaded 921, added 0
+../..                                    | Progress: resolved 1081, reused 0, downloaded 955, added 0
+../..                                    | Progress: resolved 1120, reused 0, downloaded 990, added 0
+../..                                    | Progress: resolved 1159, reused 0, downloaded 1028, added 0
+../..                                    | Progress: resolved 1195, reused 0, downloaded 1062, added 0
+../..                                    | Progress: resolved 1235, reused 0, downloaded 1099, added 0
+ WARN  4 deprecated subdependencies found: @apollo/server-plugin-landing-page-graphql-playground@4.0.0, @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, subscriptions-transport-ws@0.11.0
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1121, added 0
+../..                                    |    +1192 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1133, added 0
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1136, added 141
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1137, added 696
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1137, added 1099
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1152, added 1149
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1159, added 1158
+../..                                    | Progress: resolved 1250, reused 0, downloaded 1191, added 1192, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@nestjs/core postinstall: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.10.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../prisma@5.10.2/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 1m 17.2s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.ts
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T09:06:29Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T09:06:29Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:06:29Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:06:29Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

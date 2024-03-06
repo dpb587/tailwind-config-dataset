@@ -1,0 +1,255 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/tsedio/tsed-formio
++ reporef=master
++ repopath=./packages/tailwind-formio
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/tsedio/tsed-formio
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-bc9f66e0fb58
+++ echo 'github.com/tsedio/tsed-formio;master;./packages/tailwind-formio'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c9841d675a2e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/tsedio/tsed-formio/bWFzdGVyCg/Li9wYWNrYWdlcy90YWlsd2luZC1mb3JtaW8K
++ jq -nc --arg key analysis_key --arg value github.com/tsedio/tsed-formio/bWFzdGVyCg/Li9wYWNrYWdlcy90YWlsd2luZC1mb3JtaW8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 5d7004d9c6f7cf34
++ jq -nc --arg key analysis_nonce --arg value 5d7004d9c6f7cf34 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/tsedio/tsed-formio
++ jq -nc --arg key input_repo_name --arg value github.com/tsedio/tsed-formio '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/tailwind-formio
++ jq -nc --arg key input_repo_path --arg value ./packages/tailwind-formio '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:20:16Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:20:16Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-bc9f66e0fb58
++ pushd /tmp/twcr-bc9f66e0fb58
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/tsedio/tsed-formio.git .
+/tmp/twcr-bc9f66e0fb58 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:20:17Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:20:17Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 96f97fc0f7c8d0f05b4813b6564cf8c5fa3f0329
++ jq -nc --arg key exec_repo_commit_sha --arg value 96f97fc0f7c8d0f05b4813b6564cf8c5fa3f0329 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-09-20 08:19:15 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-09-20T08:19:15Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-09-20T08:19:15Z '{ key: $key, value: $value }'
++ '[' -z ./packages/tailwind-formio ']'
++ pushd ./packages/tailwind-formio
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-bc9f66e0fb58/packages/tailwind-formio /tmp/twcr-bc9f66e0fb58 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-bc9f66e0fb58/packages/tailwind-formio
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:20:18Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:20:18Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@tsed/tailwind-formio",
+>>>   "version": "2.2.3",
+>>>   "description": "Tailwind templates for form.io forms.",
+>>>   "main": "dist/index.js",
+>>>   "module": "dist/index.modern.js",
+>>>   "source": "src/index.ts",
+>>>   "devDependencies": {
+>>>     "@tsed/tailwind": "2.2.3"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.2%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "dependencies": {},
+>>>   "peerDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/tailwind-formio '!=' ./ ']'
++ rm -f /tmp/twcr-bc9f66e0fb58/package.json /tmp/twcr-bc9f66e0fb58/package-lock.json /tmp/twcr-bc9f66e0fb58/pnpm-lock.yaml /tmp/twcr-bc9f66e0fb58/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-bc9f66e0fb58 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-bc9f66e0fb58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_dbac493d54e7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_dbac493d54e7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_dbac493d54e7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_dbac493d54e7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_dbac493d54e7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_dbac493d54e7:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-bc9f66e0fb58/packages/tailwind-formio/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error An unexpected error occurred: "https://registry.yarnpkg.com/@tsed%2ftailwind: Not found".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:20:19Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:20:19Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing yarn-error.log
++ git reset --hard
+HEAD is now at 96f97fc Github CI build: __run_2 v2.2.3 [ci skip]
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-bc9f66e0fb58 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-bc9f66e0fb58
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_dbac493d54e7:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_dbac493d54e7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_dbac493d54e7:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_dbac493d54e7:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_dbac493d54e7:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_dbac493d54e7:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+(node:204) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[3/4] Linking dependencies...
+warning " > connected-react-router@6.9.1" has incorrect peer dependency "history@^4.7.2".
+warning " > connected-react-router@6.9.1" has incorrect peer dependency "react@^16.4.0 || ^17.0.0".
+warning " > connected-react-router@6.9.1" has unmet peer dependency "redux@^3.6.0 || ^4.0.0".
+warning " > react-redux@7.2.6" has incorrect peer dependency "react@^16.8.3 || ^17".
+warning "react-router > mini-create-react-context@0.4.1" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0".
+warning " > redux-thunk@2.4.2" has unmet peer dependency "redux@^4".
+warning " > @testing-library/react@12.1.5" has incorrect peer dependency "react@<18.0.0".
+warning " > @testing-library/react@12.1.5" has incorrect peer dependency "react-dom@<18.0.0".
+warning "eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-syntax-flow@^7.14.5".
+warning "eslint-config-react-app > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-transform-react-jsx@^7.14.9".
+warning " > postcss-normalize@10.0.1" has unmet peer dependency "browserslist@>= 4".
+warning "postcss-normalize > postcss-browser-comments@4.0.0" has unmet peer dependency "browserslist@>=4".
+warning " > @tsed/react-formio-container@2.2.3" has unmet peer dependency "classnames@^2.3.1".
+warning " > @tsed/react-formio-container@2.2.3" has unmet peer dependency "file-saver@^2.0.5".
+warning " > @tsed/react-formio-container@2.2.3" has incorrect peer dependency "lodash@^4.17.21".
+warning " > @tsed/react-formio-container@2.2.3" has unmet peer dependency "prop-types@^15.8.1".
+warning " > @tsed/react-formio-container@2.2.3" has unmet peer dependency "react-is@^17.0.1".
+warning " > @tsed/react-formio-stores@2.2.3" has unmet peer dependency "prop-types@>=15.7.2".
+warning " > @tsed/react-formio@2.2.3" has unmet peer dependency "prop-types@>=15.7.2".
+warning " > @tsed/react-formio@2.2.3" has unmet peer dependency "react-dnd@>=16.0.1".
+warning " > @tsed/react-formio@2.2.3" has unmet peer dependency "react-dnd-html5-backend@>=16.0.1".
+warning " > @tsed/redux-utils@2.2.3" has unmet peer dependency "redux@^4.0.5".
+warning "workspace-aggregator-5b2657e4-6f85-4fb5-89ee-8d5ed3ffa7d3 > @tsed/storybook > react-svg@10.0.23" has incorrect peer dependency "react@^15.5.4 || ^16.0.0".
+warning "workspace-aggregator-5b2657e4-6f85-4fb5-89ee-8d5ed3ffa7d3 > @tsed/storybook > react-svg@10.0.23" has incorrect peer dependency "react-dom@^15.5.4 || ^16.0.0".
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+warning Workspaces can only be enabled in private projects.
+[4/4] Building fresh packages...
+Done in 144.26s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T09:22:46Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T09:22:46Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:22:46Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:22:46Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

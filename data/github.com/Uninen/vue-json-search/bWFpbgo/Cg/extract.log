@@ -1,0 +1,213 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Uninen/vue-json-search
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Uninen/vue-json-search
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-c3f890c31387
+++ echo 'github.com/Uninen/vue-json-search;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b7b3e3eecde7
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Uninen/vue-json-search/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Uninen/vue-json-search/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f3ee8ace38a578b7
++ jq -nc --arg key analysis_nonce --arg value f3ee8ace38a578b7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Uninen/vue-json-search
++ jq -nc --arg key input_repo_name --arg value github.com/Uninen/vue-json-search '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:41:54Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:41:54Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-c3f890c31387
++ pushd /tmp/twcr-c3f890c31387
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/Uninen/vue-json-search.git .
+/tmp/twcr-c3f890c31387 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:41:55Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:41:55Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7e3f50bb9e6a4dcdc15ed4a7c84b64267a8bd44f
++ jq -nc --arg key exec_repo_commit_sha --arg value 7e3f50bb9e6a4dcdc15ed4a7c84b64267a8bd44f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-07-04 21:04:14 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-07-04T18:04:14Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-07-04T18:04:14Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-c3f890c31387 /tmp/twcr-c3f890c31387 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-c3f890c31387
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:41:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:41:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "vue-json-search",
+>>>   "version": "0.2.1",
+>>>   "main": "dist/index.es.js",
+>>>   "module": "dist/index.es.js",
+>>>   "exports": {
+>>>     ".": {
+>>>       "import": "./dist/index.es.js",
+>>>       "require": "./dist/index.umd.js"
+>>>     }
+>>>   },
+>>>   "typings": "./dist/src/search.d.ts",
+>>>   "repository": "https://github.com/Uninen/vue-json-search",
+>>>   "author": "Ville Säävuori <ville@unessa.net>",
+>>>   "license": "MIT",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "0.5.2",
+>>>     "tailwindcss": "3.1.4"
+>>>   },
+>>>   "files": [
+>>>     "dist/index.es.js",
+>>>     "dist/index.es.js.map",
+>>>     "dist/index.umd.js",
+>>>     "dist/index.umd.js.map",
+>>>     "dist/src/env.d.ts",
+>>>     "dist/src/types.d.ts",
+>>>     "dist/src/utils.d.ts",
+>>>     "dist/src/search.d.ts",
+>>>     "dist/src/components/JsonSearch.vue.d.ts",
+>>>     "dist/src/components/ResultList.vue.d.ts",
+>>>     "dist/src/components/ResultListItem.vue.d.ts",
+>>>     "dist/src/components/ResultTitle.vue.d.ts",
+>>>     "dist/src/components/SearchInput.vue.d.ts",
+>>>     "dist/src/components/SearchResults.vue.d.ts",
+>>>     "README.md",
+>>>     "LICENSE.md"
+>>>   ],
+>>>   "keywords": [
+>>>     "vue",
+>>>     "json",
+>>>     "search",
+>>>     "hugo",
+>>>     "fuse"
+>>>   ],
+>>>   "bugs": {
+>>>     "url": "https://github.com/Uninen/vue-json-search/issues"
+>>>   },
+>>>   "homepage": "https://github.com/Uninen/vue-json-search"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-c3f890c31387 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-c3f890c31387
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-c3f890c31387/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-c3f890c31387/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 25, reused 0, downloaded 19, added 0
+Progress: resolved 57, reused 0, downloaded 43, added 0
+Packages: +66
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 67, reused 0, downloaded 66, added 66, done
+
+devDependencies:
++ @tailwindcss/typography 0.5.2 (0.5.10 is available)
++ tailwindcss 3.1.4 (3.4.1 is available)
+
+Done in 3.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.1.4
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T09:42:00Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T09:42:00Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:42:00Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:42:00Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

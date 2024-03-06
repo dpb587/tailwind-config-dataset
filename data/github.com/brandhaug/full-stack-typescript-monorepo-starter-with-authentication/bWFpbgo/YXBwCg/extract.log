@@ -1,0 +1,285 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
++ reporef=main
++ repopath=./app
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
+++ awk '{ print $1 }'
+++ sha256sum
+++ cut -c1-12
++ procdir=/tmp/twcr-be802f565c4b
+++ echo 'github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication;main;./app'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/289a090d7879
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication/bWFpbgo/Li9hcHAK
++ jq -nc --arg key analysis_key --arg value github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication/bWFpbgo/Li9hcHAK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce c3d4c57f540bd20f
++ jq -nc --arg key analysis_nonce --arg value c3d4c57f540bd20f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
++ jq -nc --arg key input_repo_name --arg value github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./app
++ jq -nc --arg key input_repo_path --arg value ./app '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:36:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:36:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-be802f565c4b
+/tmp/twcr-be802f565c4b /twcr
++ pushd /tmp/twcr-be802f565c4b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:36:22Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:36:22Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1716ce022fd1f915fb3a9cda6693e7cad2dc5657
++ jq -nc --arg key exec_repo_commit_sha --arg value 1716ce022fd1f915fb3a9cda6693e7cad2dc5657 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-21 19:49:46 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-21T18:49:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-21T18:49:46Z '{ key: $key, value: $value }'
+/tmp/twcr-be802f565c4b/app /tmp/twcr-be802f565c4b /twcr
++ '[' -z ./app ']'
++ pushd ./app
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-be802f565c4b/app
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./app '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-be802f565c4b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:36:22Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:36:22Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@fstmswa/app",
+>>>   "version": "0.0.0",
+>>>   "dependencies": {
+>>>     "@fstmswa/conf": "0.0.0",
+>>>     "tailwindcss": "^3.2.7"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./app '!=' ./ ']'
++ rm -f /tmp/twcr-be802f565c4b/package.json /tmp/twcr-be802f565c4b/package-lock.json /tmp/twcr-be802f565c4b/pnpm-lock.yaml /tmp/twcr-be802f565c4b/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-be802f565c4b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-be802f565c4b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-be802f565c4b/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 29, reused 0, downloaded 22, added 0
+..                                       | Progress: resolved 47, reused 0, downloaded 38, added 0
+..                                       | Progress: resolved 64, reused 0, downloaded 56, added 0
+..                                       | Progress: resolved 67, reused 0, downloaded 66, added 0
+..                                       | Progress: resolved 73, reused 0, downloaded 68, added 0
+..                                       | Progress: resolved 97, reused 0, downloaded 89, added 0
+..                                       | Progress: resolved 129, reused 0, downloaded 118, added 0
+..                                       | Progress: resolved 165, reused 0, downloaded 152, added 0
+..                                       | Progress: resolved 200, reused 0, downloaded 183, added 0
+..                                       | Progress: resolved 231, reused 0, downloaded 211, added 0
+..                                       | Progress: resolved 263, reused 0, downloaded 234, added 0
+..                                       | Progress: resolved 305, reused 0, downloaded 264, added 0
+..                                       | Progress: resolved 332, reused 0, downloaded 286, added 0
+..                                       | Progress: resolved 353, reused 0, downloaded 308, added 0
+..                                       | Progress: resolved 375, reused 0, downloaded 334, added 0
+..                                       | Progress: resolved 399, reused 0, downloaded 350, added 0
+..                                       | Progress: resolved 436, reused 0, downloaded 384, added 0
+..                                       | Progress: resolved 473, reused 0, downloaded 420, added 0
+..                                       | Progress: resolved 510, reused 0, downloaded 454, added 0
+..                                       | Progress: resolved 537, reused 0, downloaded 485, added 0
+..                                       | Progress: resolved 586, reused 0, downloaded 517, added 0
+..                                       | Progress: resolved 619, reused 0, downloaded 554, added 0
+..                                       | Progress: resolved 653, reused 0, downloaded 587, added 0
+..                                       | Progress: resolved 674, reused 0, downloaded 609, added 0
+..                                       | Progress: resolved 716, reused 0, downloaded 635, added 0
+..                                       | Progress: resolved 756, reused 0, downloaded 666, added 0
+..                                       | Progress: resolved 797, reused 0, downloaded 698, added 0
+..                                       | Progress: resolved 836, reused 0, downloaded 729, added 0
+..                                       | Progress: resolved 867, reused 0, downloaded 768, added 0
+..                                       | Progress: resolved 902, reused 0, downloaded 799, added 0
+..                                       | Progress: resolved 931, reused 0, downloaded 831, added 0
+..                                       | Progress: resolved 967, reused 0, downloaded 865, added 0
+..                                       | Progress: resolved 1010, reused 0, downloaded 904, added 0
+..                                       | Progress: resolved 1054, reused 0, downloaded 941, added 0
+..                                       | Progress: resolved 1091, reused 0, downloaded 978, added 0
+..                                       | Progress: resolved 1127, reused 0, downloaded 1015, added 0
+..                                       | Progress: resolved 1165, reused 0, downloaded 1049, added 0
+..                                       | Progress: resolved 1198, reused 0, downloaded 1077, added 0
+..                                       | Progress: resolved 1235, reused 0, downloaded 1114, added 0
+..                                       | Progress: resolved 1250, reused 0, downloaded 1155, added 0
+ WARN  4 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @babel/plugin-proposal-object-rest-spread@7.20.7, flatten@1.0.3, subscriptions-transport-ws@0.9.19
+..                                       | Progress: resolved 1253, reused 0, downloaded 1196, added 0
+..                                       |    +1214 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1253, reused 0, downloaded 1209, added 977
+..                                       | Progress: resolved 1253, reused 0, downloaded 1210, added 1214, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/protobufjs postinstall: Done
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:134) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-be802f565c4b/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_febc72367021:ok@172.18.0.2:3128"
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-be802f565c4b/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../prisma@4.16.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../prisma@4.16.2/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+dependencies:
++ @fstmswa/conf 0.0.0 <- ../conf
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+conf
+├─┬ eslint-plugin-tailwindcss 3.14.3
+│ └── ✕ missing peer tailwindcss@^3.4.0
+├─┬ tailwindcss-animate 1.0.7
+│ └── ✕ missing peer tailwindcss@">=3.0.0 || insiders"
+├─┬ eslint-plugin-graphql 4.0.0
+│ ├── ✕ unmet peer graphql@"^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0": found 16.8.1
+│ └─┬ graphql-config 3.4.1
+│   ├── ✕ unmet peer graphql@"^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0": found 16.8.1
+│   ├─┬ @graphql-tools/graphql-file-loader 6.2.7
+│   │ ├── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   │ └─┬ @graphql-tools/utils 7.10.0
+│   │   └── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   ├─┬ @graphql-tools/json-file-loader 6.2.6
+│   │ └── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   ├─┬ @graphql-tools/load 6.2.8
+│   │ ├── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   │ └─┬ @graphql-tools/merge 6.2.14
+│   │   ├── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   │   └─┬ @graphql-tools/schema 7.1.5
+│   │     └── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│   └─┬ @graphql-tools/url-loader 6.10.1
+│     ├── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│     ├─┬ @graphql-tools/delegate 7.1.5
+│     │ ├── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│     │ └─┬ @graphql-tools/batch-execute 7.1.2
+│     │   └── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│     ├─┬ @graphql-tools/wrap 7.0.8
+│     │ └── ✕ unmet peer graphql@"^14.0.0 || ^15.0.0": found 16.8.1
+│     └─┬ graphql-ws 4.9.0
+│       └── ✕ unmet peer graphql@">=0.11 <=15": found 16.8.1
+└─┬ class-variance-authority 0.4.0
+  └── ✕ unmet peer typescript@">= 4.5.5 < 5": found 5.3.3
+✕ Conflicting peer dependencies:
+  tailwindcss
+
+ui
+└─┬ class-variance-authority 0.4.0
+  └── ✕ unmet peer typescript@">= 4.5.5 < 5": found 5.3.3
+
+Done in 48.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T10:37:12Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T10:37:12Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T10:37:12Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T10:37:12Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

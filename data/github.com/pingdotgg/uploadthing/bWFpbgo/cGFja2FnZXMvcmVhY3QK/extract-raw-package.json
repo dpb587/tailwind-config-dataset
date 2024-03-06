@@ -1,0 +1,114 @@
+{
+  "name": "@uploadthing/react",
+  "version": "6.3.2",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    "./styles.css": "./dist/index.css",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./hooks": {
+      "import": {
+        "types": "./hooks/index.d.ts",
+        "default": "./hooks/index.js"
+      },
+      "require": {
+        "types": "./hooks/index.d.cts",
+        "default": "./hooks/index.cjs"
+      }
+    },
+    "./next-ssr-plugin": {
+      "import": {
+        "types": "./next-ssr-plugin/index.d.ts",
+        "default": "./next-ssr-plugin/index.js"
+      },
+      "require": {
+        "types": "./next-ssr-plugin/index.d.cts",
+        "default": "./next-ssr-plugin/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "hooks",
+    "next-ssr-plugin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/index.css --minify",
+    "build:js": "bunchee --tsconfig tsconfig.build.json && bun build:css",
+    "build": "bun build:js && bun build:css",
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev:js": "wait-on ../uploadthing/server/index.d.ts && bunchee -w --tsconfig tsconfig.build.json --no-clean",
+    "dev": "conc npm:dev:*",
+    "clean": "git clean -xdf dist hooks native next-ssr-plugin node_modules",
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@uploadthing/dropzone": "^0.2.0",
+    "@uploadthing/shared": "^6.3.2",
+    "attr-accept": "^2.2.2",
+    "file-selector": "^0.6.0",
+    "tailwind-merge": "^2.2.1"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "^17.0.2 || ^18.0.0",
+    "uploadthing": "^6.5.1"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.21",
+    "@types/react": "18.2.60",
+    "@types/react-dom": "18.2.19",
+    "@uploadthing/eslint-config": "0.2.0",
+    "@uploadthing/tsconfig": "0.1.0",
+    "bunchee": "^4.4.8",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "next": "14.1.0",
+    "react": "18.2.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "uploadthing": "6.5.0",
+    "wait-on": "^7.2.0",
+    "zod": "^3.22.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            "@uploadthing/react",
+            "@uploadthing/react/*"
+          ]
+        }
+      ]
+    },
+    "extends": [
+      "@uploadthing/eslint-config/base",
+      "@uploadthing/eslint-config/react"
+    ]
+  }
+}

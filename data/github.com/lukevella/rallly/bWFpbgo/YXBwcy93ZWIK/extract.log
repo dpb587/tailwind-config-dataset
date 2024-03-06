@@ -1,0 +1,225 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/lukevella/rallly
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/lukevella/rallly
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4bf291d15668
+++ echo 'github.com/lukevella/rallly;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/10d3a056501c
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/lukevella/rallly/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/lukevella/rallly/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 63c8fe3d63fb216d
++ jq -nc --arg key analysis_nonce --arg value 63c8fe3d63fb216d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/lukevella/rallly
++ jq -nc --arg key input_repo_name --arg value github.com/lukevella/rallly '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T22:06:35Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T22:06:35Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4bf291d15668
++ pushd /tmp/twcr-4bf291d15668
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/lukevella/rallly.git .
+/tmp/twcr-4bf291d15668 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T22:06:39Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T22:06:39Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha fe856d6c7dde6fcfcdeebf197e23546fe9f06482
++ jq -nc --arg key exec_repo_commit_sha --arg value fe856d6c7dde6fcfcdeebf197e23546fe9f06482 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 14:43:25 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T09:13:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T09:13:25Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-4bf291d15668/apps/web /tmp/twcr-4bf291d15668 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4bf291d15668/apps/web
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T22:06:39Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T22:06:39Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@rallly/web",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@rallly/tailwind-config": "*"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-4bf291d15668/package.json /tmp/twcr-4bf291d15668/package-lock.json /tmp/twcr-4bf291d15668/pnpm-lock.yaml /tmp/twcr-4bf291d15668/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-4bf291d15668 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-4bf291d15668
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_ceb2dda61db4:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_ceb2dda61db4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_ceb2dda61db4:ok@172.18.0.2:3128".
+Done in 0.04s.
++ '[' -z http://tid_ceb2dda61db4:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_ceb2dda61db4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_ceb2dda61db4:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:136) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info If you think this is a bug, please open a bug report with the information provided in "/tmp/twcr-4bf291d15668/apps/web/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error An unexpected error occurred: "https://registry.yarnpkg.com/@rallly%2ftailwind-config: Not found".
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T22:06:41Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T22:06:41Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing yarn-error.log
++ git reset --hard
+HEAD is now at fe856d6 ⚡️ Quicker UI updates when adding participant (#1045)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-4bf291d15668 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-4bf291d15668
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_ceb2dda61db4:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_ceb2dda61db4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_ceb2dda61db4:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_ceb2dda61db4:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_ceb2dda61db4:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_ceb2dda61db4:ok@172.18.0.2:3128".
+Done in 0.06s.
++ yarn install
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+warning Pattern ["string-width@^4.1.0"] is trying to unpack in the same destination "/home/node/.cache/yarn/v6/npm-string-width-cjs-4.2.3-269c7117d27b05ad2e536830a8ec895ef9c6d010-integrity/node_modules/string-width-cjs" as pattern ["string-width-cjs@npm:string-width@^4.2.0"]. This could result in non-deterministic behavior, skipping.
+(node:204) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[4/5] Linking dependencies...
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/landing > @tailwindcss/typography@0.5.9" has unmet peer dependency "tailwindcss@>=3.0.0 || insiders".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/landing > autoprefixer@10.4.13" has unmet peer dependency "postcss@^8.1.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/web > @auth/prisma-adapter@1.0.3" has unmet peer dependency "@prisma/client@>=2.26.0 || >=3 || >=4 || >=5".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/web > @trpc/client@10.41.0" has unmet peer dependency "@trpc/server@10.41.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/web > @trpc/next@10.41.0" has unmet peer dependency "@trpc/server@10.41.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/web > @trpc/react-query@10.41.0" has unmet peer dependency "@trpc/server@10.41.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/landing > i18next-scanner > acorn-dynamic-import@4.0.0" has incorrect peer dependency "acorn@^6.0.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/web > react-hot-toast > goober@2.1.12" has unmet peer dependency "csstype@^3.0.10".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/emails > react-email > eslint-config-prettier@9.0.0" has unmet peer dependency "eslint@>=7.0.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/emails > react-email > eslint-config-turbo@1.10.12" has unmet peer dependency "eslint@>6.6.0".
+warning "workspace-aggregator-7f3e74b5-c368-4103-bf3a-6533509fe5e2 > @rallly/emails > react-email > eslint-config-turbo > eslint-plugin-turbo@1.10.12" has unmet peer dependency "eslint@>6.6.0".
+[5/5] Building fresh packages...
+Done in 302.39s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T22:11:48Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T22:11:48Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T22:11:48Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T22:11:48Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

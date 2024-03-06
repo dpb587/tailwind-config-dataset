@@ -1,0 +1,612 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/discordjs/discord.js
++ reporef=main
++ repopath=./apps/website
+++ echo github.com/discordjs/discord.js
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-76285a0ba175
+++ echo 'github.com/discordjs/discord.js;main;./apps/website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/05a3c7bdbc70
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/discordjs/discord.js/bWFpbgo/Li9hcHBzL3dlYnNpdGUK
++ jq -nc --arg key analysis_key --arg value github.com/discordjs/discord.js/bWFpbgo/Li9hcHBzL3dlYnNpdGUK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 7337d1ddd401f222
++ jq -nc --arg key analysis_nonce --arg value 7337d1ddd401f222 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/discordjs/discord.js
++ jq -nc --arg key input_repo_name --arg value github.com/discordjs/discord.js '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/website
++ jq -nc --arg key input_repo_path --arg value ./apps/website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T23:00:01Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T23:00:01Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-76285a0ba175
++ pushd /tmp/twcr-76285a0ba175
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/discordjs/discord.js.git .
+/tmp/twcr-76285a0ba175 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T23:00:03Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T23:00:03Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 3fd36f745f84608f11fa07a2eebd49e7d9afb885
++ jq -nc --arg key exec_repo_commit_sha --arg value 3fd36f745f84608f11fa07a2eebd49e7d9afb885 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 22:26:09 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T21:26:09Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T21:26:09Z '{ key: $key, value: $value }'
+/tmp/twcr-76285a0ba175/apps/website /tmp/twcr-76285a0ba175 /twcr
++ '[' -z ./apps/website ']'
++ pushd ./apps/website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-76285a0ba175/pnpm-workspace.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T23:00:03Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T23:00:03Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "$schema": "https://json.schemastore.org/package.json",
+>>>   "name": "@discordjs/website",
+>>>   "version": "0.1.0",
+>>>   "description": "Imagine a bot... the most popular way to build discord bots",
+>>>   "private": true,
+>>>   "type": "module",
+>>>   "directories": {
+>>>     "lib": "src"
+>>>   },
+>>>   "contributors": [
+>>>     "Crawl <icrawltogo@gmail.com>"
+>>>   ],
+>>>   "license": "Apache-2.0",
+>>>   "keywords": [
+>>>     "discord",
+>>>     "api",
+>>>     "bot",
+>>>     "client",
+>>>     "node",
+>>>     "discordapp",
+>>>     "discordjs"
+>>>   ],
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/discordjs/discord.js.git",
+>>>     "directory": "apps/website"
+>>>   },
+>>>   "bugs": {
+>>>     "url": "https://github.com/discordjs/discord.js/issues"
+>>>   },
+>>>   "homepage": "https://discord.js.org",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "@tailwindcss/typography": "^0.5.10",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=18"
+>>>   }
+>>> }+ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-76285a0ba175 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-76285a0ba175
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-76285a0ba175/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-76285a0ba175/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 24 workspace projects
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 40, reused 0, downloaded 40, added 0
+../..                                    | Progress: resolved 70, reused 0, downloaded 70, added 0
+../../packages/discord.js                |  WARN  deprecated tslint@6.1.3
+../..                                    | Progress: resolved 104, reused 0, downloaded 104, added 0
+../..                                    | Progress: resolved 131, reused 0, downloaded 131, added 0
+../guide                                 |  WARN  deprecated ariakit@2.0.0-next.44
+../..                                    | Progress: resolved 144, reused 0, downloaded 144, added 0
+../..                                    | Progress: resolved 144, reused 0, downloaded 145, added 0
+../..                                    | Progress: resolved 159, reused 0, downloaded 147, added 0
+../..                                    | Progress: resolved 206, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 244, reused 0, downloaded 228, added 0
+../..                                    | Progress: resolved 287, reused 0, downloaded 271, added 0
+../..                                    | Progress: resolved 342, reused 0, downloaded 326, added 0
+../..                                    | Progress: resolved 387, reused 0, downloaded 371, added 0
+../..                                    | Progress: resolved 451, reused 0, downloaded 435, added 0
+../..                                    | Progress: resolved 505, reused 0, downloaded 489, added 0
+../..                                    | Progress: resolved 558, reused 0, downloaded 542, added 0
+../..                                    | Progress: resolved 629, reused 0, downloaded 613, added 0
+../..                                    | Progress: resolved 689, reused 0, downloaded 674, added 0
+../..                                    | Progress: resolved 749, reused 0, downloaded 734, added 0
+../..                                    | Progress: resolved 802, reused 0, downloaded 787, added 0
+../..                                    | Progress: resolved 862, reused 0, downloaded 848, added 0
+../..                                    | Progress: resolved 922, reused 0, downloaded 908, added 0
+../..                                    | Progress: resolved 973, reused 0, downloaded 959, added 0
+../..                                    | Progress: resolved 1031, reused 0, downloaded 1017, added 0
+../..                                    | Progress: resolved 1087, reused 0, downloaded 1073, added 0
+../..                                    | Progress: resolved 1141, reused 0, downloaded 1127, added 0
+../..                                    | Progress: resolved 1174, reused 0, downloaded 1153, added 0
+../..                                    | Progress: resolved 1206, reused 0, downloaded 1172, added 0
+../..                                    | Progress: resolved 1246, reused 0, downloaded 1213, added 0
+../..                                    | Progress: resolved 1311, reused 0, downloaded 1278, added 0
+../..                                    | Progress: resolved 1354, reused 0, downloaded 1324, added 0
+../..                                    | Progress: resolved 1411, reused 0, downloaded 1381, added 0
+../..                                    | Progress: resolved 1422, reused 0, downloaded 1388, added 0
+../..                                    | Progress: resolved 1462, reused 0, downloaded 1431, added 0
+../..                                    | Progress: resolved 1499, reused 0, downloaded 1468, added 0
+../..                                    | Progress: resolved 1558, reused 0, downloaded 1496, added 0
+../..                                    | Progress: resolved 1611, reused 0, downloaded 1545, added 0
+../..                                    | Progress: resolved 1668, reused 0, downloaded 1605, added 0
+../..                                    | Progress: resolved 1730, reused 0, downloaded 1663, added 0
+../..                                    | Progress: resolved 1770, reused 0, downloaded 1698, added 0
+../..                                    | Progress: resolved 1814, reused 0, downloaded 1741, added 0
+../..                                    | Progress: resolved 1867, reused 0, downloaded 1786, added 0
+../..                                    | Progress: resolved 1896, reused 0, downloaded 1820, added 0
+../..                                    | Progress: resolved 1952, reused 0, downloaded 1875, added 0
+../..                                    | Progress: resolved 2015, reused 0, downloaded 1941, added 0
+../..                                    | Progress: resolved 2074, reused 0, downloaded 1996, added 0
+../..                                    | Progress: resolved 2139, reused 0, downloaded 2067, added 0
+../..                                    | Progress: resolved 2204, reused 0, downloaded 2133, added 0
+../..                                    | Progress: resolved 2276, reused 0, downloaded 2203, added 0
+../..                                    | Progress: resolved 2339, reused 0, downloaded 2248, added 0
+../..                                    | Progress: resolved 2422, reused 0, downloaded 2309, added 0
+../..                                    | Progress: resolved 2477, reused 0, downloaded 2369, added 0
+../..                                    | Progress: resolved 2543, reused 0, downloaded 2435, added 0
+../..                                    | Progress: resolved 2597, reused 0, downloaded 2490, added 0
+ WARN  6 deprecated subdependencies found: debug@4.1.1, fsevents@2.1.3, har-validator@5.1.5, request@2.88.2, uuid@3.3.2, uuid@3.4.0
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 0
+../..                                    |    +2516 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 1572
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 1829
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 2513
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 2515
+../..                                    | Progress: resolved 2604, reused 0, downloaded 2497, added 2516, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/bufferutil install$ node-gyp-build
+.../node_modules/utf-8-validate install$ node-gyp-build
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/zlib-sync install$ node-gyp rebuild
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/bufferutil install: Done
+.../node_modules/utf-8-validate install: Done
+.../node_modules/zlib-sync install: gyp info it worked if it ends with ok
+.../node_modules/zlib-sync install: gyp info using node-gyp@9.4.1
+.../node_modules/zlib-sync install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/zlib-sync install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/zlib-sync install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/zlib-sync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/zlib-sync install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/zlib-sync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/zlib-sync install: gyp info spawn /usr/bin/python3
+.../node_modules/zlib-sync install: gyp info spawn args [
+.../node_modules/zlib-sync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/zlib-sync install: gyp info spawn args   'binding.gyp',
+.../node_modules/zlib-sync install: gyp info spawn args   '-f',
+.../node_modules/zlib-sync install: gyp info spawn args   'make',
+.../node_modules/zlib-sync install: gyp info spawn args   '-I',
+.../node_modules/zlib-sync install: gyp info spawn args   '/tmp/twcr-76285a0ba175/node_modules/.pnpm/zlib-sync@0.1.9/node_modules/zlib-sync/build/config.gypi',
+.../node_modules/zlib-sync install: gyp info spawn args   '-I',
+.../node_modules/zlib-sync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/zlib-sync install: gyp info spawn args   '-I',
+.../node_modules/zlib-sync install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-76285a0ba175/node_modules/.pnpm/zlib-sync@0.1.9/node_modules/zlib-sync',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/zlib-sync install: gyp info spawn args   '--depth=.',
+.../node_modules/zlib-sync install: gyp info spawn args   '--no-parallel',
+.../node_modules/zlib-sync install: gyp info spawn args   '--generator-output',
+.../node_modules/zlib-sync install: gyp info spawn args   'build',
+.../node_modules/zlib-sync install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/zlib-sync install: gyp info spawn args ]
+.../node_modules/zlib-sync install: gyp info spawn make
+.../node_modules/zlib-sync install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/zlib-sync install: make: Entering directory '/tmp/twcr-76285a0ba175/node_modules/.pnpm/zlib-sync@0.1.9/node_modules/zlib-sync/build'
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/adler32.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/compress.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/crc32.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/deflate.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/gzclose.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/gzlib.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/gzread.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/gzwrite.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/infback.o
+.../node_modules/zlib-sync install: ../deps/zlib/infback.c: In function 'inflateBack':
+.../node_modules/zlib-sync install: ../deps/zlib/infback.c:479:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   479 |             state->mode = LEN;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/infback.c:481:9: note: here
+.../node_modules/zlib-sync install:   481 |         case LEN:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/inffast.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/inflate.o
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c: In function 'inflate':
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:742:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   742 |             state->mode = EXLEN;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:743:9: note: here
+.../node_modules/zlib-sync install:   743 |         case EXLEN:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:755:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   755 |             state->mode = EXTRA;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:756:9: note: here
+.../node_modules/zlib-sync install:   756 |         case EXTRA:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:777:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   777 |             state->mode = NAME;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:778:9: note: here
+.../node_modules/zlib-sync install:   778 |         case NAME:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:798:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   798 |             state->mode = COMMENT;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:799:9: note: here
+.../node_modules/zlib-sync install:   799 |         case COMMENT:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:818:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   818 |             state->mode = HCRC;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:819:9: note: here
+.../node_modules/zlib-sync install:   819 |         case HCRC:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:841:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   841 |             state->mode = DICT;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:842:9: note: here
+.../node_modules/zlib-sync install:   842 |         case DICT:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:848:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   848 |             state->mode = TYPE;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:849:9: note: here
+.../node_modules/zlib-sync install:   849 |         case TYPE:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:850:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   850 |             if (flush == Z_BLOCK || flush == Z_TREES) goto inf_leave;
+.../node_modules/zlib-sync install:       |                ^
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:851:9: note: here
+.../node_modules/zlib-sync install:   851 |         case TYPEDO:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:900:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   900 |             if (flush == Z_TREES) goto inf_leave;
+.../node_modules/zlib-sync install:       |                ^
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:901:9: note: here
+.../node_modules/zlib-sync install:   901 |         case COPY_:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:902:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:   902 |             state->mode = COPY;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:903:9: note: here
+.../node_modules/zlib-sync install:   903 |         case COPY:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1041:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1041 |             if (flush == Z_TREES) goto inf_leave;
+.../node_modules/zlib-sync install:       |                ^
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1042:9: note: here
+.../node_modules/zlib-sync install:  1042 |         case LEN_:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1043:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1043 |             state->mode = LEN;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1044:9: note: here
+.../node_modules/zlib-sync install:  1044 |         case LEN:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1092:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1092 |             state->mode = LENEXT;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1093:9: note: here
+.../node_modules/zlib-sync install:  1093 |         case LENEXT:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1102:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1102 |             state->mode = DIST;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1103:9: note: here
+.../node_modules/zlib-sync install:  1103 |         case DIST:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1129:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1129 |             state->mode = DISTEXT;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1130:9: note: here
+.../node_modules/zlib-sync install:  1130 |         case DISTEXT:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1145:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1145 |             state->mode = MATCH;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1146:9: note: here
+.../node_modules/zlib-sync install:  1146 |         case MATCH:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1220:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1220 |             state->mode = LENGTH;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1221:9: note: here
+.../node_modules/zlib-sync install:  1221 |         case LENGTH:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1233:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/zlib-sync install:  1233 |             state->mode = DONE;
+.../node_modules/zlib-sync install:       |             ~~~~~~~~~~~~^~~~~~
+.../node_modules/zlib-sync install: ../deps/zlib/inflate.c:1234:9: note: here
+.../node_modules/zlib-sync install:  1234 |         case DONE:
+.../node_modules/zlib-sync install:       |         ^~~~
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/inftrees.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/trees.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/uncompr.o
+.../node_modules/zlib-sync install:   CC(target) Release/obj.target/zlib/deps/zlib/zutil.o
+.../node_modules/zlib-sync install: rm -f Release/obj.target/deps/zlib.a Release/obj.target/deps/zlib.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/zlib.a`
+.../node_modules/zlib-sync install: ar crs Release/obj.target/deps/zlib.a @Release/obj.target/deps/zlib.a.ar-file-list
+.../node_modules/zlib-sync install:   COPY Release/zlib.a
+.../node_modules/zlib-sync install:   CXX(target) Release/obj.target/zlib_sync/src/zlib_sync.o
+.../node_modules/zlib-sync install:   SOLINK_MODULE(target) Release/obj.target/zlib_sync.node
+.../node_modules/zlib-sync install:   COPY Release/zlib_sync.node
+.../node_modules/zlib-sync install: make: Leaving directory '/tmp/twcr-76285a0ba175/node_modules/.pnpm/zlib-sync@0.1.9/node_modules/zlib-sync/build'
+.../node_modules/zlib-sync install: gyp info ok 
+.../node_modules/zlib-sync install: Done
+.../esbuild@0.14.47/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.47/node_modules/esbuild postinstall: Done
+.../esbuild@0.19.11/node_modules/esbuild postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../sharp@0.33.2/node_modules/sharp install: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+../.. prepare$ is-ci || husky
+../.. prepare: Done
+
+devDependencies:
++ @tailwindcss/typography 0.5.10
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+apps/guide
+├─┬ eslint-config-neon 0.1.59
+│ └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+│   └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+├─┬ contentlayer 0.3.4
+│ └─┬ @contentlayer/cli 0.3.4
+│   └─┬ @contentlayer/core 0.3.4
+│     └─┬ @contentlayer/utils 0.3.4
+│       ├─┬ @effect-ts/otel-exporter-trace-otlp-grpc 0.15.1
+│       │ └── ✕ unmet peer @opentelemetry/exporter-trace-otlp-grpc@^0.39.0: found 0.41.2 in @contentlayer/utils
+│       └─┬ @opentelemetry/exporter-trace-otlp-grpc 0.41.2
+│         ├─┬ @opentelemetry/core 1.15.2
+│         │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+│         └─┬ @opentelemetry/otlp-transformer 0.41.2
+│           ├── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/resources 1.15.2
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-logs 0.41.2
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.4.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+│           ├─┬ @opentelemetry/sdk-metrics 1.15.2
+│           │ └── ✕ unmet peer @opentelemetry/api@">=1.3.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+│           └─┬ @opentelemetry/sdk-trace-base 1.15.2
+│             └── ✕ unmet peer @opentelemetry/api@">=1.0.0 <1.5.0": found 1.6.0 in @contentlayer/utils
+└─┬ next-contentlayer 0.3.4
+  └── ✕ unmet peer next@"^12 || ^13": found 14.1.0
+
+packages/actions
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/api-extractor
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/api-extractor-model
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/api-extractor-utils
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/brokers
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/builders
+├─┬ eslint-config-neon 0.1.59
+│ └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+│   └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+└─┬ vitest 1.3.1
+  ├── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+  └─┬ vite 5.1.4
+    └── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+
+packages/collection
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/core
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/create-discord-bot
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/docgen
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/formatters
+├─┬ eslint-config-neon 0.1.59
+│ └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+│   └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+└─┬ vitest 1.3.1
+  ├── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+  └─┬ vite 5.1.4
+    └── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+
+packages/next
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/proxy
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/proxy-container
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/rest
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/scripts
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/ui
+├─┬ @storybook/react-vite 7.6.17
+│ └─┬ @vitejs/plugin-react 3.1.0
+│   └── ✕ unmet peer vite@^4.1.0-beta.0: found 5.1.4
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/util
+├─┬ eslint-config-neon 0.1.59
+│ └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+│   └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+└─┬ vitest 1.3.1
+  ├── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+  └─┬ vite 5.1.4
+    └── ✕ unmet peer @types/node@"^18.0.0 || >=20.0.0": found 16.18.60
+
+packages/voice
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+packages/ws
+└─┬ eslint-config-neon 0.1.59
+  └─┬ eslint-plugin-typescript-sort-keys 3.1.0
+    └── ✕ unmet peer @typescript-eslint/parser@^6: found 7.0.2 in eslint-config-neon
+
+Done in 1m 30.7s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-02T23:01:36Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-02T23:01:36Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T23:01:36Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T23:01:36Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

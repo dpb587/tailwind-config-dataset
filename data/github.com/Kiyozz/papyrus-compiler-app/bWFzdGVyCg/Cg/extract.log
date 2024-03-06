@@ -1,0 +1,303 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Kiyozz/papyrus-compiler-app
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Kiyozz/papyrus-compiler-app
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3afbf6d8b886
+++ echo 'github.com/Kiyozz/papyrus-compiler-app;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/04aeffea9cc8
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Kiyozz/papyrus-compiler-app/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/Kiyozz/papyrus-compiler-app/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 88581864f3a434d1
++ jq -nc --arg key analysis_nonce --arg value 88581864f3a434d1 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Kiyozz/papyrus-compiler-app
++ jq -nc --arg key input_repo_name --arg value github.com/Kiyozz/papyrus-compiler-app '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:43:42Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:43:42Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3afbf6d8b886
+/tmp/twcr-3afbf6d8b886 /twcr
++ pushd /tmp/twcr-3afbf6d8b886
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Kiyozz/papyrus-compiler-app.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:43:43Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:43:43Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d859cf4753ddc4b691734d5e6ded72559cf268f5
++ jq -nc --arg key exec_repo_commit_sha --arg value d859cf4753ddc4b691734d5e6ded72559cf268f5 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-08-04 16:47:07 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-08-04T14:47:07Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-08-04T14:47:07Z '{ key: $key, value: $value }'
+/tmp/twcr-3afbf6d8b886 /tmp/twcr-3afbf6d8b886 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3afbf6d8b886
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:43:43Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:43:43Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "pca",
+>>>   "version": "5.8.0",
+>>>   "description": "Papyrus compiler app (PCA) by WushuLate",
+>>>   "private": true,
+>>>   "engines": {
+>>>     "node": "16",
+>>>     "pnpm": "7"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git@github.com:Kiyozz/papyrus-compiler-app.git"
+>>>   },
+>>>   "author": "WK <kevinturmel@gmail.com>",
+>>>   "license": "MIT",
+>>>   "devDependencies": {
+>>>     "tailwindcss": "~3.1.7"
+>>>   },
+>>>   "build": {
+>>>     "appId": "io.kiyozz.pca",
+>>>     "productName": "PCA",
+>>>     "copyright": "Copyright © WushuLate",
+>>>     "afterPack": "./build/after-pack.js",
+>>>     "artifactName": "${productName}.${ext}",
+>>>     "extraMetadata": {
+>>>       "name": "PCA",
+>>>       "main": "main.js"
+>>>     },
+>>>     "files": [
+>>>       {
+>>>         "from": ".",
+>>>         "filter": [
+>>>           "package.json"
+>>>         ]
+>>>       },
+>>>       {
+>>>         "from": "dist/main"
+>>>       },
+>>>       {
+>>>         "from": "dist/renderer"
+>>>       }
+>>>     ],
+>>>     "nsis": {
+>>>       "oneClick": false,
+>>>       "allowToChangeInstallationDirectory": true,
+>>>       "artifactName": "${productName}.Setup.${ext}"
+>>>     },
+>>>     "win": {
+>>>       "target": [
+>>>         "7z"
+>>>       ]
+>>>     },
+>>>     "mac": {
+>>>       "target": [
+>>>         "dir"
+>>>       ]
+>>>     },
+>>>     "linux": {
+>>>       "target": [
+>>>         "dir"
+>>>       ]
+>>>     },
+>>>     "directories": {
+>>>       "buildResources": "resources"
+>>>     },
+>>>     "publish": null
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.{md,json,css,yaml,yml}": [
+>>>       "prettier --write"
+>>>     ],
+>>>     "*.{ts,tsx,js,mjs,mts}": [
+>>>       "eslint --fix --max-warnings=0"
+>>>     ]
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3afbf6d8b886 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3afbf6d8b886
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3afbf6d8b886/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3afbf6d8b886/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  Unsupported engine: wanted: {"node":"16"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 2 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 24, reused 0, downloaded 11, added 0
+Progress: resolved 53, reused 0, downloaded 40, added 0
+Progress: resolved 81, reused 0, downloaded 69, added 0
+Progress: resolved 125, reused 0, downloaded 87, added 0
+Progress: resolved 158, reused 0, downloaded 119, added 0
+Progress: resolved 190, reused 0, downloaded 150, added 0
+Progress: resolved 222, reused 0, downloaded 183, added 0
+Progress: resolved 251, reused 0, downloaded 225, added 0
+Packages: +236
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 257, reused 0, downloaded 236, added 236, done
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.../node_modules/electron postinstall$ node install.js
+.../node_modules/electron postinstall: RequestError: getaddrinfo EAI_AGAIN github.com
+.../node_modules/electron postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-3afbf6d8b886/node_modules/.pnpm/got@9.6.0/node_modules/got/source/request-as-event-emitter.js:178:14)
+.../node_modules/electron postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/electron postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/electron postinstall:     at origin.emit (/tmp/twcr-3afbf6d8b886/node_modules/.pnpm/@szmarczak+http-timer@1.1.2/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+.../node_modules/electron postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/electron postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/electron postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/electron postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/electron postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/electron postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T09:44:02Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T09:44:02Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing packages/electron-ipc/node_modules/
++ git reset --hard
+HEAD is now at d859cf4 Fix PropsWithChildren<unknown>
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3afbf6d8b886 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3afbf6d8b886
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3afbf6d8b886/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-3afbf6d8b886/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  Unsupported engine: wanted: {"node":"16"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 2 workspace projects
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 35, reused 0, downloaded 35, added 0
+Progress: resolved 64, reused 0, downloaded 64, added 0
+Progress: resolved 68, reused 0, downloaded 68, added 0
+Progress: resolved 68, reused 0, downloaded 69, added 0
+Progress: resolved 143, reused 39, downloaded 88, added 0
+Progress: resolved 192, reused 39, downloaded 137, added 0
+Progress: resolved 220, reused 51, downloaded 153, added 0
+Progress: resolved 263, reused 51, downloaded 196, added 0
+Progress: resolved 320, reused 69, downloaded 235, added 0
+Progress: resolved 392, reused 91, downloaded 286, added 0
+Progress: resolved 457, reused 97, downloaded 345, added 0
+Progress: resolved 576, reused 143, downloaded 392, added 0
+Progress: resolved 640, reused 153, downloaded 446, added 0
+Progress: resolved 697, reused 156, downloaded 500, added 0
+Progress: resolved 743, reused 157, downloaded 545, added 0
+Progress: resolved 785, reused 159, downloaded 585, added 0
+Progress: resolved 836, reused 160, downloaded 634, added 0
+Progress: resolved 884, reused 160, downloaded 681, added 0
+Progress: resolved 923, reused 160, downloaded 719, added 0
+Progress: resolved 975, reused 161, downloaded 772, added 0
+ WARN  1 deprecated subdependencies found: flatten@1.0.3
+Packages: +950
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1002, reused 161, downloaded 799, added 0
+Progress: resolved 1002, reused 161, downloaded 799, added 948
+Progress: resolved 1002, reused 161, downloaded 799, added 950, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting of core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../node_modules/core-js-pure postinstall: Done
+.../esbuild@0.14.37/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.53/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.37/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.53/node_modules/esbuild postinstall: Done
+.../node_modules/electron postinstall$ node install.js
+.../node_modules/electron postinstall$ node install.js
+.../node_modules/electron postinstall: RequestError: getaddrinfo EAI_AGAIN github.com
+.../node_modules/electron postinstall:     at ClientRequest.<anonymous> (/tmp/twcr-3afbf6d8b886/node_modules/.pnpm/got@9.6.0/node_modules/got/source/request-as-event-emitter.js:178:14)
+.../node_modules/electron postinstall:     at Object.onceWrapper (node:events:634:26)
+.../node_modules/electron postinstall:     at ClientRequest.emit (node:events:531:35)
+.../node_modules/electron postinstall:     at origin.emit (/tmp/twcr-3afbf6d8b886/node_modules/.pnpm/@szmarczak+http-timer@1.1.2/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+.../node_modules/electron postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/electron postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/electron postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/electron postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/electron postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+.../node_modules/electron postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

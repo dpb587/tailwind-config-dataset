@@ -1,0 +1,260 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/spacedriveapp/spacedrive
++ reporef=main
++ repopath=./packages/ui
+++ echo github.com/spacedriveapp/spacedrive
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-47b52ce7e0c6
+++ sha256sum
+++ echo 'github.com/spacedriveapp/spacedrive;main;./packages/ui'
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/da0d1aaf41d2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/spacedriveapp/spacedrive/bWFpbgo/Li9wYWNrYWdlcy91aQo
++ jq -nc --arg key analysis_key --arg value github.com/spacedriveapp/spacedrive/bWFpbgo/Li9wYWNrYWdlcy91aQo '{ key: $key, value: $value }'
+++ sha256sum
+++ date -u +%Y%m%d%H%M%S
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 0fc38177769c3458
++ jq -nc --arg key analysis_nonce --arg value 0fc38177769c3458 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/spacedriveapp/spacedrive
++ jq -nc --arg key input_repo_name --arg value github.com/spacedriveapp/spacedrive '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/ui
++ jq -nc --arg key input_repo_path --arg value ./packages/ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-02T22:53:49Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-02T22:53:49Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-47b52ce7e0c6
++ pushd /tmp/twcr-47b52ce7e0c6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/spacedriveapp/spacedrive.git .
+/tmp/twcr-47b52ce7e0c6 /twcr
+Cloning into '.'...
+Updating files:  98% (1964/1990)Updating files:  99% (1971/1990)Updating files: 100% (1990/1990)Updating files: 100% (1990/1990), done.
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-02T22:53:54Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-02T22:53:54Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 38a247042815c67f67c6babb4918b9e02538469f
++ jq -nc --arg key exec_repo_commit_sha --arg value 38a247042815c67f67c6babb4918b9e02538469f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-02 03:58:38 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-02T03:58:38Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-02T03:58:38Z '{ key: $key, value: $value }'
+/tmp/twcr-47b52ce7e0c6/packages/ui /tmp/twcr-47b52ce7e0c6 /twcr
++ '[' -z ./packages/ui ']'
++ pushd ./packages/ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
++ package_manager_name=npm
++ grep -q '"packageManager":[^"]+"pnpm@"' package.json
++ '[' -f pnpm-lock.yaml ']'
++ '[' -f pnpm-workspace.yaml ']'
++ '[' -f /tmp/twcr-47b52ce7e0c6/pnpm-workspace.yaml ']'
++ package_manager_name=pnpm
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-02T22:53:54Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-02T22:53:54Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (./style/tailwind)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-02T22:53:55Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-02T22:53:55Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-47b52ce7e0c6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-47b52ce7e0c6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-47b52ce7e0c6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-47b52ce7e0c6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 14 workspace projects
+../..                                    |    +3037 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 0, reused 0, downloaded 46, added 45
+../..                                    | Progress: resolved 0, reused 0, downloaded 88, added 83
+../..                                    | Progress: resolved 0, reused 0, downloaded 117, added 114
+../..                                    | Progress: resolved 0, reused 0, downloaded 151, added 148
+../..                                    | Progress: resolved 0, reused 0, downloaded 177, added 173
+../..                                    | Progress: resolved 0, reused 0, downloaded 204, added 202
+../..                                    | Progress: resolved 0, reused 0, downloaded 243, added 246
+../..                                    | Progress: resolved 0, reused 0, downloaded 287, added 287
+../..                                    | Progress: resolved 0, reused 0, downloaded 332, added 338
+../..                                    | Progress: resolved 0, reused 0, downloaded 380, added 389
+../..                                    | Progress: resolved 0, reused 0, downloaded 429, added 440
+../..                                    | Progress: resolved 0, reused 0, downloaded 469, added 476
+../..                                    | Progress: resolved 0, reused 0, downloaded 501, added 506
+../..                                    | Progress: resolved 0, reused 0, downloaded 528, added 534
+../..                                    | Progress: resolved 0, reused 0, downloaded 547, added 554
+../..                                    | Progress: resolved 0, reused 0, downloaded 578, added 586
+../..                                    | Progress: resolved 0, reused 0, downloaded 602, added 609
+../..                                    | Progress: resolved 0, reused 0, downloaded 627, added 623
+../..                                    | Progress: resolved 0, reused 0, downloaded 657, added 671
+../..                                    | Progress: resolved 0, reused 0, downloaded 686, added 708
+../..                                    | Progress: resolved 0, reused 0, downloaded 724, added 749
+../..                                    | Progress: resolved 0, reused 0, downloaded 761, added 790
+../..                                    | Progress: resolved 0, reused 0, downloaded 796, added 829
+../..                                    | Progress: resolved 0, reused 0, downloaded 838, added 870
+../..                                    | Progress: resolved 0, reused 0, downloaded 887, added 968
+../..                                    | Progress: resolved 0, reused 0, downloaded 949, added 1035
+../..                                    | Progress: resolved 0, reused 0, downloaded 1008, added 1104
+../..                                    | Progress: resolved 0, reused 0, downloaded 1046, added 1148
+../..                                    | Progress: resolved 0, reused 0, downloaded 1100, added 1200
+../..                                    | Progress: resolved 0, reused 0, downloaded 1168, added 1272
+../..                                    | Progress: resolved 0, reused 0, downloaded 1211, added 1319
+../..                                    | Progress: resolved 0, reused 0, downloaded 1258, added 1364
+../..                                    | Progress: resolved 0, reused 0, downloaded 1323, added 1432
+../..                                    | Progress: resolved 0, reused 0, downloaded 1383, added 1507
+../..                                    | Progress: resolved 0, reused 0, downloaded 1443, added 1598
+../..                                    | Progress: resolved 0, reused 0, downloaded 1493, added 1651
+../..                                    | Progress: resolved 0, reused 0, downloaded 1545, added 1723
+../..                                    | Progress: resolved 0, reused 0, downloaded 1599, added 1788
+../..                                    | Progress: resolved 0, reused 0, downloaded 1659, added 1848
+../..                                    | Progress: resolved 0, reused 0, downloaded 1722, added 1920
+../..                                    | Progress: resolved 0, reused 0, downloaded 1754, added 1953
+../..                                    | Progress: resolved 0, reused 0, downloaded 1777, added 1974
+../..                                    | Progress: resolved 0, reused 0, downloaded 1826, added 2026
+../..                                    | Progress: resolved 0, reused 0, downloaded 1877, added 2086
+../..                                    | Progress: resolved 0, reused 0, downloaded 1921, added 2126
+../..                                    | Progress: resolved 0, reused 0, downloaded 1974, added 2186
+../..                                    | Progress: resolved 0, reused 0, downloaded 2023, added 2247
+../..                                    | Progress: resolved 0, reused 0, downloaded 2084, added 2328
+../..                                    | Progress: resolved 0, reused 0, downloaded 2154, added 2409
+../..                                    | Progress: resolved 0, reused 0, downloaded 2223, added 2481
+../..                                    | Progress: resolved 0, reused 0, downloaded 2277, added 2538
+../..                                    | Progress: resolved 0, reused 0, downloaded 2342, added 2613
+../..                                    | Progress: resolved 0, reused 0, downloaded 2404, added 2679
+../..                                    | Progress: resolved 0, reused 0, downloaded 2462, added 2739
+../..                                    | Progress: resolved 0, reused 0, downloaded 2517, added 2800
+../..                                    | Progress: resolved 0, reused 0, downloaded 2541, added 2840
+../..                                    | Progress: resolved 0, reused 0, downloaded 2583, added 2885
+../..                                    | Progress: resolved 0, reused 0, downloaded 2624, added 2945
+../..                                    | Progress: resolved 0, reused 0, downloaded 2650, added 2993
+../..                                    | Progress: resolved 0, reused 0, downloaded 2684, added 3034
+../..                                    | Progress: resolved 0, reused 0, downloaded 2685, added 3035
+../..                                    | Progress: resolved 0, reused 0, downloaded 2686, added 3035
+../..                                    | Progress: resolved 0, reused 0, downloaded 2686, added 3037, done
+../../node_modules/@tsparticles/engine install$ node ./scripts/install.js
+../../node_modules/protobufjs postinstall$ node scripts/postinstall
+../../node_modules/@tsparticles/engine install: Thank you for installing tsParticles.
+../../node_modules/@tsparticles/engine install: Remember to checkout the official website https://particles.js.org to explore some samples.
+../../node_modules/@tsparticles/engine install: You can find more samples on CodePen too: https://codepen.io/collection/DPOage
+../../node_modules/@tsparticles/engine install: If you need documentation you can find it here: https://particles.js.org/docs
+../../node_modules/@tsparticles/engine install: Don't forget to star the tsParticles repository, if you like the project and want to support it: https://github.com/tsparticles/tsparticles
+../../node_modules/@tsparticles/engine install: Done
+../../node_modules/protobufjs postinstall: Done
+.../core/node_modules/esbuild postinstall$ node install.js
+../../node_modules/@sentry/cli postinstall$ node ./scripts/install.js
+../../node_modules/esbuild postinstall$ node install.js
+.../vite/node_modules/esbuild postinstall$ node install.js
+.../core/node_modules/esbuild postinstall: Done
+../../node_modules/@swc/core postinstall$ node postinstall.js
+../../node_modules/@sentry/cli postinstall: Done
+../../node_modules/esbuild postinstall: Done
+.../vite/node_modules/esbuild postinstall: Done
+../../node_modules/@swc/core postinstall: Done
+../../node_modules/sharp install$ node install/check
+../../node_modules/sharp install: Done
+../../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+../../node_modules/contentlayer postinstall: Done
+
+dependencies:
++ @sd/assets 1.0.0 <- ../assets
+
+devDependencies:
++ @sd/config 0.0.0 <- ../config
+
+Done in 1m 9.4s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ true
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ break
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-02T22:55:07Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-02T22:55:07Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-02T22:55:07Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-02T22:55:07Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,172 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/mui/base-ui
++ reporef=master
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/mui/base-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-58f1aeed4e30
+++ echo 'github.com/mui/base-ui;master;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/ba4e377ee09a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/mui/base-ui/bWFzdGVyCg/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/mui/base-ui/bWFzdGVyCg/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3d6f3dd8e6b8e10b
++ jq -nc --arg key analysis_nonce --arg value 3d6f3dd8e6b8e10b '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/mui/base-ui
++ jq -nc --arg key input_repo_name --arg value github.com/mui/base-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T18:07:39Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T18:07:39Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-58f1aeed4e30
+/tmp/twcr-58f1aeed4e30 /twcr
++ pushd /tmp/twcr-58f1aeed4e30
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/mui/base-ui.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T18:07:40Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T18:07:40Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 608fdbb11f5c423645bea6875062b08aa72417ae
++ jq -nc --arg key exec_repo_commit_sha --arg value 608fdbb11f5c423645bea6875062b08aa72417ae '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 11:37:33 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T10:37:33Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T10:37:33Z '{ key: $key, value: $value }'
+/tmp/twcr-58f1aeed4e30/docs /tmp/twcr-58f1aeed4e30 /twcr
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-58f1aeed4e30/docs
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T18:07:40Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T18:07:40Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "5.0.0",
+>>>   "private": true,
+>>>   "author": "MUI Team",
+>>>   "license": "MIT",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-58f1aeed4e30/package.json /tmp/twcr-58f1aeed4e30/package-lock.json /tmp/twcr-58f1aeed4e30/pnpm-lock.yaml /tmp/twcr-58f1aeed4e30/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-58f1aeed4e30 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-58f1aeed4e30
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-58f1aeed4e30/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+/tmp/twcr-58f1aeed4e30/packages/mui-base:
+ ERR_PNPM_FETCH_403  GET https://pkg.csb.dev/mui/material-ui/commit/fb183624/@mui/internal-test-utils: Forbidden - 403
+
+This error happened while installing a direct dependency of /tmp/twcr-58f1aeed4e30/packages/mui-base
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T18:07:42Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T18:07:42Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 1 path from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-58f1aeed4e30 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-58f1aeed4e30
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-58f1aeed4e30/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+ ERR_PNPM_FETCH_403  GET https://pkg.csb.dev/mui/material-ui/commit/fb183624/@mui/internal-test-utils: Forbidden - 403
+
+This error happened while installing a direct dependency of /tmp/twcr-58f1aeed4e30/docs
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

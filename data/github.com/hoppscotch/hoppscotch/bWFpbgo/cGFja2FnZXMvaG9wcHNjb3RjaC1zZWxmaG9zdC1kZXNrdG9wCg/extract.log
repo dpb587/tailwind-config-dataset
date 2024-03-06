@@ -1,0 +1,418 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/hoppscotch/hoppscotch
++ reporef=main
++ repopath=./packages/hoppscotch-selfhost-desktop
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/hoppscotch/hoppscotch
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-2868d4e104d5
+++ echo 'github.com/hoppscotch/hoppscotch;main;./packages/hoppscotch-selfhost-desktop'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/82d7f471c7a2
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/hoppscotch/hoppscotch/bWFpbgo/Li9wYWNrYWdlcy9ob3Bwc2NvdGNoLXNlbGZob3N0LWRlc2t0b3AK
++ jq -nc --arg key analysis_key --arg value github.com/hoppscotch/hoppscotch/bWFpbgo/Li9wYWNrYWdlcy9ob3Bwc2NvdGNoLXNlbGZob3N0LWRlc2t0b3AK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 858481dec5085e42
++ jq -nc --arg key analysis_nonce --arg value 858481dec5085e42 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/hoppscotch/hoppscotch
++ jq -nc --arg key input_repo_name --arg value github.com/hoppscotch/hoppscotch '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/hoppscotch-selfhost-desktop
++ jq -nc --arg key input_repo_path --arg value ./packages/hoppscotch-selfhost-desktop '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T19:53:07Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T19:53:07Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-2868d4e104d5
++ pushd /tmp/twcr-2868d4e104d5
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/hoppscotch/hoppscotch.git .
+/tmp/twcr-2868d4e104d5 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T19:53:09Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T19:53:09Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha faab1d20fde9a6be660db40fc73dcf28f9038008
++ jq -nc --arg key exec_repo_commit_sha --arg value faab1d20fde9a6be660db40fc73dcf28f9038008 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-26 22:31:58 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-26T17:01:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-26T17:01:58Z '{ key: $key, value: $value }'
++ '[' -z ./packages/hoppscotch-selfhost-desktop ']'
++ pushd ./packages/hoppscotch-selfhost-desktop
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-2868d4e104d5/packages/hoppscotch-selfhost-desktop /tmp/twcr-2868d4e104d5 /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2868d4e104d5/packages/hoppscotch-selfhost-desktop
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/hoppscotch-selfhost-desktop '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-2868d4e104d5
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T19:53:09Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T19:53:09Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (@hoppscotch/ui/ui-preset)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T19:53:09Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T19:53:09Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at faab1d2 chore: bump version to 2023.12.6
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-2868d4e104d5 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-2868d4e104d5
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-2868d4e104d5/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-2868d4e104d5/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 10 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +2788 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2788, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 2788, reused 0, downloaded 52, added 52
+../..                                    | Progress: resolved 2788, reused 0, downloaded 106, added 109
+../..                                    | Progress: resolved 2788, reused 0, downloaded 149, added 153
+../..                                    | Progress: resolved 2788, reused 0, downloaded 209, added 216
+../..                                    | Progress: resolved 2788, reused 0, downloaded 254, added 261
+../..                                    | Progress: resolved 2788, reused 0, downloaded 314, added 320
+../..                                    | Progress: resolved 2788, reused 0, downloaded 359, added 366
+../..                                    | Progress: resolved 2788, reused 0, downloaded 394, added 401
+../..                                    | Progress: resolved 2788, reused 0, downloaded 446, added 450
+../..                                    | Progress: resolved 2788, reused 0, downloaded 508, added 515
+../..                                    | Progress: resolved 2788, reused 0, downloaded 561, added 568
+../..                                    | Progress: resolved 2788, reused 0, downloaded 606, added 614
+../..                                    | Progress: resolved 2788, reused 0, downloaded 649, added 657
+../..                                    | Progress: resolved 2788, reused 0, downloaded 698, added 707
+../..                                    | Progress: resolved 2788, reused 0, downloaded 754, added 763
+../..                                    | Progress: resolved 2788, reused 0, downloaded 802, added 812
+../..                                    | Progress: resolved 2788, reused 0, downloaded 849, added 861
+../..                                    | Progress: resolved 2788, reused 0, downloaded 895, added 910
+../..                                    | Progress: resolved 2788, reused 0, downloaded 944, added 961
+../..                                    | Progress: resolved 2788, reused 0, downloaded 995, added 1012
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1041, added 1085
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1070, added 1117
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1071, added 1117
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1084, added 1131
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1092, added 1139
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1114, added 1161
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1137, added 1184
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1166, added 1219
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1181, added 1237
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1203, added 1263
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1241, added 1309
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1278, added 1347
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1316, added 1387
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1359, added 1446
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1404, added 1492
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1444, added 1531
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1484, added 1572
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1529, added 1617
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1575, added 1667
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1627, added 1721
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1665, added 1765
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1725, added 1829
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1771, added 1876
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1818, added 1924
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1852, added 1959
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1897, added 2004
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1947, added 2055
+../..                                    | Progress: resolved 2788, reused 0, downloaded 1998, added 2106
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2036, added 2145
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2065, added 2173
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2091, added 2200
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2137, added 2246
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2178, added 2287
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2198, added 2306
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2220, added 2330
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/node/.local/share/pnpm/store/v3
+  Virtual store is at:             ../../node_modules/.pnpm
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2247, added 2362
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2274, added 2390
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2311, added 2427
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2351, added 2467
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2388, added 2504
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2420, added 2533
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2433, added 2547
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2478, added 2594
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2532, added 2648
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2572, added 2688
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2611, added 2728
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2660, added 2779
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2669, added 2787
+../..                                    | Progress: resolved 2788, reused 0, downloaded 2669, added 2788, done
+.../core-js@3.32.1/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../argon2@0.30.3/node_modules/argon2 install$ node-pre-gyp install --fallback-to-build
+.../node_modules/@nestjs/core postinstall$ opencollective || exit 0
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../core-js@3.32.1/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.32.1/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.32.1/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.32.1/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.32.1/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.32.1/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.32.1/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.32.1/node_modules/core-js postinstall: Done
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info it worked if it ends with ok
+.../node_modules/vue-demi postinstall: Done
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@nestjs/core postinstall: (node:154) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@nestjs/core postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../argon2@0.30.3/node_modules/argon2 install: (node:142) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../argon2@0.30.3/node_modules/argon2 install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info check checked for "/tmp/twcr-2868d4e104d5/node_modules/.pnpm/argon2@0.30.3/node_modules/argon2/lib/binding/napi-v3/argon2.node" (not found)
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp http GET https://github.com/ranisalt/node-argon2/releases/download/v0.30.3/argon2-v0.30.3-napi-v3-linux-x64-glibc.tar.gz
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp http download proxy agent configured using: "http://tid_b3f2dbcfdb48:ok@172.18.0.2:3128"
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info install unpacking napi-v3/argon2.node
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info extracted file count: 1 
+.../argon2@0.30.3/node_modules/argon2 install: node-pre-gyp info ok 
+.../argon2@0.30.3/node_modules/argon2 install: [argon2] Success: "/tmp/twcr-2868d4e104d5/node_modules/.pnpm/argon2@0.30.3/node_modules/argon2/lib/binding/napi-v3/argon2.node" is installed via remote
+.../argon2@0.30.3/node_modules/argon2 install: Done
+.../node_modules/@prisma/engines postinstall: (node:192) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: (node:198) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.0/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-2868d4e104d5/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.0/bcrypt_lib-v5.1.0-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_b3f2dbcfdb48:ok@172.18.0.2:3128"
+.../@import-meta-env/unplugin postinstall$ node -e "try{require('./scripts/postinstall')}catch(e){}"
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../@import-meta-env/unplugin postinstall: Done
+.../node_modules/vue-demi postinstall$ node ./scripts/postinstall.js
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.0/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-2868d4e104d5/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.0/node_modules/bcrypt install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@nestjs/core postinstall:                            Thanks for installing nest 
+.../node_modules/@nestjs/core postinstall:                  Please consider donating to our open collective
+.../node_modules/@nestjs/core postinstall:                         to help us maintain this package.
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall:              Become a partner: https://opencollective.com/nest/donate
+.../node_modules/@nestjs/core postinstall:                                          
+.../node_modules/@nestjs/core postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.19.5/node_modules/esbuild postinstall$ node install.js
+.../prisma@5.8.1/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.20.0/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.5/node_modules/esbuild postinstall: Done
+.../prisma@5.8.1/node_modules/prisma preinstall: Done
+.../esbuild@0.20.0/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.48/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.15/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.48/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.15/node_modules/esbuild postinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+
+dependencies:
++ @fontsource-variable/inter 5.0.15
++ @fontsource-variable/material-symbols-rounded 5.0.16
++ @fontsource-variable/roboto-mono 5.0.16
++ @hoppscotch/common 2023.12.6 <- ../hoppscotch-common
++ @platform/auth 0.1.106
++ @tauri-apps/api 1.5.1
++ @tauri-apps/cli 1.5.6
++ @vueuse/core 10.5.0
++ axios 0.21.4
++ buffer 6.0.3
++ dioc 1.0.1
++ environments.api 0.0.0 <- @platform/environments/environments.api
++ event 0.0.0 <- @tauri-apps/api/event
++ fp-ts 2.16.1
++ lodash-es 4.17.21
++ process 0.11.10
++ rxjs 7.8.1
++ shell 0.0.0 <- @tauri-apps/api/shell
++ stream-browserify 3.0.0
++ tauri 0.0.0 <- @tauri-apps/api/tauri
++ tauri-plugin-store-api 0.0.0
++ util 0.12.5
++ vue 3.3.9
++ workbox-window 6.6.0
+
+devDependencies:
++ @graphql-codegen/add 5.0.0
++ @graphql-codegen/cli 5.0.0
++ @graphql-codegen/typed-document-node 5.0.1
++ @graphql-codegen/typescript 4.0.1
++ @graphql-codegen/typescript-operations 4.0.1
++ @graphql-codegen/typescript-urql-graphcache 2.4.5
++ @graphql-codegen/urql-introspection 2.2.1
++ @graphql-typed-document-node/core 3.2.0
++ @intlify/vite-plugin-vue-i18n 6.0.1
++ @rushstack/eslint-patch 1.3.3
++ @types/lodash-es 4.17.10
++ @types/node 18.18.8
++ @typescript-eslint/eslint-plugin 5.62.0
++ @typescript-eslint/parser 5.62.0
++ @vitejs/plugin-legacy 2.3.0
++ @vitejs/plugin-vue 4.3.1
++ @vue/eslint-config-typescript 11.0.3
++ autoprefixer 10.4.16
++ cross-env 7.0.3
++ eslint 8.47.0
++ eslint-plugin-prettier 4.2.1
++ eslint-plugin-vue 9.17.0
++ npm-run-all 4.1.5
++ postcss 8.4.32
++ tailwindcss 3.3.6
++ typescript 4.9.5
++ unplugin-fonts 1.1.1
++ unplugin-icons 0.14.9
++ unplugin-vue-components 0.21.0
++ vite 4.5.0
++ vite-plugin-html-config 1.0.11
++ vite-plugin-inspect 0.7.38
++ vite-plugin-pages 0.26.0
++ vite-plugin-pages-sitemap 1.6.1
++ vite-plugin-pwa 0.13.1
++ vite-plugin-static-copy 0.12.0
++ vite-plugin-vue-layouts 0.7.0
++ vue-tsc 1.8.8
+
+../.. prepare$ husky install
+../codemirror-lang-graphql prepare$ rollup -c
+../hoppscotch-data prepare$ pnpm run build:code && pnpm run build:decl
+../hoppscotch-backend postinstall$ prisma generate && pnpm run generate-gql-sdl
+../.. prepare: husky - Git hooks installed
+../.. prepare: Done
+../hoppscotch-data prepare: > @hoppscotch/data@0.4.4 build:code /tmp/twcr-2868d4e104d5/packages/hoppscotch-data
+../hoppscotch-data prepare: > vite build
+../hoppscotch-backend postinstall: Prisma schema loaded from prisma/schema.prisma
+../hoppscotch-data prepare: vite v4.5.0 building for production...
+../hoppscotch-data prepare: transforming...
+../codemirror-lang-graphql prepare: [36m
+../codemirror-lang-graphql prepare: [1msrc/index.js[22m → [1mdist/index.cjs, ./dist[22m...[39m
+../codemirror-lang-graphql prepare: (node:386) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time
+../codemirror-lang-graphql prepare: (Use `node --trace-warnings ...` to show where the warning was created)
+../hoppscotch-data prepare: ✓ 294 modules transformed.
+../hoppscotch-data prepare: rendering chunks...
+../hoppscotch-data prepare: computing gzip size...
+../hoppscotch-data prepare: dist/hoppscotch-data.js  136.91 kB │ gzip: 32.30 kB
+../hoppscotch-backend postinstall: ✔ Generated Prisma Client (v5.8.1) to ./../../node_modules/.pnpm/@prisma+client@5.8.1_prisma@5.8.1/node_modules/@prisma/client in 2.32s
+../hoppscotch-backend postinstall: Start using Prisma Client in Node.js (See: https://pris.ly/d/client)
+../hoppscotch-backend postinstall: ```
+../hoppscotch-backend postinstall: import { PrismaClient } from '@prisma/client'
+../hoppscotch-backend postinstall: const prisma = new PrismaClient()
+../hoppscotch-backend postinstall: ```
+../hoppscotch-backend postinstall: or start using Prisma Client at the edge (See: https://pris.ly/d/accelerate)
+../hoppscotch-backend postinstall: ```
+../hoppscotch-backend postinstall: import { PrismaClient } from '@prisma/client/edge'
+../hoppscotch-backend postinstall: const prisma = new PrismaClient()
+../hoppscotch-backend postinstall: ```
+../hoppscotch-backend postinstall: See other ways of importing Prisma Client: http://pris.ly/d/importing-client
+../hoppscotch-backend postinstall: ┌─────────────────────────────────────────────────────────────┐
+../hoppscotch-backend postinstall: │  Deploying your app to serverless or edge functions?        │
+../hoppscotch-backend postinstall: │  Try Prisma Accelerate for connection pooling and caching.  │
+../hoppscotch-backend postinstall: │  https://pris.ly/cli/accelerate                             │
+../hoppscotch-backend postinstall: └─────────────────────────────────────────────────────────────┘
+../hoppscotch-data prepare: dist/hoppscotch-data.cjs  97.26 kB │ gzip: 27.47 kB
+../hoppscotch-data prepare: ✓ built in 5.90s
+../hoppscotch-backend postinstall: > hoppscotch-backend@2023.12.6 generate-gql-sdl /tmp/twcr-2868d4e104d5/packages/hoppscotch-backend
+../hoppscotch-backend postinstall: > cross-env GQL_SCHEMA_EMIT_LOCATION='../../../gql-gen/backend-schema.gql' GENERATE_GQL_SCHEMA=true WHITELISTED_ORIGINS='' nest start
+../hoppscotch-data prepare: > @hoppscotch/data@0.4.4 build:decl /tmp/twcr-2868d4e104d5/packages/hoppscotch-data
+../hoppscotch-data prepare: > tsc --project tsconfig.decl.json
+../codemirror-lang-graphql prepare: [32mcreated [1mdist/index.cjs, ./dist[22m in [1m4.3s[22m[39m
+../codemirror-lang-graphql prepare: Done
+../hoppscotch-data prepare: Done
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[emitGQLSchemaFile] [39m[32mGQL_SCHEMA_EMIT_LOCATION: /tmp/twcr-2868d4e104d5/gql-gen/backend-schema.gql[39m
+../hoppscotch-backend postinstall: (node:556) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../hoppscotch-backend postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m[38;5;3m +75ms[39m
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGraphQLSchemaBuilderModule dependencies initialized[39m[38;5;3m +15ms[39m
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +16ms[39m
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[emitGQLSchemaFile] [39m[32mGenerating Schema against 23 resolvers and 0 custom scalars[39m
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[emitGQLSchemaFile] [39m[32mWriting schema to GQL_SCHEMA_EMIT_LOCATION (/tmp/twcr-2868d4e104d5/gql-gen/backend-schema.gql)[39m
+../hoppscotch-backend postinstall: [32m[Nest] 556  - [39m03/04/2024, 7:55:05 PM [32m    LOG[39m [38;5;3m[emitGQLSchemaFile] [39m[32mWrote schema to GQL_SCHEMA_EMIT_LOCATION (/tmp/twcr-2868d4e104d5/gql-gen/backend-schema.gql)[39m
+../hoppscotch-backend postinstall: /tmp/twcr-2868d4e104d5/packages/hoppscotch-backend/src/utils.ts:27
+../hoppscotch-backend postinstall:   throw new Error(errMessage);
+../hoppscotch-backend postinstall:         ^
+../hoppscotch-backend postinstall: Error: mailer/smtp_url_undefined
+../hoppscotch-backend postinstall:     at throwErr (/tmp/twcr-2868d4e104d5/packages/hoppscotch-backend/src/utils.ts:27:9)
+../hoppscotch-backend postinstall:     at Function.register (/tmp/twcr-2868d4e104d5/packages/hoppscotch-backend/src/mailer/mailer.module.ts:36:47)
+../hoppscotch-backend postinstall:  ELIFECYCLE  Command failed with exit code 1.
+../hoppscotch-backend postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

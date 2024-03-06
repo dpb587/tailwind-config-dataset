@@ -1,0 +1,210 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/dailydotdev/apps
++ reporef=main
++ repopath=./packages/webapp
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/dailydotdev/apps
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5c095291f005
+++ echo 'github.com/dailydotdev/apps;main;./packages/webapp'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/9fcb599fd5a0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/dailydotdev/apps/bWFpbgo/Li9wYWNrYWdlcy93ZWJhcHAK
++ jq -nc --arg key analysis_key --arg value github.com/dailydotdev/apps/bWFpbgo/Li9wYWNrYWdlcy93ZWJhcHAK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 213348d3c3b52245
++ jq -nc --arg key analysis_nonce --arg value 213348d3c3b52245 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/dailydotdev/apps
++ jq -nc --arg key input_repo_name --arg value github.com/dailydotdev/apps '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/webapp
++ jq -nc --arg key input_repo_path --arg value ./packages/webapp '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:49:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:49:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5c095291f005
+/tmp/twcr-5c095291f005 /twcr
++ pushd /tmp/twcr-5c095291f005
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/dailydotdev/apps.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:49:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:49:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 083c4ce047accfd19645978bc0ffc4b47b941bd1
++ jq -nc --arg key exec_repo_commit_sha --arg value 083c4ce047accfd19645978bc0ffc4b47b941bd1 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 23:55:25 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T22:55:25Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T22:55:25Z '{ key: $key, value: $value }'
++ '[' -z ./packages/webapp ']'
++ pushd ./packages/webapp
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-5c095291f005/packages/webapp /tmp/twcr-5c095291f005 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5c095291f005/packages/webapp
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/webapp '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5c095291f005
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:49:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:49:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "webapp",
+>>>   "version": "0.0.0",
+>>>   "prettier": "@dailydotdev/prettier-config",
+>>>   "dependencies": {
+>>>     "@dailydotdev/shared": "*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.0"
+>>>   },
+>>>   "sideEffects": [
+>>>     "*.css"
+>>>   ]
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/webapp '!=' ./ ']'
++ rm -f /tmp/twcr-5c095291f005/package.json /tmp/twcr-5c095291f005/package-lock.json /tmp/twcr-5c095291f005/pnpm-lock.yaml /tmp/twcr-5c095291f005/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5c095291f005 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5c095291f005
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5c095291f005/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 26, reused 0, downloaded 17, added 0
+../..                                    | Progress: resolved 46, reused 0, downloaded 38, added 0
+../extension                             |  WARN  deprecated subscriptions-transport-ws@0.9.19
+../..                                    | Progress: resolved 67, reused 0, downloaded 60, added 0
+../..                                    | Progress: resolved 92, reused 0, downloaded 79, added 0
+/tmp/twcr-5c095291f005/packages/shared:
+ ERR_PNPM_FETCH_403  GET https://gitpkg.now.sh/dailydotdev/growthbook/packages/sdk-js?a0d1a3add257acdbf5353dfd690547feebbada92: Forbidden - 403
+
+This error happened while installing a direct dependency of /tmp/twcr-5c095291f005/packages/shared
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T03:49:29Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T03:49:29Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 083c4ce chore: remove feed layout feature - set default on mobile (#2700)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5c095291f005 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5c095291f005
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5c095291f005/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-5c095291f005/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    |    +2256 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2256, reused 39, downloaded 0, added 0
+../..                                    | Progress: resolved 2256, reused 42, downloaded 45, added 89
+../..                                    | Progress: resolved 2256, reused 42, downloaded 100, added 144
+../..                                    | Progress: resolved 2256, reused 42, downloaded 147, added 190
+../..                                    | Progress: resolved 2256, reused 42, downloaded 199, added 243
+../..                                    | Progress: resolved 2256, reused 42, downloaded 252, added 296
+../..                                    | Progress: resolved 2256, reused 42, downloaded 301, added 349
+../..                                    | Progress: resolved 2256, reused 42, downloaded 347, added 396
+../..                                    | Progress: resolved 2256, reused 42, downloaded 380, added 428
+../..                                    | Progress: resolved 2256, reused 42, downloaded 423, added 493
+../..                                    | Progress: resolved 2256, reused 42, downloaded 477, added 586
+../..                                    | Progress: resolved 2256, reused 42, downloaded 523, added 646
+../..                                    | Progress: resolved 2256, reused 42, downloaded 570, added 693
+../..                                    | Progress: resolved 2256, reused 42, downloaded 614, added 737
+../..                                    | Progress: resolved 2256, reused 42, downloaded 665, added 788
+../..                                    | Progress: resolved 2256, reused 42, downloaded 722, added 845
+../..                                    | Progress: resolved 2256, reused 42, downloaded 777, added 905
+../..                                    | Progress: resolved 2256, reused 42, downloaded 830, added 960
+../..                                    | Progress: resolved 2256, reused 42, downloaded 881, added 1011
+../..                                    | Progress: resolved 2256, reused 42, downloaded 931, added 1061
+../..                                    | Progress: resolved 2256, reused 42, downloaded 983, added 1112
+../..                                    | Progress: resolved 2256, reused 42, downloaded 1029, added 1159
+../..                                    | Progress: resolved 2256, reused 42, downloaded 1072, added 1202
+../..                                    | Progress: resolved 2256, reused 42, downloaded 1119, added 1249
+../..                                    | Progress: resolved 2256, reused 42, downloaded 1172, added 1302
+../..                                    | Progress: resolved 2256, reused 42, downloaded 1203, added 1334
+ ERR_PNPM_FETCH_403  GET https://gitpkg.now.sh/dailydotdev/growthbook/packages/sdk-js?a0d1a3add257acdbf5353dfd690547feebbada92: Forbidden - 403
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

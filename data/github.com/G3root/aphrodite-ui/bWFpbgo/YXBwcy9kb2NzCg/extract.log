@@ -1,0 +1,384 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/G3root/aphrodite-ui
++ reporef=main
++ repopath=./apps/docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/G3root/aphrodite-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-40a63513e32c
+++ echo 'github.com/G3root/aphrodite-ui;main;./apps/docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/a0a0d85eabde
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/G3root/aphrodite-ui/bWFpbgo/Li9hcHBzL2RvY3MK
++ jq -nc --arg key analysis_key --arg value github.com/G3root/aphrodite-ui/bWFpbgo/Li9hcHBzL2RvY3MK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 9939f2730120e07b
++ jq -nc --arg key analysis_nonce --arg value 9939f2730120e07b '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/G3root/aphrodite-ui
++ jq -nc --arg key input_repo_name --arg value github.com/G3root/aphrodite-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/docs
++ jq -nc --arg key input_repo_path --arg value ./apps/docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T18:09:57Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T18:09:57Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-40a63513e32c
++ pushd /tmp/twcr-40a63513e32c
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/G3root/aphrodite-ui.git .
+/tmp/twcr-40a63513e32c /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T18:09:58Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T18:09:58Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f48f584d84cdd1dd7d9383329c65da7c4ce70e2c
++ jq -nc --arg key exec_repo_commit_sha --arg value f48f584d84cdd1dd7d9383329c65da7c4ce70e2c '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-01-03 23:31:58 +0530' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-01-03T18:01:58Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-01-03T18:01:58Z '{ key: $key, value: $value }'
++ '[' -z ./apps/docs ']'
++ pushd ./apps/docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-40a63513e32c/apps/docs /tmp/twcr-40a63513e32c /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-40a63513e32c/apps/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-40a63513e32c
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T18:09:58Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T18:09:58Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@aphrodite-ui/core": "workspace:*"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/docs '!=' ./ ']'
++ rm -f /tmp/twcr-40a63513e32c/package.json /tmp/twcr-40a63513e32c/package-lock.json /tmp/twcr-40a63513e32c/pnpm-lock.yaml /tmp/twcr-40a63513e32c/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-40a63513e32c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-40a63513e32c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-40a63513e32c/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 15, reused 0, downloaded 11, added 0
+../..                                    | Progress: resolved 30, reused 0, downloaded 25, added 0
+../../packages/react                     |  WARN  deprecated @vitest/coverage-c8@0.24.5
+../..                                    | Progress: resolved 52, reused 0, downloaded 39, added 0
+../..                                    | Progress: resolved 70, reused 0, downloaded 54, added 0
+../..                                    | Progress: resolved 84, reused 0, downloaded 77, added 0
+../..                                    | Progress: resolved 104, reused 0, downloaded 95, added 0
+../..                                    | Progress: resolved 128, reused 0, downloaded 116, added 0
+../..                                    | Progress: resolved 155, reused 0, downloaded 140, added 0
+../..                                    | Progress: resolved 185, reused 0, downloaded 165, added 0
+../..                                    | Progress: resolved 216, reused 0, downloaded 197, added 0
+../..                                    | Progress: resolved 247, reused 0, downloaded 226, added 0
+../..                                    | Progress: resolved 273, reused 0, downloaded 249, added 0
+../..                                    | Progress: resolved 303, reused 0, downloaded 275, added 0
+../..                                    | Progress: resolved 333, reused 0, downloaded 306, added 0
+../..                                    | Progress: resolved 358, reused 0, downloaded 330, added 0
+../..                                    | Progress: resolved 390, reused 0, downloaded 342, added 0
+../..                                    | Progress: resolved 417, reused 0, downloaded 362, added 0
+../..                                    | Progress: resolved 440, reused 0, downloaded 379, added 0
+../..                                    | Progress: resolved 483, reused 0, downloaded 404, added 0
+../..                                    | Progress: resolved 512, reused 0, downloaded 433, added 0
+../..                                    | Progress: resolved 544, reused 0, downloaded 463, added 0
+../..                                    | Progress: resolved 576, reused 0, downloaded 493, added 0
+../..                                    | Progress: resolved 614, reused 0, downloaded 529, added 0
+../..                                    | Progress: resolved 636, reused 0, downloaded 554, added 0
+../..                                    | Progress: resolved 669, reused 0, downloaded 582, added 0
+../..                                    | Progress: resolved 699, reused 0, downloaded 608, added 0
+../..                                    | Progress: resolved 725, reused 0, downloaded 636, added 0
+../..                                    | Progress: resolved 752, reused 0, downloaded 660, added 0
+../..                                    | Progress: resolved 781, reused 0, downloaded 688, added 0
+../..                                    | Progress: resolved 820, reused 0, downloaded 719, added 0
+../..                                    | Progress: resolved 845, reused 0, downloaded 750, added 0
+../..                                    | Progress: resolved 896, reused 0, downloaded 773, added 0
+../..                                    | Progress: resolved 926, reused 0, downloaded 803, added 0
+../..                                    | Progress: resolved 961, reused 0, downloaded 837, added 0
+../..                                    | Progress: resolved 996, reused 0, downloaded 868, added 0
+../..                                    | Progress: resolved 1033, reused 0, downloaded 905, added 0
+../..                                    | Progress: resolved 1067, reused 0, downloaded 927, added 0
+../..                                    | Progress: resolved 1101, reused 0, downloaded 968, added 0
+../..                                    | Progress: resolved 1141, reused 0, downloaded 1001, added 0
+../..                                    | Progress: resolved 1145, reused 0, downloaded 1055, added 0
+../..                                    | Progress: resolved 1167, reused 0, downloaded 1096, added 0
+ WARN  2 deprecated subdependencies found: abab@2.0.6, domexception@4.0.0
+../..                                    |    +1120 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1183, reused 0, downloaded 1118, added 0
+../..                                    | Progress: resolved 1183, reused 0, downloaded 1119, added 1120, done
+.../core-js@3.36.0/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../core-js@3.36.0/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../core-js@3.36.0/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+.../core-js@3.36.0/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../core-js@3.36.0/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../core-js@3.36.0/node_modules/core-js postinstall: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @aphrodite-ui/core 0.1.2 <- ../../packages/core
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 48.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-40a63513e32c/apps/docs/node_modules/@aphrodite-ui/core/dist/index.js'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-40a63513e32c/apps/docs/tailwind.config.js:1:104
+    at evalModule (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-40a63513e32c/apps/docs/node_modules/@aphrodite-ui/core/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T18:10:48Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T18:10:48Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 1 path from the index
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-40a63513e32c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-40a63513e32c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-40a63513e32c/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../../packages/react                     |  WARN  deprecated @vitest/coverage-c8@0.24.5
+../..                                    | Progress: resolved 49, reused 34, downloaded 10, added 0
+../..                                    | Progress: resolved 139, reused 120, downloaded 17, added 0
+../..                                    | Progress: resolved 771, reused 749, downloaded 18, added 0
+../..                                    | Progress: resolved 990, reused 949, downloaded 34, added 0
+../..                                    | Progress: resolved 1008, reused 950, downloaded 51, added 0
+../..                                    | Progress: resolved 1020, reused 950, downloaded 63, added 0
+../..                                    | Progress: resolved 1071, reused 984, downloaded 71, added 0
+../..                                    | Progress: resolved 1104, reused 988, downloaded 78, added 0
+../..                                    | Progress: resolved 1147, reused 1008, downloaded 100, added 0
+../..                                    | Progress: resolved 1164, reused 1008, downloaded 112, added 0
+../..                                    | Progress: resolved 1214, reused 1022, downloaded 129, added 0
+../..                                    | Progress: resolved 1214, reused 1022, downloaded 130, added 0
+../..                                    | Progress: resolved 1226, reused 1023, downloaded 138, added 0
+../..                                    | Progress: resolved 1265, reused 1047, downloaded 156, added 0
+../..                                    | Progress: resolved 1294, reused 1048, downloaded 181, added 0
+../..                                    | Progress: resolved 1328, reused 1059, downloaded 202, added 0
+../..                                    | Progress: resolved 1355, reused 1070, downloaded 216, added 0
+../..                                    | Progress: resolved 1416, reused 1080, downloaded 245, added 0
+../..                                    | Progress: resolved 1441, reused 1080, downloaded 267, added 0
+../..                                    | Progress: resolved 1467, reused 1080, downloaded 290, added 0
+../..                                    | Progress: resolved 1486, reused 1080, downloaded 314, added 0
+../..                                    | Progress: resolved 1506, reused 1081, downloaded 350, added 0
+../..                                    | Progress: resolved 1519, reused 1081, downloaded 366, added 0
+../..                                    | Progress: resolved 1554, reused 1116, downloaded 367, added 0
+ WARN  4 deprecated subdependencies found: @opentelemetry/api-metrics@0.31.0, @opentelemetry/sdk-metrics-base@0.31.0, abab@2.0.6, domexception@4.0.0
+../..                                    | +369   -4 ++++++++++++++++++++++++++-
+../..                                    | Progress: resolved 1554, reused 1116, downloaded 367, added 366
+../..                                    | Progress: resolved 1554, reused 1116, downloaded 367, added 369, done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/contentlayer postinstall$ node ./bin/cli.cjs postinstall || echo 'No Contentlayer build found.'
+.../node_modules/contentlayer postinstall: Done
+
+dependencies:
++ @aphrodite-ui/core 0.1.2 <- ../../packages/core
++ @aphrodite-ui/react 0.2.0 <- ../../packages/react
++ @headlessui/react 1.7.18
++ @next/font 13.5.6 (14.1.0 is available)
++ @types/node 18.11.9 (20.11.24 is available)
++ @types/react 18.2.61
++ @types/react-dom 18.2.19
++ eslint 8.57.0
++ eslint-config-next 13.5.6 (14.1.1 is available)
++ next 13.5.6 (14.1.1 is available)
++ next-seo 5.15.0 (6.5.0 is available)
++ next-themes 0.2.1
++ react 18.2.0
++ react-dom 18.2.0
++ rehype-pretty-code 0.2.4 (0.13.0 is available)
++ shiki 0.10.1 (1.1.7 is available)
++ typescript 4.9.5 (5.3.3 is available)
+
+devDependencies:
++ @preact/signals-react 1.3.8 (2.0.0 is available)
++ autoprefixer 10.4.18
++ contentlayer 0.2.9 (0.3.4 is available)
++ github-slugger 2.0.0
++ next-contentlayer 0.2.9 (0.3.4 is available)
++ postcss 8.4.35
++ react-icons 4.12.0 (5.0.1 is available)
++ rehype-slug 5.1.0 (6.0.0 is available)
++ remark-gfm 3.0.1 (4.0.0 is available)
++ tailwindcss 3.4.1
++ unified 10.1.2 (11.0.4 is available)
++ unist-util-visit 4.1.2 (5.0.0 is available)
+
+ WARN  Issues with peer dependencies found
+apps/docs
+└─┬ contentlayer 0.2.9
+  └─┬ @contentlayer/cli 0.2.9
+    └─┬ @contentlayer/core 0.2.9
+      └── ✕ unmet peer esbuild@"^0.12.1 || 0.13.x || 0.14.x || 0.15.x": found 0.18.20
+
+Done in 33.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+node:internal/modules/cjs/loader:1186
+  const err = new Error(`Cannot find module '${request}'`);
+              ^
+
+Error: Cannot find module '/tmp/twcr-40a63513e32c/apps/docs/node_modules/@aphrodite-ui/core/dist/index.js'
+    at createEsmNotFoundErr (node:internal/modules/cjs/loader:1186:15)
+    at finalizeEsmResolution (node:internal/modules/cjs/loader:1174:15)
+    at resolveExports (node:internal/modules/cjs/loader:596:14)
+    at Module._findPath (node:internal/modules/cjs/loader:673:31)
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1135:27)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-40a63513e32c/apps/docs/tailwind.config.js:1:104
+    at evalModule (/tmp/twcr-40a63513e32c/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443) {
+  code: 'MODULE_NOT_FOUND',
+  path: '/tmp/twcr-40a63513e32c/apps/docs/node_modules/@aphrodite-ui/core/package.json'
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

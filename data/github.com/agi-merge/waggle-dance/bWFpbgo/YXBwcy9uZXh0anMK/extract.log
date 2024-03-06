@@ -1,0 +1,554 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/agi-merge/waggle-dance
++ reporef=main
++ repopath=./apps/nextjs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/agi-merge/waggle-dance
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5d37323a4bff
+++ echo 'github.com/agi-merge/waggle-dance;main;./apps/nextjs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/93ff7247bf8e
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/agi-merge/waggle-dance/bWFpbgo/Li9hcHBzL25leHRqcwo
++ jq -nc --arg key analysis_key --arg value github.com/agi-merge/waggle-dance/bWFpbgo/Li9hcHBzL25leHRqcwo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce a221225b8eb7a041
++ jq -nc --arg key analysis_nonce --arg value a221225b8eb7a041 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/agi-merge/waggle-dance
++ jq -nc --arg key input_repo_name --arg value github.com/agi-merge/waggle-dance '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/nextjs
++ jq -nc --arg key input_repo_path --arg value ./apps/nextjs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T01:35:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T01:35:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5d37323a4bff
+/tmp/twcr-5d37323a4bff /twcr
++ pushd /tmp/twcr-5d37323a4bff
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/agi-merge/waggle-dance.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T01:35:22Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T01:35:22Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha f1a7d0f24c091bf09a2b1a921b0af52823140704
++ jq -nc --arg key exec_repo_commit_sha --arg value f1a7d0f24c091bf09a2b1a921b0af52823140704 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-27 17:37:24 -0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-28T01:37:24Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-28T01:37:24Z '{ key: $key, value: $value }'
+/tmp/twcr-5d37323a4bff/apps/nextjs /tmp/twcr-5d37323a4bff /twcr
++ '[' -z ./apps/nextjs ']'
++ pushd ./apps/nextjs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5d37323a4bff/apps/nextjs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/nextjs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5d37323a4bff
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T01:35:22Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T01:35:22Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@acme/nextjs",
+>>>   "version": "0.2.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@acme/tailwind-config": "^0.1.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.5"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/nextjs '!=' ./ ']'
++ rm -f /tmp/twcr-5d37323a4bff/package.json /tmp/twcr-5d37323a4bff/package-lock.json /tmp/twcr-5d37323a4bff/pnpm-lock.yaml /tmp/twcr-5d37323a4bff/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5d37323a4bff /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5d37323a4bff
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5d37323a4bff/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 20, reused 0, downloaded 14, added 0
+../..                                    | Progress: resolved 34, reused 0, downloaded 32, added 0
+../..                                    | Progress: resolved 36, reused 0, downloaded 35, added 0
+../..                                    | Progress: resolved 53, reused 0, downloaded 36, added 0
+../..                                    | Progress: resolved 84, reused 0, downloaded 70, added 0
+../..                                    | Progress: resolved 115, reused 0, downloaded 104, added 0
+../..                                    | Progress: resolved 146, reused 0, downloaded 127, added 0
+../..                                    | Progress: resolved 161, reused 0, downloaded 142, added 0
+../..                                    | Progress: resolved 185, reused 0, downloaded 161, added 0
+../..                                    | Progress: resolved 212, reused 0, downloaded 183, added 0
+../..                                    | Progress: resolved 241, reused 0, downloaded 212, added 0
+../..                                    | Progress: resolved 278, reused 0, downloaded 251, added 0
+../..                                    | Progress: resolved 314, reused 0, downloaded 285, added 0
+../..                                    | Progress: resolved 341, reused 0, downloaded 313, added 0
+../..                                    | Progress: resolved 368, reused 0, downloaded 333, added 0
+../..                                    | Progress: resolved 405, reused 0, downloaded 367, added 0
+../..                                    | Progress: resolved 441, reused 0, downloaded 404, added 0
+../..                                    | Progress: resolved 461, reused 0, downloaded 439, added 0
+
+ WARN  Issues with peer dependencies found
+packages/db
+└─┬ zod-prisma 0.5.4
+  └── ✕ unmet peer prisma@^3.0.0: found 5.10.2
+
+../..                                    | +465 ++++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 461, reused 0, downloaded 453, added 465, done
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/engines postinstall: (node:130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/prisma preinstall: Done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+Done in 22.4s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-5d37323a4bff/apps/nextjs/tailwind.config.ts:1
+import baseConfig from "@acme/tailwind-config";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-5d37323a4bff/apps/nextjs/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T01:35:46Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T01:35:46Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at f1a7d0f include lib in tsc
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-5d37323a4bff /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-5d37323a4bff
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-5d37323a4bff/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-5d37323a4bff/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+../..                                    |  WARN  Unsupported engine: wanted: {"node":"20.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | +945  -49 +++++++++++++++++++++++++--
+../..                                    | Progress: resolved 0, reused 60, downloaded 9, added 54
+../..                                    | Progress: resolved 0, reused 60, downloaded 21, added 67
+../..                                    | Progress: resolved 0, reused 60, downloaded 41, added 90
+../..                                    | Progress: resolved 0, reused 60, downloaded 50, added 103
+../..                                    | Progress: resolved 0, reused 60, downloaded 60, added 113
+../..                                    | Progress: resolved 0, reused 60, downloaded 68, added 121
+../..                                    | Progress: resolved 0, reused 60, downloaded 70, added 123
+../..                                    | Progress: resolved 0, reused 60, downloaded 78, added 131
+../..                                    | Progress: resolved 0, reused 60, downloaded 85, added 137
+../..                                    | Progress: resolved 0, reused 60, downloaded 96, added 148
+../..                                    | Progress: resolved 0, reused 60, downloaded 110, added 164
+../..                                    | Progress: resolved 0, reused 60, downloaded 136, added 190
+../..                                    | Progress: resolved 0, reused 60, downloaded 152, added 206
+../..                                    | Progress: resolved 0, reused 60, downloaded 171, added 224
+../..                                    | Progress: resolved 0, reused 60, downloaded 194, added 248
+../..                                    | Progress: resolved 0, reused 60, downloaded 217, added 269
+../..                                    | Progress: resolved 0, reused 60, downloaded 260, added 314
+../..                                    | Progress: resolved 0, reused 60, downloaded 276, added 327
+../..                                    | Progress: resolved 0, reused 60, downloaded 310, added 364
+../..                                    | Progress: resolved 0, reused 60, downloaded 347, added 401
+../..                                    | Progress: resolved 0, reused 60, downloaded 378, added 438
+../..                                    | Progress: resolved 0, reused 60, downloaded 438, added 504
+../..                                    | Progress: resolved 0, reused 60, downloaded 475, added 541
+../..                                    | Progress: resolved 0, reused 60, downloaded 534, added 601
+../..                                    | Progress: resolved 0, reused 60, downloaded 577, added 644
+../..                                    | Progress: resolved 0, reused 60, downloaded 614, added 681
+../..                                    | Progress: resolved 0, reused 60, downloaded 680, added 747
+../..                                    | Progress: resolved 0, reused 60, downloaded 706, added 773
+../..                                    | Progress: resolved 0, reused 60, downloaded 760, added 826
+../..                                    | Progress: resolved 0, reused 60, downloaded 811, added 878
+../..                                    | Progress: resolved 0, reused 60, downloaded 854, added 925
+../..                                    | Progress: resolved 0, reused 60, downloaded 869, added 940
+../..                                    | Progress: resolved 0, reused 60, downloaded 871, added 944
+../..                                    | Progress: resolved 0, reused 60, downloaded 872, added 945, done
+../../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+../../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+../../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+../../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+../../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+../../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+../../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+../../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+../../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+../../node_modules/core-js-pure postinstall: Done
+../../node_modules/@prisma/engines postinstall: (node:251) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+../../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+../../node_modules/@prisma/engines postinstall: Done
+../../node_modules/tree-sitter-json install$ node-gyp rebuild
+../../node_modules/tree-sitter-yaml install$ node-gyp rebuild
+../../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+../../node_modules/prisma preinstall: Done
+../../node_modules/tree-sitter-yaml install: gyp info it worked if it ends with ok
+../../node_modules/tree-sitter-json install: gyp info it worked if it ends with ok
+../../node_modules/tree-sitter-json install: gyp info using node-gyp@9.4.1
+../../node_modules/tree-sitter-yaml install: gyp info using node-gyp@9.4.1
+../../node_modules/tree-sitter-json install: gyp info using node@21.6.2 | linux | x64
+../../node_modules/tree-sitter-yaml install: gyp info using node@21.6.2 | linux | x64
+../../node_modules/tree-sitter-json install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+../../node_modules/tree-sitter-yaml install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+../../node_modules/tree-sitter-yaml install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/tree-sitter-json install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/tree-sitter-yaml install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/tree-sitter-json install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/tree-sitter-json install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/tree-sitter-yaml install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/tree-sitter-json install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/tree-sitter-yaml install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/tree-sitter-json install: gyp info spawn /usr/bin/python3
+../../node_modules/tree-sitter-yaml install: gyp info spawn /usr/bin/python3
+../../node_modules/tree-sitter-json install: gyp info spawn args [
+../../node_modules/tree-sitter-json install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+../../node_modules/tree-sitter-json install: gyp info spawn args   'binding.gyp',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-f',
+../../node_modules/tree-sitter-json install: gyp info spawn args   'make',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-json/build/config.gypi',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args [
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   'binding.gyp',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-f',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   'make',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-yaml/build/config.gypi',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dlibrary=shared_library',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dvisibility=default',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-yaml',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Dnode_engine=v8',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '--depth=.',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '--no-parallel',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '--generator-output',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   'build',
+../../node_modules/tree-sitter-yaml install: gyp info spawn args   '-Goutput_dir=.'
+../../node_modules/tree-sitter-yaml install: gyp info spawn args ]
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dlibrary=shared_library',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dvisibility=default',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-json',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Dnode_engine=v8',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '--depth=.',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '--no-parallel',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '--generator-output',
+../../node_modules/tree-sitter-json install: gyp info spawn args   'build',
+../../node_modules/tree-sitter-json install: gyp info spawn args   '-Goutput_dir=.'
+../../node_modules/tree-sitter-json install: gyp info spawn args ]
+../../node_modules/tree-sitter-json install: gyp info spawn make
+../../node_modules/tree-sitter-yaml install: gyp info spawn make
+../../node_modules/tree-sitter-yaml install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+../../node_modules/tree-sitter-json install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+../../node_modules/tree-sitter-json install: make: Entering directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-json/build'
+../../node_modules/tree-sitter-yaml install: make: Entering directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-yaml/build'
+../../node_modules/tree-sitter-json install:   CC(target) Release/obj.target/tree_sitter_json_binding/src/parser.o
+../../node_modules/tree-sitter-yaml install:   CXX(target) Release/obj.target/tree_sitter_yaml_binding/bindings/node/binding.o
+../../node_modules/tree-sitter-json install:   CXX(target) Release/obj.target/tree_sitter_json_binding/bindings/node/binding.o
+../../node_modules/tree-sitter-yaml install: In file included from ../bindings/node/binding.cc:2:
+../../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+../../node_modules/tree-sitter-yaml install:  1202 |       (node::addon_register_func) (regfunc),                          \
+../../node_modules/tree-sitter-yaml install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/tree-sitter-yaml install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+../../node_modules/tree-sitter-yaml install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+../../node_modules/tree-sitter-yaml install:       |   ^~~~~~~~~~~~~
+../../node_modules/tree-sitter-yaml install: ../bindings/node/binding.cc:26:1: note: in expansion of macro 'NODE_MODULE'
+../../node_modules/tree-sitter-yaml install:    26 | NODE_MODULE(tree_sitter_yaml_binding, Init)
+../../node_modules/tree-sitter-yaml install:       | ^~~~~~~~~~~
+../../node_modules/tree-sitter-json install: In file included from ../bindings/node/binding.cc:2:
+../../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+../../node_modules/tree-sitter-json install:  1202 |       (node::addon_register_func) (regfunc),                          \
+../../node_modules/tree-sitter-json install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/tree-sitter-json install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+../../node_modules/tree-sitter-json install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+../../node_modules/tree-sitter-json install:       |   ^~~~~~~~~~~~~
+../../node_modules/tree-sitter-json install: ../bindings/node/binding.cc:26:1: note: in expansion of macro 'NODE_MODULE'
+../../node_modules/tree-sitter-json install:    26 | NODE_MODULE(tree_sitter_json_binding, Init)
+../../node_modules/tree-sitter-json install:       | ^~~~~~~~~~~
+../../node_modules/tree-sitter-yaml install:   CC(target) Release/obj.target/tree_sitter_yaml_binding/src/parser.o
+../../node_modules/tree-sitter-json install:   SOLINK_MODULE(target) Release/obj.target/tree_sitter_json_binding.node
+../../node_modules/tree-sitter-yaml install: In file included from ../src/parser.c:1:
+../../node_modules/tree-sitter-yaml install: ../src/parser.c: In function 'ts_lex':
+../../node_modules/tree-sitter-yaml install: ../src/tree_sitter/parser.h:136:11: warning: variable 'lookahead' set but not used [-Wunused-but-set-variable]
+../../node_modules/tree-sitter-yaml install:   136 |   int32_t lookahead;            \
+../../node_modules/tree-sitter-yaml install:       |           ^~~~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/parser.c:2182:3: note: in expansion of macro 'START_LEXER'
+../../node_modules/tree-sitter-yaml install:  2182 |   START_LEXER();
+../../node_modules/tree-sitter-yaml install:       |   ^~~~~~~~~~~
+../../node_modules/tree-sitter-json install:   COPY Release/tree_sitter_json_binding.node
+../../node_modules/tree-sitter-json install: make: Leaving directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-json/build'
+../../node_modules/tree-sitter-json install: gyp info ok 
+../../node_modules/tree-sitter-json install: Done
+../../node_modules/tree-sitter-yaml install:   CXX(target) Release/obj.target/tree_sitter_yaml_binding/src/scanner.o
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc: In member function 'char {anonymous}::Scanner::scn_pln_cnt(TSLexer*, bool ({anonymous}::Scanner::*)(int32_t))':
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:619:10: warning: variable 'is_cur_wsp' set but not used [-Wunused-but-set-variable]
+../../node_modules/tree-sitter-yaml install:   619 |     bool is_cur_wsp = is_wsp(cur_chr);
+../../node_modules/tree-sitter-yaml install:       |          ^~~~~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc: In member function 'bool {anonymous}::Scanner::scn_dir_tag_pfx(TSLexer*, TSSymbol)':
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:66:26: warning: this statement may fall through [-Wimplicit-fallthrough=]
+../../node_modules/tree-sitter-yaml install:    66 | #define MRK_END() mrk_end(lexer)
+../../node_modules/tree-sitter-yaml install:       |                   ~~~~~~~^~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:429:11: note: in expansion of macro 'MRK_END'
+../../node_modules/tree-sitter-yaml install:   429 |           MRK_END();
+../../node_modules/tree-sitter-yaml install:       |           ^~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:430:9: note: here
+../../node_modules/tree-sitter-yaml install:   430 |         case SCN_FAIL:
+../../node_modules/tree-sitter-yaml install:       |         ^~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc: In member function 'bool {anonymous}::Scanner::scn_tag(TSLexer*, TSSymbol)':
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:454:13: warning: this statement may fall through [-Wimplicit-fallthrough=]
+../../node_modules/tree-sitter-yaml install:   454 |             if (LKA == '>') {
+../../node_modules/tree-sitter-yaml install:       |             ^~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:459:11: note: here
+../../node_modules/tree-sitter-yaml install:   459 |           case SCN_FAIL:
+../../node_modules/tree-sitter-yaml install:       |           ^~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:66:26: warning: this statement may fall through [-Wimplicit-fallthrough=]
+../../node_modules/tree-sitter-yaml install:    66 | #define MRK_END() mrk_end(lexer)
+../../node_modules/tree-sitter-yaml install:       |                   ~~~~~~~^~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:468:13: note: in expansion of macro 'MRK_END'
+../../node_modules/tree-sitter-yaml install:   468 |             MRK_END();
+../../node_modules/tree-sitter-yaml install:       |             ^~~~~~~
+../../node_modules/tree-sitter-yaml install: ../src/scanner.cc:469:11: note: here
+../../node_modules/tree-sitter-yaml install:   469 |           case SCN_FAIL:
+../../node_modules/tree-sitter-yaml install:       |           ^~~~
+../../node_modules/tree-sitter-yaml install:   SOLINK_MODULE(target) Release/obj.target/tree_sitter_yaml_binding.node
+../../node_modules/tree-sitter-yaml install:   COPY Release/tree_sitter_yaml_binding.node
+../../node_modules/tree-sitter-yaml install: make: Leaving directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter-yaml/build'
+../../node_modules/tree-sitter-yaml install: gyp info ok 
+../../node_modules/tree-sitter-yaml install: Done
+../../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+../../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+../../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+../../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+../../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+../../node_modules/@prisma/client postinstall: Done
+../../node_modules/tree-sitter install$ prebuild-install || node-gyp rebuild
+../../node_modules/tree-sitter install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+../../node_modules/tree-sitter install: gyp info it worked if it ends with ok
+../../node_modules/tree-sitter install: gyp info using node-gyp@9.4.1
+../../node_modules/tree-sitter install: gyp info using node@21.6.2 | linux | x64
+../../node_modules/tree-sitter install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+../../node_modules/tree-sitter install: gyp info spawn /usr/bin/python3
+../../node_modules/tree-sitter install: gyp info spawn args [
+../../node_modules/tree-sitter install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+../../node_modules/tree-sitter install: gyp info spawn args   'binding.gyp',
+../../node_modules/tree-sitter install: gyp info spawn args   '-f',
+../../node_modules/tree-sitter install: gyp info spawn args   'make',
+../../node_modules/tree-sitter install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter install: gyp info spawn args   '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter/build/config.gypi',
+../../node_modules/tree-sitter install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+../../node_modules/tree-sitter install: gyp info spawn args   '-I',
+../../node_modules/tree-sitter install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dlibrary=shared_library',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dvisibility=default',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-5d37323a4bff/node_modules/tree-sitter',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Dnode_engine=v8',
+../../node_modules/tree-sitter install: gyp info spawn args   '--depth=.',
+../../node_modules/tree-sitter install: gyp info spawn args   '--no-parallel',
+../../node_modules/tree-sitter install: gyp info spawn args   '--generator-output',
+../../node_modules/tree-sitter install: gyp info spawn args   'build',
+../../node_modules/tree-sitter install: gyp info spawn args   '-Goutput_dir=.'
+../../node_modules/tree-sitter install: gyp info spawn args ]
+../../node_modules/tree-sitter install: gyp info spawn make
+../../node_modules/tree-sitter install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+../../node_modules/tree-sitter install: make: Entering directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter/build'
+../../node_modules/tree-sitter install:   CC(target) Release/obj.target/tree_sitter/vendor/tree-sitter/lib/src/lib.o
+../../node_modules/tree-sitter install: rm -f Release/obj.target/tree_sitter.a Release/obj.target/tree_sitter.a.ar-file-list; mkdir -p `dirname Release/obj.target/tree_sitter.a`
+../../node_modules/tree-sitter install: ar crs Release/obj.target/tree_sitter.a @Release/obj.target/tree_sitter.a.ar-file-list
+../../node_modules/tree-sitter install:   COPY Release/tree_sitter.a
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/binding.o
+../../node_modules/tree-sitter install: In file included from ../src/binding.cc:1:
+../../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1202:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>)' to 'node::addon_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)'} [-Wcast-function-type]
+../../node_modules/tree-sitter install:  1202 |       (node::addon_register_func) (regfunc),                          \
+../../node_modules/tree-sitter install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/tree-sitter install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1236:3: note: in expansion of macro 'NODE_MODULE_X'
+../../node_modules/tree-sitter install:  1236 |   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+../../node_modules/tree-sitter install:       |   ^~~~~~~~~~~~~
+../../node_modules/tree-sitter install: ../src/binding.cc:25:1: note: in expansion of macro 'NODE_MODULE'
+../../node_modules/tree-sitter install:    25 | NODE_MODULE(tree_sitter_runtime_binding, InitAll)
+../../node_modules/tree-sitter install:       | ^~~~~~~~~~~
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/conversions.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/language.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/logger.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/node.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/parser.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/query.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/tree.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/tree_cursor.o
+../../node_modules/tree-sitter install:   CXX(target) Release/obj.target/tree_sitter_runtime_binding/src/util.o
+../../node_modules/tree-sitter install:   SOLINK_MODULE(target) Release/obj.target/tree_sitter_runtime_binding.node
+../../node_modules/tree-sitter install:   COPY Release/tree_sitter_runtime_binding.node
+../../node_modules/tree-sitter install: make: Leaving directory '/tmp/twcr-5d37323a4bff/node_modules/tree-sitter/build'
+../../node_modules/tree-sitter install: gyp info ok 
+../../node_modules/tree-sitter install: Done
+
+dependencies:
++ @acme/agent 0.1.0 <- ../../packages/agent
++ @acme/api 0.1.0 <- ../../packages/api
++ @acme/auth 0.1.0 <- ../../packages/auth
++ @acme/db 0.1.0 <- ../../packages/db
++ @acme/tailwind-config 0.1.0 <- ../../packages/config/tailwind
++ react-query@^4.0.0 0.0.0 <- tanstack/react-query@^4.0.0
+
+devDependencies:
++ @acme/eslint-config 0.1.0 <- ../../packages/config/eslint
+
+Done in 1m 12.6s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.5
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-5d37323a4bff/apps/nextjs/tailwind.config.ts:1
+import baseConfig from "@acme/tailwind-config";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-5d37323a4bff/apps/nextjs/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

@@ -1,0 +1,606 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/vercel/turbo
++ reporef=main
++ repopath=./docs
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/vercel/turbo
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-4a9cb6db67a6
+++ echo 'github.com/vercel/turbo;main;./docs'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/cf4a72643cea
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/vercel/turbo/bWFpbgo/Li9kb2NzCg
++ jq -nc --arg key analysis_key --arg value github.com/vercel/turbo/bWFpbgo/Li9kb2NzCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 4b336dbbda17940f
++ jq -nc --arg key analysis_nonce --arg value 4b336dbbda17940f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/vercel/turbo
++ jq -nc --arg key input_repo_name --arg value github.com/vercel/turbo '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./docs
++ jq -nc --arg key input_repo_path --arg value ./docs '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T20:12:40Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T20:12:40Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-4a9cb6db67a6
++ pushd /tmp/twcr-4a9cb6db67a6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/vercel/turbo.git .
+/tmp/twcr-4a9cb6db67a6 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T20:12:44Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T20:12:44Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2d6af4960379520b12f3798653ff0b20ae4b531e
++ jq -nc --arg key exec_repo_commit_sha --arg value 2d6af4960379520b12f3798653ff0b20ae4b531e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 11:09:11 -0600' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T17:09:11Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T17:09:11Z '{ key: $key, value: $value }'
++ '[' -z ./docs ']'
++ pushd ./docs
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-4a9cb6db67a6/docs /tmp/twcr-4a9cb6db67a6 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4a9cb6db67a6/docs
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./docs '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-4a9cb6db67a6
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T20:12:45Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T20:12:45Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "docs",
+>>>   "version": "1.0.0",
+>>>   "private": true,
+>>>   "description": "turbo.build",
+>>>   "author": "Jared Palmer",
+>>>   "license": "MPL-2.0",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "3.3.6"
+>>>   },
+>>>   "prettier": {
+>>>     "embeddedLanguageFormatting": "off",
+>>>     "htmlWhitespaceSensitivity": "strict"
+>>>   },
+>>>   "engines": {
+>>>     "node": "20.x"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./docs '!=' ./ ']'
++ rm -f /tmp/twcr-4a9cb6db67a6/package.json /tmp/twcr-4a9cb6db67a6/package-lock.json /tmp/twcr-4a9cb6db67a6/pnpm-lock.yaml /tmp/twcr-4a9cb6db67a6/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4a9cb6db67a6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4a9cb6db67a6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4a9cb6db67a6/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  Unsupported engine: wanted: {"node":"20.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 47 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 13, reused 0, downloaded 1, added 0
+..                                       | Progress: resolved 26, reused 0, downloaded 15, added 0
+..                                       | Progress: resolved 35, reused 0, downloaded 23, added 0
+..                                       | Progress: resolved 47, reused 0, downloaded 36, added 0
+..                                       | Progress: resolved 63, reused 0, downloaded 49, added 0
+..                                       | Progress: resolved 76, reused 0, downloaded 61, added 0
+..                                       | Progress: resolved 95, reused 0, downloaded 77, added 0
+..                                       | Progress: resolved 106, reused 0, downloaded 89, added 0
+..                                       | Progress: resolved 113, reused 0, downloaded 104, added 0
+..                                       | Progress: resolved 126, reused 0, downloaded 117, added 0
+..                                       | Progress: resolved 144, reused 0, downloaded 135, added 0
+..                                       | Progress: resolved 170, reused 0, downloaded 156, added 0
+..                                       | Progress: resolved 180, reused 0, downloaded 165, added 0
+..                                       | Progress: resolved 202, reused 0, downloaded 185, added 0
+..                                       | Progress: resolved 211, reused 0, downloaded 196, added 0
+..                                       | Progress: resolved 233, reused 0, downloaded 218, added 0
+..                                       | Progress: resolved 256, reused 0, downloaded 238, added 0
+..                                       | Progress: resolved 270, reused 0, downloaded 251, added 0
+..                                       | Progress: resolved 287, reused 0, downloaded 269, added 0
+..                                       | Progress: resolved 304, reused 0, downloaded 283, added 0
+..                                       | Progress: resolved 318, reused 0, downloaded 298, added 0
+..                                       | Progress: resolved 348, reused 0, downloaded 303, added 0
+..                                       | Progress: resolved 371, reused 0, downloaded 312, added 0
+..                                       | Progress: resolved 387, reused 0, downloaded 327, added 0
+..                                       | Progress: resolved 406, reused 0, downloaded 346, added 0
+..                                       | Progress: resolved 434, reused 0, downloaded 366, added 0
+..                                       | Progress: resolved 446, reused 0, downloaded 388, added 0
+..                                       | Progress: resolved 485, reused 0, downloaded 399, added 0
+..                                       | Progress: resolved 505, reused 0, downloaded 423, added 0
+..                                       | Progress: resolved 528, reused 0, downloaded 442, added 0
+..                                       | Progress: resolved 549, reused 0, downloaded 465, added 0
+..                                       | Progress: resolved 572, reused 0, downloaded 491, added 0
+..                                       | Progress: resolved 596, reused 0, downloaded 511, added 0
+..                                       | Progress: resolved 625, reused 0, downloaded 532, added 0
+..                                       | Progress: resolved 645, reused 0, downloaded 552, added 0
+..                                       | Progress: resolved 676, reused 0, downloaded 563, added 0
+..                                       | Progress: resolved 695, reused 0, downloaded 578, added 0
+..                                       | Progress: resolved 713, reused 0, downloaded 597, added 0
+..                                       | Progress: resolved 723, reused 0, downloaded 611, added 0
+..                                       | Progress: resolved 740, reused 0, downloaded 622, added 0
+..                                       | Progress: resolved 760, reused 0, downloaded 641, added 0
+..                                       | Progress: resolved 789, reused 0, downloaded 667, added 0
+..                                       | Progress: resolved 806, reused 0, downloaded 688, added 0
+..                                       | Progress: resolved 831, reused 0, downloaded 709, added 0
+..                                       | Progress: resolved 837, reused 0, downloaded 713, added 0
+..                                       | Progress: resolved 846, reused 0, downloaded 724, added 0
+..                                       | Progress: resolved 888, reused 0, downloaded 738, added 0
+..                                       | Progress: resolved 896, reused 0, downloaded 743, added 0
+..                                       | Progress: resolved 901, reused 0, downloaded 758, added 0
+..                                       | Progress: resolved 914, reused 0, downloaded 769, added 0
+..                                       | Progress: resolved 934, reused 0, downloaded 787, added 0
+..                                       | Progress: resolved 954, reused 0, downloaded 806, added 0
+..                                       | Progress: resolved 974, reused 0, downloaded 827, added 0
+..                                       | Progress: resolved 993, reused 0, downloaded 843, added 0
+..                                       | Progress: resolved 1019, reused 0, downloaded 872, added 0
+..                                       | Progress: resolved 1046, reused 0, downloaded 892, added 0
+..                                       | Progress: resolved 1066, reused 0, downloaded 914, added 0
+..                                       | Progress: resolved 1097, reused 0, downloaded 938, added 0
+..                                       | Progress: resolved 1126, reused 0, downloaded 964, added 0
+..                                       | Progress: resolved 1148, reused 0, downloaded 991, added 0
+..                                       | Progress: resolved 1172, reused 0, downloaded 1010, added 0
+..                                       | Progress: resolved 1197, reused 0, downloaded 1029, added 0
+..                                       | Progress: resolved 1215, reused 0, downloaded 1050, added 0
+..                                       | Progress: resolved 1236, reused 0, downloaded 1071, added 0
+..                                       | Progress: resolved 1254, reused 0, downloaded 1086, added 0
+..                                       | Progress: resolved 1276, reused 0, downloaded 1106, added 0
+..                                       | Progress: resolved 1296, reused 0, downloaded 1124, added 0
+..                                       | Progress: resolved 1304, reused 0, downloaded 1136, added 0
+..                                       | Progress: resolved 1320, reused 0, downloaded 1156, added 0
+..                                       | Progress: resolved 1342, reused 0, downloaded 1171, added 0
+..                                       | Progress: resolved 1371, reused 0, downloaded 1194, added 0
+..                                       | Progress: resolved 1392, reused 0, downloaded 1216, added 0
+..                                       | Progress: resolved 1409, reused 0, downloaded 1237, added 0
+..                                       | Progress: resolved 1428, reused 0, downloaded 1254, added 0
+..                                       | Progress: resolved 1457, reused 0, downloaded 1280, added 0
+..                                       | Progress: resolved 1478, reused 0, downloaded 1300, added 0
+..                                       | Progress: resolved 1492, reused 0, downloaded 1333, added 0
+..                                       | Progress: resolved 1492, reused 0, downloaded 1380, added 0
+ WARN  8 deprecated subdependencies found: abab@2.0.6, cross-spawn-async@2.2.5, domexception@2.0.1, resolve-url@0.2.1, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0, w3c-hr-time@1.0.2
+..                                       |    +1403 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1493, reused 0, downloaded 1396, added 0
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 749
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1226
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1314
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1399
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1400
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1401
+..                                       | Progress: resolved 1493, reused 0, downloaded 1400, added 1402
+..                                       | Progress: resolved 1493, reused 0, downloaded 1401, added 1402
+..                                       | Progress: resolved 1493, reused 0, downloaded 1401, added 1403, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/playwright-chromium install$ node install.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/playwright-chromium install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/playwright-chromium install: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.14.54/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.54/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.18/node_modules/esbuild postinstall: Done
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../sharp@0.33.2/node_modules/sharp install: Done
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/create-turbo/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/gen. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-gen/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-gen/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+../.github/actions/turbopack-bump prepare$ pnpm run build
+../.github/actions/cargo-sweep prepare$ pnpm run build:main && pnpm run build:post
+../.github/actions/turbopack-bump prepare: > turbopack-bump-action@1.0.0 build /tmp/twcr-4a9cb6db67a6/.github/actions/turbopack-bump
+../.github/actions/turbopack-bump prepare: > ncc build src/index.ts -o dist --source-map --minify
+../.github/actions/cargo-sweep prepare: > cargo-sweep-action@1.0.0 build:main /tmp/twcr-4a9cb6db67a6/.github/actions/cargo-sweep
+../.github/actions/cargo-sweep prepare: > ncc build src/main.js -o dist/main --source-map
+../.github/actions/turbopack-bump prepare: ncc: Version 0.36.1
+../.github/actions/turbopack-bump prepare: ncc: Compiling file index.js into CJS
+../.github/actions/cargo-sweep prepare: ncc: Version 0.36.1
+../.github/actions/cargo-sweep prepare: ncc: Compiling file index.js into CJS
+../.github/actions/turbopack-bump prepare: Error: Module build failed (from ../../../node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js):
+../.github/actions/turbopack-bump prepare: Error: Could not load TypeScript compiler with NPM package name `/tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/typescript.js`. Are you sure it is correctly installed?
+../.github/actions/turbopack-bump prepare:     at Object.loader (/tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js.cache.js:31:279563)
+../.github/actions/turbopack-bump prepare:     at /tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/index.js.cache.js:37:1870077
+../.github/actions/turbopack-bump prepare:     at /tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/index.js.cache.js:37:383620
+../.github/actions/turbopack-bump prepare:     at _done (eval at create (/tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/index.js.cache.js:20:75523), <anonymous>:9:1)
+../.github/actions/turbopack-bump prepare:     at eval (eval at create (/tmp/twcr-4a9cb6db67a6/node_modules/.pnpm/@vercel+ncc@0.36.1/node_modules/@vercel/ncc/dist/ncc/index.js.cache.js:20:75523), <anonymous>:34:22)
+../.github/actions/turbopack-bump prepare:  ELIFECYCLE  Command failed with exit code 1.
+../.github/actions/turbopack-bump prepare: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T20:14:31Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T20:14:31Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
++ git reset --hard
+HEAD is now at 2d6af49 fix: sso login duplicate popup (#7575)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-4a9cb6db67a6 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-4a9cb6db67a6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-4a9cb6db67a6/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-4a9cb6db67a6/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+..                                       |  WARN  Unsupported engine: wanted: {"node":"20.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+ WARN  Unsupported engine: wanted: {"node":"20.x"} (current: {"node":"v21.6.2","pnpm":"8.15.4"})
+Scope: all 48 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       |    +1079 -466 ++++++++++++++++-------
+..                                       | Progress: resolved 1079, reused 189, downloaded 1, added 46
+..                                       | Progress: resolved 1079, reused 189, downloaded 36, added 80
+..                                       | Progress: resolved 1079, reused 189, downloaded 75, added 120
+..                                       | Progress: resolved 1079, reused 189, downloaded 121, added 166
+..                                       | Progress: resolved 1079, reused 189, downloaded 157, added 202
+..                                       | Progress: resolved 1079, reused 189, downloaded 195, added 239
+..                                       | Progress: resolved 1079, reused 189, downloaded 219, added 264
+..                                       | Progress: resolved 1079, reused 189, downloaded 225, added 270
+..                                       | Progress: resolved 1079, reused 189, downloaded 250, added 295
+..                                       | Progress: resolved 1079, reused 189, downloaded 284, added 329
+..                                       | Progress: resolved 1079, reused 189, downloaded 309, added 354
+..                                       | Progress: resolved 1079, reused 189, downloaded 352, added 396
+..                                       | Progress: resolved 1079, reused 189, downloaded 374, added 419
+..                                       | Progress: resolved 1079, reused 189, downloaded 397, added 441
+..                                       | Progress: resolved 1079, reused 189, downloaded 430, added 474
+..                                       | Progress: resolved 1079, reused 189, downloaded 457, added 502
+..                                       | Progress: resolved 1079, reused 189, downloaded 493, added 538
+..                                       | Progress: resolved 1079, reused 189, downloaded 520, added 565
+..                                       | Progress: resolved 1079, reused 189, downloaded 555, added 599
+..                                       | Progress: resolved 1079, reused 189, downloaded 594, added 639
+..                                       | Progress: resolved 1079, reused 189, downloaded 624, added 669
+..                                       | Progress: resolved 1079, reused 189, downloaded 654, added 699
+..                                       | Progress: resolved 1079, reused 189, downloaded 681, added 725
+..                                       | Progress: resolved 1079, reused 189, downloaded 713, added 758
+..                                       | Progress: resolved 1079, reused 189, downloaded 738, added 783
+..                                       | Progress: resolved 1079, reused 189, downloaded 753, added 797
+..                                       | Progress: resolved 1079, reused 189, downloaded 760, added 804
+..                                       | Progress: resolved 1079, reused 189, downloaded 780, added 824
+..                                       | Progress: resolved 1079, reused 189, downloaded 801, added 846
+..                                       | Progress: resolved 1079, reused 189, downloaded 822, added 867
+..                                       | Progress: resolved 1079, reused 189, downloaded 849, added 894
+..                                       | Progress: resolved 1079, reused 189, downloaded 876, added 921
+..                                       | Progress: resolved 1079, reused 189, downloaded 879, added 924
+..                                       | Progress: resolved 1079, reused 189, downloaded 880, added 924
+..                                       | Progress: resolved 1079, reused 189, downloaded 880, added 925
+..                                       | Progress: resolved 1079, reused 189, downloaded 881, added 926
+..                                       | Progress: resolved 1079, reused 189, downloaded 882, added 926
+..                                       | Progress: resolved 1079, reused 189, downloaded 882, added 927
+..                                       | Progress: resolved 1079, reused 189, downloaded 883, added 927
+..                                       | Progress: resolved 1079, reused 189, downloaded 883, added 928
+..                                       | Progress: resolved 1079, reused 189, downloaded 884, added 928
+..                                       | Progress: resolved 1079, reused 189, downloaded 884, added 929
+..                                       | Progress: resolved 1079, reused 189, downloaded 885, added 929
+..                                       | Progress: resolved 1079, reused 189, downloaded 885, added 930, done
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/playwright-chromium install$ node install.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting of core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/@sentry/cli install: [sentry-cli] Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.77.1/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: [sentry-cli] Using proxy URL: http://tid_d5e40b6d108f:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:302) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/playwright-chromium install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/playwright-chromium install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: [sentry-cli] Checksum validation passed.
+.../node_modules/@sentry/cli install: Done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.18/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.6/node_modules/esbuild postinstall$ node install.js
+.../sharp@0.33.2/node_modules/sharp install$ node install/check
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.49/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.18/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.6/node_modules/esbuild postinstall: Done
+.../esbuild@0.14.49/node_modules/esbuild postinstall: Done
+.../sharp@0.33.2/node_modules/sharp install: Done
+.../node_modules/@sveltejs/kit postinstall$ node postinstall.js
+.../node_modules/@sveltejs/kit postinstall: Done
+.../node_modules/@vercel/speed-insights postinstall$ node scripts/postinstall.mjs
+.../node_modules/@vercel/speed-insights postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/docs/node_modules/.bin/gen. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-gen/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/create-turbo/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/gen. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-gen/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-gen/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-workspaces/dist/cli.js'
+
+dependencies:
++ @headlessui/react 1.7.18
++ @heroicons/react 1.0.6
++ @mdx-js/react 3.0.0
++ @react-spring/web 9.7.3
++ @sentry/nextjs 7.92.0
++ @vercel/analytics 0.1.1
++ @vercel/og 0.6.2
++ @vercel/speed-insights 1.0.5-beta.1
++ @vercel/toolbar 0.1.9
++ axios 1.6.2
++ classnames 2.3.2
++ copy-to-clipboard 3.3.3
++ framer-motion 10.17.12
++ next 14.1.0
++ next-themes 0.2.1
++ nextra 2.13.2
++ nextra-theme-docs 2.13.2
++ react 18.2.0
++ react-dom 18.2.0
++ swr 2.2.4
+
+devDependencies:
++ @babel/core 7.23.6
++ @turbo/eslint-config 0.0.0 <- ../packages/eslint-config
++ @turbo/gen 1.12.5-canary.0 <- ../packages/turbo-gen
++ @turbo/types 1.12.5-canary.0 <- ../packages/turbo-types
++ @types/node 20.10.8
++ @types/react-dom 18.2.18
++ autoprefixer 10.4.16
++ csstype 3.1.3
++ gray-matter 4.0.3
++ openapi-types 12.1.3
++ pagefind 1.0.4
++ postcss 8.4.32
++ rss 1.2.2
++ tailwindcss 3.3.6
+
+.. prepare$ husky install
+.. prepare: husky - Git hooks installed
+.. prepare: Done
+../.github/actions/turbopack-bump prepare$ pnpm run build
+../.github/actions/cargo-sweep prepare$ pnpm run build:main && pnpm run build:post
+../.github/actions/cargo-sweep prepare: > cargo-sweep-action@1.0.0 build:main /tmp/twcr-4a9cb6db67a6/.github/actions/cargo-sweep
+../.github/actions/cargo-sweep prepare: > ncc build src/main.js -o dist/main --source-map
+../.github/actions/turbopack-bump prepare: > turbopack-bump-action@1.0.0 build /tmp/twcr-4a9cb6db67a6/.github/actions/turbopack-bump
+../.github/actions/turbopack-bump prepare: > ncc build src/index.ts -o dist --source-map --minify
+../.github/actions/turbopack-bump prepare: ncc: Version 0.36.0
+../.github/actions/turbopack-bump prepare: ncc: Compiling file index.js into CJS
+../.github/actions/cargo-sweep prepare: ncc: Version 0.36.0
+../.github/actions/cargo-sweep prepare: ncc: Compiling file index.js into CJS
+../.github/actions/cargo-sweep prepare:  40kB  dist/main/sourcemap-register.js
+../.github/actions/cargo-sweep prepare: 145kB  dist/main/index.js
+../.github/actions/cargo-sweep prepare: 168kB  dist/main/index.js.map
+../.github/actions/cargo-sweep prepare: 168kB  dist/main/index.js.map
+../.github/actions/cargo-sweep prepare: 353kB  [1916ms] - ncc 0.36.0
+../.github/actions/turbopack-bump prepare: ncc: Using typescript@5.3.3 (local user-provided)
+../.github/actions/cargo-sweep prepare: > cargo-sweep-action@1.0.0 build:post /tmp/twcr-4a9cb6db67a6/.github/actions/cargo-sweep
+../.github/actions/cargo-sweep prepare: > ncc build src/post.js -o dist/post --source-map
+../.github/actions/cargo-sweep prepare: ncc: Version 0.36.0
+../.github/actions/cargo-sweep prepare: ncc: Compiling file index.js into CJS
+../.github/actions/cargo-sweep prepare:  40kB  dist/post/sourcemap-register.js
+../.github/actions/cargo-sweep prepare: 145kB  dist/post/index.js
+../.github/actions/cargo-sweep prepare: 168kB  dist/post/index.js.map
+../.github/actions/cargo-sweep prepare: 168kB  dist/post/index.js.map
+../.github/actions/cargo-sweep prepare: 353kB  [1513ms] - ncc 0.36.0
+../.github/actions/cargo-sweep prepare: Done
+../.github/actions/turbopack-bump prepare:   40kB  dist/sourcemap-register.js
+../.github/actions/turbopack-bump prepare:  449kB  dist/index.js
+../.github/actions/turbopack-bump prepare:  528kB  dist/index.js.map
+../.github/actions/turbopack-bump prepare:  528kB  dist/index.js.map
+../.github/actions/turbopack-bump prepare: 1017kB  [6977ms] - ncc 0.36.0
+../.github/actions/turbopack-bump prepare: Done
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/create-turbo/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/create-turbo/node_modules/@turbo/workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-gen/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-gen/node_modules/@turbo/workspaces/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/docs/node_modules/.bin/gen. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/docs/node_modules/@turbo/gen/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/gen. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/@turbo/gen/dist/cli.js'
+ WARN  Failed to create bin at /tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/.bin/workspaces. ENOENT: no such file or directory, open '/tmp/twcr-4a9cb6db67a6/packages/turbo-codemod/node_modules/@turbo/workspaces/dist/cli.js'
+Done in 1m 18.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.3.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T20:15:54Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T20:15:54Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T20:15:54Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T20:15:54Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

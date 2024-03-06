@@ -1,0 +1,205 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/ciampo/portfolio-2019
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/ciampo/portfolio-2019
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-e6fd4140d7f3
+++ echo 'github.com/ciampo/portfolio-2019;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/906dde5f1832
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/ciampo/portfolio-2019/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/ciampo/portfolio-2019/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 50396b7bffd79ec5
++ jq -nc --arg key analysis_nonce --arg value 50396b7bffd79ec5 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/ciampo/portfolio-2019
++ jq -nc --arg key input_repo_name --arg value github.com/ciampo/portfolio-2019 '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T10:37:25Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T10:37:25Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-e6fd4140d7f3
+/tmp/twcr-e6fd4140d7f3 /twcr
++ pushd /tmp/twcr-e6fd4140d7f3
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/ciampo/portfolio-2019.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T10:37:27Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T10:37:27Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha ba2b3bb25473aa80cda24438cceab7fa9766846a
++ jq -nc --arg key exec_repo_commit_sha --arg value ba2b3bb25473aa80cda24438cceab7fa9766846a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-04-24 02:56:45 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-04-24T00:56:45Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-04-24T00:56:45Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-e6fd4140d7f3 /tmp/twcr-e6fd4140d7f3 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-e6fd4140d7f3
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T10:37:27Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T10:37:27Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "portfolio-2019",
+>>>   "version": "1.2.0",
+>>>   "main": "pages/index.js",
+>>>   "author": "Marco Ciampini <marco.ciampo@gmail.com>",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/ciampo/portfolio-2019.git"
+>>>   },
+>>>   "license": "MIT",
+>>>   "private": true,
+>>>   "browserslist": [
+>>>     "> 1%",
+>>>     "last 2 versions",
+>>>     "Firefox ESR",
+>>>     "not dead"
+>>>   ],
+>>>   "husky": {
+>>>     "hooks": {
+>>>       "pre-commit": "lint-staged",
+>>>       "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn install --frozen-lockfile; fi",
+>>>       "post-merge": "yarn install --frozen-lockfile",
+>>>       "post-rebase": "yarn install",
+>>>       "pre-push": "yarn test"
+>>>     }
+>>>   },
+>>>   "lint-staged": {
+>>>     "*.{js|ts|tsx}": [
+>>>       "eslint --fix",
+>>>       "git add"
+>>>     ],
+>>>     "*.css": [
+>>>       "stylelint",
+>>>       "git add"
+>>>     ]
+>>>   },
+>>>   "dependencies": {
+>>>     "tailwindcss-aspect-ratio": "^2.0.0"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^1.1.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-e6fd4140d7f3 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-e6fd4140d7f3
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_718530303a09:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_718530303a09:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_718530303a09:ok@172.18.0.2:3128".
+Done in 0.06s.
++ '[' -z http://tid_718530303a09:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_718530303a09:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_718530303a09:ok@172.18.0.2:3128".
+Done in 0.05s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:125) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.75s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=1.9.6
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T10:37:36Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T10:37:36Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T10:37:36Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T10:37:36Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

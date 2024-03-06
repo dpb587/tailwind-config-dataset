@@ -1,0 +1,179 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/nimiq/crypto-map
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/nimiq/crypto-map
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ce8724f881bf
+++ echo 'github.com/nimiq/crypto-map;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/0c2e887a4ded
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/nimiq/crypto-map/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/nimiq/crypto-map/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 23d4d2de390ed93a
++ jq -nc --arg key analysis_nonce --arg value 23d4d2de390ed93a '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/nimiq/crypto-map
++ jq -nc --arg key input_repo_name --arg value github.com/nimiq/crypto-map '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T13:19:44Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T13:19:44Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ce8724f881bf
++ pushd /tmp/twcr-ce8724f881bf
++ '[' -d .git ']'
+/tmp/twcr-ce8724f881bf /twcr
++ git clone --depth=1 -b main https://github.com/nimiq/crypto-map.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T13:19:45Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T13:19:45Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha c1a073744b4458f2ce69030ad8d19ef403e67963
++ jq -nc --arg key exec_repo_commit_sha --arg value c1a073744b4458f2ce69030ad8d19ef403e67963 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-27 13:58:06 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-27T12:58:06Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-27T12:58:06Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-ce8724f881bf/apps/web /tmp/twcr-ce8724f881bf /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ce8724f881bf/apps/web
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T13:19:45Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T13:19:45Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "web",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1",
+>>>     "tailwindcss-nimiq-theme": "^0.2.2"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-ce8724f881bf/package.json /tmp/twcr-ce8724f881bf/package-lock.json /tmp/twcr-ce8724f881bf/pnpm-lock.yaml /tmp/twcr-ce8724f881bf/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-ce8724f881bf /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-ce8724f881bf
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-ce8724f881bf/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 4 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 25, reused 0, downloaded 13, added 0
+../..                                    | Progress: resolved 55, reused 0, downloaded 39, added 0
+../..                                    | Progress: resolved 79, reused 0, downloaded 60, added 0
+../..                                    | Progress: resolved 106, reused 0, downloaded 86, added 0
+../..                                    | Progress: resolved 128, reused 0, downloaded 110, added 0
+../..                                    | Progress: resolved 161, reused 0, downloaded 139, added 0
+../..                                    | Progress: resolved 195, reused 0, downloaded 178, added 0
+../..                                    | Progress: resolved 226, reused 0, downloaded 200, added 0
+../..                                    | Progress: resolved 259, reused 0, downloaded 238, added 0
+../..                                    | Progress: resolved 298, reused 0, downloaded 271, added 0
+../..                                    | +299 ++++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 300, reused 0, downloaded 299, added 299, done
+
+devDependencies:
++ tailwindcss 3.4.1
++ tailwindcss-nimiq-theme 0.2.2
+
+Done in 11.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T13:19:58Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T13:19:58Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T13:19:58Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T13:19:58Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,660 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/N00nDay/stwui
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/N00nDay/stwui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-1cd392779ef6
+++ echo 'github.com/N00nDay/stwui;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/45adde561da5
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/N00nDay/stwui/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/N00nDay/stwui/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 3c4fcf0057f995d6
++ jq -nc --arg key analysis_nonce --arg value 3c4fcf0057f995d6 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/N00nDay/stwui
++ jq -nc --arg key input_repo_name --arg value github.com/N00nDay/stwui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T05:22:00Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T05:22:00Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-1cd392779ef6
++ pushd /tmp/twcr-1cd392779ef6
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/N00nDay/stwui.git .
+/tmp/twcr-1cd392779ef6 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T05:22:01Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T05:22:01Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha d29f1bbfd832a74a78ac271a19dd701a8f6ff494
++ jq -nc --arg key exec_repo_commit_sha --arg value d29f1bbfd832a74a78ac271a19dd701a8f6ff494 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-01-11 21:41:03 -0500' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-01-12T02:41:03Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-01-12T02:41:03Z '{ key: $key, value: $value }'
+/tmp/twcr-1cd392779ef6 /tmp/twcr-1cd392779ef6 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-1cd392779ef6
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T05:22:01Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T05:22:01Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "stwui",
+>>>   "description": "Opinionated yet customizable Svelte-TailwindCSS component library",
+>>>   "keywords": [
+>>>     "svelte",
+>>>     "svelte3",
+>>>     "sveltekit",
+>>>     "svelte-components",
+>>>     "sveltejs",
+>>>     "tailwindcss",
+>>>     "stwui"
+>>>   ],
+>>>   "license": "MIT",
+>>>   "version": "0.21.2-next",
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "https://github.com/N00nDay/stwui"
+>>>   },
+>>>   "homepage": "https://github.com/N00nDay/stwui",
+>>>   "devDependencies": {
+>>>     "@tailwindcss/forms": "^0.5.7",
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "svelte": "./package/index.js",
+>>>   "type": "module",
+>>>   "types": "package/index.d.ts",
+>>>   "dependencies": {},
+>>>   "peerDependencies": {},
+>>>   "exports": {
+>>>     "./package.json": "./package.json",
+>>>     ".": {
+>>>       "types": "./package/index.d.ts",
+>>>       "svelte": "./package/index.js",
+>>>       "default": "./package/index.js"
+>>>     },
+>>>     "./accordion": {
+>>>       "types": "./package/components/accordion/index.d.ts",
+>>>       "svelte": "./package/components/accordion/index.js",
+>>>       "default": "./package/components/accordion/index.js"
+>>>     },
+>>>     "./alert": {
+>>>       "types": "./package/components/alert/index.d.ts",
+>>>       "svelte": "./package/components/alert/index.js",
+>>>       "default": "./package/components/alert/index.js"
+>>>     },
+>>>     "./autocomplete": {
+>>>       "types": "./package/components/autocomplete/index.d.ts",
+>>>       "svelte": "./package/components/autocomplete/index.js",
+>>>       "default": "./package/components/autocomplete/index.js"
+>>>     },
+>>>     "./avatar": {
+>>>       "types": "./package/components/avatar/index.d.ts",
+>>>       "svelte": "./package/components/avatar/index.js",
+>>>       "default": "./package/components/avatar/index.js"
+>>>     },
+>>>     "./avatar-group": {
+>>>       "types": "./package/components/avatar-group/index.d.ts",
+>>>       "svelte": "./package/components/avatar-group/index.js",
+>>>       "default": "./package/components/avatar-group/index.js"
+>>>     },
+>>>     "./badge": {
+>>>       "types": "./package/components/badge/index.d.ts",
+>>>       "svelte": "./package/components/badge/index.js",
+>>>       "default": "./package/components/badge/index.js"
+>>>     },
+>>>     "./breadcrumbs": {
+>>>       "types": "./package/components/breadcrumbs/index.d.ts",
+>>>       "svelte": "./package/components/breadcrumbs/index.js",
+>>>       "default": "./package/components/breadcrumbs/index.js"
+>>>     },
+>>>     "./button": {
+>>>       "types": "./package/components/button/index.d.ts",
+>>>       "svelte": "./package/components/button/index.js",
+>>>       "default": "./package/components/button/index.js"
+>>>     },
+>>>     "./button-group": {
+>>>       "types": "./package/components/button-group/index.d.ts",
+>>>       "svelte": "./package/components/button-group/index.js",
+>>>       "default": "./package/components/button-group/index.js"
+>>>     },
+>>>     "./card": {
+>>>       "types": "./package/components/card/index.d.ts",
+>>>       "svelte": "./package/components/card/index.js",
+>>>       "default": "./package/components/card/index.js"
+>>>     },
+>>>     "./carousel": {
+>>>       "types": "./package/components/carousel/index.d.ts",
+>>>       "svelte": "./package/components/carousel/index.js",
+>>>       "default": "./package/components/carousel/index.js"
+>>>     },
+>>>     "./checkbox": {
+>>>       "types": "./package/components/checkbox/index.d.ts",
+>>>       "svelte": "./package/components/checkbox/index.js",
+>>>       "default": "./package/components/checkbox/index.js"
+>>>     },
+>>>     "./chip": {
+>>>       "types": "./package/components/chip/index.d.ts",
+>>>       "svelte": "./package/components/chip/index.js",
+>>>       "default": "./package/components/chip/index.js"
+>>>     },
+>>>     "./currency": {
+>>>       "types": "./package/components/currency/index.d.ts",
+>>>       "svelte": "./package/components/currency/index.js",
+>>>       "default": "./package/components/currency/index.js"
+>>>     },
+>>>     "./date-picker": {
+>>>       "types": "./package/components/datepicker/index.d.ts",
+>>>       "svelte": "./package/components/datepicker/index.js",
+>>>       "default": "./package/components/datepicker/index.js"
+>>>     },
+>>>     "./divider": {
+>>>       "types": "./package/components/divider/index.d.ts",
+>>>       "svelte": "./package/components/divider/index.js",
+>>>       "default": "./package/components/divider/index.js"
+>>>     },
+>>>     "./drawer": {
+>>>       "types": "./package/components/drawer/index.d.ts",
+>>>       "svelte": "./package/components/drawer/index.js",
+>>>       "default": "./package/components/drawer/index.js"
+>>>     },
+>>>     "./dropdown": {
+>>>       "types": "./package/components/dropdown/index.d.ts",
+>>>       "svelte": "./package/components/dropdown/index.js",
+>>>       "default": "./package/components/dropdown/index.js"
+>>>     },
+>>>     "./empty": {
+>>>       "types": "./package/components/empty/index.d.ts",
+>>>       "svelte": "./package/components/empty/index.js",
+>>>       "default": "./package/components/empty/index.js"
+>>>     },
+>>>     "./feed": {
+>>>       "types": "./package/components/feed/index.d.ts",
+>>>       "svelte": "./package/components/feed/index.js",
+>>>       "default": "./package/components/feed/index.js"
+>>>     },
+>>>     "./file-picker": {
+>>>       "types": "./package/components/file-picker/index.d.ts",
+>>>       "svelte": "./package/components/file-picker/index.js",
+>>>       "default": "./package/components/file-picker/index.js"
+>>>     },
+>>>     "./file-preview": {
+>>>       "types": "./package/components/file-preview/index.d.ts",
+>>>       "svelte": "./package/components/file-preview/index.js",
+>>>       "default": "./package/components/file-preview/index.js"
+>>>     },
+>>>     "./icon": {
+>>>       "types": "./package/components/icon/index.d.ts",
+>>>       "svelte": "./package/components/icon/index.js",
+>>>       "default": "./package/components/icon/index.js"
+>>>     },
+>>>     "./input": {
+>>>       "types": "./package/components/input/index.d.ts",
+>>>       "svelte": "./package/components/input/index.js",
+>>>       "default": "./package/components/input/index.js"
+>>>     },
+>>>     "./input-number": {
+>>>       "types": "./package/components/input-number/index.d.ts",
+>>>       "svelte": "./package/components/input-number/index.js",
+>>>       "default": "./package/components/input-number/index.js"
+>>>     },
+>>>     "./layout": {
+>>>       "types": "./package/components/layout/index.d.ts",
+>>>       "svelte": "./package/components/layout/index.js",
+>>>       "default": "./package/components/layout/index.js"
+>>>     },
+>>>     "./lightbox": {
+>>>       "types": "./package/components/lightbox/index.d.ts",
+>>>       "svelte": "./package/components/lightbox/index.js",
+>>>       "default": "./package/components/lightbox/index.js"
+>>>     },
+>>>     "./list": {
+>>>       "types": "./package/components/list/index.d.ts",
+>>>       "svelte": "./package/components/list/index.js",
+>>>       "default": "./package/components/list/index.js"
+>>>     },
+>>>     "./media": {
+>>>       "types": "./package/components/media/index.d.ts",
+>>>       "svelte": "./package/components/media/index.js",
+>>>       "default": "./package/components/media/index.js"
+>>>     },
+>>>     "./menu": {
+>>>       "types": "./package/components/menu/index.d.ts",
+>>>       "svelte": "./package/components/menu/index.js",
+>>>       "default": "./package/components/menu/index.js"
+>>>     },
+>>>     "./modal": {
+>>>       "types": "./package/components/modal/index.d.ts",
+>>>       "svelte": "./package/components/modal/index.js",
+>>>       "default": "./package/components/modal/index.js"
+>>>     },
+>>>     "./notification": {
+>>>       "types": "./package/components/notification/index.d.ts",
+>>>       "svelte": "./package/components/notification/index.js",
+>>>       "default": "./package/components/notification/index.js"
+>>>     },
+>>>     "./pagination": {
+>>>       "types": "./package/components/pagination/index.d.ts",
+>>>       "svelte": "./package/components/pagination/index.js",
+>>>       "default": "./package/components/pagination/index.js"
+>>>     },
+>>>     "./portal": {
+>>>       "types": "./package/components/portal/index.d.ts",
+>>>       "svelte": "./package/components/portal/index.js",
+>>>       "default": "./package/components/portal/index.js"
+>>>     },
+>>>     "./post": {
+>>>       "types": "./package/components/post/index.d.ts",
+>>>       "svelte": "./package/components/post/index.js",
+>>>       "default": "./package/components/post/index.js"
+>>>     },
+>>>     "./progress": {
+>>>       "types": "./package/components/progress/index.d.ts",
+>>>       "svelte": "./package/components/progress/index.js",
+>>>       "default": "./package/components/progress/index.js"
+>>>     },
+>>>     "./radio": {
+>>>       "types": "./package/components/radio/index.d.ts",
+>>>       "svelte": "./package/components/radio/index.js",
+>>>       "default": "./package/components/radio/index.js"
+>>>     },
+>>>     "./rating": {
+>>>       "types": "./package/components/rating/index.d.ts",
+>>>       "svelte": "./package/components/rating/index.js",
+>>>       "default": "./package/components/rating/index.js"
+>>>     },
+>>>     "./select": {
+>>>       "types": "./package/components/select/index.d.ts",
+>>>       "svelte": "./package/components/select/index.js",
+>>>       "default": "./package/components/select/index.js"
+>>>     },
+>>>     "./slider": {
+>>>       "types": "./package/components/slider/index.d.ts",
+>>>       "svelte": "./package/components/slider/index.js",
+>>>       "default": "./package/components/slider/index.js"
+>>>     },
+>>>     "./statistic": {
+>>>       "types": "./package/components/statistic/index.d.ts",
+>>>       "svelte": "./package/components/statistic/index.js",
+>>>       "default": "./package/components/statistic/index.js"
+>>>     },
+>>>     "./steps": {
+>>>       "types": "./package/components/steps/index.d.ts",
+>>>       "svelte": "./package/components/steps/index.js",
+>>>       "default": "./package/components/steps/index.js"
+>>>     },
+>>>     "./swap": {
+>>>       "types": "./package/components/swap/index.d.ts",
+>>>       "svelte": "./package/components/swap/index.js",
+>>>       "default": "./package/components/swap/index.js"
+>>>     },
+>>>     "./table": {
+>>>       "types": "./package/components/table/index.d.ts",
+>>>       "svelte": "./package/components/table/index.js",
+>>>       "default": "./package/components/table/index.js"
+>>>     },
+>>>     "./tabs": {
+>>>       "types": "./package/components/tabs/index.d.ts",
+>>>       "svelte": "./package/components/tabs/index.js",
+>>>       "default": "./package/components/tabs/index.js"
+>>>     },
+>>>     "./text-area": {
+>>>       "types": "./package/components/textarea/index.d.ts",
+>>>       "svelte": "./package/components/textarea/index.js",
+>>>       "default": "./package/components/textarea/index.js"
+>>>     },
+>>>     "./timeline": {
+>>>       "types": "./package/components/timeline/index.d.ts",
+>>>       "svelte": "./package/components/timeline/index.js",
+>>>       "default": "./package/components/timeline/index.js"
+>>>     },
+>>>     "./toggle": {
+>>>       "types": "./package/components/toggle/index.d.ts",
+>>>       "svelte": "./package/components/toggle/index.js",
+>>>       "default": "./package/components/toggle/index.js"
+>>>     },
+>>>     "./actions": {
+>>>       "types": "./package/actions/index.d.ts",
+>>>       "default": "./package/actions/index.js"
+>>>     },
+>>>     "./actions/click-outside": {
+>>>       "types": "./package/actions/click-outside/index.d.ts",
+>>>       "default": "./package/actions/click-outside/index.js"
+>>>     },
+>>>     "./actions/clipboard": {
+>>>       "types": "./package/actions/clipboard/index.d.ts",
+>>>       "default": "./package/actions/clipboard/index.js"
+>>>     },
+>>>     "./actions/floating-ui": {
+>>>       "types": "./package/actions/floating-ui/index.d.ts",
+>>>       "default": "./package/actions/floating-ui/index.js"
+>>>     },
+>>>     "./actions/tooltip": {
+>>>       "types": "./package/actions/tooltip/index.d.ts",
+>>>       "default": "./package/actions/tooltip/index.js"
+>>>     },
+>>>     "./plugin": {
+>>>       "types": "./package/plugin/index.d.ts",
+>>>       "default": "./package/plugin/index.js"
+>>>     },
+>>>     "./types": {
+>>>       "types": "./package/types/index.d.ts",
+>>>       "default": "./package/types/index.js"
+>>>     },
+>>>     "./types/carousel-slide": {
+>>>       "types": "./package/types/carousel-slide/index.d.ts",
+>>>       "default": "./package/types/carousel-slide/index.js"
+>>>     },
+>>>     "./types/date-picker-action": {
+>>>       "types": "./package/types/datepicker-action/index.d.ts",
+>>>       "default": "./package/types/datepicker-action/index.js"
+>>>     },
+>>>     "./types/file-picker-preview": {
+>>>       "types": "./package/types/file-picker-preview/index.d.ts",
+>>>       "default": "./package/types/file-picker-preview/index.js"
+>>>     },
+>>>     "./types/lightbox-action": {
+>>>       "types": "./package/types/lightbox-action/index.d.ts",
+>>>       "default": "./package/types/lightbox-action/index.js"
+>>>     },
+>>>     "./types/select-option": {
+>>>       "types": "./package/types/select-option/index.d.ts",
+>>>       "default": "./package/types/select-option/index.js"
+>>>     },
+>>>     "./types/table-column": {
+>>>       "types": "./package/types/table-column/index.d.ts",
+>>>       "default": "./package/types/table-column/index.js"
+>>>     },
+>>>     "./types/timeline-item": {
+>>>       "types": "./package/types/timeline-item/index.d.ts",
+>>>       "default": "./package/types/timeline-item/index.js"
+>>>     },
+>>>     "./types/tw-sizes": {
+>>>       "types": "./package/types/tw-sizes/index.d.ts",
+>>>       "default": "./package/types/tw-sizes/index.js"
+>>>     },
+>>>     "./utils": {
+>>>       "types": "./package/utils/index.d.ts",
+>>>       "default": "./package/utils/index.js"
+>>>     },
+>>>     "./utils/composeIconSize": {
+>>>       "types": "./package/utils/composeIconSize/index.d.ts",
+>>>       "default": "./package/utils/composeIconSize/index.js"
+>>>     },
+>>>     "./utils/computeProgress": {
+>>>       "types": "./package/utils/computeProgress/index.d.ts",
+>>>       "default": "./package/utils/computeProgress/index.js"
+>>>     },
+>>>     "./utils/computeTrendPercent": {
+>>>       "types": "./package/utils/computeTrendPercent/index.d.ts",
+>>>       "default": "./package/utils/computeTrendPercent/index.js"
+>>>     },
+>>>     "./utils/computeTrendValue": {
+>>>       "types": "./package/utils/computeTrendValue/index.d.ts",
+>>>       "default": "./package/utils/computeTrendValue/index.js"
+>>>     },
+>>>     "./utils/copyToClipboard": {
+>>>       "types": "./package/utils/copyToClipboard/index.d.ts",
+>>>       "default": "./package/utils/copyToClipboard/index.js"
+>>>     },
+>>>     "./utils/crossfade": {
+>>>       "types": "./package/utils/crossfade/index.d.ts",
+>>>       "default": "./package/utils/crossfade/index.js"
+>>>     },
+>>>     "./utils/encodeSearchParams": {
+>>>       "types": "./package/utils/encodeSearchParams/index.d.ts",
+>>>       "default": "./package/utils/encodeSearchParams/index.js"
+>>>     },
+>>>     "./utils/formatDate": {
+>>>       "types": "./package/utils/formatDate/index.d.ts",
+>>>       "default": "./package/utils/formatDate/index.js"
+>>>     },
+>>>     "./utils/formatFileSize": {
+>>>       "types": "./package/utils/formatFileSize/index.d.ts",
+>>>       "default": "./package/utils/formatFileSize/index.js"
+>>>     },
+>>>     "./utils/formatNumber": {
+>>>       "types": "./package/utils/formatNumber/index.d.ts",
+>>>       "default": "./package/utils/formatNumber/index.js"
+>>>     },
+>>>     "./utils/trapFocus": {
+>>>       "types": "./package/utils/trapFocus/index.d.ts",
+>>>       "default": "./package/utils/trapFocus/index.js"
+>>>     },
+>>>     "./utils/twSizes": {
+>>>       "types": "./package/utils/twSizes/index.d.ts",
+>>>       "default": "./package/utils/twSizes/index.js"
+>>>     },
+>>>     "./icons": {
+>>>       "types": "./package/icons.d.ts",
+>>>       "default": "./package/icons.js"
+>>>     },
+>>>     "./enums": {
+>>>       "types": "./package/enums/index.d.ts",
+>>>       "default": "./package/enums/index.js"
+>>>     },
+>>>     "./enums/upload-status": {
+>>>       "types": "./package/enums/upload-status/index.d.ts",
+>>>       "default": "./package/enums/upload-status/index.js"
+>>>     },
+>>>     "./stores": {
+>>>       "types": "./package/stores/index.d.ts",
+>>>       "default": "./package/stores/index.js"
+>>>     },
+>>>     "./stores/breakpoints": {
+>>>       "types": "./package/stores/breakpoints/index.d.ts",
+>>>       "default": "./package/stores/breakpoints/index.js"
+>>>     },
+>>>     "./stores/theme": {
+>>>       "types": "./package/stores/theme/index.d.ts",
+>>>       "default": "./package/stores/theme/index.js"
+>>>     }
+>>>   },
+>>>   "files": [
+>>>     "package"
+>>>   ]
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-1cd392779ef6 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-1cd392779ef6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 114 packages, and audited 115 packages in 3s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'color'
+Require stack:
+- /tmp/twcr-1cd392779ef6/src/lib/plugin/colors/functions.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-1cd392779ef6/src/lib/plugin/colors/functions.js:1:90
+    at evalModule (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-1cd392779ef6/src/lib/plugin/index.js:9:24
+    at evalModule (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-1cd392779ef6/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-1cd392779ef6/src/lib/plugin/colors/functions.js' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T05:22:06Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T05:22:06Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at d29f1bb chore(main): release 0.21.2-next (#213)
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-1cd392779ef6 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-1cd392779ef6
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+
+> stwui@0.21.2-next prepare
+> husky install && svelte-kit sync
+
+husky - Git hooks installed
+You have specified a baseUrl and/or paths in your tsconfig.json which interferes with SvelteKit's auto-generated tsconfig.json. Remove it to avoid problems with intellisense. For path aliases, use `kit.alias` instead: https://kit.svelte.dev/docs/configuration#alias
+
+added 613 packages, and audited 614 packages in 19s
+
+123 packages are looking for funding
+  run `npm fund` for details
+
+2 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/forms"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T05:22:27Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T05:22:27Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T05:22:27Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T05:22:27Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

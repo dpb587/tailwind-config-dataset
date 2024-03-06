@@ -1,0 +1,176 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Tencent/omi
++ reporef=master
++ repopath=./packages/omi-elements
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Tencent/omi
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7eeed1ea37c5
+++ echo 'github.com/Tencent/omi;master;./packages/omi-elements'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/9923893ec67a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Tencent/omi/bWFzdGVyCg/Li9wYWNrYWdlcy9vbWktZWxlbWVudHMK
++ jq -nc --arg key analysis_key --arg value github.com/Tencent/omi/bWFzdGVyCg/Li9wYWNrYWdlcy9vbWktZWxlbWVudHMK '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 375819bde7462e4d
++ jq -nc --arg key analysis_nonce --arg value 375819bde7462e4d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Tencent/omi
++ jq -nc --arg key input_repo_name --arg value github.com/Tencent/omi '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/omi-elements
++ jq -nc --arg key input_repo_path --arg value ./packages/omi-elements '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T00:54:00Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T00:54:00Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7eeed1ea37c5
++ pushd /tmp/twcr-7eeed1ea37c5
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/Tencent/omi.git .
+/tmp/twcr-7eeed1ea37c5 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T00:54:02Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T00:54:02Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 32f64e56c6bf3d5812d256fb4138683d0eab0d88
++ jq -nc --arg key exec_repo_commit_sha --arg value 32f64e56c6bf3d5812d256fb4138683d0eab0d88 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-29 08:51:51 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-29T00:51:51Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-29T00:51:51Z '{ key: $key, value: $value }'
+/tmp/twcr-7eeed1ea37c5/packages/omi-elements /tmp/twcr-7eeed1ea37c5 /twcr
++ '[' -z ./packages/omi-elements ']'
++ pushd ./packages/omi-elements
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7eeed1ea37c5/packages/omi-elements
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/omi-elements '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7eeed1ea37c5
+grep: /tmp/twcr-7eeed1ea37c5/package.json: No such file or directory
+grep: /tmp/twcr-7eeed1ea37c5/package.json: No such file or directory
+grep: /tmp/twcr-7eeed1ea37c5/package.json: No such file or directory
+/twcr/worker/../worker/pm-detect.sh: line 17: /tmp/twcr-7eeed1ea37c5/package.json: No such file or directory
++ package_manager_name=
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T00:54:02Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T00:54:02Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "omi-elements",
+>>>   "version": "0.0.0",
+>>>   "description": "Omi web components of tw elements.",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.3"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/omi-elements '!=' ./ ']'
++ rm -f /tmp/twcr-7eeed1ea37c5/package.json /tmp/twcr-7eeed1ea37c5/package-lock.json /tmp/twcr-7eeed1ea37c5/pnpm-lock.yaml /tmp/twcr-7eeed1ea37c5/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-7eeed1ea37c5 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-7eeed1ea37c5
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 4s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-04T00:54:07Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-04T00:54:07Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T00:54:07Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T00:54:07Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

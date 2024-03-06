@@ -1,0 +1,72 @@
+{
+  "name": "wael",
+  "version": "1.0.0",
+  "private": false,
+  "description": "A simple self-hosted weight and exercise log",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tailwindcss -m -i ./app/styles/tailwind.css -o ./app/styles/wael.css && remix build",
+    "dev": "cross-env NODE_ENV=development remix build && run-p dev:*",
+    "dev:node": "cross-env NODE_ENV=development nodemon ./build/index.js --watch ./build/index.js",
+    "dev:css": "tailwindcss -w -i ./app/styles/tailwind.css -o ./app/styles/wael.css",
+    "dev:remix": "wait-on ./app/styles/wael.css && cross-env NODE_ENV=development remix watch",
+    "postinstall": "remix setup node",
+    "start": "cross-env NODE_ENV=production node ./build/index.js",
+    "test": "vitest"
+  },
+  "prisma": {
+    "seed": "esno prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "3.11.1",
+    "@remix-run/express": "1.3.4",
+    "@remix-run/react": "1.3.4",
+    "chart.js": "3.7.1",
+    "cheerio": "1.0.0-rc.10",
+    "clsx": "1.1.1",
+    "compression": "1.7.4",
+    "cross-env": "7.0.3",
+    "date-fns": "2.28.0",
+    "execa": "6.1.0",
+    "express": "4.17.3",
+    "express-http-proxy": "1.6.3",
+    "isbot": "3.4.5",
+    "morgan": "1.10.0",
+    "npm-run-all": "4.1.5",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "remix": "1.3.4",
+    "remix-utils": "2.11.1",
+    "superjson": "1.8.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "6.1.1",
+    "@remix-run/dev": "1.3.4",
+    "@remix-run/eslint-config": "1.3.4",
+    "@tailwindcss/forms": "0.5.0",
+    "@types/fs-extra": "9.0.13",
+    "@types/node": "17.0.23",
+    "@types/react": "17.0.43",
+    "@types/react-dom": "17.0.14",
+    "@vitejs/plugin-react": "1.3.0",
+    "autoprefixer": "10.4.4",
+    "eslint": "8.12.0",
+    "esno": "0.14.1",
+    "fs-extra": "10.0.1",
+    "happy-dom": "2.55.0",
+    "nodemon": "2.0.15",
+    "postcss": "8.4.12",
+    "prettier": "2.6.1",
+    "prettier-plugin-tailwindcss": "0.1.8",
+    "prisma": "3.11.1",
+    "tailwindcss": "3.0.23",
+    "typescript": "4.6.3",
+    "vite-tsconfig-paths": "3.4.1",
+    "vitest": "0.8.1",
+    "wait-on": "6.0.1"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

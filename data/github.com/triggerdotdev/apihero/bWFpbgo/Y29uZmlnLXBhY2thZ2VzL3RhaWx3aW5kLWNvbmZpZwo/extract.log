@@ -1,0 +1,773 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/triggerdotdev/apihero
++ reporef=main
++ repopath=./config-packages/tailwind-config
++ grep -q '^././'
+++ echo github.com/triggerdotdev/apihero
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-56c08e8070bd
+++ echo 'github.com/triggerdotdev/apihero;main;./config-packages/tailwind-config'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/c2ae650d6e63
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/triggerdotdev/apihero/bWFpbgo/Li9jb25maWctcGFja2FnZXMvdGFpbHdpbmQtY29uZmlnCg
++ jq -nc --arg key analysis_key --arg value github.com/triggerdotdev/apihero/bWFpbgo/Li9jb25maWctcGFja2FnZXMvdGFpbHdpbmQtY29uZmlnCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 2a468d4b839e41e7
++ jq -nc --arg key analysis_nonce --arg value 2a468d4b839e41e7 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/triggerdotdev/apihero
++ jq -nc --arg key input_repo_name --arg value github.com/triggerdotdev/apihero '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./config-packages/tailwind-config
++ jq -nc --arg key input_repo_path --arg value ./config-packages/tailwind-config '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-03T16:42:21Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-03T16:42:21Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-56c08e8070bd
++ pushd /tmp/twcr-56c08e8070bd
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/triggerdotdev/apihero.git .
+/tmp/twcr-56c08e8070bd /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-03T16:42:23Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-03T16:42:23Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 2f204e8fc57343a584d8b244d7ad492b72ed1242
++ jq -nc --arg key exec_repo_commit_sha --arg value 2f204e8fc57343a584d8b244d7ad492b72ed1242 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2022-11-25 11:49:27 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2022-11-25T11:49:27Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2022-11-25T11:49:27Z '{ key: $key, value: $value }'
+/tmp/twcr-56c08e8070bd/config-packages/tailwind-config /tmp/twcr-56c08e8070bd /twcr
++ '[' -z ./config-packages/tailwind-config ']'
++ pushd ./config-packages/tailwind-config
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-56c08e8070bd/config-packages/tailwind-config
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./config-packages/tailwind-config '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-56c08e8070bd
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-03T16:42:23Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-03T16:42:23Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
+[squash-package] ERROR: failed to find any match for import path (tailwindcss/colors)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-03T16:42:23Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-03T16:42:23Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git checkout .
+Updated 0 paths from the index
++ git clean -fdx
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-56c08e8070bd /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-56c08e8070bd
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-56c08e8070bd/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-56c08e8070bd/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 17 workspace projects
+../../packages/interceptors-js           |  WARN  Installing a dependency from a non-existent directory: /tmp/twcr-56c08e8070bd/packages/interceptors-js/@types/@open-draft/until
+../..                                    | Progress: resolved 0, reused 0, downloaded 1, added 0
+../..                                    | Progress: resolved 32, reused 0, downloaded 32, added 0
+../../apps/webapp                        |  WARN  deprecated cli-ux@6.0.9
+../..                                    | Progress: resolved 68, reused 0, downloaded 68, added 0
+../..                                    | Progress: resolved 89, reused 0, downloaded 89, added 0
+../../apps/webapp                        |  WARN  deprecated mailgun-js@0.22.0
+../..                                    | Progress: resolved 120, reused 0, downloaded 120, added 0
+../../packages/apihero-browser           |  WARN  deprecated @types/expect@24.3.0
+../..                                    | Progress: resolved 150, reused 0, downloaded 150, added 0
+../..                                    | Progress: resolved 158, reused 0, downloaded 158, added 0
+../..                                    | Progress: resolved 184, reused 0, downloaded 184, added 0
+../..                                    | Progress: resolved 188, reused 0, downloaded 188, added 0
+../..                                    | Progress: resolved 188, reused 0, downloaded 189, added 0
+../..                                    | Progress: resolved 190, reused 0, downloaded 190, added 0
+../..                                    | Progress: resolved 236, reused 0, downloaded 220, added 0
+../..                                    | Progress: resolved 293, reused 0, downloaded 277, added 0
+../..                                    | Progress: resolved 346, reused 0, downloaded 330, added 0
+../..                                    | Progress: resolved 403, reused 0, downloaded 387, added 0
+../..                                    | Progress: resolved 452, reused 0, downloaded 436, added 0
+../..                                    | Progress: resolved 513, reused 0, downloaded 497, added 0
+../..                                    | Progress: resolved 568, reused 0, downloaded 552, added 0
+../..                                    | Progress: resolved 617, reused 0, downloaded 601, added 0
+../..                                    | Progress: resolved 661, reused 0, downloaded 645, added 0
+../..                                    | Progress: resolved 708, reused 0, downloaded 692, added 0
+../..                                    | Progress: resolved 770, reused 0, downloaded 754, added 0
+../..                                    | Progress: resolved 825, reused 0, downloaded 809, added 0
+../..                                    | Progress: resolved 886, reused 0, downloaded 870, added 0
+../..                                    | Progress: resolved 946, reused 0, downloaded 930, added 0
+../..                                    | Progress: resolved 1002, reused 0, downloaded 987, added 0
+../..                                    | Progress: resolved 1065, reused 0, downloaded 1046, added 0
+../..                                    | Progress: resolved 1134, reused 0, downloaded 1076, added 0
+../..                                    | Progress: resolved 1169, reused 0, downloaded 1082, added 0
+../..                                    | Progress: resolved 1189, reused 0, downloaded 1094, added 0
+../..                                    | Progress: resolved 1237, reused 0, downloaded 1143, added 0
+../..                                    | Progress: resolved 1278, reused 0, downloaded 1185, added 0
+../..                                    | Progress: resolved 1328, reused 0, downloaded 1237, added 0
+../..                                    | Progress: resolved 1382, reused 0, downloaded 1291, added 0
+../..                                    | Progress: resolved 1443, reused 0, downloaded 1352, added 0
+../..                                    | Progress: resolved 1492, reused 0, downloaded 1402, added 0
+../..                                    | Progress: resolved 1557, reused 0, downloaded 1468, added 0
+../..                                    | Progress: resolved 1612, reused 0, downloaded 1522, added 0
+../..                                    | Progress: resolved 1684, reused 0, downloaded 1595, added 0
+../..                                    | Progress: resolved 1736, reused 0, downloaded 1646, added 0
+../..                                    | Progress: resolved 1797, reused 0, downloaded 1707, added 0
+../..                                    | Progress: resolved 1865, reused 0, downloaded 1775, added 0
+../..                                    | Progress: resolved 1934, reused 0, downloaded 1844, added 0
+../..                                    | Progress: resolved 1996, reused 0, downloaded 1906, added 0
+../..                                    | Progress: resolved 2059, reused 0, downloaded 1970, added 0
+../..                                    | Progress: resolved 2129, reused 0, downloaded 2040, added 0
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 0
+ WARN  5 deprecated subdependencies found: resolve-url@0.2.1, rollup-plugin-inject@3.0.2, source-map-resolve@0.5.3, source-map-url@0.4.1, urix@0.1.0
+../..                                    |    +2081 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 1
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 1410
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 1749
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 1862
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 2080
+../..                                    | Progress: resolved 2167, reused 0, downloaded 2078, added 2081, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../deasync@0.1.28/node_modules/deasync install$ node ./build.js
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../node_modules/@sentry/cli install$ node ./scripts/install.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting of core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/@sentry/cli install: info sentry-cli Downloading from https://downloads.sentry-cdn.com/sentry-cli/1.74.6/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: info sentry-cli Using proxy URL: http://tid_fb50d62d26a2:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:162) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@sentry/cli install: info sentry-cli Downloading from https://downloads.sentry-cdn.com/sentry-cli/2.2.0/sentry-cli-Linux-x86_64
+.../node_modules/@sentry/cli install: info sentry-cli Using proxy URL: http://tid_fb50d62d26a2:ok@172.18.0.2:3128
+.../node_modules/@sentry/cli install: (node:155) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@sentry/cli install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../deasync@0.1.28/node_modules/deasync install: gyp info it worked if it ends with ok
+.../deasync@0.1.28/node_modules/deasync install: gyp info using node-gyp@9.4.1
+.../deasync@0.1.28/node_modules/deasync install: gyp info using node@21.6.2 | linux | x64
+.../deasync@0.1.28/node_modules/deasync install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 1%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 2%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 3%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 4%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 5%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 6%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 7%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 8%
+.../deasync@0.1.28/node_modules/deasync install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 9%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 10%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 11%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 12%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 13%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 14%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 15%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 16%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 17%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 18%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 19%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../deasync@0.1.28/node_modules/deasync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 20%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 21%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 22%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 23%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 24%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 25%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 26%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 27%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 28%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 29%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 30%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 31%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/playwright install$ node install.js
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 32%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 33%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 34%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 35%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 36%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 37%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 38%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 39%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 40%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 41%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 42%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 43%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 44%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 45%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 46%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 47%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 48%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 49%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 50%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 51%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 52%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 53%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 54%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 55%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 56%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 57%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 58%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 59%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 60%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 61%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 62%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 63%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 64%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 65%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 66%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 67%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 68%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 69%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 70%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 71%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 72%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 73%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 74%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 75%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 76%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 77%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 78%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 79%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 80%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 81%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 82%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 83%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 84%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 85%
+.../node_modules/playwright install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 86%
+.../node_modules/playwright install: Done
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 87%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 88%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 89%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 90%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 91%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 92%
+.../node_modules/@sentry/cli install: info Checksum validation passed. 
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 93%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 94%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 95%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 96%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 97%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 98%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 99%
+.../node_modules/@sentry/cli install: fetching sentry-cli-Linux-x86_64 100%
+.../node_modules/@sentry/cli install: info Checksum validation passed. 
+.../node_modules/@sentry/cli install: Done
+.../node_modules/@sentry/cli install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../deasync@0.1.28/node_modules/deasync install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../deasync@0.1.28/node_modules/deasync install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn /usr/bin/python3
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args [
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'binding.gyp',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-f',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'make',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/tmp/twcr-56c08e8070bd/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build/config.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-I',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dlibrary=shared_library',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dvisibility=default',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-56c08e8070bd/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Dnode_engine=v8',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--depth=.',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--no-parallel',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '--generator-output',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   'build',
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args   '-Goutput_dir=.'
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args ]
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn make
+.../deasync@0.1.28/node_modules/deasync install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../deasync@0.1.28/node_modules/deasync install: make: Entering directory '/tmp/twcr-56c08e8070bd/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build'
+.../deasync@0.1.28/node_modules/deasync install:   CXX(target) Release/obj.target/deasync/src/deasync.o
+.../deasync@0.1.28/node_modules/deasync install:   SOLINK_MODULE(target) Release/obj.target/deasync.node
+.../deasync@0.1.28/node_modules/deasync install:   COPY Release/deasync.node
+.../deasync@0.1.28/node_modules/deasync install: make: Leaving directory '/tmp/twcr-56c08e8070bd/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/build'
+.../deasync@0.1.28/node_modules/deasync install: gyp info ok 
+.../deasync@0.1.28/node_modules/deasync install: Installed in `/tmp/twcr-56c08e8070bd/node_modules/.pnpm/deasync@0.1.28/node_modules/deasync/bin/linux-x64-node-21/deasync.node`
+.../deasync@0.1.28/node_modules/deasync install: Done
+.../.pnpm/turbo@1.5.6/node_modules/turbo postinstall$ node install.js
+.../esbuild@0.14.51/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.15.11/node_modules/esbuild postinstall$ node install.js
+.../.pnpm/turbo@1.5.6/node_modules/turbo postinstall: Done
+.../prisma@4.4.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.14.51/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.15.11/node_modules/esbuild postinstall: Done
+.../prisma@4.4.0/node_modules/prisma preinstall: Done
+.../prisma@4.4.0/node_modules/prisma install$ node scripts/install-entry.js
+.../prisma@4.4.0/node_modules/prisma install: Done
+.../cypress@10.10.0/node_modules/cypress postinstall$ node index.js --exec install
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@swc/core postinstall: Done
+.../cypress@10.10.0/node_modules/cypress postinstall: (node:354) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../cypress@10.10.0/node_modules/cypress postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../cypress@10.10.0/node_modules/cypress postinstall: Installing Cypress (version: 10.10.0)
+.../cypress@10.10.0/node_modules/cypress postinstall: [STARTED] Task without title.
+.../node_modules/@prisma/client postinstall: Prisma schema loaded from apps/webapp/prisma/schema.prisma
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      1% 30s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      2% 20s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      3% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      4% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      6% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      7% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      7% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 19s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      8% 20s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      9% 18s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      10% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      12% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      13% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      14% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      16% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      17% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      18% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      19% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      21% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      22% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      23% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      25% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      27% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      29% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      30% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      31% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      32% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      33% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      34% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      35% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      36% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      37% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      38% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      39% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      40% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      41% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      42% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      43% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      45% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      46% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      47% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      48% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      49% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      52% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      53% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      53% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      54% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      55% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      57% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      58% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      59% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      60% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      61% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      63% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      64% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      65% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      66% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      67% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      68% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      69% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      70% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      71% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      72% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      74% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      75% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      76% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      77% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      78% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      79% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      80% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      81% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      82% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      83% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      84% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      85% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      86% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      87% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      88% 2s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      89% 1s
+.../node_modules/@prisma/client postinstall: ✔ Generated Prisma Client (4.4.0 | library) to ./apps/webapp/node_modules/.prisma/client in 4.31s
+.../node_modules/@prisma/client postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+.../node_modules/@prisma/client postinstall: ```
+.../node_modules/@prisma/client postinstall: import { PrismaClient } from './apps/webapp/node_modules/.prisma/client'
+.../node_modules/@prisma/client postinstall: const prisma = new PrismaClient()
+.../node_modules/@prisma/client postinstall: ```
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      90% 1s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      91% 1s
+.../node_modules/@prisma/client postinstall: Done
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      92% 1s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      93% 1s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      95% 1s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      98% 0s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+.../cypress@10.10.0/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+.../cypress@10.10.0/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 77s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 78s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 79s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 80s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 81s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 82s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 83s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 84s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 85s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 86s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 87s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 88s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 43s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 44s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 45s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 46s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 47s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 48s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 49s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 32s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 33s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 34s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 35s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 26s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 27s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 28s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 29s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 30s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 31s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 25s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 26s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 27s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 28s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 29s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 24s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 25s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 26s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 22s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 23s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 24s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 20s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 21s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 22s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 19s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 20s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 21s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 18s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 19s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 18s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 17s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 16s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 15s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 14s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 13s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 12s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 11s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 10s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 9s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 8s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 7s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 6s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        64% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        65% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        66% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        67% 5s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        68% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        69% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        70% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        71% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        72% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        73% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        74% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        75% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        76% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        77% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        78% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        79% 4s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        80% 3s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+.../cypress@10.10.0/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+.../cypress@10.10.0/node_modules/cypress postinstall: [STARTED] Task without title.
+.../cypress@10.10.0/node_modules/cypress postinstall: [TITLE]  Finished Installation   /home/node/.cache/Cypress/10.10.0
+.../cypress@10.10.0/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /home/node/.cache/Cypress/10.10.0
+.../cypress@10.10.0/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+.../cypress@10.10.0/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+.../cypress@10.10.0/node_modules/cypress postinstall: Done
+.../node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+.../node_modules/msw postinstall: Done
+
+Done in 1m 52s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ pnpm ls --json
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=null
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-03T16:44:17Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-03T16:44:17Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-03T16:44:17Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-03T16:44:17Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

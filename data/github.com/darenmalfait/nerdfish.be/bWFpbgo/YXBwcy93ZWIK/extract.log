@@ -1,0 +1,556 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/darenmalfait/nerdfish.be
++ reporef=main
++ repopath=./apps/web
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/darenmalfait/nerdfish.be
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-da95cf972b0c
+++ echo 'github.com/darenmalfait/nerdfish.be;main;./apps/web'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/4af4c64c0d44
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/darenmalfait/nerdfish.be/bWFpbgo/Li9hcHBzL3dlYgo
++ jq -nc --arg key analysis_key --arg value github.com/darenmalfait/nerdfish.be/bWFpbgo/Li9hcHBzL3dlYgo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce b2249eacdbe5559e
++ jq -nc --arg key analysis_nonce --arg value b2249eacdbe5559e '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/darenmalfait/nerdfish.be
++ jq -nc --arg key input_repo_name --arg value github.com/darenmalfait/nerdfish.be '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/web
++ jq -nc --arg key input_repo_path --arg value ./apps/web '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:21:11Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:21:11Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-da95cf972b0c
+/tmp/twcr-da95cf972b0c /twcr
++ pushd /tmp/twcr-da95cf972b0c
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/darenmalfait/nerdfish.be.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:21:12Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:21:12Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4d5d647d6b4957e69661d98679b4253783e2869d
++ jq -nc --arg key exec_repo_commit_sha --arg value 4d5d647d6b4957e69661d98679b4253783e2869d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 20:01:52 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T19:01:52Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T19:01:52Z '{ key: $key, value: $value }'
++ '[' -z ./apps/web ']'
++ pushd ./apps/web
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
+/tmp/twcr-da95cf972b0c/apps/web /tmp/twcr-da95cf972b0c /twcr
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-da95cf972b0c/apps/web
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/web '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-da95cf972b0c
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:21:12Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:21:12Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "nerdfish.be",
+>>>   "private": true,
+>>>   "description": "full stack web developer",
+>>>   "author": "Daren Malfait <daren@nerdfish.be> (https://nerdfish.be)",
+>>>   "resolutions": {
+>>>     "@headlessui/react": "^1.7.18"
+>>>   },
+>>>   "dependencies": {
+>>>     "@nerdfish/tailwind-config": "^2.1.3",
+>>>     "@tailwindcss/aspect-ratio": "^0.4.2",
+>>>     "@tailwindcss/typography": "^0.5.10"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "packageManager": "pnpm@8.15.3"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./apps/web '!=' ./ ']'
++ rm -f /tmp/twcr-da95cf972b0c/package.json /tmp/twcr-da95cf972b0c/package-lock.json /tmp/twcr-da95cf972b0c/pnpm-lock.yaml /tmp/twcr-da95cf972b0c/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-da95cf972b0c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-da95cf972b0c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-da95cf972b0c/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  The field "resolutions" was found in /tmp/twcr-da95cf972b0c/apps/web/package.json. This will not take effect. You should configure "resolutions" at the root of the workspace instead.
+Scope: all 7 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 24, reused 0, downloaded 14, added 0
+../..                                    | Progress: resolved 45, reused 0, downloaded 32, added 0
+../..                                    | Progress: resolved 77, reused 0, downloaded 62, added 0
+../..                                    | Progress: resolved 112, reused 0, downloaded 96, added 0
+../..                                    | Progress: resolved 147, reused 0, downloaded 132, added 0
+../..                                    | Progress: resolved 173, reused 0, downloaded 152, added 0
+../..                                    | Progress: resolved 189, reused 0, downloaded 172, added 0
+../..                                    | Progress: resolved 210, reused 0, downloaded 193, added 0
+../..                                    | Progress: resolved 227, reused 0, downloaded 212, added 0
+../..                                    | Progress: resolved 245, reused 0, downloaded 230, added 0
+../..                                    | Progress: resolved 277, reused 0, downloaded 254, added 0
+../..                                    | Progress: resolved 306, reused 0, downloaded 278, added 0
+../..                                    | Progress: resolved 337, reused 0, downloaded 312, added 0
+../..                                    | Progress: resolved 364, reused 0, downloaded 338, added 0
+../..                                    | Progress: resolved 401, reused 0, downloaded 369, added 0
+../..                                    | Progress: resolved 420, reused 0, downloaded 387, added 0
+../..                                    | Progress: resolved 457, reused 0, downloaded 422, added 0
+../..                                    | Progress: resolved 489, reused 0, downloaded 453, added 0
+../..                                    | Progress: resolved 540, reused 0, downloaded 479, added 0
+../..                                    | Progress: resolved 599, reused 0, downloaded 511, added 0
+../..                                    | Progress: resolved 632, reused 0, downloaded 537, added 0
+../..                                    | Progress: resolved 663, reused 0, downloaded 561, added 0
+../..                                    | Progress: resolved 697, reused 0, downloaded 597, added 0
+../..                                    | Progress: resolved 728, reused 0, downloaded 630, added 0
+../..                                    | Progress: resolved 764, reused 0, downloaded 662, added 0
+../..                                    | Progress: resolved 794, reused 0, downloaded 688, added 0
+../..                                    | Progress: resolved 830, reused 0, downloaded 722, added 0
+../..                                    | Progress: resolved 874, reused 0, downloaded 759, added 0
+../..                                    | Progress: resolved 913, reused 0, downloaded 799, added 0
+../..                                    | Progress: resolved 948, reused 0, downloaded 832, added 0
+../..                                    | Progress: resolved 998, reused 0, downloaded 880, added 0
+../..                                    | Progress: resolved 1042, reused 0, downloaded 919, added 0
+../..                                    | Progress: resolved 1083, reused 0, downloaded 958, added 0
+../..                                    | Progress: resolved 1122, reused 0, downloaded 992, added 0
+../..                                    | Progress: resolved 1170, reused 0, downloaded 1035, added 0
+../..                                    | Progress: resolved 1209, reused 0, downloaded 1074, added 0
+../..                                    | Progress: resolved 1219, reused 0, downloaded 1126, added 0
+../..                                    | Progress: resolved 1219, reused 0, downloaded 1163, added 0
+
+ WARN  Issues with peer dependencies found
+packages/ui
+├─┬ @headlessui/react 1.7.18
+│ ├── ✕ missing peer react-dom@"^16 || ^17 || ^18"
+│ └─┬ @tanstack/react-virtual 3.1.3
+│   └── ✕ missing peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0"
+├─┬ @mdxeditor/editor 2.9.1
+│ ├── ✕ missing peer react-dom@^18.2.0
+│ ├─┬ @codesandbox/sandpack-react 2.13.5
+│ │ └── ✕ missing peer react-dom@"^16.8.0 || ^17 || ^18"
+│ ├─┬ @lexical/react 0.12.6
+│ │ └── ✕ missing peer react-dom@>=17.x
+│ ├─┬ @radix-ui/react-dialog 1.0.5
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ ├─┬ @radix-ui/react-dismissable-layer 1.0.5
+│ │ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ │ └─┬ @radix-ui/react-primitive 1.0.3
+│ │ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ ├─┬ @radix-ui/react-focus-scope 1.0.4
+│ │ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ ├─┬ @radix-ui/react-portal 1.0.4
+│ │ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-presence 1.0.1
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-popover 1.0.7
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-popper 1.1.3
+│ │   ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   ├─┬ @floating-ui/react-dom 2.0.8
+│ │   │ └── ✕ missing peer react-dom@>=16.8.0
+│ │   └─┬ @radix-ui/react-arrow 1.0.3
+│ │     └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-select 2.0.0
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ ├─┬ @radix-ui/react-collection 1.0.3
+│ │ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-visually-hidden 1.0.3
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-toggle-group 1.0.4
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ ├─┬ @radix-ui/react-roving-focus 1.0.4
+│ │ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-toggle 1.0.3
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-toolbar 1.0.4
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-separator 1.0.3
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ └─┬ @radix-ui/react-tooltip 1.0.7
+│   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+├─┬ @nerdfish/ui 4.5.1
+│ ├─┬ @radix-ui/react-accordion 1.1.2
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-collapsible 1.0.3
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-alert-dialog 1.0.5
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-aspect-ratio 1.0.3
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-avatar 1.0.4
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-dropdown-menu 2.0.6
+│ │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │ └─┬ @radix-ui/react-menu 2.0.6
+│ │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-hover-card 1.0.7
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-radio-group 1.1.3
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-scroll-area 1.0.5
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-slider 1.1.2
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-switch 1.0.3
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ @radix-ui/react-tabs 1.0.4
+│ │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ cmdk 0.2.1
+│ │ ├── ✕ missing peer react-dom@^18.0.0
+│ │ └─┬ @radix-ui/react-dialog 1.0.0
+│ │   ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   ├─┬ @radix-ui/react-dismissable-layer 1.0.0
+│ │   │ ├── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   │ └─┬ @radix-ui/react-primitive 1.0.0
+│ │   │   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   ├─┬ @radix-ui/react-focus-scope 1.0.0
+│ │   │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   ├─┬ @radix-ui/react-portal 1.0.0
+│ │   │ └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ │   └─┬ @radix-ui/react-presence 1.0.0
+│ │     └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+│ ├─┬ sonner 1.4.3
+│ │ └── ✕ missing peer react-dom@^18.0.0
+│ └─┬ vaul 0.9.0
+│   └── ✕ missing peer react-dom@"^16.8 || ^17.0 || ^18.0"
+├─┬ @reach/checkbox 0.18.0
+│ ├── ✕ missing peer react-dom@"^16.8.0 || 17.x"
+│ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ ├─┬ @reach/auto-id 0.18.0
+│ │ ├── ✕ missing peer react-dom@"^16.8.0 || 17.x"
+│ │ ├── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ │ └─┬ @reach/utils 0.18.0
+│ │   ├── ✕ missing peer react-dom@"^16.8.0 || 17.x"
+│ │   └── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ ├─┬ @reach/machine 0.18.0
+│ │ ├── ✕ missing peer react-dom@"^16.8.0 || 17.x"
+│ │ └── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+│ └─┬ @reach/polymorphic 0.18.0
+│   └── ✕ unmet peer react@"^16.8.0 || 17.x": found 18.2.0
+├─┬ react-easy-crop 5.0.5
+│ └── ✕ missing peer react-dom@>=16.4.0
+└─┬ react-map-gl 7.1.7
+  └── ✕ missing peer react-dom@>=16.3.0
+✕ Conflicting peer dependencies:
+  react-dom
+
+../..                                    |    +1194 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1219, reused 0, downloaded 1164, added 1194
+../..                                    | Progress: resolved 1219, reused 0, downloaded 1164, added 1194, done
+../../node_modules/esbuild postinstall$ node install.js
+.../react-email/node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+.../react-email/node_modules/esbuild postinstall: Done
+../../node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+../../node_modules/es5-ext postinstall: Done
+Done in 40.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-da95cf972b0c/apps/web/tailwind.config.ts:3
+  require('tailwindcss/defaultTheme') as typeof import('tailwindcss/defaultTheme')
+                                      ^^
+
+SyntaxError: Unexpected identifier 'as'
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-da95cf972b0c/apps/web/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T07:21:54Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T07:21:54Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 4d5d647 chore(deps): update actions/cache action to v4 (#240)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-da95cf972b0c /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-da95cf972b0c
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-da95cf972b0c/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-da95cf972b0c/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ WARN  The field "resolutions" was found in /tmp/twcr-da95cf972b0c/apps/web/package.json. This will not take effect. You should configure "resolutions" at the root of the workspace instead.
+Scope: all 8 workspace projects
+../..                                    | Progress: resolved 0, reused 1, downloaded 0, added 0
+../..                                    | Progress: resolved 0, reused 23, downloaded 0, added 0
+../..                                    |    +1545 -101 +++++++++++++++++++++--
+../..                                    | Progress: resolved 0, reused 210, downloaded 2, added 256
+../..                                    | Progress: resolved 0, reused 210, downloaded 7, added 257
+../..                                    | Progress: resolved 0, reused 210, downloaded 21, added 257
+../..                                    | Progress: resolved 0, reused 210, downloaded 36, added 257
+../..                                    | Progress: resolved 0, reused 210, downloaded 37, added 257
+../..                                    | Progress: resolved 0, reused 210, downloaded 54, added 266
+../..                                    | Progress: resolved 0, reused 210, downloaded 70, added 278
+../..                                    | Progress: resolved 0, reused 210, downloaded 78, added 283
+../..                                    | Progress: resolved 0, reused 210, downloaded 109, added 304
+../..                                    | Progress: resolved 0, reused 210, downloaded 142, added 368
+../..                                    | Progress: resolved 0, reused 210, downloaded 188, added 459
+../..                                    | Progress: resolved 0, reused 210, downloaded 217, added 486
+../..                                    | Progress: resolved 0, reused 210, downloaded 247, added 509
+../..                                    | Progress: resolved 0, reused 210, downloaded 271, added 557
+../..                                    | Progress: resolved 0, reused 210, downloaded 289, added 579
+../..                                    | Progress: resolved 0, reused 210, downloaded 302, added 595
+../..                                    | Progress: resolved 0, reused 210, downloaded 330, added 630
+../..                                    | Progress: resolved 0, reused 210, downloaded 359, added 659
+../..                                    | Progress: resolved 0, reused 210, downloaded 380, added 697
+../..                                    | Progress: resolved 0, reused 210, downloaded 428, added 752
+../..                                    | Progress: resolved 0, reused 210, downloaded 463, added 794
+../..                                    | Progress: resolved 0, reused 210, downloaded 490, added 821
+../..                                    | Progress: resolved 0, reused 210, downloaded 510, added 846
+../..                                    | Progress: resolved 0, reused 210, downloaded 561, added 904
+../..                                    | Progress: resolved 0, reused 210, downloaded 567, added 911
+../..                                    | Progress: resolved 0, reused 210, downloaded 579, added 923
+../..                                    | Progress: resolved 0, reused 210, downloaded 637, added 982
+../..                                    | Progress: resolved 0, reused 210, downloaded 691, added 1040
+../..                                    | Progress: resolved 0, reused 210, downloaded 753, added 1114
+../..                                    | Progress: resolved 0, reused 210, downloaded 811, added 1174
+../..                                    | Progress: resolved 0, reused 210, downloaded 858, added 1224
+../..                                    | Progress: resolved 0, reused 210, downloaded 908, added 1279
+../..                                    | Progress: resolved 0, reused 210, downloaded 964, added 1333
+../..                                    | Progress: resolved 0, reused 210, downloaded 1015, added 1390
+../..                                    | Progress: resolved 0, reused 210, downloaded 1081, added 1457
+../..                                    | Progress: resolved 0, reused 210, downloaded 1125, added 1510
+../..                                    | Progress: resolved 0, reused 210, downloaded 1157, added 1544
+../..                                    | Progress: resolved 0, reused 210, downloaded 1158, added 1544
+../..                                    | Progress: resolved 0, reused 210, downloaded 1158, added 1545, done
+../../node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+../../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+../../node_modules/yarn preinstall$ :; (node ./preinstall.js > /dev/null 2>&1 || true)
+../../node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+../../node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+../../node_modules/core-js postinstall: > https://opencollective.com/core-js 
+../../node_modules/core-js postinstall: > https://patreon.com/zloirock 
+../../node_modules/core-js postinstall: > https://boosty.to/zloirock 
+../../node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+../../node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+../../node_modules/yarn preinstall: Done
+../../node_modules/core-js postinstall: Done
+../../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+../../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+../../node_modules/better-sqlite3 install: gyp info using node-gyp@9.4.1
+../../node_modules/better-sqlite3 install: gyp info using node@21.6.2 | linux | x64
+../../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+../../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+../../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+../../node_modules/better-sqlite3 install: gyp info spawn /usr/bin/python3
+../../node_modules/better-sqlite3 install: gyp info spawn args [
+../../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+../../node_modules/better-sqlite3 install: gyp info spawn args   'binding.gyp',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-f',
+../../node_modules/better-sqlite3 install: gyp info spawn args   'make',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '/tmp/twcr-da95cf972b0c/node_modules/better-sqlite3/build/config.gypi',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dlibrary=shared_library',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dvisibility=default',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-da95cf972b0c/node_modules/better-sqlite3',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_engine=v8',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '--depth=.',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '--no-parallel',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '--generator-output',
+../../node_modules/better-sqlite3 install: gyp info spawn args   'build',
+../../node_modules/better-sqlite3 install: gyp info spawn args   '-Goutput_dir=.'
+../../node_modules/better-sqlite3 install: gyp info spawn args ]
+../../node_modules/better-sqlite3 install: gyp info spawn make
+../../node_modules/better-sqlite3 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+../../node_modules/better-sqlite3 install: make: Entering directory '/tmp/twcr-da95cf972b0c/node_modules/better-sqlite3/build'
+../../node_modules/better-sqlite3 install:   TOUCH ba23eeee118cd63e16015df367567cb043fed872.intermediate
+../../node_modules/better-sqlite3 install:   ACTION deps_sqlite3_gyp_locate_sqlite3_target_copy_builtin_sqlite3 ba23eeee118cd63e16015df367567cb043fed872.intermediate
+../../node_modules/better-sqlite3 install:   TOUCH Release/obj.target/deps/locate_sqlite3.stamp
+../../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/sqlite3/gen/sqlite3/sqlite3.o
+../../node_modules/better-sqlite3 install: rm -f Release/obj.target/deps/sqlite3.a Release/obj.target/deps/sqlite3.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/sqlite3.a`
+../../node_modules/better-sqlite3 install: ar crs Release/obj.target/deps/sqlite3.a @Release/obj.target/deps/sqlite3.a.ar-file-list
+../../node_modules/better-sqlite3 install:   COPY Release/sqlite3.a
+../../node_modules/better-sqlite3 install:   CXX(target) Release/obj.target/better_sqlite3/src/better_sqlite3.o
+../../node_modules/better-sqlite3 install: In file included from ./src/better_sqlite3.lzz:11,
+../../node_modules/better-sqlite3 install:                  from ../src/better_sqlite3.cpp:4:
+../../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1222:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>)' to 'node::addon_context_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>, void*)'} [-Wcast-function-type]
+../../node_modules/better-sqlite3 install:  1222 |       (node::addon_context_register_func) (regfunc),                  \
+../../node_modules/better-sqlite3 install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1240:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE_X'
+../../node_modules/better-sqlite3 install:  1240 |   NODE_MODULE_CONTEXT_AWARE_X(modname, regfunc, NULL, 0)
+../../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1271:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE'
+../../node_modules/better-sqlite3 install:  1271 |   NODE_MODULE_CONTEXT_AWARE(NODE_GYP_MODULE_NAME,                     \
+../../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+../../node_modules/better-sqlite3 install: ./src/better_sqlite3.lzz:67:1: note: in expansion of macro 'NODE_MODULE_INIT'
+../../node_modules/better-sqlite3 install: ./src/objects/database.lzz: In static member function 'static void Database::JS_new(const v8::FunctionCallbackInfo<v8::Value>&)':
+../../node_modules/better-sqlite3 install: ./src/objects/database.lzz:180:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_stmt*, int, bool)':
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:92: warning: this statement may fall through [-Wimplicit-fallthrough=]
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:197: note: here
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_value*, bool)':
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:81: warning: this statement may fall through [-Wimplicit-fallthrough=]
+../../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:175: note: here
+../../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/better_sqlite3.node
+../../node_modules/better-sqlite3 install:   COPY Release/better_sqlite3.node
+../../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/test_extension/deps/test_extension.o
+../../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/test_extension.node
+../../node_modules/better-sqlite3 install:   COPY Release/test_extension.node
+../../node_modules/better-sqlite3 install: rm ba23eeee118cd63e16015df367567cb043fed872.intermediate
+../../node_modules/better-sqlite3 install: make: Leaving directory '/tmp/twcr-da95cf972b0c/node_modules/better-sqlite3/build'
+../../node_modules/better-sqlite3 install: gyp info ok 
+../../node_modules/better-sqlite3 install: Done
+../../node_modules/esbuild postinstall$ node install.js
+.../bundle-require/node_modules/esbuild postinstall$ node install.js
+.../react-email/node_modules/esbuild postinstall$ node install.js
+../../node_modules/esbuild postinstall: Done
+.../bundle-require/node_modules/esbuild postinstall: Done
+.../react-email/node_modules/esbuild postinstall: Done
+../../node_modules/sharp install$ node install/check
+../../node_modules/sharp install: Done
+../../node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+../../node_modules/es5-ext postinstall: Done
+
+dependencies:
++ @nerdfish-website/emails 0.0.18 <- ../../packages/emails
++ @nerdfish-website/lib 0.1.0 <- ../../packages/lib
++ @nerdfish-website/lint 0.0.0 <- ../../tooling/config-eslint
++ @nerdfish-website/tsconfig 0.0.0 <- ../../tooling/config-typescript
++ @nerdfish-website/ui 0.1.0 <- ../../packages/ui
+
+../.. prepare$ husky
+../.. prepare: Done
+Done in 2m 1.9s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.ts
+/tmp/twcr-da95cf972b0c/apps/web/tailwind.config.ts:3
+  require('tailwindcss/defaultTheme') as typeof import('tailwindcss/defaultTheme')
+                                      ^^
+
+SyntaxError: Unexpected identifier 'as'
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-da95cf972b0c/apps/web/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

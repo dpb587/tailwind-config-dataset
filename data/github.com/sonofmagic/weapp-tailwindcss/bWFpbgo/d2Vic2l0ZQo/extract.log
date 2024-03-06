@@ -1,0 +1,185 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/sonofmagic/weapp-tailwindcss
++ reporef=main
++ repopath=./website
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/sonofmagic/weapp-tailwindcss
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-225add5617ea
+++ echo 'github.com/sonofmagic/weapp-tailwindcss;main;./website'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/2ab3c4fff9d1
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li93ZWJzaXRlCg
++ jq -nc --arg key analysis_key --arg value github.com/sonofmagic/weapp-tailwindcss/bWFpbgo/Li93ZWJzaXRlCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 16f23c8b31340b3f
++ jq -nc --arg key analysis_nonce --arg value 16f23c8b31340b3f '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/sonofmagic/weapp-tailwindcss
++ jq -nc --arg key input_repo_name --arg value github.com/sonofmagic/weapp-tailwindcss '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./website
++ jq -nc --arg key input_repo_path --arg value ./website '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T00:10:22Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T00:10:22Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-225add5617ea
++ pushd /tmp/twcr-225add5617ea
++ '[' -d .git ']'
+/tmp/twcr-225add5617ea /twcr
++ git clone --depth=1 -b main https://github.com/sonofmagic/weapp-tailwindcss.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T00:10:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T00:10:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha e5b84a47e42e1893d421d88c93f672b8d5ed655d
++ jq -nc --arg key exec_repo_commit_sha --arg value e5b84a47e42e1893d421d88c93f672b8d5ed655d '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-23 21:07:34 +0800' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-23T13:07:34Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-23T13:07:34Z '{ key: $key, value: $value }'
++ '[' -z ./website ']'
++ pushd ./website
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-225add5617ea/website /tmp/twcr-225add5617ea /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-225add5617ea/website
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T00:10:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T00:10:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "website",
+>>>   "version": "0.0.0",
+>>>   "private": true,
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "browserslist": {
+>>>     "production": [
+>>>       ">0.5%",
+>>>       "not dead",
+>>>       "not op_mini all"
+>>>     ],
+>>>     "development": [
+>>>       "last 1 chrome version",
+>>>       "last 1 firefox version",
+>>>       "last 1 safari version"
+>>>     ]
+>>>   },
+>>>   "engines": {
+>>>     "node": ">=16.14"
+>>>   },
+>>>   "packageManager": "pnpm@8.6.2"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./website '!=' ./ ']'
++ rm -f /tmp/twcr-225add5617ea/package.json /tmp/twcr-225add5617ea/package-lock.json /tmp/twcr-225add5617ea/pnpm-lock.yaml /tmp/twcr-225add5617ea/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-225add5617ea /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-225add5617ea
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-225add5617ea/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+ ERR_PNPM_FETCH_403  GET http://registry.npmmirror.com/tailwindcss: Forbidden - 403
+
+This error happened while installing a direct dependency of /tmp/twcr-225add5617ea/website
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T00:10:25Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T00:10:25Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at e5b84a4 chore: add css vars docs
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-225add5617ea /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-225add5617ea
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-225add5617ea/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-225add5617ea/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1184
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ERR_PNPM_FETCH_403  GET http://registry.npmmirror.com/@docusaurus/core/-/core-2.4.3.tgz: Forbidden - 403
+
+No authorization header was set for the request.
+
+No authorization settings were found in the configs.
+Try to log in to the registry by running "pnpm login"
+or add the auth tokens manually to the ~/.npmrc file.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

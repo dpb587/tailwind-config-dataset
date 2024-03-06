@@ -1,0 +1,358 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/nombersDev/casemove
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/nombersDev/casemove
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7a948a99b2f9
+++ echo 'github.com/nombersDev/casemove;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/829e53214ecc
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/nombersDev/casemove/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/nombersDev/casemove/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 6d7ffad75dc75000
++ jq -nc --arg key analysis_nonce --arg value 6d7ffad75dc75000 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/nombersDev/casemove
++ jq -nc --arg key input_repo_name --arg value github.com/nombersDev/casemove '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T00:32:13Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T00:32:13Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7a948a99b2f9
++ pushd /tmp/twcr-7a948a99b2f9
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/nombersDev/casemove.git .
+/tmp/twcr-7a948a99b2f9 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T00:32:15Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T00:32:15Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 4c7cfc920120203785ec579581cfb6be851e4ab6
++ jq -nc --arg key exec_repo_commit_sha --arg value 4c7cfc920120203785ec579581cfb6be851e4ab6 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-12 19:09:31 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-12T18:09:31Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-12T18:09:31Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-7a948a99b2f9 /tmp/twcr-7a948a99b2f9 /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7a948a99b2f9
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T00:32:15Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T00:32:15Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "casemove",
+>>>   "productName": "Casemove",
+>>>   "description": "Counter-Strike 2 Storage unit manager that helps you move items in bulk without the clicking. ",
+>>>   "lint-staged": {
+>>>     "*.{js,jsx,ts,tsx}": [
+>>>       "cross-env NODE_ENV=development eslint --cache"
+>>>     ],
+>>>     "*.json,.{eslintrc,prettierrc}": [
+>>>       "prettier --ignore-path .eslintignore --parser json --write"
+>>>     ],
+>>>     "*.{css,scss}": [
+>>>       "prettier --ignore-path .eslintignore --single-quote --write"
+>>>     ],
+>>>     "*.{html,md,yml}": [
+>>>       "prettier --ignore-path .eslintignore --single-quote --write"
+>>>     ]
+>>>   },
+>>>   "build": {
+>>>     "productName": "Casemove",
+>>>     "appId": "com.nombers.casemove",
+>>>     "asar": true,
+>>>     "asarUnpack": "**\\*.{node,dll}",
+>>>     "files": [
+>>>       "dist",
+>>>       "node_modules",
+>>>       "package.json"
+>>>     ],
+>>>     "afterSign": ".erb/scripts/notarize.js",
+>>>     "mac": {
+>>>       "target": {
+>>>         "target": "default",
+>>>         "arch": [
+>>>           "arm64",
+>>>           "x64"
+>>>         ]
+>>>       },
+>>>       "type": "distribution",
+>>>       "hardenedRuntime": true,
+>>>       "entitlements": "assets/entitlements.mac.plist",
+>>>       "entitlementsInherit": "assets/entitlements.mac.plist",
+>>>       "gatekeeperAssess": false
+>>>     },
+>>>     "dmg": {
+>>>       "contents": [
+>>>         {
+>>>           "x": 130,
+>>>           "y": 220
+>>>         },
+>>>         {
+>>>           "x": 410,
+>>>           "y": 220,
+>>>           "type": "link",
+>>>           "path": "/Applications"
+>>>         }
+>>>       ]
+>>>     },
+>>>     "win": {
+>>>       "target": [
+>>>         "nsis"
+>>>       ],
+>>>       "sign": "./sign.js"
+>>>     },
+>>>     "linux": {
+>>>       "target": [
+>>>         "deb"
+>>>       ],
+>>>       "category": "Development"
+>>>     },
+>>>     "directories": {
+>>>       "app": "release/app",
+>>>       "buildResources": "assets",
+>>>       "output": "release/build"
+>>>     },
+>>>     "extraResources": [
+>>>       "./assets/**"
+>>>     ],
+>>>     "publish": {
+>>>       "provider": "github",
+>>>       "owner": "nombersDev",
+>>>       "repo": "casemove"
+>>>     }
+>>>   },
+>>>   "author": {
+>>>     "name": "Nombers"
+>>>   },
+>>>   "jest": {
+>>>     "testURL": "http://localhost/",
+>>>     "testEnvironment": "jsdom",
+>>>     "transform": {
+>>>       "\\.(ts|tsx|js|jsx)$": "ts-jest"
+>>>     },
+>>>     "moduleNameMapper": {
+>>>       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/.erb/mocks/fileMock.js",
+>>>       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+>>>     },
+>>>     "moduleFileExtensions": [
+>>>       "js",
+>>>       "jsx",
+>>>       "ts",
+>>>       "tsx",
+>>>       "json"
+>>>     ],
+>>>     "moduleDirectories": [
+>>>       "node_modules",
+>>>       "release/app/node_modules"
+>>>     ],
+>>>     "testPathIgnorePatterns": [
+>>>       "release/app/dist"
+>>>     ],
+>>>     "setupFiles": [
+>>>       "./.erb/scripts/check-build-exists.ts"
+>>>     ]
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^2.2.19"
+>>>   },
+>>>   "dependencies": {},
+>>>   "devEngines": {
+>>>     "node": ">=14.x",
+>>>     "npm": ">=7.x"
+>>>   },
+>>>   "collective": {
+>>>     "url": "https://opencollective.com/electron-react-boilerplate-594"
+>>>   },
+>>>   "browserslist": [],
+>>>   "prettier": {
+>>>     "overrides": [
+>>>       {
+>>>         "files": [
+>>>           ".prettierrc",
+>>>           ".eslintrc"
+>>>         ],
+>>>         "options": {
+>>>           "parser": "json"
+>>>         }
+>>>       }
+>>>     ],
+>>>     "singleQuote": true
+>>>   },
+>>>   "husky": {
+>>>     "hooks": {
+>>>       "pre-commit": "lint-staged"
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-7a948a99b2f9 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-7a948a99b2f9
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 142 packages, and audited 143 packages in 17s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+/tmp/twcr-7a948a99b2f9/tailwind.config.js:1
+import colors from 'tailwindcss/colors';
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:77:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1290:20)
+    at Module._compile (node:internal/modules/cjs/loader:1342:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-7a948a99b2f9/tailwind.config.exporter2.cjs:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T00:32:34Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T00:32:34Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
++ git reset --hard
+HEAD is now at 4c7cfc9 Merge pull request #163 from nombersDev/Pending-release
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-7a948a99b2f9 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-7a948a99b2f9
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo ci
++ npm ci --ignore-engines
+npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm WARN deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+(node:136) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+npm WARN deprecated appdirectory@0.1.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm WARN deprecated @types/terser-webpack-plugin@5.2.0: This is a stub types definition. terser-webpack-plugin provides its own type definitions, so you do not need this installed.
+(node:136) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:136) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+(node:136) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 socket listeners added to [ClientRequest]. Use emitter.setMaxListeners() to increase limit
+npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm WARN deprecated asar@3.2.0: Please use @electron/asar moving forward.  There is no API change, just a package name change
+npm WARN deprecated electron-osx-sign@0.6.0: Please use @electron/osx-sign moving forward. Be aware the API is slightly different
+npm WARN deprecated electron-notarize@1.2.2: Please use @electron/notarize moving forward.  There is no API change, just a package name change
+npm WARN deprecated electron-rebuild@3.2.9: Please use @electron/rebuild moving forward.  There is no API change, just a package name change
+npm ERR! code 1
+npm ERR! path /tmp/twcr-7a948a99b2f9/node_modules/electron
+npm ERR! command failed
+npm ERR! command sh -c node install.js
+npm ERR! RequestError: getaddrinfo EAI_AGAIN github.com
+npm ERR!     at ClientRequest.<anonymous> (/tmp/twcr-7a948a99b2f9/node_modules/@electron/get/node_modules/got/source/request-as-event-emitter.js:178:14)
+npm ERR!     at Object.onceWrapper (node:events:634:26)
+npm ERR!     at ClientRequest.emit (node:events:531:35)
+npm ERR!     at origin.emit (/tmp/twcr-7a948a99b2f9/node_modules/@electron/get/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+npm ERR!     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+npm ERR!     at TLSSocket.emit (node:events:519:28)
+npm ERR!     at emitErrorNT (node:internal/streams/destroy:169:8)
+npm ERR!     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+npm ERR!     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm ERR! A complete log of this run can be found in: /home/node/.npm/_logs/2024-03-05T00_32_35_965Z-debug-0.log
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

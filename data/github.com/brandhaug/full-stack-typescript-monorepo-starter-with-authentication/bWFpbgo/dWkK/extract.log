@@ -1,0 +1,250 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
++ reporef=main
++ repopath=./ui
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-be802f565c4b
+++ echo 'github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication;main;./ui'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/43b07f98fa94
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication/bWFpbgo/Li91aQo
++ jq -nc --arg key analysis_key --arg value github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication/bWFpbgo/Li91aQo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 425f16d7d2a89711
++ jq -nc --arg key analysis_nonce --arg value 425f16d7d2a89711 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication
++ jq -nc --arg key input_repo_name --arg value github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./ui
++ jq -nc --arg key input_repo_path --arg value ./ui '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T10:37:23Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T10:37:23Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-be802f565c4b
+/tmp/twcr-be802f565c4b /twcr
++ pushd /tmp/twcr-be802f565c4b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/brandhaug/full-stack-typescript-monorepo-starter-with-authentication.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T10:37:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T10:37:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 1716ce022fd1f915fb3a9cda6693e7cad2dc5657
++ jq -nc --arg key exec_repo_commit_sha --arg value 1716ce022fd1f915fb3a9cda6693e7cad2dc5657 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-21 19:49:46 +0100' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-21T18:49:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-21T18:49:46Z '{ key: $key, value: $value }'
++ '[' -z ./ui ']'
++ pushd ./ui
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-be802f565c4b/ui /tmp/twcr-be802f565c4b /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-be802f565c4b/ui
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ui '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-be802f565c4b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T10:37:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T10:37:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@fstmswa/ui",
+>>>   "version": "0.0.0",
+>>>   "main": "src/index.ts",
+>>>   "module": "src/index.ts",
+>>>   "dependencies": {
+>>>     "@fstmswa/conf": "0.0.0",
+>>>     "tailwindcss": "^3.2.7"
+>>>   },
+>>>   "devDependencies": {}
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ui '!=' ./ ']'
++ rm -f /tmp/twcr-be802f565c4b/package.json /tmp/twcr-be802f565c4b/package-lock.json /tmp/twcr-be802f565c4b/pnpm-lock.yaml /tmp/twcr-be802f565c4b/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-be802f565c4b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-be802f565c4b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-be802f565c4b/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 5 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 31, reused 0, downloaded 24, added 0
+..                                       | Progress: resolved 48, reused 0, downloaded 37, added 0
+..                                       | Progress: resolved 69, reused 0, downloaded 61, added 0
+..                                       | Progress: resolved 88, reused 0, downloaded 87, added 0
+..                                       | Progress: resolved 93, reused 0, downloaded 91, added 0
+..                                       | Progress: resolved 106, reused 0, downloaded 98, added 0
+..                                       | Progress: resolved 138, reused 0, downloaded 125, added 0
+..                                       | Progress: resolved 178, reused 0, downloaded 162, added 0
+..                                       | Progress: resolved 205, reused 0, downloaded 188, added 0
+..                                       | Progress: resolved 241, reused 0, downloaded 222, added 0
+/tmp/twcr-be802f565c4b/app:
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @sentry/browser@7.105.0
+
+This error happened while installing the dependencies of @sentry/react@7.105.0
+
+The latest release of @sentry/browser is "7.104.0".
+
+Other releases are:
+  * next: 7.80.2-alpha.1
+
+If you need the full list of all 451 published versions run "$ pnpm view @sentry/browser versions".
+..                                       | Progress: resolved 266, reused 0, downloaded 251, added 0
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: package manager failed; retrying with full install'
+[worker] WARN: package manager failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T10:37:37Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T10:37:37Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 1716ce0 conf: trivy
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-be802f565c4b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-be802f565c4b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-be802f565c4b/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-be802f565c4b/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 6 workspace projects
+..                                       | Progress: resolved 0, reused 1, downloaded 0, added 0
+..                                       | Progress: resolved 58, reused 27, downloaded 31, added 0
+..                                       | Progress: resolved 98, reused 27, downloaded 71, added 0
+..                                       | Progress: resolved 218, reused 108, downloaded 94, added 0
+..                                       | Progress: resolved 276, reused 108, downloaded 152, added 0
+..                                       | Progress: resolved 325, reused 108, downloaded 201, added 0
+..                                       | Progress: resolved 378, reused 108, downloaded 254, added 0
+..                                       | Progress: resolved 438, reused 108, downloaded 314, added 0
+..                                       | Progress: resolved 495, reused 108, downloaded 371, added 0
+..                                       | Progress: resolved 564, reused 108, downloaded 440, added 0
+..                                       | Progress: resolved 585, reused 108, downloaded 461, added 0
+..                                       | Progress: resolved 641, reused 108, downloaded 517, added 0
+..                                       | Progress: resolved 705, reused 108, downloaded 581, added 0
+..                                       | Progress: resolved 764, reused 108, downloaded 640, added 0
+..                                       | Progress: resolved 826, reused 108, downloaded 702, added 0
+..                                       | Progress: resolved 887, reused 108, downloaded 749, added 0
+..                                       | Progress: resolved 948, reused 108, downloaded 811, added 0
+..                                       | Progress: resolved 992, reused 108, downloaded 856, added 0
+..                                       | Progress: resolved 1060, reused 108, downloaded 924, added 0
+..                                       | Progress: resolved 1102, reused 108, downloaded 966, added 0
+..                                       | Progress: resolved 1155, reused 108, downloaded 1019, added 0
+..                                       | Progress: resolved 1183, reused 108, downloaded 1047, added 0
+..                                       | Progress: resolved 1237, reused 108, downloaded 1101, added 0
+..                                       | Progress: resolved 1293, reused 108, downloaded 1144, added 0
+..                                       | Progress: resolved 1335, reused 108, downloaded 1189, added 0
+..                                       | Progress: resolved 1400, reused 108, downloaded 1254, added 0
+..                                       | Progress: resolved 1465, reused 108, downloaded 1319, added 0
+..                                       | Progress: resolved 1496, reused 108, downloaded 1349, added 0
+ WARN  2 deprecated subdependencies found: flatten@1.0.3, subscriptions-transport-ws@0.9.19
+..                                       |    +1470 ++++++++++++++++++++++++++++
+..                                       | Progress: resolved 1498, reused 108, downloaded 1352, added 1118
+..                                       | Progress: resolved 1498, reused 108, downloaded 1352, added 1470, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@railway/cli postinstall$ node ./npm-install/postinstall.js
+.../bcrypt@5.1.0/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@parcel/watcher install$ node-gyp-build
+.../node_modules/protobufjs postinstall: Done
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../node_modules/@prisma/engines postinstall: (node:172) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.10
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../node_modules/@railway/cli postinstall: https://github.com/railwayapp/cli/releases/download/v3.0.13/railway-v3.0.13-x86_64-unknown-linux-gnu.tar.gz
+.../bcrypt@5.1.0/node_modules/bcrypt install: (node:176) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.0/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-be802f565c4b/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.0/bcrypt_lib-v5.1.0-napi-v3-linux-x64-glibc.tar.gz
+.../node_modules/@parcel/watcher install: Done
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_0d063fdad2da:ok@172.18.0.2:3128"
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.0/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.0/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-be802f565c4b/node_modules/.pnpm/bcrypt@5.1.0/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.0/node_modules/bcrypt install: Done
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/@railway/cli postinstall: FetchError: request to https://github.com/railwayapp/cli/releases/download/v3.0.13/railway-v3.0.13-x86_64-unknown-linux-gnu.tar.gz failed, reason: getaddrinfo EAI_AGAIN github.com
+.../node_modules/@railway/cli postinstall:     at ClientRequest.<anonymous> (file:///tmp/twcr-be802f565c4b/node_modules/.pnpm/node-fetch@3.3.0/node_modules/node-fetch/src/index.js:108:11)
+.../node_modules/@railway/cli postinstall:     at ClientRequest.emit (node:events:519:28)
+.../node_modules/@railway/cli postinstall:     at TLSSocket.socketErrorListener (node:_http_client:492:9)
+.../node_modules/@railway/cli postinstall:     at TLSSocket.emit (node:events:519:28)
+.../node_modules/@railway/cli postinstall:     at emitErrorNT (node:internal/streams/destroy:169:8)
+.../node_modules/@railway/cli postinstall:     at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+.../node_modules/@railway/cli postinstall:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+.../node_modules/@railway/cli postinstall:   type: 'system',
+.../node_modules/@railway/cli postinstall:   errno: 'EAI_AGAIN',
+.../node_modules/@railway/cli postinstall:   code: 'EAI_AGAIN',
+.../node_modules/@railway/cli postinstall:   erroredSysCall: 'getaddrinfo'
+.../node_modules/@railway/cli postinstall: }
+.../node_modules/@railway/cli postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

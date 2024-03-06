@@ -1,0 +1,247 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/marcushellberg/docs-assistant
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/marcushellberg/docs-assistant
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-5d18c03f22f0
+++ echo 'github.com/marcushellberg/docs-assistant;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/299f16c6a6f9
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/marcushellberg/docs-assistant/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/marcushellberg/docs-assistant/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce f7f25c05e8010bd3
++ jq -nc --arg key analysis_nonce --arg value f7f25c05e8010bd3 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/marcushellberg/docs-assistant
++ jq -nc --arg key input_repo_name --arg value github.com/marcushellberg/docs-assistant '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T07:39:13Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T07:39:13Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-5d18c03f22f0
++ pushd /tmp/twcr-5d18c03f22f0
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/marcushellberg/docs-assistant.git .
+/tmp/twcr-5d18c03f22f0 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T07:39:14Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T07:39:14Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 689c8d75123fec61d47c6f8a1def5682674bb19a
++ jq -nc --arg key exec_repo_commit_sha --arg value 689c8d75123fec61d47c6f8a1def5682674bb19a '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-07-13 09:22:55 -0700' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-07-13T16:22:55Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-07-13T16:22:55Z '{ key: $key, value: $value }'
+/tmp/twcr-5d18c03f22f0 /tmp/twcr-5d18c03f22f0 /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-5d18c03f22f0
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T07:39:14Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T07:39:14Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "no-name",
+>>>   "license": "UNLICENSED",
+>>>   "type": "module",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.3.2"
+>>>   },
+>>>   "overrides": {
+>>>     "@vaadin/router": "$@vaadin/router",
+>>>     "@vaadin/common-frontend": "$@vaadin/common-frontend",
+>>>     "construct-style-sheets-polyfill": "$construct-style-sheets-polyfill",
+>>>     "lit": "$lit",
+>>>     "@polymer/polymer": "$@polymer/polymer",
+>>>     "@hilla/react-components": "$@hilla/react-components",
+>>>     "@vaadin-component-factory/vcf-nav": "$@vaadin-component-factory/vcf-nav",
+>>>     "classnames": "$classnames",
+>>>     "react": "$react",
+>>>     "react-dom": "$react-dom",
+>>>     "react-router-dom": "$react-router-dom",
+>>>     "@hilla/generator-typescript-plugin-model": "$@hilla/generator-typescript-plugin-model",
+>>>     "@hilla/generator-typescript-plugin-barrel": "$@hilla/generator-typescript-plugin-barrel",
+>>>     "@hilla/generator-typescript-plugin-push": "$@hilla/generator-typescript-plugin-push",
+>>>     "@hilla/generator-typescript-core": "$@hilla/generator-typescript-core",
+>>>     "@hilla/generator-typescript-plugin-client": "$@hilla/generator-typescript-plugin-client",
+>>>     "@hilla/generator-typescript-utils": "$@hilla/generator-typescript-utils",
+>>>     "@hilla/frontend": "$@hilla/frontend",
+>>>     "@hilla/form": "$@hilla/form",
+>>>     "@hilla/generator-typescript-plugin-backbone": "$@hilla/generator-typescript-plugin-backbone",
+>>>     "@hilla/generator-typescript-cli": "$@hilla/generator-typescript-cli",
+>>>     "@vaadin/bundles": "$@vaadin/bundles",
+>>>     "@vaadin/icon": "$@vaadin/icon",
+>>>     "@vaadin/tooltip": "$@vaadin/tooltip",
+>>>     "@vaadin/icons": "$@vaadin/icons",
+>>>     "@vaadin/polymer-legacy-adapter": "$@vaadin/polymer-legacy-adapter",
+>>>     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
+>>>     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
+>>>     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
+>>>     "highlight.js": "$highlight.js",
+>>>     "react-markdown": "$react-markdown",
+>>>     "rehype-highlight": "$rehype-highlight"
+>>>   },
+>>>   "vaadin": {
+>>>     "dependencies": {
+>>>       "@hilla/form": "2.0.5",
+>>>       "@hilla/frontend": "2.0.5",
+>>>       "@hilla/generator-typescript-cli": "2.0.5",
+>>>       "@hilla/generator-typescript-core": "2.0.5",
+>>>       "@hilla/generator-typescript-plugin-backbone": "2.0.5",
+>>>       "@hilla/generator-typescript-plugin-barrel": "2.0.5",
+>>>       "@hilla/generator-typescript-plugin-client": "2.0.5",
+>>>       "@hilla/generator-typescript-plugin-model": "2.0.5",
+>>>       "@hilla/generator-typescript-plugin-push": "2.0.5",
+>>>       "@hilla/generator-typescript-utils": "2.0.5",
+>>>       "@hilla/react-components": "2.1.3",
+>>>       "@polymer/polymer": "3.5.1",
+>>>       "@vaadin/bundles": "24.1.3",
+>>>       "@vaadin/common-frontend": "0.0.18",
+>>>       "@vaadin/icon": "24.0.3",
+>>>       "@vaadin/icons": "24.0.3",
+>>>       "@vaadin/polymer-legacy-adapter": "24.0.3",
+>>>       "@vaadin/router": "1.7.5",
+>>>       "@vaadin/tooltip": "24.0.3",
+>>>       "@vaadin/vaadin-lumo-styles": "24.0.3",
+>>>       "@vaadin/vaadin-material-styles": "24.0.3",
+>>>       "@vaadin/vaadin-themable-mixin": "24.0.3",
+>>>       "construct-style-sheets-polyfill": "3.1.0",
+>>>       "lit": "2.6.1"
+>>>     },
+>>>     "devDependencies": {
+>>>       "@rollup/plugin-replace": "5.0.2",
+>>>       "@rollup/pluginutils": "5.0.2",
+>>>       "async": "3.2.2",
+>>>       "glob": "7.2.3",
+>>>       "mkdirp": "1.0.4",
+>>>       "rollup-plugin-brotli": "3.1.0",
+>>>       "strip-css-comments": "5.0.0",
+>>>       "transform-ast": "2.4.4",
+>>>       "typescript": "4.9.5",
+>>>       "vite": "4.1.3",
+>>>       "vite-plugin-checker": "0.5.5",
+>>>       "workbox-build": "6.5.4",
+>>>       "workbox-core": "6.5.4",
+>>>       "workbox-precaching": "6.5.4"
+>>>     },
+>>>     "hash": "afa1e10ef159b18523b59fcf0982b2fc615465533b7921b1bd3f5088fc74b837"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-5d18c03f22f0 /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-5d18c03f22f0
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 112 packages, and audited 113 packages in 3s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
++ grep -Ev '"@tailwindcss/postcss7-compat"'
+      '
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T07:39:19Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T07:39:19Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T07:39:19Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T07:39:19Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

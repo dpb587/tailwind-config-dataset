@@ -1,0 +1,177 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/themesberg/tailwind-nuxt-starter
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/themesberg/tailwind-nuxt-starter
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-7850621da0be
+++ echo 'github.com/themesberg/tailwind-nuxt-starter;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/b2d44eebf1fa
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/themesberg/tailwind-nuxt-starter/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/themesberg/tailwind-nuxt-starter/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 660f9c1b12bfabea
++ jq -nc --arg key analysis_nonce --arg value 660f9c1b12bfabea '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/themesberg/tailwind-nuxt-starter
++ jq -nc --arg key input_repo_name --arg value github.com/themesberg/tailwind-nuxt-starter '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T05:41:06Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T05:41:06Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-7850621da0be
++ pushd /tmp/twcr-7850621da0be
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/themesberg/tailwind-nuxt-starter.git .
+/tmp/twcr-7850621da0be /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T05:41:07Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T05:41:07Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 7daff63f7c4aded80dbb230d3466691a12dd7f92
++ jq -nc --arg key exec_repo_commit_sha --arg value 7daff63f7c4aded80dbb230d3466691a12dd7f92 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-22 13:31:46 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-22T11:31:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-22T11:31:46Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
+/tmp/twcr-7850621da0be /tmp/twcr-7850621da0be /twcr
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-7850621da0be
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./ '!=' ./ ']'
++ '[' -z '' ']'
++ package_manager_name=npm
++ writetaskstat exec_node_package_manager npm
++ jq -nc --arg key exec_node_package_manager --arg value npm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T05:41:07Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T05:41:07Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "tailwind-nuxt-starter",
+>>>   "version": "1.0.0",
+>>>   "description": "A free and open-source starter project to help you get started with the core Flowbite Library components and Nuxt.js",
+>>>   "license": "MIT",
+>>>   "repository": "https://github.com/themesberg/tailwind-nuxt-starter",
+>>>   "homepage": "https://flowbite.com/docs/getting-started/nuxt/",
+>>>   "contributors": [
+>>>     "Zoltán Szőgyényi (https://twitter.com/zoltanszogyenyi)"
+>>>   ],
+>>>   "author": "Bergside Inc.",
+>>>   "devDependencies": {
+>>>     "@nuxtjs/tailwindcss": "^6.2.0"
+>>>   },
+>>>   "dependencies": {
+>>>     "flowbite": "^2.2.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh npm /tmp/twcr-7850621da0be /twcr/mnt/results
++ package_manager_name=npm
++ procdir=/tmp/twcr-7850621da0be
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
+++ '[' -f package-lock.json ']'
+++ echo install
++ npm install --ignore-engines
+
+added 354 packages, and audited 355 packages in 12s
+
+70 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New minor version of npm available! 10.2.4 -> 10.5.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.0>
+npm notice Run `npm install -g npm@10.5.0` to update!
+npm notice 
++ npm query '*'
++ jq -cr '
+        map({ name: .name, version: .version })
+        | map(select(.name))
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.js
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.js
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T05:41:21Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T05:41:21Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T05:41:21Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T05:41:21Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

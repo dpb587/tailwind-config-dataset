@@ -1,0 +1,481 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/kufu/smarthr-ui
++ reporef=master
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/kufu/smarthr-ui
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-864d68ed7dca
+++ echo 'github.com/kufu/smarthr-ui;master;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/1b0c590b3eb0
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/kufu/smarthr-ui/bWFzdGVyCg/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/kufu/smarthr-ui/bWFzdGVyCg/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce d971edddc7662e3d
++ jq -nc --arg key analysis_nonce --arg value d971edddc7662e3d '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/kufu/smarthr-ui
++ jq -nc --arg key input_repo_name --arg value github.com/kufu/smarthr-ui '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref master
++ jq -nc --arg key input_repo_ref --arg value master '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T03:27:10Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T03:27:10Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-864d68ed7dca
+/tmp/twcr-864d68ed7dca /twcr
++ pushd /tmp/twcr-864d68ed7dca
++ '[' -d .git ']'
++ git clone --depth=1 -b master https://github.com/kufu/smarthr-ui.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T03:27:11Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T03:27:11Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 533b151f15fe4c3854a9cf16885591b7e8002779
++ jq -nc --arg key exec_repo_commit_sha --arg value 533b151f15fe4c3854a9cf16885591b7e8002779 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-04 11:46:46 +0900' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-04T02:46:46Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-04T02:46:46Z '{ key: $key, value: $value }'
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
+/tmp/twcr-864d68ed7dca /tmp/twcr-864d68ed7dca /twcr
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-864d68ed7dca
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T03:27:11Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T03:27:11Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "smarthr-ui",
+>>>   "description": "SmartHR ui components built with React.",
+>>>   "version": "43.0.0",
+>>>   "author": "SmartHR-UI Team",
+>>>   "dependencies": {
+>>>     "tailwindcss": "^3.4.1"
+>>>   },
+>>>   "devDependencies": {},
+>>>   "peerDependencies": {},
+>>>   "bugs": {
+>>>     "url": "https://github.com/kufu/smarthr-ui/issues"
+>>>   },
+>>>   "files": [
+>>>     "esm",
+>>>     "lib",
+>>>     "smarthr-ui.css"
+>>>   ],
+>>>   "homepage": "https://github.com/kufu/smarthr-ui#readme",
+>>>   "keywords": [
+>>>     "react",
+>>>     "react-component",
+>>>     "smarthr",
+>>>     "typescript"
+>>>   ],
+>>>   "license": "MIT",
+>>>   "lint-staged": {
+>>>     "*.{ts,tsx}": [
+>>>       "eslint --fix",
+>>>       "prettier --write",
+>>>       "stylelint --fix"
+>>>     ]
+>>>   },
+>>>   "main": "lib/index.js",
+>>>   "module": "esm/index.js",
+>>>   "publishConfig": {
+>>>     "access": "public",
+>>>     "registry": "https://registry.npmjs.org"
+>>>   },
+>>>   "repository": {
+>>>     "type": "git",
+>>>     "url": "git+https://github.com/kufu/smarthr-ui.git"
+>>>   },
+>>>   "sideEffects": [
+>>>     "*.css"
+>>>   ],
+>>>   "typings": "lib/index.d.ts",
+>>>   "pnpm": {
+>>>     "overrides": {
+>>>       "@babel/helper-compilation-targets": "^7.23.6",
+>>>       "@types/react": "^18.2.55",
+>>>       "minimist": "1.2.8",
+>>>       "react": "^18.2.0",
+>>>       "react-dom": "^18.2.0"
+>>>     }
+>>>   },
+>>>   "standard-version": {
+>>>     "scripts": {
+>>>       "prerelease": "run-s build:lib write:ui-props && git add public/exports/smarthr-ui-props.json"
+>>>     }
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-864d68ed7dca /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-864d68ed7dca
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-864d68ed7dca/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-864d68ed7dca/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 24, reused 0, downloaded 19, added 0
+Progress: resolved 54, reused 0, downloaded 42, added 0
+Progress: resolved 77, reused 0, downloaded 66, added 0
+Progress: resolved 105, reused 0, downloaded 103, added 0
+Packages: +105
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 106, reused 0, downloaded 105, added 105, done
+
+dependencies:
++ tailwindcss 3.4.1
+
+Done in 5.8s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'polished'
+Require stack:
+- /tmp/twcr-864d68ed7dca/src/smarthr-ui-preset.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at _resolve (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at jiti (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:253746)
+    at /tmp/twcr-864d68ed7dca/src/smarthr-ui-preset.ts:1:248
+    at evalModule (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-864d68ed7dca/tailwind.config.ts:1:255
+    at evalModule (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-864d68ed7dca/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-864d68ed7dca/src/smarthr-ui-preset.ts' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T03:27:19Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T03:27:19Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 533b151 fix: Loader の CSS アニメーションを修正 (#4381)
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-864d68ed7dca /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-864d68ed7dca
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-864d68ed7dca/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-864d68ed7dca/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1848
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1848, reused 89, downloaded 0, added 0
+Progress: resolved 1848, reused 89, downloaded 29, added 115
+Progress: resolved 1848, reused 89, downloaded 72, added 161
+Progress: resolved 1848, reused 89, downloaded 122, added 211
+Progress: resolved 1848, reused 89, downloaded 176, added 265
+Progress: resolved 1848, reused 89, downloaded 226, added 315
+Progress: resolved 1848, reused 89, downloaded 279, added 368
+Progress: resolved 1848, reused 89, downloaded 329, added 417
+Progress: resolved 1848, reused 89, downloaded 376, added 465
+Progress: resolved 1848, reused 89, downloaded 425, added 513
+Progress: resolved 1848, reused 89, downloaded 466, added 554
+Progress: resolved 1848, reused 89, downloaded 517, added 606
+Progress: resolved 1848, reused 89, downloaded 555, added 644
+Progress: resolved 1848, reused 89, downloaded 602, added 691
+Progress: resolved 1848, reused 89, downloaded 639, added 727
+Progress: resolved 1848, reused 89, downloaded 680, added 769
+Progress: resolved 1848, reused 89, downloaded 697, added 786
+Progress: resolved 1848, reused 89, downloaded 701, added 790
+Progress: resolved 1848, reused 89, downloaded 734, added 823
+Progress: resolved 1848, reused 89, downloaded 767, added 856
+Progress: resolved 1848, reused 89, downloaded 811, added 900
+Progress: resolved 1848, reused 89, downloaded 860, added 949
+Progress: resolved 1848, reused 89, downloaded 886, added 975
+Progress: resolved 1848, reused 89, downloaded 905, added 993
+Progress: resolved 1848, reused 89, downloaded 939, added 1028
+Progress: resolved 1848, reused 89, downloaded 976, added 1066
+Progress: resolved 1848, reused 89, downloaded 1010, added 1100
+Progress: resolved 1848, reused 89, downloaded 1043, added 1133
+Progress: resolved 1848, reused 89, downloaded 1070, added 1160
+Progress: resolved 1848, reused 89, downloaded 1105, added 1194
+Progress: resolved 1848, reused 89, downloaded 1143, added 1233
+Progress: resolved 1848, reused 89, downloaded 1170, added 1260
+Progress: resolved 1848, reused 89, downloaded 1207, added 1296
+Progress: resolved 1848, reused 89, downloaded 1238, added 1328
+Progress: resolved 1848, reused 89, downloaded 1271, added 1361
+Progress: resolved 1848, reused 89, downloaded 1313, added 1403
+Progress: resolved 1848, reused 89, downloaded 1349, added 1439
+Progress: resolved 1848, reused 89, downloaded 1377, added 1467
+Progress: resolved 1848, reused 89, downloaded 1407, added 1497
+Progress: resolved 1848, reused 89, downloaded 1437, added 1527
+Progress: resolved 1848, reused 89, downloaded 1470, added 1559
+Progress: resolved 1848, reused 89, downloaded 1504, added 1593
+Progress: resolved 1848, reused 89, downloaded 1536, added 1626
+Progress: resolved 1848, reused 89, downloaded 1574, added 1663
+Progress: resolved 1848, reused 89, downloaded 1608, added 1698
+Progress: resolved 1848, reused 89, downloaded 1642, added 1732
+Progress: resolved 1848, reused 89, downloaded 1681, added 1771
+Progress: resolved 1848, reused 89, downloaded 1721, added 1810
+Progress: resolved 1848, reused 89, downloaded 1757, added 1847
+Progress: resolved 1848, reused 89, downloaded 1758, added 1848, done
+.../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+.../node_modules/playwright install$ node install.js
+.../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+.../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting of core-js:
+.../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+.../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+.../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+.../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+.../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+.../node_modules/core-js-pure postinstall: Done
+.../node_modules/playwright install: Skipping browsers download because `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` env variable is set
+.../node_modules/playwright install: Done
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../esbuild@0.18.16/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.18.16/node_modules/esbuild postinstall: Done
+.../node_modules/puppeteer postinstall$ node install.mjs
+.../node_modules/puppeteer postinstall: **INFO** Skipping browser download as instructed.
+.../node_modules/puppeteer postinstall: Done
+
+dependencies:
++ @smarthr/wareki 1.2.0
++ dayjs 1.11.10
++ lodash.merge 4.6.2
++ lodash.range 3.2.0
++ polished 4.3.1
++ react-draggable 4.4.6
++ react-icons 5.0.1
++ react-innertext 1.1.5
++ react-transition-group 4.4.5
++ tailwind-variants 0.1.20
++ tailwindcss 3.4.1
+
+devDependencies:
++ @babel/core 7.24.0
++ @babel/preset-env 7.24.0
++ @babel/preset-react 7.23.3
++ @babel/preset-typescript 7.23.3
++ @commitlint/cli 19.0.3
++ @commitlint/config-conventional 19.0.3
++ @storybook/addon-a11y 7.6.17
++ @storybook/addon-actions 7.6.17
++ @storybook/addon-essentials 7.6.17
++ @storybook/addon-interactions 7.6.17
++ @storybook/addon-storysource 7.6.17
++ @storybook/addon-styling 1.3.7
++ @storybook/addons 7.6.17
++ @storybook/cli 7.6.17
++ @storybook/jest 0.2.3
++ @storybook/react 7.6.17
++ @storybook/react-webpack5 7.6.17
++ @storybook/source-loader 7.6.17
++ @storybook/test-runner 0.16.0
++ @storybook/testing-library 0.2.2
++ @storybook/theming 7.6.17
++ @swc/core 1.4.2
++ @swc/jest 0.2.36
++ @testing-library/react 14.2.1
++ @types/jest 29.5.12
++ @types/lodash.merge 4.6.9
++ @types/lodash.range 3.2.9
++ @types/node 20.11.24
++ @types/react 18.2.55
++ @types/react-dom 18.2.19
++ @types/react-test-renderer 17.0.9
++ @types/react-transition-group 4.4.10
++ @types/styled-components 5.1.34
++ autoprefixer 10.4.18
++ axe-playwright 2.0.1
++ babel-loader 9.1.3
++ babel-plugin-polyfill-corejs2 0.4.8
++ babel-plugin-polyfill-regenerator 0.5.5
++ chromatic 11.0.0
++ ecma-version-validator-webpack-plugin 1.2.1
++ eslint 8.57.0
++ eslint-config-smarthr 6.20.0
++ eslint-plugin-storybook 0.8.0
++ fs-extra 11.2.0
++ glob 10.3.10
++ http-server 14.1.1
++ husky 9.0.11
++ jest 29.7.0
++ jest-environment-jsdom 29.7.0
++ jest-styled-components 7.2.0
++ lint-staged 15.2.2
++ memory-fs 0.5.0
++ npm-run-all 4.1.5
++ postcss 8.4.35
++ postcss-styled-syntax 0.6.4
++ postcss-syntax 0.36.2
++ prettier 3.2.5
++ prettier-config-smarthr 1.0.0
++ prettier-plugin-tailwindcss 0.5.11
++ puppeteer 22.3.0
++ react 18.2.0
++ react-docgen-typescript 2.2.2
++ react-dom 18.2.0
++ react-test-renderer 18.2.0
++ rimraf 5.0.5
++ smarthr-normalize-css 1.1.0
++ standard-version 9.3.2
++ storybook 7.6.17
++ storybook-addon-pseudo-states 2.1.2
++ styled-components 5.3.11
++ styled-reset 4.5.2
++ stylelint 16.2.1
++ stylelint-config-prettier 9.0.5
++ stylelint-config-smarthr 3.0.0
++ stylelint-config-standard 36.0.0
++ stylelint-config-styled-components 0.1.1
++ testcafe 3.5.0
++ ts-loader 9.5.1
++ ts-node 10.9.2
++ ttypescript 1.5.15
++ typescript 5.3.3
++ typescript-plugin-styled-components 3.0.0
++ wait-on 7.2.0
++ webpack 5.90.3
+
+
+> smarthr-ui@43.0.0 prepare /tmp/twcr-864d68ed7dca
+> husky
+
+Done in 56s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ true
++ echo ']}'
++ cat tailwind.config.ts
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.ts
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-04T03:28:19Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-04T03:28:19Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-04T03:28:19Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-04T03:28:19Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

@@ -1,0 +1,177 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/Sahil-Connect/sahil
++ reporef=develop
++ repopath=./apps/client
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/Sahil-Connect/sahil
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-ab3062872e33
+++ echo 'github.com/Sahil-Connect/sahil;develop;./apps/client'
+++ awk '{ print $1 }'
+++ cut -c1-12
+++ sha256sum
++ datadir=/twcr/worker/../mnt/dataset/data/9d21011ce02a
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/Sahil-Connect/sahil/ZGV2ZWxvcAo/Li9hcHBzL2NsaWVudAo
++ jq -nc --arg key analysis_key --arg value github.com/Sahil-Connect/sahil/ZGV2ZWxvcAo/Li9hcHBzL2NsaWVudAo '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 7ca25f2081838eee
++ jq -nc --arg key analysis_nonce --arg value 7ca25f2081838eee '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/Sahil-Connect/sahil
++ jq -nc --arg key input_repo_name --arg value github.com/Sahil-Connect/sahil '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref develop
++ jq -nc --arg key input_repo_ref --arg value develop '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./apps/client
++ jq -nc --arg key input_repo_path --arg value ./apps/client '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T13:01:37Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T13:01:37Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-ab3062872e33
+/tmp/twcr-ab3062872e33 /twcr
++ pushd /tmp/twcr-ab3062872e33
++ '[' -d .git ']'
++ git clone --depth=1 -b develop https://github.com/Sahil-Connect/sahil.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T13:01:39Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T13:01:39Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 078d64564fb74f5ec62cf2ea825f6a83d2497672
++ jq -nc --arg key exec_repo_commit_sha --arg value 078d64564fb74f5ec62cf2ea825f6a83d2497672 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-02-27 13:34:49 +0200' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-02-27T11:34:49Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-02-27T11:34:49Z '{ key: $key, value: $value }'
+/tmp/twcr-ab3062872e33/apps/client /tmp/twcr-ab3062872e33 /twcr
++ '[' -z ./apps/client ']'
++ pushd ./apps/client
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ '[' -f tailwind.config.mjs ']'
++ '[' -f tailwind.config.ts ']'
++ tailwind_config_file_name=tailwind.config.ts
++ writetaskstat exec_tailwind_config_file tailwind.config.ts
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.ts '{ key: $key, value: $value }'
++ cp tailwind.config.ts /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ab3062872e33/apps/client
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./apps/client '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-ab3062872e33
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T13:01:39Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T13:01:39Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.ts
+[squash-package] ERROR: failed to find any match for import path (daisyui)
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ echo '[worker] WARN: squash failed; retrying with full install'
+[worker] WARN: squash failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T13:01:39Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T13:01:39Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
++ git reset --hard
+HEAD is now at 078d645 Merge pull request #143 from Sahil-Connect/SAH-40
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-ab3062872e33 /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-ab3062872e33
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_51381cda89ae:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_51381cda89ae:ok@172.18.0.2:3128
+yarn config v1.19.0
+success Set "httpProxy" to "http://tid_51381cda89ae:ok@172.18.0.2:3128".
+Done in 0.09s.
++ '[' -z http://tid_51381cda89ae:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_51381cda89ae:ok@172.18.0.2:3128
+yarn config v1.19.0
+success Set "httpsProxy" to "http://tid_51381cda89ae:ok@172.18.0.2:3128".
+Done in 0.08s.
++ yarn install
+yarn install v1.19.0
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning Pattern ["@apollo/client@latest"] is trying to unpack in the same destination "/home/node/.cache/yarn/v5/npm-@apollo-client-3.9.1-c7e334c4e036e580461c7ebb1e6a7575cec2429d/node_modules/@apollo/client" as pattern ["@apollo/client@^3.8.1","@apollo/client@^3.0.0-beta.23"]. This could result in non-deterministic behavior, skipping.
+(node:176) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+info @parcel/watcher-android-arm64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-android-arm64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-android-arm64@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info @parcel/watcher-darwin-arm64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-darwin-arm64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-darwin-arm64@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info @parcel/watcher-darwin-x64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-darwin-x64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-freebsd-x64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-freebsd-x64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-linux-arm-glibc@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info "@parcel/watcher-linux-arm-glibc@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-linux-arm64-glibc@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info "@parcel/watcher-linux-arm64-glibc@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-linux-arm64-musl@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info "@parcel/watcher-linux-arm64-musl@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-win32-arm64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-win32-arm64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-win32-arm64@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info @parcel/watcher-win32-ia32@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-win32-ia32@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @parcel/watcher-win32-ia32@2.4.0: The CPU architecture "x64" is incompatible with this module.
+info @parcel/watcher-win32-x64@2.4.0: The platform "linux" is incompatible with this module.
+info "@parcel/watcher-win32-x64@2.4.0" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-darwin-64@1.12.2: The platform "linux" is incompatible with this module.
+info "turbo-darwin-64@1.12.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-darwin-arm64@1.12.2: The platform "linux" is incompatible with this module.
+info "turbo-darwin-arm64@1.12.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-darwin-arm64@1.12.2: The CPU architecture "x64" is incompatible with this module.
+info turbo-linux-arm64@1.12.2: The CPU architecture "x64" is incompatible with this module.
+info "turbo-linux-arm64@1.12.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-windows-64@1.12.2: The platform "linux" is incompatible with this module.
+info "turbo-windows-64@1.12.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-windows-arm64@1.12.2: The platform "linux" is incompatible with this module.
+info "turbo-windows-arm64@1.12.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info turbo-windows-arm64@1.12.2: The CPU architecture "x64" is incompatible with this module.
+error maps_api@1.0.0: The engine "node" is incompatible with this module. Expected version "v20.10.0". Got "21.6.2"
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error Found incompatible module.
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

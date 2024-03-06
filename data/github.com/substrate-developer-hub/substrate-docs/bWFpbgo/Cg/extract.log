@@ -1,0 +1,383 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/substrate-developer-hub/substrate-docs
++ reporef=main
++ repopath=./
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/substrate-developer-hub/substrate-docs
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-59976f1dd00f
+++ echo 'github.com/substrate-developer-hub/substrate-docs;main;./'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/e61f86f0c0a3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/substrate-developer-hub/substrate-docs/bWFpbgo/Li8K
++ jq -nc --arg key analysis_key --arg value github.com/substrate-developer-hub/substrate-docs/bWFpbgo/Li8K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce abfbf41c56b6d0af
++ jq -nc --arg key analysis_nonce --arg value abfbf41c56b6d0af '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/substrate-developer-hub/substrate-docs
++ jq -nc --arg key input_repo_name --arg value github.com/substrate-developer-hub/substrate-docs '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./
++ jq -nc --arg key input_repo_path --arg value ./ '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-04T06:56:51Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-04T06:56:51Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-59976f1dd00f
+/tmp/twcr-59976f1dd00f /twcr
++ pushd /tmp/twcr-59976f1dd00f
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/substrate-developer-hub/substrate-docs.git .
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-04T06:56:54Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-04T06:56:54Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 426da5515c55bb12469ccad3468b834fc070577f
++ jq -nc --arg key exec_repo_commit_sha --arg value 426da5515c55bb12469ccad3468b834fc070577f '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2024-03-01 11:57:00 +0000' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2024-03-01T11:57:00Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2024-03-01T11:57:00Z '{ key: $key, value: $value }'
+/tmp/twcr-59976f1dd00f /tmp/twcr-59976f1dd00f /twcr
++ '[' -z ./ ']'
++ pushd ./
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ tailwind_config_file_name=tailwind.config.js
++ writetaskstat exec_tailwind_config_file tailwind.config.js
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.js '{ key: $key, value: $value }'
++ cp tailwind.config.js /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-59976f1dd00f
++ package_manager_name=yarn
++ '[' -z yarn ']'
++ '[' -z yarn ']'
++ writetaskstat exec_node_package_manager yarn
++ jq -nc --arg key exec_node_package_manager --arg value yarn '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-04T06:56:55Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-04T06:56:55Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.js
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "substrate-docs",
+>>>   "private": true,
+>>>   "description": "Substrate Docs",
+>>>   "version": "0.1.0",
+>>>   "author": "W3F/Parity WebOps <webops@web3.foundation>",
+>>>   "keywords": [
+>>>     "gatsby"
+>>>   ],
+>>>   "license": "0BSD",
+>>>   "dependencies": {},
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^2.2.7"
+>>>   },
+>>>   "bugs": {
+>>>     "url": "https://github.com/gatsbyjs/gatsby/issues"
+>>>   },
+>>>   "packageManager": "yarn@3.2.1"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./ '!=' ./ ']'
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-59976f1dd00f /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-59976f1dd00f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:166) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > tailwindcss@2.2.19" has unmet peer dependency "autoprefixer@^10.0.2".
+warning " > tailwindcss@2.2.19" has unmet peer dependency "postcss@^8.0.9".
+warning "tailwindcss > postcss-nested@5.0.6" has unmet peer dependency "postcss@^8.2.14".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 7.47s.
++ yarn list --depth=0 --json --non-interactive --no-progress
++ jq -cr '
+        [.. | .name?]
+        | map(select(.))
+        | map(capture("^(?<name>@?[^@]+)@(?<version>.+)$"))
+        | sort_by(.name)[]'
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=2.2.19
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.js
+node:internal/modules/cjs/loader:1152
+  throw err;
+  ^
+
+Error: Cannot find module '@tailwindcss/forms'
+Require stack:
+- /tmp/twcr-59976f1dd00f/tailwind-preset.js
+- /tmp/twcr-59976f1dd00f/tailwind.config.js
+- /tmp/twcr-59976f1dd00f/tailwind.config.exporter2.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Module._load (node:internal/modules/cjs/loader:990:27)
+    at Module.require (node:internal/modules/cjs/loader:1237:19)
+    at require (node:internal/modules/helpers:176:18)
+    at Object.<anonymous> (/tmp/twcr-59976f1dd00f/tailwind-preset.js:180:13)
+    at Module._compile (node:internal/modules/cjs/loader:1378:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1437:10)
+    at Module.load (node:internal/modules/cjs/loader:1212:32)
+    at Module._load (node:internal/modules/cjs/loader:1028:12)
+    at Module.require (node:internal/modules/cjs/loader:1237:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/twcr-59976f1dd00f/tailwind-preset.js',
+    '/tmp/twcr-59976f1dd00f/tailwind.config.js',
+    '/tmp/twcr-59976f1dd00f/tailwind.config.exporter2.cjs'
+  ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-04T06:57:04Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-04T06:57:04Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter2.cjs
+Removing yarn.lock
++ git reset --hard
+HEAD is now at 426da55 Add deprecated banner to xcm reference and link to rust docs (#2137)
++ set +e
++ /twcr/worker/../worker/pm-install.sh yarn /tmp/twcr-59976f1dd00f /twcr/mnt/results
++ package_manager_name=yarn
++ procdir=/tmp/twcr-59976f1dd00f
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' -z http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128 ']'
++ yarn config set httpProxy http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpProxy" to "http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128".
+Done in 0.05s.
++ '[' -z http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128 ']'
++ yarn config set httpsProxy http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128
+yarn config v1.22.19
+success Set "httpsProxy" to "http://tid_3ccc6ba19d2b:ok@172.18.0.2:3128".
+Done in 0.04s.
++ yarn install
+yarn install v1.22.19
+info No lockfile found.
+[1/4] Resolving packages...
+(node:294) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+warning gatsby > express-graphql@0.12.0: This package is no longer maintained. We recommend using `graphql-http` instead. Please consult the migration document https://github.com/graphql/graphql-http#migrating-express-grpahql.
+warning gatsby > multer@1.4.4: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
+warning gatsby > string-similarity@1.2.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+warning gatsby > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby > gatsby-cli > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby > gatsby-telemetry > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby > babel-preset-gatsby > @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+warning gatsby > gatsby-plugin-typescript > @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+warning gatsby > babel-preset-gatsby > @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+warning gatsby > gatsby-plugin-typescript > @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+warning gatsby > babel-preset-gatsby > @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+warning gatsby > gatsby-plugin-typescript > @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+warning gatsby > gatsby-cli > gatsby-recipes > @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+warning gatsby > gatsby-cli > gatsby-recipes > express-graphql@0.12.0: This package is no longer maintained. We recommend using `graphql-http` instead. Please consult the migration document https://github.com/graphql/graphql-http#migrating-express-grpahql.
+warning gatsby > gatsby-cli > gatsby-recipes > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+warning gatsby > st > async-cache@1.1.0: No longer maintained. Use [lru-cache](http://npm.im/lru-cache) version 7.6 or higher, and provide an asynchronous `fetchMethod` option.
+warning gatsby > webpack-dev-middleware > memfs@3.6.0: this will be v4
+warning gatsby > @pmmmwh/react-refresh-webpack-plugin > native-url > querystring@0.2.1: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi@15.1.1: Switch to 'npm install joi'
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi > @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi > @hapi/topo@3.1.6: This version has been deprecated and is no longer supported or maintained
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi > @hapi/topo > @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+warning gatsby > eslint-plugin-graphql > graphql-config > @graphql-tools/url-loader > subscriptions-transport-ws@0.9.19: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi > @hapi/bourne@1.3.2: This version has been deprecated and is no longer supported or maintained
+warning gatsby > gatsby-cli > gatsby-recipes > @hapi/joi > @hapi/address@2.1.4: Moved to 'npm install @sideway/address'
+warning gatsby > gatsby-cli > gatsby-recipes > remark-parse > trim@0.0.1: Use String.prototype.trim() instead
+warning gatsby > gatsby-cli > gatsby-recipes > remark-mdxjs > @babel/plugin-proposal-object-rest-spread@7.10.4: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+warning gatsby > react-dev-utils > fork-ts-checker-webpack-plugin > micromatch > snapdragon > source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+warning gatsby > react-dev-utils > fork-ts-checker-webpack-plugin > micromatch > snapdragon > source-map-resolve > resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+warning gatsby > react-dev-utils > fork-ts-checker-webpack-plugin > micromatch > snapdragon > source-map-resolve > source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+warning gatsby > react-dev-utils > fork-ts-checker-webpack-plugin > micromatch > snapdragon > source-map-resolve > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning gatsby > css-minimizer-webpack-plugin > cssnano > cssnano-preset-default > postcss-svgo > svgo > stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+warning gatsby-plugin-react-svg > svg-react-loader > css > source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+warning gatsby-plugin-react-svg > svg-react-loader > css > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning gatsby-plugin-sharp > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby-prismjs-dracula > node-sass > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+warning gatsby-prismjs-dracula > node-sass > request > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning gatsby-prismjs-dracula > node-sass > node-gyp > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+warning gatsby-prismjs-dracula > node-sass > request > har-validator@5.1.5: this library is no longer supported
+warning gatsby-prismjs-dracula > node-sass > node-gyp > tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+warning gatsby-transformer-remark > mdast-util-to-hast > trim@0.0.1: Use String.prototype.trim() instead
+warning gatsby-transformer-remark > remark > unified > @types/vfile > @types/vfile-message@2.0.0: This is a stub types definition. vfile-message provides its own type definitions, so you do not need this installed.
+warning react-hubspot-form > styled-jsx > babel-runtime > core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+warning broken-link-checker > calmcard@0.1.1: no longer maintained
+warning broken-link-checker > nopter@0.3.0: try optionator
+warning broken-link-checker > urlobj@0.0.11: use universal-url, minurl, relateurl, url-relation
+warning broken-link-checker > urlcache > urlobj@0.0.11: use universal-url, minurl, relateurl, url-relation
+warning broken-link-checker > bhttp > form-data2 > uuid@2.0.3: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+warning eslint-loader@4.0.2: This loader has been deprecated. Please use eslint-webpack-plugin
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning "gatsby > eslint-config-react-app@6.0.0" has unmet peer dependency "babel-eslint@^10.0.0".
+warning "gatsby > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+warning " > graphql-type-json@0.3.2" has unmet peer dependency "graphql@>=0.8.0".
+warning "gatsby > eslint-plugin-graphql > graphql-config > @endemolshinegroup/cosmiconfig-typescript-loader > ts-node@9.1.1" has unmet peer dependency "typescript@>=2.7".
+warning " > gatsby-plugin-eslint@2.0.8" has incorrect peer dependency "eslint@^6.6.0".
+warning " > gatsby-plugin-eslint@2.0.8" has incorrect peer dependency "eslint-loader@^3.0.2".
+warning " > gatsby-plugin-image@1.15.0" has unmet peer dependency "@babel/core@^7.12.3".
+warning " > gatsby-plugin-robots-txt@1.8.0" has incorrect peer dependency "gatsby@^5.0.0".
+warning "gatsby-plugin-sass > sass-loader@10.5.2" has unmet peer dependency "webpack@^4.36.0 || ^5.0.0".
+warning " > gatsby-remark-embed-snippet@7.25.0" has incorrect peer dependency "gatsby@^4.0.0-next".
+warning " > gatsby-remark-embed-snippet@7.25.0" has incorrect peer dependency "gatsby-remark-prismjs@^4.0.0-next".
+warning " > gatsby-transformer-gitinfo@1.1.0" has incorrect peer dependency "gatsby@^2.0.15".
+warning "react-hubspot-form > styled-jsx@2.2.7" has incorrect peer dependency "react@15.x.x || 16.x.x".
+warning " > rehype-react@7.2.0" has unmet peer dependency "@types/react@>=17".
+warning " > @babel/cli@7.23.9" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning " > eslint-loader@4.0.2" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "gatsby-plugin-postcss > postcss-loader@4.3.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+[4/4] Building fresh packages...
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+error /tmp/twcr-59976f1dd00f/node_modules/node-sass: Command failed.
+Exit code: 1
+Command: node scripts/build.js
+Arguments: 
+Directory: /tmp/twcr-59976f1dd00f/node_modules/node-sass
+Output:
+Building: /usr/local/bin/node /tmp/twcr-59976f1dd00f/node_modules/node-gyp/bin/node-gyp.js rebuild --verbose --libsass_ext= --libsass_cflags= --libsass_ldflags= --libsass_library=
+gyp info it worked if it ends with ok
+gyp verb cli [
+gyp verb cli   '/usr/local/bin/node',
+gyp verb cli   '/tmp/twcr-59976f1dd00f/node_modules/node-gyp/bin/node-gyp.js',
+gyp verb cli   'rebuild',
+gyp verb cli   '--verbose',
+gyp verb cli   '--libsass_ext=',
+gyp verb cli   '--libsass_cflags=',
+gyp verb cli   '--libsass_ldflags=',
+gyp verb cli   '--libsass_library='
+gyp verb cli ]
+gyp info using node-gyp@3.8.0
+gyp info using node@21.6.2 | linux | x64
+gyp verb command rebuild []
+gyp verb command clean []
+gyp verb clean removing "build" directory
+gyp verb command configure []
+gyp verb check python checking for Python executable "python2" in the PATH
+gyp verb `which` failed Error: not found: python2
+gyp verb `which` failed     at getNotFoundError (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:13:12)
+gyp verb `which` failed     at F (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:68:19)
+gyp verb `which` failed     at E (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:80:29)
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/which/which.js:89:16
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/index.js:42:5
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/mode.js:8:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:204:21)
+gyp verb `which` failed  python2 Error: not found: python2
+gyp verb `which` failed     at getNotFoundError (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:13:12)
+gyp verb `which` failed     at F (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:68:19)
+gyp verb `which` failed     at E (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:80:29)
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/which/which.js:89:16
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/index.js:42:5
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/mode.js:8:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:204:21) {
+gyp verb `which` failed   code: 'ENOENT'
+gyp verb `which` failed }
+gyp verb check python checking for Python executable "python" in the PATH
+gyp verb `which` failed Error: not found: python
+gyp verb `which` failed     at getNotFoundError (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:13:12)
+gyp verb `which` failed     at F (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:68:19)
+gyp verb `which` failed     at E (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:80:29)
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/which/which.js:89:16
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/index.js:42:5
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/mode.js:8:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:204:21)
+gyp verb `which` failed  python Error: not found: python
+gyp verb `which` failed     at getNotFoundError (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:13:12)
+gyp verb `which` failed     at F (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:68:19)
+gyp verb `which` failed     at E (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:80:29)
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/which/which.js:89:16
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/index.js:42:5
+gyp verb `which` failed     at /tmp/twcr-59976f1dd00f/node_modules/isexe/mode.js:8:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:204:21) {
+gyp verb `which` failed   code: 'ENOENT'
+gyp verb `which` failed }
+gyp ERR! configure error 
+gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+gyp ERR! stack     at PythonFinder.failNoPython (/tmp/twcr-59976f1dd00f/node_modules/node-gyp/lib/configure.js:484:19)
+gyp ERR! stack     at PythonFinder.<anonymous> (/tmp/twcr-59976f1dd00f/node_modules/node-gyp/lib/configure.js:406:16)
+gyp ERR! stack     at F (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:68:16)
+gyp ERR! stack     at E (/tmp/twcr-59976f1dd00f/node_modules/which/which.js:80:29)
+gyp ERR! stack     at /tmp/twcr-59976f1dd00f/node_modules/which/which.js:89:16
+gyp ERR! stack     at /tmp/twcr-59976f1dd00f/node_modules/isexe/index.js:42:5
+gyp ERR! stack     at /tmp/twcr-59976f1dd00f/node_modules/isexe/mode.js:8:5
+gyp ERR! stack     at FSReqCallback.oncomplete (node:fs:204:21)
+gyp ERR! System Linux 6.4.16-linuxkit
+gyp ERR! command "/usr/local/bin/node" "/tmp/twcr-59976f1dd00f/node_modules/node-gyp/bin/node-gyp.js" "rebuild" "--verbose" "--libsass_ext=" "--libsass_cflags=" "--libsass_ldflags=" "--libsass_library="
+gyp ERR! cwd /tmp/twcr-59976f1dd00f/node_modules/node-sass
+gyp ERR! node -v v21.6.2
+gyp ERR! node-gyp -v v3.8.0
+gyp ERR! not ok 
+Build failed with error code: 1
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ full == \s\q\u\a\s\h ]]
++ exit 1

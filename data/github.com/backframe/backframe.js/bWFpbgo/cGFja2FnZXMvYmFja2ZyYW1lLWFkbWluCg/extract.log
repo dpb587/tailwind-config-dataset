@@ -1,0 +1,387 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/backframe/backframe.js
++ reporef=main
++ repopath=./packages/backframe-admin
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/backframe/backframe.js
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-3f89779991d4
+++ echo 'github.com/backframe/backframe.js;main;./packages/backframe-admin'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/df12712419eb
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/backframe/backframe.js/bWFpbgo/Li9wYWNrYWdlcy9iYWNrZnJhbWUtYWRtaW4K
++ jq -nc --arg key analysis_key --arg value github.com/backframe/backframe.js/bWFpbgo/Li9wYWNrYWdlcy9iYWNrZnJhbWUtYWRtaW4K '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 409496b009f0a2c1
++ jq -nc --arg key analysis_nonce --arg value 409496b009f0a2c1 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/backframe/backframe.js
++ jq -nc --arg key input_repo_name --arg value github.com/backframe/backframe.js '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./packages/backframe-admin
++ jq -nc --arg key input_repo_path --arg value ./packages/backframe-admin '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T09:38:22Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T09:38:22Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-3f89779991d4
++ pushd /tmp/twcr-3f89779991d4
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/backframe/backframe.js.git .
+/tmp/twcr-3f89779991d4 /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T09:38:24Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T09:38:24Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 01d60581073c348ffbbf2dcc98419dc8d7d03f2e
++ jq -nc --arg key exec_repo_commit_sha --arg value 01d60581073c348ffbbf2dcc98419dc8d7d03f2e '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-11-11 02:12:30 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-11-10T23:12:30Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-11-10T23:12:30Z '{ key: $key, value: $value }'
+/tmp/twcr-3f89779991d4/packages/backframe-admin /tmp/twcr-3f89779991d4 /twcr
++ '[' -z ./packages/backframe-admin ']'
++ pushd ./packages/backframe-admin
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3f89779991d4/packages/backframe-admin
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./packages/backframe-admin '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-3f89779991d4
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T09:38:24Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T09:38:24Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "@backframe/admin",
+>>>   "private": true,
+>>>   "description": "The backframe admin ui dashboard plugin",
+>>>   "main": "scripts/index.js",
+>>>   "homepage": "/static",
+>>>   "author": "Victor Ndaba <mwangindaba@gmail.com>",
+>>>   "license": "MIT",
+>>>   "dependencies": {
+>>>     "@tailwindcss/aspect-ratio": "^0.4.2",
+>>>     "@tailwindcss/line-clamp": "^0.4.2",
+>>>     "@tailwindcss/typography": "^0.5.7"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.1.8"
+>>>   },
+>>>   "version": "0.0.1-alpha.15"
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./packages/backframe-admin '!=' ./ ']'
++ rm -f /tmp/twcr-3f89779991d4/package.json /tmp/twcr-3f89779991d4/package-lock.json /tmp/twcr-3f89779991d4/pnpm-lock.yaml /tmp/twcr-3f89779991d4/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-3f89779991d4 /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-3f89779991d4
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-3f89779991d4/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 20 workspace projects
+../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+../..                                    | Progress: resolved 22, reused 0, downloaded 12, added 0
+../..                                    | Progress: resolved 35, reused 0, downloaded 26, added 0
+../..                                    | Progress: resolved 59, reused 0, downloaded 43, added 0
+../backframe-graphql                     |  WARN  deprecated @types/express-graphql@0.9.0
+../backframe-graphql                     |  WARN  deprecated @types/graphql@14.5.0
+../backframe-graphql                     |  WARN  deprecated express-graphql@0.12.0
+../..                                    | Progress: resolved 80, reused 0, downloaded 71, added 0
+../..                                    | Progress: resolved 106, reused 0, downloaded 97, added 0
+../..                                    | Progress: resolved 114, reused 0, downloaded 113, added 0
+../..                                    | Progress: resolved 137, reused 0, downloaded 128, added 0
+../..                                    | Progress: resolved 160, reused 0, downloaded 154, added 0
+../..                                    | Progress: resolved 194, reused 0, downloaded 169, added 0
+../..                                    | Progress: resolved 213, reused 0, downloaded 193, added 0
+../..                                    | Progress: resolved 240, reused 0, downloaded 215, added 0
+../..                                    | Progress: resolved 271, reused 0, downloaded 246, added 0
+../..                                    | Progress: resolved 300, reused 0, downloaded 273, added 0
+../..                                    | Progress: resolved 337, reused 0, downloaded 286, added 0
+../..                                    | Progress: resolved 351, reused 0, downloaded 302, added 0
+../..                                    | Progress: resolved 363, reused 0, downloaded 307, added 0
+../..                                    | Progress: resolved 382, reused 0, downloaded 332, added 0
+../..                                    | Progress: resolved 410, reused 0, downloaded 352, added 0
+../..                                    | Progress: resolved 435, reused 0, downloaded 376, added 0
+../..                                    | Progress: resolved 450, reused 0, downloaded 394, added 0
+../..                                    | Progress: resolved 475, reused 0, downloaded 415, added 0
+../..                                    | Progress: resolved 498, reused 0, downloaded 441, added 0
+../..                                    | Progress: resolved 527, reused 0, downloaded 466, added 0
+../..                                    | Progress: resolved 558, reused 0, downloaded 495, added 0
+../..                                    | Progress: resolved 597, reused 0, downloaded 525, added 0
+../..                                    | Progress: resolved 628, reused 0, downloaded 555, added 0
+../..                                    | Progress: resolved 663, reused 0, downloaded 583, added 0
+../..                                    | Progress: resolved 719, reused 0, downloaded 616, added 0
+../..                                    | Progress: resolved 753, reused 0, downloaded 647, added 0
+../..                                    | Progress: resolved 784, reused 0, downloaded 680, added 0
+../..                                    | Progress: resolved 818, reused 0, downloaded 711, added 0
+../..                                    | Progress: resolved 846, reused 0, downloaded 737, added 0
+../..                                    | Progress: resolved 904, reused 0, downloaded 773, added 0
+../..                                    | Progress: resolved 939, reused 0, downloaded 804, added 0
+../..                                    | Progress: resolved 975, reused 0, downloaded 836, added 0
+../..                                    | Progress: resolved 1006, reused 0, downloaded 865, added 0
+../..                                    | Progress: resolved 1041, reused 0, downloaded 896, added 0
+../..                                    | Progress: resolved 1096, reused 0, downloaded 926, added 0
+../..                                    | Progress: resolved 1131, reused 0, downloaded 965, added 0
+../..                                    | Progress: resolved 1163, reused 0, downloaded 997, added 0
+../..                                    | Progress: resolved 1193, reused 0, downloaded 1016, added 0
+../..                                    | Progress: resolved 1216, reused 0, downloaded 1044, added 0
+../..                                    | Progress: resolved 1241, reused 0, downloaded 1065, added 0
+../..                                    | Progress: resolved 1242, reused 0, downloaded 1065, added 0
+../..                                    | Progress: resolved 1243, reused 0, downloaded 1070, added 0
+../..                                    | Progress: resolved 1267, reused 0, downloaded 1091, added 0
+../..                                    | Progress: resolved 1295, reused 0, downloaded 1118, added 0
+../..                                    | Progress: resolved 1325, reused 0, downloaded 1144, added 0
+../..                                    | Progress: resolved 1360, reused 0, downloaded 1179, added 0
+../..                                    | Progress: resolved 1402, reused 0, downloaded 1213, added 0
+../..                                    | Progress: resolved 1430, reused 0, downloaded 1242, added 0
+../..                                    | Progress: resolved 1453, reused 0, downloaded 1268, added 0
+ WARN  13 deprecated subdependencies found: @hapi/address@2.1.4, @hapi/formula@1.2.0, @hapi/hoek@8.5.1, @hapi/joi@16.1.8, @hapi/pinpoint@1.0.2, @hapi/topo@3.1.6, apollo-datasource@3.3.2, apollo-reporting-protobuf@3.4.0, apollo-server-env@4.2.1, apollo-server-errors@3.3.1, apollo-server-plugin-base@3.7.2, apollo-server-types@3.8.0, querystring@0.2.1
+../..                                    | Progress: resolved 1477, reused 0, downloaded 1296, added 0
+../..                                    |    +1375 ++++++++++++++++++++++++++++
+../..                                    | Progress: resolved 1477, reused 0, downloaded 1315, added 206
+../..                                    | Progress: resolved 1477, reused 0, downloaded 1317, added 1308
+../..                                    | Progress: resolved 1477, reused 0, downloaded 1356, added 1355
+../..                                    | Progress: resolved 1477, reused 0, downloaded 1375, added 1375, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../bcrypt@5.1.1/node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/@apollo/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../node_modules/@apollo/protobufjs postinstall: Done
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info using node@21.6.2 | linux | x64
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+.../bcrypt@5.1.1/node_modules/bcrypt install: (node:132) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../bcrypt@5.1.1/node_modules/bcrypt install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info check checked for "/tmp/twcr-3f89779991d4/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-glibc.tar.gz
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp http download proxy agent configured using: "http://tid_a11250f04f47:ok@172.18.0.2:3128"
+.../es5-ext@0.10.64/node_modules/es5-ext postinstall: Done
+.../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=21.6.2 runtime=node arch=x64 libc= platform=linux)
+.../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+.../node_modules/better-sqlite3 install: gyp info using node-gyp@9.4.1
+.../node_modules/better-sqlite3 install: gyp info using node@21.6.2 | linux | x64
+.../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.11.2 found at "/usr/bin/python3"
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+.../bcrypt@5.1.1/node_modules/bcrypt install: node-pre-gyp info ok 
+.../bcrypt@5.1.1/node_modules/bcrypt install: [bcrypt] Success: "/tmp/twcr-3f89779991d4/node_modules/.pnpm/bcrypt@5.1.1/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+.../bcrypt@5.1.1/node_modules/bcrypt install: Done
+.../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/node-v21.6.2-headers.tar.gz
+.../node_modules/@prisma/engines postinstall: Done
+.../node_modules/better-sqlite3 install: gyp http GET https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/better-sqlite3 install: gyp http 200 https://nodejs.org/download/release/v21.6.2/SHASUMS256.txt
+.../node_modules/better-sqlite3 install: gyp info spawn /usr/bin/python3
+.../node_modules/better-sqlite3 install: gyp info spawn args [
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'binding.gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-f',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'make',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build/config.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp/addon.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '/home/node/.cache/node-gyp/21.6.2/include/node/common.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dlibrary=shared_library',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dvisibility=default',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_root_dir=/home/node/.cache/node-gyp/21.6.2',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_gyp_dir=/usr/local/lib/node_modules/pnpm/dist/node_modules/node-gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_lib_file=/home/node/.cache/node-gyp/21.6.2/<(target_arch)/node.lib',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dmodule_root_dir=/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Dnode_engine=v8',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--depth=.',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--no-parallel',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '--generator-output',
+.../node_modules/better-sqlite3 install: gyp info spawn args   'build',
+.../node_modules/better-sqlite3 install: gyp info spawn args   '-Goutput_dir=.'
+.../node_modules/better-sqlite3 install: gyp info spawn args ]
+.../node_modules/better-sqlite3 install: gyp info spawn make
+.../node_modules/better-sqlite3 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/better-sqlite3 install: make: Entering directory '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install:   TOUCH ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   ACTION deps_sqlite3_gyp_locate_sqlite3_target_copy_builtin_sqlite3 ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   TOUCH Release/obj.target/deps/locate_sqlite3.stamp
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/sqlite3/gen/sqlite3/sqlite3.o
+.../node_modules/better-sqlite3 install: rm -f Release/obj.target/deps/sqlite3.a Release/obj.target/deps/sqlite3.a.ar-file-list; mkdir -p `dirname Release/obj.target/deps/sqlite3.a`
+.../node_modules/better-sqlite3 install: ar crs Release/obj.target/deps/sqlite3.a @Release/obj.target/deps/sqlite3.a.ar-file-list
+.../node_modules/better-sqlite3 install:   COPY Release/sqlite3.a
+.../node_modules/better-sqlite3 install:   CXX(target) Release/obj.target/better_sqlite3/src/better_sqlite3.o
+.../node_modules/better-sqlite3 install: In file included from ./src/better_sqlite3.lzz:11,
+.../node_modules/better-sqlite3 install:                  from ../src/better_sqlite3.cpp:4:
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1222:7: warning: cast between incompatible function types from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>)' to 'node::addon_context_register_func' {aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>, void*)'} [-Wcast-function-type]
+.../node_modules/better-sqlite3 install:  1222 |       (node::addon_context_register_func) (regfunc),                  \
+.../node_modules/better-sqlite3 install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1240:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE_X'
+.../node_modules/better-sqlite3 install:  1240 |   NODE_MODULE_CONTEXT_AWARE_X(modname, regfunc, NULL, 0)
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /home/node/.cache/node-gyp/21.6.2/include/node/node.h:1271:3: note: in expansion of macro 'NODE_MODULE_CONTEXT_AWARE'
+.../node_modules/better-sqlite3 install:  1271 |   NODE_MODULE_CONTEXT_AWARE(NODE_GYP_MODULE_NAME,                     \
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: ./src/better_sqlite3.lzz:67:1: note: in expansion of macro 'NODE_MODULE_INIT'
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz: In static member function 'static void Database::JS_new(const v8::FunctionCallbackInfo<v8::Value>&)':
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz:180:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_stmt*, int, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:92: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:73:197: note: here
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz: In function 'v8::Local<v8::Value> Data::GetValueJS(v8::Isolate*, sqlite3_value*, bool)':
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:81: warning: this statement may fall through [-Wimplicit-fallthrough=]
+.../node_modules/better-sqlite3 install: ./src/util/data.lzz:77:175: note: here
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   COPY Release/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/test_extension/deps/test_extension.o
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/obj.target/test_extension.node
+.../node_modules/better-sqlite3 install:   COPY Release/test_extension.node
+.../node_modules/better-sqlite3 install: rm ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install: make: Leaving directory '/tmp/twcr-3f89779991d4/node_modules/.pnpm/better-sqlite3@8.7.0/node_modules/better-sqlite3/build'
+.../node_modules/better-sqlite3 install: gyp info ok 
+.../node_modules/better-sqlite3 install: Done
+.../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.17.19/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.17.19/node_modules/esbuild postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../prisma@4.16.2/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+.../prisma@4.16.2/node_modules/prisma preinstall: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema at `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/config/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/handlers/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/routing/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/prisma/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/drizzle/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/packages/backframe-cli/dist/index.mjs'
+../../tests/database postinstall$ prisma generate
+../../tests/database postinstall: Prisma schema loaded from prisma/schema.prisma
+../../tests/database postinstall: ✔ Generated Prisma Client (4.16.2 | library) to ./../../node_modules/.pnpm/@prisma+client@4.16.2_prisma@4.16.2/node_modules/@prisma/client in 98ms
+../../tests/database postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+../../tests/database postinstall: ```
+../../tests/database postinstall: import { PrismaClient } from '@prisma/client'
+../../tests/database postinstall: const prisma = new PrismaClient()
+../../tests/database postinstall: ```
+../../tests/database postinstall: Done
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/config/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/config/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/handlers/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/handlers/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/routing/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/routing/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/drizzle/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/drizzle/node_modules/@backframe/cli/dist/index.mjs'
+ WARN  Failed to create bin at /tmp/twcr-3f89779991d4/tests/prisma/node_modules/.bin/bf. ENOENT: no such file or directory, open '/tmp/twcr-3f89779991d4/tests/prisma/node_modules/@backframe/cli/dist/index.mjs'
+
+dependencies:
++ @tailwindcss/aspect-ratio 0.4.2
++ @tailwindcss/line-clamp 0.4.4
++ @tailwindcss/typography 0.5.10
+
+devDependencies:
++ tailwindcss 3.4.1
+
+ WARN  Issues with peer dependencies found
+packages/backframe-graphql
+└─┬ @types/express-graphql 0.9.0
+  └─┬ express-graphql 0.12.0
+    └── ✕ unmet peer graphql@"^14.7.0 || ^15.3.0": found 16.8.1
+
+Done in 2m 30.5s
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
++ pnpm ls --json
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/aspect-ratio"),
+>>> require("@tailwindcss/line-clamp"),
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_end 2024-03-05T09:40:56Z
++ jq -nc --arg key timestamp_attempt_squash_end --arg value 2024-03-05T09:40:56Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T09:40:56Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T09:40:56Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed

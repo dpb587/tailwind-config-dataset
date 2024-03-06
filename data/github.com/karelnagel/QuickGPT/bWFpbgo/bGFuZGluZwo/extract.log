@@ -1,0 +1,357 @@
+==== RUN-DOCKER
++++ dirname -- ./worker/run.sh
+++ cd -- ./worker
+++ pwd
++ twcrdir=/twcr/worker/..
++ repo=github.com/karelnagel/QuickGPT
++ reporef=main
++ repopath=./landing
++ '[' true == true ']'
++ grep -q '^././'
+++ echo github.com/karelnagel/QuickGPT
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ procdir=/tmp/twcr-14f0cdf6ba5b
+++ echo 'github.com/karelnagel/QuickGPT;main;./landing'
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-12
++ datadir=/twcr/worker/../mnt/dataset/data/dfa39f26f1f3
++ '[' '!' -z /twcr/mnt/results ']'
++ datadir=/twcr/mnt/results
++ touch /twcr/mnt/results/extract-failed
+++ base64
+++ tr -d =
+++ tr /+ _-
+++ base64
+++ tr -d =
+++ tr /+ _-
++ writetaskstat analysis_key github.com/karelnagel/QuickGPT/bWFpbgo/Li9sYW5kaW5nCg
++ jq -nc --arg key analysis_key --arg value github.com/karelnagel/QuickGPT/bWFpbgo/Li9sYW5kaW5nCg '{ key: $key, value: $value }'
+++ date -u +%Y%m%d%H%M%S
+++ sha256sum
+++ awk '{ print $1 }'
+++ cut -c1-16
+++ head -c 32 /dev/urandom
++ writetaskstat analysis_nonce 069d067c4766e934
++ jq -nc --arg key analysis_nonce --arg value 069d067c4766e934 '{ key: $key, value: $value }'
++ writetaskstat input_repo_name github.com/karelnagel/QuickGPT
++ jq -nc --arg key input_repo_name --arg value github.com/karelnagel/QuickGPT '{ key: $key, value: $value }'
++ writetaskstat input_repo_ref main
++ jq -nc --arg key input_repo_ref --arg value main '{ key: $key, value: $value }'
++ writetaskstat input_repo_path ./landing
++ jq -nc --arg key input_repo_path --arg value ./landing '{ key: $key, value: $value }'
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_begin 2024-03-05T06:42:00Z
++ jq -nc --arg key timestamp_begin --arg value 2024-03-05T06:42:00Z '{ key: $key, value: $value }'
++ mkdir -p /tmp/twcr-14f0cdf6ba5b
++ pushd /tmp/twcr-14f0cdf6ba5b
++ '[' -d .git ']'
++ git clone --depth=1 -b main https://github.com/karelnagel/QuickGPT.git .
+/tmp/twcr-14f0cdf6ba5b /twcr
+Cloning into '.'...
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_git_clone_complete 2024-03-05T06:42:06Z
++ jq -nc --arg key timestamp_git_clone_complete --arg value 2024-03-05T06:42:06Z '{ key: $key, value: $value }'
+++ git rev-parse HEAD
++ writetaskstat exec_repo_commit_sha 808d016d324a50008e77f1d8f0e487edf3403885
++ jq -nc --arg key exec_repo_commit_sha --arg value 808d016d324a50008e77f1d8f0e487edf3403885 '{ key: $key, value: $value }'
++++ git show --no-patch --format=%ci
+++ date -u --date '2023-03-28 14:26:38 +0300' +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat exec_repo_commit_date 2023-03-28T11:26:38Z
++ jq -nc --arg key exec_repo_commit_date --arg value 2023-03-28T11:26:38Z '{ key: $key, value: $value }'
+/tmp/twcr-14f0cdf6ba5b/landing /tmp/twcr-14f0cdf6ba5b /twcr
++ '[' -z ./landing ']'
++ pushd ./landing
++ tailwind_config_file_name=
++ '[' -f tailwind.config.js ']'
++ '[' -f tailwind.config.cjs ']'
++ tailwind_config_file_name=tailwind.config.cjs
++ writetaskstat exec_tailwind_config_file tailwind.config.cjs
++ jq -nc --arg key exec_tailwind_config_file --arg value tailwind.config.cjs '{ key: $key, value: $value }'
++ cp tailwind.config.cjs /twcr/mnt/results/extract-raw-tailwind-config.js
++ '[' '!' -f package.json ']'
++ cp package.json /twcr/mnt/results/extract-raw-package.json
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-14f0cdf6ba5b/landing
++ package_manager_name=
++ '[' -z '' ']'
++ '[' ./landing '!=' ./ ']'
+++ /twcr/worker/../worker/pm-detect.sh /tmp/twcr-14f0cdf6ba5b
++ package_manager_name=pnpm
++ '[' -z pnpm ']'
++ writetaskstat exec_node_package_manager pnpm
++ jq -nc --arg key exec_node_package_manager --arg value pnpm '{ key: $key, value: $value }'
++ attempt_mode=squash
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_squash_begin 2024-03-05T06:42:06Z
++ jq -nc --arg key timestamp_attempt_squash_begin --arg value 2024-03-05T06:42:06Z '{ key: $key, value: $value }'
++ [[ squash == \s\q\u\a\s\h ]]
++ set +e
++ node /twcr/worker/../worker/squash-package.mjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ cat package.json
++ sed 's/^/>>> /'
+>>> {
+>>>   "name": "landing",
+>>>   "version": "0.1.0",
+>>>   "private": true,
+>>>   "dependencies": {
+>>>     "@tailwindcss/typography": "^0.5.9",
+>>>     "daisyui": "^2.51.3"
+>>>   },
+>>>   "devDependencies": {
+>>>     "tailwindcss": "^3.2.0"
+>>>   },
+>>>   "ct3aMetadata": {
+>>>     "initVersion": "7.6.0"
+>>>   }
+>>> }+ rm -f package-lock.json pnpm-lock.yaml yarn.lock
++ '[' ./landing '!=' ./ ']'
++ rm -f /tmp/twcr-14f0cdf6ba5b/package.json /tmp/twcr-14f0cdf6ba5b/package-lock.json /tmp/twcr-14f0cdf6ba5b/pnpm-lock.yaml /tmp/twcr-14f0cdf6ba5b/yarn.lock
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-14f0cdf6ba5b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-14f0cdf6ba5b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-14f0cdf6ba5b/package.json ']'
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 2 workspace projects
+..                                       | Progress: resolved 1, reused 0, downloaded 0, added 0
+..                                       | Progress: resolved 20, reused 0, downloaded 16, added 0
+..                                       | Progress: resolved 51, reused 0, downloaded 31, added 0
+..                                       | Progress: resolved 80, reused 0, downloaded 58, added 0
+..                                       | Progress: resolved 113, reused 0, downloaded 91, added 0
+..                                       | Progress: resolved 143, reused 0, downloaded 121, added 0
+..                                       | Progress: resolved 188, reused 0, downloaded 143, added 0
+..                                       | Progress: resolved 219, reused 0, downloaded 165, added 0
+..                                       | Progress: resolved 251, reused 0, downloaded 200, added 0
+..                                       | Progress: resolved 280, reused 0, downloaded 226, added 0
+..                                       | Progress: resolved 315, reused 0, downloaded 262, added 0
+..                                       | +285 +++++++++++++++++++++++++++++
+..                                       | Progress: resolved 315, reused 0, downloaded 285, added 285, done
+.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+
+dependencies:
++ @tailwindcss/typography 0.5.10
++ daisyui 2.52.0 (4.7.2 is available)
+
+devDependencies:
++ tailwindcss 3.4.1
+
+Done in 12s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.4.1
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ tailwind_config_exporter=tailwind.config.exporter3.mjs
++ cp /twcr/worker/../worker/tailwind.config.exporter3.mjs ./
++ set +e
++ node ./tailwind.config.exporter3.mjs tailwind.config.cjs
+node:internal/modules/cjs/loader:1149
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'quickgpt-app'
+Require stack:
+- /tmp/twcr-14f0cdf6ba5b/landing/tailwind.config.cjs
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1149:15)
+    at Function.resolve (node:internal/modules/helpers:187:19)
+    at Function._resolve [as resolve] (/tmp/twcr-14f0cdf6ba5b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:251148)
+    at /tmp/twcr-14f0cdf6ba5b/landing/tailwind.config.cjs:7:36
+    at evalModule (/tmp/twcr-14f0cdf6ba5b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:256443)
+    at jiti (/tmp/twcr-14f0cdf6ba5b/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/dist/jiti.js:1:254371)
+    at /tmp/twcr-14f0cdf6ba5b/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:48:30
+    at Object.loadConfig (/tmp/twcr-14f0cdf6ba5b/node_modules/.pnpm/tailwindcss@3.4.1/node_modules/tailwindcss/lib/lib/load-config.js:50:6)
+    at file:///tmp/twcr-14f0cdf6ba5b/landing/tailwind.config.exporter3.mjs:5:28
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/tmp/twcr-14f0cdf6ba5b/landing/tailwind.config.cjs' ]
+}
+
+Node.js v21.6.2
++ exitcode=1
++ set -e
++ [[ 1 != \0 ]]
++ [[ squash == \s\q\u\a\s\h ]]
++ echo '[worker] WARN: exporter failed; retrying with full install'
+[worker] WARN: exporter failed; retrying with full install
++ attempt_mode=full
++ continue
++ true
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_begin 2024-03-05T06:42:20Z
++ jq -nc --arg key timestamp_attempt_full_begin --arg value 2024-03-05T06:42:20Z '{ key: $key, value: $value }'
++ [[ full == \s\q\u\a\s\h ]]
++ git clean -fdx
+Removing node_modules/
+Removing tailwind.config.exporter3.mjs
++ git reset --hard
+HEAD is now at 808d016 only update when new version
++ set +e
++ /twcr/worker/../worker/pm-install.sh pnpm /tmp/twcr-14f0cdf6ba5b /twcr/mnt/results
++ package_manager_name=pnpm
++ procdir=/tmp/twcr-14f0cdf6ba5b
++ datadir=/twcr/mnt/results
++ case "${package_manager_name}" in
++ '[' '!' -f /tmp/twcr-14f0cdf6ba5b/package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' /tmp/twcr-14f0cdf6ba5b/package.json
++ '[' '!' -f package.json ']'
+++ pnpm -v
++ sed -Ei 's/("pnpm": ")(.+)(")/\18.15.4\3/' package.json
++ pnpm install
+Scope: all 3 workspace projects
+..                                       | Progress: resolved 0, reused 1, downloaded 0, added 0
+..                                       | Progress: resolved 25, reused 5, downloaded 20, added 0
+..                                       | Progress: resolved 41, reused 5, downloaded 36, added 0
+..                                       | Progress: resolved 91, reused 53, downloaded 38, added 0
+..                                       | Progress: resolved 136, reused 53, downloaded 67, added 0
+..                                       | Progress: resolved 191, reused 70, downloaded 105, added 0
+..                                       | Progress: resolved 254, reused 91, downloaded 147, added 0
+..                                       | Progress: resolved 283, reused 91, downloaded 176, added 0
+..                                       | Progress: resolved 358, reused 103, downloaded 230, added 0
+..                                       | Progress: resolved 403, reused 117, downloaded 253, added 0
+..                                       | Progress: resolved 452, reused 118, downloaded 301, added 0
+..                                       | Progress: resolved 520, reused 122, downloaded 350, added 0
+..                                       | Progress: resolved 588, reused 134, downloaded 408, added 0
+..                                       | Progress: resolved 629, reused 135, downloaded 449, added 0
+..                                       | +451 -152 ++++++++++++++++++++-------
+..                                       | Progress: resolved 629, reused 135, downloaded 449, added 451, done
+.../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/engines postinstall: (node:212) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+.../node_modules/@prisma/engines postinstall: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/@prisma/engines postinstall: Done
+.../.pnpm/turbo@1.8.3/node_modules/turbo postinstall$ node install.js
+.../esbuild@0.16.17/node_modules/esbuild postinstall$ node install.js
+.../prisma@4.11.0/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+.../.pnpm/turbo@1.8.3/node_modules/turbo postinstall: Done
+.../esbuild@0.16.17/node_modules/esbuild postinstall: Done
+.../prisma@4.11.0/node_modules/prisma preinstall: Done
+.../prisma@4.11.0/node_modules/prisma install$ node scripts/install-entry.js
+.../prisma@4.11.0/node_modules/prisma install: Done
+.../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+.../node_modules/@prisma/client postinstall: prisma:warn The postinstall script automatically ran `prisma generate` and did not find your `prisma/schema.prisma`.
+.../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+.../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+.../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+.../node_modules/@prisma/client postinstall: Done
+. postinstall$ prisma generate
+. postinstall: Prisma schema loaded from prisma/schema.prisma
+. postinstall: ✔ Generated Prisma Client (4.11.0 | library) to ./../node_modules/.pnpm/@prisma+client@4.11.0_prisma@4.11.0/node_modules/@prisma/client in 55ms
+. postinstall: You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+. postinstall: ```
+. postinstall: import { PrismaClient } from '@prisma/client'
+. postinstall: const prisma = new PrismaClient()
+. postinstall: ```
+. postinstall: Done
+
+dependencies:
++ @mdx-js/loader 2.3.0
++ @next/mdx 13.2.3
++ @prisma/client 4.11.0
+- @tailwindcss/typography
++ @tailwindcss/typography 0.5.9
++ @tanstack/react-query 4.26.1
++ @trpc/client 10.14.1
++ @trpc/next 10.14.1
++ @trpc/react-query 10.14.1
++ @trpc/server 10.14.1
++ @vercel/edge-config 0.1.1
+- daisyui
++ daisyui 2.51.3
++ immer 9.0.19
++ next 13.2.3
++ quickgpt-app 0.0.30 <- ../app
++ react 18.2.0
++ react-dom 18.2.0
++ react-icons 4.8.0
++ remark-gfm 3.0.1
++ superjson 1.9.1
++ webpack 5.75.0
++ zod 3.21.4
+
+devDependencies:
++ @types/eslint 8.21.1
++ @types/node 18.14.6
++ @types/prettier 2.7.2
++ @types/react 18.0.28
++ @types/react-dom 18.0.11
++ @typescript-eslint/eslint-plugin 5.54.1
++ @typescript-eslint/parser 5.54.1
++ autoprefixer 10.4.13
++ eslint 8.35.0
++ eslint-config-next 13.2.3
++ postcss 8.4.21
++ prettier 2.8.4
++ prettier-plugin-tailwindcss 0.2.4
++ prisma 4.11.0
+- tailwindcss
++ tailwindcss 3.2.7
++ typescript 4.9.5
+
+Done in 20.5s
++ pnpm ls --json
++ jq -cr '
+        .[]
+        | [.dependencies, .devDependencies, .optionalDependencies]
+        | map(select(.))[]
+        | to_entries
+        | map({ name: .key, version: .value.version })
+        | sort_by(.name)[]
+      '
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
+++ jq -sr 'map(select(.name == "tailwindcss")) | first | .version'
++ tailwind_package_version=3.2.7
++ tailwind_config_exporter=tailwind.config.exporter2.cjs
++ '[' -f node_modules/tailwindcss/lib/lib/load-config.js ']'
++ cp /twcr/worker/../worker/tailwind.config.exporter2.cjs ./
++ set +e
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
++ exitcode=0
++ set -e
++ [[ 0 != \0 ]]
++ echo 'module.exports={plugins:['
++ jq -rs '
+        map(select(.name | startswith("@tailwindcss/")))
+        | map("require(" + ( .name | tojson ) + "),")[]
+      '
++ grep -Ev '"@tailwindcss/postcss7-compat"'
++ echo ']}'
++ cat tailwind.config.cjs
++ sed 's/^/>>> /'
+>>> module.exports={plugins:[
+>>> require("@tailwindcss/typography"),
+>>> ]}
++ node ./tailwind.config.exporter2.cjs tailwind.config.cjs
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_attempt_full_end 2024-03-05T06:42:43Z
++ jq -nc --arg key timestamp_attempt_full_end --arg value 2024-03-05T06:42:43Z '{ key: $key, value: $value }'
++ break
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ writetaskstat timestamp_end 2024-03-05T06:42:43Z
++ jq -nc --arg key timestamp_end --arg value 2024-03-05T06:42:43Z '{ key: $key, value: $value }'
++ rm /twcr/mnt/results/extract-failed
++ touch /twcr/mnt/results/extract-completed
